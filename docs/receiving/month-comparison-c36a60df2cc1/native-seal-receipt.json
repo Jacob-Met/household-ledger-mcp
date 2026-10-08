@@ -1,0 +1,36 @@
+{
+  "schema": "household.comparison_native_seal_receipt.v1",
+  "recorded_at": "2026-10-08T19:56:29.149506+00:00",
+  "native_source_commit": "571ac097c34c1c041ac298ad7d20e60379980db4",
+  "native_evidence_commit": "6dcd31322ac1a78d8c53ac0a63d8efc4d4c77352",
+  "archive": {
+    "path": "/tmp/c36a60df2cc1-household-compare/sealed/household-month-comparison-c36a60df2cc1.zip",
+    "bytes": 2358081,
+    "sha256": "3284cada1b71cbe4d7bd6217f86451a69796200e2f66cc378a1817fc616a3dd7",
+    "members": 287,
+    "all_member_bytes_verified_after_compression": true
+  },
+  "manifest": {
+    "path": "/tmp/c36a60df2cc1-household-compare/sealed/ARCHIVE-MANIFEST.json",
+    "bytes": 105901,
+    "sha256": "2c2e645853d0144ac5fea68973e7ec6ed0cf2c69a2f60640bb0b4f38d5043f2d"
+  },
+  "reproduction_bundle": {
+    "bytes": 1059053,
+    "sha256": "dd1d9ccff77967004d1d822e3f3aa795b8e307b1b9ba8079007fa619de74489e",
+    "verify_exit": 0
+  },
+  "source_patch": {
+    "path": "source-only.patch",
+    "bytes": 65141,
+    "sha256": "48dfdc1fc2d0ffa921d089f29a596cbf2a273a11fef42c73b036f7551fe6b39f"
+  },
+  "publication_packet": {
+    "path": "/tmp/c36a60df2cc1-household-compare/sealed/household-month-comparison-publication.json",
+    "bytes": 71349,
+    "sha256": "e534b96ac6cfadeff8cdc9fc9adaa88b793d585b2210decfed4bfe056362da92"
+  },
+  "disposition": "ACCEPT_FOR_OWNER_RECEIVING_NOT_INSTALLED",
+  "owner_route": "https://github.com/Jacob-Met/household-ledger-mcp/issues/3#issuecomment-6067214316",
+  "installed": false
+}

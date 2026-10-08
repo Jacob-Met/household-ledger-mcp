@@ -1,0 +1,52 @@
+{
+  "schema": "household.comparison_canonical_content_calculation.v1",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "receiving_parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "parent_tree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+  "native_source_commit": "571ac097c34c1c041ac298ad7d20e60379980db4",
+  "calculated_after_tree": "2cd593819c919a01e7dd01a4e998eb101abfc0b5",
+  "parent_leaves_preserved": 116,
+  "after_leaves": 122,
+  "additions": [
+    {
+      "path": "docs/MONTH_COMPARISON.md",
+      "mode": "100644",
+      "bytes": 7676,
+      "git_blob": "b6fe679865a65cad819acb3562653a32038c66d4"
+    },
+    {
+      "path": "src/household-compare.ts",
+      "mode": "100644",
+      "bytes": 6245,
+      "git_blob": "ec62e1fc186a194300fafe238e8d81363c5f4d9f"
+    },
+    {
+      "path": "src/month-comparison.ts",
+      "mode": "100644",
+      "bytes": 17761,
+      "git_blob": "5145b207f08b5dfc5548679f3244eed22fc15cc7"
+    },
+    {
+      "path": "test/month-comparison-cli.test.ts",
+      "mode": "100644",
+      "bytes": 9687,
+      "git_blob": "b86fd77943844bdb68696816d9a2bf7945c54273"
+    },
+    {
+      "path": "test/month-comparison.test.ts",
+      "mode": "100644",
+      "bytes": 11077,
+      "git_blob": "2f667ea6360f6b28e4bbd242e43047340a1533af"
+    },
+    {
+      "path": "tools/check-month-comparison.mjs",
+      "mode": "100644",
+      "bytes": 10309,
+      "git_blob": "c5b18fb8bd952b070d825baa1b2fd57b9c053248"
+    }
+  ],
+  "source_branch_created": false,
+  "owner_branch_changed": false,
+  "main_changed": false,
+  "meaning": "A complete content calculation and remote blob readback for the six-path delta on the frozen PR8 parent. No owner source disposition or canonical adoption is inferred."
+}

@@ -1,0 +1,2312 @@
+{
+  "schema": "household.comparison_native_archive_manifest.v1",
+  "recorded_at": "2026-10-08T19:56:28.757948+00:00",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "native_source_commit": "571ac097c34c1c041ac298ad7d20e60379980db4",
+  "native_evidence_commit": "6dcd31322ac1a78d8c53ac0a63d8efc4d4c77352",
+  "private_projection_base": "a265a59e1ad3e8de5aec5bd05613212345e6e5fa",
+  "required_owner_parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "owner_receiving_guide": "project/docs/receiving/month-comparison-c36a60df2cc1/owner-guide/RECEIVING.md",
+  "source_publication": "project/docs/receiving/month-comparison-c36a60df2cc1/source-publication.json",
+  "source_patch": "project/docs/receiving/month-comparison-c36a60df2cc1/source-only.patch",
+  "compiled_entry": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/src/household-compare.js",
+  "bundle_verified_exit": 0,
+  "bundle_verification_stdout": "The bundle contains this ref:\n6dcd31322ac1a78d8c53ac0a63d8efc4d4c77352 refs/heads/month-comparison\nThe bundle records a complete history.\nThe bundle uses this hash algorithm: sha1\n",
+  "bundle_verification_stderr": "/tmp/c36a60df2cc1-household-compare/sealed/reproduction.bundle is okay\n",
+  "members_excluding_this_manifest": 286,
+  "member_bytes": 3845570,
+  "members": [
+    {
+      "path": "project/.gitignore",
+      "bytes": 20,
+      "sha256": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+      "git_blob": "b9470778764f72c5257a3361590d2994547f90e1",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/LICENSE",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb",
+      "git_blob": "edb188254288b40f2895833e3647b7e0be34c962",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/MONTH_COMPARISON.md",
+      "bytes": 7676,
+      "sha256": "a1f52c8864184f959b3c764a6d705fe8dbc26ea72efec5e1185b766d0d51afe0",
+      "git_blob": "b6fe679865a65cad819acb3562653a32038c66d4",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/RECEIVING.md",
+      "bytes": 9966,
+      "sha256": "37c65157417351a31909bfa05ce7b679dd25d68fbc72ced15d27e963cd147207",
+      "git_blob": "a399c248d28c415c9ca9ee8501c44b7a0ef7afdb",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/build.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/build.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/receipt.json",
+      "bytes": 2220,
+      "sha256": "b64e86a14c91cabb886d6a8cb95a556d55907869c66e7e471a637ca37263b89b",
+      "git_blob": "200bffe806ef9d18c333ffd077e42cfede8aece8",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/source/dist/src/household-compare.js",
+      "bytes": 5732,
+      "sha256": "742cf6179b7abd0a34985b2b095b00d77273b58f32d06c59e1d169bf72819f9f",
+      "git_blob": "9272d5b6a44e931ed745466ebbf74d15e8487ded",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/source/dist/src/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/source/dist/src/month-comparison.js",
+      "bytes": 16886,
+      "sha256": "559d998d069d2f234435c4c9db8410193267f38cfcb4ca8867b1d537cd99c5f2",
+      "git_blob": "9919ca32e855299b30f71e173efc7b08d57fbd06",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/source/docs/MONTH_COMPARISON.md",
+      "bytes": 7299,
+      "sha256": "b69f0c8dbe379fad92bf6d3667e65d5164a16a39c44d8b080bc589813619b0c1",
+      "git_blob": "736f640875f7c9117f86184509d2568199111e4a",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/source/src/household-compare.ts",
+      "bytes": 5602,
+      "sha256": "c1fa84ec094c375da45cec88483f6369e0ed47dcb9cc5740962e964ac6dfdbd5",
+      "git_blob": "e7dfc059812ac55c151fc1103d8ae60335401ba4",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/source/src/ledger.ts",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "git_blob": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/source/src/month-comparison.ts",
+      "bytes": 17761,
+      "sha256": "4b6a3afae5fc571145302da6de0aedb5f68c9ee7cf9bab1ef23f8692aa9c211b",
+      "git_blob": "5145b207f08b5dfc5548679f3244eed22fc15cc7",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/source/test/month-comparison-cli.test.ts",
+      "bytes": 7629,
+      "sha256": "5e395d3b0cd5e7ef93e4f574af43e9f73d0dd6519a6288e85d557defdb76e12f",
+      "git_blob": "699437a3870d2a5bff3a37f53e1160918a17bcac",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/source/test/month-comparison.test.ts",
+      "bytes": 11077,
+      "sha256": "d9faa2a0f0610ba8dbe6c9509cb103954b99edcd8a5cc9bae149b4d030c024e2",
+      "git_blob": "2f667ea6360f6b28e4bbd242e43047340a1533af",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/source/tools/check-month-comparison.mjs",
+      "bytes": 10309,
+      "sha256": "aa6c9a3c0d1d6632a7ed3088ac91d2f171a04be093c07d9e906aecd9afe9b0c9",
+      "git_blob": "c5b18fb8bd952b070d825baa1b2fd57b9c053248",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/tests.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r1/tests.stdout.log",
+      "bytes": 4764,
+      "sha256": "4cf4dc974e1d2de9d108b266749a1f04e345d4ca6a033080d7225dc25cb0e8dd",
+      "git_blob": "5ef7b352c966cfdc0e1b20daf1a8cccea9c44821",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/cli.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/cli.stdout.log",
+      "bytes": 1959,
+      "sha256": "e4f54dd067045a6e846186244362be9c0c3a660fa66d8bf2a551eab229364d85",
+      "git_blob": "4734c1e84baa6dddbfbb606951e52a8dd823f066",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/compile.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/compile.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/consumer/cli.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/consumer/cli.stdout.log",
+      "bytes": 195,
+      "sha256": "283d751652e00edc7138d904011c7998d37ea40f6138b6cc2b23e03687aa9f26",
+      "git_blob": "dba7e4286494b88149a15e5bdbea38eb9304fe48",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/consumer/comparison.html",
+      "bytes": 16083,
+      "sha256": "bd0e4e7b0df74e1e4695b37ea53712abd2c25f120e737f0c366f5092a8144370",
+      "git_blob": "2906f3f6de1200cb211baf4386ca07bc7c59a57b",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/consumer/fictional-ledger.json",
+      "bytes": 4564,
+      "sha256": "5a9ca4bbbea401d5e6271bb593168d81f263a19bce135478bd8b706abb9bb14a",
+      "git_blob": "1d72198ab1d8ad8663402658ba5ba2c8c8fb3c9c",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/consumer/receipt.json",
+      "bytes": 11401,
+      "sha256": "1c9f01b1da3ac354f6fd3d8eed4c2554279b003c517ff71da2c11d02fe46ff78",
+      "git_blob": "858430260c7aec294827300e1b7eb3d580e7f0b6",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/fault-observation.json",
+      "bytes": 136,
+      "sha256": "5b72926e88f8fbcde59f4488ef7ff48856f26bc0d8cdc02e377bbb6b90d1e1dd",
+      "git_blob": "a54dec63cf58f9077599f088b8fd12d6dd2adc6b",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/frozen-consumer.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/frozen-consumer.stdout.log",
+      "bytes": 172,
+      "sha256": "6d05daf2125e62dec9dca5f3e6d82c23c3163b29adad7969eede9b9231fb9f78",
+      "git_blob": "133927aec780ad81bed6fd9b12ffee53cbddb0d2",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/author-r2/receipt.json",
+      "bytes": 2731,
+      "sha256": "1b9c661dba6661140fd0c33f12e0e546787d2d8bcbc7b6c9b2d736d207ca0b56",
+      "git_blob": "6c6ca2a58ed537b1ca37613462a45039bf02b1fe",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/candidate/cli.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/candidate/cli.stdout.log",
+      "bytes": 186,
+      "sha256": "7fdae478acefd68a72e919f8aa89cde5f37eba4c6428d3a62fad5b61a1d8f7f0",
+      "git_blob": "1d0be3153e0f425d6ccbc2a7bc0c2eb8483bde91",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/candidate/comparison.html",
+      "bytes": 16083,
+      "sha256": "2aa88c5951f2a1fab15eea9d995bed31c002c646d0f1588de91f56553729cf6b",
+      "git_blob": "19e4f4b0e6e933865d0b4da0c2f2639140a45111",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/candidate/fictional-ledger.json",
+      "bytes": 4564,
+      "sha256": "5a9ca4bbbea401d5e6271bb593168d81f263a19bce135478bd8b706abb9bb14a",
+      "git_blob": "1d72198ab1d8ad8663402658ba5ba2c8c8fb3c9c",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/candidate/receipt.json",
+      "bytes": 11374,
+      "sha256": "313c778c02e0d87a3cb556ecd388113c1ba372a89377ecd6640ad87687d16de6",
+      "git_blob": "343115476ac328c86ae72f543135ec70005b2eda",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/src/household-compare.d.ts",
+      "bytes": 716,
+      "sha256": "bf3f810afdd9799d602a3857213d4d91087eea6b1485547f9be7bf422d5c04eb",
+      "git_blob": "f99513fda19382d3f3a50c12077476580f6cb8a6",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/src/household-compare.js",
+      "bytes": 6446,
+      "sha256": "40828c23fdc295d21ff4ec16500e93cade1d527268aa316b5a17e1d33dfdcb9c",
+      "git_blob": "a3d5f676f318ca46c8eae8d44efa88b338603208",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/src/household-compare.js.map",
+      "bytes": 5900,
+      "sha256": "f916e922c7d365b99cc0984e1a46d338b156e3faabf3e198b4d6df9fc643c51f",
+      "git_blob": "d312541f84da32a518fa42c65c1e704890524c68",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/src/ledger.d.ts",
+      "bytes": 3387,
+      "sha256": "87466b9d379ba942fbc0c8c1ff06daa721b56108c17a1651507010b1bfadb5b4",
+      "git_blob": "d2d9ad34a89a49fbdbc9e11f854010bd93652b90",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/src/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/src/ledger.js.map",
+      "bytes": 15602,
+      "sha256": "4654f884df5e3a8473d54abc3986ddbcc72c35c5f396d2bfb780406614f366da",
+      "git_blob": "70b908268b7f4ae8fadf53c42f03400c7f389f5e",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/src/month-comparison.d.ts",
+      "bytes": 1971,
+      "sha256": "40a5b4eff04d0ad747651113e81ee94b2ecf21955bd76b77c5061a0278fdcda7",
+      "git_blob": "3caf8747dc69cac595f44a9374c5d339b6e512f8",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/src/month-comparison.js",
+      "bytes": 16886,
+      "sha256": "559d998d069d2f234435c4c9db8410193267f38cfcb4ca8867b1d537cd99c5f2",
+      "git_blob": "9919ca32e855299b30f71e173efc7b08d57fbd06",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/src/month-comparison.js.map",
+      "bytes": 11513,
+      "sha256": "4ce8f920cac0a0145930d804d8783eee274aa904ccf8c1cfb105f2f223ed1f32",
+      "git_blob": "92520f17c9f5f384169e99be0d77aa043c4803e7",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/test/month-comparison-cli.test.js",
+      "bytes": 9912,
+      "sha256": "c52fdf9fef79beb042ad31320d51d0a397bf066681aa50c8f6620a8d63e6770d",
+      "git_blob": "d59cb2d4c76de8dca8c59d7bb9a44d7ccf2cac1d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/test/month-comparison-cli.test.js.map",
+      "bytes": 11342,
+      "sha256": "7a3853adcc5268747f574faccada47b08756f2109c2054ef0498d899a7be6196",
+      "git_blob": "a2a8d124b66188ad9120d7e1c28a3e1bacd85613",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/test/month-comparison.test.js",
+      "bytes": 11312,
+      "sha256": "8e1be5fcba750bf0c48c568832344bb888186289deef75a43ba29389dae23590",
+      "git_blob": "ec170557b75c4238010e9d72e4b167c1d3a320ee",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/dist/test/month-comparison.test.js.map",
+      "bytes": 12558,
+      "sha256": "b222c584baa2354294e819910dc1a88c7d85221b10ad9306ede5ee1bd87a19c3",
+      "git_blob": "d75e8b1d06f2910991601cc932a6456d473e3882",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/manifest.json",
+      "bytes": 3286,
+      "sha256": "2cae7706d5e32ec21d8c9b34473c5bcd3760ca262e05e577a61f5942525f6f10",
+      "git_blob": "fabdcc4e99017a389856a5f19a3d61fbdf631ad6",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/compiled-r2/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/final-receiving.json",
+      "bytes": 7850,
+      "sha256": "1542c9053e8d1ef25ad8a130d750cef1fd162d2c88ee645b168f058075f33960",
+      "git_blob": "ac9e969f76a0add7a2de68abf11e44b2a859bc1f",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/finalize-receiving.py",
+      "bytes": 12980,
+      "sha256": "053fd6f59ced5753d6fa5ed2ac703050ee94676fb948e34e9674fb04f0216e61",
+      "git_blob": "536bf344385e48e7a02773ba000bcd186c555d21",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer-receiving.json",
+      "bytes": 29594,
+      "sha256": "cb6c94888a059c52d39799524ebfc594fd6eb4894df474a3550fb93c44280267",
+      "git_blob": "e7077c9efda65a981e1cf746f4014734b3a2fedd",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/README.md",
+      "bytes": 2665,
+      "sha256": "76e3522fc8d43ce721c8a64e3b291629b133348d539f4972a8a5830cbbc0083f",
+      "git_blob": "d4d968209e65e7eb1afbeb8638252b12cfebb6d9",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/assert-comparison.mjs",
+      "bytes": 4230,
+      "sha256": "b8eb839a9ada619f2ca232eda318d34e4e3bce0c1f94dcfee4b3306a1d9e8b78",
+      "git_blob": "b46bc68ab273603ee21197053bd550c5576a8ec5",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/candidate/package.json",
+      "bytes": 33,
+      "sha256": "89c47db7851f89caec72da4f215ebc21cf1e294aeef3b45d2583562d846ab035",
+      "git_blob": "f9ec9b62f616f5c61144ef14c6cbbb1f8454f745",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/candidate/source/household-compare.ts",
+      "bytes": 6245,
+      "sha256": "84a7266119430953394833d9f428684fb7e4db5405313fdadc7efaf90b1f4680",
+      "git_blob": "ec62e1fc186a194300fafe238e8d81363c5f4d9f",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/candidate/source/ledger.ts",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "git_blob": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/candidate/source/month-comparison.ts",
+      "bytes": 17761,
+      "sha256": "4b6a3afae5fc571145302da6de0aedb5f68c9ee7cf9bab1ef23f8692aa9c211b",
+      "git_blob": "5145b207f08b5dfc5548679f3244eed22fc15cc7",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/candidate/src/household-compare.js",
+      "bytes": 6446,
+      "sha256": "40828c23fdc295d21ff4ec16500e93cade1d527268aa316b5a17e1d33dfdcb9c",
+      "git_blob": "a3d5f676f318ca46c8eae8d44efa88b338603208",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/candidate/src/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/candidate/src/month-comparison.js",
+      "bytes": 16886,
+      "sha256": "559d998d069d2f234435c4c9db8410193267f38cfcb4ca8867b1d537cd99c5f2",
+      "git_blob": "9919ca32e855299b30f71e173efc7b08d57fbd06",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/compile-producer.mjs",
+      "bytes": 1631,
+      "sha256": "3129aa847ce5d1a1b3548965338c9b9c164ec83b82a16cb7f4390540de6cd685",
+      "git_blob": "af7d8e1b40d3796d43e572bc38ae336f0f3c1af9",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/candidate-cli-custody.json",
+      "bytes": 572,
+      "sha256": "3cf67d3d9a7722e5f91a6473338f7171f651e297e2c2cf4cda934b4c1c824326",
+      "git_blob": "607b792f4f822c8fcf8e3b4e3dc4e195395ed44d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/candidate-domain-custody.json",
+      "bytes": 997,
+      "sha256": "21a0cdeb66bb7acb1875558814b9288a2cd09fbb220f79f3e1cdd0b6c3e87bb4",
+      "git_blob": "4d4194fb9ad91c507f0e2e10ade5d4506613ab4d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/empty-explicit-currency/receipt.json",
+      "bytes": 736,
+      "sha256": "66cab1ed71c9215e3f2abb912d7410eb07d5c4031e57d0a6fae74333ab4f3b93",
+      "git_blob": "c21e32e11e89729a119184da2b16e40df133f476",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/empty-explicit-currency/report.html",
+      "bytes": 5256,
+      "sha256": "3ba3c1e42ae6396154e854488541bc3208f0a377cf67a3dab20cfd27a8467985",
+      "git_blob": "ebca9228a931719792f4a034ad501a2415e643c9",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/empty-explicit-currency/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/empty-explicit-currency/stdout.txt",
+      "bytes": 179,
+      "sha256": "5a87aee74ff6d5ded03a4dd967c8593d4cfc08e6d3be1e63e2f373e1de071189",
+      "git_blob": "b235628ae63b225d6ae4daf98c83d5642696ed87",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/existing-output/ledger.json",
+      "bytes": 2631,
+      "sha256": "b754c97c93149692b83f8c4a6523f13549fe03b79e06a948714a495238ad90cd",
+      "git_blob": "aa15d109256ff81ab3f7400cb8fe7b1cba410913",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/existing-output/receipt.json",
+      "bytes": 643,
+      "sha256": "a5f8dbfa1cb506c3dd3ec730c650122e0001d323990a65876db1ef94ba855263",
+      "git_blob": "0b0e2b74312e0d8b1b833583b57a58871a4e1ece",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/existing-output/report.html",
+      "bytes": 35,
+      "sha256": "2c2fbd51026e65ebfa3c94d8656559a5e1d058b1a4392afffcddcf8c8438e6ad",
+      "git_blob": "29015099a3aac9eed7a9720cd3a133266df9cbde",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/existing-output/stderr.txt",
+      "bytes": 313,
+      "sha256": "0fef69062e2f1e23ad5f4c3eac53ee29023f557e9107ab3cada5274c7606edc4",
+      "git_blob": "f32e004e8ba6150a4706c7ab21a95844d29f53e9",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/existing-output/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/extreme-signed-deltas-reverse/receipt.json",
+      "bytes": 762,
+      "sha256": "ea9949a8720f0158055cba6cfb071ca481782239afb9c91f66f1cf63e38aff9d",
+      "git_blob": "d3141446f507fb10f5f6b7797b3904f528f7fbf9",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/extreme-signed-deltas-reverse/report.html",
+      "bytes": 7919,
+      "sha256": "dbdc4676fad2dfa01488ae5352b3b49eaee05af9bc09c31aad895d9ef8aec435",
+      "git_blob": "55ee677308b34086cccd097aa371d5fac3a690a8",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/extreme-signed-deltas-reverse/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/extreme-signed-deltas-reverse/stdout.txt",
+      "bytes": 185,
+      "sha256": "94ddc60bcdc291c168a69c740493704d15ef5ae021eb7b07fcf2f4dcbcdcda0d",
+      "git_blob": "3082307117dcc67ca5677705e86a4bc89f0e9b15",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/extreme-signed-deltas/receipt.json",
+      "bytes": 747,
+      "sha256": "9e1755ebdf4359b89da3eebda06f572e1dc467c010287588ec07f1bce4414707",
+      "git_blob": "c650b86be744c7151461eed48f28f127005e30bf",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/extreme-signed-deltas/report.html",
+      "bytes": 7922,
+      "sha256": "66c92fc818f03b06cf3c57bcd0b07da0223e4a8b83c30b8270b412a19ee4c717",
+      "git_blob": "5388a0849ff919ee95f32cea3c506a48e8292cce",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/extreme-signed-deltas/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/extreme-signed-deltas/stdout.txt",
+      "bytes": 177,
+      "sha256": "6a85b77489db53eb9c3ae5f17b4ddeb4f05571e3f20ebe6637ba685e066ab48f",
+      "git_blob": "711b4cfe15c48a12e3a05f160ed801f2bcc0c0e7",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/invalid-outside-compared-months/receipt.json",
+      "bytes": 617,
+      "sha256": "fa04a10891a517cbd6ec5a9cd937073d5281aaa895ccdc111872184543bc62d1",
+      "git_blob": "d61c691ac33ed6de85cfaee83b5783ca3cc3e985",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/invalid-outside-compared-months/stderr.txt",
+      "bytes": 93,
+      "sha256": "2892385fe192391b6daaea4491d352efbd4507139935fc1429a4b6d8433a053d",
+      "git_blob": "f9e7cbbf10cb302e7e73f4bcc7680c66ee43306a",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/invalid-outside-compared-months/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-duplicate/receipt.json",
+      "bytes": 572,
+      "sha256": "ebda23f0f3e7e32b19882b81ded5f11f11b10298187a21ed62652730ceb1ff09",
+      "git_blob": "12e9ceffc3406df3a409c06b15e6333eb8495678",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-duplicate/stderr.txt",
+      "bytes": 104,
+      "sha256": "96f71e1915187e94ca7799e390e7d3e996d4d948faa7ad23f2a4d283f28581da",
+      "git_blob": "e9498281801fb6e2fd90fa87c219d76f2aa597d0",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-duplicate/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-empty-month/receipt.json",
+      "bytes": 578,
+      "sha256": "c848e0b928f79cfc4c4eb6bc9aeae17738db1244645d7a28322bb8068614791a",
+      "git_blob": "95bef610176aafea48923e3411425d1c8ec97f06",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-empty-month/stderr.txt",
+      "bytes": 246,
+      "sha256": "d4ffbc9e301edda07beedf6b7acf32f02771342b047c859964bbaa5d77c77a17",
+      "git_blob": "7c699244747a5357255be71b7616fde33ecdbb90",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-empty-month/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-mixed-currency/receipt.json",
+      "bytes": 587,
+      "sha256": "eb993c73373f8e48dc02aa99a90244c8e02dca9ff9e7064ecfee2e979edfab21",
+      "git_blob": "0f09aae8d96d7a099d2e3b9dc5db079dc232c65a",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-mixed-currency/stderr.txt",
+      "bytes": 246,
+      "sha256": "d4ffbc9e301edda07beedf6b7acf32f02771342b047c859964bbaa5d77c77a17",
+      "git_blob": "7c699244747a5357255be71b7616fde33ecdbb90",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-mixed-currency/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-singleton/receipt.json",
+      "bytes": 717,
+      "sha256": "8303046c72b71cc9c8a2082e0f14f9781ff5b9f15f96e11584e9d3a8c8f94046",
+      "git_blob": "9117e2ae83f12f0bf312b5150971ac9e6c9a7671",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-singleton/report.html",
+      "bytes": 7349,
+      "sha256": "8d82174859fb807d4b21f1120a46d79ddc85617e718c0e9752e3e463e951d34c",
+      "git_blob": "3300cbd686acb83a98d52f28794f727946a76019",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-singleton/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/legacy-singleton/stdout.txt",
+      "bytes": 172,
+      "sha256": "76614658c3245d9d6e4a005914d498dca4796dce20860de85cf979ef41e72065",
+      "git_blob": "ec7c6630d3f08091b49d3dffa6d0c89d1118679d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/missing-input/receipt.json",
+      "bytes": 639,
+      "sha256": "7c414b572c4a911800acbdb80c1084a33143ddddcfcaff98a7b707bb4c32fa87",
+      "git_blob": "cbf036ec04a52c9b2cd2255e70df9d148167df14",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/missing-input/stderr.txt",
+      "bytes": 162,
+      "sha256": "a127c645e54629ebf8e0d0b9ac82437c8bbe7f5f0d35b832bbdec8aa989374df",
+      "git_blob": "d9bc90d0ae71057a1484d0d5badc5a131e3b2973",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/missing-input/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/odd-cross-bound-deltas-reverse/receipt.json",
+      "bytes": 765,
+      "sha256": "c20113d771dd99f585e1c3fee9597b3cb2697fadc59c294685b52552a76f274e",
+      "git_blob": "c397457e450da5e506c2724d3834d9658b24bc42",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/odd-cross-bound-deltas-reverse/report.html",
+      "bytes": 7931,
+      "sha256": "9e84759e81e5e2d69cc5ba200843ae820a5df9201e1caeaa9febfd384f4a4c80",
+      "git_blob": "e49d1110de8733df0e804875ae2ff6f83375bef9",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/odd-cross-bound-deltas-reverse/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/odd-cross-bound-deltas-reverse/stdout.txt",
+      "bytes": 186,
+      "sha256": "ceb5d0b3fb07ad28ced70153f39d00c8af93d51cfc65ff569217d15ba78989e5",
+      "git_blob": "d151d45dd845def2e703132ef395f9d5ff648cdc",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/odd-cross-bound-deltas/receipt.json",
+      "bytes": 750,
+      "sha256": "ced342268b48044ae3950c518951c3ba87cadd8dcb22c1c04926f38c97ebd9a6",
+      "git_blob": "c804c28af907e77aa81f353f99ab2ad070d7a2a9",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/odd-cross-bound-deltas/report.html",
+      "bytes": 7934,
+      "sha256": "27d1b8259cbf021e7effc3eaf293b67461a93842e6078a9d302058786d0e66ed",
+      "git_blob": "e1be457505154722af26717b2c7c9e370f10f179",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/odd-cross-bound-deltas/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/odd-cross-bound-deltas/stdout.txt",
+      "bytes": 178,
+      "sha256": "02ef64d65127c8a9a8dbb3eaf3aeb796d0a7dc68b71432713eb6e8b92fbb19b2",
+      "git_blob": "4dfb3158900c21ce05385f7e21c70d4157a5b09a",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/raw-category-union/receipt.json",
+      "bytes": 725,
+      "sha256": "96ee38d17a5649d1722d4d945f4dc7f58cbe4860fe0fded23320a0ca83368721",
+      "git_blob": "15707ef223601cbd72fb1dc9b1475c3a72672f0d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/raw-category-union/report.html",
+      "bytes": 11122,
+      "sha256": "0e5aa33f9c3f11fccca91890afb412a836b44a7949d6e2d7b91cf7a641e556e3",
+      "git_blob": "c49835698630faf903a8ce01644e31786b8d1001",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/raw-category-union/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/raw-category-union/stdout.txt",
+      "bytes": 174,
+      "sha256": "d52b6edbe2a0f0fd7e61ca68e2828a46e637439c9e48d10c40d11e4137c1a592",
+      "git_blob": "af21c5968034998f41a756adcaa2c2cb3425e7b5",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/receipt.json",
+      "bytes": 11941,
+      "sha256": "d2e21c15874393d385a968464658a4023bbb5d62df7ad649b37d2ceb39df3da4",
+      "git_blob": "73d97068ab38bec8ecbc3a4f6295403badda8682",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/same-input-output/ledger.json",
+      "bytes": 2631,
+      "sha256": "b754c97c93149692b83f8c4a6523f13549fe03b79e06a948714a495238ad90cd",
+      "git_blob": "aa15d109256ff81ab3f7400cb8fe7b1cba410913",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/same-input-output/receipt.json",
+      "bytes": 650,
+      "sha256": "894ce83005d62682eb18da1ed67974aa154675c5a45f203f62c07e1d0e5ca990",
+      "git_blob": "7dc0d97c500308a8142c5411438fe78577f3ceef",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/same-input-output/stderr.txt",
+      "bytes": 81,
+      "sha256": "03b8bfaa338a708e6e30a32f8caaa35778ea0888f86d9cb3fc25646aa87233c4",
+      "git_blob": "25c11595e49ece1f12afe8e3a03c035032ee0a46",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/same-input-output/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/two-independent-processes/process-0-stderr.txt",
+      "bytes": 333,
+      "sha256": "2fb2cff5598a958b1ad702de910f3b657b7ac381b7efd569f05646a1bd1b7f1d",
+      "git_blob": "f988b5a15a3d2a57d92bcc08f46af39d2592650b",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/two-independent-processes/process-0-stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/two-independent-processes/process-1-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/two-independent-processes/process-1-stdout.txt",
+      "bytes": 181,
+      "sha256": "18fc5f4706ae96eb7cf829f964721f838712d92fee669cc17622c7f3271d3993",
+      "git_blob": "3a4a35814df4f4126b4bf9b415055adb6cbb7aba",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/two-independent-processes/receipt.json",
+      "bytes": 430,
+      "sha256": "27edaa869d2c01429bc49f4e1aa371314f4bfb613bf3252bf494214aaade0427",
+      "git_blob": "ddb9f30f77c0f943efdaee67286e013985e5a417",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/cli-r2/two-independent-processes/report.html",
+      "bytes": 11122,
+      "sha256": "f558c305b41881089e4047f686fb812616a1afc1e65e8e97b23daf30004caa70",
+      "git_blob": "142bf17191efffc692c61e897e5030f5371efc8b",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/domain-r1/empty-explicit-currency.json",
+      "bytes": 691,
+      "sha256": "7daeb9f60bf1f0a54e3b9ff08b596c75771aafc9419032f3ab7a113bf6514b55",
+      "git_blob": "0ce583690c2478f6806a9ef979de930e664815ed",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/domain-r1/extreme-signed-deltas-reverse.json",
+      "bytes": 1882,
+      "sha256": "9ba8f1a417b023a89280eefedfeb737b539ce5cfc89e2244d52640024932c3f1",
+      "git_blob": "a95f902bfa2a71d310ceec21910ec7fdc7c62a23",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/domain-r1/extreme-signed-deltas.json",
+      "bytes": 1885,
+      "sha256": "3abd008a013ce934241a3642cc7f2bc09c374b4170142e7c8df72f33f276038e",
+      "git_blob": "48c58ebfbcfebbd61f5389517310e5d473be0b35",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/domain-r1/legacy-singleton.json",
+      "bytes": 1517,
+      "sha256": "7a366239ae12daa65d70780e73314fb866dfc781090db26b1a0aa63574380f78",
+      "git_blob": "dacad50494c68470e6d3adf8359fb1f9fbd9772a",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/domain-r1/odd-cross-bound-deltas-reverse.json",
+      "bytes": 1888,
+      "sha256": "cd6eb5de7442418b3d6314690fa8ba6a97a692d64c8501b52fc15733aa468151",
+      "git_blob": "4fe11b117bb8610827770d537bdcc422af20ded7",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/domain-r1/odd-cross-bound-deltas.json",
+      "bytes": 1891,
+      "sha256": "946aedbc0bdb43f1a5e0347c77feb2096dc2e800c6bd26d6431d9329bcfad74d",
+      "git_blob": "3180bd049a18370b93abfb030bb77a53d90063d0",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/domain-r1/raw-category-union.json",
+      "bytes": 5056,
+      "sha256": "69db7593371225ff35f3483def7901ff512e87fa9d46646b48be2e4261e39be5",
+      "git_blob": "59bbb9828f106ac28f59474ef743305b1d8b474d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/domain-r1/receipt.json",
+      "bytes": 4159,
+      "sha256": "57b4a1c755d2956d4e31d3ff7d124d04ff91b50925b58f991410bac6edb8f364",
+      "git_blob": "7ec348ff25eef753b5e183e90bfe3af1de3dc5b2",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/freeze-before-compiler.mjs",
+      "bytes": 8901,
+      "sha256": "aa3f339d16739759c36ffc5bf9666fa0bacdcc489ba4cb8258fde6d5d6338594",
+      "git_blob": "0f63ab450753809d459a871cb0098c2ba99f4bc3",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/native-typescript-unavailable.json",
+      "bytes": 570,
+      "sha256": "6aaf7f335cc70c36d815dabc753c9a91b188440aa2734f213fea130fba769462",
+      "git_blob": "0d0209a4457636a2bc8d16c81036c31744fb8b74",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/producer-compile.json",
+      "bytes": 1060,
+      "sha256": "99e6ebc5f84f149c97a0fa164b982feb29cfc3226810d80b2b1af4250a41d6a3",
+      "git_blob": "c47b243f682a7ec00fa2e7449c305b6a4b9130a4",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/producer-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/evidence/transport-setup-failure.json",
+      "bytes": 537,
+      "sha256": "ff325e565a66d922a40fd223a80d5dc0ca123c35665fac92a29e2e44bead3e47",
+      "git_blob": "f83b6b91f7caf9d8e2c2b08534969da2d0ca5e51",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/expected.json",
+      "bytes": 4363,
+      "sha256": "3035816ecd63c5ed33f7fc429e2382d745ae1bca4829e7ec9de461da21b84bb2",
+      "git_blob": "551b094357682e309da66efc7d49a2ff6c25fbcc",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/file-manifest.json",
+      "bytes": 19017,
+      "sha256": "756dfdd7b78b4f17351b1c4dd6504d4c279cc39df99e260b12a11163caddc7bf",
+      "git_blob": "07da05c9c29f99e4c9089f934c6f4c805714aa8d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/fixture-freeze-result.json",
+      "bytes": 1202,
+      "sha256": "1f68eae8ef46a3a98cbd89baf148057507a894b4d322ac5814e225e414f47fc0",
+      "git_blob": "42c8716d2b9213aa05a18b1146aa02f645c5cd3c",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/fixture-manifest.json",
+      "bytes": 1899,
+      "sha256": "4a38bc738bff0f26a952264f5bf12367269a11c94dfd0d8e23795c505375e2c6",
+      "git_blob": "d5a39246105a0eed3fd66545af069e490f97a559",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/fixtures/empty-explicit-currency.json",
+      "bytes": 58,
+      "sha256": "bf2f6ce6f196d804bce851bfde488f5c7a24cb26b1b789000c02425872c27c5d",
+      "git_blob": "08ac321a8bfc6411422f4bd399dc548d80ff8d3f",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/fixtures/extreme-signed-deltas.json",
+      "bytes": 776,
+      "sha256": "56db98466fca61591d1f303bfc2604e77641233e2be7904f227852e81af9d246",
+      "git_blob": "b863a697feec06a92a86c98af0efd43a02514305",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/fixtures/invalid-outside-compared-months.json",
+      "bytes": 718,
+      "sha256": "4cc2c0603cc8b40f3a94ac4afffc44c35f8344bf8ccd20c6f5cd1231f1e3c197",
+      "git_blob": "27d0c8c1a10e3c130f3ff8b1cdc68bb5be9536c2",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/fixtures/legacy-duplicate.json",
+      "bytes": 759,
+      "sha256": "a634a7d94ec6e575e9709465066be334c400cb83c7b2086efd90564705e0376b",
+      "git_blob": "47d964bb3b9e7d39a8e922a7b795f418ebb0a82c",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/fixtures/legacy-empty-month.json",
+      "bytes": 366,
+      "sha256": "d596b6ffb9b538aa77fa828852ab2c5b6b7c1a21002d7848f449a12bf9646c83",
+      "git_blob": "ec613d6d98392f71acd5860c79242a2164e56e1b",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/fixtures/legacy-mixed-currency.json",
+      "bytes": 796,
+      "sha256": "170da2fbf1bc3e883ddc9df4cec3f3c2caa7c96d3e7e0388d0f8063b91c4bbbd",
+      "git_blob": "4637fe6375468f75741daba4d47c35e155bccdd7",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/fixtures/legacy-singleton.json",
+      "bytes": 668,
+      "sha256": "683d49700370565c3bba0c20206f9bec8c04246d4a71c17ad8871b0ae650746c",
+      "git_blob": "5267337beabfce9552f774682a7f4a82da39cd96",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/fixtures/odd-cross-bound-deltas.json",
+      "bytes": 784,
+      "sha256": "599692ae025826ee6fafd02370f6735e7e61ab40c3ca057dac5bd9976fa9f3a0",
+      "git_blob": "12e6efbd45e53de2ff35d67d825c9917e4351061",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/fixtures/raw-category-union.json",
+      "bytes": 2631,
+      "sha256": "b754c97c93149692b83f8c4a6523f13549fe03b79e06a948714a495238ad90cd",
+      "git_blob": "aa15d109256ff81ab3f7400cb8fe7b1cba410913",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/freeze-fixtures.mjs",
+      "bytes": 9510,
+      "sha256": "238144d672a0cbb6ea7a57efc3cdc9787357ac20f74981375701b6e144d49ac1",
+      "git_blob": "5c58f36c7b3f7d8a5d35c02de2b7312c577b187e",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/package.json",
+      "bytes": 85,
+      "sha256": "c44ccf3b98b160729d0fe241267a17f2200c2cb750c4d6b03cb7a1f297a99478",
+      "git_blob": "1681f4fcef6736298f9805475c90ae0c0dd24a0f",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/producer-compiled/ledger.js",
+      "bytes": 15664,
+      "sha256": "fce70e5857f70f7a9944a624d40bb76b031e2dcaefb61a0f7c59e957da0a8333",
+      "git_blob": "64bf18d3162efc62dc8d56c45b3cf62bf8340d41",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/producer-receipt.json",
+      "bytes": 10194,
+      "sha256": "fbf93a85584e4f4db0fe11625afb3c1939eee3e23126cdc11e90396a7a7dd150",
+      "git_blob": "490ce294fc5c8f9cfbc483af1ae5b4b8d905a98d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/producer/ledger.ts",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "git_blob": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/producer/provenance.json",
+      "bytes": 364,
+      "sha256": "c4be8d7423fb26a6df5e963caf4d041794f24b4017ccf91831c43ea6f64cbcc0",
+      "git_blob": "1a2a7b52d916da8b66e66fb5b6315be640db3094",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/receive-cli.mjs",
+      "bytes": 1190,
+      "sha256": "3e2b9dd205f44115d7c5a195cc3360795d9acf6d8e0aa1666296022d6223ad69",
+      "git_blob": "5c9062adf628c448eb372f12c77fd263a50bb88b",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/receive-domain.mjs",
+      "bytes": 1605,
+      "sha256": "52b4c16bf3481cbbc0625a4c324413932d942d18112ff73c3583cf34c76e6f29",
+      "git_blob": "1210e325c98a2451d3f646fd41f9e1a27612b28e",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/receiver-summary.json",
+      "bytes": 3201,
+      "sha256": "0d4d4270e46fa4679279b0ef95b6801c3c41d9b91159689fc579b37435fe1f75",
+      "git_blob": "3175c2704c6e758c0ce0bbf2cb3a6037788d9e88",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/run-cli.mjs",
+      "bytes": 6774,
+      "sha256": "b031d072670a6c4c750c3de10af5153680d44f9d4a24c1d461bc7003a19b8c0b",
+      "git_blob": "3133c5bc82d076dbac8eb2f2d8751703c95133bd",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/run-domain.mjs",
+      "bytes": 2165,
+      "sha256": "1e299141abc097a7047b265280aaf9a0e07de4366d74a98d8c81dee7c367e22e",
+      "git_blob": "de624d63b4e9786fd8280317d11fb1990235bd4a",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/consumer/seal-independent.mjs",
+      "bytes": 8370,
+      "sha256": "31a784338275802853c20ece24127c29e785ee90021653d534cb43cc15d92d09",
+      "git_blob": "5dee9dda1eb1e10b0f107bd42cb52dba3b560007",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual-receiving.json",
+      "bytes": 19519,
+      "sha256": "d8450ce8588bdf09e4aa1e844b497f8d61a08387fac2066ba53885ef97ec1bc3",
+      "git_blob": "adac447f9bf21a03f5e4c061e14833ab6a11879e",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/.gitignore",
+      "bytes": 39,
+      "sha256": "49bec6978f030b53f99553d33844deda8c37e07bc85e0e794a9b1e372a6930e2",
+      "git_blob": "c43050e0887595783a188c275f83c9932e93ba5a",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/README.md",
+      "bytes": 3455,
+      "sha256": "992fc7f0f03807d3824ea0ce86a3a6ddcb8db5babcb21a1bfc5f8ea9b9cfec9e",
+      "git_blob": "dea10dfa2586c235f6be5f40278852afd6f4e747",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/candidate-intake.json",
+      "bytes": 1891,
+      "sha256": "c49fed95f3e2a94d3912425f09f8cc9aac2f24ed9316442b9d72cb0940e46982",
+      "git_blob": "6545a41a98434d687288619949c70171b6cce791",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/candidate-r2-intake.json",
+      "bytes": 1109,
+      "sha256": "c51e1174b834f36305da985392003e70906e9f450ed632d0683397c6b914f53e",
+      "git_blob": "85a4efe7fd3720c3155b50d89d44615dbb554668",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/candidate-r2/dist/src/household-compare.js",
+      "bytes": 6446,
+      "sha256": "40828c23fdc295d21ff4ec16500e93cade1d527268aa316b5a17e1d33dfdcb9c",
+      "git_blob": "a3d5f676f318ca46c8eae8d44efa88b338603208",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/candidate-r2/dist/src/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/candidate-r2/dist/src/month-comparison.js",
+      "bytes": 16886,
+      "sha256": "559d998d069d2f234435c4c9db8410193267f38cfcb4ca8867b1d537cd99c5f2",
+      "git_blob": "9919ca32e855299b30f71e173efc7b08d57fbd06",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/candidate-r2/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/candidate/dist/src/household-compare.js",
+      "bytes": 5732,
+      "sha256": "742cf6179b7abd0a34985b2b095b00d77273b58f32d06c59e1d169bf72819f9f",
+      "git_blob": "9272d5b6a44e931ed745466ebbf74d15e8487ded",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/candidate/dist/src/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/candidate/dist/src/month-comparison.js",
+      "bytes": 16886,
+      "sha256": "559d998d069d2f234435c4c9db8410193267f38cfcb4ca8867b1d537cd99c5f2",
+      "git_blob": "9919ca32e855299b30f71e173efc7b08d57fbd06",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/candidate/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/expected.json",
+      "bytes": 2263,
+      "sha256": "a5cee2036e66172c89f472c7368d5116e157e3af9cf8f41cc4c5ab9956b4d7e6",
+      "git_blob": "033512edf199e686570978a67305ae5c5d38770d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/final-review.json",
+      "bytes": 10970,
+      "sha256": "42cdc4ad7f42b610c66dcfbb16f81286acab46f26542c2a11530dd00e495e892",
+      "git_blob": "e69a64dc02257024d5d663f66ca121e7fd7c6790",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/fixtures.json",
+      "bytes": 9486,
+      "sha256": "441d927edd0f9dfabb6d1bef13a2b52c38e1633d12f0ec0673d14ee2d7cca482",
+      "git_blob": "efd6733742603aa95bf162907a623a6b886841c0",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/freeze-receipt.json",
+      "bytes": 2755,
+      "sha256": "b0c185d5ee6b6e1c23680ffaa710cbcefa6184bcb6921c1b7c580117ba24923d",
+      "git_blob": "a351e27868a524f49093bdd04deb090a5697cd93",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/freeze.mjs",
+      "bytes": 1367,
+      "sha256": "cd1882d05fc6cf2cc5b18af905855e71f4106e46042b5dd28d3aabf2efa04486",
+      "git_blob": "21e23194703a1612b9106966def03dbf3b4353b1",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/intake-r2.mjs",
+      "bytes": 1361,
+      "sha256": "b99cab18160764c5479068c66e5e6f6931d9b772ec6645b1d5d3e8034697d864",
+      "git_blob": "626f3f98982e7868fec0ad48ee2142608385743d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/intake.mjs",
+      "bytes": 2044,
+      "sha256": "6ea48bf8b3f6fe5d5eac12c0490c5c4ac3434f3981722e894b1cca2f4066f07a",
+      "git_blob": "0c2a2fb04d95fbe4b1401a3dbc16e7e82606ebd6",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7-export-manifest.json",
+      "bytes": 3641,
+      "sha256": "8b8600c9c2b13f9ccc34b0e0c98b27e84315a345e982e69615fe01f33ebe235a",
+      "git_blob": "13b0570017ea70e805a5840b4c0b8c7ee098efc3",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7-native-intake.json",
+      "bytes": 5412,
+      "sha256": "747a0c369c1219a1a34dd3466ab3096a96cd0d4164d284931f6b9804c2975d55",
+      "git_blob": "b7b5e73c2941f952cf005a99e68565608800eae4",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1-summary.json",
+      "bytes": 435,
+      "sha256": "b671ec62a9f58008522960462b49d6636130ede1325c23791470fb1943f1bc62",
+      "git_blob": "f657b04789c2063e2f1fc08e9bb492f37d953949",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/chrome-stderr.log",
+      "bytes": 228,
+      "sha256": "02c7b5edea32f0a87fdca211403e7d10fd91e3a49d8eb00344ea53a5341fa675",
+      "git_blob": "8db9fcb410e8bcca6754c8b8cb30a4ae857bd335",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/chrome-stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/desktop-primary.png",
+      "bytes": 84777,
+      "sha256": "e94b3a1041898705a4f8533b6c84a78d8ffe3e4ac3abf0471c10bff03fec360d",
+      "git_blob": "87f7d6d4967b36c3a319cd6fbdd6eb18c6bb8b4c",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/empty-offline.png",
+      "bytes": 80658,
+      "sha256": "6aa18043027f10ea914149ccb1a337302f9f08c7f58ae6e60f334a9bf3654674",
+      "git_blob": "4a3cb963c7fd664798b979389f6404df3901b44e",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/hostile-dom.json",
+      "bytes": 1938,
+      "sha256": "20f55e0cdabab8a14b4fe29498bb8b976de4bd50c622471b4e47b47e00d247cb",
+      "git_blob": "18e2fcdc672c4b49a23e6fa36b6aab77163cd2db",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/hostile-label.png",
+      "bytes": 93679,
+      "sha256": "75bc8fec4b2a27921ec8918ae388c24d6a5683f1ab5c4798de503d23a22bede8",
+      "git_blob": "2a01f63be4f575711396ee704484427de7ba0b7c",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/legacy-budgets.png",
+      "bytes": 76677,
+      "sha256": "12187704ebf6c82ee148b1b99890a661c9f8217d7fce2ba9be22555cf032275c",
+      "git_blob": "6ba3937435c307970fc6cdeb275763e41a7efa7f",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/mobile-accessibility.json",
+      "bytes": 263387,
+      "sha256": "8fb4f12ac044a9b33faa7d313c0a13ab709fe66f5913a1b0b0bbe2b7a691b5e9",
+      "git_blob": "ac2f399a427413236c46da0a3779364e034e43db",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/mobile-primary-budgets.png",
+      "bytes": 32607,
+      "sha256": "dc874b4aed66fd5430ee876492e648eb58bc3afcf815377bbcd7fb6b0b21417c",
+      "git_blob": "c7db0aeb9e7594acccbcfc511883f8a1deb2240b",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/mobile-primary-top.png",
+      "bytes": 47822,
+      "sha256": "e2bdc1eb4a027f0f705939620f8973ec5d4472a8ea8c6aa78a674598437a6e77",
+      "git_blob": "52d1b9ffe3569a60933ccf023e6af28a1e2f6ed0",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/primary-dom.json",
+      "bytes": 19206,
+      "sha256": "75fc8c1a3926814fd4be7ff0ac256187ba46da3bf513cf4023e43c19ff5dfa9f",
+      "git_blob": "859382bbac223efc5ce5a62fb7d89a016f5c7a1d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/primary.pdf",
+      "bytes": 127422,
+      "sha256": "e31ab19e07884b4681da78b59350c2a792bb158d038353746f7e661120e3305a",
+      "git_blob": "d5716fce27936ac7f9054f4cbf4fa516ad5537e5",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/print-layout.png",
+      "bytes": 77127,
+      "sha256": "a821ebed984c9cf05b588786e8cf12d5dde55e967371f71a9f908d53d43a8182",
+      "git_blob": "eed42ec6b2458b25ad17e76b4a33c5f0d6edb184",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/progress.json",
+      "bytes": 4952,
+      "sha256": "b83261cad88229a36f5d927209e7d74b0bd890e011c2656f76e4bc35670e81f2",
+      "git_blob": "7e568087368862b1292b918e0726b7214b7c85c3",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/la7-r1/receipt.json",
+      "bytes": 15717,
+      "sha256": "375f92453587edc3966ab1870e3b87dd5c45fdc58e7bd7c7a8e7f54155253ad8",
+      "git_blob": "6a1bfe4d1c31c0c73476da23acda234dcff7119a",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/pdf-review/pdfinfo.txt",
+      "bytes": 618,
+      "sha256": "68f6a17eef5e3c705d8adeae9b86a298127fb9f091d60ef4e8bc305431201916",
+      "git_blob": "9436cbadbb165154b0a237906ef8ab46ec2fc083",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/pdf-review/primary-page-1.png",
+      "bytes": 147143,
+      "sha256": "cdcd7215315dd29a5c8f5c957dbbc4297ec1d0d6b4275878e65d7dd6e0ae7a0f",
+      "git_blob": "882fd3a0daf08390bbe68d758a0374bad99dc546",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/pdf-review/primary-page-2.png",
+      "bytes": 116355,
+      "sha256": "261b3b2aa368bcaa5caefc39ebca6557b91ace90c7771c8bbff2f266b78d124d",
+      "git_blob": "6a54d4769aff5f60a56090d7a0c25fe3fc93fb9d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/pdf-review/primary.txt",
+      "bytes": 5884,
+      "sha256": "6fc6816de2d3c6f287493fcbf37fa8315abde6302ef9c94c7f12932b530eb112",
+      "git_blob": "6719250f073382234827e8e2c392014ceb68f499",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/pdf-review/receipt.json",
+      "bytes": 2398,
+      "sha256": "a0460110ba88c7c70c07e05c1037d6ee72f4ff3b0f29ee786cad7c6a77122960",
+      "git_blob": "c84356887aafd902442cd2f89d9c4fce6597dac0",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/la7/visual-receive.py",
+      "bytes": 20785,
+      "sha256": "406c13ee6bcfe00e30516fa340fd769412d471b7c1a5ba8ce4a8c8c1a0174fdd",
+      "git_blob": "302281a347f7cc1d81f24ef3379f844d2fba9e15",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/manifest.json",
+      "bytes": 12336,
+      "sha256": "dafbf4e56aa473741c1ee2efbdca3b9d3223523e900702fdad3650a2bf69cc0d",
+      "git_blob": "a674ba52f051d52f5fe50020d24a2c70c45a8e77",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/plan.json",
+      "bytes": 3361,
+      "sha256": "550876c5f8ee047a576c8f2b2e8ff2dd813bc796eb5bcfe81110e6608e94eb60",
+      "git_blob": "f06bda5163735dffc5fa8b6c61d3f7a635ad6398",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/prepare-la7.mjs",
+      "bytes": 761,
+      "sha256": "7b6dea26a09015aafa3cc6e2a4643a0ccd855a803a772fc0af86ed8e34b8fbb5",
+      "git_blob": "568b791d336d80e976ffc4f70d7d9fab1fff879b",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1-summary.json",
+      "bytes": 346,
+      "sha256": "39ed6078603658c866ef895a7aca6aec8510f4110094f23ca0bf677938acd980",
+      "git_blob": "84912cb5e43499a3bd1e6e67cd43544253453e96",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1/<source>&\".json",
+      "bytes": 2126,
+      "sha256": "be6bf026223d90868c3fdc2d9109055c5015a0ea31f05563235ea2078d8f506d",
+      "git_blob": "f33f8275b868d8f9422dde7c0db0ae74ebee8e47",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1/chromium-stderr.log",
+      "bytes": 3471,
+      "sha256": "bdd701fd77c7e6d82cf63ea56322cfce1dcce6eb00d7203c7104f502685cdcce",
+      "git_blob": "0640e4b0479687ad5473a207c982c7977bd747dc",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1/chromium-stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1/empty.html",
+      "bytes": 5220,
+      "sha256": "0351e05582757700633242e6b5eda9f88a2b2b3b10573a966ebe85566875b940",
+      "git_blob": "5b1ebd7fda83f5475d818214366f41d0e3016025",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1/empty.json",
+      "bytes": 58,
+      "sha256": "bf2f6ce6f196d804bce851bfde488f5c7a24cb26b1b789000c02425872c27c5d",
+      "git_blob": "08ac321a8bfc6411422f4bd399dc548d80ff8d3f",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1/hostile_wide.html",
+      "bytes": 9356,
+      "sha256": "ec9a69943284651768fd2d0db20cc3ee5e5cdd51322fb194cd232872cab7c6be",
+      "git_blob": "8e23283243afd3a6e560a1f08be2cb94a060136e",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1/legacy.html",
+      "bytes": 7329,
+      "sha256": "7ab77a9b9c2ba33c0faeb1c42ee69ace40a280d3141f241222fe708395604de6",
+      "git_blob": "2e9e08ccca2080a76b24f3cd073ad2d685c4972d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1/legacy.json",
+      "bytes": 888,
+      "sha256": "aaa896f603b1bb9a8d3d84009d2840ba4a43328dde7fe4dd87035cf42ed2416f",
+      "git_blob": "3f2ffd977373919f9f3257276d981fc2852a55f7",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1/primary.html",
+      "bytes": 12800,
+      "sha256": "07e34cbc6c5838b25ea384f2959614c859a81b0b0d20a1985e87ef3eccf74049",
+      "git_blob": "186aa52c04e3055af1ec0ab1fe89a21f7fe13c41",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1/primary.json",
+      "bytes": 5170,
+      "sha256": "0c7010a4a3e0ef1986eaaad77296cf76b924191c531f68d5c67e2d09bbb5ddb1",
+      "git_blob": "98be2fa230e9e6f7e799cccba57ab726c65de99c",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r1/receipt.json",
+      "bytes": 145037,
+      "sha256": "2edc6e210c822945075139db1d236d9c490edc3b61d526caf56a09c84475984b",
+      "git_blob": "a88c66c5fcc9bc784cccf23cc51739d53ba3389b",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2-summary.json",
+      "bytes": 676,
+      "sha256": "91767c3407360831ba3d8b281db41a8b157b7a2a604c9865cebdaad788644f98",
+      "git_blob": "738d570e02726c987334d0f9e61f9afeb9932d2b",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2-transport-disposition.json",
+      "bytes": 907,
+      "sha256": "48f8ffb085f25a84aeee3e1c273e5ac2eb90da8a0a9118199d20b324ddf64265",
+      "git_blob": "e6e5f8db9c3378fe83a50ef1290464ac1d2b39d3",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2/<source>&\".json",
+      "bytes": 2126,
+      "sha256": "be6bf026223d90868c3fdc2d9109055c5015a0ea31f05563235ea2078d8f506d",
+      "git_blob": "f33f8275b868d8f9422dde7c0db0ae74ebee8e47",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2/chromium-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2/chromium-stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2/empty.html",
+      "bytes": 5220,
+      "sha256": "ce571fca9ccba71469675b22dd17caa11f7b15d7fad1b30edc0390a031ca29f9",
+      "git_blob": "f22d229521e31b74eeddf888a38133475f466e7b",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2/empty.json",
+      "bytes": 58,
+      "sha256": "bf2f6ce6f196d804bce851bfde488f5c7a24cb26b1b789000c02425872c27c5d",
+      "git_blob": "08ac321a8bfc6411422f4bd399dc548d80ff8d3f",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2/hostile_wide.html",
+      "bytes": 9356,
+      "sha256": "4f2ca278021d0e7a191ae4e9ba387399fcdd0ffc7a9e07d2c822cf4918f7b3db",
+      "git_blob": "e49c5d2321c2633fbec79f86bc323555966b4ed8",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2/legacy.html",
+      "bytes": 7329,
+      "sha256": "7420365811a90284681ace5155eeb4dcdba2f01a098185bafc9e5afd0ef1368e",
+      "git_blob": "b74d9c1d7c007978b4f81fde94d56ff5058719a5",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2/legacy.json",
+      "bytes": 888,
+      "sha256": "aaa896f603b1bb9a8d3d84009d2840ba4a43328dde7fe4dd87035cf42ed2416f",
+      "git_blob": "3f2ffd977373919f9f3257276d981fc2852a55f7",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2/primary.html",
+      "bytes": 12800,
+      "sha256": "8ccacf5df5973bf8a0b45f66c64ce5cca92859a4ad3ad18961d2a3bb8bf84d78",
+      "git_blob": "fb4143cb6d267549c1a53554be88f27597501d72",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2/primary.json",
+      "bytes": 5170,
+      "sha256": "0c7010a4a3e0ef1986eaaad77296cf76b924191c531f68d5c67e2d09bbb5ddb1",
+      "git_blob": "98be2fa230e9e6f7e799cccba57ab726c65de99c",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/r2/receipt.json",
+      "bytes": 10808,
+      "sha256": "ffec1ea53836b29523a1438b8a758f254125745615080c7ccebcc6e45426e521",
+      "git_blob": "fa20c8c66835031678363e92559679794d4073fc",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/receive-la7.mjs",
+      "bytes": 3485,
+      "sha256": "0ac303ea4283badb58ec4cdb130e3f4144a41596b4e3a2fcb3be5a8758915f4a",
+      "git_blob": "b61f5a32c9afbfdfe5ed015c2c35094bde4cda92",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/report-browser-loopback.mjs",
+      "bytes": 25469,
+      "sha256": "bff34a9c3f3f9e02560e127922adca57f819f0bf6b821d8d483c1cb88a910b8e",
+      "git_blob": "0cfd985083a57c7bfd794832b2c1ff9285a89c68",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/report-browser.mjs",
+      "bytes": 22250,
+      "sha256": "725839f9ba248271dfee27e79c40ff7bfd37ccc318b081eb0bfa9504c6b292ca",
+      "git_blob": "ecb77bf42a0e78accd4f34d977680101f0dab1ac",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/seal.mjs",
+      "bytes": 4021,
+      "sha256": "092a67c10cbd397179dee58e6463d477daf84f894a5cc8ec0a1406fb035a7f18",
+      "git_blob": "d87485f2a8891d80fe211e721c99b8125adc49a0",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/independent/visual/source-admission.json",
+      "bytes": 1221,
+      "sha256": "5e8a7bca6d90432f37efd9551bcf2ea0397d6b6f07290bdeb7b58d340de1cfea",
+      "git_blob": "cfb2147d2a346ac9494c6e686e02dbfa17cd38fc",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/maintained-consumer/cli.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/maintained-consumer/cli.stdout.log",
+      "bytes": 196,
+      "sha256": "049b1a44b5861f772a1769b809043e97d5d5bee3b641999e32ef5e624c2932a3",
+      "git_blob": "ae4a601287321838f91359763fa12ef4fa860c6e",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/maintained-consumer/comparison.html",
+      "bytes": 16083,
+      "sha256": "11b24b6c223362176a7e2dee80c3b76eb91321c549d0fa9806321465a408dccd",
+      "git_blob": "dc705bd5cd8cf7a1b699be30f0c157aaaac92848",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/maintained-consumer/fictional-ledger.json",
+      "bytes": 4564,
+      "sha256": "5a9ca4bbbea401d5e6271bb593168d81f263a19bce135478bd8b706abb9bb14a",
+      "git_blob": "1d72198ab1d8ad8663402658ba5ba2c8c8fb3c9c",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/maintained-consumer/receipt.json",
+      "bytes": 11404,
+      "sha256": "38bb7b44b28c34ebf0a1c3e6aa0ef9efa23ccbccf7af7467a2187d5bf3c02364",
+      "git_blob": "c79157092d5d4fd80499656839f66ecb13936906",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/original-consumer.json",
+      "bytes": 5691,
+      "sha256": "119c3621a3c2e4db24c365b1e97889045d4f3d602262b218f5d252bc2eae3345",
+      "git_blob": "08ab20812007b33cf74ab7484fe6b3a229ca923d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/original-receiver.mjs",
+      "bytes": 4576,
+      "sha256": "009a6d514a26c9880c7daed4f97bd825db39fad97793623b4bcdc1652d411cd7",
+      "git_blob": "7fff11de0f8eef581a79f640f89589e52506631e",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/original/cli.stderr.log",
+      "bytes": 775,
+      "sha256": "a0f6c4f6244a96a7666397649a25ea528c19e812882af64ea30a242d268f7852",
+      "git_blob": "e240408f0db4588ef90090db14b806b205a1cdb0",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/original/cli.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/original/fictional-ledger.json",
+      "bytes": 4564,
+      "sha256": "5a9ca4bbbea401d5e6271bb593168d81f263a19bce135478bd8b706abb9bb14a",
+      "git_blob": "1d72198ab1d8ad8663402658ba5ba2c8c8fb3c9c",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/original/receipt.json",
+      "bytes": 1961,
+      "sha256": "b99fdeb601bf1398682f6e805387b09ee35bcb6d2c63d66177940daa3af63cbc",
+      "git_blob": "758e121a02ba143d3a95aab3d7e6da66c7904364",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/owner-guide/RECEIVING.md",
+      "bytes": 5111,
+      "sha256": "f83e4681545ac85d947e0264c9ca0f03f608e7e8f49364414481a04b642950e3",
+      "git_blob": "76e649e127bd8ad4938b6cac700beee85de9a750",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/owner-guide/final-update.json",
+      "bytes": 851,
+      "sha256": "2ef7437bcb9ad17c24e7be58897c28e79d5a01657ee022848a53ebcb319f4c48",
+      "git_blob": "f4bb493e8c72bcbfacfc0bc815637e51ac73af0a",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/owner-guide/original/RECEIVING.md",
+      "bytes": 4593,
+      "sha256": "61116f0028335cc4b718bdf428bf26eb4073f14cb3e2f1070d3ef32d143bc200",
+      "git_blob": "3608974f2538350a9ff80c8c861fcd70e3c35a94",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/owner-guide/source-receiving.json",
+      "bytes": 621,
+      "sha256": "7b90130697805766a473a2e36cb82ee441f4372585ce0ccc12c03db6efa90f6f",
+      "git_blob": "05fb65c2b09c49bde481e0abf50c0c24bd5e346e",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/patch-receiving.json",
+      "bytes": 849,
+      "sha256": "32cf6e4870c25ca3fc914ffaef2c35c6b36e12e26b685eef0723ffc9a5e91827",
+      "git_blob": "63a08715b5b3639416c73dcf78b31785f230264f",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/publication-original/compile.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/publication-original/compile.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/publication-original/fault-observation.json",
+      "bytes": 192,
+      "sha256": "bbc553be760d511c32b8c6e1391c62d146d20718ca2fd8f6a26e0451e8fe9c05",
+      "git_blob": "c921e6956bae0781dd35812b908a9c1141fbabd8",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/publication-original/fault.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/publication-original/fault.stdout.log",
+      "bytes": 1232,
+      "sha256": "470f13608840be5e3e5626935ff748706471748f9a3934d51181d2c03efbc047",
+      "git_blob": "94ff2232dd55f7c4d1d9cb0bd3bf6002eb3d5ec6",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/publication-original/receipt.json",
+      "bytes": 462,
+      "sha256": "ebeeb3a706e267874ddc5fa3c6cf7f9469ca517fcca43462e716e626d2fcf943",
+      "git_blob": "a439a995f681d07c2f42d105f76cfe52b64d3c00",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/publication-original/source-bindings.json",
+      "bytes": 884,
+      "sha256": "387287c4ed38d64c7bdf9ebcd1300c471d673842a6b4cd3e5b1e3117a37cd3b2",
+      "git_blob": "fe026bc3e4b9578a832d50deb3e356a73b5541ca",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/receive-independent-consumer.py",
+      "bytes": 4058,
+      "sha256": "1c34fee34fcc34f276f3328b6f793440050ae10f14383d0b418e6adc1e0979c8",
+      "git_blob": "57ffd5a773bc9701216d0f62fb842f241efa7b5d",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/receive-independent-visual.py",
+      "bytes": 4034,
+      "sha256": "2a61a420da49bc62c695ed54675bd89ccb427c016c2704ff39e4db7c66ea32bf",
+      "git_blob": "5567d990b9349e53290e4e4318c14916f22edc57",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/seal-native-package.py",
+      "bytes": 8011,
+      "sha256": "a58ac84e00d8765b39bce822ed45317a2d3ff9b3da805f8e079cff7d1440013c",
+      "git_blob": "5d5dee062056221f2138b70bce6b1b44c946cae6",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/setup/npm-ci.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/setup/npm-ci.stdout.log",
+      "bytes": 25,
+      "sha256": "24b2d33a51ef197b00f48fa3096e9abd80d9f8961e2b33cb223e286cf29387ea",
+      "git_blob": "33b1bfc390c749462f028996eb5950a20f27dd84",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/setup/original-build.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/setup/original-build.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/setup/receipt.json",
+      "bytes": 695,
+      "sha256": "69529dd9dd31d711249d8856a1b5d1058474f21435d5d880c836ea82a79f7392",
+      "git_blob": "64dd1567d7a1e364972b5366d776f7991b7d51fe",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/source-inputs.json",
+      "bytes": 49439,
+      "sha256": "7e050f939897215559d911ee288cc3c225bf2ad1c0c52614f8dd9b4b2e53c01e",
+      "git_blob": "5885edc74d60aaa296b9c5c8501416c9b8fbb439",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/source-only.patch",
+      "bytes": 65141,
+      "sha256": "48dfdc1fc2d0ffa921d089f29a596cbf2a273a11fef42c73b036f7551fe6b39f",
+      "git_blob": "89003ad22aa6f6e640f91eddd855e0a3147421bb",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/source-publication.json",
+      "bytes": 70956,
+      "sha256": "bad92bb7df47a453ea455cc7f1730eefc60dd13312767539f7c2e341aa64f450",
+      "git_blob": "29b73b6eba425b739699255d82d30aed0b57c716",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/docs/receiving/month-comparison-c36a60df2cc1/source-tree-receipt.json",
+      "bytes": 1734,
+      "sha256": "12434683b853efe41f90ab43b629e3f2d0a10e13f62dcedc8dff1be7902b9153",
+      "git_blob": "7fb703ab5fb2277e93c6900bdbac7fe14fe779d2",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/package-lock.json",
+      "bytes": 43740,
+      "sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+      "git_blob": "020c296d667264f890d47c5effc7abca9f4ea8cb",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/src/household-compare.ts",
+      "bytes": 6245,
+      "sha256": "84a7266119430953394833d9f428684fb7e4db5405313fdadc7efaf90b1f4680",
+      "git_blob": "ec62e1fc186a194300fafe238e8d81363c5f4d9f",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/src/ledger.ts",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "git_blob": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/src/month-comparison.ts",
+      "bytes": 17761,
+      "sha256": "4b6a3afae5fc571145302da6de0aedb5f68c9ee7cf9bab1ef23f8692aa9c211b",
+      "git_blob": "5145b207f08b5dfc5548679f3244eed22fc15cc7",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/test/month-comparison-cli.test.ts",
+      "bytes": 9687,
+      "sha256": "fc49e8f54bcffcf815230e59367a2af082f83d5effac841351e088c1c2008a2e",
+      "git_blob": "b86fd77943844bdb68696816d9a2bf7945c54273",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/test/month-comparison.test.ts",
+      "bytes": 11077,
+      "sha256": "d9faa2a0f0610ba8dbe6c9509cb103954b99edcd8a5cc9bae149b4d030c024e2",
+      "git_blob": "2f667ea6360f6b28e4bbd242e43047340a1533af",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/tools/check-month-comparison.mjs",
+      "bytes": 10309,
+      "sha256": "aa6c9a3c0d1d6632a7ed3088ac91d2f171a04be093c07d9e906aecd9afe9b0c9",
+      "git_blob": "c5b18fb8bd952b070d825baa1b2fd57b9c053248",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "project/tsconfig.json",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72",
+      "git_blob": "22a92039fc845256859c3b4921063f3a16a0ae3e",
+      "git_mode": "100644",
+      "custody": "exact evidence Git tree"
+    },
+    {
+      "path": "reproduction.bundle",
+      "bytes": 1059053,
+      "sha256": "dd1d9ccff77967004d1d822e3f3aa795b8e307b1b9ba8079007fa619de74489e",
+      "custody": "verified complete private projection history; not canonical ancestry"
+    }
+  ],
+  "limits": [
+    "The history is a native six-file dependency projection, never a canonical merge parent.",
+    "Only the six source additions belong in owner source intake.",
+    "Independent consumer and visual evidence are included unchanged as manifest-selected raw files; no nested peer archives.",
+    "No installed service or owner adoption is claimed; node_modules, caches, .git directories and temporary profiles are excluded."
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "schema": "household.two_month_final_native_receiving.v1",
+  "recorded_at": "2026-10-08T19:55:29.829505+00:00",
+  "disposition": "ACCEPT_FOR_OWNER_RECEIVING_NOT_INSTALLED",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "native_source_commit": "571ac097c34c1c041ac298ad7d20e60379980db4",
+  "required_owner_parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "canonical_artifact_parent": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+  "owner_route": "https://github.com/Jacob-Met/household-ledger-mcp/issues/3#issuecomment-6067214316",
+  "integration_owners": [
+    "estate-ce7eb129730f",
+    "estate-61749b0088e2"
+  ],
+  "source_files": [
+    {
+      "path": "src/month-comparison.ts",
+      "mode": "100644",
+      "bytes": 17761,
+      "sha256": "4b6a3afae5fc571145302da6de0aedb5f68c9ee7cf9bab1ef23f8692aa9c211b",
+      "git_blob": "5145b207f08b5dfc5548679f3244eed22fc15cc7"
+    },
+    {
+      "path": "src/household-compare.ts",
+      "mode": "100644",
+      "bytes": 6245,
+      "sha256": "84a7266119430953394833d9f428684fb7e4db5405313fdadc7efaf90b1f4680",
+      "git_blob": "ec62e1fc186a194300fafe238e8d81363c5f4d9f"
+    },
+    {
+      "path": "test/month-comparison.test.ts",
+      "mode": "100644",
+      "bytes": 11077,
+      "sha256": "d9faa2a0f0610ba8dbe6c9509cb103954b99edcd8a5cc9bae149b4d030c024e2",
+      "git_blob": "2f667ea6360f6b28e4bbd242e43047340a1533af"
+    },
+    {
+      "path": "test/month-comparison-cli.test.ts",
+      "mode": "100644",
+      "bytes": 9687,
+      "sha256": "fc49e8f54bcffcf815230e59367a2af082f83d5effac841351e088c1c2008a2e",
+      "git_blob": "b86fd77943844bdb68696816d9a2bf7945c54273"
+    },
+    {
+      "path": "tools/check-month-comparison.mjs",
+      "mode": "100644",
+      "bytes": 10309,
+      "sha256": "aa6c9a3c0d1d6632a7ed3088ac91d2f171a04be093c07d9e906aecd9afe9b0c9",
+      "git_blob": "c5b18fb8bd952b070d825baa1b2fd57b9c053248"
+    },
+    {
+      "path": "docs/MONTH_COMPARISON.md",
+      "mode": "100644",
+      "bytes": 7676,
+      "sha256": "a1f52c8864184f959b3c764a6d705fe8dbc26ea72efec5e1185b766d0d51afe0",
+      "git_blob": "b6fe679865a65cad819acb3562653a32038c66d4"
+    }
+  ],
+  "source_patch": {
+    "path": "source-only.patch",
+    "bytes": 65141,
+    "sha256": "48dfdc1fc2d0ffa921d089f29a596cbf2a273a11fef42c73b036f7551fe6b39f"
+  },
+  "source_publication": {
+    "path": "source-publication.json",
+    "bytes": 70956,
+    "sha256": "bad92bb7df47a453ea455cc7f1730eefc60dd13312767539f7c2e341aa64f450"
+  },
+  "canonical_content_receiving": {
+    "path": "source-tree-receipt.json",
+    "bytes": 1734,
+    "sha256": "12434683b853efe41f90ab43b629e3f2d0a10e13f62dcedc8dff1be7902b9153"
+  },
+  "runtime": {
+    "node": "22.22.1",
+    "typescript": "5.9.3",
+    "node_types": "24.19.1",
+    "lifecycle_scripts_disabled": true,
+    "locked_private_install": true
+  },
+  "author_receiving": {
+    "original_frozen_consumer": {
+      "passed": 2,
+      "failed": 1,
+      "expected_failure": "New CLI absent"
+    },
+    "r1": {
+      "strict_compile_exit": 0,
+      "tests_passed": 21,
+      "tests_skipped": 0,
+      "domain_render_passed": 14,
+      "cli_passed": 7
+    },
+    "publication_negative": {
+      "exit": 1,
+      "actual_prefix_written_bytes": 19,
+      "partial_final_exists": true
+    },
+    "r2": {
+      "strict_compile_exit": 0,
+      "targeted_cli_passed": 8,
+      "targeted_cli_skipped": 0,
+      "same_fault_partial_final_exists": false,
+      "frozen_consumer_passed": 3,
+      "pure_source_and_compiled_unchanged": true,
+      "pure_tests_not_repeated": true
+    },
+    "pins": [
+      {
+        "path": "original/receipt.json",
+        "bytes": 1961,
+        "sha256": "b99fdeb601bf1398682f6e805387b09ee35bcb6d2c63d66177940daa3af63cbc"
+      },
+      {
+        "path": "author-r1/receipt.json",
+        "bytes": 2220,
+        "sha256": "b64e86a14c91cabb886d6a8cb95a556d55907869c66e7e471a637ca37263b89b"
+      },
+      {
+        "path": "publication-original/fault-observation.json",
+        "bytes": 192,
+        "sha256": "bbc553be760d511c32b8c6e1391c62d146d20718ca2fd8f6a26e0451e8fe9c05"
+      },
+      {
+        "path": "author-r2/receipt.json",
+        "bytes": 2731,
+        "sha256": "1b9c661dba6661140fd0c33f12e0e546787d2d8bcbc7b6c9b2d736d207ca0b56"
+      },
+      {
+        "path": "author-r2/fault-observation.json",
+        "bytes": 136,
+        "sha256": "5b72926e88f8fbcde59f4488ef7ff48856f26bc0d8cdc02e377bbb6b90d1e1dd"
+      },
+      {
+        "path": "author-r2/consumer/receipt.json",
+        "bytes": 11401,
+        "sha256": "1c9f01b1da3ac354f6fd3d8eed4c2554279b003c517ff71da2c11d02fe46ff78"
+      },
+      {
+        "path": "compiled-r2/manifest.json",
+        "bytes": 3286,
+        "sha256": "2cae7706d5e32ec21d8c9b34473c5bcd3760ca262e05e577a61f5942525f6f10"
+      }
+    ]
+  },
+  "independent_receiving": {
+    "status": "ACCEPTED_FOR_OWNER_RECEIVING",
+    "consumer": {
+      "commit": "65e1431e8d4882119f4b6a37a348ff9130c176ea",
+      "fixture_commit": "b318962641a59fd4e14e960c3fb89bce81a9ef45",
+      "files": 109,
+      "bytes": 328155,
+      "manifest": {
+        "path": "independent/consumer/file-manifest.json",
+        "bytes": 19017,
+        "sha256": "756dfdd7b78b4f17351b1c4dd6504d4c279cc39df99e260b12a11163caddc7bf"
+      },
+      "summary": {
+        "path": "independent/consumer/receiver-summary.json",
+        "bytes": 3201,
+        "sha256": "0d4d4270e46fa4679279b0ef95b6801c3c41d9b91159689fc579b37435fe1f75"
+      },
+      "custody": {
+        "path": "independent/consumer-receiving.json",
+        "bytes": 29594,
+        "sha256": "cb6c94888a059c52d39799524ebfc594fd6eb4894df474a3550fb93c44280267"
+      },
+      "domain_cases_passed": 11,
+      "actual_cli_cases_passed": 15
+    },
+    "visual": {
+      "commit": "b45eb8d8b7107951e7283f38538c1b9668cf950d",
+      "fixture_commit": "7fb753c10a2e87f87772e787a19d5d49da2609e7",
+      "files": 76,
+      "bytes": 1664403,
+      "manifest": {
+        "path": "independent/visual/manifest.json",
+        "bytes": 12336,
+        "sha256": "dafbf4e56aa473741c1ee2efbdca3b9d3223523e900702fdad3650a2bf69cc0d"
+      },
+      "summary": {
+        "path": "independent/visual/final-review.json",
+        "bytes": 10970,
+        "sha256": "42cdc4ad7f42b610c66dcfbb16f81286acab46f26542c2a11530dd00e495e892"
+      },
+      "custody": {
+        "path": "independent/visual-receiving.json",
+        "bytes": 19519,
+        "sha256": "d8450ce8588bdf09e4aa1e844b497f8d61a08387fac2066ba53885ef97ec1bc3"
+      },
+      "actual_browser_groups_passed": 7,
+      "actual_browser_assertions_passed": 55,
+      "pdf_text_custody_checks_passed": 12,
+      "presentation_notes": [
+        "A4 category column headers wrap within words, including Income and Second. All header text and data remain readable and present; no source change requested.",
+        "Single-category report caption says '1 categories'. Cosmetic grammar only; no source change requested."
+      ]
+    }
+  },
+  "owner_guide": {
+    "path": "owner-guide/RECEIVING.md",
+    "bytes": 5111,
+    "sha256": "f83e4681545ac85d947e0264c9ca0f03f608e7e8f49364414481a04b642950e3"
+  },
+  "all_independent_raw_evidence_included": true,
+  "test_or_browser_reruns_during_custody": false,
+  "limits": [
+    "The source is six additions over the stated complete owner parent, received locally through a six-file dependency projection.",
+    "No full inherited service suite or Node20 hosted-gate claim.",
+    "Native generated HTML received directly in LA7 Chrome; product logic was not substituted on LA7.",
+    "Exact archived failed routes and original partial-output failure remain unchanged.",
+    "No live ledger, account/provider call, production import, source replacement, serving takeover, restart or installation.",
+    "Owner integration must preserve established source receiving and requalify relevant dependency drift."
+  ]
+}

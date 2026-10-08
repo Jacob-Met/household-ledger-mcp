@@ -1,0 +1,45 @@
+{
+  "schema": "household.comparison_owner_publication.v1",
+  "source_commit": "571ac097c34c1c041ac298ad7d20e60379980db4",
+  "required_owner_parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "calculated_source_after_tree": "2cd593819c919a01e7dd01a4e998eb101abfc0b5",
+  "source_paths_added": 6,
+  "parent_source_paths_preserved": 116,
+  "artifact_parent": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+  "artifact_branch": "receiving/month-comparison-c36a60df2cc1",
+  "archive": {
+    "filename": "household-month-comparison-c36a60df2cc1.zip",
+    "bytes": 2358081,
+    "sha256": "3284cada1b71cbe4d7bd6217f86451a69796200e2f66cc378a1817fc616a3dd7",
+    "git_blob": "1edc30e0335c3ed975aedb47bf60e24c22587d80",
+    "members": 287
+  },
+  "la7_custody": {
+    "path": "C:\\Users\\minec\\hamon\\stage\\household-comparison-c36a60df2cc1\\LA7-CUSTODY.json",
+    "bytes": 4331,
+    "sha256": "130647cec6cdba6239cea2661afcb672847f9609a7cf9c70b4359787510bc975",
+    "recorded_at_utc": "2026-10-08T20:30:50.9366659Z",
+    "verified_files": 10
+  },
+  "independent_archive_preservation": {
+    "consumer_sha256": "b8755628fc295eb85d1780c332c3bb25420b3dbef0a397e8d05385322992719f",
+    "visual_sha256": "7399477ccb48d721ca942c7520846c54a9591caab1a7c8f4345fa2271cfc00ec"
+  },
+  "actions_boundary": {
+    "policy_relay": "https://github.com/Jacob-Met/hamon/issues/143#issuecomment-6067592767",
+    "policy": "No new GitHub Actions execution, including implicit push/PR/merge triggers.",
+    "observed_default_parent": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+    "observed_default_tree": "Complete untruncated source tree has only README.md; no workflow files.",
+    "proposed_ref_content": "Same README plus docs/receiving paths only; no workflow files.",
+    "known_pr8_workflow": {
+      "blob": "39325b079fb40b0587ec231eeb3328f52e7ece74",
+      "triggers": "push branches[main]; pull_request branches[main]"
+    },
+    "no_pr_merge_dispatch_rerun_or_workflow_change": true,
+    "workflow_registry_enumeration": "Connector rejected /actions/workflows with400 INVALID_ARGUMENT; no retry or alternate route used. Registered-workflow count is not claimed.",
+    "gate_before_ref": "Recheck current main and exact artifact paths before creating the receiving ref."
+  },
+  "receiving_status": "Qualified native source, actual consumer and browser/print evidence; artifact publication and exact native custody. Owner adoption and installation remain separate.",
+  "source_owner": "estate-ce7eb129730f",
+  "canonical_receiver": "estate-61749b0088e2"
+}
