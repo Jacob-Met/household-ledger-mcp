@@ -1,0 +1,483 @@
+diff --git a/src/budget-reallocation.ts b/src/budget-reallocation.ts
+new file mode 100644
+--- /dev/null
++++ b/src/budget-reallocation.ts
+@@ -0,0 +1,144 @@
++/** Reviewed movement of budget allowance; does not change transactions. */
++import { createHash } from "node:crypto";
++import { LedgerStore, ValidationError, validateMonth, type Budget, type LedgerData } from "./ledger.js";
++
++export const BUDGET_REALLOCATION_SCHEMA = "household-budget-reallocation/1";
++export interface BudgetReallocationReview {
++  schema: typeof BUDGET_REALLOCATION_SCHEMA;
++  month: string;
++  currency: string;
++  amountMinor: number;
++  totalMinor: number;
++  from: { category: string; beforeMinor: number; afterMinor: number };
++  to: { category: string; beforeMinor: number; afterMinor: number };
++  /** A content digest, not authentication, approval evidence or a ledger lock. */
++  reviewToken: string;
++}
++function requireValue(condition: unknown, message: string): asserts condition {
++  if (!condition) throw new ValidationError(message);
++}
++function object(value: unknown, fields: readonly string[], name: string): Record<string, unknown> {
++  requireValue(typeof value === "object" && value !== null && !Array.isArray(value), name + " must be an object");
++  const row = value as Record<string, unknown>;
++  requireValue(Object.keys(row).length === fields.length && fields.every(key => Object.hasOwn(row, key)), name + " has missing or unsupported fields");
++  return row;
++}
++function category(value: unknown): string {
++  requireValue(typeof value === "string" && value.trim().length > 0, "category must be a non-empty literal recorded name");
++  return value;
++}
++function currency(value: unknown): string {
++  requireValue(typeof value === "string" && /^[a-zA-Z]{3}$/.test(value.trim()), "currency must be an explicit 3-letter code");
++  return value.trim().toUpperCase();
++}
++function minor(value: unknown, positive = false): number {
++  requireValue(typeof value === "number" && Number.isSafeInteger(value) && (positive ? value > 0 : value >= 0),
++    positive ? "amountMinor must be a positive safe integer" : "review limits must be non-negative safe integers");
++  return value;
++}
++function token(review: Omit<BudgetReallocationReview, "reviewToken">): string {
++  return createHash("sha256").update(JSON.stringify([
++    review.schema, review.month, review.currency, review.amountMinor, review.totalMinor,
++    review.from.category, review.from.beforeMinor, review.from.afterMinor,
++    review.to.category, review.to.beforeMinor, review.to.afterMinor,
++  ])).digest("hex");
++}
++function makeReview(month: string, code: string, from: string, to: string, amount: number, fromBefore: number, toBefore: number): BudgetReallocationReview {
++  requireValue(from !== to, "source and destination categories must differ");
++  requireValue(fromBefore >= amount, "source budget does not contain that much allowance");
++  const total = BigInt(fromBefore) + BigInt(toBefore);
++  requireValue(total <= BigInt(Number.MAX_SAFE_INTEGER), "combined budget allowance exceeds the safe integer range");
++  const review: Omit<BudgetReallocationReview, "reviewToken"> = {
++    schema: BUDGET_REALLOCATION_SCHEMA, month, currency: code, amountMinor: amount, totalMinor: Number(total),
++    from: { category: from, beforeMinor: fromBefore, afterMinor: fromBefore - amount },
++    to: { category: to, beforeMinor: toBefore, afterMinor: toBefore + amount },
++  };
++  return { ...review, reviewToken: token(review) };
++}
++function selected(data: LedgerData, name: string, month: string, code: string): Budget {
++  const matches = data.budgets.filter(row => row.category === name && row.month === month &&
++    row.currency !== undefined && currency(row.currency) === code);
++  requireValue(matches.length === 1, "each selected category must have exactly one existing explicitly denominated budget in this month and currency");
++  return matches[0];
++}
++function readReview(value: unknown): BudgetReallocationReview {
++  const raw = object(value, ["schema", "month", "currency", "amountMinor", "totalMinor", "from", "to", "reviewToken"], "review");
++  requireValue(raw.schema === BUDGET_REALLOCATION_SCHEMA, "unsupported budget reallocation review schema");
++  const from = object(raw.from, ["category", "beforeMinor", "afterMinor"], "review.from");
++  const to = object(raw.to, ["category", "beforeMinor", "afterMinor"], "review.to");
++  const expected = makeReview(validateMonth(raw.month), currency(raw.currency), category(from.category), category(to.category),
++    minor(raw.amountMinor, true), minor(from.beforeMinor), minor(to.beforeMinor));
++  requireValue(raw.currency === expected.currency && minor(raw.totalMinor) === expected.totalMinor &&
++    minor(from.afterMinor) === expected.from.afterMinor && minor(to.afterMinor) === expected.to.afterMinor &&
++    raw.reviewToken === expected.reviewToken, "review content or token changed; preview and review again");
++  return expected;
++}
++export async function previewBudgetReallocation(store: LedgerStore, args: unknown): Promise<BudgetReallocationReview> {
++  const raw = object(args, ["month", "currency", "fromCategory", "toCategory", "amountMinor"], "reallocation arguments");
++  const month = validateMonth(raw.month), code = currency(raw.currency);
++  const from = category(raw.fromCategory), to = category(raw.toCategory), amount = minor(raw.amountMinor, true);
++  requireValue(from !== to, "source and destination categories must differ");
++  const data = await store.load();
++  return makeReview(month, code, from, to, amount,
++    selected(data, from, month, code).limitMinor, selected(data, to, month, code).limitMinor);
++}
++export async function commitBudgetReallocation(store: LedgerStore, args: unknown): Promise<{
++  status: "applied" | "already_matching"; review: BudgetReallocationReview;
++}> {
++  const review = readReview(object(args, ["review"], "commit arguments").review);
++  return store.update(data => {
++    const from = selected(data, review.from.category, review.month, review.currency);
++    const to = selected(data, review.to.category, review.month, review.currency);
++    if (from.limitMinor === review.from.afterMinor && to.limitMinor === review.to.afterMinor) {
++      // Current-value equality, not a claim that this request previously ran.
++      return { status: "already_matching" as const, review };
++    }
++    requireValue(from.limitMinor === review.from.beforeMinor && to.limitMinor === review.to.beforeMinor,
++      "reviewed budget limits changed; no allowance moved. Preview and review again");
++    from.limitMinor = review.from.afterMinor;
++    to.limitMinor = review.to.afterMinor;
++    return { status: "applied" as const, review };
++  });
++}
++const sideSchema = {
++  type: "object", additionalProperties: false,
++  properties: { category: { type: "string" }, beforeMinor: { type: "integer", minimum: 0, maximum: Number.MAX_SAFE_INTEGER }, afterMinor: { type: "integer", minimum: 0, maximum: Number.MAX_SAFE_INTEGER } },
++  required: ["category", "beforeMinor", "afterMinor"],
++} as const;
++export const BUDGET_REALLOCATION_TOOL_DEFS = [
++  {
++    name: "preview_budget_reallocation",
++    description: "Review moving an explicit amount of monthly budget allowance between two existing category budgets in one currency. Does not move money or change transactions. Literal category names must match recorded budgets. Review both old/new limits before committing.",
++    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
++    inputSchema: {
++      type: "object", additionalProperties: false,
++      properties: {
++        month: { type: "string", description: "YYYY-MM" }, currency: { type: "string", description: "Explicit 3-letter code, normalized to uppercase." },
++        fromCategory: { type: "string", description: "Exact recorded source category." },
++        toCategory: { type: "string", description: "Exact recorded destination category." },
++        amountMinor: { type: "integer", minimum: 1, maximum: Number.MAX_SAFE_INTEGER },
++      },
++      required: ["month", "currency", "fromCategory", "toCategory", "amountMinor"],
++    },
++  },
++  {
++    name: "commit_budget_reallocation",
++    description: "Apply a previously reviewed budget reallocation atomically through the existing Store. Submit the whole unchanged preview as review. Refuses changed limits; preserves unrelated edits. already_matching means current limits match, not proof of prior execution. The digest is not authorization.",
++    annotations: { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false },
++    inputSchema: {
++      type: "object", additionalProperties: false,
++      properties: { review: {
++        type: "object", additionalProperties: false,
++        properties: {
++          schema: { type: "string", const: BUDGET_REALLOCATION_SCHEMA },
++          month: { type: "string" }, currency: { type: "string" },
++          amountMinor: { type: "integer", minimum: 1, maximum: Number.MAX_SAFE_INTEGER },
++          totalMinor: { type: "integer", minimum: 0, maximum: Number.MAX_SAFE_INTEGER },
++          from: sideSchema, to: sideSchema, reviewToken: { type: "string", pattern: "^[0-9a-f]{64}$" },
++        },
++        required: ["schema", "month", "currency", "amountMinor", "totalMinor", "from", "to", "reviewToken"],
++      } },
++      required: ["review"],
++    },
++  },
++] as const;
+diff --git a/src/index.ts b/src/index.ts
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -23,6 +23,7 @@
+   setBudget,
+   ValidationError,
+ } from "./ledger.js";
++import { commitBudgetReallocation, previewBudgetReallocation, BUDGET_REALLOCATION_TOOL_DEFS } from "./budget-reallocation.js";
+ import { commitTransactionImport, previewTransactionImport, TRANSACTION_IMPORT_TOOL_DEFS } from "./transaction-import.js";
+ 
+ export function resolveDataPath(): string {
+@@ -141,6 +142,7 @@
+     },
+   },
+   ...TRANSACTION_IMPORT_TOOL_DEFS,
++  ...BUDGET_REALLOCATION_TOOL_DEFS,
+ ] as const;
+ 
+ export function createMcpServer(store: LedgerStore): Server {
+@@ -152,6 +154,14 @@
+     const args = (request.params.arguments ?? {}) as Record<string, unknown>;
+     try {
+       switch (request.params.name) {
++        case "preview_budget_reallocation": {
++          const result = await previewBudgetReallocation(store, args);
++          return { content: [{ type: "text", text: JSON.stringify(result) }] };
++        }
++        case "commit_budget_reallocation": {
++          const result = await commitBudgetReallocation(store, args);
++          return { content: [{ type: "text", text: JSON.stringify(result) }] };
++        }
+         case "preview_transaction_import": {
+           const result = await previewTransactionImport(store, args);
+           return { content: [{ type: "text", text: JSON.stringify(result) }] };
+diff --git a/test/budget-reallocation.test.ts b/test/budget-reallocation.test.ts
+new file mode 100644
+--- /dev/null
++++ b/test/budget-reallocation.test.ts
+@@ -0,0 +1,109 @@
++import { test } from "node:test";
++import assert from "node:assert/strict";
++import { chmod, mkdtemp, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
++import { join } from "node:path";
++import { tmpdir } from "node:os";
++import { LedgerStore, monthlySummary, recordTransaction, setBudget, type LedgerData } from "../src/ledger.js";
++import { commitBudgetReallocation as commit, previewBudgetReallocation as preview, type BudgetReallocationReview } from "../src/budget-reallocation.js";
++
++const request = { month: "2026-10", currency: "USD", fromCategory: "food", toCategory: "travel", amountMinor: 250 };
++function ledger(): LedgerData {
++  return { version: 2, transactions: [{id:"original",type:"expense",amountMinor:300,currency:"USD",date:"2026-10-02",category:"food",note:"retained",idempotencyKey:"original-key",createdAt:"2026-10-02T01:00:00Z"}],
++    budgets: [{category:"food",month:"2026-10",currency:"USD",limitMinor:1000},{category:"travel",month:"2026-10",currency:"USD",limitMinor:500},{category:"food",month:"2026-10",currency:"EUR",limitMinor:800}] };
++}
++async function fixture(run: (store: LedgerStore, path: string, dir: string) => Promise<void>, data = ledger()): Promise<void> {
++ const dir=await mkdtemp(join(tmpdir(),"household-reallocation-"));const path=join(dir,"ledger.json");
++ try{await writeFile(path,JSON.stringify(data));await run(new LedgerStore(path),path,dir);}finally{await chmod(dir,0o700);await rm(dir,{recursive:true,force:true});}
++}
++test("review is read-only; commit moves both limits and native summary preserves transactions and spending",()=>fixture(async(store,path)=>{
++ const bytes=await readFile(path);const before=await stat(path);const original=await store.load();
++ const review=await preview(store,request);
++ assert.deepEqual(review.from,{category:"food",beforeMinor:1000,afterMinor:750});
++ assert.deepEqual(review.to,{category:"travel",beforeMinor:500,afterMinor:750});assert.equal(review.totalMinor,1500);
++ assert.deepEqual(await readFile(path),bytes);assert.equal((await stat(path)).mtimeMs,before.mtimeMs);
++ assert.equal((await commit(store,{review})).status,"applied");
++ const result=await store.load();assert.deepEqual(result.transactions,original.transactions);assert.deepEqual(result.budgets[2],original.budgets[2]);
++ assert.equal(result.version,original.version);assert.deepEqual(result.budgets.slice(0,2).map(b=>b.limitMinor),[750,750]);
++ const summary=monthlySummary(result,2026,10,"USD");assert.equal(summary.expenseMinor,300);
++ assert.deepEqual(summary.budgets.map(b=>[b.category,b.remainingMinor,b.over]),[["food",450,false],["travel",750,false]]);
++}));
++test("unrelated fresh recording and budget edits survive the reviewed pair commit",()=>fixture(async(store)=>{
++ const review=await preview(store,request);
++ await store.update(data=>{recordTransaction(data,{type:"income",amountMinor:5000,currency:"USD",date:"2026-10-03",category:"salary",idempotencyKey:"new"});setBudget(data,"other","2026-10",333,"USD");});
++ const fresh=await store.load();await commit(store,{review});const result=await store.load();
++ assert.deepEqual(result.transactions,fresh.transactions);assert.deepEqual(result.budgets.slice(2),fresh.budgets.slice(2));
++}));
++test("concurrent identical commits apply once and matching replay never writes, including new Store",()=>fixture(async(store,path)=>{
++ const review=await preview(store,request);
++ const results=await Promise.all([commit(store,{review}),commit(new LedgerStore(path),{review})]);
++ assert.deepEqual(results.map(r=>r.status).sort(),["already_matching","applied"]);
++ const bytes=await readFile(path),info=await stat(path);
++ assert.equal((await commit(new LedgerStore(path),{review})).status,"already_matching");
++ assert.deepEqual(await readFile(path),bytes);assert.equal((await stat(path)).mtimeMs,info.mtimeMs);
++}));
++test("competing reviewed amounts serialize without partial or lost allowance",()=>fixture(async(store,path)=>{
++ const a=await preview(store,request),b=await preview(store,{...request,amountMinor:350});
++ const results=await Promise.allSettled([commit(store,{review:a}),commit(new LedgerStore(path),{review:b})]);
++ assert.equal(results.filter(r=>r.status==="fulfilled").length,1);assert.equal(results.filter(r=>r.status==="rejected").length,1);
++ assert.deepEqual((await store.load()).budgets.slice(0,2).map(b=>b.limitMinor),[750,750]);
++}));
++for(const change of ["source","destination","mixed","removed"]){
++ test("stale "+change+" pair refuses without a write",()=>fixture(async(store,path)=>{
++  const review=await preview(store,request);
++  await store.update(data=>{if(change==="removed")data.budgets.splice(1,1);else if(change==="destination")data.budgets[1].limitMinor=501;else data.budgets[0].limitMinor=change==="mixed"?750:999;});
++  const bytes=await readFile(path);await assert.rejects(commit(store,{review}),/changed|existing explicitly/);assert.deepEqual(await readFile(path),bytes);
++ }));
++}
++test("failed OS persistence keeps original bytes; fresh unrelated edit and retry succeed",()=>fixture(async(store,path,dir)=>{
++ assert.notEqual(process.getuid?.(),0,"requires ordinary user to exercise directory refusal");
++ const review=await preview(store,request);const bytes=await readFile(path);
++ await chmod(dir,0o500);
++ try{await assert.rejects(commit(store,{review}),/EACCES|permission/i);assert.deepEqual(await readFile(path),bytes);}
++ finally{await chmod(dir,0o700);}
++ await store.update(data=>setBudget(data,"later","2026-11",99,"GBP"));
++ assert.equal((await commit(store,{review})).status,"applied");
++ assert.equal((await store.load()).budgets.at(-1)?.limitMinor,99);assert.deepEqual(await readdir(dir),["ledger.json"]);
++}));
++test("zero source endpoint and MAX_SAFE total are representable exactly",()=>fixture(async(store)=>{
++ await store.update(data=>{data.budgets[0].limitMinor=1;data.budgets[1].limitMinor=Number.MAX_SAFE_INTEGER-1;});
++ const review=await preview(store,{...request,amountMinor:1});await commit(store,{review});
++ assert.deepEqual((await store.load()).budgets.slice(0,2).map(b=>b.limitMinor),[0,Number.MAX_SAFE_INTEGER]);
++}));
++test("literal legacy category and currency bytes are retained without normalization",()=>fixture(async(store)=>{
++ await store.update(data=>{data.budgets[0].category=" food ";data.budgets[0].currency=" usd ";data.budgets[1].category="__proto__";});
++ const review=await preview(store,{...request,fromCategory:" food ",toCategory:"__proto__",currency:" usd "});
++ assert.equal(review.currency,"USD");await commit(store,{review});const rows=(await store.load()).budgets;
++ assert.equal(rows[0].category," food ");assert.equal(rows[0].currency," usd ");assert.equal(rows[1].category,"__proto__");
++ await assert.rejects(preview(store,{...request,toCategory:"__proto__"}),/existing explicitly/);
++}));
++for(const [label,patch] of [
++ ["same category",{toCategory:"food"}],["missing category",{toCategory:"absent"}],["wrong month",{month:"2026-11"}],
++ ["wrong currency",{currency:"GBP"}],["blank currency",{currency:""}],["fraction",{amountMinor:0.5}],["zero",{amountMinor:0}],
++ ["negative",{amountMinor:-1}],["unsafe",{amountMinor:Number.MAX_SAFE_INTEGER+1}],["insufficient",{amountMinor:1001}],
++ ["extra field",{approve:true}],["invalid month",{month:"2026-13"}],
++] as const){
++ test("refuses "+label+" before write",()=>fixture(async(store,path)=>{const bytes=await readFile(path);await assert.rejects(preview(store,{...request,...patch}));assert.deepEqual(await readFile(path),bytes);}));
++}
++test("unassigned legacy budgets are not silently assigned or created",()=>fixture(async(store,path)=>{
++ await store.update(data=>{data.budgets=data.budgets.slice(0,2).map(({currency,...row})=>row);data.version=1;});
++ const bytes=await readFile(path);await assert.rejects(preview(store,request),/existing explicitly/);assert.deepEqual(await readFile(path),bytes);
++}));
++test("overflowing total refuses even when each row individually fits",()=>fixture(async(store,path)=>{
++ await store.update(data=>{data.budgets[0].limitMinor=Number.MAX_SAFE_INTEGER;data.budgets[1].limitMinor=1;});
++ const bytes=await readFile(path);await assert.rejects(preview(store,{...request,amountMinor:1}),/combined/);assert.deepEqual(await readFile(path),bytes);
++}));
++test("tampered or structurally incomplete review cannot enter Store mutation",()=>fixture(async(store,path)=>{
++ const review=await preview(store,request);const bytes=await readFile(path);
++ const edits: Array<(r:any)=>void>=[
++ r=>r.amountMinor++,r=>r.from.afterMinor++,r=>r.to.beforeMinor++,r=>r.from.category="else",
++ r=>r.totalMinor++,r=>r.currency="usd",r=>r.schema="other",r=>r.reviewToken="0".repeat(64),
++ r=>r.extra=true,r=>delete r.to.category,r=>r.to.extra=true,r=>r.from.beforeMinor=NaN,
++ ];
++ for(const edit of edits){const r=structuredClone(review);edit(r);await assert.rejects(commit(store,{review:r}));assert.deepEqual(await readFile(path),bytes);}
++ await assert.rejects(commit(store,{review,extra:true}));
++}));
++test("reordered JSON keys carry the same reviewed meaning",()=>fixture(async(store)=>{
++ const review=await preview(store,request);
++ const reordered=Object.fromEntries(Object.entries(review).reverse());reordered.from=Object.fromEntries(Object.entries(review.from).reverse());
++ assert.equal((await commit(store,{review:reordered})).status,"applied");
++}));
+diff --git a/test/mcp.test.ts b/test/mcp.test.ts
+--- a/test/mcp.test.ts
++++ b/test/mcp.test.ts
+@@ -32,7 +32,7 @@
+     const { tools } = await client.listTools();
+     assert.deepEqual(
+       tools.map((t) => t.name).sort(),
+-      ["cashflow_trend", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_transaction_import", "record_transaction", "set_budget"]
++      ["cashflow_trend", "commit_budget_reallocation", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_budget_reallocation", "preview_transaction_import", "record_transaction", "set_budget"]
+     );
+   });
+ 
+diff --git a/test/transaction-import-http.test.ts b/test/transaction-import-http.test.ts
+--- a/test/transaction-import-http.test.ts
++++ b/test/transaction-import-http.test.ts
+@@ -78,7 +78,7 @@
+   try {
+     service = await launch(path);
+     const names = (await service.client.listTools()).tools.map(tool => tool.name).sort();
+-    assert.deepEqual(names, ["cashflow_trend", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_transaction_import", "record_transaction", "set_budget"]);
++    assert.deepEqual(names, ["cashflow_trend", "commit_budget_reallocation", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_budget_reallocation", "preview_transaction_import", "record_transaction", "set_budget"]);
+     const csv = HEADER + 'bank:one,income,02000, usd ,2026-10-01, salary ,"  payer, \"\"October\"\"\r\npaid  "\n' +
+       "bank:two,expense,500,USD,2026-10-02,food,\n" + "bank:three,expense,75,EUR,2026-10-02,food,";
+     const preview = payload<TransactionImportPreview>(await service.client.callTool({ name: "preview_transaction_import", arguments: { csv } }));
+diff --git a/test/budget-reallocation-http.test.ts b/test/budget-reallocation-http.test.ts
+new file mode 100644
+--- /dev/null
++++ b/test/budget-reallocation-http.test.ts
+@@ -0,0 +1,106 @@
++import { test } from "node:test";
++import assert from "node:assert/strict";
++import { spawn } from "node:child_process";
++import { once } from "node:events";
++import { mkdtemp, readFile, rm, stat } from "node:fs/promises";
++import { createServer } from "node:net";
++import { tmpdir } from "node:os";
++import { join } from "node:path";
++import { fileURLToPath } from "node:url";
++import { Client } from "@modelcontextprotocol/sdk/client/index.js";
++import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
++import type { BudgetReallocationReview } from "../src/budget-reallocation.js";
++type Reply = {isError?:boolean;content:Array<{type:string;text?:string}>};
++function value<T>(raw:unknown):T{const r=raw as Reply;assert.equal(r.isError,undefined,JSON.stringify(r));return JSON.parse(r.content[0].text!) as T;}
++function refused(raw:unknown,pattern:RegExp):void{const r=raw as Reply;assert.equal(r.isError,true);assert.match(r.content[0].text!,pattern);}
++const request={month:"2026-10",currency:"USD",fromCategory:"food",toCategory:"travel",amountMinor:250};
++async function launch(path: string): Promise<{ client: Client; stop: () => Promise<void> }> {
++  const probe = createServer();
++  probe.listen(0, "127.0.0.1");
++  await once(probe, "listening");
++  const address = probe.address();
++  assert.ok(address && typeof address !== "string");
++  const port = address.port;
++  await new Promise<void>((resolve, reject) => probe.close(error => error ? reject(error) : resolve()));
++  const child = spawn(process.execPath, [fileURLToPath(new URL("../src/index.js", import.meta.url))], {
++    env: { ...process.env, HOUSEHOLD_LEDGER_DATA_PATH: path, HOUSEHOLD_LEDGER_HOST: "127.0.0.1", HOUSEHOLD_LEDGER_PORT: String(port) },
++    stdio: ["ignore", "pipe", "pipe"],
++  });
++  let errors = "";
++  child.stderr.on("data", chunk => { errors += String(chunk); });
++  try {
++    await new Promise<void>((resolve, reject) => {
++      let output = "";
++      const timer = setTimeout(() => reject(new Error(`private import server startup timed out: ${errors}`)), 5000);
++      child.once("error", error => { clearTimeout(timer); reject(error); });
++      child.once("exit", code => { clearTimeout(timer); reject(new Error(`private import server exited ${code}: ${errors}`)); });
++      child.stdout.on("data", chunk => {
++        output += String(chunk);
++        if (output.includes("listening on")) { clearTimeout(timer); resolve(); }
++      });
++    });
++    assert.equal((await fetch(`http://127.0.0.1:${port}/healthz`)).status, 200);
++    const client = new Client({ name: "import-http-receiving", version: "1" }, { capabilities: {} });
++    await client.connect(new StreamableHTTPClientTransport(new URL(`http://127.0.0.1:${port}/mcp`)));
++    return { client, stop: async () => {
++      await client.close();
++      if (child.exitCode === null && child.signalCode === null) {
++        const exit = once(child, "exit");
++        child.kill("SIGTERM");
++        await exit;
++      }
++      assert.equal(errors, "", `private import server errors: ${errors}`);
++    } };
++  } catch (error) {
++    child.kill("SIGTERM");
++    throw error;
++  }
++}
++
++async function seed(client:Client):Promise<void>{
++ for(const [category,limitMinor] of [["food",1000],["travel",500]] as const)
++ value(await client.callTool({name:"set_budget",arguments:{category,limitMinor,month:"2026-10",currency:"USD"}}));
++ value(await client.callTool({name:"record_transaction",arguments:{type:"expense",amountMinor:900,currency:"USD",date:"2026-10-05",category:"food",idempotencyKey:"receipt:one",note:"same receipt"}}));
++}
++test("actual HTTP review/commit reaches both budgets, summary/cashflow and fresh-process matching retry",async()=>{
++ const dir=await mkdtemp(join(tmpdir(),"hlm-reallocation-http-")),path=join(dir,"ledger.json");let service:Awaited<ReturnType<typeof launch>>|undefined;
++ try{
++  service=await launch(path);await seed(service.client);
++  const tools=(await service.client.listTools()).tools;
++  for(const name of ["preview_budget_reallocation","commit_budget_reallocation"])assert.equal(tools.filter(t=>t.name===name).length,1);
++  const before=await readFile(path,"utf8");
++  const review=value<BudgetReallocationReview>(await service.client.callTool({name:"preview_budget_reallocation",arguments:request}));
++  assert.equal(await readFile(path,"utf8"),before);
++  value(await service.client.callTool({name:"record_transaction",arguments:{type:"income",amountMinor:2000,currency:"USD",date:"2026-10-06",category:"salary",idempotencyKey:"newer"}}));
++  const fresh=JSON.parse(await readFile(path,"utf8"));
++  const result=value<{status:string}>(await service.client.callTool({name:"commit_budget_reallocation",arguments:{review}}));
++  assert.equal(result.status,"applied");const after=JSON.parse(await readFile(path,"utf8"));assert.deepEqual(after.transactions,fresh.transactions);
++  assert.deepEqual(after.budgets.map((b:any)=>b.limitMinor),[750,750]);
++  const summary=value<any>(await service.client.callTool({name:"monthly_summary",arguments:{year:2026,month:10,currency:"USD"}}));
++  assert.equal(summary.expenseMinor,900);assert.equal(summary.incomeMinor,2000);assert.deepEqual(summary.budgets.map((b:any)=>[b.category,b.remainingMinor,b.over]),[["food",-150,true],["travel",750,false]]);
++  const trend=value<any>(await service.client.callTool({name:"cashflow_trend",arguments:{fromMonth:"2026-10",toMonth:"2026-10",currency:"USD"}}));
++  assert.deepEqual(trend.months[0].budgets,summary.budgets);assert.equal(trend.totals.netMinor,1100);
++  const bytes=await readFile(path);const modified=(await stat(path)).mtimeMs;
++  await service.stop();service=await launch(path);
++  assert.equal(value<{status:string}>(await service.client.callTool({name:"commit_budget_reallocation",arguments:{review}})).status,"already_matching");
++  assert.deepEqual(await readFile(path),bytes);assert.equal((await stat(path)).mtimeMs,modified);
++  const retry=value<any>(await service.client.callTool({name:"record_transaction",arguments:{type:"expense",amountMinor:900,currency:"USD",date:"2026-10-05",category:"food",idempotencyKey:"receipt:one",note:"same receipt"}}));
++  assert.deepEqual(retry,after.transactions[0]);assert.deepEqual(await readFile(path),bytes);
++ }finally{if(service)await service.stop();await rm(dir,{recursive:true,force:true});}
++});
++test("actual HTTP stale pair, tampered review and extra arguments refuse; fresh review works",async()=>{
++ const dir=await mkdtemp(join(tmpdir(),"hlm-reallocation-http-")),path=join(dir,"ledger.json");let service:Awaited<ReturnType<typeof launch>>|undefined;
++ try{
++  service=await launch(path);await seed(service.client);const client=service.client;
++  const review=value<BudgetReallocationReview>(await client.callTool({name:"preview_budget_reallocation",arguments:request}));
++  value(await client.callTool({name:"set_budget",arguments:{category:"travel",month:"2026-10",currency:"USD",limitMinor:600}}));
++  const bytes=await readFile(path);
++  refused(await client.callTool({name:"commit_budget_reallocation",arguments:{review}}),/changed/);
++  refused(await client.callTool({name:"commit_budget_reallocation",arguments:{review:{...review,totalMinor:1499}}}),/review content/);
++  refused(await client.callTool({name:"preview_budget_reallocation",arguments:{...request,overwrite:true}}),/unsupported/);
++  assert.deepEqual(await readFile(path),bytes);
++  const fresh=value<BudgetReallocationReview>(await client.callTool({name:"preview_budget_reallocation",arguments:request}));
++  assert.equal(value<{status:string}>(await client.callTool({name:"commit_budget_reallocation",arguments:{review:fresh}})).status,"applied");
++  assert.deepEqual(JSON.parse(await readFile(path,"utf8")).budgets.map((b:any)=>b.limitMinor),[750,850]);
++ }finally{if(service)await service.stop();await rm(dir,{recursive:true,force:true});}
++});
+diff --git a/docs/BUDGET_REALLOCATION.md b/docs/BUDGET_REALLOCATION.md
+new file mode 100644
+--- /dev/null
++++ b/docs/BUDGET_REALLOCATION.md
+@@ -0,0 +1,46 @@
++# Reviewed budget reallocation
++
++Use `preview_budget_reallocation` to review a change to one month's planned category allowance, then submit that complete review to `commit_budget_reallocation`. Both category limits change in one existing Store update, so the operation preserves their combined allowance. This does not move money, edit transactions, change recorded spending, create budgets or convert currencies.
++
++## Example
++
++With an October USD food allowance of 1000 minor units and travel allowance of 500, call:
++
++```json
++{
++  "name": "preview_budget_reallocation",
++  "arguments": {
++    "month": "2026-10",
++    "currency": "USD",
++    "fromCategory": "food",
++    "toCategory": "travel",
++    "amountMinor": 250
++  }
++}
++```
++
++The result shows food changing from 1000 to 750, travel from 500 to 750, and a combined allowance of 1500. These are integer minor units; interpret them using the selected currency's convention. Review both category names, month, currency and limits. To apply the change, call `commit_budget_reallocation` with an object whose sole field is `review`, containing the entire unchanged preview result, including its `reviewToken`.
++
++The commit reports `applied` after persistence succeeds. The existing monthly summary and cashflow tools then show the new category limits and remaining allowances against the same recorded spending. A smaller limit can be below spending already recorded; this is allowed and the existing summary reports that category over budget.
++
++## Exact scope and fresh state
++
++Both categories must already have explicitly denominated budgets in the selected month and currency. Category names match recorded strings exactly, including meaningful spaces and Unicode. Currency input is trimmed and uppercased as a three-letter code; the stored category and currency strings are retained. Legacy unassigned budgets, absent categories, different categories' months/currencies and ambiguous rows are not guessed or created.
++
++The amount must be a positive safe integer. The source must contain sufficient allowance. The combined pair total and resulting limits must fit JavaScript's safe integer range. Moving the full source allowance to the destination is supported; the source limit becomes zero.
++
++Commit loads fresh data through the existing Store's serialized update. It changes only the two selected `limitMinor` values. New transactions, unrelated budgets, row order, metadata and recording identities remain intact. If either reviewed limit changed, disappeared or became invalid, the whole operation refuses; obtain a new preview and review the new numbers.
++
++If both current limits already equal the proposed final values, the result is `already_matching` and no file is rewritten. This safely resolves a usual lost-response retry while the pair remains at those values. It is a statement about current values, not proof that this request executed before: another action could have set the same limits.
++
++There is no durable request-history record. If later actions restore the exact original pair, submitting an old review can apply the move again. Always obtain a new review for a new user action. The tool's MCP idempotence hint is deliberately false for this reason. The token is a deterministic content digest, not authentication, evidence of human approval, a secret or a lock.
++
++## Persistence and operational boundary
++
++This flow inherits the existing Store's queue and atomic replacement behavior. Changes are serialized among Store instances for the same resolved path in one process. It adds no cross-process lock, account integration, network service deployment or stronger power-loss guarantee. A persistence error is returned; the caller can inspect current budgets and retry the same reviewed change if they remain appropriate.
++
++The contribution is based on qualified PR #8 source `591ab6f5a2d65bf596aeb707dbb635ee981ec926`. Source-parent disposition remains with `estate-ce7eb129730f`; canonical receiving remains with `estate-61749b0088e2`. It adds its own module, MCP hooks and tests without changing the ledger schema, core Store or other owners' month-copy/filter/import/report implementations. Canonical publication should compose its additive hooks with those contributions instead of importing native snapshot ancestry.
++
++## Verification
++
++The maintained `npm test` command compiles TypeScript and discovers the new native and actual HTTP MCP tests with the existing test wildcard. The tests use synthetic ledgers and private local servers. They cover simultaneous identical and competing reviews; stale and malformed input; real filesystem persistence refusal followed by a fresh-state retry; exact category/currency preservation; summary/recording continuity; and matching retry through a newly launched server. Existing tests retain all assertions, with only the expected tool-name lists extended.

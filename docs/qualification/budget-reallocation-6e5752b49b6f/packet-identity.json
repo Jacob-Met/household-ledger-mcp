@@ -1,0 +1,54 @@
+{
+  "archive": "/tmp/household-budget-reallocation-6e5752b49b6f-production/household-budget-reallocation-author-receiving.tar.gz",
+  "bytes": 47613,
+  "sha256": "156f82bf97cf9758ede9335eece3a54f6b13d957c006dc189e3a38140677d445",
+  "gitBlob": "6bcec210284010be28cf76311eef6e829b2d8d37",
+  "members": 31,
+  "manifest": {
+    "bytes": 5925,
+    "sha256": "48f7349c7f45ff2483db3542439d65f8928d9fd44e593013f6b165a84a2b5c26",
+    "gitBlob": "251b5d244052719bb7bc624aba5f75cc971877f4"
+  },
+  "chunks": [
+    "archive-base64-0.txt",
+    "archive-base64-1.txt",
+    "archive-base64-2.txt"
+  ],
+  "sources": {
+    "src/budget-reallocation.ts": {
+      "bytes": 9152,
+      "sha256": "d89e0a177e917ca370c0ebcca968d8900ea782d6422614ee96a0fecb4b8ac0c5",
+      "gitBlob": "a31c48a650c6c2b4d67fc29a1d89669e84e42b52"
+    },
+    "src/index.ts": {
+      "bytes": 12214,
+      "sha256": "3fac28320a220238152ebdb6c2cf24476455f2a1d4bb720bcf3ded8ae3e43102",
+      "gitBlob": "8dab2003cbfffed9b4d8f0463e0b62c3bdd49ba3"
+    },
+    "test/budget-reallocation.test.ts": {
+      "bytes": 9269,
+      "sha256": "603922c0df5650d3c79a6605f08c94b105ab33f9ba65b05812a876eb4cb21711",
+      "gitBlob": "081b2f062f6b43fcfa2e7476d9f93b4c1f45191a"
+    },
+    "test/mcp.test.ts": {
+      "bytes": 3638,
+      "sha256": "ac62e9c6f866ae5a6657efceca5e9437912113ad01846d70963f68e561d7c29a",
+      "gitBlob": "4a79b25197cfae2177edb8020df1540c2836dc50"
+    },
+    "test/transaction-import-http.test.ts": {
+      "bytes": 11239,
+      "sha256": "02247b59677819ea98524e9405a158a3fcab0531956b4eb1539c1a8dc76d7f20",
+      "gitBlob": "5b17ea89366500d815f0c0e774bd2fd55ef6cdcb"
+    },
+    "test/budget-reallocation-http.test.ts": {
+      "bytes": 7808,
+      "sha256": "b52707712b40417122454ea132fcb5e8e6bcbde3a59a18f948f811253fcdf121",
+      "gitBlob": "5f4993b94ffb186851dc7ed9dc4d94b6d190ba76"
+    },
+    "docs/BUDGET_REALLOCATION.md": {
+      "bytes": 4862,
+      "sha256": "967ff717c06d379dc0842d4bd392ed7f02077b86a65c0bd17f15c15e59f92fb5",
+      "gitBlob": "6c816c09e860f1a04b23f9ffa2c4b3216a34c8e9"
+    }
+  }
+}
