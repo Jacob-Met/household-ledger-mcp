@@ -1,0 +1,9 @@
+# Independent monthly-summary receiving review
+
+**Accepted:** local contribution `b0508c4e2979518fa06e80f84b7b5f73d11590a9` over exact PR #1 source `dffabba341a8bce74faa97de68054bd453509a98`. Source review confirms that the production change is confined to initializing `monthlySummary`'s category dictionary. The existing MCP handlers, storage transaction boundary, dependencies and lockfile are unchanged.
+
+Both baseline and candidate compiled with the native TypeScript build. Six separately authored groups run in individual Node 24.19.0 processes, so the baseline's modification of built-in objects cannot contaminate the next control. Candidate passes all six. The baseline passes the ordinary serialized-shape control and fails four direct groups: all inherited property names must remain own JSON categories, built-in descriptors remain unchanged, a frozen Object prototype permits a valid reserved category, and earlier summaries cannot contaminate an unspent budget in a later month.
+
+The sixth group uses the actual MCP Client, Server and in-memory transport with a disposable persisted LedgerStore. A summary containing `__proto__` and `constructor` returns exact categories and budget figures on the candidate, leaving saved records unchanged. On the baseline the request fails to complete. The original process timeout is retained; a second run with an explicit 1,000-ms SDK request timeout returns MCP error `-32001`, while the candidate succeeds. This is an in-process SDK receiving result, not HTTP or deployed-service qualification.
+
+`review.mjs` reproduces the groups against a compiled tree passed as its first argument. Set `REVIEW_CASE='actual MCP'` for the bounded SDK case. The initial harness and original outcomes are retained separately. The evidence uses synthetic transactions only. No actual account, live ledger, external endpoint, currency policy, handler mutation or concurrent-writer fix was involved.

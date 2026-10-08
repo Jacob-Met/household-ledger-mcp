@@ -1,0 +1,70 @@
+{
+  "schema": "household-ledger.category-summary.verification.v1",
+  "captured_at": "2026-10-08T07:27:33.640353+00:00",
+  "upstream_source": {
+    "repository": "Jacob-Met/household-ledger-mcp",
+    "pull_request": 1,
+    "commit": "dffabba341a8bce74faa97de68054bd453509a98"
+  },
+  "isolated_baseline_commit": "47d8751ac4ffbc273a7fff3220e0d8e69321e8f3",
+  "branch": "fix/monthly-category-summary-e3a41d2b3368",
+  "node": "v24.19.0",
+  "typescript": "Version 5.9.3",
+  "source_sha256_before": {
+    "src/ledger.ts": "c2d79d258817aad97f5c8751e9017264b0e2c98d3018d71aab72aa488d1da47c",
+    "src/index.ts": "4aac55bfcfcca28361358c58b93156106c8abe9d3e27dc6e49e6a7c09c1b688b",
+    "test/summary_categories.test.ts": "141ddb02330dc5f8f59f2544b8846df1df530aab82b169c1f796c00aabe5fd8d",
+    "package.json": "1699b175a2d9d9993698897ff3691caed66106f400c837c049f2f38cd7a6e2eb"
+  },
+  "source_sha256_after": {
+    "src/ledger.ts": "c2d79d258817aad97f5c8751e9017264b0e2c98d3018d71aab72aa488d1da47c",
+    "src/index.ts": "4aac55bfcfcca28361358c58b93156106c8abe9d3e27dc6e49e6a7c09c1b688b",
+    "test/summary_categories.test.ts": "141ddb02330dc5f8f59f2544b8846df1df530aab82b169c1f796c00aabe5fd8d",
+    "package.json": "1699b175a2d9d9993698897ff3691caed66106f400c837c049f2f38cd7a6e2eb"
+  },
+  "source_unchanged_during_run": true,
+  "baseline": {
+    "command": "npm run build && node --test dist/test/summary_categories.test.js",
+    "exit_code": 1,
+    "tests": 7,
+    "pass": 1,
+    "fail": 6,
+    "skip": 0,
+    "log": "baseline.log",
+    "source_sha256": "3737dcd8b75a0072fee6597426e134dde20452aac942987655d2a59158b36987",
+    "test_source_sha256": "141ddb02330dc5f8f59f2544b8846df1df530aab82b169c1f796c00aabe5fd8d"
+  },
+  "candidate": {
+    "command": "npm test",
+    "exit_code": 0,
+    "log": "candidate.log",
+    "tests": 22,
+    "pass": 22,
+    "fail": 0,
+    "skip": 0
+  },
+  "scope": "monthlySummary category accumulator only; no persistence or mutation-handler changes",
+  "workload": "Authored fictional ledger data; real domain function, filesystem persistence, and MCP SDK in-memory transport. No live data, server deployment, concurrency-fix qualification, or financial-policy change.",
+  "logs_sha256": {
+    "baseline.log": "db03ac451d15ce61a9c9f906a698ad26642a8a9c8f752580e52d89266fea633a",
+    "candidate.log": "17ca62b35ebc233947b925563a0336a58d8edfe7f212e4b7de89272e837ed5f2"
+  },
+  "package_lock_sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": {
+      "installed": "1.32.1",
+      "locked": "1.32.1",
+      "matches_lock": true
+    },
+    "typescript": {
+      "installed": "5.9.3",
+      "locked": "5.9.3",
+      "matches_lock": true
+    },
+    "@types/node": {
+      "installed": "24.19.1",
+      "locked": "24.19.1",
+      "matches_lock": true
+    }
+  }
+}
