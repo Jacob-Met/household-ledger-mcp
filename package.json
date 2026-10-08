@@ -20,7 +20,7 @@
     "build": "tsc",
     "start": "node dist/src/index.js",
     "start:stdio": "node dist/src/stdio.js",
-    "test": "npm run build && node --test dist/test/ledger.test.js dist/test/mcp.test.js",
+    "test": "npm run build && node --test dist/test/ledger.test.js dist/test/mcp.test.js dist/test/summary_categories.test.js",
     "typecheck": "tsc --noEmit"
   },
   "type": "module",

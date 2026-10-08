@@ -1,0 +1,52 @@
+{
+  "root": "/workspace/scratch/e3a41d2b3368/agents/source_work/household-independent/baseline",
+  "node": "v24.19.0",
+  "ledgerSha256": "3737dcd8b75a0072fee6597426e134dde20452aac942987655d2a59158b36987",
+  "indexSha256": "4aac55bfcfcca28361358c58b93156106c8abe9d3e27dc6e49e6a7c09c1b688b",
+  "lockSha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+  "compiledLedgerSha256": "06d12fcf442dcc43565215db503c82b6caa160bd996913a1a0129616016b39de",
+  "outcomes": [
+    {
+      "name": "all inherited names remain exact own JSON categories",
+      "code": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    '42',\n-   '__defineGetter__',\n-   '__defineSetter__',\n-   '__lookupGetter__',\n-   '__lookupSetter__',\n-   '__proto__',\n-   'constructor',\n    'groceries',\n-   'hasOwnProperty',\n-   'isPrototypeOf',\n-   'propertyIsEnumerable',\n    'toJSON',\n-   'toLocaleString',\n-   'toString',\n-   'valueOf',\n    '月の食料'\n  ]\n\n    at file:///workspace/scratch/e3a41d2b3368/[eval1]:17:12 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: [ '42', 'groceries', 'toJSON', '月の食料' ],\n  expected: [\n    '42',\n    '__defineGetter__',\n    '__defineSetter__',\n    '__lookupGetter__',\n    '__lookupSetter__',\n    '__proto__',\n    'constructor',\n    'groceries',\n    'hasOwnProperty',\n    'isPrototypeOf',\n    'propertyIsEnumerable',\n    'toJSON',\n    'toLocaleString',\n    'toString',\n    'valueOf',\n    '月の食料'\n  ],\n  operator: 'deepStrictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.19.0\n"
+    },
+    {
+      "name": "summaries preserve every built-in prototype descriptor",
+      "code": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    ['__proto__']: {\n      configurable: true,\n      enumerable: false,\n      get: [Function: get __proto__],\n...\n    },\n+   expenseMinor: {\n+     configurable: true,\n+     enumerable: true,\n+     value: NaN,\n+     writable: true\n+   },\n    hasOwnProperty: {\n      configurable: true,\n      enumerable: false,\n      value: [Function: hasOwnProperty],\n      writable: true\n\n    at file:///workspace/scratch/e3a41d2b3368/[eval1]:16:12 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: {\n    constructor: {\n      value: [Function: Object] { incomeMinor: NaN },\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    __defineGetter__: {\n      value: [Function: __defineGetter__],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    __defineSetter__: {\n      value: [Function: __defineSetter__],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    hasOwnProperty: {\n      value: [Function: hasOwnProperty],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    __lookupGetter__: {\n      value: [Function: __lookupGetter__],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    __lookupSetter__: {\n      value: [Function: __lookupSetter__],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    isPrototypeOf: {\n      value: [Function: isPrototypeOf],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    propertyIsEnumerable: {\n      value: [Function: propertyIsEnumerable],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    toString: {\n      value: [Function: toString],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    valueOf: {\n      value: [Function: valueOf],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    ['__proto__']: {\n      get: [Function: get __proto__],\n      set: [Function: set __proto__],\n      enumerable: false,\n      configurable: true\n    },\n    toLocaleString: {\n      value: [Function: toLocaleString],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    expenseMinor: {\n      value: NaN,\n      writable: true,\n      enumerable: true,\n      configurable: true\n    }\n  },\n  expected: {\n    constructor: {\n      value: [Function: Object] { incomeMinor: NaN },\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    __defineGetter__: {\n      value: [Function: __defineGetter__],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    __defineSetter__: {\n      value: [Function: __defineSetter__],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    hasOwnProperty: {\n      value: [Function: hasOwnProperty],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    __lookupGetter__: {\n      value: [Function: __lookupGetter__],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    __lookupSetter__: {\n      value: [Function: __lookupSetter__],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    isPrototypeOf: {\n      value: [Function: isPrototypeOf],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    propertyIsEnumerable: {\n      value: [Function: propertyIsEnumerable],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    toString: {\n      value: [Function: toString],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    valueOf: {\n      value: [Function: valueOf],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    },\n    ['__proto__']: {\n      get: [Function: get __proto__],\n      set: [Function: set __proto__],\n      enumerable: false,\n      configurable: true\n    },\n    toLocaleString: {\n      value: [Function: toLocaleString],\n      writable: true,\n      enumerable: false,\n      configurable: true\n    }\n  },\n  operator: 'deepStrictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.19.0\n"
+    },
+    {
+      "name": "frozen prototype is compatible with valid reserved categories",
+      "code": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "file:///workspace/scratch/e3a41d2b3368/agents/source_work/household-independent/baseline/dist/src/ledger.js:157\n            entry.expenseMinor += t.amountMinor;\n                               ^\n\nTypeError: Cannot add property expenseMinor, object is not extensible\n    at monthlySummary (file:///workspace/scratch/e3a41d2b3368/agents/source_work/household-independent/baseline/dist/src/ledger.js:157:32)\n    at file:///workspace/scratch/e3a41d2b3368/[eval1]:14:13\n\nNode.js v24.19.0\n"
+    },
+    {
+      "name": "later-month budget-only names do not inherit earlier summaries",
+      "code": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n    budgets: [\n      {\n        category: '__proto__',\n        limitMinor: 100,\n        over: false,\n+       remainingMinor: null,\n+       spentMinor: null\n-       remainingMinor: 100,\n-       spentMinor: 0\n      }\n    ],\n    byCategory: {},\n    expenseMinor: 0,\n    incomeMinor: 0,\n\n    at file:///workspace/scratch/e3a41d2b3368/[eval1]:16:12 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: {\n    year: 2026,\n    month: 11,\n    incomeMinor: 0,\n    expenseMinor: 0,\n    netMinor: 0,\n    byCategory: {},\n    budgets: [\n      {\n        category: '__proto__',\n        limitMinor: 100,\n        spentMinor: null,\n        remainingMinor: null,\n        over: false\n      }\n    ]\n  },\n  expected: {\n    year: 2026,\n    month: 11,\n    incomeMinor: 0,\n    expenseMinor: 0,\n    netMinor: 0,\n    byCategory: {},\n    budgets: [\n      {\n        category: '__proto__',\n        limitMinor: 100,\n        spentMinor: 0,\n        remainingMinor: 100,\n        over: false\n      }\n    ]\n  },\n  operator: 'deepStrictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.19.0\n"
+    },
+    {
+      "name": "ordinary sums budgets and serialized shape stay unchanged",
+      "code": 0,
+      "signal": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "actual MCP request returns persisted reserved categories without mutating the ledger",
+      "code": null,
+      "signal": "SIGTERM",
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

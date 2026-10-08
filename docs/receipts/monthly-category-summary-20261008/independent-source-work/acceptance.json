@@ -1,0 +1,12 @@
+{
+  "reviewed_commit": "b0508c4e2979518fa06e80f84b7b5f73d11590a9",
+  "upstream_base": "dffabba341a8bce74faa97de68054bd453509a98",
+  "result": "accept",
+  "candidate_groups_passed": 6,
+  "baseline_ordinary_control_passed": 1,
+  "baseline_assertion_or_type_errors": 4,
+  "baseline_mcp_timeout": true,
+  "baseline_mcp_sdk_timeout_ms": 1000,
+  "both_typescript_builds_passed": true,
+  "source_change": "monthlySummary category dictionary initialization only"
+}

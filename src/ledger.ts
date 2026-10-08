@@ -230,7 +230,7 @@ export function monthlySummary(data: LedgerData, year: number, month: number): M
   assert(Number.isInteger(month) && month >= 1 && month <= 12, "month must be an integer 1..12");
   const prefix = `${String(year).padStart(4, "0")}-${String(month).padStart(2, "0")}`;
   const inMonth = data.transactions.filter((t) => t.date.startsWith(prefix));
-  const byCategory: MonthlySummary["byCategory"] = {};
+  const byCategory: MonthlySummary["byCategory"] = Object.create(null);
   let incomeMinor = 0;
   let expenseMinor = 0;
   for (const t of inMonth) {
