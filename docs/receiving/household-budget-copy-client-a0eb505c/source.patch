@@ -1,0 +1,699 @@
+diff --git a/docs/BUDGET_COPY_CLIENT.md b/docs/BUDGET_COPY_CLIENT.md
+new file mode 100644
+index 0000000..e3375b4
+--- /dev/null
++++ b/docs/BUDGET_COPY_CLIENT.md
+@@ -0,0 +1,51 @@
++# Review and copy budgets from a terminal
++
++This optional client uses the existing `preview_budget_copy` and `commit_budget_copy` MCP tools. It connects to one already-running local Household Ledger server and opens no ledger file. The server must include the qualified budget-copy contribution described in [BUDGET_COPY.md](BUDGET_COPY.md).
++
++Build through the existing project command, then run:
++
++```sh
++npm run build
++node dist/src/household-budget-copy.js \
++  --endpoint http://127.0.0.1:3000/mcp \
++  --from-month 2026-10 --to-month 2026-11 --currency USD
++```
++
++The endpoint is explicit local HTTP at `/mcp`, without credentials, query or fragment. No default server, endpoint discovery, authentication flow, direct file access or second writer is started. Keep the existing one-server-process-per-ledger-file rule. This contribution does not change package entry points or install a global command.
++
++Use repeated `--category NAME` arguments to choose specific source budgets. Omit them to use the native tool's complete currency selection and unassigned-budget rules. Source and destination months must differ. Names are trimmed in the request just as the existing tool does; the complete preview retains the resulting exact category identity.
++
++## Review before confirmation
++
++The client prints every selected category, its exact integer minor-unit limit, current destination records, proposed action and any conflict. It prints the selected months/currency, complete counts and content token. Control and bidirectional formatting characters are visibly JSON-escaped in labels so they cannot rewrite terminal output; no category is silently renamed.
++
++The client checks that the complete preview and token agree before asking. Conflicts cannot be confirmed. With valid rows, type exactly the displayed phrase, for example:
++
++```text
++COPY 2026-11 USD
++```
++
++Any other answer, EOF or Ctrl-C at the prompt cancels without sending a commit. Both input and output must be terminals. There is no `--yes` or piped-confirmation mode. For an explicit read-only review, including scripts:
++
++```sh
++node dist/src/household-budget-copy.js --endpoint http://127.0.0.1:3000/mcp \
++  --from-month 2026-10 --to-month 2026-11 --currency USD --preview
++```
++
++`--help` works offline. The example request in `examples/budget-copy-request.json` documents the corresponding tool inputs; the CLI accepts the explicit flags, not a local JSON file.
++
++## One deliberate commit
++
++Confirmation sends exactly the displayed review and its token once. The existing server rechecks all current source and destination values inside its serialized writer. The client does not reserve budgets, overwrite a conflict, infer a currency, convert limits, or add new persistence. A matching current repeat keeps the native no-write behavior.
++
++A complete matching server receipt reports actual added/already-present counts. Those may differ from the preview if an identical destination appeared meanwhile. An unrelated transaction or other-currency budget remains the server's unchanged responsibility.
++
++A lost connection, a server error or a malformed receipt after the commit call is **unconfirmed**, not a claim that nothing happened. The client sends no automatic retry and does not automatically re-preview. Inspect the destination using the existing tools, then decide whether a new review is appropriate. The native service has current-value checks, not a durable plan-history receipt; its original limitations remain.
++
++Exit statuses are 0 for confirmed copy, deliberate cancellation, help or preview; 1 for pre-commit admission/transport failure; 2 for a displayed conflict; and 3 for an unconfirmed commit or a confirmed receipt that could not be written to output. Cancellation is also stated explicitly in terminal output.
++
++## Receiving and ownership
++
++This six-new-path client starts at qualified native `2b77b81ad59c5f3255aa25c37110e91d3bad6a01`, tree `940438aed7af43d841ff7700da8bd4f83a838afd`. All 97 existing source/evidence files remain exact. The source-parent ce7 and canonical receiver 617 retain foundation/adoption and their current budget-plus-filter composition. CSV-import client #9, monthly-review #10 and statement-export #7 retain their separate scopes.
++
++Focused controls use fictional temporary ledgers, the actual unchanged native HTTP server and maintained MCP client. A private loopback relay drops one already-completed commit response to verify truthful uncertainty and exactly one call. No live financial data, account, provider, installed service or deployment is used. The existing 118 domain controls are not rerun or relabeled as this new client qualification. Receive only this additive client delta through the established owner route; native snapshot ancestry is reproduction evidence, not a canonical-main merge.
+diff --git a/examples/budget-copy-request.json b/examples/budget-copy-request.json
+new file mode 100644
+index 0000000..8410470
+--- /dev/null
++++ b/examples/budget-copy-request.json
+@@ -0,0 +1,9 @@
++{
++  "fromMonth": "2026-10",
++  "toMonth": "2026-11",
++  "currency": "USD",
++  "categories": [
++    "groceries",
++    "travel"
++  ]
++}
+diff --git a/src/budget-copy-client.ts b/src/budget-copy-client.ts
+new file mode 100644
+index 0000000..5d7f94a
+--- /dev/null
++++ b/src/budget-copy-client.ts
+@@ -0,0 +1,176 @@
++/** Terminal consumer of the existing reviewed budget-copy MCP tools. */
++import { createHash } from "node:crypto";
++import type { BudgetCopyPreview, BudgetCopyReview } from "./budget-copy.js";
++
++export interface CopyRequest { fromMonth: string; toMonth: string; currency: string; categories?: string[] }
++export interface BudgetToolClient {
++  callTool(request: { name: string; arguments: Record<string, unknown> }): Promise<unknown>;
++}
++export interface ReviewIO {
++  write(text: string): Promise<void>;
++  confirm(prompt: string): Promise<string | null>;
++}
++export type CopyOutcome =
++  | { status: "preview_only" | "cancelled" | "conflict"; commitCalls: 0 }
++  | { status: "completed"; commitCalls: 1; added: number; alreadyPresent: number };
++export class CopyClientError extends Error {
++  constructor(message: string, readonly commitAttempted = false) { super(message); }
++}
++const SCHEMA = "household-budget-copy/1";
++const MAX_BYTES = 256 * 1024;
++const MONTH = /^\d{4}-(0[1-9]|1[0-2])$/;
++
++function requireValue(value: unknown, message: string): asserts value {
++  if (!value) throw new CopyClientError(message);
++}
++function object(value: unknown, keys: string[], label: string): Record<string, unknown> {
++  requireValue(value !== null && typeof value === "object" && !Array.isArray(value), label + " must be an object.");
++  const result = value as Record<string, unknown>;
++  requireValue(Object.keys(result).every(k => keys.includes(k)), label + " has unsupported fields.");
++  return result;
++}
++function integer(value: unknown): value is number {
++  return typeof value === "number" && Number.isSafeInteger(value) && value >= 0;
++}
++function category(value: unknown): value is string {
++  return typeof value === "string" && value.trim().length > 0 && value === value.trim() &&
++    Buffer.byteLength(value, "utf8") <= 8192 && Buffer.from(value, "utf8").toString("utf8") === value;
++}
++function same(a: unknown, b: unknown): boolean { return JSON.stringify(a) === JSON.stringify(b); }
++
++export function readCopyRequest(raw: unknown): CopyRequest {
++  const value = object(raw, ["fromMonth", "toMonth", "currency", "categories"], "Request");
++  requireValue(typeof value.fromMonth === "string" && MONTH.test(value.fromMonth), "Source month must be YYYY-MM.");
++  requireValue(typeof value.toMonth === "string" && MONTH.test(value.toMonth), "Destination month must be YYYY-MM.");
++  requireValue(value.fromMonth !== value.toMonth, "Source and destination months must differ.");
++  requireValue(typeof value.currency === "string" && /^[A-Za-z]{3}$/.test(value.currency.trim()), "Choose an explicit three-letter currency.");
++  const request: CopyRequest = { fromMonth: value.fromMonth, toMonth: value.toMonth, currency: value.currency.trim().toUpperCase() };
++  if (Object.hasOwn(value, "categories")) {
++    requireValue(Array.isArray(value.categories) && value.categories.length > 0 && value.categories.length <= 500, "Select 1–500 category names.");
++    const categories = value.categories.map(value => typeof value === "string" ? value.trim() : value);
++    requireValue(categories.every(category), "Category names must be nonempty valid Unicode, at most 8192 UTF-8 bytes each.");
++    requireValue(new Set(categories).size === categories.length, "Category names must be distinct after trimming.");
++    request.categories = categories;
++  }
++  requireValue(Buffer.byteLength(JSON.stringify(request), "utf8") <= MAX_BYTES, "Request exceeds 256 KiB.");
++  return request;
++}
++
++/** Render control/bidi characters visibly; the escaped JSON string retains exact identity. */
++export function terminalValue(value: unknown): string {
++  return JSON.stringify(value).replace(/[\p{Cc}\p{Cf}\u2028\u2029]/gu,
++    c => c.split("").map(unit => "\\u" + unit.charCodeAt(0).toString(16).padStart(4, "0")).join(""));
++}
++function toolPayload(raw: unknown): unknown {
++  const reply = raw as { isError?: unknown; content?: unknown };
++  requireValue(reply !== null && typeof reply === "object" && Array.isArray(reply.content) &&
++    reply.content.length === 1, "Server did not return one complete text result.");
++  const block = reply.content[0] as { type?: unknown; text?: unknown };
++  requireValue(block?.type === "text" && typeof block.text === "string", "Server result is not complete JSON text.");
++  requireValue(Buffer.byteLength(block.text, "utf8") <= MAX_BYTES, "Server result exceeds 256 KiB.");
++  if (reply.isError === true) throw new CopyClientError("Server reported: " + terminalValue(block.text));
++  requireValue(reply.isError === undefined || reply.isError === false, "Server error status is invalid.");
++  try { return JSON.parse(block.text); } catch { throw new CopyClientError("Server result is not valid JSON."); }
++}
++
++export function readCopyPreview(raw: unknown, request: CopyRequest): BudgetCopyPreview {
++  const value = object(raw, ["schema", "fromMonth", "toMonth", "currency", "canCommit", "counts", "rows", "review", "reviewToken"], "Preview");
++  requireValue(value.schema === SCHEMA && value.fromMonth === request.fromMonth && value.toMonth === request.toMonth &&
++    value.currency === request.currency, "Preview changed the requested month or currency.");
++  requireValue(Array.isArray(value.rows) && value.rows.length > 0 && value.rows.length <= 500, "Preview must contain every selected budget (1–500).");
++  const rows = value.rows.map(rawRow => {
++    const row = object(rawRow, ["category", "limitMinor", "action", "destination", "reason"], "Preview row");
++    requireValue(category(row.category) && integer(row.limitMinor), "Preview budget identity or limit is invalid.");
++    requireValue(["add", "already_present", "conflict"].includes(row.action as string), "Preview row action is invalid.");
++    requireValue(Array.isArray(row.destination) && row.destination.length <= 2, "Preview destination is invalid.");
++    const destination = row.destination.map(rawTarget => {
++      const target = object(rawTarget, ["category", "month", "limitMinor", "currency"], "Destination");
++      requireValue(typeof target.category === "string" && target.category.trim() === row.category &&
++        target.month === request.toMonth && integer(target.limitMinor), "Destination does not match the reviewed identity.");
++      requireValue(target.currency === undefined || (typeof target.currency === "string" && /^[A-Za-z]{3}$/.test(target.currency.trim()) &&
++        target.currency.trim().toUpperCase() === request.currency), "Destination denomination is invalid.");
++      return target;
++    });
++    const matching = destination.length === 1 && destination[0].category === row.category &&
++      destination[0].currency !== undefined && destination[0].limitMinor === row.limitMinor;
++    requireValue(row.action === "conflict" ? typeof row.reason === "string" && row.reason.length > 0 :
++      row.reason === undefined && (row.action === "add" ? destination.length === 0 : matching),
++      "Preview action disagrees with its destination.");
++    return { category: row.category, limitMinor: row.limitMinor, action: row.action, destination };
++  });
++  const names = rows.map(row => row.category);
++  requireValue(new Set(names).size === names.length, "Preview repeated a category.");
++  requireValue(!request.categories || same(names, request.categories), "Preview changed or omitted selected categories.");
++  const counts = { total: rows.length, add: rows.filter(r => r.action === "add").length,
++    alreadyPresent: rows.filter(r => r.action === "already_present").length, conflict: rows.filter(r => r.action === "conflict").length };
++  const gotCounts = object(value.counts, ["total", "add", "alreadyPresent", "conflict"], "Preview counts");
++  requireValue(Object.entries(counts).every(([key, count]) => gotCounts[key] === count), "Preview counts do not cover its rows.");
++  requireValue(value.canCommit === (counts.conflict === 0), "Preview approval disagrees with its rows.");
++  if (value.canCommit) {
++    const expected: BudgetCopyReview = { schema: SCHEMA, fromMonth: request.fromMonth, toMonth: request.toMonth,
++      currency: request.currency, rows: rows.map(row => ({ category: row.category as string, limitMinor: row.limitMinor as number,
++        expectedTargetLimitMinor: row.action === "already_present" ? row.limitMinor as number : null })) };
++    requireValue(same(value.review, expected), "The commit review differs from the displayed values.");
++    requireValue(value.reviewToken === createHash("sha256").update(JSON.stringify(expected)).digest("hex"), "Review token does not bind the displayed values.");
++  } else requireValue(value.review === null && value.reviewToken === null, "A conflicting preview cannot contain a commit review.");
++  return value as unknown as BudgetCopyPreview;
++}
++
++export function renderCopyPreview(preview: BudgetCopyPreview): string {
++  const lines = [
++    "Review monthly budget copy",
++    "Source: " + preview.fromMonth + "  Destination: " + preview.toMonth + "  Currency: " + preview.currency,
++    "Limits are exact integer minor units; no currency conversion.",
++    "Rows: " + preview.counts.total + "  Add: " + preview.counts.add + "  Already present: " + preview.counts.alreadyPresent + "  Conflicts: " + preview.counts.conflict,
++  ];
++  for (const [i, row] of preview.rows.entries()) {
++    lines.push((i + 1) + ". " + terminalValue(row.category) + "  limitMinor=" + row.limitMinor + "  action=" + row.action);
++    lines.push("   Current destination: " + terminalValue(row.destination));
++    if (row.reason) lines.push("   Reason: " + terminalValue(row.reason));
++  }
++  lines.push("Content token: " + (preview.reviewToken ?? "none (conflict)"));
++  lines.push("Current values will be checked again by the server. This preview does not reserve the ledger.");
++  return lines.join("\n") + "\n";
++}
++
++function readCopyReceipt(raw: unknown, preview: BudgetCopyPreview): { added: number; alreadyPresent: number } {
++  const value = object(raw, ["schema", "fromMonth", "toMonth", "currency", "reviewToken", "added", "alreadyPresent", "budgets"], "Commit receipt");
++  requireValue(value.schema === SCHEMA && value.fromMonth === preview.fromMonth && value.toMonth === preview.toMonth &&
++    value.currency === preview.currency && value.reviewToken === preview.reviewToken, "Commit receipt does not identify the reviewed copy.");
++  requireValue(integer(value.added) && integer(value.alreadyPresent) && value.added + value.alreadyPresent === preview.rows.length,
++    "Commit receipt has incomplete counts.");
++  requireValue(value.added <= preview.counts.add, "Commit receipt added a previously present budget.");
++  requireValue(Array.isArray(value.budgets) && value.budgets.length === preview.rows.length, "Commit receipt is incomplete.");
++  for (const [i, rawBudget] of value.budgets.entries()) {
++    const budget = object(rawBudget, ["category", "month", "limitMinor", "currency"], "Committed budget");
++    requireValue(budget.category === preview.rows[i].category && budget.month === preview.toMonth &&
++      budget.limitMinor === preview.rows[i].limitMinor && typeof budget.currency === "string" && /^[A-Za-z]{3}$/.test(budget.currency.trim()) &&
++      budget.currency.trim().toUpperCase() === preview.currency, "Commit receipt changed a reviewed budget.");
++  }
++  return { added: value.added, alreadyPresent: value.alreadyPresent };
++}
++
++export async function runBudgetCopy(client: BudgetToolClient, input: unknown, io: ReviewIO, previewOnly = false): Promise<CopyOutcome> {
++  const request = readCopyRequest(input);
++  const preview = readCopyPreview(toolPayload(await client.callTool({ name: "preview_budget_copy", arguments: { ...request } })), request);
++  await io.write(renderCopyPreview(preview));
++  if (!preview.canCommit) {
++    await io.write("No commit sent: resolve the conflicts and deliberately preview again.\n");
++    return { status: "conflict", commitCalls: 0 };
++  }
++  if (previewOnly) { await io.write("Preview only. No commit sent.\n"); return { status: "preview_only", commitCalls: 0 }; }
++  const phrase = "COPY " + preview.toMonth + " " + preview.currency;
++  const answer = await io.confirm("Type " + terminalValue(phrase) + " to copy these reviewed budgets, or anything else to cancel: ");
++  if (answer !== phrase) { await io.write("Cancelled. No commit sent.\n"); return { status: "cancelled", commitCalls: 0 }; }
++  let receipt: { added: number; alreadyPresent: number };
++  try {
++    receipt = readCopyReceipt(toolPayload(await client.callTool({ name: "commit_budget_copy",
++      arguments: { review: preview.review, reviewToken: preview.reviewToken } })), preview);
++  } catch (error) {
++    throw new CopyClientError("Commit outcome is not confirmed. No automatic retry was made. Inspect the destination budgets before deciding on a new preview. Detail: " +
++      terminalValue(error instanceof Error ? error.message : String(error)), true);
++  }
++  try { await io.write("Copy confirmed: added " + receipt.added + ", already present " + receipt.alreadyPresent + ".\n"); }
++  catch { throw new CopyClientError("The server confirmed the copy, but writing its receipt failed. No automatic retry was made; inspect destination budgets before a new action.", true); }
++  return { status: "completed", commitCalls: 1, ...receipt };
++}
+diff --git a/src/household-budget-copy.ts b/src/household-budget-copy.ts
+new file mode 100644
+index 0000000..0b68e83
+--- /dev/null
++++ b/src/household-budget-copy.ts
+@@ -0,0 +1,87 @@
++#!/usr/bin/env node
++/** Explicit local MCP client; never opens a ledger file or spawns another writer. */
++import { pathToFileURL } from "node:url";
++import { createInterface } from "node:readline";
++import { Client } from "@modelcontextprotocol/sdk/client/index.js";
++import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
++import { CopyClientError, readCopyRequest, runBudgetCopy, terminalValue, type CopyRequest } from "./budget-copy-client.js";
++
++export const HELP = `Review and copy monthly budget limits through an existing local MCP service.
++
++node dist/src/household-budget-copy.js --endpoint http://127.0.0.1:3000/mcp \\
++  --from-month 2026-10 --to-month 2026-11 --currency USD [--category NAME ...] [--preview]
++
++--preview prints the complete review without asking or sending a commit.
++Without --preview, both input and output must be terminals. Review every row,
++then type the displayed COPY phrase. Any other answer or EOF cancels.
++No automatic commit retry is performed. No ledger file is opened by this client.
++Use one existing server process per ledger file. Limits are minor units.
++`;
++
++export function parseCopyArgs(args: string[]): { endpoint: URL; request: CopyRequest; previewOnly: boolean } | null {
++  if (args.length === 1 && args[0] === "--help") return null;
++  const values = new Map<string, string>();
++  const categories: string[] = [];
++  let previewOnly = false;
++  for (let i = 0; i < args.length; i++) {
++    const key = args[i];
++    if (key === "--preview") {
++      if (previewOnly) throw new CopyClientError("Repeated --preview.");
++      previewOnly = true; continue;
++    }
++    if (!["--endpoint", "--from-month", "--to-month", "--currency", "--category"].includes(key))
++      throw new CopyClientError("Unknown option: " + terminalValue(key));
++    const value = args[++i];
++    if (value === undefined || value.startsWith("--")) throw new CopyClientError("Missing value for " + key);
++    if (key === "--category") categories.push(value);
++    else {
++      if (values.has(key)) throw new CopyClientError("Repeated option: " + key);
++      values.set(key, value);
++    }
++  }
++  let endpoint: URL;
++  try { endpoint = new URL(values.get("--endpoint") ?? ""); }
++  catch { throw new CopyClientError("Supply an explicit local HTTP --endpoint ending in /mcp."); }
++  if (endpoint.protocol !== "http:" || !["127.0.0.1", "[::1]", "localhost"].includes(endpoint.hostname) ||
++    endpoint.username || endpoint.password || endpoint.pathname !== "/mcp" || endpoint.search || endpoint.hash)
++    throw new CopyClientError("Endpoint must be local HTTP /mcp with no credentials, query or fragment.");
++  const request = readCopyRequest({ fromMonth: values.get("--from-month"), toMonth: values.get("--to-month"),
++    currency: values.get("--currency"), ...(categories.length ? { categories } : {}) });
++  return { endpoint, request, previewOnly };
++}
++
++function write(text: string): Promise<void> {
++  return new Promise((resolve, reject) => process.stdout.write(text, error => error ? reject(error) : resolve()));
++}
++function confirm(prompt: string): Promise<string | null> {
++  return new Promise(resolve => {
++    const terminal = createInterface({ input: process.stdin, output: process.stdout });
++    let answered = false;
++    terminal.once("close", () => { if (!answered) resolve(null); });
++    terminal.once("SIGINT", () => terminal.close());
++    terminal.question(prompt, answer => { answered = true; terminal.close(); resolve(answer); });
++  });
++}
++
++export async function budgetCopyMain(args = process.argv.slice(2)): Promise<number> {
++  let client: Client | undefined;
++  try {
++    const parsed = parseCopyArgs(args);
++    if (!parsed) { await write(HELP); return 0; }
++    if (!parsed.previewOnly && (!process.stdin.isTTY || !process.stdout.isTTY))
++      throw new CopyClientError("Interactive copy requires terminal input and output; use --preview for a read-only noninteractive review.");
++    client = new Client({ name: "household-budget-copy-client", version: "1" }, { capabilities: {} });
++    await client.connect(new StreamableHTTPClientTransport(parsed.endpoint, { requestInit: { redirect: "error" } }));
++    await write("Service: " + parsed.endpoint.href + "\n");
++    const result = await runBudgetCopy(client, parsed.request, { write, confirm }, parsed.previewOnly);
++    return result.status === "conflict" ? 2 : 0;
++  } catch (error) {
++    process.stderr.write((error instanceof CopyClientError ? error.message : "Request failed: " + terminalValue(error instanceof Error ? error.message : String(error))) + "\n");
++    return error instanceof CopyClientError && error.commitAttempted ? 3 : 1;
++  } finally {
++    if (client) await client.close().catch(() => undefined);
++  }
++}
++if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
++  void budgetCopyMain().then(code => { process.exitCode = code; });
++}
+diff --git a/test/budget-copy-client-http.test.ts b/test/budget-copy-client-http.test.ts
+new file mode 100644
+index 0000000..73392b8
+--- /dev/null
++++ b/test/budget-copy-client-http.test.ts
+@@ -0,0 +1,200 @@
++import { test } from "node:test";
++import assert from "node:assert/strict";
++import { spawn } from "node:child_process";
++import { once } from "node:events";
++import { mkdtemp, readFile, writeFile, stat, rm } from "node:fs/promises";
++import { createServer as createNetServer } from "node:net";
++import { createServer } from "node:http";
++import { tmpdir } from "node:os";
++import { join } from "node:path";
++import { fileURLToPath } from "node:url";
++import { Client } from "@modelcontextprotocol/sdk/client/index.js";
++import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
++import { CopyClientError, runBudgetCopy, terminalValue } from "../src/budget-copy-client.js";
++
++const request = { fromMonth: "2026-10", toMonth: "2026-11", currency: "USD" };
++const sourceBudgets = [
++  { category: "groceries", month: "2026-10", limitMinor: 12500, currency: "USD" },
++  { category: "旅行\n予定 🧭", month: "2026-10", limitMinor: 7000, currency: "USD" },
++  { category: "zero", month: "2026-10", limitMinor: 0, currency: "USD" },
++  { category: "groceries", month: "2026-10", limitMinor: 90, currency: "EUR" },
++];
++const transaction = { id: "existing-record", type: "expense", amountMinor: 5, currency: "CHF", date: "2026-09-30",
++  category: "unrelated", note: "keep literal", idempotencyKey: "existing:fixture", createdAt: "2026-10-01T00:00:00.000Z" };
++const initial = { version: 2, transactions: [transaction], budgets: [...sourceBudgets,
++  { category: "groceries", month: "2026-11", limitMinor: 12500, currency: "USD" },
++  { category: "groceries", month: "2026-11", limitMinor: 80, currency: "EUR" }] };
++async function snapshot(path: string) {
++  const info = await stat(path, { bigint: true });
++  return { text: await readFile(path, "utf8"), inode: info.ino, mtime: info.mtimeNs };
++}
++async function launch() {
++  const dir = await mkdtemp(join(tmpdir(), "household-copy-client-a0eb-"));
++  const path = join(dir, "fictional-ledger.json");
++  await writeFile(path, JSON.stringify(initial, null, 2) + "\n");
++  const portProbe = createNetServer(); portProbe.listen(0, "127.0.0.1"); await once(portProbe, "listening");
++  const address = portProbe.address(); assert.ok(address && typeof address !== "string");
++  const port = address.port; await new Promise<void>((resolve, reject) => portProbe.close(error => error ? reject(error) : resolve()));
++  const child = spawn(process.execPath, [fileURLToPath(new URL("../src/index.js", import.meta.url))], {
++    env: { ...process.env, HOUSEHOLD_LEDGER_DATA_PATH: path, HOUSEHOLD_LEDGER_HOST: "127.0.0.1", HOUSEHOLD_LEDGER_PORT: String(port) },
++    stdio: ["ignore", "pipe", "pipe"],
++  });
++  let errors = ""; child.stderr.on("data", chunk => { errors += String(chunk); });
++  const clients: Client[] = [];
++  const origin = "http://127.0.0.1:" + port + "/mcp";
++  const calls: Array<{ name: string; arguments: unknown }> = [];
++  let dropNextCommit = false;
++  const proxy = createServer(async (req, res) => {
++    try {
++      const chunks: Buffer[] = []; for await (const chunk of req) chunks.push(Buffer.from(chunk));
++      const body = Buffer.concat(chunks).toString("utf8");
++      const decoded = body ? JSON.parse(body) as { method?: string; params?: { name?: string; arguments?: unknown } } : {};
++      const name = decoded.method === "tools/call" ? decoded.params?.name : undefined;
++      if (name) calls.push({ name, arguments: decoded.params?.arguments });
++      const headers: Record<string, string> = {};
++      for (const key of ["content-type", "accept", "mcp-protocol-version", "mcp-session-id", "last-event-id"]) {
++        const value = req.headers[key]; if (typeof value === "string") headers[key] = value;
++      }
++      const upstream = await fetch(origin, { method: req.method, headers, ...(body ? { body } : {}), redirect: "error" });
++      const text = await upstream.text();
++      // The unchanged native server has completed its response before this
++      // private transport drops delivery. No product writer/I/O is replaced.
++      if (name === "commit_budget_copy" && dropNextCommit) { dropNextCommit = false; res.destroy(); return; }
++      const responseHeaders: Record<string, string> = {};
++      for (const key of ["content-type", "mcp-session-id"]) {
++        const value = upstream.headers.get(key); if (value) responseHeaders[key] = value;
++      }
++      res.writeHead(upstream.status, responseHeaders); res.end(text);
++    } catch (error) { if (!res.headersSent) res.writeHead(502); res.end(String(error)); }
++  });
++  async function stop() {
++    try {
++      for (const client of clients) await client.close().catch(() => undefined);
++      if (proxy.listening) { proxy.closeAllConnections(); await new Promise<void>(resolve => proxy.close(() => resolve())); }
++    } finally {
++      if (child.exitCode === null && child.signalCode === null) { const ended = once(child, "exit"); child.kill("SIGTERM"); await ended; }
++      await rm(dir, { recursive: true, force: true });
++    }
++    assert.equal(errors, "", "private unchanged server emitted errors");
++  }
++  try {
++    await new Promise<void>((resolve, reject) => {
++      let output = ""; const timer = setTimeout(() => reject(new Error("private server startup timed out")), 20000);
++      child.once("error", e => { clearTimeout(timer); reject(e); });
++      child.once("exit", code => { clearTimeout(timer); reject(new Error("private server exit " + code)); });
++      child.stdout.on("data", chunk => {
++        output += String(chunk); if (output.includes("listening on")) { clearTimeout(timer); resolve(); }
++      });
++    });
++    proxy.listen(0, "127.0.0.1"); await once(proxy, "listening");
++    const proxyAddress = proxy.address(); assert.ok(proxyAddress && typeof proxyAddress !== "string");
++    const endpoint = "http://127.0.0.1:" + proxyAddress.port + "/mcp";
++    async function connect() {
++      const client = new Client({ name: "private-copy-client-receiver", version: "1" }, { capabilities: {} });
++      clients.push(client); await client.connect(new StreamableHTTPClientTransport(new URL(endpoint)));
++      return client;
++    }
++    return { path, endpoint, calls, connect, dropCommitResponse() { dropNextCommit = true; }, stop };
++  } catch (error) { await stop(); throw error; }
++}
++const io = (answer: string | null = "COPY 2026-11 USD") => {
++  const lines: string[] = [];
++  return { lines, async write(text: string) { lines.push(text); }, async confirm() { return answer; } };
++};
++async function tool(client: Client, name: string, args: Record<string, unknown>) {
++  const response = await client.callTool({ name, arguments: args });
++  assert.equal(response.isError, undefined, JSON.stringify(response));
++  const content = response.content as Array<{ type: string; text: string }>;
++  return JSON.parse(content[0].text);
++}
++
++test("real private MCP preview/cancel and explicit copy preserve exact fields; a fresh review of matching targets does not rewrite", async () => {
++  const service = await launch();
++  try {
++    const client = await service.connect(); const before = await snapshot(service.path);
++    const cancelled = io(null);
++    assert.equal((await runBudgetCopy(client, request, cancelled)).status, "cancelled");
++    assert.deepEqual(await snapshot(service.path), before);
++    assert.deepEqual(service.calls.map(c => c.name), ["preview_budget_copy"]);
++    const output = io();
++    const result = await runBudgetCopy(client, request, output);
++    assert.deepEqual(result, { status: "completed", commitCalls: 1, added: 2, alreadyPresent: 1 });
++    for (const row of sourceBudgets.slice(0, 3)) assert.ok(output.lines.join("").includes(terminalValue(row.category)));
++    const saved = JSON.parse((await snapshot(service.path)).text);
++    assert.deepEqual(saved.transactions, [transaction]);
++    assert.deepEqual(saved.budgets.filter((b: { month: string }) => b.month === "2026-10"), sourceBudgets);
++    assert.deepEqual(saved.budgets.filter((b: { month: string; currency: string }) => b.month === "2026-11" && b.currency === "USD"),
++      sourceBudgets.slice(0, 3).map(b => ({ ...b, month: "2026-11" })));
++    assert.deepEqual(saved.budgets.find((b: { month: string; currency: string }) => b.month === "2026-11" && b.currency === "EUR"), initial.budgets[5]);
++    const complete = await snapshot(service.path);
++    assert.deepEqual(await runBudgetCopy(client, request, io()), { status: "completed", commitCalls: 1, added: 0, alreadyPresent: 3 });
++    assert.deepEqual(await snapshot(service.path), complete);
++    assert.equal(service.calls.filter(c => c.name === "commit_budget_copy").length, 2);
++  } finally { await service.stop(); }
++});
++
++test("real stale source and destination errors do not become success; an unrelated ordinary write survives a valid copy", async () => {
++  const service = await launch();
++  try {
++    const client = await service.connect(); const other = await service.connect();
++    for (const change of [
++      { category: "zero", month: "2026-10", limitMinor: 9, currency: "USD" },
++      { category: "旅行\n予定 🧭", month: "2026-11", limitMinor: 123, currency: "USD" },
++    ]) {
++      if (change.month === "2026-11") await tool(other, "set_budget", { category: "zero", month: "2026-10", limitMinor: 0, currency: "USD" });
++      const output = io(); let afterChange: Awaited<ReturnType<typeof snapshot>> | undefined;
++      output.confirm = async () => { await tool(other, "set_budget", change); afterChange = await snapshot(service.path); return "COPY 2026-11 USD"; };
++      await assert.rejects(runBudgetCopy(client, request, output), (e: unknown) => e instanceof CopyClientError && e.commitAttempted && /not confirmed/.test(e.message));
++      assert.deepEqual(await snapshot(service.path), afterChange);
++      assert.ok(!output.lines.join("").includes("Copy confirmed"));
++    }
++    await tool(other, "set_budget", { category: "旅行\n予定 🧭", month: "2026-11", limitMinor: 7000, currency: "USD" });
++    const output = io(); let unrelated: unknown;
++    output.confirm = async () => {
++      unrelated = await tool(other, "record_transaction", { type: "income", amountMinor: 35, currency: "EUR", date: "2026-11-02",
++        category: "gift", idempotencyKey: "later:unrelated" });
++      await tool(other, "set_budget", { category: "zero", month: "2026-11", limitMinor: 33, currency: "CHF" });
++      return "COPY 2026-11 USD";
++    };
++    assert.deepEqual(await runBudgetCopy(client, request, output), { status: "completed", commitCalls: 1, added: 1, alreadyPresent: 2 });
++    const saved = JSON.parse((await snapshot(service.path)).text);
++    assert.deepEqual(saved.transactions, [transaction, unrelated]);
++    assert.ok(saved.budgets.some((b: { category: string; currency: string; limitMinor: number }) => b.category === "zero" && b.currency === "CHF" && b.limitMinor === 33));
++  } finally { await service.stop(); }
++});
++
++test("a real committed response lost in private transport produces uncertainty and exactly one commit, not a retry", async () => {
++  const service = await launch();
++  try {
++    const client = await service.connect(); const output = io(); service.dropCommitResponse();
++    await assert.rejects(runBudgetCopy(client, request, output), (e: unknown) =>
++      e instanceof CopyClientError && e.commitAttempted && /not confirmed/.test(e.message));
++    assert.deepEqual(service.calls.map(c => c.name), ["preview_budget_copy", "commit_budget_copy"]);
++    const saved = JSON.parse((await snapshot(service.path)).text);
++    assert.equal(saved.budgets.filter((b: { month: string; currency: string }) => b.month === "2026-11" && b.currency === "USD").length, 3);
++    const afterCommit = await snapshot(service.path);
++    const fresh = await service.connect(); const check = io();
++    assert.equal((await runBudgetCopy(fresh, request, check, true)).status, "preview_only");
++    assert.match(check.lines.join(""), /Already present: 3/);
++    assert.equal(service.calls.filter(c => c.name === "commit_budget_copy").length, 1);
++    assert.deepEqual(await snapshot(service.path), afterCommit);
++  } finally { await service.stop(); }
++});
++
++test("the actual noninteractive preview CLI consumes the private unchanged server and leaves the ledger byte-exact", async () => {
++  const service = await launch();
++  try {
++    const before = await snapshot(service.path);
++    const child = spawn(process.execPath, [fileURLToPath(new URL("../src/household-budget-copy.js", import.meta.url)),
++      "--endpoint", service.endpoint, "--from-month", "2026-10", "--to-month", "2026-11", "--currency", "USD", "--preview"],
++      { stdio: ["ignore", "pipe", "pipe"] });
++    let stdout = "", stderr = "";
++    child.stdout.on("data", c => { stdout += String(c); }); child.stderr.on("data", c => { stderr += String(c); });
++    const [code] = await once(child, "exit");
++    assert.equal(code, 0, stderr); assert.equal(stderr, "");
++    assert.match(stdout, /Preview only. No commit sent/);
++    for (const row of sourceBudgets.slice(0, 3)) assert.ok(stdout.includes(terminalValue(row.category)));
++    assert.deepEqual(service.calls.map(c => c.name), ["preview_budget_copy"]);
++    assert.deepEqual(await snapshot(service.path), before);
++  } finally { await service.stop(); }
++});
+diff --git a/test/budget-copy-client.test.ts b/test/budget-copy-client.test.ts
+new file mode 100644
+index 0000000..16b465c
+--- /dev/null
++++ b/test/budget-copy-client.test.ts
+@@ -0,0 +1,140 @@
++import { test } from "node:test";
++import assert from "node:assert/strict";
++import { createHash } from "node:crypto";
++import { spawnSync } from "node:child_process";
++import { fileURLToPath } from "node:url";
++import { CopyClientError, readCopyPreview, readCopyRequest, runBudgetCopy, terminalValue, type BudgetToolClient } from "../src/budget-copy-client.js";
++import { parseCopyArgs } from "../src/household-budget-copy.js";
++
++const request = { fromMonth: "2026-10", toMonth: "2026-11", currency: "USD" };
++const names = ["groceries", "旅行\n予定 🧭", "zero"];
++function preview() {
++  const limits = [12500, 70, 0];
++  const review = { schema: "household-budget-copy/1", ...request, rows: names.map((category, i) =>
++    ({ category, limitMinor: limits[i], expectedTargetLimitMinor: i === 0 ? limits[i] : null })) };
++  return { schema: review.schema, ...request, canCommit: true, counts: { total: 3, add: 2, alreadyPresent: 1, conflict: 0 },
++    rows: names.map((category, i) => ({ category, limitMinor: limits[i], action: i === 0 ? "already_present" : "add",
++      destination: i === 0 ? [{ category, month: request.toMonth, currency: "USD", limitMinor: limits[i] }] : [] })),
++    review, reviewToken: createHash("sha256").update(JSON.stringify(review)).digest("hex") };
++}
++const reply = (value: unknown) => ({ content: [{ type: "text", text: JSON.stringify(value) }] });
++function receipt(p = preview()) {
++  return { schema: p.schema, ...request, reviewToken: p.reviewToken, added: 2, alreadyPresent: 1,
++    budgets: p.rows.map(row => ({ category: row.category, month: request.toMonth, currency: "USD", limitMinor: row.limitMinor })) };
++}
++function fixture(p: unknown = preview(), result: unknown = receipt()) {
++  const calls: Array<{ name: string; arguments: Record<string, unknown> }> = [];
++  const output: string[] = [];
++  const client: BudgetToolClient = { async callTool(call) {
++    calls.push(structuredClone(call)); return reply(call.name === "preview_budget_copy" ? p : result);
++  }};
++  return { calls, output, client, io: { async write(text: string) { output.push(text); },
++    async confirm() { assert.ok(output.join("").includes("zero")); return "COPY 2026-11 USD"; } } };
++}
++
++test("complete literal review precedes one exact reviewed commit and a checked receipt", async () => {
++  const f = fixture(); const result = await runBudgetCopy(f.client, request, f.io);
++  assert.deepEqual(result, { status: "completed", commitCalls: 1, added: 2, alreadyPresent: 1 });
++  assert.deepEqual(f.calls.map(c => c.name), ["preview_budget_copy", "commit_budget_copy"]);
++  assert.deepEqual(f.calls[1].arguments, { review: preview().review, reviewToken: preview().reviewToken });
++  const output = f.output.join("");
++  for (const value of names) assert.ok(output.includes(terminalValue(value)));
++  assert.ok(output.includes("limitMinor=0")); assert.ok(output.includes("Current destination:"));
++});
++test("cancel, EOF and inexact confirmation never send a commit", async () => {
++  for (const answer of [null, "", "no", "COPY 2026-12 USD", " COPY 2026-11 USD"]) {
++    const f = fixture(); f.io.confirm = async () => answer as string;
++    assert.equal((await runBudgetCopy(f.client, request, f.io)).status, "cancelled");
++    assert.equal(f.calls.length, 1);
++  }
++});
++test("noninteractive preview and conflict output do not ask or commit", async () => {
++  const f = fixture(); f.io.confirm = async () => { throw new Error("must not prompt"); };
++  assert.equal((await runBudgetCopy(f.client, request, f.io, true)).status, "preview_only");
++  assert.equal(f.calls.length, 1);
++  const p = preview(); p.canCommit = false; p.counts = { total: 3, add: 1, alreadyPresent: 1, conflict: 1 };
++  Object.assign(p.rows[1], { action: "conflict", reason: "Different limit", destination: [
++    { category: names[1], month: request.toMonth, currency: "USD", limitMinor: 999 }] });
++  Object.assign(p, { review: null, reviewToken: null });
++  const g = fixture(p); g.io.confirm = f.io.confirm;
++  assert.equal((await runBudgetCopy(g.client, request, g.io)).status, "conflict");
++  assert.equal(g.calls.length, 1); assert.match(g.output.join(""), /999/);
++});
++test("changed selection, incomplete rows/counts, token drift and duplicate identity refuse before confirmation", async () => {
++  const changes: Array<(p: ReturnType<typeof preview>) => void> = [
++    p => { p.toMonth = "2026-12"; },
++    p => { p.rows.pop(); },
++    p => { p.counts.total = 2; },
++    p => { p.reviewToken = "a".repeat(64); },
++    p => { p.review.rows[1].limitMinor = 900; },
++    p => { p.rows[1].category = p.rows[0].category; },
++    p => { p.rows[0].destination[0].limitMinor = 900; },
++  ];
++  for (const change of changes) {
++    const p = preview(); change(p); const f = fixture(p);
++    f.io.confirm = async () => { throw new Error("invalid preview prompted"); };
++    await assert.rejects(runBudgetCopy(f.client, request, f.io), CopyClientError);
++    assert.equal(f.calls.length, 1);
++  }
++  assert.throws(() => readCopyPreview(preview(), { ...request, categories: ["zero"] }), /changed or omitted/);
++});
++test("lost, rejected or malformed commit responses remain unconfirmed with no automatic retry", async () => {
++  for (const mode of ["lost", "error", "counts", "target", "missing", "denomination"]) {
++    const f = fixture(); const original = f.client.callTool;
++    f.client.callTool = async call => {
++      if (call.name !== "commit_budget_copy") return original(call);
++      f.calls.push(structuredClone(call));
++      if (mode === "lost") throw new Error("connection lost");
++      if (mode === "error") return { isError: true, content: [{ type: "text", text: "source changed" }] };
++      const r = receipt();
++      if (mode === "counts") r.added = 900;
++      if (mode === "target") r.budgets[1].limitMinor = 900;
++      if (mode === "missing") r.budgets.pop();
++      if (mode === "denomination") r.budgets[1].currency = "UſD";
++      return reply(r);
++    };
++    await assert.rejects(runBudgetCopy(f.client, request, f.io), (e: unknown) =>
++      e instanceof CopyClientError && e.commitAttempted && /not confirmed/.test(e.message));
++    assert.equal(f.calls.length, 2); assert.ok(!f.output.join("").includes("Copy confirmed"));
++  }
++});
++test("failed preview output sends no commit; failed receipt output retains the known server confirmation", async () => {
++  const f = fixture(); f.io.write = async () => { throw new Error("closed output"); };
++  await assert.rejects(runBudgetCopy(f.client, request, f.io), /closed output/); assert.equal(f.calls.length, 1);
++  const g = fixture(); g.io.write = async text => {
++    if (text.startsWith("Copy confirmed")) throw new Error("closed output");
++    g.output.push(text);
++  };
++  await assert.rejects(runBudgetCopy(g.client, request, g.io), (e: unknown) => e instanceof CopyClientError &&
++    e.commitAttempted && /server confirmed/.test(e.message));
++  assert.equal(g.calls.length, 2);
++});
++test("terminal identity representation escapes controls and bidi without losing exact text", () => {
++  const raw = "food\u001b[2J\n\u0085\u061c\u200d\u{e0001}\u202e🧭";
++  const safe = terminalValue(raw);
++  assert.equal(JSON.parse(safe), raw);
++  assert.ok(!/[\p{Cc}\p{Cf}\u2028\u2029]/u.test(safe));
++});
++test("request and CLI admission preserve explicit local endpoint and selected identity", () => {
++  assert.deepEqual(readCopyRequest({ ...request, currency: "usd", categories: [" zero ", "旅行"] }),
++    { ...request, categories: ["zero", "旅行"] });
++  assert.throws(() => readCopyRequest({ ...request, categories: ["zero", " zero "] }), /distinct/);
++  assert.throws(() => readCopyRequest({ ...request, categories: ["\ud800"] }), /Unicode/);
++  const base = ["--endpoint", "http://127.0.0.1:3456/mcp", "--from-month", "2026-10", "--to-month", "2026-11", "--currency", "usd"];
++  assert.deepEqual(parseCopyArgs([...base, "--category", "zero", "--preview"])?.request, { ...request, categories: ["zero"] });
++  assert.equal(parseCopyArgs(["--help"]), null);
++  for (const endpoint of ["https://127.0.0.1/mcp", "http://example.invalid/mcp", "http://u:p@127.0.0.1/mcp", "http://127.0.0.1/mcp?x=1", "http://127.0.0.1/mcp#x", "http://127.0.0.1/other"]) {
++    assert.throws(() => parseCopyArgs(["--endpoint", endpoint, ...base.slice(2)]), /Endpoint/);
++  }
++  assert.throws(() => parseCopyArgs([...base, "--currency", "EUR"]), /Repeated/);
++  assert.throws(() => parseCopyArgs([...base, "--yes"]), /Unknown/);
++});
++test("actual CLI help is offline and a pipe cannot authorize a mutation", () => {
++  const cli = fileURLToPath(new URL("../src/household-budget-copy.js", import.meta.url));
++  const help = spawnSync(process.execPath, [cli, "--help"], { encoding: "utf8" });
++  assert.equal(help.status, 0); assert.match(help.stdout, /No automatic commit retry/); assert.equal(help.stderr, "");
++  const piped = spawnSync(process.execPath, [cli, "--endpoint", "http://127.0.0.1:1/mcp", "--from-month", "2026-10",
++    "--to-month", "2026-11", "--currency", "USD"], { input: "COPY 2026-11 USD\n", encoding: "utf8" });
++  assert.equal(piped.status, 1); assert.equal(piped.stdout, ""); assert.match(piped.stderr, /requires terminal/);
++  assert.doesNotMatch(piped.stderr, /fetch|ECONN|connect/);
++});
