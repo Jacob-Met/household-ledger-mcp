@@ -1,0 +1,50 @@
+{
+  "schema": "household.independent_review.v1",
+  "reviewer": "estate-a3425ebf9874/local_estate",
+  "disposition": "ACCEPT_SCOPED_SOURCE_ON_OWNER_BASE",
+  "native_source_commit": "eded6ab6f0d0df801e26735e898b6aa5b746c1aa",
+  "selected_native_parent": "7d6c0e251a9824347d72b29382b78ef7399cb78b",
+  "source_boundary": "Selected native capture maps another owner's draft PR8. This review neither adopts that parent nor asserts canonical integration.",
+  "source": {
+    "src/monthly-review.ts": {
+      "sha256": "7347fea52320f20180a73801906d44224563049fcec52beedb618d60f12766eb",
+      "git_blob": "60f6ffe2fd8975d1c76ae7f38282b6993b3eb787"
+    },
+    "src/household-review.ts": {
+      "sha256": "f0e5f83f329ed9e6af8d301d4c62226893122f98b8b7b7052caf018b81384602",
+      "git_blob": "3344b83c4159cf129fc5a9ab4d324b561d7374d6"
+    },
+    "src/ledger.ts": {
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "ownership": "unchanged domain"
+    }
+  },
+  "static_scope": [
+    "Read the full two new product modules and the existing validator/summary domain; report delegates monetary facts and admission to those existing rules.",
+    "The projection copies the explicit byte view, hashes captured bytes, excludes transaction IDs/notes/idempotency keys from its HTML, validates displayed text, and escapes inert labels.",
+    "The CLI admits an opened bounded regular file, detects changed size/timestamps during read, writes and fsyncs a private exclusive temporary file, then publishes with a hardlink that refuses even a late destination arrival.",
+    "Report freshness/authenticity, generation time, integer minor units, selection and no conversion are stated accurately; no live store, server, network, or persistence mutation is introduced."
+  ],
+  "independent_controls": {
+    "runtime": "native Mac Node v26.3.0",
+    "groups": 2,
+    "checks": 14,
+    "driver_sha256": "5236e32593951bf555de45d2439908b9bcaa48c73417270a965d42d211cb4692",
+    "result_sha256": "9683c49ccc52b39f0591cde607eceab7498e2f49010d1b3d496a02a79f89d07a",
+    "outcomes": [
+      "A nonzero-offset Uint8Array admits and hashes exactly its byte view, excludes outer backing-buffer sentinels, preserves the input, and returns a review detached from later input mutation and another returned review.",
+      "The real compiled CLI admits safe October USD despite unsafe excluded EUR and September aggregates; exact income 101, expense 58, net 43 and remaining budget 12 are retained. Selecting the same ledger's EUR overflow returns exit 1 with no partial output or temporary publication file; source bytes remain exact and successful output mode is 0600."
+    ],
+    "negative_scope": "Selected EUR overflow is an intended admission refusal on the same candidate. It is not a historical-parent failure or evidence of a repaired defect.",
+    "source_and_compiled_bytes_unchanged": true
+  },
+  "findings": [],
+  "qualifications": [
+    "No blocking defect remains in the inspected scope.",
+    "The original author 19 groups, browser/print/PDF checks and build are separately attributed and were not repeated.",
+    "No independent browser or PDF execution is claimed.",
+    "No separate-account approval, deployment, canonical integration, or adoption of draft PR8 is claimed.",
+    "Review-only: no production files, dependency symlinks, shared caches or owner data were edited."
+  ],
+  "sealed_at": "2026-10-08T16:48:56.234294+00:00"
+}

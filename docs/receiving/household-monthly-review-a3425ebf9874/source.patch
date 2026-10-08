@@ -1,0 +1,1176 @@
+diff --git a/docs/MONTHLY_REVIEW.md b/docs/MONTHLY_REVIEW.md
+new file mode 100644
+index 0000000..09bfce0
+--- /dev/null
++++ b/docs/MONTHLY_REVIEW.md
+@@ -0,0 +1,62 @@
++# Offline monthly review
++
++Create a readable category and budget report from one explicit local ledger file. The report is a private, self-contained HTML document you can open without a server or network and print from your browser.
++
++## Create a report
++
++Build the existing project, then pass all four arguments explicitly:
++
++    npm run build
++    node dist/src/household-review.js \
++      --ledger /absolute/path/to/ledger.json \
++      --month 2026-04 \
++      --currency USD \
++      --output /absolute/path/to/new-monthly-review.html
++
++Use a new destination filename. Existing files, directories, symbolic links and hard links are never replaced. The parent directory must already exist. The CLI does not read a default ledger environment variable, open an MCP session, start a server, or alter the source ledger.
++
++A successful invocation prints one JSON receipt containing the destination, selected month/currency/count, source byte length and SHA-256, and report byte length and SHA-256. Errors go to stderr with exit status 1; no stack trace is printed. Run with only `--help` for usage.
++
++Open the saved HTML file in a browser. Use the browser's **Print** command to create a paper or PDF copy. Wide tables scroll inside labeled keyboard-focusable regions on a narrow screen. The print layout exposes the full tables and repeats column headings across pages. No JavaScript, external fonts, images, storage, or network access is required.
++
++## What the figures mean
++
++- **Month and currency are required.** Currency uses the existing three-letter-code rule, with surrounding whitespace removed and letters uppercased. The report does not validate a code against an external currency registry, infer a currency, or convert amounts.
++- **Every amount is an exact integer in minor units.** The file does not assume a currency's decimal scale. For example, `18,800` means 18,800 stored minor units, without claiming that the currency has two decimal places.
++- **Income, expenses, and their difference** include only transactions in the selected month and currency. The difference is not an account balance or a forecast.
++- **Category budgets** compare stored limits with the selected recorded expenses. Income in the same category does not reduce spending. Negative remaining units mean the stored limit is exceeded. A stored zero limit is shown explicitly; a missing budget does not become zero.
++- **Legacy unassigned budgets** remain unassigned. The unchanged domain allows them only in their original single-transaction-currency context. The report labels this case and refuses ambiguous, empty, mixed-currency, or differently selected legacy-budget evaluations. It never migrates or assigns them.
++- **Zero recorded activity** does not prove that activity is complete. Source freshness, completeness, and authenticity are unknown.
++
++The implementation calls the existing `validateLedgerData`, `validateMonth`, and `monthlySummary` functions in `src/ledger.ts`. Their validation, safe-integer arithmetic and currency rules remain authoritative.
++
++## Snapshot and privacy boundaries
++
++The report records the source basename, exact captured byte length, SHA-256, ledger-format version, and report generation time in UTC. A hash identifies the captured bytes; it does not certify their authenticity. The report does not refresh, and its generation time is not a transaction update time.
++
++Transaction IDs, notes and idempotency keys are omitted. The complete source path is not embedded. Category labels, source basename, totals and budgets are present, so keep the report and any printed copies private.
++
++Category spelling and valid Unicode are preserved as text, with markup escaped. A selected label containing NUL or an unpaired Unicode surrogate is refused because HTML cannot preserve it. An excluded note or unselected category does not become report content.
++
++The CLI admits an existing regular file of at most 8 MiB, reads a bounded detached UTF-8 JSON snapshot, and rejects detected in-place size/time changes during that read. The native store's atomic replacement leaves an already opened snapshot intact. This is not a cross-process lock or a guarantee that a later source file still matches the report.
++
++UTF-8 decoding is strict. Empty input, a byte-order mark, malformed JSON, invalid ledger data, unsafe totals, and a complete HTML result above 8 MiB are refused. The whole output is admitted or refused; it is never silently truncated.
++
++A completed temporary file in the destination directory is written with requested mode `0600`, flushed, and linked exclusively to the new destination. A concurrently created destination is preserved. The temporary file is then removed. This path relies on normal local-filesystem regular-file and hard-link semantics; directory creation, filesystem ACL management, network-volume guarantees, and automatic replacement are outside its scope. If publication succeeds but temporary cleanup fails, the CLI identifies that exceptional state explicitly.
++
++## Focused receiving
++
++The additive Node tests exercise the new projection and actual compiled CLI, including concurrent publishers and source/destination preservation:
++
++    npm run build
++    node --test dist/test/monthly-review.test.js dist/test/monthly-review-cli.test.js
++
++A maintained receiver can exercise the actual direct-file output in an isolated native Chromium profile. It creates only synthetic ledgers in a new evidence directory outside the source tree:
++
++    node tools/check-monthly-review.mjs \
++      --output-dir /absolute/path/to/new-receiving-dir \
++      --chrome /path/to/chrome
++
++Use `--dist /absolute/build-dir` if emitted files are elsewhere. The receiver needs Node with its built-in WebSocket API (Node 22 or newer), a preinstalled Chromium-compatible browser, and at least 128 MiB free for its own profile. The product CLI remains compatible with the project's existing Node 20 target.
++
++Receiving covers actual CLI output, rendered totals and provenance, hostile Unicode text, empty selection without JavaScript, 390px containment and native keyboard scrolling, and a real saved browser PDF. On macOS, the system PDFKit reader independently reads the saved PDF text and page count. Original PNG captures, command outputs, file hashes and a source-bound JSON receipt are preserved; the receiver closes its browser and removes only its own temporary profile. It does not log in, read household data, invoke providers, or launch the MCP service.
+diff --git a/src/household-review.ts b/src/household-review.ts
+new file mode 100644
+index 0000000..3344b83
+--- /dev/null
++++ b/src/household-review.ts
+@@ -0,0 +1,144 @@
++#!/usr/bin/env node
++/**
++ * Explicit local-file entry point. It never opens LedgerStore or starts MCP.
++ */
++import { constants } from "node:fs";
++import { open, lstat, link, unlink } from "node:fs/promises";
++import { basename, dirname, resolve, join } from "node:path";
++import { pathToFileURL } from "node:url";
++import { createHash, randomUUID } from "node:crypto";
++import { createMonthlyReview, MAX_REVIEW_INPUT_BYTES } from "./monthly-review.js";
++
++const usage = "Usage: node dist/src/household-review.js --ledger FILE --month YYYY-MM --currency CODE --output NEW_HTML_FILE";
++type Arguments = { ledger: string; month: string; currency: string; output: string };
++
++function parseArguments(argv: string[]): Arguments {
++  const values = new Map<string, string>();
++  const allowed = new Set(["--ledger", "--month", "--currency", "--output"]);
++  if (argv.length !== 8) throw new Error("supply each of --ledger, --month, --currency, and --output exactly once");
++  for (let i = 0; i < argv.length; i += 2) {
++    const key = argv[i], value = argv[i + 1];
++    if (!allowed.has(key) || values.has(key) || value === undefined || value.length === 0) {
++      throw new Error("unknown, repeated, or empty monthly review argument");
++    }
++    values.set(key, value);
++  }
++  if (values.size !== 4) throw new Error("all four monthly review arguments are required");
++  return {
++    ledger: values.get("--ledger")!, month: values.get("--month")!,
++    currency: values.get("--currency")!, output: values.get("--output")!,
++  };
++}
++
++function hasCode(error: unknown, code: string): boolean {
++  return typeof error === "object" && error !== null && "code" in error && error.code === code;
++}
++
++async function requireNewDestination(path: string): Promise<void> {
++  try {
++    await lstat(path);
++  } catch (error) {
++    if (hasCode(error, "ENOENT")) return;
++    throw error;
++  }
++  throw new Error("output already exists; choose a new file (existing files, links, and directories are never replaced)");
++}
++
++/** An opened regular file and bounded reads also refuse FIFOs without waiting. */
++async function readSnapshot(path: string): Promise<Buffer> {
++  const handle = await open(path, constants.O_RDONLY | constants.O_NONBLOCK);
++  try {
++    const before = await handle.stat({ bigint: true });
++    if (!before.isFile()) throw new Error("ledger input must be an existing regular file");
++    if (before.size === 0n || before.size > BigInt(MAX_REVIEW_INPUT_BYTES)) {
++      throw new Error("ledger input must contain 1.." + MAX_REVIEW_INPUT_BYTES + " bytes");
++    }
++    const chunks: Buffer[] = [];
++    let count = 0;
++    while (count <= MAX_REVIEW_INPUT_BYTES) {
++      const chunk = Buffer.alloc(Math.min(65536, MAX_REVIEW_INPUT_BYTES + 1 - count));
++      const { bytesRead } = await handle.read(chunk, 0, chunk.length, count);
++      if (bytesRead === 0) break;
++      chunks.push(chunk.subarray(0, bytesRead));
++      count += bytesRead;
++    }
++    if (count > MAX_REVIEW_INPUT_BYTES) throw new Error("ledger input grew beyond the byte limit");
++    const after = await handle.stat({ bigint: true });
++    if (BigInt(count) !== before.size || before.size !== after.size ||
++        before.mtimeNs !== after.mtimeNs || before.ctimeNs !== after.ctimeNs) {
++      throw new Error("ledger changed while reading; retry from a stable snapshot");
++    }
++    return Buffer.concat(chunks, count);
++  } finally {
++    await handle.close();
++  }
++}
++
++/** Link a completed private temp file without overwriting even a late arrival. */
++async function publishNew(destination: string, bytes: Buffer): Promise<void> {
++  const temporary = join(dirname(destination), ".household-review-" + randomUUID() + ".tmp");
++  const handle = await open(temporary, "wx", 0o600);
++  let published = false;
++  let operationError: unknown;
++  try {
++    try {
++      await handle.writeFile(bytes);
++      await handle.sync();
++    } finally {
++      await handle.close();
++    }
++    await link(temporary, destination);
++    published = true;
++  } catch (error) {
++    operationError = error;
++  } finally {
++    try {
++      await unlink(temporary);
++    } catch (error) {
++      if (!hasCode(error, "ENOENT")) {
++        if (published) throw new Error("complete report saved, but temporary-file cleanup failed: " + temporary);
++        if (operationError === undefined) operationError = error;
++      }
++    }
++  }
++  if (operationError !== undefined) {
++    if (hasCode(operationError, "EEXIST")) {
++      throw new Error("output appeared before publication; it was preserved, choose a new file");
++    }
++    throw operationError;
++  }
++}
++
++export async function runMonthlyReview(argv: string[]): Promise<string> {
++  if (argv.length === 1 && argv[0] === "--help") {
++    return usage + "\nCreates a private static HTML file from one explicit local ledger, month, and currency.\n" +
++      "Inputs are read only. Output must be new; no files or links are replaced.\n" +
++      "Amounts remain exact integer minor units; use the browser Print command for a PDF.\n";
++  }
++  const args = parseArguments(argv);
++  const inputPath = resolve(args.ledger), destination = resolve(args.output);
++  await requireNewDestination(destination);
++  const snapshot = await readSnapshot(inputPath);
++  const report = createMonthlyReview(snapshot, {
++    month: args.month, currency: args.currency, sourceLabel: basename(inputPath),
++  });
++  const output = Buffer.from(report.html, "utf8");
++  await publishNew(destination, output);
++  return JSON.stringify({
++    output: destination, month: report.month, currency: report.currency,
++    selectedTransactions: report.selectedTransactions,
++    sourceBytes: report.source.bytes, sourceSha256: report.source.sha256,
++    reportBytes: output.byteLength,
++    reportSha256: createHash("sha256").update(output).digest("hex"),
++  }) + "\n";
++}
++
++if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
++  try {
++    process.stdout.write(await runMonthlyReview(process.argv.slice(2)));
++  } catch (error) {
++    const message = (error instanceof Error ? error.message : String(error)).replace(/[\r\n\t]/g, " ").slice(0, 1000);
++    process.stderr.write("household-review: " + message + "\n");
++    process.exitCode = 1;
++  }
++}
+diff --git a/src/monthly-review.ts b/src/monthly-review.ts
+new file mode 100644
+index 0000000..60f6ffe
+--- /dev/null
++++ b/src/monthly-review.ts
+@@ -0,0 +1,257 @@
++/**
++ * A detached, explicit-currency monthly review of one exact ledger byte snapshot.
++ * Domain validation and arithmetic remain owned by ledger.ts.
++ */
++import { createHash } from "node:crypto";
++import { TextDecoder } from "node:util";
++import { monthlySummary, validateLedgerData, validateMonth, type MonthlySummary } from "./ledger.js";
++
++export const MAX_REVIEW_INPUT_BYTES = 8 * 1024 * 1024;
++export const MAX_REVIEW_OUTPUT_BYTES = 8 * 1024 * 1024;
++
++export interface MonthlyReviewOptions {
++  month: string;
++  currency: string;
++  sourceLabel?: string;
++  generatedAt?: string;
++}
++
++export interface MonthlyReview {
++  html: string;
++  month: string;
++  currency: string;
++  generatedAt: string;
++  source: { label: string; bytes: number; sha256: string; ledgerVersion: number };
++  selectedTransactions: number;
++  summary: MonthlySummary;
++}
++
++function requireLabel(value: string, field: string): string {
++  if (typeof value !== "string") throw new Error(field + " must be text");
++  for (let i = 0; i < value.length; i++) {
++    const code = value.charCodeAt(i);
++    if (code === 0) throw new Error(field + " contains a NUL character that HTML cannot preserve");
++    if (code >= 0xd800 && code <= 0xdbff) {
++      const next = value.charCodeAt(++i);
++      if (!(next >= 0xdc00 && next <= 0xdfff)) {
++        throw new Error(field + " contains an unpaired Unicode surrogate");
++      }
++    } else if (code >= 0xdc00 && code <= 0xdfff) {
++      throw new Error(field + " contains an unpaired Unicode surrogate");
++    }
++  }
++  return value;
++}
++
++/** Numeric references keep CR/LF labels exact across HTML newline parsing. */
++function escapeHtml(value: string): string {
++  return value.replace(/[&<>"'\r\n\t]/g, char => ({
++    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
++    "\r": "&#13;", "\n": "&#10;", "\t": "&#9;",
++  })[char]!);
++}
++
++function label(value: string): string {
++  return '<bdi class="label">' + escapeHtml(value) + "</bdi>";
++}
++
++/** No decimal scale, conversion, or floating-point currency formatter is used. */
++function amount(value: number): string {
++  if (!Number.isSafeInteger(value)) throw new Error("review amount exceeds the safe integer range");
++  return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
++}
++
++function order(a: string, b: string): number {
++  return a < b ? -1 : a > b ? 1 : 0;
++}
++
++const styles = String.raw`:root { color-scheme: light; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: #20312d; background: #f2f5f0; }
++* { box-sizing: border-box; }
++body { margin: 0; min-width: 280px; }
++main { width: min(70rem, calc(100% - 2rem)); margin: 2.5rem auto; }
++header { margin-bottom: 1.5rem; }
++h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.15; margin: .25rem 0 .7rem; }
++h2 { font-size: 1.25rem; margin: 0 0 .75rem; }
++p { margin: .6rem 0; }
++.kicker { color: #255f4c; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
++.selection { display: flex; flex-wrap: wrap; gap: .65rem; margin: 1rem 0; }
++.badge { padding: .3rem .6rem; border: 1px solid #9ab5a8; border-radius: .4rem; background: #e5efe8; font-weight: 700; }
++.subtitle, .muted { color: #52665d; }
++.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin: 1.2rem 0; }
++.card { min-width: 0; padding: 1.2rem; background: #fff; border: 1px solid #c7d5ca; border-radius: .75rem; }
++.card h2 { color: #52665d; font-size: .85rem; margin: 0; }
++.value { font: 750 clamp(1.4rem, 3vw, 2rem)/1.35 ui-monospace, SFMono-Regular, Consolas, monospace; margin: .45rem 0 .25rem; overflow-wrap: anywhere; }
++.unit { color: #52665d; font-size: .8rem; }
++section { min-width: 0; padding: 1.25rem; margin: 1rem 0; background: #fff; border: 1px solid #c7d5ca; border-radius: .75rem; }
++.table-scroll { max-width: 100%; overflow-x: auto; padding: .25rem; }
++.table-scroll:focus-visible { outline: 3px solid #a34d00; outline-offset: 2px; }
++table { width: 100%; border-collapse: collapse; }
++caption { text-align: left; color: #52665d; font-size: .88rem; padding-bottom: .8rem; }
++th, td { padding: .7rem .65rem; border-bottom: 1px solid #d9e1da; vertical-align: top; text-align: left; }
++thead th { color: #41564a; background: #f0f5ee; font-size: .85rem; }
++th[scope="row"] { font-weight: 650; max-width: 25rem; min-width: 9rem; overflow-wrap: anywhere; }
++bdi.label { white-space: pre-wrap; overflow-wrap: anywhere; }
++.number { text-align: right; font-variant-numeric: tabular-nums; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; white-space: nowrap; }
++.status { min-width: 9rem; font-weight: 650; }
++.over { color: #923a24; }
++.within { color: #255f4c; }
++.legacy { display: block; color: #7a561c; font-size: .8rem; font-weight: 500; margin-top: .3rem; }
++.empty { padding: .9rem; border: 1px dashed #a8bbad; border-radius: .4rem; background: #f6f8f3; }
++.provenance { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .4rem 1rem; font-size: .9rem; }
++.provenance dt { color: #52665d; }
++.provenance dd { margin: 0; overflow-wrap: anywhere; }
++.hash { font: .82rem/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; word-break: break-all; }
++footer { margin-top: 1.3rem; font-size: .88rem; color: #52665d; }
++@media (max-width: 560px) {
++ main { width: calc(100% - 1.25rem); margin: 1.4rem auto; }
++ .cards { grid-template-columns: minmax(0, 1fr); gap: .6rem; }
++ .card { padding: 1rem; }
++ section { padding: 1rem; }
++ .provenance { grid-template-columns: minmax(0, 1fr); gap: .15rem; }
++ .provenance dd { margin-bottom: .6rem; }
++}
++@media print {
++ :root, body { background: #fff; color: #111; font-size: 10pt; }
++ main { width: 100%; margin: 0; }
++ h1 { font-size: 23pt; }
++ .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
++ .card, section { border-radius: 0; box-shadow: none; }
++ .card { break-inside: avoid; }
++ section { padding: .8rem 0; border: 0; }
++ .table-scroll { overflow: visible; padding: 0; }
++ table { width: 100%; font-size: 8pt; }
++ th, td { padding: .35rem .3rem; }
++ th[scope="row"] { min-width: 0; max-width: 12rem; }
++ .status { min-width: 0; }
++ .number { white-space: normal; overflow-wrap: anywhere; }
++ thead { display: table-header-group; }
++ tr { break-inside: avoid; }
++ .provenance { grid-template-columns: max-content minmax(0, 1fr); }
++ .screen-only { display: none; }
++}`;
++
++/**
++ * Reads no filesystem or environment state and retains no reference to input.
++ * A source hash identifies captured bytes, not freshness or authenticity.
++ */
++export function createMonthlyReview(input: Uint8Array, options: MonthlyReviewOptions): MonthlyReview {
++  if (!(input instanceof Uint8Array)) throw new Error("ledger snapshot must be bytes");
++  if (input.byteLength === 0 || input.byteLength > MAX_REVIEW_INPUT_BYTES) {
++    throw new Error("ledger snapshot must contain 1.." + MAX_REVIEW_INPUT_BYTES + " bytes");
++  }
++  if (!options || typeof options !== "object") throw new Error("month and currency are required");
++  const month = validateMonth(options.month);
++  if (typeof options.currency !== "string" || !/^[A-Za-z]{3}$/.test(options.currency.trim())) {
++    throw new Error("currency must be an explicit 3-letter code");
++  }
++  const currency = options.currency.trim().toUpperCase();
++  const sourceLabel = requireLabel(options.sourceLabel ?? "ledger snapshot", "source label");
++  if (sourceLabel.trim().length === 0 || [...sourceLabel].length > 180) {
++    throw new Error("source label must contain 1..180 characters");
++  }
++  const generatedAt = options.generatedAt ?? new Date().toISOString();
++  if (typeof generatedAt !== "string" || !/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{3}Z$/.test(generatedAt) ||
++      !Number.isFinite(Date.parse(generatedAt)) || new Date(generatedAt).toISOString() !== generatedAt) {
++    throw new Error("generatedAt must be an exact UTC ISO timestamp");
++  }
++  const bytes = Buffer.from(input);
++  let raw: unknown;
++  try {
++    // Preserve a leading BOM, matching the native JSON reader's refusal.
++    raw = JSON.parse(new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(bytes));
++  } catch {
++    throw new Error("ledger snapshot must be valid UTF-8 JSON without a byte-order mark");
++  }
++  const data = validateLedgerData(raw);
++  const [year, monthNumber] = month.split("-").map(Number);
++  const summary = monthlySummary(data, year, monthNumber, currency);
++  const selectedTransactions = data.transactions.filter(t =>
++    t.date.startsWith(month) && t.currency.trim().toUpperCase() === currency).length;
++  const categories = Object.entries(summary.byCategory).sort(([a], [b]) => order(a, b));
++  for (const [category] of categories) requireLabel(category, "selected category");
++  const budgets = [...summary.budgets].sort((a, b) => order(a.category, b.category));
++  for (const budget of budgets) requireLabel(budget.category, "selected budget category");
++  const source = {
++    label: sourceLabel,
++    bytes: bytes.byteLength,
++    sha256: createHash("sha256").update(bytes).digest("hex"),
++    ledgerVersion: data.version,
++  };
++
++  const parts: string[] = [];
++  let outputBytes = 0;
++  const append = (part: string) => {
++    outputBytes += Buffer.byteLength(part, "utf8");
++    if (outputBytes > MAX_REVIEW_OUTPUT_BYTES) {
++      throw new Error("complete monthly review exceeds the " + MAX_REVIEW_OUTPUT_BYTES + "-byte output limit");
++    }
++    parts.push(part);
++  };
++  const moneyCell = (value: number) => '<td class="number">' + amount(value) + "</td>";
++
++  append("<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n");
++  append('<meta name="viewport" content="width=device-width, initial-scale=1">\n');
++  append('<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; style-src \'unsafe-inline\'; base-uri \'none\'; form-action \'none\'">\n');
++  append("<title>Household monthly review · " + month + " · " + currency + "</title>\n");
++  append("<style>\n" + styles + "\n</style>\n</head>\n<body>\n");
++  append('<main data-month="' + month + '" data-currency="' + currency + '">\n<header>\n');
++  append('<p class="kicker">Household Ledger · local snapshot</p>\n<h1>Monthly category &amp; budget review</h1>\n');
++  append('<p class="subtitle">An explicit month and currency, evaluated from the captured ledger bytes.</p>\n');
++  append('<div class="selection"><span class="badge" id="selected-month">' + month +
++    '</span><span class="badge" id="selected-currency">' + currency + "</span></div>\n");
++  append('<p><strong id="selected-count">' + selectedTransactions + "</strong> selected transactions. " +
++    "Amounts are exact integer <strong>minor units</strong>; no decimal scale or currency conversion is assumed.</p>\n</header>\n");
++  append('<div class="cards" aria-label="Selected monthly totals">\n');
++  for (const [id, title, value] of [
++    ["income", "Income recorded", summary.incomeMinor],
++    ["expense", "Expenses recorded", summary.expenseMinor],
++    ["net", "Income minus expenses", summary.netMinor],
++  ] as const) {
++    append('<article class="card"><h2>' + title + '</h2><p class="value" id="summary-' + id + '">' +
++      amount(value) + '</p><p class="unit">' + currency + " minor units</p></article>\n");
++  }
++  append("</div>\n<section aria-labelledby=\"category-heading\">\n<h2 id=\"category-heading\">By category</h2>\n");
++  if (categories.length === 0) {
++    append('<p class="empty" id="empty-categories">No recorded transactions match this month and currency. Zero recorded totals do not establish that activity is complete.</p>\n');
++  } else {
++    append('<div class="table-scroll" tabindex="0" role="region" aria-label="Category totals; scroll horizontally if needed"><table>\n');
++    append("<caption>Recorded income and expenses, separately. Category labels retain their exact spelling.</caption>\n");
++    append('<thead><tr><th scope="col">Category</th><th scope="col" class="number">Income · minor units</th><th scope="col" class="number">Expenses · minor units</th></tr></thead>\n<tbody id="category-body">\n');
++    for (const [category, totals] of categories) {
++      append('<tr><th scope="row">' + label(category) + "</th>" +
++        moneyCell(totals.incomeMinor) + moneyCell(totals.expenseMinor) + "</tr>\n");
++    }
++    append("</tbody></table></div>\n");
++  }
++  append("</section>\n<section aria-labelledby=\"budget-heading\">\n<h2 id=\"budget-heading\">Category budgets</h2>\n");
++  append("<p>Spending uses recorded expenses only; category income does not reduce it. A negative remaining amount is over the stored limit.</p>\n");
++  if (budgets.length === 0) {
++    append('<p class="empty" id="empty-budgets">No category budgets match this month and currency. No limit has been inferred.</p>\n');
++  } else {
++    append('<div class="table-scroll" tabindex="0" role="region" aria-label="Budget comparison; scroll horizontally if needed"><table>\n');
++    append("<caption>Stored limits compared with the selected monthly expenses, all in integer minor units.</caption>\n");
++    append('<thead><tr><th scope="col">Category</th><th scope="col" class="number">Limit</th><th scope="col" class="number">Spent</th><th scope="col" class="number">Remaining</th><th scope="col">Evaluation</th></tr></thead>\n<tbody id="budget-body">\n');
++    for (const budget of budgets) {
++      const status = budget.over ? "Over limit" : budget.limitMinor === 0 ? "Zero limit; no expenses" : "Within stored limit";
++      append('<tr><th scope="row">' + label(budget.category) +
++        (budget.currency === undefined ? '<span class="legacy">Currency unassigned · legacy single-currency context</span>' : "") +
++        "</th>" + moneyCell(budget.limitMinor) + moneyCell(budget.spentMinor) + moneyCell(budget.remainingMinor) +
++        '<td class="status ' + (budget.over ? "over" : "within") + '">' + status + "</td></tr>\n");
++    }
++    append("</tbody></table></div>\n");
++  }
++  append("</section>\n<section aria-labelledby=\"snapshot-heading\">\n<h2 id=\"snapshot-heading\">Snapshot &amp; evaluation</h2>\n");
++  append('<dl class="provenance"><dt>Source label</dt><dd id="source-label">' + label(source.label) + "</dd>\n");
++  append('<dt>Captured bytes</dt><dd id="source-bytes">' + source.bytes + "</dd>\n");
++  append('<dt>Source SHA-256</dt><dd class="hash" id="source-sha256">' + source.sha256 + "</dd>\n");
++  append('<dt>Ledger format version</dt><dd>' + source.ledgerVersion + "</dd>\n");
++  append('<dt>Report generated (UTC)</dt><dd><time id="generated-at" datetime="' + generatedAt + '">' + generatedAt + "</time></dd>\n");
++  append("<dt>Evaluation</dt><dd>Native ledger validation and monthlySummary rules; explicit month and currency.</dd></dl>\n");
++  append("<p>This static report reflects only the captured bytes. It does not refresh. Source freshness, completeness, and authenticity are unknown; the hash identifies bytes without certifying them. The generation time is not a transaction update time.</p>\n");
++  append("<p>The net figure is recorded income minus expenses for this selection, not an account balance or a cash-flow forecast. Other months and currencies are excluded. No conversion, recommendations, or limit assignment is performed.</p>\n");
++  append("<p>Transaction IDs, notes, and idempotency keys are omitted. Category and source labels, totals, and budget limits are present: keep this file private.</p>\n</section>\n");
++  append('<footer><p class="screen-only">Open this saved file offline. Use your browser’s Print command for a paper or PDF copy.</p><p>No scripts, external assets, network requests, or browser storage are required.</p></footer>\n');
++  append("</main>\n</body>\n</html>\n");
++
++  return { html: parts.join(""), month, currency, generatedAt, source, selectedTransactions, summary };
++}
+diff --git a/test/monthly-review-cli.test.ts b/test/monthly-review-cli.test.ts
+new file mode 100644
+index 0000000..cab508b
+--- /dev/null
++++ b/test/monthly-review-cli.test.ts
+@@ -0,0 +1,155 @@
++import test from "node:test";
++import assert from "node:assert/strict";
++import { mkdtemp, writeFile, readFile, stat, lstat, readdir, mkdir, link, symlink, rm, truncate } from "node:fs/promises";
++import { tmpdir } from "node:os";
++import { join } from "node:path";
++import { fileURLToPath } from "node:url";
++import { spawn, spawnSync } from "node:child_process";
++import { createHash } from "node:crypto";
++import { MAX_REVIEW_INPUT_BYTES } from "../src/monthly-review.js";
++
++const cli = fileURLToPath(new URL("../src/household-review.js", import.meta.url));
++const sample = JSON.stringify({
++  version: 2,
++  transactions: [{
++    id: "PRIVATE-IDENTITY", type: "expense", amountMinor: 123, currency: "USD", date: "2026-04-01",
++    category: "Food", note: "PRIVATE-NOTE", idempotencyKey: "PRIVATE-KEY", createdAt: "2026-04-01T00:00:00.000Z",
++  }],
++  budgets: [{ category: "Food", month: "2026-04", currency: "USD", limitMinor: 120 }],
++}, null, 2) + "\n";
++const args = (input: string, output: string) => [cli, "--ledger", input, "--month", "2026-04", "--currency", "USD", "--output", output];
++function run(argv: string[], timeout = 5000) {
++  return spawnSync(process.execPath, argv, { encoding: "utf8", timeout, env: { ...process.env, LEDGER_FILE: "/must-not-be-used" } });
++}
++async function within(body: (root: string, input: string) => Promise<void>) {
++  const root = await mkdtemp(join(tmpdir(), "household-review-test-"));
++  const input = join(root, "fictional-ledger.json");
++  await writeFile(input, sample, { mode: 0o600 });
++  try { await body(root, input); } finally { await rm(root, { recursive: true, force: true }); }
++}
++async function noTemps(root: string) {
++  assert.deepEqual((await readdir(root)).filter(p => p.startsWith(".household-review-")), []);
++}
++function refused(result: ReturnType<typeof run>) {
++  assert.equal(result.status, 1, result.stderr);
++  assert.equal(result.stdout, "");
++  assert.match(result.stderr, /^household-review: [^\r\n]+\n$/);
++  assert.ok(!result.stderr.includes("\n    at "));
++}
++
++test("actual compiled CLI publishes one private, complete source-bound HTML file", async () => within(async (root, input) => {
++  const destination = join(root, "monthly.html"), before = await stat(input);
++  const result = run(args(input, destination));
++  assert.equal(result.status, 0, result.stderr);
++  assert.equal(result.stderr, "");
++  const receipt = JSON.parse(result.stdout), output = await readFile(destination);
++  assert.equal(receipt.month, "2026-04");
++  assert.equal(receipt.currency, "USD");
++  assert.equal(receipt.selectedTransactions, 1);
++  assert.equal(receipt.sourceSha256, createHash("sha256").update(sample).digest("hex"));
++  assert.equal(receipt.reportSha256, createHash("sha256").update(output).digest("hex"));
++  assert.equal(receipt.reportBytes, output.length);
++  assert.ok(output.toString("utf8").endsWith("</html>\n"));
++  assert.match(output.toString("utf8"), /<td class="number">-3<\/td>/);
++  for (const value of ["PRIVATE-IDENTITY", "PRIVATE-NOTE", "PRIVATE-KEY", input]) {
++    assert.ok(!output.toString("utf8").includes(value), value);
++  }
++  if (process.platform !== "win32") assert.equal((await stat(destination)).mode & 0o777, 0o600);
++  assert.equal(await readFile(input, "utf8"), sample);
++  const after = await stat(input);
++  assert.equal(after.ino, before.ino); assert.equal(after.mtimeMs, before.mtimeMs);
++  await noTemps(root);
++}));
++
++test("existing destination, input alias, hardlink and symlink are preserved", async () => within(async (root, input) => {
++  const destination = join(root, "already.html"), hard = join(root, "hard.html"), symbolic = join(root, "symbolic.html");
++  await writeFile(destination, "EXISTING-REPORT-SENTINEL");
++  await link(input, hard);
++  await symlink(input, symbolic);
++  for (const output of [destination, input, hard, symbolic]) refused(run(args(input, output)));
++  assert.equal(await readFile(destination, "utf8"), "EXISTING-REPORT-SENTINEL");
++  assert.equal(await readFile(input, "utf8"), sample);
++  assert.equal((await stat(hard)).ino, (await stat(input)).ino);
++  assert.equal((await lstat(symbolic)).isSymbolicLink(), true);
++  await noTemps(root);
++}));
++
++test("a dangling output symlink and an existing directory are refused without replacement", async () => within(async (root, input) => {
++  const symbolic = join(root, "dangling.html"), directory = join(root, "directory");
++  await symlink(join(root, "absent-target"), symbolic); await mkdir(directory);
++  refused(run(args(input, symbolic))); refused(run(args(input, directory)));
++  assert.equal((await lstat(symbolic)).isSymbolicLink(), true);
++  assert.equal((await stat(directory)).isDirectory(), true);
++  await assert.rejects(stat(join(root, "absent-target")), { code: "ENOENT" });
++  await noTemps(root);
++}));
++
++test("missing, malformed and oversized inputs leave no report or temporary files", async () => within(async (root, input) => {
++  const destination = join(root, "refused.html");
++  refused(run(args(join(root, "absent.json"), destination)));
++  await writeFile(input, "{\"version\":");
++  refused(run(args(input, destination)));
++  await truncate(input, MAX_REVIEW_INPUT_BYTES + 1);
++  refused(run(args(input, destination)));
++  await assert.rejects(stat(destination), { code: "ENOENT" });
++  await noTemps(root);
++}));
++
++test("directories and POSIX FIFOs are rejected promptly rather than read indefinitely", async () => within(async (root) => {
++  const destination = join(root, "refused.html");
++  refused(run(args(root, destination)));
++  if (process.platform !== "win32") {
++    const fifo = join(root, "pipe.json");
++    const mkfifo = spawnSync("mkfifo", [fifo], { encoding: "utf8" });
++    assert.equal(mkfifo.status, 0, mkfifo.stderr);
++    const result = run(args(fifo, destination), 2000);
++    assert.equal(result.error, undefined);
++    refused(result);
++    assert.match(result.stderr, /regular file/);
++  }
++  await noTemps(root);
++}));
++
++test("argument and domain refusals do not create outputs or consult a default ledger", async () => within(async (root, input) => {
++  const destination = join(root, "refused.html"), complete = args(input, destination);
++  const cases = [
++    [cli], [cli, "--help", "--month", "2026-04"], [...complete, "--currency", "USD"],
++    [cli, "--ledger", input, "--month", "2026-04", "--currency", "", "--output", destination],
++    [cli, "--ledger", input, "--month", "2026-04", "--currency", "USD", "--ledger", destination],
++    [cli, "--ledger", input, "--month", "2026-13", "--currency", "USD", "--output", destination],
++    [cli, "--ledger", input, "--month", "2026-04", "--currency", "US", "--output", destination],
++  ];
++  for (const argv of cases) refused(run(argv));
++  const help = run([cli, "--help"]); assert.equal(help.status, 0); assert.match(help.stdout, /NEW_HTML_FILE/);
++  await assert.rejects(stat(destination), { code: "ENOENT" });
++  assert.equal(await readFile(input, "utf8"), sample);
++  await noTemps(root);
++}));
++
++test("a nonexistent output parent is not created and leaves the source unchanged", async () => within(async (root, input) => {
++  refused(run(args(input, join(root, "new-parent", "monthly.html"))));
++  await assert.rejects(stat(join(root, "new-parent")), { code: "ENOENT" });
++  assert.equal(await readFile(input, "utf8"), sample);
++  await noTemps(root);
++}));
++
++test("concurrent real CLI publishers admit exactly one complete output", async () => within(async (root, input) => {
++  const destination = join(root, "race.html");
++  const results = await Promise.all(Array.from({ length: 6 }, () => new Promise<{ code: number | null; stdout: string; stderr: string }>((resolve, reject) => {
++    const child = spawn(process.execPath, args(input, destination), { stdio: ["ignore", "pipe", "pipe"] });
++    let stdout = "", stderr = "";
++    child.stdout.setEncoding("utf8"); child.stderr.setEncoding("utf8");
++    child.stdout.on("data", data => { stdout += data; }); child.stderr.on("data", data => { stderr += data; });
++    child.on("error", reject); child.on("close", code => resolve({ code, stdout, stderr }));
++  })));
++  const successes = results.filter(result => result.code === 0);
++  assert.equal(successes.length, 1);
++  for (const result of results.filter(result => result.code !== 0)) {
++    assert.equal(result.code, 1); assert.match(result.stderr, /output .*exists|output appeared/);
++  }
++  const bytes = await readFile(destination);
++  assert.equal(JSON.parse(successes[0].stdout).reportSha256, createHash("sha256").update(bytes).digest("hex"));
++  assert.ok(bytes.toString("utf8").endsWith("</html>\n"));
++  assert.equal(await readFile(input, "utf8"), sample);
++  await noTemps(root);
++}));
+diff --git a/test/monthly-review.test.ts b/test/monthly-review.test.ts
+new file mode 100644
+index 0000000..170f738
+--- /dev/null
++++ b/test/monthly-review.test.ts
+@@ -0,0 +1,186 @@
++import test from "node:test";
++import assert from "node:assert/strict";
++import { createHash } from "node:crypto";
++import { createMonthlyReview, MAX_REVIEW_INPUT_BYTES, MAX_REVIEW_OUTPUT_BYTES } from "../src/monthly-review.js";
++import { type LedgerData, type Transaction } from "../src/ledger.js";
++
++const fixed = { month: "2026-04", currency: "USD", generatedAt: "2026-10-08T17:00:00.000Z" };
++const encode = (value: unknown) => Buffer.from(JSON.stringify(value) + "\n");
++const hash = (value: Uint8Array) => createHash("sha256").update(value).digest("hex");
++const transaction = (id: string, amountMinor: number, category: string, extra: Partial<Transaction> = {}): Transaction => ({
++  id, amountMinor, category, type: "expense", currency: "USD", date: "2026-04-12", createdAt: "2026-04-12T12:00:00.000Z", ...extra,
++});
++const empty = (): LedgerData => ({ version: 2, transactions: [], budgets: [] });
++function rowText(html: string, body: string): string[] {
++  const table = html.match(new RegExp('<tbody id="' + body + '">([\\s\\S]*?)</tbody>'))?.[1] ?? "";
++  return [...table.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map(match => match[1]);
++}
++
++test("one explicit selection preserves native gross arithmetic and omits transaction-private fields", () => {
++  const data = empty();
++  data.transactions.push(
++    transaction("PRIVATE-ID", 10000, "Salary", { type: "income", note: "PRIVATE-NOTE", idempotencyKey: "PRIVATE-KEY" }),
++    transaction("refund", 300, "Food", { type: "income" }),
++    transaction("spent", 2100, "Food", { currency: " usd " }),
++    transaction("euro", 999999, "OTHER-CURRENCY", { currency: "EUR" }),
++    transaction("later", 888888, "OTHER-MONTH", { date: "2026-05-01" }),
++  );
++  data.budgets.push(
++    { category: "Food", month: "2026-04", limitMinor: 2000, currency: "USD" },
++    { category: "Food", month: "2026-04", limitMinor: 100, currency: "EUR" },
++  );
++  const input = encode(data), before = Buffer.from(input);
++  const report = createMonthlyReview(input, { ...fixed, currency: " usd ", sourceLabel: "fictional.json" });
++  assert.deepEqual(input, before);
++  assert.equal(report.currency, "USD");
++  assert.equal(report.selectedTransactions, 3);
++  assert.deepEqual([report.summary.incomeMinor, report.summary.expenseMinor, report.summary.netMinor], [10300, 2100, 8200]);
++  assert.equal(report.summary.budgets[0].remainingMinor, -100);
++  assert.equal(report.summary.budgets[0].spentMinor, 2100, "income does not offset budget spending");
++  assert.equal(report.source.sha256, hash(before));
++  assert.equal(report.source.bytes, before.length);
++  assert.match(report.html, /id="summary-income">10,300</);
++  assert.match(report.html, /id="summary-expense">2,100</);
++  assert.match(report.html, /id="summary-net">8,200</);
++  assert.match(report.html, /Over limit/);
++  for (const privateText of ["PRIVATE-ID", "PRIVATE-NOTE", "PRIVATE-KEY", "OTHER-CURRENCY", "OTHER-MONTH"]) {
++    assert.ok(!report.html.includes(privateText), privateText);
++  }
++  input.fill(0);
++  assert.equal(report.source.sha256, hash(before));
++  assert.match(report.html, /fictional.json/);
++});
++
++test("zero and budget-only selections stay explicit without inventing activity or limits", () => {
++  const noRows = createMonthlyReview(encode(empty()), fixed);
++  assert.equal(noRows.summary.currency, "USD");
++  assert.equal(noRows.selectedTransactions, 0);
++  assert.match(noRows.html, /id="empty-categories"/);
++  assert.match(noRows.html, /id="empty-budgets"/);
++  assert.match(noRows.html, /Zero recorded totals do not establish/);
++  const data = empty();
++  data.budgets.push(
++    { category: "Future", month: "2026-04", limitMinor: 600, currency: "USD" },
++    { category: "Zero", month: "2026-04", limitMinor: 0, currency: "USD" },
++  );
++  const report = createMonthlyReview(encode(data), fixed);
++  assert.equal(report.selectedTransactions, 0);
++  assert.deepEqual(report.summary.budgets.map(b => b.remainingMinor), [600, 0]);
++  assert.equal(rowText(report.html, "budget-body").length, 2);
++  assert.match(report.html, /Zero limit; no expenses/);
++});
++
++test("legacy budgets retain an explicit unassigned label in their admitted single-currency context", () => {
++  const data: LedgerData = {
++    version: 1, transactions: [transaction("a", 25, "Legacy")],
++    budgets: [{ category: "Legacy", month: "2026-04", limitMinor: 20 }],
++  };
++  const input = encode(data), report = createMonthlyReview(input, fixed);
++  assert.equal(report.source.ledgerVersion, 1);
++  assert.equal(report.summary.budgets[0].currency, undefined);
++  assert.match(report.html, /Currency unassigned · legacy single-currency context/);
++  assert.equal(report.summary.budgets[0].remainingMinor, -5);
++  assert.deepEqual(input, encode(data), "no currency migration");
++});
++
++test("native ambiguous legacy and unsafe-gross-total refusals remain effective", () => {
++  const legacy: LedgerData = {
++    version: 1, transactions: [transaction("a", 1, "A"), transaction("b", 1, "A", { currency: "EUR" })],
++    budgets: [{ category: "A", month: "2026-04", limitMinor: 10 }],
++  };
++  assert.throws(() => createMonthlyReview(encode(legacy), fixed), /no currency/);
++  legacy.transactions.pop();
++  assert.throws(() => createMonthlyReview(encode(legacy), { ...fixed, currency: "EUR" }), /no currency/);
++  legacy.transactions = [];
++  assert.throws(() => createMonthlyReview(encode(legacy), fixed), /no currency/);
++  const gross = empty();
++  gross.transactions = [transaction("a", Number.MAX_SAFE_INTEGER, "A"), transaction("b", 1, "B")];
++  assert.throws(() => createMonthlyReview(encode(gross), fixed), /safe integer/);
++});
++
++test("special object keys and exact category spellings become ordinary table rows", () => {
++  const data = empty();
++  data.transactions = [
++    transaction("a", 4, "__proto__"), transaction("b", 7, "constructor"), transaction("c", 9, "constructor "),
++  ];
++  data.budgets = [{ category: "__proto__", month: "2026-04", limitMinor: 0, currency: "USD" }];
++  const report = createMonthlyReview(encode(data), fixed);
++  assert.equal(report.summary.byCategory["__proto__"].expenseMinor, 4);
++  assert.equal(report.summary.byCategory["constructor"].expenseMinor, 7);
++  assert.equal(report.summary.byCategory["constructor "].expenseMinor, 9);
++  assert.equal(rowText(report.html, "category-body").length, 3);
++  assert.match(report.html, /<bdi class="label">constructor <\/bdi>/);
++  assert.equal(report.summary.budgets[0].remainingMinor, -4);
++});
++
++test("markup, valid Unicode and HTML newline characters are preserved as inert labels", () => {
++  const category = "</style><script>alert('x')</script><img src=x onerror=x>&\"😀\u2028\u2029\r\n\t";
++  const data = empty();
++  data.transactions = [transaction("a", 11, category)];
++  const report = createMonthlyReview(encode(data), { ...fixed, sourceLabel: "<unsafe>&\".json" });
++  assert.match(report.html, /&lt;\/style&gt;&lt;script&gt;alert\(&#39;x&#39;\)&lt;\/script&gt;/);
++  assert.match(report.html, /😀\u2028\u2029&#13;&#10;&#9;/);
++  assert.match(report.html, /&lt;unsafe&gt;&amp;&quot;\.json/);
++  assert.ok(!report.html.includes("<script"));
++  assert.ok(!report.html.includes("<img"));
++  assert.ok(!report.html.includes("localStorage"));
++  assert.match(report.html, /default-src 'none'/);
++});
++
++test("only unrepresentable displayed labels are refused, without leaking excluded notes or rows", () => {
++  for (const category of ["bad\u0000label", "bad\ud800", "bad\udfff"]) {
++    const data = empty();
++    data.transactions = [transaction("a", 1, category)];
++    assert.throws(() => createMonthlyReview(encode(data), fixed), /NUL|surrogate/);
++    data.transactions[0].currency = "EUR";
++    assert.equal(createMonthlyReview(encode(data), fixed).selectedTransactions, 0);
++    data.transactions[0].category = "Good";
++    data.transactions[0].currency = "USD";
++    data.transactions[0].note = category;
++    assert.equal(createMonthlyReview(encode(data), fixed).selectedTransactions, 1);
++    data.budgets = [{ category, month: "2026-04", limitMinor: 0, currency: "USD" }];
++    assert.throws(() => createMonthlyReview(encode(data), fixed), /NUL|surrogate/);
++  }
++});
++
++test("selection and provenance admit no implicit month, currency, or invalid generated time", () => {
++  const data = encode(empty());
++  for (const currency of ["", " ", "US", "USDD", undefined, null]) {
++    assert.throws(() => createMonthlyReview(data, { ...fixed, currency } as never), /currency/);
++  }
++  for (const month of ["", "2026-4", "2026-00", "2026-13", "1969-12", undefined]) {
++    assert.throws(() => createMonthlyReview(data, { ...fixed, month } as never), /month|year/);
++  }
++  for (const generatedAt of ["today", "2026-02-30T00:00:00.000Z", "2026-10-08T17:00:00Z"]) {
++    assert.throws(() => createMonthlyReview(data, { ...fixed, generatedAt }), /timestamp/);
++  }
++  assert.throws(() => createMonthlyReview(data, { ...fixed, sourceLabel: "" }), /source label/);
++  assert.throws(() => createMonthlyReview(data, { ...fixed, sourceLabel: "x".repeat(181) }), /source label/);
++  assert.throws(() => createMonthlyReview(data, { ...fixed, sourceLabel: "\ud800" }), /surrogate/);
++});
++
++test("strict byte admission refuses invalid UTF-8, BOM, malformed JSON and oversized snapshots", () => {
++  for (const bytes of [Buffer.alloc(0), Buffer.from([0xff]), Buffer.from("{"), Buffer.concat([Buffer.from([0xef, 0xbb, 0xbf]), encode(empty())])]) {
++    assert.throws(() => createMonthlyReview(bytes, fixed), /bytes|UTF-8 JSON/);
++  }
++  assert.throws(() => createMonthlyReview(Buffer.alloc(MAX_REVIEW_INPUT_BYTES + 1), fixed), /bytes/);
++  assert.throws(() => createMonthlyReview(encode({ version: 9, transactions: [], budgets: [] }), fixed), /version/);
++});
++
++test("output escaping expansion refuses the whole oversized report", () => {
++  const data = empty();
++  data.transactions = [transaction("a", 1, "&".repeat(Math.floor(MAX_REVIEW_OUTPUT_BYTES / 5)))];
++  const input = encode(data);
++  assert.ok(input.byteLength < MAX_REVIEW_INPUT_BYTES);
++  assert.throws(() => createMonthlyReview(input, fixed), /complete monthly review exceeds/);
++});
++
++test("safe-integer limits render exactly without decimal or exponent conversion", () => {
++  const data = empty();
++  data.transactions = [transaction("a", Number.MAX_SAFE_INTEGER, "Maximum", { type: "income" })];
++  const report = createMonthlyReview(encode(data), fixed);
++  assert.match(report.html, /id="summary-income">9,007,199,254,740,991</);
++  assert.equal(report.summary.netMinor, Number.MAX_SAFE_INTEGER);
++  assert.match(report.html, /not an account balance/);
++  assert.match(report.html, /freshness, completeness, and authenticity are unknown/);
++});
+diff --git a/tools/check-monthly-review.mjs b/tools/check-monthly-review.mjs
+new file mode 100644
+index 0000000..3d2d80d
+--- /dev/null
++++ b/tools/check-monthly-review.mjs
+@@ -0,0 +1,336 @@
++#!/usr/bin/env node
++// Native direct-file Chromium receiving for the private monthly review.
++// Build first; no server, browser login, packages, or existing profile are used.
++// node tools/check-monthly-review.mjs --output-dir /absolute/new-evidence-dir
++//   [--dist /absolute/build-dir] [--chrome /path/to/chrome]
++import { spawn } from "node:child_process";
++import { createHash } from "node:crypto";
++import { createWriteStream } from "node:fs";
++import { readFile, writeFile, mkdir, mkdtemp, rm, statfs } from "node:fs/promises";
++import { dirname, resolve, join, isAbsolute, sep } from "node:path";
++import { fileURLToPath, pathToFileURL } from "node:url";
++import { once } from "node:events";
++
++const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
++const ownFile = fileURLToPath(import.meta.url);
++const options = {};
++for (let i = 0; i < process.argv.slice(2).length; i += 2) {
++  const args = process.argv.slice(2), key = args[i], value = args[i + 1];
++  if (!["--output-dir", "--dist", "--chrome"].includes(key) || !value || options[key]) {
++    throw new Error("Use --output-dir /absolute/new-dir [--dist build-dir] [--chrome path].");
++  }
++  options[key] = value;
++}
++if (!options["--output-dir"] || !isAbsolute(options["--output-dir"])) throw new Error("--output-dir must be absolute and new");
++const output = resolve(options["--output-dir"]);
++if (output === root || output.startsWith(root + sep)) throw new Error("Evidence must be outside the source tree");
++const dist = resolve(options["--dist"] || join(root, "dist"));
++const chromePath = options["--chrome"] || process.env.CHROME ||
++  (process.platform === "darwin" ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" : "/usr/bin/google-chrome");
++const hash = bytes => createHash("sha256").update(bytes).digest("hex");
++const blob = bytes => createHash("sha1").update("blob " + bytes.length + "\0").update(bytes).digest("hex");
++const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
++const paths = ["src/ledger.ts", "src/monthly-review.ts", "src/household-review.ts",
++  "test/monthly-review.test.ts", "test/monthly-review-cli.test.ts", "tools/check-monthly-review.mjs"];
++async function snapshot() {
++  return Promise.all(paths.map(async path => {
++    const bytes = await readFile(join(root, path));
++    return { path, bytes: bytes.length, sha256: hash(bytes), git_blob: blob(bytes) };
++  }));
++}
++async function command(file, args) {
++  const child = spawn(file, args, { cwd: root, stdio: ["ignore", "pipe", "pipe"] });
++  const stdout = [], stderr = [];
++  child.stdout.on("data", bytes => stdout.push(bytes)); child.stderr.on("data", bytes => stderr.push(bytes));
++  const [code, signal] = await once(child, "close");
++  return { command: [file, ...args], code, signal, stdout: Buffer.concat(stdout).toString(), stderr: Buffer.concat(stderr).toString() };
++}
++const report = {
++  schema: "household.monthly-review-browser/1", started_at: new Date().toISOString(),
++  driver: { path: ownFile, sha256: hash(await readFile(ownFile)) },
++  scope: "Actual isolated native Chromium, direct files generated by the compiled CLI from authored synthetic ledgers. Read-only DOM inspection, native keyboard scrolling, saved PDF and original PNG captures.",
++  runtime: { node: process.version, platform: process.platform, chrome_path: chromePath },
++  checks: [], assertions: 0, source_files: [], generated: [], screenshots: [], saved_files: [],
++  requests: [], page_errors: [], cleanup: {},
++};
++let cdp, session, browser, profile, browserClosed = false, stdoutStream, stderrStream;
++function check(ok, message, detail) {
++  report.assertions++;
++  if (!ok) throw new Error(message + (detail === undefined ? "" : "\n" + JSON.stringify(detail)));
++}
++async function group(name, fn) {
++  const item = { name, assertions_before: report.assertions, started_at: new Date().toISOString() };
++  try { item.observed = await fn(); item.status = "PASS"; }
++  catch (error) { item.status = "FAIL"; item.error = error.stack || String(error); throw error; }
++  finally {
++    item.assertions = report.assertions - item.assertions_before; delete item.assertions_before;
++    item.completed_at = new Date().toISOString(); report.checks.push(item);
++  }
++}
++async function until(fn, name, timeout = 10000) {
++  const end = Date.now() + timeout;
++  while (Date.now() < end) { const value = await fn(); if (value) return value; await delay(40); }
++  throw new Error("Timed out: " + name);
++}
++class CDP {
++  constructor(socket) {
++    this.socket = socket; this.id = 0; this.pending = new Map();
++    socket.addEventListener("message", event => {
++      const data = JSON.parse(event.data);
++      if (data.id) {
++        const pending = this.pending.get(data.id); if (!pending) return;
++        clearTimeout(pending.timer); this.pending.delete(data.id);
++        if (data.error) pending.reject(new Error(pending.method + ": " + JSON.stringify(data.error)));
++        else pending.resolve(data.result);
++      } else {
++        if (data.method === "Network.requestWillBeSent") report.requests.push({ url: data.params.request.url, type: data.params.type });
++        if (data.method === "Runtime.exceptionThrown") report.page_errors.push(data.params.exceptionDetails);
++      }
++    });
++  }
++  send(method, params = {}, sessionId) {
++    const id = ++this.id;
++    return new Promise((resolve, reject) => {
++      const timer = setTimeout(() => { this.pending.delete(id); reject(new Error("CDP timeout: " + method)); }, 15000);
++      this.pending.set(id, { resolve, reject, timer, method });
++      this.socket.send(JSON.stringify({ id, method, params, ...(sessionId ? { sessionId } : {}) }));
++    });
++  }
++}
++const page = (method, params) => cdp.send(method, params, session);
++async function evaluate(expression) {
++  const result = await page("Runtime.evaluate", { expression, returnByValue: true, awaitPromise: true });
++  if (result.exceptionDetails) throw new Error("Page evaluation: " + JSON.stringify(result.exceptionDetails));
++  return result.result.value;
++}
++async function openReport(file) {
++  const url = pathToFileURL(file).href;
++  await page("Page.navigate", { url });
++  await until(() => evaluate("location.href===" + JSON.stringify(url) + " && document.readyState==='complete' && !!document.getElementById('source-sha256')"), "offline review document");
++}
++async function key(key, code, value) {
++  await page("Input.dispatchKeyEvent", { type: "keyDown", key, code, windowsVirtualKeyCode: value });
++  await page("Input.dispatchKeyEvent", { type: "keyUp", key, code, windowsVirtualKeyCode: value });
++}
++async function screenshot(name, selector) {
++  if (selector) await evaluate("document.querySelector(" + JSON.stringify(selector) + ").scrollIntoView({block:'start'})");
++  await delay(80);
++  const capture = await page("Page.captureScreenshot", { format: "png", fromSurface: true });
++  const bytes = Buffer.from(capture.data, "base64"); await writeFile(join(output, name), bytes, { flag: "wx" });
++  const row = { name, bytes: bytes.length, sha256: hash(bytes), viewport: await evaluate("({width:innerWidth,height:innerHeight,scrollX,scrollY})") };
++  report.screenshots.push(row); return row;
++}
++const transaction = (id, amountMinor, category, extra = {}) => ({
++  id, type: "expense", amountMinor, currency: "USD", date: "2026-04-12", category,
++  createdAt: "2026-04-12T12:00:00.000Z", ...extra,
++});
++async function generate(name, data, sourceName = name + ".json") {
++  const bytes = Buffer.from(JSON.stringify(data, null, 2) + "\n"), input = join(output, sourceName), html = join(output, name + ".html");
++  await writeFile(input, bytes, { flag: "wx", mode: 0o600 });
++  const result = await command(process.execPath, [join(dist, "src/household-review.js"),
++    "--ledger", input, "--month", "2026-04", "--currency", "USD", "--output", html]);
++  check(result.code === 0 && result.stderr === "", "Actual CLI must create the selected review", result);
++  const receipt = JSON.parse(result.stdout), htmlBytes = await readFile(html);
++  check(receipt.sourceSha256 === hash(bytes) && receipt.reportSha256 === hash(htmlBytes), "CLI receipt must bind the exact input and HTML bytes");
++  const row = { name, input: sourceName, html: name + ".html", source_sha256: hash(bytes), source_bytes: bytes.length,
++    html_sha256: hash(htmlBytes), html_bytes: htmlBytes.length, command: result };
++  report.generated.push(row); return { ...row, path: html, inputPath: input, sourceBytes: bytes };
++}
++const fixture = {
++  version: 2,
++  transactions: [
++    transaction("PRIVATE-ID", 310000, "Salary", { type: "income", note: "PRIVATE-NOTE", idempotencyKey: "PRIVATE-KEY" }),
++    transaction("refund", 2500, "Groceries", { type: "income" }),
++    transaction("housing", 120000, "Housing"), transaction("groceries", 18025, "Groceries"),
++    transaction("groceries-2", 775, "Groceries", { currency: " usd " }),
++    transaction("special", 500, "__proto__"), transaction("euro", 3200, "OTHER-CURRENCY", { currency: "EUR" }),
++    transaction("later", 999999, "OTHER-MONTH", { date: "2026-05-01", type: "income" }),
++  ],
++  budgets: [
++    { category: "Housing", month: "2026-04", currency: "USD", limitMinor: 125000 },
++    { category: "Groceries", month: "2026-04", currency: "USD", limitMinor: 18000 },
++    { category: "__proto__", month: "2026-04", currency: "USD", limitMinor: 0 },
++    { category: "Travel", month: "2026-04", currency: "USD", limitMinor: 0 },
++    { category: "Groceries", month: "2026-04", currency: "EUR", limitMinor: 10000 },
++  ],
++};
++const hostileLabel = '</style><script>globalThis.PWNED=1</script><img src="https://example.invalid/leak"> & " 😀\u2028\u2029\r\n\t';
++try {
++  await mkdir(output);
++  report.source_before = await snapshot();
++  report.runtime.chrome = await command(chromePath, ["--version"]);
++  const fs = await statfs(output); check(fs.bavail * fs.bsize > 128 * 1024 * 1024, "Need 128 MiB free for an isolated browser");
++  for (const path of ["src/ledger.js", "src/monthly-review.js", "src/household-review.js"]) {
++    const bytes = await readFile(join(dist, path));
++    report.source_files.push({ path: join(dist, path), bytes: bytes.length, sha256: hash(bytes) });
++  }
++  const primary = await generate("fictional-april-usd", fixture);
++  const hostile = await generate("hostile-label", {
++    version: 2, transactions: [transaction("malicious-private-id", 11, hostileLabel)],
++    budgets: [{ category: hostileLabel, month: "2026-04", currency: "USD", limitMinor: 10 }],
++  }, '<source>&".json');
++  const empty = await generate("empty-selection", { version: 2, transactions: [], budgets: [] });
++  const wide = await generate("wide-integer-label", {
++    version: 2, transactions: [transaction("wide-private-id", Number.MAX_SAFE_INTEGER, "Long category " + "A".repeat(120))],
++    budgets: [{ category: "Long category " + "A".repeat(120), month: "2026-04", currency: "USD", limitMinor: Number.MAX_SAFE_INTEGER }],
++  });
++  profile = await mkdtemp("/tmp/hhmr-"); report.profile = profile;
++  stdoutStream = createWriteStream(join(output, "chrome-stdout.log"), { flags: "wx" });
++  stderrStream = createWriteStream(join(output, "chrome-stderr.log"), { flags: "wx" });
++  browser = spawn(chromePath, [
++    "--headless=new", "--remote-debugging-port=0", "--remote-debugging-address=127.0.0.1",
++    "--user-data-dir=" + profile, "--no-first-run", "--no-default-browser-check",
++    "--disable-background-networking", "--disable-component-update", "--disable-sync",
++    "--disable-default-apps", "--disable-breakpad", "--metrics-recording-only", "--disable-features=Translate", "about:blank",
++  ], { stdio: ["ignore", "pipe", "pipe"] });
++  browser.once("close", () => { browserClosed = true; }); browser.stdout.pipe(stdoutStream); browser.stderr.pipe(stderrStream);
++  const port = await until(async () => {
++    try { return (await readFile(join(profile, "DevToolsActivePort"), "utf8")).trim().split("\n"); }
++    catch (error) { if (error.code === "ENOENT" && !browserClosed) return false; throw error; }
++  }, "fresh Chrome debugger");
++  const socket = new WebSocket("ws://127.0.0.1:" + port[0] + port[1]); await once(socket, "open"); cdp = new CDP(socket);
++  report.runtime.browser = await cdp.send("Browser.getVersion");
++  const target = await cdp.send("Target.createTarget", { url: "about:blank" });
++  session = (await cdp.send("Target.attachToTarget", { targetId: target.targetId, flatten: true })).sessionId;
++  await page("Page.enable"); await page("Runtime.enable"); await page("Network.enable");
++  await page("Network.setBlockedURLs", { urls: ["http://*", "https://*"] });
++  await page("Network.emulateNetworkConditions", { offline: true, latency: 0, downloadThroughput: -1, uploadThroughput: -1 });
++  await page("Emulation.setDeviceMetricsOverride", { width: 1365, height: 1000, deviceScaleFactor: 1, mobile: false });
++
++  await group("direct-file totals, budgets, source identity and privacy", async () => {
++    await openReport(primary.path);
++    const state = await evaluate("(() => {const text=id=>document.getElementById(id)?.textContent;return {month:text('selected-month'),currency:text('selected-currency'),count:text('selected-count'),income:text('summary-income'),expense:text('summary-expense'),net:text('summary-net'),hash:text('source-sha256'),bytes:text('source-bytes'),categories:[...document.querySelectorAll('#category-body tr')].map(r=>[...r.cells].map(c=>c.textContent)),budgets:[...document.querySelectorAll('#budget-body tr')].map(r=>[...r.cells].map(c=>c.textContent)),body:document.body.textContent,scripts:document.scripts.length};})()");
++    check(state.month === "2026-04" && state.currency === "USD" && state.count === "6", "Explicit selected month/currency/count", state);
++    check(JSON.stringify([state.income, state.expense, state.net]) === JSON.stringify(["312,500", "139,300", "173,200"]), "Exact integer totals", state);
++    check(state.hash === primary.source_sha256 && Number(state.bytes) === primary.source_bytes, "Visible provenance identifies the exact source bytes");
++    check(state.categories.length === 4 && state.categories.some(r => r[0] === "__proto__" && r[2] === "500"), "Special object key remains a normal category", state.categories);
++    check(state.budgets.some(r => JSON.stringify(r) === JSON.stringify(["Groceries", "18,000", "18,800", "-800", "Over limit"])), "Budget gross spending is preserved", state.budgets);
++    check(state.budgets.some(r => JSON.stringify(r) === JSON.stringify(["Travel", "0", "0", "0", "Zero limit; no expenses"])), "Zero limit remains a distinct stored value", state.budgets);
++    for (const secret of ["PRIVATE-ID", "PRIVATE-NOTE", "PRIVATE-KEY", "OTHER-CURRENCY", "OTHER-MONTH"]) check(!state.body.includes(secret), "Excluded field/selection: " + secret);
++    check(state.scripts === 0, "A saved review contains no page script");
++    delete state.body;
++    return { ...state, screenshot: await screenshot("desktop-monthly-review.png") };
++  });
++
++  await group("hostile markup and valid Unicode are inert, exact text", async () => {
++    await openReport(hostile.path);
++    const state = await evaluate("({labels:[...document.querySelectorAll('#category-body bdi,#budget-body bdi')].map(e=>e.textContent),source:document.getElementById('source-label').textContent,images:document.images.length,scripts:document.scripts.length,frames:document.querySelectorAll('iframe,object,embed').length,pwned:globalThis.PWNED??null})");
++    check(state.labels.length === 2 && state.labels.every(value => value === hostileLabel), "The browser must preserve selected label text including CR/LF and astral Unicode", state.labels);
++    check(state.source === '<source>&".json', "Source basename is exact inert text");
++    check(state.images === 0 && state.scripts === 0 && state.frames === 0 && state.pwned === null, "Hostile labels must not create executable or network elements", state);
++    return state;
++  });
++
++  await group("390px page containment and actual keyboard table scrolling", async () => {
++    await page("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
++    await openReport(wide.path);
++    const layout = await evaluate("({width:innerWidth,document:document.documentElement.scrollWidth,body:document.body.scrollWidth,tables:[...document.querySelectorAll('.table-scroll')].map(e=>({client:e.clientWidth,scroll:e.scrollWidth,tabindex:e.tabIndex,role:e.getAttribute('role'),label:e.getAttribute('aria-label')}))})");
++    check(layout.width === 390 && layout.document <= 391 && layout.body <= 391, "No horizontal page overflow at 390px", layout);
++    check(layout.tables.length === 2 && layout.tables.every(t => t.client < t.scroll && t.tabindex === 0 && t.role === "region" && t.label), "Wide tables have labeled focusable internal scroll regions", layout);
++    for (let n = 0; n < 8; n++) {
++      if (await evaluate("document.activeElement===document.querySelector('.table-scroll')")) break;
++      await key("Tab", "Tab", 9);
++    }
++    check(await evaluate("document.activeElement===document.querySelector('.table-scroll')"), "Native Tab reaches the first data region");
++    const before = await evaluate("document.activeElement.scrollLeft");
++    for (let n = 0; n < 6; n++) await key("ArrowRight", "ArrowRight", 39);
++    await delay(150);
++    const after = await evaluate("document.activeElement.scrollLeft");
++    check(after > before && await evaluate("scrollX") === 0, "Actual keyboard scrolling stays inside the table", { before, after });
++    await openReport(primary.path);
++    const shots = [await screenshot("mobile-390-summary.png"), await screenshot("mobile-390-budgets.png", "#budget-heading")];
++    return { layout, keyboard: { before, after }, screenshots: shots };
++  });
++
++  await group("actual browser print produces a complete offline PDF", async () => {
++    await page("Emulation.setDeviceMetricsOverride", { width: 1100, height: 1400, deviceScaleFactor: 1, mobile: false });
++    await openReport(primary.path);
++    await page("Emulation.setEmulatedMedia", { media: "print" });
++    const style = await evaluate("({media:matchMedia('print').matches,overflow:getComputedStyle(document.querySelector('.table-scroll')).overflowX,header:getComputedStyle(document.querySelector('thead')).display,screenOnly:getComputedStyle(document.querySelector('.screen-only')).display})");
++    check(style.media && style.overflow === "visible" && style.header === "table-header-group" && style.screenOnly === "none", "Print CSS restores full data tables and suppresses screen instructions", style);
++    const printed = await page("Page.printToPDF", { printBackground: true, displayHeaderFooter: false, paperWidth: 8.27, paperHeight: 11.69,
++      marginTop: 0.35, marginBottom: 0.35, marginLeft: 0.35, marginRight: 0.35, generateTaggedPDF: true });
++    const pdf = Buffer.from(printed.data, "base64"), name = "fictional-april-usd.pdf";
++    check(pdf.subarray(0, 5).toString() === "%PDF-" && /%%EOF\s*$/.test(pdf.subarray(-100).toString()), "Saved browser output is a complete PDF");
++    await writeFile(join(output, name), pdf, { flag: "wx", mode: 0o600 });
++    const row = { name, bytes: pdf.length, sha256: hash(pdf) }; report.saved_files.push(row);
++    let nativeText;
++    if (process.platform === "darwin") {
++      const script = "function run(argv){ObjC.import('Foundation');ObjC.import('PDFKit');const doc=$.PDFDocument.alloc.initWithURL($.NSURL.fileURLWithPath(argv[0]));if(!doc)throw Error('PDFKit refused saved output');return JSON.stringify({pages:Number(doc.pageCount),text:ObjC.unwrap(doc.string)});}";
++      const extracted = await command("/usr/bin/osascript", ["-l", "JavaScript", "-e", script, join(output, name)]);
++      report.pdfkit_command = extracted;
++      check(extracted.code === 0 && extracted.stderr === "", "Native PDFKit must read the actual saved file", extracted);
++      nativeText = JSON.parse(extracted.stdout);
++      check(nativeText.pages >= 1 && nativeText.pages <= 5, "Bounded primary report page count", nativeText.pages);
++      for (const text of ["312,500", "139,300", "173,200", "Groceries", "-800", "Snapshot", "authenticity are unknown"]) {
++        check(nativeText.text.includes(text), "Printed document retains " + text);
++      }
++      check(nativeText.text.replace(/\s/g, "").includes(primary.source_sha256), "Printed source hash is complete");
++      for (const text of ["PRIVATE-ID", "PRIVATE-NOTE", "PRIVATE-KEY"]) check(!nativeText.text.includes(text), "Printed file excludes " + text);
++      const textBytes = Buffer.from(nativeText.text); await writeFile(join(output, "printed-text.txt"), textBytes, { flag: "wx" });
++      report.saved_files.push({ name: "printed-text.txt", bytes: textBytes.length, sha256: hash(textBytes) });
++    }
++    await screenshot("print-layout.png");
++    await page("Emulation.setEmulatedMedia", { media: "" });
++    return { style, pdf: row, ...(nativeText ? { native_pages: nativeText.pages, native_text_characters: nativeText.text.length } : {}) };
++  });
++
++  await group("empty selection is explicit while offline and JavaScript is disabled", async () => {
++    await page("Emulation.setScriptExecutionDisabled", { value: true });
++    await openReport(empty.path);
++    const state = await evaluate("({count:document.getElementById('selected-count').textContent,category:document.getElementById('empty-categories')?.textContent,budget:document.getElementById('empty-budgets')?.textContent,currency:document.getElementById('selected-currency').textContent,scripts:document.scripts.length})");
++    check(state.count === "0" && state.currency === "USD" && state.scripts === 0, "Zero recorded activity keeps its explicit currency without scripts", state);
++    check(state.category.includes("do not establish") && state.budget.includes("No limit has been inferred"), "Empty content distinguishes missing evidence from a financial conclusion", state);
++    await page("Emulation.setScriptExecutionDisabled", { value: false });
++    return state;
++  });
++
++  await group("offline page boundaries and original source/input custody", async () => {
++    const external = report.requests.filter(r => /^https?:/.test(r.url));
++    check(external.length === 0, "No report attempted an external request", external);
++    check(report.page_errors.length === 0, "No page execution errors", report.page_errors);
++    const stores = await evaluate("({local:localStorage.length,session:sessionStorage.length})");
++    check(stores.local === 0 && stores.session === 0, "No browser storage is created", stores);
++    for (const generated of [primary, hostile, empty, wide]) {
++      check((await readFile(generated.inputPath)).equals(generated.sourceBytes), "Exact synthetic ledger input is unchanged: " + generated.input);
++      check(hash(await readFile(generated.path)) === generated.html_sha256, "Exact saved HTML is unchanged after browser/print: " + generated.html);
++    }
++    check(JSON.stringify(await snapshot()) === JSON.stringify(report.source_before), "All exercised source and receiver bytes remain unchanged");
++    return { requests: report.requests, stores, unchanged_inputs: 4, unchanged_html: 4 };
++  });
++  report.status = "PASS";
++} catch (error) {
++  report.status = "FAIL"; report.error = error.stack || String(error); process.exitCode = 1;
++} finally {
++  if (cdp) {
++    try { await cdp.send("Browser.close"); } catch (error) { report.cleanup.close_note = String(error); }
++    try { cdp.socket.close(); } catch {}
++  }
++  if (browser && !browserClosed) {
++    await Promise.race([once(browser, "close"), delay(1500)]);
++    if (!browserClosed) { browser.kill("SIGTERM"); await Promise.race([once(browser, "close"), delay(1500)]); }
++    if (!browserClosed) { browser.kill("SIGKILL"); await once(browser, "close"); }
++  }
++  report.cleanup.browser_closed = !browser || browserClosed;
++  if (profile) {
++    try { await rm(profile, { recursive: true, force: true, maxRetries: 3, retryDelay: 100 }); report.cleanup.profile_removed = true; }
++    catch (error) { report.cleanup.profile_error = String(error); process.exitCode = 1; report.status = "FAIL"; }
++  }
++  if (stdoutStream && !stdoutStream.closed) await once(stdoutStream, "close").catch(() => {});
++  if (stderrStream && !stderrStream.closed) await once(stderrStream, "close").catch(() => {});
++  try {
++    report.source_after = await snapshot();
++    report.source_unchanged = JSON.stringify(report.source_before) === JSON.stringify(report.source_after);
++    if (!report.source_unchanged) { report.status = "FAIL"; process.exitCode = 1; }
++  } catch (error) { report.source_error = String(error); report.status = "FAIL"; process.exitCode = 1; }
++  report.completed_at = new Date().toISOString();
++  report.passed_groups = report.checks.filter(c => c.status === "PASS").length;
++  report.failed_groups = report.checks.filter(c => c.status === "FAIL").length;
++  const bytes = Buffer.from(JSON.stringify(report, null, 2) + "\n");
++  try {
++    await writeFile(join(output, "browser-receipt.json"), bytes, { flag: "wx" });
++    console.log(JSON.stringify({ status: report.status, passed_groups: report.passed_groups, failed_groups: report.failed_groups,
++      assertions: report.assertions, screenshots: report.screenshots.length, files: report.saved_files.length,
++      receipt: join(output, "browser-receipt.json"), sha256: hash(bytes), source_unchanged: report.source_unchanged, cleanup: report.cleanup }));
++  } catch (error) { console.error("Unable to save receiving receipt:", error); process.exitCode = 1; }
++}

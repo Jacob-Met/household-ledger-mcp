@@ -1,0 +1,57 @@
+{
+  "schema": "household.monthly-review-parent-composition/1",
+  "actual_owner_head": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "actual_owner_tree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+  "actual_owner_leaves": 116,
+  "after_owner_tree": "4e78c825aad63b2fd1cf70eead1ce44e4f74627f",
+  "after_owner_leaves": 122,
+  "preserved_owner_leaves": 116,
+  "new_paths": [
+    {
+      "path": "docs/MONTHLY_REVIEW.md",
+      "mode": "100644",
+      "blob": "09bfce08ff09179b91d016554c8e52f131c7dd2c",
+      "bytes": 6456,
+      "sha256": "b9f64f4bb6d0e688aa601178517d540a86741844c68e17eb0c3b67b5b6db7ff3"
+    },
+    {
+      "path": "src/household-review.ts",
+      "mode": "100644",
+      "blob": "3344b83c4159cf129fc5a9ab4d324b561d7374d6",
+      "bytes": 6148,
+      "sha256": "f0e5f83f329ed9e6af8d301d4c62226893122f98b8b7b7052caf018b81384602"
+    },
+    {
+      "path": "src/monthly-review.ts",
+      "mode": "100644",
+      "blob": "60f6ffe2fd8975d1c76ae7f38282b6993b3eb787",
+      "bytes": 15645,
+      "sha256": "7347fea52320f20180a73801906d44224563049fcec52beedb618d60f12766eb"
+    },
+    {
+      "path": "test/monthly-review-cli.test.ts",
+      "mode": "100644",
+      "blob": "cab508b13fed76dd06f43dbaabce3c5ce7c3d633",
+      "bytes": 8571,
+      "sha256": "c54e99fcaa3c418c2479b20395ec19c1c435dc042b9c2cb1e65e696718d986d7"
+    },
+    {
+      "path": "test/monthly-review.test.ts",
+      "mode": "100644",
+      "blob": "170f738b5ac1123706e29e0cd8337b520dfa9661",
+      "bytes": 10539,
+      "sha256": "c9a22ac9c2de19788d0a3e53045c592454a9369fe5180e5e62fc5722150909d9"
+    },
+    {
+      "path": "tools/check-monthly-review.mjs",
+      "mode": "100644",
+      "blob": "3d2d80d9cbcbd603106a99514c774b9b468d883c",
+      "bytes": 25335,
+      "sha256": "a0babee0eb8beec18753df6bb4a6cb180b521cff1d5ddb0351e5b4f78f7d6cf6"
+    }
+  ],
+  "native_private_index_apply_exit": 0,
+  "native_private_index_after_tree": "0a156ab9481d5c5f4cd88c671443099abf16df88",
+  "native_source_commit": "eded6ab6f0d0df801e26735e898b6aa5b746c1aa",
+  "qualification": "Exact source composition calculation and private-index patch check, not a public commit or owner adoption."
+}

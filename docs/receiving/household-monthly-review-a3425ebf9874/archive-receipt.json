@@ -1,0 +1,13 @@
+{
+  "schema": "household.monthly-review-archive-custody/1",
+  "archive": "household-monthly-review-receiving.tar.gz",
+  "archive_bytes": 1038402,
+  "archive_sha256": "5071ef2f9a44e5a2b8ec07865d7da60e838a30d47af6661a351aef227b36dd78",
+  "archive_blob": "c5f84a549aa154cb458737bbdbd3631906b68534",
+  "members": 121,
+  "manifest_sha256": "75f51ece1c820fb1621eaff98b1c4441c1d8c3524ddf415017f9616aeffdb123",
+  "source_commit": "eded6ab6f0d0df801e26735e898b6aa5b746c1aa",
+  "after_owner_tree": "4e78c825aad63b2fd1cf70eead1ce44e4f74627f",
+  "all_member_readback_verified": true,
+  "free_bytes_before": 389586944
+}

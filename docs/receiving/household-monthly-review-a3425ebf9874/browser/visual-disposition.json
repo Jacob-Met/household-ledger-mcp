@@ -1,0 +1,25 @@
+{
+  "schema": "household.monthly-review-visual-disposition/1",
+  "reviewer": "estate-a3425ebf9874-remote-estate",
+  "status": "ACCEPT",
+  "source_commit": "eded6ab6f0d0df801e26735e898b6aa5b746c1aa",
+  "browser_receipt_sha256": "ef86a5d7e9923456de006133de05a0ce06cb5526bd80f2fedb2e935f21756748",
+  "viewed": [
+    "browser-initial/desktop-monthly-review.png",
+    "browser-initial/mobile-390-summary.png",
+    "browser-initial/mobile-390-budgets.png",
+    "browser-initial/print-layout.png",
+    "pdf-visual/page-1.png",
+    "pdf-visual/page-2.png"
+  ],
+  "observations": [
+    "Desktop selection and three exact minor-unit totals are clear; separate category income/expenses and stored budget evaluation remain readable.",
+    "At 390px the summary cards stack inside the page. Wide budget values use the labeled internal horizontal region; its scrollbar is visible, and the native keyboard check established contained scrolling.",
+    "The print layout and both actual PDF pages were inspected. Page one contains complete totals, all four category rows, all four budget rows and source provenance. Page two contains the remaining source-freshness/privacy qualifications. No observed clipped amount, overprint or missing page content.",
+    "The two-page PDF is an actual browser-saved artifact independently read and rasterized by system PDFKit; the print-media screenshot is separately identified."
+  ],
+  "no_additional_product_run": true,
+  "no_product_change": true,
+  "pdf_sha256": "9733ddb1928e0db7ce3fb17297a0019ca74104e98f73e0a317d3f23f039ccdfa",
+  "pdf_visual_receipt_sha256": "2ae7d2e7529ec516544fc0001d4893aa926ac6be3dd971bae6dc1a354c154a7c"
+}

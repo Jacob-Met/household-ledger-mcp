@@ -1,0 +1,175 @@
+{
+  "schema": "household.monthly-review-source-freeze/1",
+  "frozen_at": "2026-10-08T16:47:31.400836+00:00",
+  "native_selected_parent": "7d6c0e251a9824347d72b29382b78ef7399cb78b",
+  "native_source_commit": "eded6ab6f0d0df801e26735e898b6aa5b746c1aa",
+  "native_source_tree": "0a156ab9481d5c5f4cd88c671443099abf16df88",
+  "actual_pr8_source": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "actual_pr8_tree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+  "ancestry_boundary": "Native selected source capture only; receive six additions onto the actual qualified parent, never merge this capture history.",
+  "new_paths": [
+    "src/monthly-review.ts",
+    "src/household-review.ts",
+    "test/monthly-review.test.ts",
+    "test/monthly-review-cli.test.ts",
+    "tools/check-monthly-review.mjs",
+    "docs/MONTHLY_REVIEW.md"
+  ],
+  "unchanged_selected_parent_files": 13,
+  "tracked_source_clean": true,
+  "intentional_untracked_dependency_link": {
+    "git_status": "?? node_modules\n",
+    "path": "node_modules",
+    "target": "/Users/me/hamon-household-import-a219f250962c/node_modules",
+    "read_only_borrowed": true,
+    "note": "The inherited node_modules/ ignore rule does not ignore a symlink. The first strict empty-status seal assertion was too broad; its original tool output is retained. No source or ignore file was changed, and the already completed commit was not replayed."
+  },
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "blob": "39325b079fb40b0587ec231eeb3328f52e7ece74",
+      "bytes": 425,
+      "sha256": "3b981eb9f20a37124b8aeb97626e8a8230db5cd5eb8fcdba2bee1e8fdb6fa5eb"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "blob": "b9470778764f72c5257a3361590d2994547f90e1",
+      "bytes": 20,
+      "sha256": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "blob": "edb188254288b40f2895833e3647b7e0be34c962",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "blob": "c531794d60442954a836db32c6fdafab5e08ba0e",
+      "bytes": 6704,
+      "sha256": "d7675b4f5d20bcb6a031cc39a71576bb3a44c576bbc0fdb1945e94dd4c7773fd"
+    },
+    {
+      "path": "docs/MONTHLY_REVIEW.md",
+      "mode": "100644",
+      "blob": "09bfce08ff09179b91d016554c8e52f131c7dd2c",
+      "bytes": 6456,
+      "sha256": "b9f64f4bb6d0e688aa601178517d540a86741844c68e17eb0c3b67b5b6db7ff3"
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "blob": "020c296d667264f890d47c5effc7abca9f4ea8cb",
+      "bytes": 43740,
+      "sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835"
+    },
+    {
+      "path": "src/cashflow.ts",
+      "mode": "100644",
+      "blob": "7ef82c27ef41f3ef65198d6045beb6779364bf45",
+      "bytes": 4761,
+      "sha256": "cb4631dce4679567d9d0e3a139440c51861dcdfad6029c8ef88b1b9bf122ce30"
+    },
+    {
+      "path": "src/household-review.ts",
+      "mode": "100644",
+      "blob": "3344b83c4159cf129fc5a9ab4d324b561d7374d6",
+      "bytes": 6148,
+      "sha256": "f0e5f83f329ed9e6af8d301d4c62226893122f98b8b7b7052caf018b81384602"
+    },
+    {
+      "path": "src/index.ts",
+      "mode": "100644",
+      "blob": "4df804650663542d0d014a925bc68241493ae517",
+      "bytes": 11639,
+      "sha256": "9c24685b217041d820ae8050519e74d2a1430099c219a66f11079894c792943d"
+    },
+    {
+      "path": "src/ledger.ts",
+      "mode": "100644",
+      "blob": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07"
+    },
+    {
+      "path": "src/monthly-review.ts",
+      "mode": "100644",
+      "blob": "60f6ffe2fd8975d1c76ae7f38282b6993b3eb787",
+      "bytes": 15645,
+      "sha256": "7347fea52320f20180a73801906d44224563049fcec52beedb618d60f12766eb"
+    },
+    {
+      "path": "src/stdio.ts",
+      "mode": "100644",
+      "blob": "f670b4244384fdb02ae72341dcb53e5348af7d99",
+      "bytes": 586,
+      "sha256": "9d49234e75f790601e8f327d156f3a4b9c62325d8496319fd9831e733153dc57"
+    },
+    {
+      "path": "src/transaction-csv.ts",
+      "mode": "100644",
+      "blob": "33678fa52bac0c2463bd415997fefea73f221ade",
+      "bytes": 6189,
+      "sha256": "0357e1d405be49dd352fcc088e75aaaf47c00eaf81c55f785d77ca4d4e48e8f0"
+    },
+    {
+      "path": "src/transaction-import.ts",
+      "mode": "100644",
+      "blob": "1643e64f35d7ffc26281c4162290860760f88ef8",
+      "bytes": 8357,
+      "sha256": "729d0db509945c4670f03167497417799dd059f386a550b96d1162e1ccd3e985"
+    },
+    {
+      "path": "test/monthly-review-cli.test.ts",
+      "mode": "100644",
+      "blob": "cab508b13fed76dd06f43dbaabce3c5ce7c3d633",
+      "bytes": 8571,
+      "sha256": "c54e99fcaa3c418c2479b20395ec19c1c435dc042b9c2cb1e65e696718d986d7"
+    },
+    {
+      "path": "test/monthly-review.test.ts",
+      "mode": "100644",
+      "blob": "170f738b5ac1123706e29e0cd8337b520dfa9661",
+      "bytes": 10539,
+      "sha256": "c9a22ac9c2de19788d0a3e53045c592454a9369fe5180e5e62fc5722150909d9"
+    },
+    {
+      "path": "tools/check-monthly-review.mjs",
+      "mode": "100644",
+      "blob": "3d2d80d9cbcbd603106a99514c774b9b468d883c",
+      "bytes": 25335,
+      "sha256": "a0babee0eb8beec18753df6bb4a6cb180b521cff1d5ddb0351e5b4f78f7d6cf6"
+    },
+    {
+      "path": "tsconfig.json",
+      "mode": "100644",
+      "blob": "22a92039fc845256859c3b4921063f3a16a0ae3e",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72"
+    }
+  ],
+  "patch": {
+    "path": "monthly-review-source.patch",
+    "bytes": 74895,
+    "sha256": "dd793b9bfbb144c5545e6b6a5d23c38175d90edfa702c58a5669af20f6339cfe"
+  },
+  "bundle": {
+    "path": "monthly-review-source.bundle",
+    "bytes": 57239,
+    "sha256": "a72c7230840224403dd4f524af6820af8bfc44189f0c5a45998f6fe85e4e8ac3",
+    "verify_exit": 0,
+    "verify_stdout": "The bundle contains these 2 refs:\neded6ab6f0d0df801e26735e898b6aa5b746c1aa refs/heads/work/monthly-review-a3425ebf9874\neded6ab6f0d0df801e26735e898b6aa5b746c1aa HEAD\nThe bundle records a complete history.\nThe bundle uses this hash algorithm: sha1\n",
+    "verify_stderr": "/Users/me/hamon-estate-a3425ebf9874/household-monthly-review/receiving/monthly-review-source.bundle is okay\n"
+  }
+}
