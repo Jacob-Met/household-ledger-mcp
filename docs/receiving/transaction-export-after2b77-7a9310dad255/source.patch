@@ -1,0 +1,776 @@
+--- a/README.md
++++ b/README.md
+@@ -24,6 +24,7 @@
+ | `preview_transaction_import` | Review a complete CSV with exact normalized values, existing matches/conflicts and per-currency totals, without writing. |
+ | `commit_transaction_import` | Atomically record the reviewed CSV using stable source keys; exact retries reuse original records and a conflict refuses the whole batch. |
+ | `list_transactions` | Filter and page the recorded transactions. |
++| `export_transactions_csv` | Prepare a complete bounded CSV statement with original transaction values for the client to save. |
+ | `monthly_summary` | Return one currency's income, expenses, net amount, category totals and applicable category budgets. |
+ | `cashflow_trend` | Compare 1–120 inclusive calendar months in one currency, including empty months, monthly budgets and cumulative period net. |
+ | `set_budget` | Create or replace a category/month limit, optionally with an explicit currency. |
+@@ -34,6 +35,8 @@
+ See [cashflow trend usage](docs/CASHFLOW_TREND.md) for interval selection, currency rules and the distinction between cumulative period net and an account balance.
+ 
+ See [CSV transaction import](docs/TRANSACTION_IMPORT.md) for the required source columns, preview/review/commit flow and retry rules.
++
++See [transaction CSV statements](docs/TRANSACTION_EXPORT.md) for exact columns, literal text preservation, whole-result limits and client-side saving.
+ 
+ See [reviewed monthly budget copying](docs/BUDGET_COPY.md) to reuse chosen limits without re-entering each category.
+ 
+--- /dev/null
++++ b/docs/TRANSACTION_EXPORT.md
+@@ -0,0 +1,55 @@
++# Transaction CSV statements
++
++Use `export_transactions_csv` to prepare a complete statement of matching recorded transactions. Call it through the connected MCP client:
++
++```json
++{"type":"expense","from":"2026-10-01","to":"2026-10-31"}
++```
++
++All selectors are optional. `type` accepts `income` or `expense`; `category` matches exactly, including case and whitespace; `from` and `to` are inclusive calendar dates. The existing transaction listing determines selection and newest-first order, including ties. An empty object selects every transaction. A reversed valid date interval has no matches.
++
++This tool accepts only these four selectors. It returns all matching records within the limits below, so there are no caller `limit` or `offset` arguments. Existing listing tools and their selectors remain available independently.
++
++## Save the returned text
++
++The tool's text content is a JSON object with these fields:
++
++| Field | Meaning |
++| --- | --- |
++| `format` | `csv` |
++| `filename` | Suggested name `household-transactions.csv` |
++| `mediaType` | `text/csv; charset=utf-8` |
++| `rowCount` | Number of transaction records, excluding the header |
++| `byteCount` | Exact UTF-8 byte count, including header and line endings |
++| `sha256` | Lowercase SHA-256 of the exact CSV bytes |
++| `csv` | Complete CSV text to save |
++
++Have the client save `csv` as UTF-8, preserving its line endings. The service returns text and metadata; it does not create an attachment, write a requested path or open a spreadsheet. Repeated calls over the same selected snapshot produce identical bytes and metadata.
++
++## Fixed columns and literal values
++
++The columns always appear in this order:
++
++```text
++id,type,amountMinor,currency,date,category,note,idempotencyKey,createdAt
++```
++
++Every header and value is enclosed in double quotes. Embedded double quotes are doubled. Commas separate fields, and CRLF separates records, including the final record. There is no byte-order mark.
++
++Original commas, quotes, embedded CRLF/LF/CR, Unicode and whitespace remain part of the field. Formula-like strings beginning with `=`, `+`, `-` or `@` remain literal stored text without an added prefix; the consuming application determines how it imports that text.
++
++`amountMinor` is the original integer in decimal. Each row retains its currency. The statement neither combines currencies nor converts amounts.
++
++Absent notes and idempotency keys become empty fields. A missing legacy `createdAt` also becomes an empty field; the exporter does not invent a timestamp. An explicitly present non-string timestamp or text that cannot be encoded losslessly as UTF-8 refuses the statement.
++
++This is a transaction statement. It omits budgets, does not distinguish absent optional strings from empty strings, and has a different column set from [transaction import](TRANSACTION_IMPORT.md). Keep the native ledger JSON when a complete ledger backup is needed.
++
++## Complete results and limits
++
++A statement can contain at most **5,000 matching transactions** and **1,048,576 UTF-8 bytes**, including the quoted header, escaping and line endings. Both limits are inclusive and apply to the whole result. The exporter reads one saved snapshot and obtains complete results through the native listing's bounded pages.
++
++If either limit is exceeded, the tool returns an error without a partial CSV report. Narrow the date, type or exact category selection and call again. A large ledger can still yield a small selected statement.
++
++Zero matches succeed with the quoted header and final CRLF, `rowCount: 0`, and the corresponding byte count and hash. Reading a missing ledger also returns this empty statement without creating a file. Invalid selectors or invalid ledger content return the existing MCP error result.
++
++Exporting performs no ledger write, migration, budget change or provider request.
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -25,6 +25,7 @@
+ } from "./ledger.js";
+ import { commitTransactionImport, previewTransactionImport, TRANSACTION_IMPORT_TOOL_DEFS } from "./transaction-import.js";
+ import { commitBudgetCopy, previewBudgetCopy, BUDGET_COPY_TOOL_DEFS } from "./budget-copy.js";
++import { exportTransactionsCsv, TRANSACTION_EXPORT_TOOL_DEF } from "./transaction-export.js";
+ 
+ export function resolveDataPath(): string {
+   return (
+@@ -143,6 +144,7 @@
+   },
+   ...TRANSACTION_IMPORT_TOOL_DEFS,
+   ...BUDGET_COPY_TOOL_DEFS,
++  TRANSACTION_EXPORT_TOOL_DEF,
+ ] as const;
+ 
+ export function createMcpServer(store: LedgerStore): Server {
+@@ -154,6 +156,10 @@
+     const args = (request.params.arguments ?? {}) as Record<string, unknown>;
+     try {
+       switch (request.params.name) {
++        case "export_transactions_csv": {
++          const result = exportTransactionsCsv(await store.load(), args);
++          return { content: [{ type: "text", text: JSON.stringify(result) }] };
++        }
+         case "preview_budget_copy": {
+           const result = await previewBudgetCopy(store, args);
+           return { content: [{ type: "text", text: JSON.stringify(result) }] };
+--- /dev/null
++++ b/src/transaction-export.ts
+@@ -0,0 +1,122 @@
++/**
++ * Bounded, read-only transaction statements. Selection and order stay with the
++ * native listing function; CSV is returned to the client, never written here.
++ */
++import { createHash } from "node:crypto";
++import { listTransactions, ValidationError, type LedgerData, type ListTransactionsFilter, type Transaction } from "./ledger.js";
++
++const MAX_ROWS = 5000;
++const MAX_BYTES = 1048576;
++const PAGE_SIZE = 1000;
++const COLUMNS = ["id", "type", "amountMinor", "currency", "date", "category", "note", "idempotencyKey", "createdAt"] as const;
++const SELECTORS = new Set(["type", "category", "from", "to"]);
++
++export interface TransactionCsvExport {
++  format: "csv";
++  filename: "household-transactions.csv";
++  mediaType: "text/csv; charset=utf-8";
++  rowCount: number;
++  byteCount: number;
++  sha256: string;
++  csv: string;
++}
++
++export const TRANSACTION_EXPORT_TOOL_DEF = {
++  name: "export_transactions_csv",
++  description: "Prepare a complete CSV statement of matching transactions, up to 5000 rows and 1 MiB UTF-8. Returns CSV text and metadata for the client to save; does not write a file. Stored text remains literal, including formula-like strings. Amounts remain integer minor units with their original currencies.",
++  annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
++  inputSchema: {
++    type: "object",
++    properties: {
++      type: { type: "string", enum: ["income", "expense"] },
++      category: { type: "string", description: "Exact category selector, with the same case and whitespace behavior as list_transactions." },
++      from: { type: "string", description: "YYYY-MM-DD inclusive, using the existing transaction listing." },
++      to: { type: "string", description: "YYYY-MM-DD inclusive, using the existing transaction listing." },
++    },
++    additionalProperties: false,
++  },
++} as const;
++
++function selectors(args: unknown): ListTransactionsFilter {
++  if (typeof args !== "object" || args === null || Array.isArray(args)) {
++    throw new ValidationError("CSV export arguments must be an object");
++  }
++  for (const key of Object.keys(args)) {
++    if (!SELECTORS.has(key)) throw new ValidationError("Unsupported CSV export argument: " + key);
++  }
++  const filter = args as ListTransactionsFilter;
++  for (const key of ["category", "from", "to"] as const) {
++    if (filter[key] !== undefined && typeof filter[key] !== "string") {
++      throw new ValidationError(key + " must be a string");
++    }
++  }
++  // The existing listing validates type and calendar dates, and owns matching.
++  return filter;
++}
++
++function byteLimit(): never {
++  throw new ValidationError("Matching transactions exceed the 1048576-byte UTF-8 CSV limit; narrow the selection");
++}
++
++function encodeRow(values: readonly unknown[], remaining: number): { text: string; bytes: number } {
++  let bytes = values.length - 1 + 2; // commas and final CRLF
++  const cells: string[] = [];
++  for (const value of values) {
++    if (typeof value !== "string") {
++      throw new ValidationError("Selected transaction CSV fields must be strings when present");
++    }
++    let quotes = 0;
++    for (let i = 0; i < value.length; i++) {
++      const code = value.charCodeAt(i);
++      if (code === 34) quotes++;
++      if (code >= 0xd800 && code <= 0xdbff) {
++        const low = value.charCodeAt(++i);
++        if (!(low >= 0xdc00 && low <= 0xdfff)) {
++          throw new ValidationError("Selected transaction text cannot be represented losslessly as UTF-8");
++        }
++      } else if (code >= 0xdc00 && code <= 0xdfff) {
++        throw new ValidationError("Selected transaction text cannot be represented losslessly as UTF-8");
++      }
++    }
++    bytes += Buffer.byteLength(value, "utf8") + quotes + 2;
++    if (bytes > remaining) byteLimit();
++    cells.push(value);
++  }
++  return { text: cells.map(value => '"' + value.replace(/"/g, '""') + '"').join(",") + "\r\n", bytes };
++}
++
++function transactionCells(row: Transaction): unknown[] {
++  return [
++    row.id, row.type, String(row.amountMinor), row.currency, row.date, row.category,
++    row.note === undefined ? "" : row.note,
++    row.idempotencyKey === undefined ? "" : row.idempotencyKey,
++    row.createdAt === undefined ? "" : row.createdAt,
++  ];
++}
++
++/** The caller supplies one loaded snapshot; this function performs no I/O. */
++export function exportTransactionsCsv(snapshot: LedgerData, args: unknown = {}): TransactionCsvExport {
++  const filter = selectors(args);
++  const first = listTransactions(snapshot, { ...filter, limit: PAGE_SIZE, offset: 0 });
++  if (first.total > MAX_ROWS) {
++    throw new ValidationError("Matching transactions exceed the 5000-row CSV limit; narrow the selection");
++  }
++  const header = encodeRow(COLUMNS, MAX_BYTES);
++  const parts = [header.text];
++  let byteCount = header.bytes;
++  let rowCount = 0;
++  for (let offset = 0; offset < first.total; offset += PAGE_SIZE) {
++    const page = offset === 0 ? first : listTransactions(snapshot, { ...filter, limit: PAGE_SIZE, offset });
++    for (const transaction of page.transactions) {
++      const row = encodeRow(transactionCells(transaction), MAX_BYTES - byteCount);
++      parts.push(row.text);
++      byteCount += row.bytes;
++      rowCount++;
++    }
++  }
++  const csv = parts.join("");
++  return {
++    format: "csv", filename: "household-transactions.csv", mediaType: "text/csv; charset=utf-8",
++    rowCount, byteCount, sha256: createHash("sha256").update(csv, "utf8").digest("hex"), csv,
++  };
++}
+--- a/test/budget-copy-http.test.ts
++++ b/test/budget-copy-http.test.ts
+@@ -82,7 +82,7 @@
+   try {
+     service = await launch(path);
+     const catalogue = (await service.client.listTools()).tools;
+-    assert.equal(catalogue.length, 10);
++    assert.equal(catalogue.length, 11);
+     assert.equal(catalogue.find(t => t.name === "preview_budget_copy")!.annotations!.readOnlyHint, true);
+     assert.equal(catalogue.find(t => t.name === "commit_budget_copy")!.annotations!.readOnlyHint, false);
+     const call = (name: string, args: Record<string, unknown>) => service!.client.callTool({ name, arguments: args });
+--- /dev/null
++++ b/test/fixtures/transaction-export-ledger.json
+@@ -0,0 +1,101 @@
++{
++  "version": 2,
++  "transactions": [
++    {
++      "id": "fixture-salary",
++      "type": "income",
++      "amountMinor": 420000,
++      "currency": "USD",
++      "date": "2026-10-01",
++      "category": "salary",
++      "note": "=SUM(1,2)",
++      "idempotencyKey": "fixture:key-1",
++      "createdAt": "2026-10-01T08:00:00.000Z"
++    },
++    {
++      "id": "fixture-食費,\"two\"",
++      "type": "expense",
++      "amountMinor": 12345,
++      "currency": "EUR",
++      "date": "2026-10-03",
++      "category": "食費, \"週末\"",
++      "note": "  café, \"quoted\"\r\n第二行 😺\nlast\rEND  ",
++      "idempotencyKey": "fixture:key-\"2\",€",
++      "createdAt": "2026-10-03T09:00:00.000Z"
++    },
++    {
++      "id": "fixture-food-tie-a",
++      "type": "expense",
++      "amountMinor": 72,
++      "currency": "USD",
++      "date": "2026-10-03",
++      "category": "Food",
++      "note": "+1+2",
++      "createdAt": "2026-10-03T08:00:00.000Z"
++    },
++    {
++      "id": "fixture-spaced",
++      "type": "expense",
++      "amountMinor": 900,
++      "currency": "USD",
++      "date": "2026-09-30",
++      "category": " Food ",
++      "createdAt": "2026-09-30T12:00:00.000Z"
++    },
++    {
++      "id": "fixture-empty-note",
++      "type": "income",
++      "amountMinor": 101,
++      "currency": "USD",
++      "date": "2026-10-02",
++      "category": "salary",
++      "note": "",
++      "createdAt": "2026-10-02T10:00:00.000Z"
++    },
++    {
++      "id": "fixture-food-tie-b",
++      "type": "expense",
++      "amountMinor": 400,
++      "currency": "JPY",
++      "date": "2026-10-03",
++      "category": "Food",
++      "note": "-9",
++      "createdAt": "2026-10-03T07:00:00.000Z"
++    },
++    {
++      "id": "fixture-max-safe",
++      "type": "expense",
++      "amountMinor": 9007199254740991,
++      "currency": "USD",
++      "date": "2026-10-04",
++      "category": "=literal category",
++      "note": "@SUM(A1:A2)",
++      "createdAt": "2026-10-04T11:00:00.000Z"
++    },
++    {
++      "id": "fixture-newest",
++      "type": "expense",
++      "amountMinor": 1,
++      "currency": "USD",
++      "date": "2026-10-05",
++      "category": "Food",
++      "note": "=1+1",
++      "idempotencyKey": "fixture:key-last",
++      "createdAt": "2026-10-05T12:00:00.000Z"
++    }
++  ],
++  "budgets": [
++    {
++      "category": "Food",
++      "month": "2026-10",
++      "limitMinor": 50000,
++      "currency": "USD"
++    },
++    {
++      "category": "Food",
++      "month": "2026-10",
++      "limitMinor": 7000,
++      "currency": "JPY"
++    }
++  ]
++}
+--- a/test/mcp.test.ts
++++ b/test/mcp.test.ts
+@@ -32,7 +32,7 @@
+     const { tools } = await client.listTools();
+     assert.deepEqual(
+       tools.map((t) => t.name).sort(),
+-      ["cashflow_trend", "commit_budget_copy", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_budget_copy", "preview_transaction_import", "record_transaction", "set_budget"]
++      ["cashflow_trend", "commit_budget_copy", "commit_transaction_import", "export_transactions_csv", "get_budgets", "list_transactions", "monthly_summary", "preview_budget_copy", "preview_transaction_import", "record_transaction", "set_budget"]
+     );
+   });
+ 
+--- /dev/null
++++ b/test/transaction-export-csv-reader.ts
+@@ -0,0 +1,28 @@
++import assert from "node:assert/strict";
++
++/** Strict test-only reader for the contract's fully quoted, CRLF-terminated CSV. */
++export function readStatementCsv(text: string): string[][] {
++  const rows: string[][] = [];
++  let at = 0;
++  while (at < text.length) {
++    const row: string[] = [];
++    while (true) {
++      assert.equal(text[at++], '"');
++      let field = "";
++      while (true) {
++        assert.ok(at < text.length, "unterminated quoted CSV cell");
++        const next = text[at++];
++        if (next !== '"') field += next;
++        else if (text[at] === '"') { field += '"'; at++; }
++        else break;
++      }
++      row.push(field);
++      if (text[at] === ",") { at++; continue; }
++      assert.equal(text.slice(at, at + 2), "\r\n", "record must end with CRLF");
++      at += 2;
++      break;
++    }
++    rows.push(row);
++  }
++  return rows;
++}
+--- /dev/null
++++ b/test/transaction-export-http.test.ts
+@@ -0,0 +1,231 @@
++import { test } from "node:test";
++import assert from "node:assert/strict";
++import { spawn } from "node:child_process";
++import { once } from "node:events";
++import { createHash } from "node:crypto";
++import { access, chmod, mkdir, mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises";
++import { createServer } from "node:net";
++import { tmpdir } from "node:os";
++import { dirname, join } from "node:path";
++import { fileURLToPath } from "node:url";
++import { Client } from "@modelcontextprotocol/sdk/client/index.js";
++import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
++import { validateLedgerData, type LedgerData, type Transaction } from "../src/ledger.js";
++import { type TransactionCsvExport } from "../src/transaction-export.js";
++import { readStatementCsv } from "./transaction-export-csv-reader.js";
++
++type ToolReply = { isError?: boolean; content: Array<{ type: string; text?: string }> };
++const COLUMNS = ["id", "type", "amountMinor", "currency", "date", "category", "note", "idempotencyKey", "createdAt"];
++const HEADER = '"id","type","amountMinor","currency","date","category","note","idempotencyKey","createdAt"\r\n';
++const fixturePath = new URL("../../test/fixtures/transaction-export-ledger.json", import.meta.url);
++const hash = (value: string | Buffer): string => createHash("sha256").update(value).digest("hex");
++function payload<T>(value: unknown): T {
++  const reply = value as ToolReply;
++  assert.equal(reply.isError, undefined, JSON.stringify(reply));
++  assert.equal(reply.content.length, 1);
++  assert.equal(reply.content[0].type, "text");
++  return JSON.parse(reply.content[0].text!) as T;
++}
++function failure(value: unknown): void {
++  const reply = value as ToolReply;
++  assert.equal(reply.isError, true, JSON.stringify(reply));
++  assert.equal(reply.content[0].type, "text");
++  assert.ok(reply.content[0].text);
++  assert.equal(reply.content[0].text!.includes('"csv":'), false);
++}
++function expectedCells(row: Transaction): string[] {
++  return COLUMNS.map(key => {
++    const value = row[key as keyof Transaction];
++    return value === undefined ? "" : String(value);
++  });
++}
++async function launch(path: string): Promise<{ client: Client; stop: () => Promise<void> }> {
++  const probe = createServer();
++  probe.listen(0, "127.0.0.1");
++  await once(probe, "listening");
++  const address = probe.address();
++  assert.ok(address && typeof address !== "string");
++  const port = address.port;
++  await new Promise<void>((resolve, reject) => probe.close(error => error ? reject(error) : resolve()));
++  const child = spawn(process.execPath, [fileURLToPath(new URL("../src/index.js", import.meta.url))], {
++    env: { ...process.env, HOUSEHOLD_LEDGER_DATA_PATH: path, HOUSEHOLD_LEDGER_HOST: "127.0.0.1", HOUSEHOLD_LEDGER_PORT: String(port) },
++    stdio: ["ignore", "pipe", "pipe"],
++  });
++  let errors = "";
++  child.stderr.on("data", chunk => { errors += String(chunk); });
++  try {
++    await new Promise<void>((resolve, reject) => {
++      let output = "";
++      const timer = setTimeout(() => reject(new Error("private export server startup timed out: " + errors)), 5000);
++      child.once("error", error => { clearTimeout(timer); reject(error); });
++      child.once("exit", code => { clearTimeout(timer); reject(new Error("private export server exited " + code + ": " + errors)); });
++      child.stdout.on("data", chunk => {
++        output += String(chunk);
++        if (output.includes("listening on")) { clearTimeout(timer); resolve(); }
++      });
++    });
++    assert.equal((await fetch("http://127.0.0.1:" + port + "/healthz")).status, 200);
++    const client = new Client({ name: "transaction-export-http-tests", version: "1" }, { capabilities: {} });
++    await client.connect(new StreamableHTTPClientTransport(new URL("http://127.0.0.1:" + port + "/mcp")));
++    return { client, stop: async () => {
++      await client.close();
++      if (child.exitCode === null && child.signalCode === null) {
++        const exit = once(child, "exit"); child.kill("SIGTERM"); await exit;
++      }
++      assert.equal(errors, "");
++    } };
++  } catch (error) {
++    child.kill("SIGTERM");
++    throw error;
++  }
++}
++async function guardedCall(client: Client, path: string, args: Record<string, unknown> = {}): Promise<unknown> {
++  const bytes = await readFile(path), before = await stat(path);
++  const reply = await client.callTool({ name: "export_transactions_csv", arguments: args });
++  assert.deepEqual(await readFile(path), bytes);
++  assert.equal((await stat(path)).mtimeMs, before.mtimeMs);
++  return reply;
++}
++async function listing(client: Client, filter: Record<string, unknown> = {}): Promise<Transaction[]> {
++  const first = payload<{ total: number; transactions: Transaction[] }>(await client.callTool({ name: "list_transactions", arguments: { ...filter, limit: 1000, offset: 0 } }));
++  const rows = [...first.transactions];
++  for (let offset = 1000; offset < first.total; offset += 1000) {
++    const next = payload<{ total: number; transactions: Transaction[] }>(await client.callTool({ name: "list_transactions", arguments: { ...filter, limit: 1000, offset } }));
++    assert.equal(next.total, first.total);
++    rows.push(...next.transactions);
++  }
++  assert.equal(rows.length, first.total);
++  return rows;
++}
++
++test("real HTTP export saves exact native listing records as literal CSV without writing the read-only ledger", async () => {
++  const dir = await mkdtemp(join(tmpdir(), "hlm-http-export-literals-"));
++  const path = join(dir, "ledger", "ledger.json");
++  let service: Awaited<ReturnType<typeof launch>> | undefined;
++  try {
++    await mkdir(dirname(path));
++    const source = await readFile(fixturePath);
++    const snapshot = validateLedgerData(JSON.parse(source.toString("utf8")));
++    await writeFile(path, source);
++    await chmod(path, 0o444);
++    await chmod(dirname(path), 0o555);
++    service = await launch(path);
++    const tool = (await service.client.listTools()).tools.find(item => item.name === "export_transactions_csv");
++    assert.ok(tool);
++    assert.deepEqual(tool.annotations, { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false });
++    assert.equal(tool.inputSchema.additionalProperties, false);
++    assert.deepEqual(Object.keys(tool.inputSchema.properties ?? {}).sort(), ["category", "from", "to", "type"]);
++    const filters = [{}, { type: "expense", from: "2026-10-03", to: "2026-10-04" }, { category: "Food" }, { category: " Food " }, { category: "food" }, { category: '食費, "週末"' }];
++    let first: TransactionCsvExport | undefined;
++    for (const filter of filters) {
++      const expected = await listing(service.client, filter);
++      const report: TransactionCsvExport = payload<TransactionCsvExport>(await guardedCall(service.client, path, filter));
++      assert.deepEqual(readStatementCsv(report.csv), [COLUMNS, ...expected.map(expectedCells)]);
++      assert.equal(report.rowCount, expected.length);
++      assert.equal(report.byteCount, Buffer.byteLength(report.csv));
++      assert.equal(report.sha256, hash(report.csv));
++      assert.equal(report.filename, "household-transactions.csv");
++      assert.equal(report.mediaType, "text/csv; charset=utf-8");
++      if (!first) first = report;
++    }
++    assert.ok(first);
++    const saved = join(dir, first.filename);
++    await writeFile(saved, first.csv, { encoding: "utf8", flag: "wx" });
++    assert.equal(hash(await readFile(saved)), first.sha256);
++    assert.equal((await stat(saved)).size, first.byteCount);
++    assert.deepEqual(readStatementCsv((await readFile(saved)).toString("utf8")).slice(1), (await listing(service.client)).map(expectedCells));
++    assert.equal(snapshot.transactions.length, 8);
++    await service.stop(); service = undefined;
++    service = await launch(path);
++    assert.deepEqual(payload(await guardedCall(service.client, path)), first);
++  } finally {
++    await service?.stop();
++    await chmod(dirname(path), 0o755).catch(() => undefined);
++    await chmod(path, 0o644).catch(() => undefined);
++    await rm(dir, { recursive: true, force: true });
++  }
++});
++
++test("real HTTP export completes all pages and refuses whole row or byte excess", async () => {
++  const dir = await mkdtemp(join(tmpdir(), "hlm-http-export-bounds-"));
++  const path = join(dir, "ledger.json");
++  let service: Awaited<ReturnType<typeof launch>> | undefined;
++  const makeRow = (id: string, changes: Partial<Transaction> = {}): Transaction => ({
++    id, type: "expense", amountMinor: 1, currency: "USD", date: "2026-10-01", category: "Food", createdAt: "2026-10-01T00:00:00.000Z", ...changes,
++  });
++  const saveRows = async (rows: Transaction[]): Promise<void> => {
++    const snapshot: LedgerData = { version: 1, transactions: rows, budgets: [] };
++    await writeFile(path, JSON.stringify(snapshot) + "\n");
++  };
++  try {
++    const rows = Array.from({ length: 5000 }, (_, n) => makeRow("row-" + n));
++    await saveRows(rows);
++    service = await launch(path);
++    const expected = await listing(service.client);
++    const complete = payload<TransactionCsvExport>(await guardedCall(service.client, path));
++    assert.equal(complete.rowCount, 5000);
++    assert.deepEqual(readStatementCsv(complete.csv).slice(1), expected.map(expectedCells));
++    await saveRows([...rows, makeRow("only", { category: "Only" })]);
++    failure(await guardedCall(service.client, path));
++    const selected = payload<TransactionCsvExport>(await guardedCall(service.client, path, { category: "Only" }));
++    assert.deepEqual(readStatementCsv(selected.csv).slice(1), [expectedCells(makeRow("only", { category: "Only" }))]);
++    const baseCsv = HEADER + '"boundary","expense","1","USD","2026-10-01","Food","","","2026-10-01T00:00:00.000Z"\r\n';
++    const note = "a".repeat(1048576 - Buffer.byteLength(baseCsv));
++    await saveRows([makeRow("boundary", { note })]);
++    const exact = payload<TransactionCsvExport>(await guardedCall(service.client, path));
++    assert.equal(exact.byteCount, 1048576);
++    assert.equal(Buffer.byteLength(exact.csv), 1048576);
++    assert.equal(readStatementCsv(exact.csv)[1][6], note);
++    await saveRows([makeRow("boundary", { note: note + "a" })]);
++    failure(await guardedCall(service.client, path));
++  } finally {
++    await service?.stop();
++    await rm(dir, { recursive: true, force: true });
++  }
++});
++
++test("real HTTP refusals retain invalid arguments and ledger failures as errors without partial CSV", async () => {
++  const dir = await mkdtemp(join(tmpdir(), "hlm-http-export-refusals-"));
++  const path = join(dir, "ledger.json");
++  let service: Awaited<ReturnType<typeof launch>> | undefined;
++  try {
++    const valid = await readFile(fixturePath);
++    await writeFile(path, valid);
++    service = await launch(path);
++    for (const args of [{ limit: 1 }, { offset: 0 }, { path: join(dir, "not-created.csv") }, { currency: "USD" }, { query: "Food" }, { category: null }, { type: "bad" }, { from: "2026-02-30" }, { to: 2026 }]) {
++      failure(await guardedCall(service.client, path, args));
++    }
++    await assert.rejects(access(join(dir, "not-created.csv")), { code: "ENOENT" });
++    for (const invalid of ["{", '{"version":99,"transactions":[],"budgets":[]}', JSON.stringify({ version: 1, transactions: [{ id: "invalid", type: "expense", amountMinor: 0 }], budgets: [] })]) {
++      await writeFile(path, invalid);
++      failure(await guardedCall(service.client, path));
++    }
++    for (const change of [{ createdAt: { invented: true } }, { note: "\ud800" }]) {
++      const snapshot = JSON.parse(valid.toString("utf8"));
++      Object.assign(snapshot.transactions[0], change);
++      await writeFile(path, JSON.stringify(snapshot));
++      failure(await guardedCall(service.client, path));
++    }
++  } finally {
++    await service?.stop();
++    await rm(dir, { recursive: true, force: true });
++  }
++});
++
++test("real HTTP empty export returns header only and does not create an absent ledger or parent", async () => {
++  const dir = await mkdtemp(join(tmpdir(), "hlm-http-export-missing-"));
++  const path = join(dir, "never-created", "ledger.json");
++  let service: Awaited<ReturnType<typeof launch>> | undefined;
++  try {
++    service = await launch(path);
++    const report = payload<TransactionCsvExport>(await service.client.callTool({ name: "export_transactions_csv", arguments: {} }));
++    assert.equal(report.rowCount, 0);
++    assert.equal(report.csv, HEADER);
++    assert.equal(report.byteCount, Buffer.byteLength(HEADER));
++    assert.equal(report.sha256, hash(HEADER));
++    await assert.rejects(access(dirname(path)), { code: "ENOENT" });
++  } finally {
++    await service?.stop();
++    await rm(dir, { recursive: true, force: true });
++  }
++});
+--- /dev/null
++++ b/test/transaction-export.test.ts
+@@ -0,0 +1,140 @@
++import { test } from "node:test";
++import assert from "node:assert/strict";
++import { createHash } from "node:crypto";
++import { listTransactions, validateLedgerData, ValidationError, type LedgerData, type Transaction } from "../src/ledger.js";
++import { exportTransactionsCsv } from "../src/transaction-export.js";
++import { readStatementCsv } from "./transaction-export-csv-reader.js";
++
++const COLUMNS = ["id", "type", "amountMinor", "currency", "date", "category", "note", "idempotencyKey", "createdAt"];
++const HEADER = '"id","type","amountMinor","currency","date","category","note","idempotencyKey","createdAt"\r\n';
++const tx = (id: string, changes: Partial<Transaction> = {}): Transaction => ({
++  id, type: "expense", amountMinor: 1, currency: "USD", date: "2026-10-01", category: "Food",
++  createdAt: "2026-10-01T00:00:00.000Z", ...changes,
++});
++const data = (...transactions: Transaction[]): LedgerData => ({
++  version: 2, transactions,
++  budgets: [{ category: "Food", month: "2026-10", currency: "USD", limitMinor: 77 }],
++});
++function cells(row: Transaction): string[] {
++  return COLUMNS.map(key => {
++    const value = row[key as keyof Transaction];
++    return value === undefined ? "" : String(value);
++  });
++}
++function checkMetadata(result: ReturnType<typeof exportTransactionsCsv>, expectedRows: number): void {
++  assert.deepEqual(Object.keys(result).sort(), ["byteCount", "csv", "filename", "format", "mediaType", "rowCount", "sha256"]);
++  assert.equal(result.format, "csv");
++  assert.equal(result.filename, "household-transactions.csv");
++  assert.equal(result.mediaType, "text/csv; charset=utf-8");
++  assert.equal(result.rowCount, expectedRows);
++  assert.equal(result.byteCount, Buffer.byteLength(result.csv, "utf8"));
++  assert.equal(result.sha256, createHash("sha256").update(result.csv, "utf8").digest("hex"));
++  assert.deepEqual(readStatementCsv(result.csv)[0], COLUMNS);
++}
++
++test("statement preserves literal text, quoting, Unicode, formula-like fields and integer minor units", () => {
++  const rows = [
++    tx('one,"雪"', { note: '  café, "quoted"\r\n第二行 😺\nlast\rEND  ', idempotencyKey: 'key:"quoted",€', amountMinor: Number.MAX_SAFE_INTEGER, category: "=SUM(1,2)" }),
++    tx("two", { note: "+1+2", currency: "EUR" }),
++    tx("three", { note: "-9", currency: "JPY" }),
++    tx("four", { note: "@SUM(A1:A2)" }),
++    tx("five", { note: "=1+1" }),
++  ];
++  const snapshot = validateLedgerData(data(...rows));
++  const before = JSON.stringify(snapshot);
++  const result = exportTransactionsCsv(snapshot);
++  checkMetadata(result, rows.length);
++  assert.deepEqual(readStatementCsv(result.csv).slice(1), rows.map(cells));
++  assert.ok(result.csv.includes('"9007199254740991"'));
++  assert.ok(result.csv.startsWith(HEADER));
++  assert.equal(result.csv.startsWith("\uFEFF"), false);
++  assert.equal(JSON.stringify(snapshot), before);
++  assert.deepEqual(exportTransactionsCsv(snapshot), result);
++});
++
++test("selection and tie order are exactly the existing native listing over the same snapshot", () => {
++  const snapshot = data(
++    tx("old", { date: "2026-09-30", category: " Food " }),
++    tx("tie-first", { date: "2026-10-03", currency: "EUR" }),
++    tx("salary", { date: "2026-10-02", type: "income", category: "salary" }),
++    tx("new", { date: "2026-10-04" }),
++    tx("tie-second", { date: "2026-10-03", currency: "JPY" }),
++  );
++  const before = JSON.stringify(snapshot);
++  const filters = [{}, { type: "expense" as const, from: "2026-10-03", to: "2026-10-03" }, { category: " Food " }, { category: "Food" }, { category: "food" }, { category: "" }, { from: "2026-10-05", to: "2026-10-01" }];
++  for (const filter of filters) {
++    const expected = listTransactions(snapshot, { ...filter, limit: 1000 });
++    const result = exportTransactionsCsv(snapshot, filter);
++    checkMetadata(result, expected.total);
++    assert.deepEqual(readStatementCsv(result.csv).slice(1), expected.transactions.map(cells));
++  }
++  assert.equal(JSON.stringify(snapshot), before);
++});
++
++test("empty results include only the exact quoted header", () => {
++  for (const result of [exportTransactionsCsv(data()), exportTransactionsCsv(data(tx("one")), { category: "missing" })]) {
++    checkMetadata(result, 0);
++    assert.equal(result.csv, HEADER);
++    assert.deepEqual(readStatementCsv(result.csv), [COLUMNS]);
++  }
++});
++
++test("complete results cross a thousand-row page and admit exactly five thousand matching records", () => {
++  const snapshot = data(...Array.from({ length: 5000 }, (_, n) => tx("row-" + n, { date: n % 2 ? "2026-10-02" : "2026-10-01" })));
++  const before = JSON.stringify(snapshot);
++  const expected: Transaction[] = [];
++  for (let offset = 0; offset < 5000; offset += 1000) expected.push(...listTransactions(snapshot, { limit: 1000, offset }).transactions);
++  const result = exportTransactionsCsv(snapshot);
++  checkMetadata(result, 5000);
++  assert.deepEqual(readStatementCsv(result.csv).slice(1), expected.map(cells));
++  assert.equal(JSON.stringify(snapshot), before);
++});
++
++test("five thousand and one matches refuse the whole result but a small subset can still succeed", () => {
++  const snapshot = data(...Array.from({ length: 5001 }, (_, n) => tx("row-" + n, { category: n === 5000 ? "Only" : "Food" })));
++  assert.throws(() => exportTransactionsCsv(snapshot), ValidationError);
++  const result = exportTransactionsCsv(snapshot, { category: "Only" });
++  checkMetadata(result, 1);
++  assert.deepEqual(readStatementCsv(result.csv).slice(1), [cells(snapshot.transactions[5000])]);
++});
++
++test("the inclusive UTF-8 byte boundary includes header and CSV quote expansion", () => {
++  const prefix = HEADER + '"boundary","expense","1","USD","2026-10-01","Food","","","2026-10-01T00:00:00.000Z"\r\n';
++  const room = 1048576 - Buffer.byteLength(prefix);
++  const ascii = "a".repeat(room);
++  const exact = exportTransactionsCsv(data(tx("boundary", { note: ascii })));
++  assert.equal(exact.byteCount, 1048576);
++  assert.equal(readStatementCsv(exact.csv)[1][6], ascii);
++  assert.throws(() => exportTransactionsCsv(data(tx("boundary", { note: ascii + "a" }))), ValidationError);
++  assert.throws(() => exportTransactionsCsv(data(tx("boundary", { note: ascii.slice(1) + '"' }))), ValidationError);
++  const unicode = "é".repeat(Math.floor(room / 2)) + (room % 2 ? "a" : "");
++  assert.equal(exportTransactionsCsv(data(tx("boundary", { note: unicode }))).byteCount, 1048576);
++  assert.throws(() => exportTransactionsCsv(data(tx("boundary", { note: unicode + "😺" }))), ValidationError);
++});
++
++test("optional or legacy absent values stay empty without inventing a timestamp", () => {
++  const absent = tx("absent");
++  delete (absent as Partial<Transaction>).createdAt;
++  const result = exportTransactionsCsv(validateLedgerData(data(absent, tx("empty", { note: "" }))));
++  assert.deepEqual(readStatementCsv(result.csv).slice(1), [cells(absent), cells(tx("empty", { note: "" }))]);
++});
++
++test("selected unrepresentable text and an explicitly non-string timestamp are refused", () => {
++  const malformed = tx("bad", { createdAt: null as unknown as string });
++  const snapshot = validateLedgerData(data(malformed, tx("healthy", { category: "Other" })));
++  assert.throws(() => exportTransactionsCsv(snapshot), ValidationError);
++  assert.equal(exportTransactionsCsv(snapshot, { category: "Other" }).rowCount, 1);
++  for (const note of ["\ud800", "\udc00", "x\ud800y"]) {
++    assert.throws(() => exportTransactionsCsv(data(tx("bad-note", { note }))), ValidationError);
++  }
++  assert.equal(readStatementCsv(exportTransactionsCsv(data(tx("paired", { note: "😺" }))).csv)[1][6], "😺");
++});
++
++test("new tool arguments reject unsupported keys and wrong shapes without changing existing selectors", () => {
++  const snapshot = data(tx("one"));
++  const before = JSON.stringify(snapshot);
++  for (const filter of [null, [], "", { limit: 1 }, { offset: 0 }, { path: "/tmp/never-write.csv" }, { currency: "USD" }, { query: "food" }, { category: null }, { category: 1 }, { type: null }, { type: "other" }, { from: null }, { from: "2026-02-30" }, { to: "tomorrow" }, { from: 1 }]) {
++    assert.throws(() => exportTransactionsCsv(snapshot, filter), ValidationError);
++  }
++  assert.equal(JSON.stringify(snapshot), before);
++});
+--- a/test/transaction-import-http.test.ts
++++ b/test/transaction-import-http.test.ts
+@@ -78,7 +78,7 @@
+   try {
+     service = await launch(path);
+     const names = (await service.client.listTools()).tools.map(tool => tool.name).sort();
+-    assert.deepEqual(names, ["cashflow_trend", "commit_budget_copy", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_budget_copy", "preview_transaction_import", "record_transaction", "set_budget"]);
++    assert.deepEqual(names, ["cashflow_trend", "commit_budget_copy", "commit_transaction_import", "export_transactions_csv", "get_budgets", "list_transactions", "monthly_summary", "preview_budget_copy", "preview_transaction_import", "record_transaction", "set_budget"]);
+     const csv = HEADER + 'bank:one,income,02000, usd ,2026-10-01, salary ,"  payer, \"\"October\"\"\r\npaid  "\n' +
+       "bank:two,expense,500,USD,2026-10-02,food,\n" + "bank:three,expense,75,EUR,2026-10-02,food,";
+     const preview = payload<TransactionImportPreview>(await service.client.callTool({ name: "preview_transaction_import", arguments: { csv } }));

@@ -1,0 +1,68 @@
+{
+  "format": "household-transaction-export-owner-package-receipt/v1",
+  "started_at": "2026-10-08T15:44:07.343829+00:00",
+  "finished_at": "2026-10-08T15:44:07.747538+00:00",
+  "archive": {
+    "path": "/Users/me/hamon-household-export-7a9310dad255/household-transaction-export-after2b77-receiving.tar.gz",
+    "bytes": 861340,
+    "sha256": "1213482711354e8a44f35230dd8d41061ad2cb3f868421075c705318cf9752f0",
+    "git_blob": "53c0af2d577119337f3a06ab956373814ffc341d",
+    "mode": "0644"
+  },
+  "archive_manifest": {
+    "path": "/Users/me/hamon-household-export-7a9310dad255/owner-archive-manifest.json",
+    "bytes": 97719,
+    "sha256": "c77cda85f15252754afc4c865218295b5640225f1fc5e8c3f5e48b2e5dc425f0",
+    "git_blob": "354f305b5563d279856a9b520562887a8665806a",
+    "mode": "0644"
+  },
+  "archive_members": 365,
+  "uncompressed_member_bytes": 14632794,
+  "source_tree": "81aeb4162cf6d793093f920ac7ca03a520169258",
+  "source_base_head": "2b77b81ad59c5f3255aa25c37110e91d3bad6a01",
+  "source_base_tree": "940438aed7af43d841ff7700da8bd4f83a838afd",
+  "source_manifest": {
+    "path": "/Users/me/hamon-household-export-7a9310dad255/candidate-final-source-manifest.json",
+    "bytes": 31691,
+    "sha256": "30ffa80337ae70fb4a29fa7064e8b18832ce8b7d72ddeaab28e3d705519f1fd0",
+    "git_blob": "670846ea6b77966d6766b5cc302fbd4adc94cc66",
+    "mode": "0644"
+  },
+  "artifact_manifest": {
+    "path": "/Users/me/hamon-household-export-7a9310dad255/candidate-artifact-manifest.json",
+    "bytes": 21819,
+    "sha256": "db7987539fd28f759543ed59c127dad4387b52b878aded8b14f5b2a4df9899bc",
+    "git_blob": "88e7ee55cf23975633825aec5837fcffe6327d62",
+    "mode": "0644"
+  },
+  "receiver_manifest": {
+    "path": "/Users/me/hamon-household-export-receiving-7a9310dad255/ROOT-MANIFEST.json",
+    "bytes": 27987,
+    "sha256": "3c29843c3637f92c5fa67cda1e1c3a69f7f85d44fea362ead139870f7c2fc671",
+    "git_blob": "f76e035744e6a3b507baa6a1d99722170f482bc0",
+    "mode": "0644"
+  },
+  "counts": {
+    "candidate_source": 103,
+    "compiled": 78,
+    "modified_parent_files": 5,
+    "producer_files": 49,
+    "receiver_files_including_manifest": 121,
+    "source_manifests": 6,
+    "readme": 1,
+    "source_patch": 1,
+    "archive_manifest": 1
+  },
+  "verification": {
+    "every_input_hash_before_stream": true,
+    "every_archive_member_bytes_hash_mode": true,
+    "every_input_hash_after_stream": true,
+    "source_or_receiver_writes": 0,
+    "receiver_raw_staging_copies": 0
+  },
+  "native_qualification": {
+    "producer": "typecheck and 131/131 tests passed on Node 26.3.0",
+    "independent": "8 HTTP groups, 64 tool calls, 19 client-saved CSVs passed",
+    "boundary": "Actual native development/receiving only; no hosted Node 20, canonical-main adoption, provider/live-ledger mutation, or deployment."
+  }
+}
