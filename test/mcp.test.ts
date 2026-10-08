@@ -32,7 +32,7 @@ describe("mcp tools", () => {
     const { tools } = await client.listTools();
     assert.deepEqual(
       tools.map((t) => t.name).sort(),
-      ["cashflow_trend", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_transaction_import", "record_transaction", "set_budget"]
+      ["cashflow_trend", "commit_budget_reallocation", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_budget_reallocation", "preview_transaction_import", "record_transaction", "set_budget"]
     );
   });
 

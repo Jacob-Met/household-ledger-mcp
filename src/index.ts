@@ -23,6 +23,7 @@ import {
   setBudget,
   ValidationError,
 } from "./ledger.js";
+import { commitBudgetReallocation, previewBudgetReallocation, BUDGET_REALLOCATION_TOOL_DEFS } from "./budget-reallocation.js";
 import { commitTransactionImport, previewTransactionImport, TRANSACTION_IMPORT_TOOL_DEFS } from "./transaction-import.js";
 
 export function resolveDataPath(): string {
@@ -141,6 +142,7 @@ const TOOL_DEFS = [
     },
   },
   ...TRANSACTION_IMPORT_TOOL_DEFS,
+  ...BUDGET_REALLOCATION_TOOL_DEFS,
 ] as const;
 
 export function createMcpServer(store: LedgerStore): Server {
@@ -152,6 +154,14 @@ export function createMcpServer(store: LedgerStore): Server {
     const args = (request.params.arguments ?? {}) as Record<string, unknown>;
     try {
       switch (request.params.name) {
+        case "preview_budget_reallocation": {
+          const result = await previewBudgetReallocation(store, args);
+          return { content: [{ type: "text", text: JSON.stringify(result) }] };
+        }
+        case "commit_budget_reallocation": {
+          const result = await commitBudgetReallocation(store, args);
+          return { content: [{ type: "text", text: JSON.stringify(result) }] };
+        }
         case "preview_transaction_import": {
           const result = await previewTransactionImport(store, args);
           return { content: [{ type: "text", text: JSON.stringify(result) }] };
