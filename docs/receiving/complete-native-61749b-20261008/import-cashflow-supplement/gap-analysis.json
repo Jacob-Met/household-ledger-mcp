@@ -1,0 +1,206 @@
+{
+  "schema": "household.import-cashflow.gap-inspection.v1",
+  "source_commit": "07e223b5da19cea0f048219d8c85689fcc1ba83f",
+  "finding": "Existing exact replay and native queue/import/budget evidence is retained. Import HTTP source has monthly-summary calls but only a cashflow tool-roster assertion. Cashflow-specific tests do not invoke CSV import. The composed imported-category/monthly/cashflow/reopened-replay boundary is therefore an additional receiving case.",
+  "retained_evidence": [
+    {
+      "relative_path": "source/test/transaction-import.test.ts",
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/source/test/transaction-import.test.ts",
+      "bytes": 19299,
+      "sha256": "f465f7ed6ee960a1a2c36b877000137da588a98f6d44bce14f63484ad4bc255d",
+      "git_blob": "b7f192a0b53435dea46392d90b8b1a7e0dabfefd"
+    },
+    {
+      "relative_path": "source/test/transaction-import-http.test.ts",
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/source/test/transaction-import-http.test.ts",
+      "bytes": 11178,
+      "sha256": "90caa969c9869c6d3ef7e8691c44fd8abbd5ebc30c8991b251b76647e8b7c14d",
+      "git_blob": "0594d21ffb781cc653501b61ab0e5866f3590b8d"
+    },
+    {
+      "relative_path": "packet/independent/independent-http-checks.mjs",
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/packet/independent/independent-http-checks.mjs",
+      "bytes": 17020,
+      "sha256": "664203cbade832d7da198d7206ed7ea63d2c07f066470187096fae3fd6644331",
+      "git_blob": "195a8bbaaf994ea7c8400f97fe8fbd1b690c792e"
+    },
+    {
+      "relative_path": "packet/independent/independent-http-final.mjs",
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/packet/independent/independent-http-final.mjs",
+      "bytes": 18349,
+      "sha256": "59e4ff80c33fa26147c0529fe09bbdd372ba5cf85895c3de236512b271bfdf6c",
+      "git_blob": "d9986603018a8504739c4293f9458d530566e16b"
+    },
+    {
+      "relative_path": "packet/independent/independent-store-queue.mjs",
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/packet/independent/independent-store-queue.mjs",
+      "bytes": 5628,
+      "sha256": "2f53e795d6f627476d5ca06ca032a73e20a3371bfec0de00b8be5075d136b8bd",
+      "git_blob": "38bac0ff5f64b959d8cdcc13a1d2ce64b29572a4"
+    },
+    {
+      "relative_path": "packet/independent/independent-http-final-receipt.json",
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/packet/independent/independent-http-final-receipt.json",
+      "bytes": 58679,
+      "sha256": "e009f1d0a123d6cc8d1935c36f2327eb8a2753f06223d13e4d7a66e416cd9e91",
+      "git_blob": "97bf8599610dfa52f6e031ec75a31df526feebc3"
+    },
+    {
+      "relative_path": "packet/independent/independent-store-queue-receipt.json",
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/packet/independent/independent-store-queue-receipt.json",
+      "bytes": 13526,
+      "sha256": "d03b73e99ff11fc52d4e9d86d981dde7e7d1228ace1253c2e7e701581d59f1dc",
+      "git_blob": "2b6a39b1c0575ead12fe9c580ba52993bfdf98a6"
+    },
+    {
+      "relative_path": "packet/independent/review-result.json",
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/packet/independent/review-result.json",
+      "bytes": 3911,
+      "sha256": "413fcb47b2cba956298ffe9a59014bb4c7693f837d9fcdc9814d6a56177f2906",
+      "git_blob": "b23cf03a3f64b02b6598335c4bd1b06e46ddad06"
+    }
+  ],
+  "native_test_scope": [
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/source/test/cashflow.test.ts",
+      "bytes": 10136,
+      "sha256": "b21797f077ee5d817ed456e334188ff7a2f52de3e2194c55a10d21bfeaa90137",
+      "git_blob": "8443718f039d8035f6864a8340b98046a8bcc20e",
+      "csv_import_name_present": false,
+      "cashflow_call_lines": [
+        {
+          "line": 28,
+          "text": "const result = cashflowTrend(data, { fromMonth: \"2025-12\", toMonth: \"2026-02\" });"
+        },
+        {
+          "line": 54,
+          "text": "assert.throws(() => cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-02\" }), /multiple currencies \\(EUR, USD\\); supply currency/);"
+        },
+        {
+          "line": 55,
+          "text": "const usd = cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-02\", currency: \" usd \" });"
+        },
+        {
+          "line": 56,
+          "text": "const eur = cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-02\", currency: \"EUR\" });"
+        },
+        {
+          "line": 68,
+          "text": "assert.throws(() => cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-03\" }), /2026-02: month contains multiple currencies/);"
+        },
+        {
+          "line": 69,
+          "text": "assert.equal(cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-03\", currency: \"EUR\" }).totals.incomeMinor, 50);"
+        },
+        {
+          "line": 74,
+          "text": "const empty = cashflowTrend(data, { fromMonth: \"2026-02\", toMonth: \"2026-04\" });"
+        },
+        {
+          "line": 79,
+          "text": "const selected = cashflowTrend(data, { fromMonth: \"2026-02\", toMonth: \"2026-04\", currency: \"jpy\" });"
+        },
+        {
+          "line": 89,
+          "text": "const result = cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-03\" });"
+        },
+        {
+          "line": 94,
+          "text": "assert.throws(() => cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-05\" }), /multiple currencies/);"
+        },
+        {
+          "line": 102,
+          "text": "const result = cashflowTrend(data, { fromMonth: \"2025-12\", toMonth: \"2026-02\" });"
+        },
+        {
+          "line": 108,
+          "text": "assert.throws(() => cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-02\", currency: \"USD\" }), /2026-02: monthly category budgets have no currency/);"
+        },
+        {
+          "line": 117,
+          "text": "assert.throws(() => cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-01\", currency: \"EUR\" }), /budgets have no currency/);"
+        },
+        {
+          "line": 119,
+          "text": "assert.throws(() => cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-01\", currency: \"USD\" }), /budgets have no currency/);"
+        },
+        {
+          "line": 125,
+          "text": "assert.equal(cashflowTrend(data, { fromMonth: \"1970-01\", toMonth: \"1979-12\" }).monthCount, 120);"
+        },
+        {
+          "line": 126,
+          "text": "assert.equal(cashflowTrend(data, { fromMonth: \"9999-12\", toMonth: \"9999-12\" }).months[0].month, \"9999-12\");"
+        },
+        {
+          "line": 127,
+          "text": "assert.deepEqual(cashflowTrend(data, { fromMonth: \"2024-02\", toMonth: \"2024-03\" }).months.map(row => row.month), [\"2024-02\", \"2024-03\"]);"
+        },
+        {
+          "line": 132,
+          "text": "]) assert.throws(() => cashflowTrend(data, { fromMonth, toMonth }), ValidationError);"
+        },
+        {
+          "line": 138,
+          "text": "assert.throws(() => cashflowTrend(data, input as never), ValidationError);"
+        },
+        {
+          "line": 141,
+          "text": "assert.throws(() => cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-02\", currency: currency as never }), /currency/);"
+        },
+        {
+          "line": 152,
+          "text": "assert.throws(() => cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-02\" }), new RegExp(\"period \" + overflowType + \".*safe integer\"));"
+        },
+        {
+          "line": 162,
+          "text": "assert.throws(() => cashflowTrend(cancellation, { fromMonth: \"2026-01\", toMonth: \"2026-02\" }), /period income.*safe integer/);"
+        },
+        {
+          "line": 171,
+          "text": "const usd = cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-02\", currency: \"USD\" });"
+        },
+        {
+          "line": 174,
+          "text": "assert.throws(() => cashflowTrend(data, { fromMonth: \"2026-01\", toMonth: \"2026-02\", currency: \"EUR\" }), /period income/);"
+        },
+        {
+          "line": 177,
+          "text": "assert.equal(cashflowTrend(negative, { fromMonth: \"2026-01\", toMonth: \"2026-02\" }).months[1].cumulativeNetMinor, -Number.MAX_SAFE_INTEGER);"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/source/test/http-cashflow.test.ts",
+      "bytes": 10333,
+      "sha256": "4b9ef76831740392e371dee8fc5129076f64a4fb4614bde8066468acf18cf20c",
+      "git_blob": "415456a97716117a06a69b524764b724a1d73884",
+      "csv_import_name_present": false,
+      "cashflow_call_lines": []
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/source/test/transaction-import-http.test.ts",
+      "bytes": 11178,
+      "sha256": "90caa969c9869c6d3ef7e8691c44fd8abbd5ebc30c8991b251b76647e8b7c14d",
+      "git_blob": "0594d21ffb781cc653501b61ab0e5866f3590b8d",
+      "csv_import_name_present": true,
+      "cashflow_call_lines": []
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-complete-receiving/source/test/transaction-import.test.ts",
+      "bytes": 19299,
+      "sha256": "f465f7ed6ee960a1a2c36b877000137da588a98f6d44bce14f63484ad4bc255d",
+      "git_blob": "b7f192a0b53435dea46392d90b8b1a7e0dabfefd",
+      "csv_import_name_present": true,
+      "cashflow_call_lines": []
+    }
+  ],
+  "existing_coverage_reused": [
+    "Exact normalized CSV import and fresh-process retry preserving original transaction receipts and JSON bytes/mtime.",
+    "Native queued import with two LedgerStore objects preserves preceding denominated budget and following native recording.",
+    "Author HTTP import tests consume a monthly summary before restart and after overlapping native writes."
+  ],
+  "new_case": "One public-domain JSON LedgerStore workflow consuming imported categories in monthlySummary plus cashflowTrend, with denominated budgets and an empty month, followed by exact replay after reopen and unchanged report/state assertions.",
+  "original_suites_rerun": false,
+  "source_modified": false
+}

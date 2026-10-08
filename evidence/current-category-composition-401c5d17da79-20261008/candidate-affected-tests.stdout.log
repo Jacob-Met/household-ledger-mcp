@@ -1,0 +1,167 @@
+TAP version 13
+# Subtest: fresh HTTP processes preserve selected units and refuse ambiguous legacy budgets
+ok 1 - fresh HTTP processes preserve selected units and refuse ambiguous legacy budgets
+  ---
+  duration_ms: 681.82919
+  type: 'test'
+  ...
+# Subtest: HTTP receiving composition retains concurrent "__proto__" recordings, exact summary and restart retries
+ok 2 - HTTP receiving composition retains concurrent "__proto__" recordings, exact summary and restart retries
+  ---
+  duration_ms: 722.190155
+  type: 'test'
+  ...
+# Subtest: HTTP receiving composition retains concurrent "constructor" recordings, exact summary and restart retries
+ok 3 - HTTP receiving composition retains concurrent "constructor" recordings, exact summary and restart retries
+  ---
+  duration_ms: 603.120926
+  type: 'test'
+  ...
+# Subtest: HTTP receiving composition retains concurrent "toString" recordings, exact summary and restart retries
+ok 4 - HTTP receiving composition retains concurrent "toString" recordings, exact summary and restart retries
+  ---
+  duration_ms: 575.298055
+  type: 'test'
+  ...
+# Subtest: HTTP receiving composition retains concurrent "groceries" recordings, exact summary and restart retries
+ok 5 - HTTP receiving composition retains concurrent "groceries" recordings, exact summary and restart retries
+  ---
+  duration_ms: 558.219643
+  type: 'test'
+  ...
+# Subtest: one monthly currency is labelled automatically and legacy budget amounts stay unchanged
+ok 6 - one monthly currency is labelled automatically and legacy budget amounts stay unchanged
+  ---
+  duration_ms: 77.373312
+  type: 'test'
+  ...
+# Subtest: mixed monthly currencies refuse an unqualified report without changing records
+ok 7 - mixed monthly currencies refuse an unqualified report without changing records
+  ---
+  duration_ms: 8.977241
+  type: 'test'
+  ...
+# Subtest: the optional selector is discoverable and selects only its normalized currency
+ok 8 - the optional selector is discoverable and selects only its normalized currency
+  ---
+  duration_ms: 20.854473
+  type: 'test'
+  ...
+# Subtest: empty and absent-currency reports never invent a default denomination
+ok 9 - empty and absent-currency reports never invent a default denomination
+  ---
+  duration_ms: 16.706615
+  type: 'test'
+  ...
+# Subtest: malformed selectors are refused even for empty months
+ok 10 - malformed selectors are refused even for empty months
+  ---
+  duration_ms: 21.845944
+  type: 'test'
+  ...
+# Subtest: a selector cannot assign an unqualified legacy budget to either currency
+ok 11 - a selector cannot assign an unqualified legacy budget to either currency
+  ---
+  duration_ms: 13.341945
+  type: 'test'
+  ...
+# Subtest: empty and differently selected budget contexts refuse instead of reporting a zero spend
+ok 12 - empty and differently selected budget contexts refuse instead of reporting a zero spend
+  ---
+  duration_ms: 9.078223
+  type: 'test'
+  ...
+# Subtest: budgets outside the requested month do not prevent an otherwise qualified selection
+ok 13 - budgets outside the requested month do not prevent an otherwise qualified selection
+  ---
+  duration_ms: 6.768029
+  type: 'test'
+  ...
+# Subtest: a later second currency invalidates the earlier implicit budget context for every receiver
+ok 14 - a later second currency invalidates the earlier implicit budget context for every receiver
+  ---
+  duration_ms: 10.124376
+  type: 'test'
+  ...
+# Subtest: income and expense aggregates refuse overflow even when each category amount is safe
+ok 15 - income and expense aggregates refuse overflow even when each category amount is safe
+  ---
+  duration_ms: 8.947566
+  type: 'test'
+  ...
+# Subtest: safe boundaries and cancellation are exact but a small net cannot excuse unsafe gross totals
+ok 16 - safe boundaries and cancellation are exact but a small net cannot excuse unsafe gross totals
+  ---
+  duration_ms: 9.763734
+  type: 'test'
+  ...
+# Subtest: overflow in an unselected currency does not contaminate safe selected totals
+ok 17 - overflow in an unselected currency does not contaminate safe selected totals
+  ---
+  duration_ms: 14.404453
+  type: 'test'
+  ...
+# Subtest: accepted persisted currency spelling variants normalize for reading without rewriting the file
+ok 18 - accepted persisted currency spelling variants normalize for reading without rewriting the file
+  ---
+  duration_ms: 15.949116
+  type: 'test'
+  ...
+# Subtest: monthly summary category names
+    # Subtest: preserves "__proto__" totals and budget status without changing inherited objects
+    ok 1 - preserves "__proto__" totals and budget status without changing inherited objects
+      ---
+      duration_ms: 3.718923
+      type: 'test'
+      ...
+    # Subtest: preserves "constructor" totals and budget status without changing inherited objects
+    ok 2 - preserves "constructor" totals and budget status without changing inherited objects
+      ---
+      duration_ms: 0.568765
+      type: 'test'
+      ...
+    # Subtest: preserves "toString" totals and budget status without changing inherited objects
+    ok 3 - preserves "toString" totals and budget status without changing inherited objects
+      ---
+      duration_ms: 0.42566
+      type: 'test'
+      ...
+    # Subtest: preserves "hasOwnProperty" totals and budget status without changing inherited objects
+    ok 4 - preserves "hasOwnProperty" totals and budget status without changing inherited objects
+      ---
+      duration_ms: 0.438669
+      type: 'test'
+      ...
+    # Subtest: preserves "groceries" totals and budget status without changing inherited objects
+    ok 5 - preserves "groceries" totals and budget status without changing inherited objects
+      ---
+      duration_ms: 0.335124
+      type: 'test'
+      ...
+    # Subtest: keeps reserved and ordinary categories separate and reports an unspent reserved-name budget as zero
+    ok 6 - keeps reserved and ordinary categories separate and reports an unspent reserved-name budget as zero
+      ---
+      duration_ms: 0.361394
+      type: 'test'
+      ...
+    # Subtest: returns the same reserved-category breakdown and over-budget result through the real MCP tool
+    ok 7 - returns the same reserved-category breakdown and over-budget result through the real MCP tool
+      ---
+      duration_ms: 44.709294
+      type: 'test'
+      ...
+    1..7
+ok 19 - monthly summary category names
+  ---
+  duration_ms: 52.404918
+  type: 'suite'
+  ...
+1..19
+# tests 25
+# suites 1
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2720.368819

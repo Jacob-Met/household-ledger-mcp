@@ -1,0 +1,45 @@
+{
+  "variant": "composed",
+  "captured_at": "2026-10-08T07:38:17.885Z",
+  "requests": [
+    {
+      "label": "health-before",
+      "started_at": "2026-10-08T07:38:18.088Z",
+      "status": 200,
+      "content_type": "application/json",
+      "body": "{\"ok\":true,\"service\":\"household-ledger-mcp\"}",
+      "finished_at": "2026-10-08T07:38:18.115Z"
+    },
+    {
+      "label": "reserved-category-monthly-summary",
+      "started_at": "2026-10-08T07:38:18.115Z",
+      "status": 200,
+      "content_type": "text/event-stream",
+      "body": "event: message\ndata: {\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"year\\\":2026,\\\"month\\\":10,\\\"incomeMinor\\\":0,\\\"expenseMinor\\\":1000,\\\"netMinor\\\":-1000,\\\"byCategory\\\":{\\\"__proto__\\\":{\\\"incomeMinor\\\":0,\\\"expenseMinor\\\":1000}},\\\"budgets\\\":[{\\\"category\\\":\\\"__proto__\\\",\\\"limitMinor\\\":900,\\\"spentMinor\\\":1000,\\\"remainingMinor\\\":-100,\\\"over\\\":true}]}\"}]},\"jsonrpc\":\"2.0\",\"id\":1}\n\n",
+      "finished_at": "2026-10-08T07:38:18.158Z"
+    },
+    {
+      "label": "health-after",
+      "started_at": "2026-10-08T07:38:18.158Z",
+      "status": 200,
+      "content_type": "application/json",
+      "body": "{\"ok\":true,\"service\":\"household-ledger-mcp\"}",
+      "finished_at": "2026-10-08T07:38:18.163Z"
+    },
+    {
+      "label": "list-after-summary",
+      "started_at": "2026-10-08T07:38:18.163Z",
+      "status": 200,
+      "content_type": "text/event-stream",
+      "body": "event: message\ndata: {\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"total\\\":1,\\\"transactions\\\":[{\\\"id\\\":\\\"fictional-receiving-probe\\\",\\\"type\\\":\\\"expense\\\",\\\"amountMinor\\\":1000,\\\"currency\\\":\\\"USD\\\",\\\"date\\\":\\\"2026-10-08\\\",\\\"category\\\":\\\"__proto__\\\",\\\"createdAt\\\":\\\"2026-10-08T00:00:00.000Z\\\"}]}\"}]},\"jsonrpc\":\"2.0\",\"id\":2}\n\n",
+      "finished_at": "2026-10-08T07:38:18.169Z"
+    }
+  ],
+  "ledger_bytes_unchanged": true,
+  "child_stdout": "household-ledger-mcp listening on http://127.0.0.1:44019 (POST /mcp, GET /healthz)\n",
+  "child_stderr": "",
+  "child_exit": {
+    "code": null,
+    "signal": "SIGTERM"
+  }
+}

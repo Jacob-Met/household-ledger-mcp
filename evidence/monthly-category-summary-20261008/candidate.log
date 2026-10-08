@@ -1,0 +1,52 @@
+
+> household-ledger-mcp@0.1.0 test
+> npm run build && node --test dist/test/ledger.test.js dist/test/mcp.test.js dist/test/summary_categories.test.js
+
+
+> household-ledger-mcp@0.1.0 build
+> tsc
+
+▶ validation
+  ✔ accepts real calendar dates, rejects impossible ones (1.0715ms)
+  ✔ validates months as YYYY-MM (0.296445ms)
+  ✔ rejects non-positive or fractional amounts (0.563146ms)
+  ✔ normalizes currency codes and rejects bad ones (0.865411ms)
+  ✔ rejects a corrupt ledger file on validate (0.233912ms)
+✔ validation (4.381895ms)
+▶ transactions
+  ✔ lists newest-first with filters (0.610618ms)
+  ✔ summarizes a month with per-category totals (0.504368ms)
+✔ transactions (1.313725ms)
+▶ budgets
+  ✔ tracks spend vs limit and flags overruns (0.368594ms)
+  ✔ allows zero budgets and rejects negative limits (0.141303ms)
+✔ budgets (0.662586ms)
+▶ persistence
+  ✔ round-trips through the data file and recovers empty for a missing file (17.767298ms)
+  ✔ refuses to load a corrupted file (4.009431ms)
+✔ persistence (22.061467ms)
+▶ mcp tools
+  ✔ exposes the five ledger tools (21.423697ms)
+  ✔ records, lists, summarizes, and budgets end to end (18.306844ms)
+  ✔ returns isError for invalid input instead of throwing (3.098607ms)
+  ✔ persists across separate tool calls (4.120302ms)
+✔ mcp tools (48.190165ms)
+▶ monthly summary category names
+  ✔ preserves "__proto__" totals and budget status without changing inherited objects (2.463283ms)
+  ✔ preserves "constructor" totals and budget status without changing inherited objects (0.45938ms)
+  ✔ preserves "toString" totals and budget status without changing inherited objects (0.278368ms)
+  ✔ preserves "hasOwnProperty" totals and budget status without changing inherited objects (0.198718ms)
+  ✔ preserves "groceries" totals and budget status without changing inherited objects (0.280481ms)
+  ✔ keeps reserved and ordinary categories separate and reports an unspent reserved-name budget as zero (0.256946ms)
+  ✔ returns the same reserved-category breakdown and over-budget result through the real MCP tool (34.066709ms)
+✔ monthly summary category names (39.366614ms)
+ℹ tests 22
+ℹ suites 6
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 266.884824
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.

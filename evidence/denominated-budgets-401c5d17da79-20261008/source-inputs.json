@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "contribution": "explicitly denominated category budgets",
+  "worker": "estate-401c5d17da79 / production_discovery",
+  "claim": "https://github.com/Jacob-Met/household-ledger-mcp/issues/3#issuecomment-6057422383",
+  "input": {
+    "commit": "03cafcb29c56b01cef3ea283fe93acecd66fdef9",
+    "tree": "f5d93b4676934c2d3ede83b39953e44269be4504",
+    "ownerCurrencyCommit": "5304ec278",
+    "ledgerSha256": "c0b784994b513892486de93c05c0f26922b0ec7cff278fed6db9c23e485037b2",
+    "indexSha256": "e1c2fed21324b7c7b63dafd1b26c5b7296913be9439e12ba65a2f15624af7d83"
+  },
+  "runtimeQualified": {
+    "commit": "0b24be16a06b0379062219a589fb4533acbe54a7",
+    "tree": "ad7f3b4b659ebc77b283368480eecdcf587ffb97",
+    "ledgerSha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+    "indexSha256": "258edce55c0d6e4bf49a49779b895914baf20fa41e13a15d194ccf24508d54ad",
+    "testsSha256": "fab4105ce5693ef0730943cca1c1b71c6e8c462475758221a6cf77881b132f98"
+  },
+  "docs": {
+    "authorCommit": "f1476cceaa6193acc8d85756622a54a1795d6f1d",
+    "cherryPick": "6d1dc13",
+    "author": "HAMON estate worker 401c5d17da79 / root"
+  },
+  "verification": {
+    "nativeNode": "24.19.0",
+    "typescript": "5.9.3",
+    "mcpSdk": "1.32.1",
+    "authorNewTests": {
+      "pass": 11,
+      "fail": 0,
+      "skipped": 0
+    },
+    "combined": {
+      "pass": 62,
+      "fail": 0,
+      "skipped": 0
+    },
+    "baselineNewExpectations": {
+      "pass": 0,
+      "fail": 11,
+      "interpretation": "The original source does not implement this new capability. These are feature-absence controls, not regressions in the accepted baseline."
+    },
+    "oldReader": "Actual prior native LedgerStore and MCP record_transaction reject version 2; original bytes remain unchanged."
+  },
+  "independentReceiving": {
+    "worker": "estate-401c5d17da79 / integration_discovery",
+    "reportSha256": "2554c1c41e7b30e78dfdd0ec3379fe920c81ef26509bbe4ed9f06b851f9b373f",
+    "groups": 3,
+    "assertions": 46,
+    "toolCalls": 34,
+    "processes": 5,
+    "restarts": 2,
+    "checkpoint": "/Users/me/hamon/estate-401c5d17da79/household/denominated-budget-receiving-0b24be1",
+    "checkpointSha256": "6824659e73b0682ca1f9eea74a873c509aded6ec08bd18ef7b8be2b5ec74cf77",
+    "archiveSha256": "592bff7ba0160291e6f63bf7ab1225b462a6fd966e2078a5dd1ecf94cb26ed71"
+  },
+  "status": "Implemented and natively verified isolated source contribution; external owner integration and deployment are not asserted."
+}

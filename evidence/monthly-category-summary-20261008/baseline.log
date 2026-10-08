@@ -1,0 +1,150 @@
+▶ monthly summary category names
+  ✖ preserves "__proto__" totals and budget status without changing inherited objects (3.800847ms)
+  ✖ preserves "constructor" totals and budget status without changing inherited objects (0.709226ms)
+  ✖ preserves "toString" totals and budget status without changing inherited objects (0.391098ms)
+  ✖ preserves "hasOwnProperty" totals and budget status without changing inherited objects (0.230877ms)
+  ✔ preserves "groceries" totals and budget status without changing inherited objects (1.045552ms)
+  ✖ keeps reserved and ordinary categories separate and reports an unspent reserved-name budget as zero (0.919844ms)
+  ✖ returns the same reserved-category breakdown and over-budget result through the real MCP tool (41.554088ms)
+✖ monthly summary category names (50.294243ms)
+ℹ tests 7
+ℹ suites 1
+ℹ pass 1
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 292.531654
+
+✖ failing tests:
+
+test at dist/test/summary_categories.test.js:38:9
+✖ preserves "__proto__" totals and budget status without changing inherited objects (3.800847ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/e3a41d2b3368/agents/local_recovery/household-ledger-review/dist/test/summary_categories.test.js:52:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at node:internal/test_runner/test:1867:71
+      at node:internal/per_context/primordials:504:82
+      at new Promise (<anonymous>)
+      at new SafePromise (node:internal/per_context/primordials:478:3)
+      at node:internal/per_context/primordials:504:9
+      at Array.map (<anonymous>) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/summary_categories.test.js:38:9
+✖ preserves "constructor" totals and budget status without changing inherited objects (0.709226ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/e3a41d2b3368/agents/local_recovery/household-ledger-review/dist/test/summary_categories.test.js:52:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1869:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/summary_categories.test.js:38:9
+✖ preserves "toString" totals and budget status without changing inherited objects (0.391098ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/e3a41d2b3368/agents/local_recovery/household-ledger-review/dist/test/summary_categories.test.js:52:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/summary_categories.test.js:38:9
+✖ preserves "hasOwnProperty" totals and budget status without changing inherited objects (0.230877ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/e3a41d2b3368/agents/local_recovery/household-ledger-review/dist/test/summary_categories.test.js:52:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/summary_categories.test.js:67:5
+✖ keeps reserved and ordinary categories separate and reports an unspent reserved-name budget as zero (0.919844ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  -   '__proto__',
+      'groceries'
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/e3a41d2b3368/agents/local_recovery/household-ledger-review/dist/test/summary_categories.test.js:75:20)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'groceries' ],
+    expected: [ '__proto__', 'groceries' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/summary_categories.test.js:86:5
+✖ returns the same reserved-category breakdown and over-budget result through the real MCP tool (41.554088ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/e3a41d2b3368/agents/local_recovery/household-ledger-review/dist/test/summary_categories.test.js:106:20)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

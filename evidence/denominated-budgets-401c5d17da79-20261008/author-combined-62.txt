@@ -1,0 +1,92 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> household-ledger-mcp@0.1.0 test
+> npm run build && node --test dist/test/*.test.js
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> household-ledger-mcp@0.1.0 build
+> tsc
+
+✔ one category can have separately denominated limits and selected spending through MCP (97.120644ms)
+✔ set/get schemas expose currency, unassigned replacement is explicit, and old required inputs remain (12.259317ms)
+✔ planning an unspent month uses only explicitly stored denominations (17.873639ms)
+✔ a budget in another currency cannot be hidden by automatic transaction-currency selection (9.85411ms)
+✔ assigning a legacy budget requires explicit replacement and preserves all unrelated source data (17.198695ms)
+✔ each unresolved legacy budget remains visible and blocks ambiguous comparisons after a partial migration (31.226872ms)
+✔ currency-scoped updates and reads retain the other denomination and never silently assign unqualified budgets (20.686881ms)
+✔ invalid denomination and replacement inputs cannot migrate or mutate a legacy file (27.447718ms)
+✔ reserved categories and safe integer boundaries remain exact for a selected denominated budget (17.149661ms)
+✔ v1 reads stay byte-exact and explicit currency records require the version understood by the new reader (18.449406ms)
+✔ malformed v2 budget identities are refused without repairing or replacing the source file (8.860655ms)
+✔ real Streamable HTTP requests retain concurrent writes and deduplicate after process restart (825.061808ms)
+✔ fresh HTTP processes preserve selected units and refuse ambiguous legacy budgets (825.830044ms)
+▶ validation
+  ✔ accepts real calendar dates, rejects impossible ones (1.630983ms)
+  ✔ validates months as YYYY-MM (0.331679ms)
+  ✔ rejects non-positive or fractional amounts (0.819782ms)
+  ✔ normalizes currency codes and rejects bad ones (0.861495ms)
+  ✔ rejects a corrupt ledger file on validate (0.43208ms)
+✔ validation (5.549977ms)
+▶ transactions
+  ✔ lists newest-first with filters (1.051111ms)
+  ✔ summarizes a month with per-category totals (0.863969ms)
+✔ transactions (2.261161ms)
+▶ budgets
+  ✔ tracks spend vs limit and flags overruns (0.643788ms)
+  ✔ allows zero budgets and rejects negative limits (0.202965ms)
+✔ budgets (1.08404ms)
+▶ persistence
+  ✔ round-trips through the data file and recovers empty for a missing file (24.499535ms)
+  ✔ refuses to load a corrupted file (6.432032ms)
+✔ persistence (31.431169ms)
+▶ mcp tools
+  ✔ exposes the five ledger tools (41.251678ms)
+  ✔ records, lists, summarizes, and budgets end to end (46.224516ms)
+  ✔ returns isError for invalid input instead of throwing (5.443607ms)
+  ✔ persists across separate tool calls (4.816624ms)
+✔ mcp tools (107.780931ms)
+✔ HTTP receiving composition retains concurrent "__proto__" recordings, exact summary and restart retries (949.862304ms)
+✔ HTTP receiving composition retains concurrent "constructor" recordings, exact summary and restart retries (752.439072ms)
+✔ HTTP receiving composition retains concurrent "toString" recordings, exact summary and restart retries (629.481246ms)
+✔ HTTP receiving composition retains concurrent "groceries" recordings, exact summary and restart retries (677.232464ms)
+✔ native MCP concurrent transaction and budget writes retain every successful mutation (101.807417ms)
+✔ a retried MCP recording returns its persisted identity across a new receiver (13.480704ms)
+✔ concurrent copies of one idempotency key produce one record (11.55637ms)
+✔ an existing key refuses changed input without altering stored bytes (23.428063ms)
+✔ unkeyed recordings remain independent and malformed keys do not write (19.84205ms)
+✔ failed persistence releases the mutation queue and retry keeps the correct outcome (7.264715ms)
+✔ an uncertain post-save response is recoverable using the original key (8.158209ms)
+✔ ledger validation refuses ambiguous or malformed persisted request keys (8.702467ms)
+✔ request-key schema and runtime count Unicode characters consistently (4.810604ms)
+✔ atomic snapshot refusal cleans up its own temporary file and can recover (5.248303ms)
+✔ one monthly currency is labelled automatically and legacy budget amounts stay unchanged (62.566684ms)
+✔ mixed monthly currencies refuse an unqualified report without changing records (15.564719ms)
+✔ the optional selector is discoverable and selects only its normalized currency (22.88752ms)
+✔ empty and absent-currency reports never invent a default denomination (31.437238ms)
+✔ malformed selectors are refused even for empty months (42.009788ms)
+✔ a selector cannot assign an unqualified legacy budget to either currency (24.142318ms)
+✔ empty and differently selected budget contexts refuse instead of reporting a zero spend (10.05417ms)
+✔ budgets outside the requested month do not prevent an otherwise qualified selection (8.97633ms)
+✔ a later second currency invalidates the earlier implicit budget context for every receiver (13.729377ms)
+✔ income and expense aggregates refuse overflow even when each category amount is safe (24.118882ms)
+✔ safe boundaries and cancellation are exact but a small net cannot excuse unsafe gross totals (12.308124ms)
+✔ overflow in an unselected currency does not contaminate safe selected totals (26.282716ms)
+✔ accepted persisted currency spelling variants normalize for reading without rewriting the file (10.223325ms)
+▶ monthly summary category names
+  ✔ preserves "__proto__" totals and budget status without changing inherited objects (3.263868ms)
+  ✔ preserves "constructor" totals and budget status without changing inherited objects (0.473122ms)
+  ✔ preserves "toString" totals and budget status without changing inherited objects (0.369906ms)
+  ✔ preserves "hasOwnProperty" totals and budget status without changing inherited objects (0.296075ms)
+  ✔ preserves "groceries" totals and budget status without changing inherited objects (0.273862ms)
+  ✔ keeps reserved and ordinary categories separate and reports an unspent reserved-name budget as zero (0.31219ms)
+  ✔ returns the same reserved-category breakdown and over-budget result through the real MCP tool (63.607408ms)
+✔ monthly summary category names (70.474506ms)
+ℹ tests 62
+ℹ suites 6
+ℹ pass 62
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3335.569637

@@ -1,0 +1,150 @@
+TAP version 13
+# Subtest: mixed USD/EUR recording must not return an unqualified total
+not ok 1 - mixed USD/EUR recording must not return an unqualified total
+  ---
+  duration_ms: 39.686146
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:30:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"content":[{"type":"text","text":"{\"year\":2026,\"month\":10,\"incomeMinor\":0,\"expenseMinor\":1300,\"netMinor\":-1300,\"byCategory\":{\"food\":{\"incomeMinor\":0,\"expenseMinor\":1300}},\"budgets\":[]}"}]}
+    + actual - expected
+    
+    + undefined
+    - true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:36:12)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: explicit USD selector must exclude EUR records
+not ok 2 - explicit USD selector must exclude EUR records
+  ---
+  duration_ms: 11.421761
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:39:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"year":2026,"month":10,"incomeMinor":0,"expenseMinor":1300,"netMinor":-1300,"byCategory":{"food":{"incomeMinor":0,"expenseMinor":1300}},"budgets":[]}
+    
+    1300 !== 500
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 500
+  actual: 1300
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:44:12)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: category constructor must retain finite own totals without changing shared prototypes
+not ok 3 - category constructor must retain finite own totals without changing shared prototypes
+  ---
+  duration_ms: 8.584426
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:48:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"year":2026,"month":10,"incomeMinor":0,"expenseMinor":803,"netMinor":-803,"byCategory":{},"budgets":[{"category":"constructor","limitMinor":800,"spentMinor":null,"remainingMinor":null,"over":false}]}
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:70:16)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: category __proto__ must retain finite own totals without changing shared prototypes
+not ok 4 - category __proto__ must retain finite own totals without changing shared prototypes
+  ---
+  duration_ms: 60006.56376
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:48:5'
+  failureType: 'testCodeFailure'
+  error: 'MCP error -32001: Request timed out'
+  code: -32001
+  name: 'McpError'
+  stack: |-
+    McpError.fromError (file:///workspace/scratch/ce7eb129730f/household-ledger/node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:2048:16)
+    Timeout.timeoutHandler (file:///workspace/scratch/ce7eb129730f/household-ledger/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:741:58)
+    listOnTimeout (node:internal/timers:635:17)
+    process.processTimers (node:internal/timers:571:7)
+  ...
+# Subtest: category toString must retain finite own totals without changing shared prototypes
+not ok 5 - category toString must retain finite own totals without changing shared prototypes
+  ---
+  duration_ms: 6.056932
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:48:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"year":2026,"month":10,"incomeMinor":0,"expenseMinor":803,"netMinor":-803,"byCategory":{},"budgets":[{"category":"toString","limitMinor":800,"spentMinor":null,"remainingMinor":null,"over":false}]}
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:70:16)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: individually safe amounts must not produce an unsafe aggregate
+not ok 6 - individually safe amounts must not produce an unsafe aggregate
+  ---
+  duration_ms: 4.618681
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:78:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"content":[{"type":"text","text":"{\"year\":2026,\"month\":10,\"incomeMinor\":0,\"expenseMinor\":9007199254740992,\"netMinor\":-9007199254740992,\"byCategory\":{\"food\":{\"incomeMinor\":0,\"expenseMinor\":9007199254740992}},\"budgets\":[]}"}]}
+    + actual - expected
+    
+    + undefined
+    - true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:84:12)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: single-currency numeric totals and legacy budget control
+ok 7 - single-currency numeric totals and legacy budget control
+  ---
+  duration_ms: 5.038983
+  type: 'test'
+  ...
+# Subtest: exact safe boundary and empty-month controls
+ok 8 - exact safe boundary and empty-month controls
+  ---
+  duration_ms: 4.101714
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 2
+# fail 6
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 60293.783107

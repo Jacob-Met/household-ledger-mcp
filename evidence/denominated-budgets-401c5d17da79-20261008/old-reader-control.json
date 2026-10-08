@@ -1,0 +1,16 @@
+{
+  "baseline": "03cafcb29c56b01cef3ea283fe93acecd66fdef9",
+  "candidate": "0b24be16a06b0379062219a589fb4533acbe54a7",
+  "oldReaderLoad": "refused unsupported ledger version 2",
+  "oldMcpRecording": {
+    "content": [
+      {
+        "type": "text",
+        "text": "unsupported ledger version 2"
+      }
+    ],
+    "isError": true
+  },
+  "unchangedBytes": true,
+  "sha256": "814a53543c513732ae51251f2e324adc6a95621b374ced26e87ec01511199da9"
+}

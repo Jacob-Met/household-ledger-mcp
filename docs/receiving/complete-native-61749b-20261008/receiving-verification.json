@@ -1,0 +1,93 @@
+{
+  "schema": "household-complete-canonical-receiving-v1",
+  "reviewer": "estate-61749b0088e2/engine_state",
+  "checked_at_utc": "2026-10-08 14:28:56 UTC",
+  "source_commit": "07e223b5da19cea0f048219d8c85689fcc1ba83f",
+  "source_tree": "76cd2cc60b10dabdd301d32a53da4b833015193d",
+  "canonical_parent": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+  "canonical_parent_tree": "9b26924692900212268587b7a1d6fe10c45d5f7b",
+  "canonical_parent_readme_blob": "c90411d4d3f70b78b1d323c509d296206bc38268",
+  "native_source_delta_against_canonical": {
+    "additions": 82,
+    "modifications": [
+      "README.md"
+    ],
+    "deletions": 0,
+    "native_paths": 83,
+    "native_bytes": 458051,
+    "unowned_parent_leaves": 0,
+    "original_README_reproduced_by_removing_only_additive_workflow_section": true
+  },
+  "input_archive": {
+    "receiving_commit": "d821d8ce749d22568514efb4eb4dd25e5cdfbf06",
+    "receiving_tree": "d7476e45c82126100aecad8dac06323d9e5ad6ad",
+    "original_path": "docs/receiving/household-complete-07e223b5-31a349052b90/household-transaction-import-07e223b5-receiving.tar.gz",
+    "bytes": 247848,
+    "sha256": "0de644f9f6773c6a8396568e90ed959bde863658c8be5a6707826441bb7f4735",
+    "git_blob": "3ae89d845c9e1fd433d805e5dabd8b4af88008ed"
+  },
+  "packet_manifest": {
+    "bytes": 6833,
+    "sha256": "b7b95275f19b09a8025ff9008c92f46d757bae58247d9a26cca415867ca631a1",
+    "git_blob": "5d2c79d2657e59a2f3bbbe54d78bb7fec76168c0"
+  },
+  "archive_regular_members": 35,
+  "archive_regular_bytes": 538868,
+  "all34_indexed_members_verified": true,
+  "complete_bundle_verified": true,
+  "incremental_bundle_verified": true,
+  "restored_git_fsck_full_no_reflogs_exit": 0,
+  "object_reads_disable_replace_refs": true,
+  "all83_native_source_pins_verified": true,
+  "literal_owner_ancestry_verified": true,
+  "native_parent_preserved_files": 75,
+  "native_source_edits": 0,
+  "new_native_runtime_executions": 0,
+  "inherited_qualification": {
+    "author_native_tests": 101,
+    "typecheck": "passed in original native receipt",
+    "independent_http_groups": 8,
+    "independent_tool_calls": 68,
+    "independent_private_sessions": 13,
+    "independent_two_store_held_queue_groups": 1,
+    "not_added_as_new_execution": true,
+    "native_runtime": "Mac Node 26.3.0 with original locked dependencies",
+    "original_receiver_fixture_failure_and_targeted_correction_retained": true
+  },
+  "ownership": {
+    "checked_at_utc": "2026-10-08 14:28:56 UTC",
+    "household_issue3_comments": 12,
+    "latest_household_issue3_comment": 6061606897,
+    "handoff_url": "https://github.com/Jacob-Met/household-ledger-mcp/issues/3#issuecomment-6061606897",
+    "canonical_receiver": "estate-61749b0088e2",
+    "parent_integration_owner": "estate-ce7eb129730f",
+    "source_owners": [
+      "estate-ce7eb129730f",
+      "autonomous-e3a41d2b3368",
+      "estate-401c5d17da79",
+      "chatgpt-566d51f04b31-mac",
+      "estate-a219f250962c/estate_authority"
+    ],
+    "transfer_owner": "estate-31a349052b90/receiving_integration",
+    "current_main": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+    "open_prs": [
+      {
+        "number": 1,
+        "head": "dffabba341a8bce74faa97de68054bd453509a98",
+        "scope": "original initial server; no comments"
+      },
+      {
+        "number": 2,
+        "head": "13cd779a34dcb724471bc159a24ae2f8f6d51445",
+        "scope": "Dependabot; separate existing contribution"
+      },
+      {
+        "number": 4,
+        "head": "0a3daeedbd7520dd02d377ba18277566610854c2",
+        "scope": "category child; original attribution preserved in native chain"
+      }
+    ],
+    "current_disposition": "Complete source transfer explicitly enables this canonical receiver; existing ce7 parent integration role remains and no newer ce7 release/disposition was found in repo issue3, PR1 comments or current central383-comment thread. This is a local content proposal for that receiving process, with no owner branch mutation, canonical merge or deployment."
+  },
+  "publication_rule": "Create a content child of actual current canonical main. Do not import the native executable-snapshot ancestry or artifact branch as parents. Retain all83 source blobs and original packet; parent integration stays with existing owner receiving process. No publication or merge has been performed by this verifier."
+}

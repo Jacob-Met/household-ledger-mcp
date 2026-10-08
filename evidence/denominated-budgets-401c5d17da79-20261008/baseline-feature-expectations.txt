@@ -1,0 +1,245 @@
+✖ one category can have separately denominated limits and selected spending through MCP (34.459542ms)
+✖ set/get schemas expose currency, unassigned replacement is explicit, and old required inputs remain (8.786463ms)
+✖ planning an unspent month uses only explicitly stored denominations (9.738385ms)
+✖ a budget in another currency cannot be hidden by automatic transaction-currency selection (6.237411ms)
+✖ assigning a legacy budget requires explicit replacement and preserves all unrelated source data (6.109278ms)
+✖ each unresolved legacy budget remains visible and blocks ambiguous comparisons after a partial migration (6.269238ms)
+✖ currency-scoped updates and reads retain the other denomination and never silently assign unqualified budgets (6.045792ms)
+✖ invalid denomination and replacement inputs cannot migrate or mutate a legacy file (3.897361ms)
+✖ reserved categories and safe integer boundaries remain exact for a selected denominated budget (6.047825ms)
+✖ v1 reads stay byte-exact and explicit currency records require the version understood by the new reader (7.61387ms)
+✖ malformed v2 budget identities are refused without repairing or replacing the source file (2.416935ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 0
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 346.142358
+
+✖ failing tests:
+
+test at dist/test/budget-currency.test.js:52:1
+✖ one category can have separately denominated limits and selected spending through MCP (34.459542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      category: 'food',
+  -   currency: 'USD',
+      limitMinor: 1000,
+      month: '2026-10'
+    }
+  
+      at TestContext.<anonymous> (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:56:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { category: 'food', month: '2026-10', limitMinor: 1000 },
+    expected: { category: 'food', month: '2026-10', limitMinor: 1000, currency: 'USD' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/budget-currency.test.js:69:1
+✖ set/get schemas expose currency, unassigned replacement is explicit, and old required inputs remain (8.786463ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'string'
+  
+      at TestContext.<anonymous> (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:74:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'string',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/budget-currency.test.js:79:1
+✖ planning an unspent month uses only explicitly stored denominations (9.738385ms)
+  AssertionError [ERR_ASSERTION]: monthly category budgets have no currency; cannot evaluate them for a mixed-currency, empty, or differently selected month
+      at unpack (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:14:12)
+      at TestContext.<anonymous> (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:83:21)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: true,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/budget-currency.test.js:94:1
+✖ a budget in another currency cannot be hidden by automatic transaction-currency selection (6.237411ms)
+  AssertionError [ERR_ASSERTION]: {"content":[{"type":"text","text":"{\"year\":2026,\"month\":10,\"currency\":\"USD\",\"incomeMinor\":0,\"expenseMinor\":700,\"netMinor\":-700,\"byCategory\":{\"food\":{\"incomeMinor\":0,\"expenseMinor\":700}},\"budgets\":[{\"category\":\"food\",\"limitMinor\":1000,\"spentMinor\":700,\"remainingMinor\":300,\"over\":false}]}"}]}
+  + actual - expected
+  
+  + undefined
+  - true
+  
+      at refused (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:19:12)
+      at TestContext.<anonymous> (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:98:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/budget-currency.test.js:102:1
+✖ assigning a legacy budget requires explicit replacement and preserves all unrelated source data (6.109278ms)
+  AssertionError [ERR_ASSERTION]: {"content":[{"type":"text","text":"{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":1000}"}]}
+  + actual - expected
+  
+  + undefined
+  - true
+  
+      at refused (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:19:12)
+      at TestContext.<anonymous> (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:109:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/budget-currency.test.js:124:1
+✖ each unresolved legacy budget remains visible and blocks ambiguous comparisons after a partial migration (6.269238ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        category: 'food',
+  -     currency: 'USD',
+        limitMinor: 1000,
+        month: '2026-10'
+      },
+      {
+        category: 'travel',
+  
+      at TestContext.<anonymous> (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:132:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { category: 'food', month: '2026-10', limitMinor: 1000 }, { category: 'travel', month: '2026-10', limitMinor: 400 } ],
+    expected: [ { category: 'food', month: '2026-10', limitMinor: 1000, currency: 'USD' }, { category: 'travel', month: '2026-10', limitMinor: 400 } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/budget-currency.test.js:141:1
+✖ currency-scoped updates and reads retain the other denomination and never silently assign unqualified budgets (6.045792ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        category: 'food',
+  +     limitMinor: 950,
+  -     currency: 'EUR',
+  -     limitMinor: 500,
+        month: '2026-10'
+      },
+  +   {
+  +     category: 'unassigned',
+  +     limitMinor: 1000,
+  +     month: '2026-10'
+  +   }
+    ]
+  
+      at TestContext.<anonymous> (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:148:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { category: 'food', month: '2026-10', limitMinor: 950 }, { category: 'unassigned', month: '2026-10', limitMinor: 1000 } ],
+    expected: [ { category: 'food', month: '2026-10', limitMinor: 500, currency: 'EUR' } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/budget-currency.test.js:154:1
+✖ invalid denomination and replacement inputs cannot migrate or mutate a legacy file (3.897361ms)
+  AssertionError [ERR_ASSERTION]: {"content":[{"type":"text","text":"{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":1000}"}]}
+  + actual - expected
+  
+  + undefined
+  - true
+  
+      at refused (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:19:12)
+      at TestContext.<anonymous> (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:159:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/budget-currency.test.js:168:1
+✖ reserved categories and safe integer boundaries remain exact for a selected denominated budget (6.047825ms)
+  AssertionError [ERR_ASSERTION]: monthly category budgets have no currency; cannot evaluate them for a mixed-currency, empty, or differently selected month
+      at unpack (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:14:12)
+      at TestContext.<anonymous> (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:174:17)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: true,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/budget-currency.test.js:180:1
+✖ v1 reads stay byte-exact and explicit currency records require the version understood by the new reader (7.61387ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:190:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dist/test/budget-currency.test.js:195:1
+✖ malformed v2 budget identities are refused without repairing or replacing the source file (2.416935ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /budget|currency/. Input:
+  
+  'unsupported ledger version 2'
+  
+      at refused (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:20:12)
+      at TestContext.<anonymous> (file:///dev/shm/household-budgets-401c5d17da79/repo/dist/test/budget-currency.test.js:206:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'unsupported ledger version 2',
+    expected: /budget|currency/,
+    operator: 'match',
+    diff: 'simple'
+  }

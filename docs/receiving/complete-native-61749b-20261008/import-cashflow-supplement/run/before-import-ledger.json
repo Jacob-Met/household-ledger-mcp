@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "transactions": [
+    {
+      "id": "fe726816-894c-4cc0-8f8d-aa991a92fe7e",
+      "type": "expense",
+      "amountMinor": 999,
+      "currency": "CHF",
+      "date": "2026-01-15",
+      "category": "Archive",
+      "createdAt": "2026-10-08T14:53:51.567Z",
+      "note": "Existing native record outside report interval",
+      "idempotencyKey": "prior-statement"
+    }
+  ],
+  "budgets": [
+    {
+      "category": "Archive",
+      "month": "2026-01",
+      "limitMinor": 5000,
+      "currency": "CHF"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "household.current-owner-composition.scope.v1",
+  "checked_utc": "2026-10-08T09:45:28.573702+00:00",
+  "owner_parent": "5304ec278ddfa35b5290c0f979acb0c0918605aa",
+  "owner_tree": "d091605e5e02f62de6a68ae262bdf18334114d76",
+  "owner_current_tracked_unchanged": true,
+  "prior_tracked_owner_file_count": 36,
+  "changed_prior_owner_files": [
+    {
+      "path": "src/ledger.ts",
+      "owner_sha256": "ae2b2b85a47dfb7b287465280798f1d836e341f48dca8e50f0d8415cdd4bdd4c",
+      "candidate_sha256": "c0b784994b513892486de93c05c0f26922b0ec7cff278fed6db9c23e485037b2"
+    }
+  ],
+  "sole_runtime_delta": "monthlySummary byCategory initializer changes from {} to Object.create(null); all other owner bytes are preserved.",
+  "category_published_commit": "0a3daeedbd7520dd02d377ba18277566610854c2",
+  "category_test_sha256": "141ddb02330dc5f8f59f2544b8846df1df530aab82b169c1f796c00aabe5fd8d",
+  "receiving_test_sha256": "cc9c3678f2e5e42477febddabdd38dabd202faf0a18148d2d3067a194f4e239f",
+  "category_test_matches_published_blob": "39fdfa0e8bd04e70c5d465fd682b7849d1b9774c",
+  "reused_negative_control": {
+    "source_sha256": "ae2b2b85a47dfb7b287465280798f1d836e341f48dca8e50f0d8415cdd4bdd4c",
+    "index_sha256": "e1c2fed21324b7c7b63dafd1b26c5b7296913be9439e12ba65a2f15624af7d83",
+    "probe_sha256": "91414e1ecf2db116209551d41724f100d7ed6ef866a1d3f023712be3f0869c5c",
+    "log_sha256": "5311bb448a9f174115a3cf2a1655ffd605b9a8b08478c7b4db1584f7d0fde24d",
+    "verification_sha256": "79f5b6a98363efa2f5322ba7ec0d40365f5a9750d1fb17566be9e681053513b3",
+    "result": {
+      "pass": 5,
+      "fail": 3,
+      "skipped": 0
+    },
+    "reuse": "Exact owner currency-only before-image retained; no settled negative run repeated."
+  },
+  "current_result": {
+    "affected_native": {
+      "pass": 25,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "overlapping_owner_recovery": {
+      "pass": 8,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  "previous_37_result": "Historical exact recording/category composition retained, not counted as a new run of this currency successor."
+}

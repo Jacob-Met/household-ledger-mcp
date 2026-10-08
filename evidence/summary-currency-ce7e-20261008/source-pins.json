@@ -1,0 +1,28 @@
+{
+  "remote_original": "dffabba341a8bce74faa97de68054bd453509a98",
+  "local_frozen_recording_base": "78cf539809ce8e4f12fefaa976dd8f01bc74807b",
+  "coordination": "https://github.com/Jacob-Met/household-ledger-mcp/issues/3#issuecomment-6055251453",
+  "category_owner": "autonomous-e3a41d2b3368",
+  "category_coordination": "https://github.com/Jacob-Met/household-ledger-mcp/issues/3#issuecomment-6054842661",
+  "files_sha256": {
+    "baseline/src/stdio.ts": "9d49234e75f790601e8f327d156f3a4b9c62325d8496319fd9831e733153dc57",
+    "baseline/src/ledger.ts": "50d7664b828151ccfe71d849348da54d2736b65e27cb14a5e286bf6c491760ef",
+    "baseline/src/index.ts": "a55678f8e63625bf78d6cec4715b11b7000bdfd780cf95f983231d1dcdfd100f",
+    "baseline/test/summary-currency.test.ts": "13771393218d37bcc48c26182ea2daabd8a967c14d8c33bac9b3295343f18da3",
+    "baseline/test/recording.test.ts": "18bebd788deece1012fcf4863203727b5e699fe61b766dd0d24075a39fab448c",
+    "baseline/test/mcp.test.ts": "f3301c8d5314c28045253d8605de6ec9d65052c0ce6b777156d28295a7e3f1e3",
+    "baseline/test/http-summary.test.ts": "b5f76eb50355405e8d8c22750f40e02d1caf5e16cee3737c2a4a9ed9696716af",
+    "baseline/test/http-recording.test.ts": "9419b74830f423b92fdb194dd827e8920461075d5cf4ba2e70a69c4da310e9fc",
+    "baseline/test/ledger.test.ts": "bb64e0cb1bbd593d9e5458ddd83ada330756b4b27816b09517d17e201789074c",
+    "candidate/src/stdio.ts": "9d49234e75f790601e8f327d156f3a4b9c62325d8496319fd9831e733153dc57",
+    "candidate/src/ledger.ts": "ae2b2b85a47dfb7b287465280798f1d836e341f48dca8e50f0d8415cdd4bdd4c",
+    "candidate/src/index.ts": "e1c2fed21324b7c7b63dafd1b26c5b7296913be9439e12ba65a2f15624af7d83",
+    "candidate/test/summary-currency.test.ts": "13771393218d37bcc48c26182ea2daabd8a967c14d8c33bac9b3295343f18da3",
+    "candidate/test/recording.test.ts": "18bebd788deece1012fcf4863203727b5e699fe61b766dd0d24075a39fab448c",
+    "candidate/test/mcp.test.ts": "f3301c8d5314c28045253d8605de6ec9d65052c0ce6b777156d28295a7e3f1e3",
+    "candidate/test/http-summary.test.ts": "b5f76eb50355405e8d8c22750f40e02d1caf5e16cee3737c2a4a9ed9696716af",
+    "candidate/test/http-recording.test.ts": "9419b74830f423b92fdb194dd827e8920461075d5cf4ba2e70a69c4da310e9fc",
+    "candidate/test/ledger.test.ts": "bb64e0cb1bbd593d9e5458ddd83ada330756b4b27816b09517d17e201789074c",
+    "package-lock.json": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff"
+  }
+}

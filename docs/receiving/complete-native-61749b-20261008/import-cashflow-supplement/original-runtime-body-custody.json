@@ -1,0 +1,40 @@
+{
+  "schema": "household.receiving.original-runtime-body.v1",
+  "original_receipt": "packet/independent/independent-store-queue-receipt.json",
+  "original_receipt_sha256": "d03b73e99ff11fc52d4e9d86d981dde7e7d1228ace1253c2e7e701581d59f1dc",
+  "modules": [
+    {
+      "module": "cashflow.js",
+      "executed_sha256": "5161d41a9b09736d3f48d6380dae4847e43f1bf21e9915b74f107d095b05b34e",
+      "original_native_emitted_sha256": "447e140cf5879861cf1e25dab9d25c3e74abef98ddf6ce9e8e8ac5a97a21507a",
+      "suffixes_reconstructing_original_exact_hash": [
+        "//# sourceMappingURL=cashflow.js.map"
+      ]
+    },
+    {
+      "module": "ledger.js",
+      "executed_sha256": "fce70e5857f70f7a9944a624d40bb76b031e2dcaefb61a0f7c59e957da0a8333",
+      "original_native_emitted_sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "suffixes_reconstructing_original_exact_hash": [
+        "//# sourceMappingURL=ledger.js.map"
+      ]
+    },
+    {
+      "module": "transaction-csv.js",
+      "executed_sha256": "099172c634ce559b9bb738bc812c1718ccb087732a71b0f8be934dcd78f500f3",
+      "original_native_emitted_sha256": "3cc676ecff4cc02cf5c4276a690735abe3b0b465e84718db4647e1e852db1d9c",
+      "suffixes_reconstructing_original_exact_hash": [
+        "//# sourceMappingURL=transaction-csv.js.map"
+      ]
+    },
+    {
+      "module": "transaction-import.js",
+      "executed_sha256": "61269c2d6db5dfc96f27a501a1eb5fad33bfbd7d5ea136ecfa11ec873d06c6e2",
+      "original_native_emitted_sha256": "d73723259e908213a8f6165af842414825550e04a47b77405b8075241c883f9b",
+      "suffixes_reconstructing_original_exact_hash": [
+        "//# sourceMappingURL=transaction-import.js.map"
+      ]
+    }
+  ],
+  "all_four_match_original_body_plus_sourcemap_comment": true
+}

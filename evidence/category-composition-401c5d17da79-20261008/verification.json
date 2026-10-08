@@ -1,0 +1,116 @@
+{
+  "schema": "household-ledger.category-recording-composition.receiving.v1",
+  "reviewer": "estate-401c5d17da79 / integration_discovery",
+  "captured_at": "2026-10-08T07:39:22.833Z",
+  "upstream_base": "dffabba341a8bce74faa97de68054bd453509a98",
+  "source_state": "isolated frozen composition of two owned contributions; no claim of remote integration or deployment",
+  "sources": {
+    "owner_ledger_sha256": "50d7664b828151ccfe71d849348da54d2736b65e27cb14a5e286bf6c491760ef",
+    "owner_http_sha256": "a55678f8e63625bf78d6cec4715b11b7000bdfd780cf95f983231d1dcdfd100f",
+    "composed_ledger_sha256": "66b2387deb15b7a3f884b2473e7a2c2664bfae266ee1dc936993c268eae8019c",
+    "category_author_commit": "b0508c4e2979518fa06e80f84b7b5f73d11590a9",
+    "receiving_test_sha256": "cc9c3678f2e5e42477febddabdd38dabd202faf0a18148d2d3067a194f4e239f",
+    "raw_http_diagnostic_sha256": "19301ada01fd78ab3cea0126bc773924f408c67e978933f794c19f0f8e217bca"
+  },
+  "node": "v24.19.0",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": {
+      "installed": "1.32.1",
+      "locked": "1.32.1"
+    },
+    "typescript": {
+      "installed": "5.9.3",
+      "locked": "5.9.3"
+    },
+    "@types/node": {
+      "installed": "24.19.1",
+      "locked": "24.19.1"
+    }
+  },
+  "source_unchanged_during_runs": true,
+  "source_checks": {
+    "owner-baseline/package.json": true,
+    "composed/package.json": true,
+    "owner-baseline/package-lock.json": true,
+    "composed/package-lock.json": true,
+    "owner-baseline/tsconfig.json": true,
+    "composed/tsconfig.json": true,
+    "owner-baseline/src/index.ts": true,
+    "composed/src/index.ts": true,
+    "owner-baseline/src/ledger.ts": true,
+    "composed/src/ledger.ts": true,
+    "owner-baseline/src/stdio.ts": true,
+    "composed/src/stdio.ts": true,
+    "owner-baseline/test/http-recording.test.ts": true,
+    "composed/test/http-recording.test.ts": true,
+    "owner-baseline/test/ledger.test.ts": true,
+    "composed/test/ledger.test.ts": true,
+    "owner-baseline/test/mcp.test.ts": true,
+    "composed/test/mcp.test.ts": true,
+    "owner-baseline/test/recording.test.ts": true,
+    "composed/test/recording.test.ts": true
+  },
+  "runs": [
+    {
+      "name": "owner-baseline-build",
+      "command": "npm run build",
+      "cwd": "owner-baseline",
+      "exit_code": 0
+    },
+    {
+      "name": "composed-build",
+      "command": "npm run build",
+      "cwd": "composed",
+      "exit_code": 0
+    },
+    {
+      "name": "owner-baseline-independent-receiving",
+      "command": "node --test --test-reporter=tap dist/test/receiving-composition.test.js",
+      "cwd": "owner-baseline",
+      "exit_code": 1,
+      "tests": 4,
+      "pass": 1,
+      "fail": 2,
+      "cancelled": 1,
+      "skipped": 0,
+      "details": "constructor and toString lose their category; __proto__ exceeds 20-second test timeout; groceries ordinary-category control passes."
+    },
+    {
+      "name": "composed-all-tests",
+      "command": "node --test --test-reporter=tap dist/test/*.test.js",
+      "cwd": "composed",
+      "exit_code": 0,
+      "tests": 37,
+      "pass": 37,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    {
+      "name": "owner-baseline-raw-http-diagnostic",
+      "command": "node proto-http-diagnostic.mjs owner-baseline",
+      "exit_code": 0,
+      "outcome": "Baseline defect observed: reserved-category summary sends 200 SSE headers but body times out at 2500ms; health remains 200; subsequent list request receives 400 / -32700. Exact persisted bytes retained."
+    },
+    {
+      "name": "composed-raw-http-diagnostic",
+      "command": "node proto-http-diagnostic.mjs composed",
+      "exit_code": 0,
+      "outcome": "Summary and following listing both complete as valid 200 SSE responses; health remains 200; ledger bytes retained."
+    }
+  ],
+  "workload": "Fictional ledger data, three SDK Streamable HTTP clients, native process entrypoint, 22 concurrent recording/budget calls per category, repeated summaries, normalized duplicate and conflicting retries, process restart. No live household data or external service.",
+  "limits": [
+    "Owner source was local uncommitted work, not independently confirmed current remote head.",
+    "Only one writer process at a time; multi-process simultaneous writes are outside tested owner guarantees.",
+    "No deployment, live traffic, Alexa onboarding or financial accuracy claim."
+  ],
+  "logs_sha256": {
+    "owner-baseline-build.log": "815eec3e89980f0228d620bd6d19b3375277cd20b89f45a13e23011c0c4f8322",
+    "composed-build.log": "815eec3e89980f0228d620bd6d19b3375277cd20b89f45a13e23011c0c4f8322",
+    "owner-baseline-composition.tap": "e74ea8f16b6e7bec2fbffbc55988d3b34a151244b6c16420a98cee57d81fc337",
+    "composed-full-suite.tap": "8120dd245062dd47b3e73819a024ed37a37ca850f2b138b22df82e40d1f8dede",
+    "owner-baseline-proto-http-diagnostic.json": "037bee1df01fe5ed71f9992694c0a92f4d31837d3455976fb087aaad904f63cc",
+    "composed-proto-http-diagnostic.json": "41178ab80500443b2998519f7c85b005842ef55ff9f889229aace5b5b3bc58c1"
+  }
+}

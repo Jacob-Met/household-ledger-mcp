@@ -1,0 +1,21 @@
+{
+  "upstream_remote_base": "dffabba341a8bce74faa97de68054bd453509a98",
+  "parent_local_snapshot": "47d8751ac4ffbc273a7fff3220e0d8e69321e8f3",
+  "recording_delta_source": "/workspace/scratch/ce7eb129730f/household-ledger",
+  "successor": "/workspace/scratch/ce7eb129730f/household-summary-successor",
+  "files_sha256": {
+    "src/stdio.ts": "9d49234e75f790601e8f327d156f3a4b9c62325d8496319fd9831e733153dc57",
+    "src/ledger.ts": "50d7664b828151ccfe71d849348da54d2736b65e27cb14a5e286bf6c491760ef",
+    "src/index.ts": "a55678f8e63625bf78d6cec4715b11b7000bdfd780cf95f983231d1dcdfd100f",
+    "test/recording.test.ts": "18bebd788deece1012fcf4863203727b5e699fe61b766dd0d24075a39fab448c",
+    "test/mcp.test.ts": "f3301c8d5314c28045253d8605de6ec9d65052c0ce6b777156d28295a7e3f1e3",
+    "test/http-recording.test.ts": "9419b74830f423b92fdb194dd827e8920461075d5cf4ba2e70a69c4da310e9fc",
+    "test/ledger.test.ts": "bb64e0cb1bbd593d9e5458ddd83ada330756b4b27816b09517d17e201789074c",
+    "package.json": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+    "package-lock.json": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+    "README.md": "6b9829a97a7d41e944fbf29cc2470685761e753491e1ab973f14c2504fc5d9ac",
+    "tsconfig.json": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72"
+  },
+  "successor_local_base": "78cf539809ce8e4f12fefaa976dd8f01bc74807b",
+  "note": "Local selected-source ancestry only; transfer owned successor delta onto actual parent remote commit. Source hashes rechecked after checkout and before probes."
+}

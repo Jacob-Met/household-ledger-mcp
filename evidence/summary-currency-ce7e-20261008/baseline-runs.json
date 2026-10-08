@@ -1,0 +1,37 @@
+[
+  {
+    "name": "baseline-build",
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "started_at": "2026-10-08T07:56:33.638727+00:00",
+    "finished_at": "2026-10-08T07:56:35.636429+00:00",
+    "returncode": 0,
+    "log": "baseline-build.log",
+    "log_sha256": "a4c2c02ae71a4c8217b1dcbfa7c054c4ce8aa86ebd4ddac113e79a642c8c0691",
+    "summary": []
+  },
+  {
+    "name": "baseline-authored",
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "dist/test/summary-currency.test.js",
+      "dist/test/http-summary.test.js"
+    ],
+    "started_at": "2026-10-08T07:56:35.636517+00:00",
+    "finished_at": "2026-10-08T07:56:36.356699+00:00",
+    "returncode": 1,
+    "log": "baseline-authored.log",
+    "log_sha256": "5400b2f369743eb9dcf07fea629991e95b7be5b6fc95ce9ba0c837bccbb87fc6",
+    "summary": [
+      "# tests 14",
+      "# pass 0",
+      "# fail 14",
+      "# skipped 0"
+    ]
+  }
+]

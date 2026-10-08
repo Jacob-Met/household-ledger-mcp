@@ -1,0 +1,8 @@
+idempotencyKey,type,amountMinor,currency,date,category,note
+salary-feb,income,300000,USD,2026-02-01,Salary,February salary
+food-feb-usd,expense,12500,USD,2026-02-04,Food,Groceries
+rent-feb,expense,90000,USD,2026-02-05,Rent,February rent
+food-feb-eur,expense,2500,EUR,2026-02-08,Food,Separate denomination
+salary-apr,income,300000,USD,2026-04-01,Salary,April salary
+food-apr-usd,expense,11250,USD,2026-04-07,Food,April groceries
+food-apr-eur,expense,3500,EUR,2026-04-09,Food,April euro groceries

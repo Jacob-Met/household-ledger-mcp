@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "transactions": [],
+  "budgets": [
+    {
+      "category": "food",
+      "month": "2026-10",
+      "limitMinor": 1000,
+      "currency": "USD"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "household-ledger.receiving-composition.source.v1",
+  "captured_at": "2026-10-08T07:35:04.446Z",
+  "upstream_base": "dffabba341a8bce74faa97de68054bd453509a98",
+  "owner_source": "/workspace/scratch/ce7eb129730f/household-ledger",
+  "owner_kind": "uncommitted receiving work frozen byte-for-byte; not remote head",
+  "owner_sha256": {
+    "package.json": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+    "package-lock.json": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+    "tsconfig.json": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72",
+    "src/index.ts": "a55678f8e63625bf78d6cec4715b11b7000bdfd780cf95f983231d1dcdfd100f",
+    "src/ledger.ts": "50d7664b828151ccfe71d849348da54d2736b65e27cb14a5e286bf6c491760ef",
+    "src/stdio.ts": "9d49234e75f790601e8f327d156f3a4b9c62325d8496319fd9831e733153dc57",
+    "test/http-recording.test.ts": "9419b74830f423b92fdb194dd827e8920461075d5cf4ba2e70a69c4da310e9fc",
+    "test/ledger.test.ts": "bb64e0cb1bbd593d9e5458ddd83ada330756b4b27816b09517d17e201789074c",
+    "test/mcp.test.ts": "f3301c8d5314c28045253d8605de6ec9d65052c0ce6b777156d28295a7e3f1e3",
+    "test/recording.test.ts": "18bebd788deece1012fcf4863203727b5e699fe61b766dd0d24075a39fab448c"
+  },
+  "owner_unchanged_during_snapshot": true,
+  "category_source": "/workspace/scratch/e3a41d2b3368/agents/local_recovery/household-ledger-review",
+  "category_commit": "b0508c4e2979518fa06e80f84b7b5f73d11590a9",
+  "category_patch_sha256": "06f76a64218c0bc720a9138c027caf786032e25614f275d651ba7308390c336f",
+  "composed_ledger_sha256": "66b2387deb15b7a3f884b2473e7a2c2664bfae266ee1dc936993c268eae8019c",
+  "category_test_sha256": "141ddb02330dc5f8f59f2544b8846df1df530aab82b169c1f796c00aabe5fd8d",
+  "composition": "Owner source plus category accumulator fix and authored category regression; owner wildcard test command retained"
+}

@@ -1,0 +1,321 @@
+TAP version 13
+# Subtest: fresh HTTP processes preserve selected units and refuse ambiguous legacy budgets
+not ok 1 - fresh HTTP processes preserve selected units and refuse ambiguous legacy budgets
+  ---
+  duration_ms: 356.502511
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/http-summary.test.js:64:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + undefined
+    - true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/http-summary.test.js:75:16)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: one monthly currency is labelled automatically and legacy budget amounts stay unchanged
+not ok 2 - one monthly currency is labelled automatically and legacy budget amounts stay unchanged
+  ---
+  duration_ms: 67.875286
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:53:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 'USD'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'USD'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:61:12)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: mixed monthly currencies refuse an unqualified report without changing records
+not ok 3 - mixed monthly currencies refuse an unqualified report without changing records
+  ---
+  duration_ms: 12.709919
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:71:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"content":[{"type":"text","text":"{\"year\":2026,\"month\":10,\"incomeMinor\":0,\"expenseMinor\":1300,\"netMinor\":-1300,\"byCategory\":{\"food\":{\"incomeMinor\":0,\"expenseMinor\":1300}},\"budgets\":[]}"}]}
+    + actual - expected
+    
+    + undefined
+    - true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: 'strictEqual'
+  stack: |-
+    refused (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:19:12)
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:77:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: the optional selector is discoverable and selects only its normalized currency
+not ok 4 - the optional selector is discoverable and selects only its normalized currency
+  ---
+  duration_ms: 6.057983
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:81:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of undefined (reading 'type')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:84:58)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: empty and absent-currency reports never invent a default denomination
+not ok 5 - empty and absent-currency reports never invent a default denomination
+  ---
+  duration_ms: 5.35832
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:105:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + undefined
+    - null
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: ~
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:109:12)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: malformed selectors are refused even for empty months
+not ok 6 - malformed selectors are refused even for empty months
+  ---
+  duration_ms: 7.234562
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:126:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"content":[{"type":"text","text":"{\"year\":2026,\"month\":10,\"incomeMinor\":0,\"expenseMinor\":500,\"netMinor\":-500,\"byCategory\":{\"food\":{\"incomeMinor\":0,\"expenseMinor\":500}},\"budgets\":[]}"}]}
+    + actual - expected
+    
+    + undefined
+    - true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: 'strictEqual'
+  stack: |-
+    refused (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:19:12)
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:132:13)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: a selector cannot assign an unqualified legacy budget to either currency
+not ok 7 - a selector cannot assign an unqualified legacy budget to either currency
+  ---
+  duration_ms: 19.087007
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:137:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"content":[{"type":"text","text":"{\"year\":2026,\"month\":10,\"incomeMinor\":0,\"expenseMinor\":580,\"netMinor\":-580,\"byCategory\":{\"food\":{\"incomeMinor\":0,\"expenseMinor\":500},\"travel\":{\"incomeMinor\":0,\"expenseMinor\":80}},\"budgets\":[{\"category\":\"food\",\"limitMinor\":600,\"spentMinor\":500,\"remainingMinor\":100,\"over\":false}]}"}]}
+    + actual - expected
+    
+    + undefined
+    - true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: 'strictEqual'
+  stack: |-
+    refused (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:19:12)
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:145:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: empty and differently selected budget contexts refuse instead of reporting a zero spend
+not ok 8 - empty and differently selected budget contexts refuse instead of reporting a zero spend
+  ---
+  duration_ms: 12.19893
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:152:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"content":[{"type":"text","text":"{\"year\":2026,\"month\":10,\"incomeMinor\":0,\"expenseMinor\":0,\"netMinor\":0,\"byCategory\":{},\"budgets\":[{\"category\":\"food\",\"limitMinor\":0,\"spentMinor\":0,\"remainingMinor\":0,\"over\":false}]}"}]}
+    + actual - expected
+    
+    + undefined
+    - true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: 'strictEqual'
+  stack: |-
+    refused (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:19:12)
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:156:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: budgets outside the requested month do not prevent an otherwise qualified selection
+not ok 9 - budgets outside the requested month do not prevent an otherwise qualified selection
+  ---
+  duration_ms: 9.966853
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:168:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 'USD'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'USD'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:174:12)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: a later second currency invalidates the earlier implicit budget context for every receiver
+not ok 10 - a later second currency invalidates the earlier implicit budget context for every receiver
+  ---
+  duration_ms: 18.004784
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:178:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 'USD'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'USD'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:182:12)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: income and expense aggregates refuse overflow even when each category amount is safe
+not ok 11 - income and expense aggregates refuse overflow even when each category amount is safe
+  ---
+  duration_ms: 7.123175
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:193:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"content":[{"type":"text","text":"{\"year\":2026,\"month\":10,\"incomeMinor\":9007199254740992,\"expenseMinor\":0,\"netMinor\":9007199254740992,\"byCategory\":{\"first\":{\"incomeMinor\":9007199254740991,\"expenseMinor\":0},\"second\":{\"incomeMinor\":2,\"expenseMinor\":0}},\"budgets\":[]}"}]}
+    + actual - expected
+    
+    + undefined
+    - true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: 'strictEqual'
+  stack: |-
+    refused (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:19:12)
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:199:9)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: safe boundaries and cancellation are exact but a small net cannot excuse unsafe gross totals
+not ok 12 - safe boundaries and cancellation are exact but a small net cannot excuse unsafe gross totals
+  ---
+  duration_ms: 12.379752
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:203:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"content":[{"type":"text","text":"{\"year\":2026,\"month\":10,\"incomeMinor\":9007199254740992,\"expenseMinor\":9007199254740991,\"netMinor\":1,\"byCategory\":{\"pay\":{\"incomeMinor\":9007199254740992,\"expenseMinor\":0},\"food\":{\"incomeMinor\":0,\"expenseMinor\":9007199254740991}},\"budgets\":[{\"category\":\"food\",\"limitMinor\":0,\"spentMinor\":9007199254740991,\"remainingMinor\":-9007199254740991,\"over\":true}]}"}]}
+    + actual - expected
+    
+    + undefined
+    - true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: 'strictEqual'
+  stack: |-
+    refused (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:19:12)
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:217:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: overflow in an unselected currency does not contaminate safe selected totals
+not ok 13 - overflow in an unselected currency does not contaminate safe selected totals
+  ---
+  duration_ms: 10.59617
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:220:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 'USD'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'USD'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:226:12)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: accepted persisted currency spelling variants normalize for reading without rewriting the file
+not ok 14 - accepted persisted currency spelling variants normalize for reading without rewriting the file
+  ---
+  duration_ms: 7.454213
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:230:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 'USD'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'USD'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/baseline/dist/test/summary-currency.test.js:240:12)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 0
+# fail 14
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 603.782382

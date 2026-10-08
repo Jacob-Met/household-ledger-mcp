@@ -1,0 +1,120 @@
+{
+  "schema": "household.import-cashflow.receiving.v1",
+  "at": "2026-10-08T14:53:50.202Z",
+  "source": {
+    "commit": "07e223b5da19cea0f048219d8c85689fcc1ba83f",
+    "tree": "76cd2cc60b10dabdd301d32a53da4b833015193d"
+  },
+  "original_proposal": {
+    "file_list_sha256": "934d40e086b33ddb6ac07d2c9028741d166d4afa655c971d6624198cbee431b3",
+    "files": 88,
+    "expected_tree": "a4039c2c4b4ac83c2cf93e87823f0db02e4805f9"
+  },
+  "runtime": {
+    "node": "v24.19.0",
+    "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "platform": "linux",
+    "architecture": "x64"
+  },
+  "scope": "One public-domain native JSON LedgerStore workflow: categorized CSV import, explicit denominated budgets, monthlySummary plus cashflowTrend, then exact original CSV replay in a distinct sequential Node process. No source edit, installation, HTTP/MCP substitute or concurrent-process writer.",
+  "invocations": [
+    {
+      "label": "compile",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/compile-native.mjs",
+        "/workspace/scratch/61749b0088e2/household-complete-receiving/source",
+        "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/emitted",
+        "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/compile.json"
+      ],
+      "cwd": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement",
+      "environment_overrides": {
+        "NODE_DISABLE_COMPILE_CACHE": "1",
+        "TMPDIR": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/tmp"
+      },
+      "started": "2026-10-08T14:53:50.203Z",
+      "ended": "2026-10-08T14:53:51.499Z",
+      "exit_code": 0,
+      "signal": null
+    },
+    {
+      "label": "initial",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/workflow.mjs",
+        "initial",
+        "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement",
+        "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run"
+      ],
+      "cwd": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement",
+      "environment_overrides": {
+        "NODE_DISABLE_COMPILE_CACHE": "1",
+        "TMPDIR": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/tmp"
+      },
+      "started": "2026-10-08T14:53:51.499Z",
+      "ended": "2026-10-08T14:53:51.593Z",
+      "exit_code": 0,
+      "signal": null
+    },
+    {
+      "label": "reopened",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/workflow.mjs",
+        "reopened",
+        "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement",
+        "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run"
+      ],
+      "cwd": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement",
+      "environment_overrides": {
+        "NODE_DISABLE_COMPILE_CACHE": "1",
+        "TMPDIR": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/tmp"
+      },
+      "started": "2026-10-08T14:53:51.593Z",
+      "ended": "2026-10-08T14:53:51.686Z",
+      "exit_code": 0,
+      "signal": null
+    }
+  ],
+  "passed": true,
+  "native_processes": [
+    {
+      "phase": "initial",
+      "pid": 20,
+      "check_groups": 8
+    },
+    {
+      "phase": "reopened",
+      "pid": 32,
+      "check_groups": 7
+    }
+  ],
+  "check_groups": 15,
+  "exact_expected_totals": [
+    {
+      "currency": "EUR",
+      "incomeMinor": 0,
+      "expenseMinor": 6000,
+      "netMinor": -6000
+    },
+    {
+      "currency": "USD",
+      "incomeMinor": 600000,
+      "expenseMinor": 113750,
+      "netMinor": 486250
+    }
+  ],
+  "saved_snapshot_before_replay": {
+    "sha256": "2ab7b89d53f1e055114793ac49420b9468878edc35e1260cd05f2b7f40f90dab",
+    "bytes": 3314,
+    "inode": "1782428",
+    "modified_ns": "1791471231579344622"
+  },
+  "saved_snapshot_after_replay": {
+    "sha256": "2ab7b89d53f1e055114793ac49420b9468878edc35e1260cd05f2b7f40f90dab",
+    "bytes": 3314,
+    "inode": "1782428",
+    "modified_ns": "1791471231579344622"
+  },
+  "all_88_proposed_paths_unchanged": true
+}

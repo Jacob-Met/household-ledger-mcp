@@ -1,0 +1,27 @@
+{
+  "name": "candidate-before-image",
+  "command": [
+    "node",
+    "--test",
+    "--test-reporter=tap",
+    "dist/summary-before.test.js"
+  ],
+  "source_root": "/workspace/scratch/ce7eb129730f/household-summary-successor",
+  "started_at": "2026-10-08T07:58:21.120927+00:00",
+  "finished_at": "2026-10-08T07:58:23.593465+00:00",
+  "returncode": 1,
+  "log": "candidate-before-image.log",
+  "log_sha256": "5311bb448a9f174115a3cf2a1655ffd605b9a8b08478c7b4db1584f7d0fde24d",
+  "summary": [
+    "# tests 8",
+    "# pass 5",
+    "# fail 3",
+    "# skipped 0"
+  ],
+  "expected_remaining_failures": [
+    "constructor category map",
+    "__proto__ category map and SDK response",
+    "toString category map"
+  ],
+  "scope": "The separate category owner retains these three inherited failures; currency and overflow cases pass."
+}
