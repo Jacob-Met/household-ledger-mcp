@@ -1,0 +1,111 @@
+{
+  "schema": "household-ledger-budget-reallocation.root-source-receiving.v1",
+  "reviewer": "estate-6e5752b49b6f/root",
+  "source": "c83f0a6aee72df86eed17272ee8be6a79b7f941e",
+  "source_tree": "f039e5d078827746c896e5e167ba95299e48cd17",
+  "original_parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "parent_tree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+  "evidence_parent": "c219b1daf5177cc3f3c792f57d3df9a31f19bb3f",
+  "scope": {
+    "parent_leaves": 116,
+    "source_leaves": 120,
+    "changed_existing_paths": 3,
+    "added_paths": 4,
+    "unowned_leaves_and_modes_preserved": 113,
+    "index_complete_preimage_recovered_by_removing_three_additions": true,
+    "both_changed_tests_complete_preimage_recovered_by_removing_only_two_tool_names": true,
+    "ledger_store_transaction_cashflow_manifest_lock_workflow_unchanged": true
+  },
+  "reviewed_source": {
+    "module": {
+      "bytes": 9152,
+      "sha256": "d89e0a177e917ca370c0ebcca968d8900ea782d6422614ee96a0fecb4b8ac0c5",
+      "git_blob": "a31c48a650c6c2b4d67fc29a1d89669e84e42b52"
+    },
+    "index": {
+      "bytes": 12214,
+      "sha256": "3fac28320a220238152ebdb6c2cf24476455f2a1d4bb720bcf3ded8ae3e43102",
+      "git_blob": "8dab2003cbfffed9b4d8f0463e0b62c3bdd49ba3"
+    },
+    "guide": {
+      "bytes": 4862,
+      "sha256": "967ff717c06d379dc0842d4bd392ed7f02077b86a65c0bd17f15c15e59f92fb5",
+      "git_blob": "6c816c09e860f1a04b23f9ffa2c4b3216a34c8e9"
+    }
+  },
+  "findings": [
+    {
+      "area": "admission",
+      "disposition": "accepted",
+      "reason": "Both request shapes and nested review shapes require exactly their declared own fields. Positive safe-integer amounts, literal category identities, explicit normalized currency, valid existing month grammar and separately validated limits precede Store mutation."
+    },
+    {
+      "area": "arithmetic",
+      "disposition": "accepted",
+      "reason": "BigInt checks the exact pair total against MAX_SAFE_INTEGER; positive transfer cannot exceed the source. This bounds both resulting limits and preserves the pair total without overflow."
+    },
+    {
+      "area": "persistence",
+      "disposition": "accepted",
+      "reason": "Commit reconstructs its own review before awaiting the existing serialized Store update, selects both fresh rows, and changes only the two limitMinor fields after both old limits match. An exception prevents save; the existing Store awaits persistence before returning the result."
+    },
+    {
+      "area": "retry",
+      "disposition": "accepted with documented boundary",
+      "reason": "Both matching final values return already_matching without mutation. This is current-value equality, not historical execution proof. Restoring the original pair permits an old review to apply again; the guide and false idempotentHint disclose that boundary."
+    },
+    {
+      "area": "metadata and tools",
+      "disposition": "accepted",
+      "reason": "The token binds complete normalized review content and is explicitly not authorization. Source hooks preserve the complete original transport; schema annotations reflect preview/read and commit/mutation. Selected row category/currency spelling and unrelated loaded data remain untouched by the new mutator."
+    },
+    {
+      "area": "discoverability",
+      "disposition": "completed by documentation addendum",
+      "reason": "The source README omitted both new tools and the usage guide. Two tool-table rows and one guide paragraph now expose the existing feature; exact inverse recovers the entire prior README."
+    }
+  ],
+  "native_qualification": {
+    "same_author_domain_store_passes": 27,
+    "separate_exact_source_http_passes": 2,
+    "full_run_passes": 126,
+    "full_run_startup_timeouts": 4,
+    "full_run_claimed_pass": false,
+    "single_inherited_cashflow_run_passes": 3,
+    "independent_native_receiving": "pending with github_integration",
+    "root_reran_tests": false
+  },
+  "readme_addendum": {
+    "before": {
+      "bytes": 6704,
+      "sha256": "d7675b4f5d20bcb6a031cc39a71576bb3a44c576bbc0fdb1945e94dd4c7773fd",
+      "git_blob": "c531794d60442954a836db32c6fdafab5e08ba0e"
+    },
+    "after": {
+      "bytes": 7151,
+      "sha256": "80f227484b1bf179892c0afb4bef87e4218b010b99227a5fb3efa6e53d5dedf5",
+      "git_blob": "22e9130688c9d54f6e6be7ab68793d7003412413"
+    },
+    "runtime_source_changed": false,
+    "patch": "README-addendum.patch",
+    "patch_generation": "unified diff of exact original and completed README; whole-text inverse verified, no new runtime or git-apply run claimed"
+  },
+  "actions": {
+    "primary_hold_comment": 6067592767,
+    "workflow_inventory": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "git_blob": "39325b079fb40b0587ec231eeb3328f52e7ece74",
+        "events": "push branches [main], pull_request branches [main]"
+      }
+    ],
+    "allowed_publication": "non-main existing contribution custody ref and inert issue comments only",
+    "ci_started": false
+  },
+  "ownership": {
+    "source_parent": "estate-ce7eb129730f",
+    "canonical_receiving": "estate-61749b0088e2",
+    "main_adoption": "not performed",
+    "deployed": false
+  }
+}

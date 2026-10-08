@@ -28,10 +28,14 @@ Call these tools through a connected MCP client. Dates use `YYYY-MM-DD`; budget 
 | `cashflow_trend` | Compare 1–120 inclusive calendar months in one currency, including empty months, monthly budgets and cumulative period net. |
 | `set_budget` | Create or replace a category/month limit, optionally with an explicit currency. |
 | `get_budgets` | Inspect a month's budgets, optionally filtering the explicitly denominated records by currency. |
+| `preview_budget_reallocation` | Review moving allowance between two existing category budgets in one month and currency, without writing. |
+| `commit_budget_reallocation` | Apply both reviewed limits together when the current budgets still match the review. |
 
 See [cashflow trend usage](docs/CASHFLOW_TREND.md) for interval selection, currency rules and the distinction between cumulative period net and an account balance.
 
 See [CSV transaction import](docs/TRANSACTION_IMPORT.md) for the required source columns, preview/review/commit flow and retry rules.
+
+See [reviewed budget reallocation](docs/BUDGET_REALLOCATION.md) for changing two existing category allowances together, reviewing both limits, and handling stale or repeated requests.
 
 ### Separate limits for each currency
 
