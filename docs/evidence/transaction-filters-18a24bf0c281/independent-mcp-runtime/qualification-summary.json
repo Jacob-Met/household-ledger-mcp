@@ -1,0 +1,356 @@
+{
+  "actual_transport": "native maintained HTTP entry + SDK Client/StreamableHTTPClientTransport; no mocks",
+  "candidate": {
+    "actual_catalogue_selector_fields": [
+      "currency",
+      "query"
+    ],
+    "cases": 14,
+    "cases_passed": 14,
+    "checks_passed": 98,
+    "checks_total": 98,
+    "receipt_sha256": "250490c41fa9d89287f7ed1212adb59c5e59b3d527724b5728f522bdde25b672"
+  },
+  "candidate_intake_commit": "9de1ceecdc96fd5f9ceebf44757ef4d2e93c1ebf",
+  "cases": [
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [
+        "E",
+        "F"
+      ],
+      "expected_total": 4,
+      "name": "predicates_before_page",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination",
+        "page_contains_exact_expected_original_records_in_order"
+      ]
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [],
+      "expected_total": 4,
+      "name": "zero_page_keeps_filtered_total",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination"
+      ]
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [],
+      "expected_total": 4,
+      "name": "offset_at_filtered_end",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination",
+        "page_contains_exact_expected_original_records_in_order"
+      ]
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [
+        "D",
+        "E",
+        "F",
+        "G"
+      ],
+      "expected_total": 4,
+      "name": "exact_category_and_new_predicates",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination",
+        "page_contains_exact_expected_original_records_in_order"
+      ]
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [],
+      "expected_total": 0,
+      "name": "incompatible_existing_category_control",
+      "original_failed_checks": []
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "J",
+        "K",
+        "Q"
+      ],
+      "expected_total": 9,
+      "name": "nfc_case_insensitive_category_or_note",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination",
+        "page_contains_exact_expected_original_records_in_order"
+      ]
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "J",
+        "S"
+      ],
+      "expected_total": 8,
+      "name": "metacharacters_remain_literal",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination",
+        "page_contains_exact_expected_original_records_in_order"
+      ]
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [
+        "B",
+        "U"
+      ],
+      "expected_total": 2,
+      "name": "same_unicode_query_selects_usd_only",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination",
+        "page_contains_exact_expected_original_records_in_order"
+      ]
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [
+        "L",
+        "M"
+      ],
+      "expected_total": 2,
+      "name": "japanese_note_and_category_across_denominations",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination",
+        "page_contains_exact_expected_original_records_in_order"
+      ]
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [],
+      "expected_total": 0,
+      "name": "separate_fields_do_not_make_cross_boundary_phrase",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination",
+        "page_contains_exact_expected_original_records_in_order"
+      ]
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [],
+      "expected_total": 0,
+      "name": "transaction_ids_are_not_query_surface",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination",
+        "page_contains_exact_expected_original_records_in_order"
+      ]
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [],
+      "expected_total": 0,
+      "name": "idempotency_keys_are_not_query_surface",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination",
+        "page_contains_exact_expected_original_records_in_order"
+      ]
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [
+        "U"
+      ],
+      "expected_total": 5,
+      "name": "omitted_new_selectors_preserve_old_exact_filter_page",
+      "original_failed_checks": []
+    },
+    {
+      "candidate_failed_checks": [],
+      "expected_labels": [
+        "U"
+      ],
+      "expected_total": 2,
+      "name": "currency_only_intersects_existing_filter_before_page",
+      "original_failed_checks": [
+        "total_counts_all_predicate_matches_before_pagination",
+        "page_contains_exact_expected_original_records_in_order"
+      ]
+    }
+  ],
+  "changed_paths": [
+    {
+      "candidate_git_blob": "e335dd91362ed4b98a0732d7bad7d3ce1d85ce5d",
+      "original_git_blob": "c531794d60442954a836db32c6fdafab5e08ba0e",
+      "path": "README.md"
+    },
+    {
+      "candidate_git_blob": "006878c66a116b4525c4be0c5bcf936a6b111ec4",
+      "original_git_blob": null,
+      "path": "docs/TRANSACTION_FILTERS.md"
+    },
+    {
+      "candidate_git_blob": "51c917262205de34696e747df9f21ad7f07de263",
+      "original_git_blob": "4df804650663542d0d014a925bc68241493ae517",
+      "path": "src/index.ts"
+    },
+    {
+      "candidate_git_blob": "0af7d35045b7c1bac7667da553fac58cd02dc922",
+      "original_git_blob": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+      "path": "src/ledger.ts"
+    },
+    {
+      "candidate_git_blob": "a1d4528eeca0d662757dba848c24d02a64e49ad4",
+      "original_git_blob": null,
+      "path": "test/transaction-filter-http.test.ts"
+    },
+    {
+      "candidate_git_blob": "d38247ed989de3745186c08f60d7319f694bbbf4",
+      "original_git_blob": null,
+      "path": "test/transaction-filter.test.ts"
+    }
+  ],
+  "complete_candidate_files": 86,
+  "complete_original_files": 83,
+  "complete_source_trees_byte_verified_after_receiving": true,
+  "dependency_receipts": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "cwd": "/Users/me/household-filter-independent-18a24bf0c281-runtime/original",
+      "elapsed_seconds": 1.2267670631408691,
+      "installed": [
+        {
+          "path": "@modelcontextprotocol/sdk/package.json",
+          "sha256": "0216319ea53177f7ed419d660b2f52ccc7e3327e57f9ee2ef03225ff543aeae4",
+          "version": "1.32.1"
+        },
+        {
+          "path": "typescript/package.json",
+          "sha256": "822ef7ca6452205657b6288b066481ecf508bfbf43455d715cf7d3ec457561e6",
+          "version": "5.9.3"
+        },
+        {
+          "path": "@types/node/package.json",
+          "sha256": "6e6bedd46e6541dce6fedbf7570c499a97476e1517123f0bdae4621dab023978",
+          "version": "24.19.1"
+        }
+      ],
+      "package_lock_sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+      "returncode": 0,
+      "source_commit": "d1b84d9b0cfe284e4563467943b19437e5a49967"
+    },
+    {
+      "candidate_intake_commit": "9de1ceecdc96fd5f9ceebf44757ef4d2e93c1ebf",
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "cwd": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate",
+      "dependency_identity_matches_original": true,
+      "elapsed_seconds": 1.302037000656128,
+      "installed": [
+        {
+          "path": "@modelcontextprotocol/sdk/package.json",
+          "sha256": "0216319ea53177f7ed419d660b2f52ccc7e3327e57f9ee2ef03225ff543aeae4",
+          "version": "1.32.1"
+        },
+        {
+          "path": "typescript/package.json",
+          "sha256": "822ef7ca6452205657b6288b066481ecf508bfbf43455d715cf7d3ec457561e6",
+          "version": "5.9.3"
+        },
+        {
+          "path": "@types/node/package.json",
+          "sha256": "6e6bedd46e6541dce6fedbf7570c499a97476e1517123f0bdae4621dab023978",
+          "version": "24.19.1"
+        }
+      ],
+      "package_lock_sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+      "returncode": 0
+    }
+  ],
+  "driver_changed": false,
+  "drivers": [
+    {
+      "bytes": 10376,
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/receiving/receive-filter.mjs",
+      "sha256": "ee09ffbb0dbd9241f93b185d2ea20dd90e7901ba33dfe85f86c6f4e1d4ee4ecf"
+    },
+    {
+      "bytes": 7554,
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/receiving/fixture-ledger.json",
+      "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432"
+    },
+    {
+      "bytes": 5797,
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/receiving/case-spec.json",
+      "sha256": "36b625f6d58a420d88452f88bb6d23960445a30dc1325ca6ce618dd1cdd6d786"
+    },
+    {
+      "bytes": 2140,
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/receiving/run_receiving.py",
+      "sha256": "01425c14ed476644c3c036f65a6d8f99ac56c8aa393f6db022465b55cb819e54"
+    }
+  ],
+  "fixture": {
+    "both_read_phases_preserved_bytes_inode_write_timestamps": true,
+    "budgets": 2,
+    "bytes": 7554,
+    "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+    "transactions": 22
+  },
+  "handoff_route": "existing #3 source-owner review; no canonical-main or native-ancestry integration claim",
+  "harness_errors": [],
+  "live_ledger_used": false,
+  "native": {
+    "disk_free_bytes": 4552683520,
+    "node": "v26.3.0",
+    "npm": "11.16.0",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.9.6"
+  },
+  "native_device": "0e3d582f-e25b-44b2-8418-9639fc4e4e33",
+  "native_parent_commit": "07e223b5da19cea0f048219d8c85689fcc1ba83f",
+  "native_parent_tree": "76cd2cc60b10dabdd301d32a53da4b833015193d",
+  "native_root": "/Users/me/household-filter-independent-18a24bf0c281-runtime",
+  "original": {
+    "actual_catalogue_selector_fields": [],
+    "cases": 14,
+    "cases_passed": 2,
+    "checks_passed": 75,
+    "checks_total": 98,
+    "receipt_sha256": "8b1f49f068bc008d32e337b07bd8c323b19d002424c886586daeffbd409dbdde"
+  },
+  "original_driver_commit": "626a390325350307a76b156ab8e709c946ed92cc",
+  "original_receiving_commit": "2ee112b3781b409144759b3c978a322969388421",
+  "original_source_intake_commit": "d1b84d9b0cfe284e4563467943b19437e5a49967",
+  "owner_evidence_commit": "836dd14f5b1d3a0b32e9fbb5e3d22b63913ab279",
+  "owner_source_commit": "f3aa61a5576c3cffb4c6762d5ef8aa970ec86634",
+  "owner_source_tree": "e69cd3751afae62e293a44f6300ed882fe2aa187",
+  "production_source_edited_by_reviewer": false,
+  "raw_archive": {
+    "bytes": 96284,
+    "members": 201,
+    "sha256": "c32909fcbad261b5d5de00b943b076721bbfbb1a8e3a6ce0ea671c7655057286"
+  },
+  "record_or_import_tool_calls": 0,
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "scope_issue": 6,
+  "unchanged_prior_files": 80,
+  "verdict": "accepted exact native candidate for independent MCP filter receiving"
+}

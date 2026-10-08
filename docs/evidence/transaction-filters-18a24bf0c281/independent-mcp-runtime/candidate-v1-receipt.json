@@ -1,0 +1,1774 @@
+{
+  "kind": "independent actual MCP transaction-filter receiving",
+  "variant": "candidate",
+  "run": "candidate-v1",
+  "source_root": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate",
+  "receiver_pid": 67380,
+  "node_version": "v26.3.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "only_synthetic_private_ledger": true,
+  "recording_or_import_tools_called": false,
+  "cases": [
+    {
+      "name": "predicates_before_page",
+      "arguments": {
+        "type": "expense",
+        "currency": " jPy ",
+        "query": " [Q]+. ",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "limit": 2,
+        "offset": 1
+      },
+      "expected_total": 4,
+      "expected_labels": [
+        "E",
+        "F"
+      ],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 4
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": [
+            "510ecade-0000-4000-8000-000000000006",
+            "510ecade-0000-4000-8000-000000000008"
+          ]
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":4,\"transactions\":[{\"id\":\"510ecade-0000-4000-8000-000000000006\",\"type\":\"expense\",\"amountMinor\":1006,\"currency\":\"JPY\",\"date\":\"2026-10-16\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-E\",\"createdAt\":\"2026-10-16T10:00:00.000Z\",\"note\":\"second window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000008\",\"type\":\"expense\",\"amountMinor\":1008,\"currency\":\"JPY\",\"date\":\"2026-10-15\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-F\",\"createdAt\":\"2026-10-15T10:00:00.000Z\",\"note\":\"third window purchase\"}]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "zero_page_keeps_filtered_total",
+      "arguments": {
+        "type": "expense",
+        "currency": " jPy ",
+        "query": " [Q]+. ",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "limit": 0,
+        "offset": 0
+      },
+      "expected_total": 4,
+      "expected_labels": [],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 4
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": []
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":4,\"transactions\":[]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "offset_at_filtered_end",
+      "arguments": {
+        "type": "expense",
+        "currency": " jPy ",
+        "query": " [Q]+. ",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "limit": 2,
+        "offset": 4
+      },
+      "expected_total": 4,
+      "expected_labels": [],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 4
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": []
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":4,\"transactions\":[]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "exact_category_and_new_predicates",
+      "arguments": {
+        "type": "expense",
+        "currency": " jPy ",
+        "query": " [Q]+. ",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "category": "Café [Q]+.",
+        "limit": 50
+      },
+      "expected_total": 4,
+      "expected_labels": [
+        "D",
+        "E",
+        "F",
+        "G"
+      ],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 4
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": [
+            "510ecade-0000-4000-8000-000000000004",
+            "510ecade-0000-4000-8000-000000000006",
+            "510ecade-0000-4000-8000-000000000008",
+            "510ecade-0000-4000-8000-000000000009"
+          ]
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":4,\"transactions\":[{\"id\":\"510ecade-0000-4000-8000-000000000004\",\"type\":\"expense\",\"amountMinor\":1004,\"currency\":\"JPY\",\"date\":\"2026-10-17\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-D\",\"createdAt\":\"2026-10-17T10:00:00.000Z\",\"note\":\"first window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000006\",\"type\":\"expense\",\"amountMinor\":1006,\"currency\":\"JPY\",\"date\":\"2026-10-16\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-E\",\"createdAt\":\"2026-10-16T10:00:00.000Z\",\"note\":\"second window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000008\",\"type\":\"expense\",\"amountMinor\":1008,\"currency\":\"JPY\",\"date\":\"2026-10-15\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-F\",\"createdAt\":\"2026-10-15T10:00:00.000Z\",\"note\":\"third window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000009\",\"type\":\"expense\",\"amountMinor\":1009,\"currency\":\"JPY\",\"date\":\"2026-10-14\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-G\",\"createdAt\":\"2026-10-14T10:00:00.000Z\",\"note\":\"fourth window purchase\"}]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "incompatible_existing_category_control",
+      "arguments": {
+        "type": "expense",
+        "currency": " jPy ",
+        "query": " [Q]+. ",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "category": "Transport"
+      },
+      "expected_total": 0,
+      "expected_labels": [],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 0
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": []
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":0,\"transactions\":[]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "nfc_case_insensitive_category_or_note",
+      "arguments": {
+        "currency": "jpy",
+        "query": " CAFÉ ",
+        "limit": 50
+      },
+      "expected_total": 9,
+      "expected_labels": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "J",
+        "K",
+        "Q"
+      ],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 9
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": [
+            "510ecade-0000-4000-8000-000000000003",
+            "510ecade-0000-4000-8000-000000000004",
+            "510ecade-0000-4000-8000-000000000006",
+            "510ecade-0000-4000-8000-000000000008",
+            "510ecade-0000-4000-8000-000000000009",
+            "510ecade-0000-4000-8000-000000000010",
+            "510ecade-0000-4000-8000-000000000012",
+            "510ecade-0000-4000-8000-000000000013",
+            "510ecade-0000-4000-8000-000000000019"
+          ]
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":9,\"transactions\":[{\"id\":\"510ecade-0000-4000-8000-000000000003\",\"type\":\"income\",\"amountMinor\":1003,\"currency\":\"JPY\",\"date\":\"2026-10-18\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-C\",\"createdAt\":\"2026-10-18T10:00:00.000Z\",\"note\":\"refund\"},{\"id\":\"510ecade-0000-4000-8000-000000000004\",\"type\":\"expense\",\"amountMinor\":1004,\"currency\":\"JPY\",\"date\":\"2026-10-17\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-D\",\"createdAt\":\"2026-10-17T10:00:00.000Z\",\"note\":\"first window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000006\",\"type\":\"expense\",\"amountMinor\":1006,\"currency\":\"JPY\",\"date\":\"2026-10-16\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-E\",\"createdAt\":\"2026-10-16T10:00:00.000Z\",\"note\":\"second window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000008\",\"type\":\"expense\",\"amountMinor\":1008,\"currency\":\"JPY\",\"date\":\"2026-10-15\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-F\",\"createdAt\":\"2026-10-15T10:00:00.000Z\",\"note\":\"third window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000009\",\"type\":\"expense\",\"amountMinor\":1009,\"currency\":\"JPY\",\"date\":\"2026-10-14\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-G\",\"createdAt\":\"2026-10-14T10:00:00.000Z\",\"note\":\"fourth window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000010\",\"type\":\"expense\",\"amountMinor\":1010,\"currency\":\"JPY\",\"date\":\"2026-10-13\",\"category\":\"Meals\",\"idempotencyKey\":\"private-HiddenKeyToken-H\",\"createdAt\":\"2026-10-13T10:00:00.000Z\",\"note\":\"Visited CAFÉ [Q]+. after meeting\"},{\"id\":\"510ecade-0000-4000-8000-000000000012\",\"type\":\"expense\",\"amountMinor\":1012,\"currency\":\" jPy \",\"date\":\"2026-10-11\",\"category\":\"Food\",\"idempotencyKey\":\"private-HiddenKeyToken-J\",\"createdAt\":\"2026-10-11T10:00:00.000Z\",\"note\":\"CAFÉ [Q]+. shared note\"},{\"id\":\"510ecade-0000-4000-8000-000000000013\",\"type\":\"expense\",\"amountMinor\":1013,\"currency\":\"JPY\",\"date\":\"2026-10-10\",\"category\":\"Café\",\"idempotencyKey\":\"private-HiddenKeyToken-K\",\"createdAt\":\"2026-10-10T10:00:00.000Z\",\"note\":\"Tokyo rent\"},{\"id\":\"510ecade-0000-4000-8000-000000000019\",\"type\":\"expense\",\"amountMinor\":1019,\"currency\":\"JPY\",\"date\":\"2026-10-04\",\"category\":\"CAFÉ\",\"idempotencyKey\":\"private-HiddenKeyToken-Q\",\"createdAt\":\"2026-10-04T10:00:00.000Z\",\"note\":\"paid\"}]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "metacharacters_remain_literal",
+      "arguments": {
+        "currency": "JPY",
+        "query": "[Q]+.",
+        "limit": 50
+      },
+      "expected_total": 8,
+      "expected_labels": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "J",
+        "S"
+      ],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 8
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": [
+            "510ecade-0000-4000-8000-000000000003",
+            "510ecade-0000-4000-8000-000000000004",
+            "510ecade-0000-4000-8000-000000000006",
+            "510ecade-0000-4000-8000-000000000008",
+            "510ecade-0000-4000-8000-000000000009",
+            "510ecade-0000-4000-8000-000000000010",
+            "510ecade-0000-4000-8000-000000000012",
+            "510ecade-0000-4000-8000-000000000021"
+          ]
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":8,\"transactions\":[{\"id\":\"510ecade-0000-4000-8000-000000000003\",\"type\":\"income\",\"amountMinor\":1003,\"currency\":\"JPY\",\"date\":\"2026-10-18\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-C\",\"createdAt\":\"2026-10-18T10:00:00.000Z\",\"note\":\"refund\"},{\"id\":\"510ecade-0000-4000-8000-000000000004\",\"type\":\"expense\",\"amountMinor\":1004,\"currency\":\"JPY\",\"date\":\"2026-10-17\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-D\",\"createdAt\":\"2026-10-17T10:00:00.000Z\",\"note\":\"first window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000006\",\"type\":\"expense\",\"amountMinor\":1006,\"currency\":\"JPY\",\"date\":\"2026-10-16\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-E\",\"createdAt\":\"2026-10-16T10:00:00.000Z\",\"note\":\"second window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000008\",\"type\":\"expense\",\"amountMinor\":1008,\"currency\":\"JPY\",\"date\":\"2026-10-15\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-F\",\"createdAt\":\"2026-10-15T10:00:00.000Z\",\"note\":\"third window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000009\",\"type\":\"expense\",\"amountMinor\":1009,\"currency\":\"JPY\",\"date\":\"2026-10-14\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-G\",\"createdAt\":\"2026-10-14T10:00:00.000Z\",\"note\":\"fourth window purchase\"},{\"id\":\"510ecade-0000-4000-8000-000000000010\",\"type\":\"expense\",\"amountMinor\":1010,\"currency\":\"JPY\",\"date\":\"2026-10-13\",\"category\":\"Meals\",\"idempotencyKey\":\"private-HiddenKeyToken-H\",\"createdAt\":\"2026-10-13T10:00:00.000Z\",\"note\":\"Visited CAFÉ [Q]+. after meeting\"},{\"id\":\"510ecade-0000-4000-8000-000000000012\",\"type\":\"expense\",\"amountMinor\":1012,\"currency\":\" jPy \",\"date\":\"2026-10-11\",\"category\":\"Food\",\"idempotencyKey\":\"private-HiddenKeyToken-J\",\"createdAt\":\"2026-10-11T10:00:00.000Z\",\"note\":\"CAFÉ [Q]+. shared note\"},{\"id\":\"510ecade-0000-4000-8000-000000000021\",\"type\":\"expense\",\"amountMinor\":1021,\"currency\":\"JPY\",\"date\":\"2026-10-02\",\"category\":\"Receipt\",\"idempotencyKey\":\"private-HiddenKeyToken-S\",\"createdAt\":\"2026-10-02T10:00:00.000Z\",\"note\":\"literal [Q]+. kiosk\"}]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "same_unicode_query_selects_usd_only",
+      "arguments": {
+        "currency": "usd",
+        "query": "café",
+        "limit": 50
+      },
+      "expected_total": 2,
+      "expected_labels": [
+        "B",
+        "U"
+      ],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 2
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": [
+            "510ecade-0000-4000-8000-000000000002",
+            "510ecade-0000-4000-8000-000000000005"
+          ]
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":2,\"transactions\":[{\"id\":\"510ecade-0000-4000-8000-000000000002\",\"type\":\"expense\",\"amountMinor\":1002,\"currency\":\"USD\",\"date\":\"2026-10-19\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-B\",\"createdAt\":\"2026-10-19T10:00:00.000Z\",\"note\":\"foreign card\"},{\"id\":\"510ecade-0000-4000-8000-000000000005\",\"type\":\"expense\",\"amountMinor\":1005,\"currency\":\"USD\",\"date\":\"2026-10-16\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-U\",\"createdAt\":\"2026-10-16T10:00:00.000Z\",\"note\":\"foreign midwindow\"}]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "japanese_note_and_category_across_denominations",
+      "arguments": {
+        "query": "東京",
+        "limit": 50
+      },
+      "expected_total": 2,
+      "expected_labels": [
+        "L",
+        "M"
+      ],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 2
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": [
+            "510ecade-0000-4000-8000-000000000014",
+            "510ecade-0000-4000-8000-000000000015"
+          ]
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":2,\"transactions\":[{\"id\":\"510ecade-0000-4000-8000-000000000014\",\"type\":\"expense\",\"amountMinor\":1014,\"currency\":\"JPY\",\"date\":\"2026-10-09\",\"category\":\"会議費\",\"idempotencyKey\":\"private-HiddenKeyToken-L\",\"createdAt\":\"2026-10-09T10:00:00.000Z\",\"note\":\"東京 カフェ\"},{\"id\":\"510ecade-0000-4000-8000-000000000015\",\"type\":\"expense\",\"amountMinor\":1015,\"currency\":\"USD\",\"date\":\"2026-10-08\",\"category\":\"東京\",\"idempotencyKey\":\"private-HiddenKeyToken-M\",\"createdAt\":\"2026-10-08T10:00:00.000Z\",\"note\":\"Decaf\"}]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "separate_fields_do_not_make_cross_boundary_phrase",
+      "arguments": {
+        "currency": "JPY",
+        "query": "alpha beta"
+      },
+      "expected_total": 0,
+      "expected_labels": [],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 0
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": []
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":0,\"transactions\":[]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "transaction_ids_are_not_query_surface",
+      "arguments": {
+        "query": "510ecade"
+      },
+      "expected_total": 0,
+      "expected_labels": [],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 0
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": []
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":0,\"transactions\":[]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "idempotency_keys_are_not_query_surface",
+      "arguments": {
+        "query": " hiddenkeytoken "
+      },
+      "expected_total": 0,
+      "expected_labels": [],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 0
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": []
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":0,\"transactions\":[]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "omitted_new_selectors_preserve_old_exact_filter_page",
+      "arguments": {
+        "type": "expense",
+        "category": "Café [Q]+.",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "limit": 1,
+        "offset": 1
+      },
+      "expected_total": 5,
+      "expected_labels": [
+        "U"
+      ],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 5
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": [
+            "510ecade-0000-4000-8000-000000000005"
+          ]
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":5,\"transactions\":[{\"id\":\"510ecade-0000-4000-8000-000000000005\",\"type\":\"expense\",\"amountMinor\":1005,\"currency\":\"USD\",\"date\":\"2026-10-16\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-U\",\"createdAt\":\"2026-10-16T10:00:00.000Z\",\"note\":\"foreign midwindow\"}]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "currency_only_intersects_existing_filter_before_page",
+      "arguments": {
+        "type": "expense",
+        "currency": " usd ",
+        "category": "Café [Q]+.",
+        "from": "2026-10-14",
+        "to": "2026-10-20",
+        "limit": 1,
+        "offset": 1
+      },
+      "expected_total": 2,
+      "expected_labels": [
+        "U"
+      ],
+      "before": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "checks": [
+        {
+          "name": "actual_tool_returns_transaction_result",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "total_counts_all_predicate_matches_before_pagination",
+          "passed": true,
+          "observed": 2
+        },
+        {
+          "name": "page_contains_exact_expected_original_records_in_order",
+          "passed": true,
+          "observed": [
+            "510ecade-0000-4000-8000-000000000005"
+          ]
+        },
+        {
+          "name": "all_returned_rows_are_unchanged_original_objects",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_content_bytes_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_inode_and_write_timestamps_remain_unchanged",
+          "passed": true,
+          "observed": null
+        },
+        {
+          "name": "ledger_directory_gains_no_files",
+          "passed": true,
+          "observed": null
+        }
+      ],
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"total\":2,\"transactions\":[{\"id\":\"510ecade-0000-4000-8000-000000000005\",\"type\":\"expense\",\"amountMinor\":1005,\"currency\":\"USD\",\"date\":\"2026-10-16\",\"category\":\"Café [Q]+.\",\"idempotencyKey\":\"private-HiddenKeyToken-U\",\"createdAt\":\"2026-10-16T10:00:00.000Z\",\"note\":\"foreign midwindow\"}]}"
+          }
+        ]
+      },
+      "call_error": null,
+      "after": {
+        "bytes": 7554,
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "file_identity": {
+          "dev": "16777233",
+          "ino": "134239746",
+          "mode": "33152",
+          "size": "7554",
+          "mtimeNs": "1791472443111498024",
+          "ctimeNs": "1791472443111498024"
+        },
+        "directory_members": [
+          "ledger.json"
+        ]
+      },
+      "passed": true
+    }
+  ],
+  "fixture_sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+  "fixture_transactions": 22,
+  "fixture_budget_count": 2,
+  "expected_counts_and_rows": "hand-enumerated in frozen case-spec.json",
+  "drivers": [
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/receiving/receive-filter.mjs",
+      "bytes": 10376,
+      "sha256": "ee09ffbb0dbd9241f93b185d2ea20dd90e7901ba33dfe85f86c6f4e1d4ee4ecf"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/receiving/fixture-ledger.json",
+      "bytes": 7554,
+      "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/receiving/case-spec.json",
+      "bytes": 5797,
+      "sha256": "36b625f6d58a420d88452f88bb6d23960445a30dc1325ca6ce618dd1cdd6d786"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/receiving/run_receiving.py",
+      "bytes": 2140,
+      "sha256": "01425c14ed476644c3c036f65a6d8f99ac56c8aa393f6db022465b55cb819e54"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/src/index.ts",
+      "bytes": 12201,
+      "sha256": "18e8ec2012a56f890c5eda5bbf702fc441758dffa5c49328f04a861651524e84"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/src/ledger.ts",
+      "bytes": 18291,
+      "sha256": "563066c3dee05f972e34cbbbccddd39ead315d9f316c1558701304af9311213c"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/src/cashflow.ts",
+      "bytes": 4761,
+      "sha256": "cb4631dce4679567d9d0e3a139440c51861dcdfad6029c8ef88b1b9bf122ce30"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/src/transaction-csv.ts",
+      "bytes": 6189,
+      "sha256": "0357e1d405be49dd352fcc088e75aaaf47c00eaf81c55f785d77ca4d4e48e8f0"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/src/transaction-import.ts",
+      "bytes": 8357,
+      "sha256": "729d0db509945c4670f03167497417799dd059f386a550b96d1162e1ccd3e985"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/package-lock.json",
+      "bytes": 43740,
+      "sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/tsconfig.json",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72"
+    }
+  ],
+  "executed_js": [
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/dist/src/index.js",
+      "bytes": 12940,
+      "sha256": "96c59720aeea37d32a8c79541553eed35690f093b5a08f3b9cec2d0d0abbd0d6"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/dist/src/ledger.js",
+      "bytes": 16352,
+      "sha256": "e2de79a3262c205f4b07ad225550a9b4379ec268389cfbbd4f003bf4210875b2"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/dist/src/cashflow.js",
+      "bytes": 3978,
+      "sha256": "447e140cf5879861cf1e25dab9d25c3e74abef98ddf6ce9e8e8ac5a97a21507a"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/dist/src/transaction-csv.js",
+      "bytes": 6334,
+      "sha256": "3cc676ecff4cc02cf5c4276a690735abe3b0b465e84718db4647e1e852db1d9c"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/dist/src/transaction-import.js",
+      "bytes": 7243,
+      "sha256": "d73723259e908213a8f6165af842414825550e04a47b77405b8075241c883f9b"
+    }
+  ],
+  "initial_ledger": {
+    "bytes": 7554,
+    "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+    "file_identity": {
+      "dev": "16777233",
+      "ino": "134239746",
+      "mode": "33152",
+      "size": "7554",
+      "mtimeNs": "1791472443111498024",
+      "ctimeNs": "1791472443111498024"
+    },
+    "directory_members": [
+      "ledger.json"
+    ]
+  },
+  "server": {
+    "pid": 67408,
+    "host": "127.0.0.1",
+    "port": 62388,
+    "executable": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/dist/src/index.js",
+    "data_path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/evidence/candidate-v1/fixture/ledger.json",
+    "health_status": 200,
+    "transport": "actual SDK StreamableHTTPClientTransport and actual native HTTP entry"
+  },
+  "tool_catalogue": {
+    "tools": [
+      {
+        "name": "cashflow_trend",
+        "description": "Read a 1–120 month income/expense series in one currency, including empty months, existing category/budget results and cumulative period net. Cumulative net starts at zero for the interval and is not an account balance. No conversion or write is performed.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "fromMonth": {
+              "type": "string",
+              "description": "Inclusive YYYY-MM, year 1970..9999."
+            },
+            "toMonth": {
+              "type": "string",
+              "description": "Inclusive YYYY-MM, on or after fromMonth; at most 120 months including both endpoints."
+            },
+            "currency": {
+              "type": "string",
+              "description": "Optional 3-letter selector for the whole interval. Required if its months resolve to multiple currencies. Existing unassigned-budget rules still apply."
+            }
+          },
+          "required": [
+            "fromMonth",
+            "toMonth"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "record_transaction",
+        "description": "Record a household income or expense transaction. Amounts are integer minor units (e.g. cents). Reuse an idempotencyKey with the same input to safely retry a recording after a lost response.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "income",
+                "expense"
+              ]
+            },
+            "amountMinor": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "currency": {
+              "type": "string",
+              "description": "3-letter currency code, e.g. USD"
+            },
+            "date": {
+              "type": "string",
+              "description": "YYYY-MM-DD"
+            },
+            "category": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "idempotencyKey": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "description": "Optional stable key for one logical recording. Exact retries return the original transaction; changed input with the same key is refused. No surrounding whitespace."
+            }
+          },
+          "required": [
+            "type",
+            "amountMinor",
+            "currency",
+            "date",
+            "category"
+          ]
+        }
+      },
+      {
+        "name": "list_transactions",
+        "description": "List/filter original transactions, newest first. Optional currency and literal category/note query combine with all other filters before counting and paging. No write or currency conversion is performed.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "income",
+                "expense"
+              ]
+            },
+            "category": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Optional 3-letter currency filter, normalized to uppercase."
+            },
+            "query": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "description": "Literal case-insensitive substring of category or note. Surrounding query whitespace is ignored. Canonically equivalent Unicode text matches; no regular expressions or hidden record fields are searched."
+            },
+            "from": {
+              "type": "string",
+              "description": "YYYY-MM-DD inclusive"
+            },
+            "to": {
+              "type": "string",
+              "description": "YYYY-MM-DD inclusive"
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000,
+              "default": 50
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          }
+        }
+      },
+      {
+        "name": "monthly_summary",
+        "description": "Income/expense totals, category breakdown and budgets in one currency for a month. Select currency when transactions or denominated budgets use multiple currencies. Unassigned budgets retain their legacy single-currency rule; ambiguous comparisons require explicit budget assignment.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "year": {
+              "type": "integer",
+              "minimum": 1970,
+              "maximum": 9999
+            },
+            "month": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12
+            },
+            "currency": {
+              "type": "string",
+              "description": "Optional 3-letter currency selector. Required when the month's transactions or denominated budgets use multiple currencies; normalized to uppercase. No conversion is performed."
+            }
+          },
+          "required": [
+            "year",
+            "month"
+          ]
+        }
+      },
+      {
+        "name": "set_budget",
+        "description": "Create or replace a category budget (minor units) for a YYYY-MM month. Supply currency to keep a separate limit for that denomination. Replacing an unassigned budget with a denominated limit also requires replaceUnassigned: true. Omitted currency preserves unassigned-budget behavior and cannot overwrite a denominated budget.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string"
+            },
+            "month": {
+              "type": "string",
+              "description": "YYYY-MM"
+            },
+            "limitMinor": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "currency": {
+              "type": "string",
+              "description": "Optional explicit 3-letter budget currency, normalized to uppercase. Amounts are minor units of this currency."
+            },
+            "replaceUnassigned": {
+              "type": "boolean",
+              "description": "Set true to assign the supplied currency and limit to an existing unassigned category/month budget. Requires currency."
+            }
+          },
+          "required": [
+            "category",
+            "month",
+            "limitMinor"
+          ]
+        }
+      },
+      {
+        "name": "get_budgets",
+        "description": "List category budgets for a YYYY-MM month. Omit currency to include all denominated and unassigned budgets; selecting currency returns only budgets explicitly assigned that denomination.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "month": {
+              "type": "string",
+              "description": "YYYY-MM"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Optional 3-letter currency filter for explicitly denominated budgets, normalized to uppercase."
+            }
+          },
+          "required": [
+            "month"
+          ]
+        }
+      },
+      {
+        "name": "preview_transaction_import",
+        "description": "Validate and preview a complete CSV of household transactions without writing. Requires a stable native idempotencyKey per row. Shows exact normalized values, original matching/conflicting records and per-currency totals. Review every row before committing; raw CSV is not persisted.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "csv": {
+              "type": "string",
+              "maxLength": 262144,
+              "description": "Complete CSV text, up to 256 KiB UTF-8 and 500 rows. Required headers: idempotencyKey,type,amountMinor,currency,date,category; optional note. Amounts are positive integer minor units. No bank-format inference or missing-field defaults."
+            }
+          },
+          "required": [
+            "csv"
+          ],
+          "additionalProperties": false
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "commit_transaction_import",
+        "description": "After the user reviews the exact normalized CSV preview, import its entire batch atomically through the existing ledger writer. Supply the same CSV and reviewToken. Current matching keys return original records without duplication; any conflict refuses all additions. A retry of the same content is safe. Run one server process per ledger file.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "csv": {
+              "type": "string",
+              "maxLength": 262144,
+              "description": "The exact complete CSV text that was reviewed."
+            },
+            "reviewToken": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$",
+              "description": "Content-binding token returned by preview_transaction_import. It does not lock the ledger or authenticate approval; current keys are rechecked inside the writer."
+            }
+          },
+          "required": [
+            "csv",
+            "reviewToken"
+          ],
+          "additionalProperties": false
+        },
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        }
+      }
+    ]
+  },
+  "final_ledger": {
+    "bytes": 7554,
+    "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+    "file_identity": {
+      "dev": "16777233",
+      "ino": "134239746",
+      "mode": "33152",
+      "size": "7554",
+      "mtimeNs": "1791472443111498024",
+      "ctimeNs": "1791472443111498024"
+    },
+    "directory_members": [
+      "ledger.json"
+    ]
+  },
+  "source_inputs_after": [
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/src/index.ts",
+      "bytes": 12201,
+      "sha256": "18e8ec2012a56f890c5eda5bbf702fc441758dffa5c49328f04a861651524e84"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/src/ledger.ts",
+      "bytes": 18291,
+      "sha256": "563066c3dee05f972e34cbbbccddd39ead315d9f316c1558701304af9311213c"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/src/cashflow.ts",
+      "bytes": 4761,
+      "sha256": "cb4631dce4679567d9d0e3a139440c51861dcdfad6029c8ef88b1b9bf122ce30"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/src/transaction-csv.ts",
+      "bytes": 6189,
+      "sha256": "0357e1d405be49dd352fcc088e75aaaf47c00eaf81c55f785d77ca4d4e48e8f0"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/src/transaction-import.ts",
+      "bytes": 8357,
+      "sha256": "729d0db509945c4670f03167497417799dd059f386a550b96d1162e1ccd3e985"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/package-lock.json",
+      "bytes": 43740,
+      "sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff"
+    },
+    {
+      "path": "/Users/me/household-filter-independent-18a24bf0c281-runtime/candidate/tsconfig.json",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72"
+    }
+  ],
+  "source_unchanged": true,
+  "complete_read_phase_preserved_file": true,
+  "source_changes_by_reviewer": false,
+  "checks_passed": 98,
+  "checks_total": 98,
+  "all_cases_passed": true,
+  "server_stdout": "household-ledger-mcp listening on http://127.0.0.1:62388 (POST /mcp, GET /healthz)\n",
+  "server_stderr": ""
+}

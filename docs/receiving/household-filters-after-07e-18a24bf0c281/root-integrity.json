@@ -1,0 +1,193 @@
+{
+  "schema": "household-filter-owner-receiving/1",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "owner": "estate-18a24bf0c281",
+  "issue": 6,
+  "route": "Existing issue3 ce7/source-parent and estate-61749b0088e2/canonical receiving",
+  "canonical_parent": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+  "native_parent": "07e223b5da19cea0f048219d8c85689fcc1ba83f",
+  "source": "f3aa61a5576c3cffb4c6762d5ef8aa970ec86634",
+  "source_tree": "e69cd3751afae62e293a44f6300ed882fe2aa187",
+  "author": {
+    "ok": true,
+    "handoff_sha256": "9b87e32c2aab510a55ab4aee385ddaecf2a9cd62cf41cc3c9a9251f3a380659d",
+    "parent": "07e223b5da19cea0f048219d8c85689fcc1ba83f",
+    "source": "f3aa61a5576c3cffb4c6762d5ef8aa970ec86634",
+    "evidence": "836dd14f5b1d3a0b32e9fbb5e3d22b63913ab279",
+    "tree": "ad58412f8979f84fed1b88f8f4b03e09a27b1dd0",
+    "base_leaves": 83,
+    "scoped": 37,
+    "unrelated_preserved": 80,
+    "final_leaves": 117,
+    "archive_bytes": 307871,
+    "archive_sha256": "ac5e9acc02860001ee2784b0aef481dc4dfd831f78452fed7f2fa05994d58421",
+    "archive_git_blob": "0e44f295b0e326811d07df165e7dc766611fc2c4",
+    "members": [
+      {
+        "name": "OWNER-HANDOFF.md",
+        "bytes": 3014,
+        "sha256": "03b2bc62cfec4bceedfe4c0a92bbf27dab48962ac8a4f235bea6a1f6b9fefb50"
+      },
+      {
+        "name": "PACKET-MANIFEST.json",
+        "bytes": 1170,
+        "sha256": "979a20c4f7ebb04ca8ef793532d8dc8e1617e3f471af4618e7af591901048a86"
+      },
+      {
+        "name": "after-owner.bundle",
+        "bytes": 49688,
+        "sha256": "27aaec90576dcc717610d9f5df809bd0bd16492ea92f85535c0b5fb2b3733e60"
+      },
+      {
+        "name": "after-owner.patch",
+        "bytes": 299837,
+        "sha256": "e0dba893bfdfdeca3220191273803a020dc9771429ba91a5232473574aaba534"
+      },
+      {
+        "name": "bundle-verification.json",
+        "bytes": 691,
+        "sha256": "32631e5a03be17a2dd86591807270902e1ff801a398b1e4fc1d351e274b14ef9"
+      },
+      {
+        "name": "complete-native.bundle",
+        "bytes": 190909,
+        "sha256": "c68abaef0663dae12ee181f5b6f5f30e92a0a60a66e01cfb80d15b7fca3628c5"
+      },
+      {
+        "name": "qualification.json",
+        "bytes": 2223,
+        "sha256": "3e64773825633d8476b29d7cfb602d92ee12133a02d9acc632a26367d5c4c8d5"
+      },
+      {
+        "name": "source-manifest.json",
+        "bytes": 33042,
+        "sha256": "9c18c81df1c8160b3f10ab5859b884c844e3ea74b7ed4b595dd577ce6733bbe8"
+      }
+    ],
+    "clean": true
+  },
+  "independent_packet": {
+    "bytes": 472477,
+    "sha256": "8ae28d7ade45d859f9407fa1bf8a34b0403753b2f52c51c39a4c64327d217c90",
+    "evidence_commit": "0c5892189db34abc44cbac8c84642f28000c36d0",
+    "files": 12,
+    "entries": [
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/REVIEW.md",
+        "bytes": 9122,
+        "git_blob": "9d6025cd7f8581c5561149898c844ff8ee81ad72",
+        "sha256": "4c68c7a5b77a33ccd972df883d4497587f77448a3db3e14962733509a62361bc",
+        "mode": "100644",
+        "encoding": "utf-8"
+      },
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/baseline-source.json",
+        "bytes": 23422,
+        "git_blob": "949b0678d819da31051624525f1cc08d7f36a156",
+        "sha256": "203df2b17400daa975d94dcffbf269ad3cb5239c47d6994a4257ef6ebb3e94c9",
+        "mode": "100644",
+        "encoding": "utf-8"
+      },
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/baseline-v1-receipt.json",
+        "bytes": 105965,
+        "git_blob": "102f425235d1a8b045e7f4f93a65f40d26103c8d",
+        "sha256": "8b1f49f068bc008d32e337b07bd8c323b19d002424c886586daeffbd409dbdde",
+        "mode": "100644",
+        "encoding": "utf-8"
+      },
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/candidate-source.json",
+        "bytes": 25352,
+        "git_blob": "b095075cb81806cb5db8b9c76f7b13fb2cc9f7f4",
+        "sha256": "9cb3d1f5b19a686494369001a9e4b1304645dc0fd87173df37026030abfe85ad",
+        "mode": "100644",
+        "encoding": "utf-8"
+      },
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/candidate-v1-receipt.json",
+        "bytes": 61371,
+        "git_blob": "7e29555297ca9bc09d6fb0dcd72e2352debc8d6e",
+        "sha256": "250490c41fa9d89287f7ed1212adb59c5e59b3d527724b5728f522bdde25b672",
+        "mode": "100644",
+        "encoding": "utf-8"
+      },
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/qualification-summary.json",
+        "bytes": 11492,
+        "git_blob": "8f3f78b41c83936e184583b4114572acfa7c9aea",
+        "sha256": "1638f25f80fbfdbd23cb783b3e37f0a6bbad6194e0ee4764051aed099111310c",
+        "mode": "100644",
+        "encoding": "utf-8"
+      },
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/raw-evidence-manifest.json",
+        "bytes": 39516,
+        "git_blob": "1adb05ac1a59ccbed98efc6832aa8f9f1a23b906",
+        "sha256": "cb6295af8cc23dd272c2cf1d487d36146a070599eeb45bd59112ad44d8faa927",
+        "mode": "100644",
+        "encoding": "utf-8"
+      },
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/raw-evidence.tar.xz",
+        "bytes": 96284,
+        "git_blob": "ed0548db3750846d7a237c30aa2723f2907be340",
+        "sha256": "c32909fcbad261b5d5de00b943b076721bbfbb1a8e3a6ce0ea671c7655057286",
+        "mode": "100644",
+        "encoding": "base64"
+      },
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/receiving/case-spec.json",
+        "bytes": 5797,
+        "git_blob": "8bfecae76d7b7ac1145dc20a5f7973d890ca5d44",
+        "sha256": "36b625f6d58a420d88452f88bb6d23960445a30dc1325ca6ce618dd1cdd6d786",
+        "mode": "100644",
+        "encoding": "utf-8"
+      },
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/receiving/fixture-ledger.json",
+        "bytes": 7554,
+        "git_blob": "f84ffc338671b737a5a8625a612cc57f6fabeaf5",
+        "sha256": "75cd5ab354837ffb2725de799679bc332e4fcde63fadba5bdb1836950fd71432",
+        "mode": "100644",
+        "encoding": "utf-8"
+      },
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/receiving/receive-filter.mjs",
+        "bytes": 10376,
+        "git_blob": "e07629e9ad9813a6cd15e7edd1ae11548113e8e5",
+        "sha256": "ee09ffbb0dbd9241f93b185d2ea20dd90e7901ba33dfe85f86c6f4e1d4ee4ecf",
+        "mode": "100644",
+        "encoding": "utf-8"
+      },
+      {
+        "path": "docs/evidence/transaction-filters-18a24bf0c281/independent-mcp-runtime/receiving/run_receiving.py",
+        "bytes": 2140,
+        "git_blob": "2b966500293f0e1f8bcae1ad0223796f29c05077",
+        "sha256": "01425c14ed476644c3c036f65a6d8f99ac56c8aa393f6db022465b55cb819e54",
+        "mode": "100644",
+        "encoding": "utf-8"
+      }
+    ]
+  },
+  "publication": {
+    "artifact_additions": 15,
+    "unchanged_canonical_leaves": 1,
+    "expected_total_leaves": 16,
+    "production_paths_added_or_modified": [],
+    "source_pr": false,
+    "main_merge": false
+  },
+  "root_review": [
+    "Two production diffs and complete user guide inspected.",
+    "All 37 changed source/evidence paths verified against Git and working bytes; all 80 unrelated native parent paths unchanged.",
+    "All eight author archive members read; seven non-self manifest entries verified.",
+    "All 12 independent packet files decoded, byte/SHA-256/Git-blob/mode verified.",
+    "Original negative results and author pending-independent historical record preserved."
+  ],
+  "limits": [
+    "Exact native contribution only; advanced sibling composition remains with owner.",
+    "No deployment, installed service, live ledger or main adoption.",
+    "Independent ledger metadata observations plus read-only source path; no syscall trace or crash-durability claim."
+  ]
+}

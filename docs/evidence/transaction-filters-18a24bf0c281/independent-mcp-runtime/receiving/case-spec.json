@@ -1,0 +1,234 @@
+{
+  "kind": "independent handwritten receiving expectations",
+  "label_to_id": {
+    "A": "510ecade-0000-4000-8000-000000000001",
+    "B": "510ecade-0000-4000-8000-000000000002",
+    "C": "510ecade-0000-4000-8000-000000000003",
+    "D": "510ecade-0000-4000-8000-000000000004",
+    "U": "510ecade-0000-4000-8000-000000000005",
+    "E": "510ecade-0000-4000-8000-000000000006",
+    "V": "510ecade-0000-4000-8000-000000000007",
+    "F": "510ecade-0000-4000-8000-000000000008",
+    "G": "510ecade-0000-4000-8000-000000000009",
+    "H": "510ecade-0000-4000-8000-000000000010",
+    "I": "510ecade-0000-4000-8000-000000000011",
+    "J": "510ecade-0000-4000-8000-000000000012",
+    "K": "510ecade-0000-4000-8000-000000000013",
+    "L": "510ecade-0000-4000-8000-000000000014",
+    "M": "510ecade-0000-4000-8000-000000000015",
+    "N": "510ecade-0000-4000-8000-000000000016",
+    "O": "510ecade-0000-4000-8000-000000000017",
+    "P": "510ecade-0000-4000-8000-000000000018",
+    "Q": "510ecade-0000-4000-8000-000000000019",
+    "R": "510ecade-0000-4000-8000-000000000020",
+    "S": "510ecade-0000-4000-8000-000000000021",
+    "T": "510ecade-0000-4000-8000-000000000022"
+  },
+  "cases": [
+    {
+      "name": "predicates_before_page",
+      "args": {
+        "type": "expense",
+        "currency": " jPy ",
+        "query": " [Q]+. ",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "limit": 2,
+        "offset": 1
+      },
+      "total": 4,
+      "labels": [
+        "E",
+        "F"
+      ]
+    },
+    {
+      "name": "zero_page_keeps_filtered_total",
+      "args": {
+        "type": "expense",
+        "currency": " jPy ",
+        "query": " [Q]+. ",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "limit": 0,
+        "offset": 0
+      },
+      "total": 4,
+      "labels": []
+    },
+    {
+      "name": "offset_at_filtered_end",
+      "args": {
+        "type": "expense",
+        "currency": " jPy ",
+        "query": " [Q]+. ",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "limit": 2,
+        "offset": 4
+      },
+      "total": 4,
+      "labels": []
+    },
+    {
+      "name": "exact_category_and_new_predicates",
+      "args": {
+        "type": "expense",
+        "currency": " jPy ",
+        "query": " [Q]+. ",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "category": "Café [Q]+.",
+        "limit": 50
+      },
+      "total": 4,
+      "labels": [
+        "D",
+        "E",
+        "F",
+        "G"
+      ]
+    },
+    {
+      "name": "incompatible_existing_category_control",
+      "args": {
+        "type": "expense",
+        "currency": " jPy ",
+        "query": " [Q]+. ",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "category": "Transport"
+      },
+      "total": 0,
+      "labels": []
+    },
+    {
+      "name": "nfc_case_insensitive_category_or_note",
+      "args": {
+        "currency": "jpy",
+        "query": " CAFÉ ",
+        "limit": 50
+      },
+      "total": 9,
+      "labels": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "J",
+        "K",
+        "Q"
+      ]
+    },
+    {
+      "name": "metacharacters_remain_literal",
+      "args": {
+        "currency": "JPY",
+        "query": "[Q]+.",
+        "limit": 50
+      },
+      "total": 8,
+      "labels": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "J",
+        "S"
+      ]
+    },
+    {
+      "name": "same_unicode_query_selects_usd_only",
+      "args": {
+        "currency": "usd",
+        "query": "café",
+        "limit": 50
+      },
+      "total": 2,
+      "labels": [
+        "B",
+        "U"
+      ]
+    },
+    {
+      "name": "japanese_note_and_category_across_denominations",
+      "args": {
+        "query": "東京",
+        "limit": 50
+      },
+      "total": 2,
+      "labels": [
+        "L",
+        "M"
+      ]
+    },
+    {
+      "name": "separate_fields_do_not_make_cross_boundary_phrase",
+      "args": {
+        "currency": "JPY",
+        "query": "alpha beta"
+      },
+      "total": 0,
+      "labels": []
+    },
+    {
+      "name": "transaction_ids_are_not_query_surface",
+      "args": {
+        "query": "510ecade"
+      },
+      "total": 0,
+      "labels": []
+    },
+    {
+      "name": "idempotency_keys_are_not_query_surface",
+      "args": {
+        "query": " hiddenkeytoken "
+      },
+      "total": 0,
+      "labels": []
+    },
+    {
+      "name": "omitted_new_selectors_preserve_old_exact_filter_page",
+      "args": {
+        "type": "expense",
+        "category": "Café [Q]+.",
+        "from": "2026-10-14",
+        "to": "2026-10-18",
+        "limit": 1,
+        "offset": 1
+      },
+      "total": 5,
+      "labels": [
+        "U"
+      ]
+    },
+    {
+      "name": "currency_only_intersects_existing_filter_before_page",
+      "args": {
+        "type": "expense",
+        "currency": " usd ",
+        "category": "Café [Q]+.",
+        "from": "2026-10-14",
+        "to": "2026-10-20",
+        "limit": 1,
+        "offset": 1
+      },
+      "total": 2,
+      "labels": [
+        "U"
+      ]
+    }
+  ],
+  "fixture_notes": [
+    "22 authored valid persisted transaction objects; no live ledger and no recording/import tool call",
+    "U and V sit inside the date window and ahead of valid page members, so currency/query must run before total and pagination",
+    "J deliberately retains an admitted stored currency with whitespace/mixed case and a decomposed note; K has a decomposed category",
+    "IDs and idempotency keys carry private hidden query sentinels absent from category/note",
+    "Two existing denominated budgets and the version2 envelope must remain byte-identical during reads",
+    "Expected IDs, counts and order are enumerated by hand, not computed with a copy of the production predicate"
+  ]
+}

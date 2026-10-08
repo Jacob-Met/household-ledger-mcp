@@ -1,0 +1,260 @@
+{
+  "version": 2,
+  "transactions": [
+    {
+      "id": "510ecade-0000-4000-8000-000000000001",
+      "type": "expense",
+      "amountMinor": 1001,
+      "currency": "JPY",
+      "date": "2026-10-20",
+      "category": "Transport",
+      "idempotencyKey": "private-HiddenKeyToken-A",
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "note": "unrelated recent"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000002",
+      "type": "expense",
+      "amountMinor": 1002,
+      "currency": "USD",
+      "date": "2026-10-19",
+      "category": "Café [Q]+.",
+      "idempotencyKey": "private-HiddenKeyToken-B",
+      "createdAt": "2026-10-19T10:00:00.000Z",
+      "note": "foreign card"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000003",
+      "type": "income",
+      "amountMinor": 1003,
+      "currency": "JPY",
+      "date": "2026-10-18",
+      "category": "Café [Q]+.",
+      "idempotencyKey": "private-HiddenKeyToken-C",
+      "createdAt": "2026-10-18T10:00:00.000Z",
+      "note": "refund"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000004",
+      "type": "expense",
+      "amountMinor": 1004,
+      "currency": "JPY",
+      "date": "2026-10-17",
+      "category": "Café [Q]+.",
+      "idempotencyKey": "private-HiddenKeyToken-D",
+      "createdAt": "2026-10-17T10:00:00.000Z",
+      "note": "first window purchase"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000005",
+      "type": "expense",
+      "amountMinor": 1005,
+      "currency": "USD",
+      "date": "2026-10-16",
+      "category": "Café [Q]+.",
+      "idempotencyKey": "private-HiddenKeyToken-U",
+      "createdAt": "2026-10-16T10:00:00.000Z",
+      "note": "foreign midwindow"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000006",
+      "type": "expense",
+      "amountMinor": 1006,
+      "currency": "JPY",
+      "date": "2026-10-16",
+      "category": "Café [Q]+.",
+      "idempotencyKey": "private-HiddenKeyToken-E",
+      "createdAt": "2026-10-16T10:00:00.000Z",
+      "note": "second window purchase"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000007",
+      "type": "expense",
+      "amountMinor": 1007,
+      "currency": "JPY",
+      "date": "2026-10-15",
+      "category": "Other",
+      "idempotencyKey": "private-HiddenKeyToken-V",
+      "createdAt": "2026-10-15T10:00:00.000Z",
+      "note": "nothing relevant"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000008",
+      "type": "expense",
+      "amountMinor": 1008,
+      "currency": "JPY",
+      "date": "2026-10-15",
+      "category": "Café [Q]+.",
+      "idempotencyKey": "private-HiddenKeyToken-F",
+      "createdAt": "2026-10-15T10:00:00.000Z",
+      "note": "third window purchase"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000009",
+      "type": "expense",
+      "amountMinor": 1009,
+      "currency": "JPY",
+      "date": "2026-10-14",
+      "category": "Café [Q]+.",
+      "idempotencyKey": "private-HiddenKeyToken-G",
+      "createdAt": "2026-10-14T10:00:00.000Z",
+      "note": "fourth window purchase"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000010",
+      "type": "expense",
+      "amountMinor": 1010,
+      "currency": "JPY",
+      "date": "2026-10-13",
+      "category": "Meals",
+      "idempotencyKey": "private-HiddenKeyToken-H",
+      "createdAt": "2026-10-13T10:00:00.000Z",
+      "note": "Visited CAFÉ [Q]+. after meeting"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000011",
+      "type": "expense",
+      "amountMinor": 1011,
+      "currency": "EUR",
+      "date": "2026-10-12",
+      "category": "Meals",
+      "idempotencyKey": "private-HiddenKeyToken-I",
+      "createdAt": "2026-10-12T10:00:00.000Z",
+      "note": "Café [Q]+."
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000012",
+      "type": "expense",
+      "amountMinor": 1012,
+      "currency": " jPy ",
+      "date": "2026-10-11",
+      "category": "Food",
+      "idempotencyKey": "private-HiddenKeyToken-J",
+      "createdAt": "2026-10-11T10:00:00.000Z",
+      "note": "CAFÉ [Q]+. shared note"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000013",
+      "type": "expense",
+      "amountMinor": 1013,
+      "currency": "JPY",
+      "date": "2026-10-10",
+      "category": "Café",
+      "idempotencyKey": "private-HiddenKeyToken-K",
+      "createdAt": "2026-10-10T10:00:00.000Z",
+      "note": "Tokyo rent"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000014",
+      "type": "expense",
+      "amountMinor": 1014,
+      "currency": "JPY",
+      "date": "2026-10-09",
+      "category": "会議費",
+      "idempotencyKey": "private-HiddenKeyToken-L",
+      "createdAt": "2026-10-09T10:00:00.000Z",
+      "note": "東京 カフェ"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000015",
+      "type": "expense",
+      "amountMinor": 1015,
+      "currency": "USD",
+      "date": "2026-10-08",
+      "category": "東京",
+      "idempotencyKey": "private-HiddenKeyToken-M",
+      "createdAt": "2026-10-08T10:00:00.000Z",
+      "note": "Decaf"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000016",
+      "type": "expense",
+      "amountMinor": 1016,
+      "currency": "JPY",
+      "date": "2026-10-07",
+      "category": "cafe",
+      "idempotencyKey": "private-HiddenKeyToken-N",
+      "createdAt": "2026-10-07T10:00:00.000Z",
+      "note": "unaccented receipt"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000017",
+      "type": "expense",
+      "amountMinor": 1017,
+      "currency": "JPY",
+      "date": "2026-10-06",
+      "category": "ALPHA",
+      "idempotencyKey": "private-HiddenKeyToken-O",
+      "createdAt": "2026-10-06T10:00:00.000Z",
+      "note": "BETA"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000018",
+      "type": "expense",
+      "amountMinor": 1018,
+      "currency": "JPY",
+      "date": "2026-10-05",
+      "category": "zero",
+      "idempotencyKey": "private-HiddenKeyToken-P",
+      "createdAt": "2026-10-05T10:00:00.000Z"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000019",
+      "type": "expense",
+      "amountMinor": 1019,
+      "currency": "JPY",
+      "date": "2026-10-04",
+      "category": "CAFÉ",
+      "idempotencyKey": "private-HiddenKeyToken-Q",
+      "createdAt": "2026-10-04T10:00:00.000Z",
+      "note": "paid"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000020",
+      "type": "expense",
+      "amountMinor": 1020,
+      "currency": "JPY",
+      "date": "2026-10-03",
+      "category": "No symbols",
+      "idempotencyKey": "private-HiddenKeyToken-R",
+      "createdAt": "2026-10-03T10:00:00.000Z",
+      "note": "QQQx"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000021",
+      "type": "expense",
+      "amountMinor": 1021,
+      "currency": "JPY",
+      "date": "2026-10-02",
+      "category": "Receipt",
+      "idempotencyKey": "private-HiddenKeyToken-S",
+      "createdAt": "2026-10-02T10:00:00.000Z",
+      "note": "literal [Q]+. kiosk"
+    },
+    {
+      "id": "510ecade-0000-4000-8000-000000000022",
+      "type": "income",
+      "amountMinor": 1022,
+      "currency": "USD",
+      "date": "2026-10-01",
+      "category": "Support",
+      "idempotencyKey": "private-HiddenKeyToken-T",
+      "createdAt": "2026-10-01T10:00:00.000Z",
+      "note": "plain record"
+    }
+  ],
+  "budgets": [
+    {
+      "category": "Safety reserve",
+      "month": "2026-10",
+      "limitMinor": 10000,
+      "currency": "USD"
+    },
+    {
+      "category": "Safety reserve",
+      "month": "2026-10",
+      "limitMinor": 500000,
+      "currency": "JPY"
+    }
+  ]
+}
