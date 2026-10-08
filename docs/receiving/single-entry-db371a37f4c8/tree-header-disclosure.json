@@ -1,0 +1,18 @@
+{
+  "retrievalUrl": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/591ab6f5a2d65bf596aeb707dbb635ee981ec926?recursive=1",
+  "rawHeader": {
+    "sha": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+    "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+    "truncated": false
+  },
+  "entries": 134,
+  "leafCount": 116,
+  "declaredRootTree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+  "declarationBasis": "Existing PR8-owner contribution/claim metadata, not an author root-tree reconstruction.",
+  "rawPreservation": "source-packet.fullTree preserves the connector response exactly; raw.sha is a commit-valued requested reference, not admitted as a root-tree identity.",
+  "nativeAdmission": "The 25 selected source files were each byte-count/SHA1-Git-blob checked against the returned leaf entries; all retained candidate inheritance checks use those exact bytes.",
+  "independent": "Root R2 independently reconstructed bf7d8bedaa3ed02665e56b021f543259b8c4a854 from all116 leaves and verified every supplied subtree identity. All25 original text hashes matched. Original-only compilation passed with unchanged source and matching installed package versions. Root R1 header-assumption failure remains preserved. This statement is attributed to root's handoff, not a duplicate author reconstruction.",
+  "cause": "Whether GitHub or the connector produced this header is not established. No API retry was used to invent an attribution.",
+  "immutable": "Original source-packet, author-packet archive and original manifest remain unchanged. This disclosure is additive.",
+  "recordedAt": "2026-10-08 22:25:27 UTC"
+}

@@ -1,0 +1,91 @@
+{
+  "time": "2026-10-08T23:24:29.151743+00:00",
+  "parent": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+  "prefix": "docs/receiving/single-entry-db371a37f4c8/",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5177,
+      "sha256": "eefaed1dec91f44a293dacf87aaecc170fbb07eab51e326a20d6b6b2d9bf513e",
+      "git": "727b6990a19a088015a1a49bd6b936a158e25c50"
+    },
+    {
+      "path": "ROOT.md",
+      "bytes": 7755,
+      "sha256": "25c2dee08ca4cc3868a7dbed78fffb3f77caa81a11fb66c542e447215b83ffba",
+      "git": "07b2d7df489e8f91a4fc4d9cf101575d064a808f"
+    },
+    {
+      "path": "after-owner.patch",
+      "bytes": 32707,
+      "sha256": "0df8ffaed161f08c3538a17dd4deab56f0695d69fc877bff8692de77ba6bc62f",
+      "git": "f7b58be2924095d99f473bb88e3253448627a92a"
+    },
+    {
+      "path": "author-r1.tar.gz",
+      "bytes": 980576,
+      "sha256": "d8825d21803aa6ea1951d623a81160207739341e1dc2a2d6a8208c0756a77777",
+      "git": "7160615370f18ef127b6e9bd58f87d2fde393cd2"
+    },
+    {
+      "path": "author-receiving.md",
+      "bytes": 4245,
+      "sha256": "1580d1396e1565f9c56dd9ccfa6b601d1a78e24467552b109b492207447e8c29",
+      "git": "bfdf211463cc028c099e3a6fa792e552abc7a095"
+    },
+    {
+      "path": "candidate-full-tree-r1.json",
+      "bytes": 27805,
+      "sha256": "8cee8ad76f0076b295eb236fb38797f2455414b283aa28bd5a47f74dc840b353",
+      "git": "dee462ecc8b973029b0e650c83cdc8dbad5b2b60"
+    },
+    {
+      "path": "candidate-source-pins-r1.json",
+      "bytes": 22067,
+      "sha256": "2997fb03586387cc9af8558c5920b6fd3036af7564ebba6a3ef24280c9dc005b",
+      "git": "9c75a2fd84dc04e47b68fb36fc188af6203d63dc"
+    },
+    {
+      "path": "root-receiving.tar.gz",
+      "bytes": 570989,
+      "sha256": "03c07f7b11313a290c778d6d11c7802425453eff8171659d31f2e414b51e0730",
+      "git": "5331d8f3a7396acb8fdce5c7343547ee2948a327"
+    },
+    {
+      "path": "source/docs/RECORD_CLIENT.md",
+      "bytes": 5090,
+      "sha256": "90ebeae2764c1461686021f9cfbb8429a7cc0ebba5b4a7d1e0485d4bfe47bbb7",
+      "git": "5f03d76bfaaa9b755912d195ee9079881d275513"
+    },
+    {
+      "path": "source/src/household-record.ts",
+      "bytes": 5402,
+      "sha256": "7556222c4ec172f167644911690b09fcc8e408d3b1a01db9bf8fbb37847fa885",
+      "git": "04ab88f3e98c2c218fb240d1f0aa823c510275a0"
+    },
+    {
+      "path": "source/src/record-client.ts",
+      "bytes": 7756,
+      "sha256": "9da5321b65b12f3f8c1cb29c58d0ed85bbed7365409f8ca7d676ef9e82bc74aa",
+      "git": "9104ba0b1a6312888369c9dbac5d01aab4f6945a"
+    },
+    {
+      "path": "source/test/record-client-http.test.ts",
+      "bytes": 7000,
+      "sha256": "7b1e6d0bb5780434fcbe346bad856fb4faf80b6fc42536def4e44476fad1fe4c",
+      "git": "f3c985f1cfca10943e5f87fc345839f68d6d5453"
+    },
+    {
+      "path": "source/test/record-client.test.ts",
+      "bytes": 5934,
+      "sha256": "c8ce69ed483435f30f206bf99d45d9ed48c2d4a98373b1a50b3cda85712bf133",
+      "git": "b49e313dd4f7f124a118d4f021d767926879b7c0"
+    },
+    {
+      "path": "tree-header-disclosure.json",
+      "bytes": 1705,
+      "sha256": "039609c28e24aa556c16f2ad2d8edcc3cdd69e6bcee83d93785cef52c13ba74c",
+      "git": "8715d950789164a73db96ee113056a248b7a0ff1"
+    }
+  ]
+}

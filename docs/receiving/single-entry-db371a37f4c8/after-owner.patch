@@ -1,0 +1,530 @@
+diff --git a/src/record-client.ts b/src/record-client.ts
+new file mode 100644
+index 0000000..9104ba0b1a6312888369c9dbac5d01aab4f6945a
+--- /dev/null
++++ b/src/record-client.ts
+@@ -0,0 +1,130 @@
++import { randomUUID } from "node:crypto";
++import { constants } from "node:fs";
++import { open, lstat } from "node:fs/promises";
++import { Client } from "@modelcontextprotocol/sdk/client/index.js";
++import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
++import { emptyLedger, recordTransaction, type RecordTransactionInput, type Transaction, ValidationError } from "./ledger.js";
++
++export interface RecordingRequest {
++  version: 1;
++  endpoint: string;
++  transaction: RecordTransactionInput & { idempotencyKey: string };
++}
++const MAX_REQUEST_BYTES = 65536;
++function fail(message: string): never { throw new ValidationError(message); }
++function object(value: unknown): Record<string, unknown> {
++  if (!value || typeof value !== "object" || Array.isArray(value)) fail("Expected a JSON object.");
++  return value as Record<string, unknown>;
++}
++function exactKeys(value: Record<string, unknown>, allowed: string[]): void {
++  if (Object.keys(value).some(k => !allowed.includes(k))) fail("Unexpected request field.");
++}
++
++export function recordingEndpoint(raw: string): string {
++  let url: URL;
++  try { url = new URL(raw); } catch { return fail("Endpoint must be an explicit loopback HTTP /mcp URL."); }
++  if (url.protocol !== "http:" || !["127.0.0.1", "[::1]"].includes(url.hostname) ||
++      url.pathname !== "/mcp" || url.search || url.hash || url.username || url.password)
++    fail("Endpoint must be http://127.0.0.1:PORT/mcp or http://[::1]:PORT/mcp without credentials, query or fragment.");
++  return url.href;
++}
++
++/** Preview uses the actual domain validator on a detached, discarded ledger. */
++export function prepareRecording(endpoint: string, raw: unknown, key: string = randomUUID()): RecordingRequest {
++  const input = object(raw);
++  exactKeys(input, ["type", "amountMinor", "currency", "date", "category", "note", "idempotencyKey"]);
++  const tx = recordTransaction(emptyLedger(), { ...input, idempotencyKey: input.idempotencyKey === undefined ? key : input.idempotencyKey } as unknown as RecordTransactionInput);
++  const { id: _id, createdAt: _createdAt, ...transaction } = tx;
++  const result: RecordingRequest = { version: 1, endpoint: recordingEndpoint(endpoint),
++    transaction: transaction as RecordingRequest["transaction"] };
++  if (Buffer.byteLength(JSON.stringify(result), "utf8") > MAX_REQUEST_BYTES) fail("Recording request exceeds 64 KiB.");
++  return result;
++}
++
++export function parseRecording(raw: unknown): RecordingRequest {
++  const value = object(raw);
++  exactKeys(value, ["version", "endpoint", "transaction"]);
++  if (value.version !== 1 || typeof value.endpoint !== "string") fail("Unsupported recording request.");
++  const tx = object(value.transaction);
++  if (typeof tx.idempotencyKey !== "string") fail("Recovery request must retain its original idempotencyKey.");
++  const normalized = prepareRecording(value.endpoint, tx);
++  // A recovery file must already contain the exact reviewed values, not silently
++  // become a changed recording after trimming or currency normalization.
++  if (normalized.endpoint !== value.endpoint ||
++      Object.keys(normalized.transaction).length !== Object.keys(tx).length ||
++      Object.entries(normalized.transaction).some(([k, v]) => tx[k] !== v))
++    fail("Recovery request is not the exact normalized recording.");
++  return normalized;
++}
++
++export async function saveRecordingRequest(path: string, request: RecordingRequest): Promise<void> {
++  const checked = parseRecording(request);
++  const bytes = Buffer.from(JSON.stringify(checked, null, 2) + "\n", "utf8");
++  if (bytes.length > MAX_REQUEST_BYTES) fail("Recording request exceeds 64 KiB.");
++  // wx refuses existing files and links. A failed write remains as failure
++  // evidence; no server call follows. Never replace an older recovery request.
++  const handle = await open(path, "wx", 0o600);
++  try { await handle.writeFile(bytes); await handle.sync(); }
++  finally { await handle.close(); }
++}
++
++export async function loadRecordingRequest(path: string): Promise<RecordingRequest> {
++  const before = await lstat(path);
++  if (!before.isFile() || before.size > MAX_REQUEST_BYTES) fail("Recovery request must be a regular file of at most 64 KiB.");
++  const handle = await open(path, constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0) | (constants.O_NONBLOCK ?? 0));
++  try {
++    const stat = await handle.stat();
++    if (!stat.isFile() || stat.dev !== before.dev || stat.ino !== before.ino || stat.size > MAX_REQUEST_BYTES) fail("Recovery request must be a regular file of at most 64 KiB.");
++    const bytes = await handle.readFile();
++    if (bytes.length > MAX_REQUEST_BYTES) fail("Recovery request exceeds 64 KiB.");
++    const text = new TextDecoder("utf-8", { fatal: true }).decode(bytes);
++    return parseRecording(JSON.parse(text));
++  } finally { await handle.close(); }
++}
++
++export function literal(value: unknown): string {
++  return JSON.stringify(value).replace(/[\p{Cf}\u2028\u2029]/gu, c => c.split("").map(x => "\\u" + x.charCodeAt(0).toString(16).padStart(4, "0")).join(""));
++}
++
++export function recordingPreview(request: RecordingRequest): string {
++  const checked = parseRecording(request);
++  return "Review one recording (amountMinor is an integer, not a decimal amount):\n" +
++    Object.entries(checked).map(([key, value]) => "  " + key + ": " + literal(value)).join("\n") + "\n";
++}
++
++export function admittedRecordingResponse(request: RecordingRequest, result: unknown): Transaction {
++  const response = object(result);
++  if (response.isError === true) fail("Service reported an error; a successful recording is not confirmed.");
++  if (!Array.isArray(response.content) || response.content.length !== 1) fail("Unexpected service response; recording is unconfirmed.");
++  const block = object(response.content[0]);
++  if (block.type !== "text" || typeof block.text !== "string" || Buffer.byteLength(block.text) > MAX_REQUEST_BYTES)
++    fail("Unexpected service response; recording is unconfirmed.");
++  const tx = object(JSON.parse(block.text));
++  if (typeof tx.id !== "string" || !tx.id || typeof tx.createdAt !== "string" || !tx.createdAt ||
++      Object.entries(request.transaction).some(([k, v]) => tx[k] !== v) ||
++      (request.transaction.note === undefined && tx.note !== undefined))
++    fail("Service response does not match the reviewed request; recording is unconfirmed.");
++  return tx as unknown as Transaction;
++}
++
++export type RecordingOutcome =
++  | { status: "confirmed"; transaction: Transaction }
++  | { status: "not_sent" | "unconfirmed"; message: string };
++
++/** One explicit confirmation permits one call. The SDK is never asked to retry. */
++export async function sendRecording(request: RecordingRequest, signal?: AbortSignal): Promise<RecordingOutcome> {
++  const checked = parseRecording(request);
++  const client = new Client({ name: "household-single-entry", version: "1" }, { capabilities: {} });
++  const transport = new StreamableHTTPClientTransport(new URL(checked.endpoint), { requestInit: { redirect: "error" } });
++  let attempted = false;
++  try {
++    if (signal?.aborted) return { status: "not_sent", message: "Canceled before connection." };
++    await client.connect(transport, { timeout: 15000, signal });
++    if (signal?.aborted) return { status: "not_sent", message: "Canceled before recording." };
++    attempted = true;
++    const result = await client.callTool({ name: "record_transaction", arguments: { ...checked.transaction } }, undefined, { timeout: 15000, signal });
++    return { status: "confirmed", transaction: admittedRecordingResponse(checked, result) };
++  } catch (error) {
++    return { status: attempted ? "unconfirmed" : "not_sent", message: error instanceof Error ? error.message : String(error) };
++  } finally { await client.close().catch(() => undefined); }
++}
+diff --git a/src/household-record.ts b/src/household-record.ts
+new file mode 100644
+index 0000000..04ab88f3e98c2c218fb240d1f0aa823c510275a0
+--- /dev/null
++++ b/src/household-record.ts
+@@ -0,0 +1,90 @@
++import { createInterface } from "node:readline";
++import { realpath } from "node:fs/promises";
++import { fileURLToPath } from "node:url";
++import { resolve } from "node:path";
++import { prepareRecording, saveRecordingRequest, loadRecordingRequest, recordingPreview, sendRecording, literal, type RecordingRequest } from "./record-client.js";
++
++const HELP = `Record one household entry through an already running local MCP service.
++
++  node dist/src/household-record.js new --endpoint http://127.0.0.1:3000/mcp --request /NEW/private/request.json
++  node dist/src/household-record.js resume --request /existing/private/request.json
++
++New asks for direction, positive integer minor units, currency, date, category
++and an optional single-line note. It saves a private request before any send.
++Both modes display the exact request and require RECORD at an interactive
++terminal. Anything else, EOF or Ctrl-C cancels. No automatic retry occurs.
++Resume reuses the saved endpoint and key; use the same server/ledger. The file
++contains private transaction data. Never make a new key to retry this entry.
++This records bookkeeping only; it does not move money.
++`;
++export async function runRecordCli(argv: string[]): Promise<number> {
++  if (argv.length === 1 && ["--help", "-h"].includes(argv[0])) { process.stdout.write(HELP); return 0; }
++  const [mode, ...flags] = argv;
++  if (!["new", "resume"].includes(mode)) throw new Error(HELP);
++  const options = new Map<string, string>();
++  for (let i = 0; i < flags.length; i += 2) {
++    const name = flags[i], value = flags[i + 1];
++    if (!["--endpoint", "--request"].includes(name) || value === undefined || options.has(name)) throw new Error("Use the exact arguments shown by --help.");
++    options.set(name, value);
++  }
++  const path = options.get("--request");
++  if (!path || (mode === "new" && !options.has("--endpoint")) || (mode === "resume" && options.has("--endpoint"))) throw new Error("New requires endpoint and a new request path; resume requires only its saved request path.");
++  if (!process.stdin.isTTY || !process.stdout.isTTY) throw new Error("An interactive input and output terminal is required; no request was sent.");
++  const abort = new AbortController();
++  const rl = createInterface({ input: process.stdin, output: process.stdout, terminal: false });
++  const lines = rl[Symbol.asyncIterator]();
++  const interrupt = () => { abort.abort(); rl.close(); };
++  process.once("SIGINT", interrupt);
++  async function ask(label: string): Promise<string | undefined> {
++    if (abort.signal.aborted) return undefined;
++    process.stdout.write(label);
++    const answer = await lines.next();
++    return answer.done || abort.signal.aborted ? undefined : answer.value;
++  }
++  try {
++    let request: RecordingRequest;
++    if (mode === "new") {
++      const raw: Record<string, unknown> = {};
++      for (const [key, prompt] of [
++        ["type", "Direction (income or expense): "],
++        ["amountMinor", "Amount in positive INTEGER minor units: "],
++        ["currency", "Three-letter currency: "],
++        ["date", "Date (YYYY-MM-DD): "],
++        ["category", "Category: "],
++        ["note", "Note (single line; blank to omit): "],
++      ]) {
++        const answer = await ask(prompt);
++        if (answer === undefined) { process.stdout.write("\nCanceled; no request sent.\n"); return 2; }
++        if (key === "amountMinor") {
++          if (!/^[0-9]+$/.test(answer)) throw new Error("Amount must use decimal integer digits, in minor units.");
++          raw[key] = Number(answer);
++        } else if (key !== "note" || answer !== "") raw[key] = answer;
++      }
++      request = prepareRecording(options.get("--endpoint")!, raw);
++      await saveRecordingRequest(path, request);
++      process.stdout.write("Recovery request saved at " + literal(resolve(path)) + ". Keep it until the result is resolved.\n");
++    } else request = await loadRecordingRequest(path);
++    process.stdout.write(recordingPreview(request));
++    const confirm = await ask("Type RECORD to send this exact request once; anything else cancels: ");
++    if (confirm !== "RECORD" || abort.signal.aborted) { process.stdout.write("\nCanceled; no record call. Recovery request retained.\n"); return 2; }
++    const result = await sendRecording(request, abort.signal);
++    if (result.status === "confirmed") {
++      process.stdout.write("Confirmed recording: " + literal(result.transaction) + "\nRecovery request retained; this result may be the original record returned for a retry.\n");
++      return 0;
++    }
++    process.stdout.write(result.status === "not_sent" ? "Not sent: " : "UNCONFIRMED: ");
++    process.stdout.write(literal(result.message) + "\nRecovery request retained. Do not create a replacement key. Review with resume before any explicit retry.\n");
++    return 3;
++  } finally { process.removeListener("SIGINT", interrupt); rl.close(); }
++}
++
++// Realpath supports normal direct execution and an explicitly created local link.
++async function isEntry(): Promise<boolean> {
++  if (!process.argv[1]) return false;
++  try { return await realpath(process.argv[1]) === await realpath(fileURLToPath(import.meta.url)); }
++  catch { return false; }
++}
++if (await isEntry()) runRecordCli(process.argv.slice(2)).then(code => { process.exitCode = code; }).catch(error => {
++  process.stderr.write("Recording refused: " + literal(error instanceof Error ? error.message : String(error)) + "\n");
++  process.exitCode = 1;
++});
+diff --git a/test/record-client.test.ts b/test/record-client.test.ts
+new file mode 100644
+index 0000000..b49e313dd4f7f124a118d4f021d767926879b7c0
+--- /dev/null
++++ b/test/record-client.test.ts
+@@ -0,0 +1,80 @@
++import { test } from "node:test";
++import assert from "node:assert/strict";
++import { mkdtemp, readFile, writeFile, stat, symlink, rm, mkdir } from "node:fs/promises";
++import { tmpdir } from "node:os";
++import { join } from "node:path";
++import { spawnSync } from "node:child_process";
++import { prepareRecording, parseRecording, recordingPreview, saveRecordingRequest, loadRecordingRequest, admittedRecordingResponse, recordingEndpoint, literal } from "../src/record-client.js";
++
++const endpoint = "http://127.0.0.1:31337/mcp";
++const input = { type: "expense", amountMinor: 1250, currency: " usd ", date: "2026-10-08", category: " groceries ", note: '東京 "\\n" \u202eEND' };
++const request = () => prepareRecording(endpoint, input, "one-entry-key");
++test("preview retains original domain normalization and literal private fields", () => {
++  const r = request();
++  assert.deepEqual(r, { version: 1, endpoint, transaction: { type: "expense", amountMinor: 1250, currency: "USD", date: "2026-10-08", category: "groceries", note: input.note, idempotencyKey: "one-entry-key" } });
++  const p = recordingPreview(r);
++  assert.ok(p.includes("1250")); assert.ok(p.includes("one-entry-key")); assert.ok(p.includes("東京"));
++  assert.ok(p.includes("\\u202e")); assert.ok(!p.includes("\u202e"));
++  assert.deepEqual(input.currency, " usd ");
++  assert.equal(JSON.parse(literal(input.note)), input.note);
++});
++test("domain refusal is preserved for amount, date, direction, currency, category and key", () => {
++  for (const value of [0, -1, 1.5, Infinity, Number.MAX_SAFE_INTEGER + 1, "1250"])
++    assert.throws(() => prepareRecording(endpoint, { ...input, amountMinor: value }));
++  for (const patch of [{ date: "2026-02-30" }, { type: "transfer" }, { currency: "US" }, { category: " " }, { note: 1 }, { idempotencyKey: null }, { idempotencyKey: " key " }, { surprise: true }])
++    assert.throws(() => prepareRecording(endpoint, { ...input, ...patch }));
++  assert.equal(prepareRecording(endpoint, { ...input, amountMinor: Number.MAX_SAFE_INTEGER }).transaction.amountMinor, Number.MAX_SAFE_INTEGER);
++});
++test("explicit literal loopback endpoints only; no credential, redirect target or endpoint override", () => {
++  assert.equal(recordingEndpoint("http://[::1]:3000/mcp"), "http://[::1]:3000/mcp");
++  for (const s of ["https://127.0.0.1/mcp", "http://example.com/mcp", "http://localhost:3000/mcp", "http://127.0.0.1:3000/other", "http://u:p@127.0.0.1/mcp", endpoint + "?x=1", endpoint + "#f"])
++    assert.throws(() => recordingEndpoint(s));
++});
++test("recovery admission never silently normalizes changed fields or generates a key", () => {
++  const r = request();
++  assert.deepEqual(parseRecording(JSON.parse(JSON.stringify(r))), r);
++  for (const change of [{ version: 2 }, { extra: true }, { endpoint: "http://127.0.0.1:80/mcp" }, { transaction: { ...r.transaction, currency: "usd" } }, { transaction: { ...r.transaction, category: " groceries " } }, { transaction: { ...r.transaction, idempotencyKey: undefined } }])
++    assert.throws(() => parseRecording({ ...r, ...change }));
++});
++test("private new-only recovery file round trips; originals and linked destinations stay intact", async () => {
++  const dir = await mkdtemp(join(tmpdir(), "single-record-file-"));
++  try {
++    const path = join(dir, "request.json");
++    await saveRecordingRequest(path, request());
++    const before = await readFile(path); const info = await stat(path);
++    assert.equal(info.mode & 0o777, 0o600);
++    assert.deepEqual(await loadRecordingRequest(path), request());
++    await assert.rejects(saveRecordingRequest(path, request()));
++    assert.deepEqual(await readFile(path), before);
++    const link = join(dir, "link.json"); await symlink(path, link);
++    await assert.rejects(saveRecordingRequest(link, request()));
++    await assert.rejects(loadRecordingRequest(link));
++    assert.deepEqual(await readFile(path), before);
++    const directory = join(dir, "directory"); await mkdir(directory);
++    await assert.rejects(loadRecordingRequest(directory));
++    const fifo = join(dir, "fifo");
++    if (process.platform !== "win32") {
++      const made = spawnSync("mkfifo", [fifo]); assert.equal(made.status, 0);
++      await assert.rejects(loadRecordingRequest(fifo));
++    }
++  } finally { await rm(dir, { recursive: true, force: true }); }
++});
++test("invalid UTF-8, invalid JSON, oversized records and malformed requests refuse", async () => {
++  const dir = await mkdtemp(join(tmpdir(), "single-record-bad-")); const p = join(dir, "input");
++  try {
++    for (const bytes of [Buffer.from([0xff]), Buffer.from("{"), Buffer.alloc(65537, 32), Buffer.from('{"version":1}')]) {
++      await writeFile(p, bytes); await assert.rejects(loadRecordingRequest(p)); assert.deepEqual(await readFile(p), bytes);
++    }
++    assert.throws(() => prepareRecording(endpoint, { ...input, note: "x".repeat(65536) }));
++  } finally { await rm(dir, { recursive: true, force: true }); }
++});
++test("confirmation response must bind all exact fields and original recording identity", () => {
++  const r = request(); const tx = { ...r.transaction, id: "native-id", createdAt: "2026-10-08T00:00:00.000Z" };
++  const wrap = (t: unknown) => ({ content: [{ type: "text", text: JSON.stringify(t) }] });
++  assert.deepEqual(admittedRecordingResponse(r, wrap(tx)), tx);
++  for (const field of Object.keys(r.transaction)) assert.throws(() => admittedRecordingResponse(r, wrap({ ...tx, [field]: "changed" })));
++  for (const bad of [{ isError: true, ...wrap(tx) }, { content: [] }, { content: [{ type: "text", text: "bad" }] }, wrap({ ...tx, id: "" }), wrap({ ...tx, createdAt: "" })])
++    assert.throws(() => admittedRecordingResponse(r, bad));
++  const noNote = prepareRecording(endpoint, { type: "income", amountMinor: 100, currency: "EUR", date: "2026-10-08", category: "work" }, "key");
++  assert.throws(() => admittedRecordingResponse(noNote, wrap({ ...noNote.transaction, id: "id", createdAt: "now", note: "extra" })));
++});
+diff --git a/test/record-client-http.test.ts b/test/record-client-http.test.ts
+new file mode 100644
+index 0000000..f3c985f1cfca10943e5f87fc345839f68d6d5453
+--- /dev/null
++++ b/test/record-client-http.test.ts
+@@ -0,0 +1,105 @@
++import { test } from "node:test";
++import assert from "node:assert/strict";
++import { spawn } from "node:child_process";
++import { once } from "node:events";
++import { createServer as httpServer } from "node:http";
++import { createServer } from "node:net";
++import { mkdtemp, readFile, stat, rm } from "node:fs/promises";
++import { join } from "node:path";
++import { tmpdir } from "node:os";
++import { fileURLToPath } from "node:url";
++import { prepareRecording, saveRecordingRequest, loadRecordingRequest, sendRecording } from "../src/record-client.js";
++
++async function freePort() {
++  const p = createServer(); p.listen(0, "127.0.0.1"); await once(p, "listening");
++  const address = p.address(); assert.ok(address && typeof address === "object");
++  const port = address.port; await new Promise<void>((resolve, reject) => p.close(e => e ? reject(e) : resolve())); return port;
++}
++async function launch(path: string, port: number) {
++  const child = spawn(process.execPath, [fileURLToPath(new URL("../src/index.js", import.meta.url))], {
++    env: { ...process.env, HOUSEHOLD_LEDGER_DATA_PATH: path, HOUSEHOLD_LEDGER_HOST: "127.0.0.1", HOUSEHOLD_LEDGER_PORT: String(port) },
++    stdio: ["ignore", "pipe", "pipe"],
++  });
++  let diagnostic = "";
++  child.stderr.on("data", b => { diagnostic += b; });
++  const stop = async () => {
++    if (child.exitCode === null && child.signalCode === null) {
++      const exited = once(child, "exit"); child.kill("SIGTERM"); await exited;
++    }
++  };
++  try {
++    await new Promise<void>((resolve, reject) => {
++      const timer = setTimeout(() => reject(Error("Native server startup timed out: " + diagnostic)), 15000);
++      child.once("error", e => { clearTimeout(timer); reject(e); });
++      child.once("exit", code => { clearTimeout(timer); reject(Error("Server exit " + code + ": " + diagnostic)); });
++      child.stdout.on("data", b => { if (String(b).includes("listening on")) { clearTimeout(timer); resolve(); } });
++    });
++    return { stop };
++  } catch (e) { await stop(); throw e; }
++}
++const fields = { type: "expense", amountMinor: 1250, currency: " usd ", date: "2026-10-08", category: " food ", note: '東京 receipt "A"\nline' };
++test("real MCP success, recovery in a fresh server, conflict and unrelated record preservation", { timeout: 60000 }, async () => {
++  const dir = await mkdtemp(join(tmpdir(), "single-record-http-")); const path = join(dir, "ledger.json");
++  const port = await freePort(); const endpoint = "http://127.0.0.1:" + port + "/mcp";
++  let server: Awaited<ReturnType<typeof launch>> | undefined;
++  try {
++    const r = prepareRecording(endpoint, fields, "native-exact-key");
++    await saveRecordingRequest(join(dir, "request.json"), r);
++    server = await launch(path, port);
++    const first = await sendRecording(r); assert.equal(first.status, "confirmed");
++    const unrelated = await sendRecording(prepareRecording(endpoint, { type: "income", amountMinor: 99, currency: "EUR", date: "2026-10-07", category: "__proto__" }, "unrelated"));
++    assert.equal(unrelated.status, "confirmed");
++    const before = await readFile(path); const info = await stat(path);
++    await server.stop(); server = undefined; server = await launch(path, port);
++    const retry = await sendRecording(await loadRecordingRequest(join(dir, "request.json")));
++    assert.deepEqual(retry, first); assert.deepEqual(await readFile(path), before);
++    assert.equal((await stat(path)).mtimeMs, info.mtimeMs); assert.equal((await stat(path)).ino, info.ino);
++    const conflict = await sendRecording(prepareRecording(endpoint, { ...fields, amountMinor: 1251 }, "native-exact-key"));
++    assert.equal(conflict.status, "unconfirmed"); assert.deepEqual(await readFile(path), before);
++    const disk = JSON.parse(before.toString()); assert.equal(disk.transactions.length, 2);
++    assert.equal(disk.transactions[0].amountMinor, 1250); assert.equal(disk.transactions[0].currency, "USD");
++    assert.equal(disk.transactions[0].category, "food"); assert.equal(disk.transactions[0].note, fields.note);
++    assert.equal(disk.transactions[1].idempotencyKey, "unrelated");
++  } finally { await server?.stop(); await rm(dir, { recursive: true, force: true }); }
++});
++test("actual committed response loss remains unconfirmed; explicit same-request retry returns the single original", { timeout: 60000 }, async () => {
++  const dir = await mkdtemp(join(tmpdir(), "single-record-loss-")); const path = join(dir, "ledger.json");
++  const port = await freePort(); const server = await launch(path, port);
++  let drop = true, calls = 0;
++  const proxy = httpServer(async (req, res) => {
++    try {
++      const chunks: Buffer[] = []; for await (const b of req) chunks.push(Buffer.from(b));
++      const body = Buffer.concat(chunks); const json = body.length ? JSON.parse(body.toString()) : {};
++      const recording = json.method === "tools/call" && json.params?.name === "record_transaction";
++      if (recording) calls++;
++      const upstream = await fetch("http://127.0.0.1:" + port + (req.url ?? "/mcp"), {
++        method: req.method, headers: { "content-type": "application/json", accept: "application/json, text/event-stream" },
++        body: req.method === "POST" ? body : undefined,
++      });
++      const bytes = Buffer.from(await upstream.arrayBuffer());
++      if (recording && drop) { res.destroy(); return; }
++      res.writeHead(upstream.status, { "content-type": upstream.headers.get("content-type") ?? "application/json" }); res.end(bytes);
++    } catch (e) { res.destroy(e as Error); }
++  });
++  proxy.listen(0, "127.0.0.1"); await once(proxy, "listening");
++  const addr = proxy.address(); assert.ok(addr && typeof addr === "object");
++  try {
++    const r = prepareRecording("http://127.0.0.1:" + addr.port + "/mcp", fields, "lost-key");
++    const recovery = join(dir, "request.json"); await saveRecordingRequest(recovery, r);
++    const saved = await readFile(recovery);
++    const first = await sendRecording(r); assert.equal(first.status, "unconfirmed"); assert.equal(calls, 1);
++    const before = await readFile(path); const tx = JSON.parse(before.toString()).transactions;
++    assert.equal(tx.length, 1); assert.equal(tx[0].idempotencyKey, "lost-key");
++    assert.deepEqual(await readFile(recovery), saved);
++    drop = false;
++    const retried = await sendRecording(await loadRecordingRequest(recovery));
++    assert.equal(retried.status, "confirmed");
++    if (retried.status === "confirmed") assert.deepEqual(retried.transaction, tx[0]);
++    assert.equal(calls, 2); assert.deepEqual(await readFile(path), before);
++  } finally { proxy.closeAllConnections(); await new Promise<void>(resolve => proxy.close(() => resolve())); await server.stop(); await rm(dir, { recursive: true, force: true }); }
++});
++test("an already canceled operation makes no connection or recording call", async () => {
++  const abort = new AbortController(); abort.abort();
++  const r = prepareRecording("http://127.0.0.1:9/mcp", fields, "canceled");
++  assert.equal((await sendRecording(r, abort.signal)).status, "not_sent");
++});
+diff --git a/docs/RECORD_CLIENT.md b/docs/RECORD_CLIENT.md
+new file mode 100644
+index 0000000..5f03d76bfaaa9b755912d195ee9079881d275513
+--- /dev/null
++++ b/docs/RECORD_CLIENT.md
+@@ -0,0 +1,95 @@
++# Record one household entry
++
++This terminal client records one income or expense through an already running
++Household Ledger MCP service. It does not transfer money. Existing recording,
++currency, date, category and idempotency rules come from the unchanged service.
++
++Build using the normal project setup, then run in an interactive terminal:
++
++```sh
++npm run build
++node dist/src/household-record.js new --endpoint http://127.0.0.1:3000/mcp --request /private/new-purchase.json
++```
++
++The request's parent directory must already exist. Choose a **new path** in a
++private directory; an existing file or link is refused without replacement.
++The client asks for income or expense, a positive integer amount in minor units,
++a three-letter currency, a real YYYY-MM-DD date, category and optional single-line
++note. For example, 1250 means 1250 minor units, never an inferred decimal amount.
++There is no default date or currency. Blank note omits that field. Input is
++validated as one complete record; refusal requires starting again.
++
++The actual domain validator normalizes currency and category for the preview.
++The client generates a stable key for this one recording and writes the complete
++request with mode 0600, flushes it and closes the file **before** any MCP
++connection. This is a local recovery request, not proof that the entry exists.
++It contains private transaction data, including note and key, in plain UTF-8 JSON.
++
++Read every displayed field and endpoint, then type exactly **RECORD** to make one
++recording call. Any other response, EOF or Ctrl-C cancels. The complete recovery
++request stays on disk even when canceled. Terminal input/output must both be
++interactive; piping a confirmation is refused. JSON notation escapes controls
++and invisible directional/format characters so they cannot alter the review
++layout. The underlying saved text is unchanged.
++
++## A lost response
++
++If the terminal reports **UNCONFIRMED**, the service may already have saved the
++record. A malformed or mismatched success response is also unconfirmed.
++The client never automatically retries and never creates a replacement key.
++
++Reopen the existing request:
++
++```sh
++node dist/src/household-record.js resume --request /private/new-purchase.json
++```
++
++Resume admits a bounded regular UTF-8 request, retains its exact normalized
++values and endpoint, shows them again, and requires another explicit RECORD.
++It does not allow an endpoint override or generate a new key. An exact retry
++against the **same underlying ledger** returns the original transaction without
++rewriting it. The confirmation output includes the actual returned ID, timestamp
++and fields; it may be a replayed original, not a new creation. The request remains
++available after success, and the client neither deletes it nor writes a receipt.
++
++The endpoint is limited to explicit HTTP 127.0.0.1 or [::1] /mcp URLs with no
++credentials, query or fragment. Redirects are refused. A URL is **not a ledger
++identity**: if a different server or data file later occupies that address, the
++existing MCP protocol cannot establish that it is the same ledger. Check the
++service's configured data path before resuming. Keep one server process per
++ledger, as required by the service. This client adds no authentication, remote
++connection, server start, live-account connection or cross-process writer lock.
++
++An existing key with changed fields is refused by the service. Do not edit a
++recovery request to change an uncertain recording. Resolve its original result
++first; a different actual purchase needs a deliberately new request.
++The 64 KiB request limit is a client bound, not a new ledger-format limit.
++Notes entered interactively are single-line; an admitted recovery file retains
++all validated literal note content without terminal interpretation.
++
++## Outcomes and receiving
++
++Exit 0 means a structurally valid, field-matching service response confirmed a
++recording. Exit 2 means cancellation before the recording call. Exit 3 means
++connection/pre-send cancellation or an unconfirmed recording attempt; the printed
++state distinguishes those. Exit 1 means arguments, input, recovery-file or other
++local admission refused. A process/terminal failure can occur at any point:
++use the retained request and inspect the same ledger rather than infer absence
++from an exit status.
++
++There is no durable cross-file transaction between this recovery request and the
++ledger. The service remains the sole writer; the client never opens the ledger.
++The local file flush is not a power-loss guarantee, and no concurrent external
++editing of the recovery path is supported.
++
++Focused native checks after build:
++
++```sh
++node --test dist/test/record-client.test.js dist/test/record-client-http.test.js
++```
++
++The HTTP tests use actual private synthetic ledgers and server processes,
++including a forwarding proxy that loses the response only after the upstream
++recording completed. Explicit retry returns the same record. Filesystem,
++normalization, conflicting replay and canceled-call cases are separate from
++actual terminal input receiving preserved in the contribution packet.
