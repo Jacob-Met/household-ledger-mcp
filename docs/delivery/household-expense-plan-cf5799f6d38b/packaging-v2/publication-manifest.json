@@ -1,0 +1,38 @@
+{
+  "schema": "household.expense-plan.portable-publication.v2",
+  "publication_root": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication",
+  "product_tree": "4da046012fb5b0007005204d624dc8b495e79c1c",
+  "candidate_manifest_sha256": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad",
+  "separate_from_household35_and_windows": true,
+  "file_count": 3,
+  "bytes": 28539,
+  "files": [
+    {
+      "path": "docs/delivery/household-expense-plan-cf5799f6d38b/CHECKSUMS.json",
+      "native_path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication/docs/delivery/household-expense-plan-cf5799f6d38b/CHECKSUMS.json",
+      "bytes": 3192,
+      "sha256": "b92ee7c7929c4e3549cd28e879d472aa2c1f6429a1cb15192060b82aa9ff6c7e",
+      "git_blob": "96eb5ac3d09254778d0138890b82451e546a3685",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/delivery/household-expense-plan-cf5799f6d38b/README.md",
+      "native_path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication/docs/delivery/household-expense-plan-cf5799f6d38b/README.md",
+      "bytes": 3398,
+      "sha256": "464bc0c4ac073d42f24c4916098db8fc96244a4a643708ed18e75f3159ef6b61",
+      "git_blob": "c35a9bb66a8fc71158fec98dfab6d63a61523a9a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/delivery/household-expense-plan-cf5799f6d38b/household-expense-plan-node.zip",
+      "native_path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication/docs/delivery/household-expense-plan-cf5799f6d38b/household-expense-plan-node.zip",
+      "bytes": 21949,
+      "sha256": "e7504692186ab1e7643a015b2add924761c8ca0616690fa02c936dcde4140a98",
+      "git_blob": "6b127dfb8bcd086714f7a3184c1aaa1c6ab88111",
+      "mode": "100644",
+      "type": "blob"
+    }
+  ]
+}

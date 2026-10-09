@@ -1,0 +1,366 @@
+{
+  "before": [
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication-manifest.json",
+      "mode": 436,
+      "inode": 6559724,
+      "device": 66306,
+      "mtime_ns": 1791509481064680018,
+      "bytes": 1855,
+      "sha256": "6205e3b2e233b6f5845008ee2e5577c7b25b8e45bb37907350819874fcf45a58",
+      "git_blob": "1963ab72d8a6691a69dfee188d5ede865dd947b7"
+    },
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/packaging-proof.json",
+      "mode": 436,
+      "inode": 6559723,
+      "device": 66306,
+      "mtime_ns": 1791509481064355948,
+      "bytes": 13049,
+      "sha256": "9eda3b5823693f3fbba5f501ce3b3f22a7e569eaa86b0bae3cdb7b1e82171194",
+      "git_blob": "c17b0239046e12c2bf1b60af33f7a19ff299c2e2"
+    },
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/text-transfer.json",
+      "mode": 436,
+      "inode": 6559725,
+      "device": 66306,
+      "mtime_ns": 1791509481065082955,
+      "bytes": 53994,
+      "sha256": "0e194ebb50e14e6da4efa1347364c782230cc9bec3c58e5bd779ec6b85426a18",
+      "git_blob": "48ab97af23fa0edcd03d43d3c5d2765b31c8c185"
+    },
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication/docs/delivery/household-expense-plan-cf5799f6d38b/CHECKSUMS.json",
+      "mode": 436,
+      "inode": 6559722,
+      "device": 66306,
+      "mtime_ns": 1791509481063591016,
+      "bytes": 3192,
+      "sha256": "b92ee7c7929c4e3549cd28e879d472aa2c1f6429a1cb15192060b82aa9ff6c7e",
+      "git_blob": "96eb5ac3d09254778d0138890b82451e546a3685"
+    },
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication/docs/delivery/household-expense-plan-cf5799f6d38b/README.md",
+      "mode": 436,
+      "inode": 6559721,
+      "device": 66306,
+      "mtime_ns": 1791509481063452859,
+      "bytes": 3398,
+      "sha256": "464bc0c4ac073d42f24c4916098db8fc96244a4a643708ed18e75f3159ef6b61",
+      "git_blob": "c35a9bb66a8fc71158fec98dfab6d63a61523a9a"
+    },
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication/docs/delivery/household-expense-plan-cf5799f6d38b/household-expense-plan-node.zip",
+      "mode": 436,
+      "inode": 6559720,
+      "device": 66306,
+      "mtime_ns": 1791509481059593020,
+      "bytes": 21949,
+      "sha256": "e7504692186ab1e7643a015b2add924761c8ca0616690fa02c936dcde4140a98",
+      "git_blob": "6b127dfb8bcd086714f7a3184c1aaa1c6ab88111"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/expense-plan.js",
+      "mode": 436,
+      "inode": 9688281,
+      "device": 47,
+      "mtime_ns": 1791502908955023126,
+      "bytes": 14672,
+      "sha256": "7a3b7e51cd0da316bf4bed6bdbca3c2290146d0bcbfad3945bc866c251000d42",
+      "git_blob": "a086a5ffc998b94c0be519822137e7a324009d25"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/household-plan.js",
+      "mode": 436,
+      "inode": 9688284,
+      "device": 47,
+      "mtime_ns": 1791502908973023053,
+      "bytes": 6917,
+      "sha256": "f1b336d85e01d1dbf8613bb4148fa2e829e1fd7d3e3d0f52636d7e74efc3896c",
+      "git_blob": "4ee0f76502a3dd1b242c0297b868b75bcf9d46df"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/ledger.js",
+      "mode": 436,
+      "inode": 9688275,
+      "device": 47,
+      "mtime_ns": 1791502908908023319,
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/package.json",
+      "mode": 420,
+      "inode": 9682407,
+      "device": 47,
+      "mtime_ns": 1791501671999216890,
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/docs/EXPENSE_PLAN.md",
+      "mode": 436,
+      "inode": 9688212,
+      "device": 47,
+      "mtime_ns": 1791502694125903689,
+      "bytes": 6419,
+      "sha256": "e60b0019b313215af46ebfe8c4b71c95bb33a6e08af98da0c412b62693969b77",
+      "git_blob": "09941ac0e369c432f1861fefaeabd37386a5abd3"
+    },
+    {
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/ledger.json",
+      "mode": 436,
+      "inode": 6463306,
+      "device": 66306,
+      "mtime_ns": 1791503897364666684,
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/plan.json",
+      "mode": 436,
+      "inode": 6463307,
+      "device": 66306,
+      "mtime_ns": 1791503897364777352,
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/candidate-manifest.json",
+      "mode": 436,
+      "inode": 9689584,
+      "device": 47,
+      "mtime_ns": 1791502809518435885,
+      "bytes": 8002,
+      "sha256": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad",
+      "git_blob": "ccf02fc8ea2e269f9ccd0ef6e99ffca644656b8c"
+    },
+    {
+      "path": "/home/jacob/household-plan-admission-cf5799f6d38b-qzg_w0y6/ownership/pr8-recursive-tree.json",
+      "mode": 436,
+      "inode": 3747755,
+      "device": 66306,
+      "mtime_ns": 1791499208118164624,
+      "bytes": 37989,
+      "sha256": "4e0dc328bbc5d3b2418805912611809ee5a1c3adc3f6175360be78af2ee869e3",
+      "git_blob": "51a6f3a5d809fb9a9a8fb9f01e38117ca3079159"
+    },
+    {
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/report.html",
+      "mode": 436,
+      "inode": 6463305,
+      "device": 66306,
+      "mtime_ns": 1791503897363956197,
+      "bytes": 12948,
+      "sha256": "4643144441fc963b93b6822f8f409c97be36753a6b5e47f584ae87707f134503",
+      "git_blob": "0ad8d62f51c756a3ea787d99a2e11b292f631a3b"
+    },
+    {
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/browser-v3/result.json",
+      "mode": 436,
+      "inode": 6463639,
+      "device": 66306,
+      "mtime_ns": 1791503977624625661,
+      "bytes": 4422,
+      "sha256": "dbbd1d9b53bc8386c033d8d6bd29f96d136a07f7a5e3598f3013d5d4d4240243",
+      "git_blob": "46853574984e0e23234cb71ef8cd567ea6440004"
+    },
+    {
+      "path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/receipt.json",
+      "mode": 436,
+      "inode": 9755461,
+      "device": 47,
+      "mtime_ns": 1791504228413592842,
+      "bytes": 83285,
+      "sha256": "aa8b2de6c6e752ed586e25ca015680851c3c142e1c639c9829e7c4fd51cd494d",
+      "git_blob": "847a6bbb91936e3431e53f241812bc7810f5a234"
+    }
+  ],
+  "after": [
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication-manifest.json",
+      "mode": 436,
+      "inode": 6559724,
+      "device": 66306,
+      "mtime_ns": 1791509481064680018,
+      "bytes": 1855,
+      "sha256": "6205e3b2e233b6f5845008ee2e5577c7b25b8e45bb37907350819874fcf45a58",
+      "git_blob": "1963ab72d8a6691a69dfee188d5ede865dd947b7"
+    },
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/packaging-proof.json",
+      "mode": 436,
+      "inode": 6559723,
+      "device": 66306,
+      "mtime_ns": 1791509481064355948,
+      "bytes": 13049,
+      "sha256": "9eda3b5823693f3fbba5f501ce3b3f22a7e569eaa86b0bae3cdb7b1e82171194",
+      "git_blob": "c17b0239046e12c2bf1b60af33f7a19ff299c2e2"
+    },
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/text-transfer.json",
+      "mode": 436,
+      "inode": 6559725,
+      "device": 66306,
+      "mtime_ns": 1791509481065082955,
+      "bytes": 53994,
+      "sha256": "0e194ebb50e14e6da4efa1347364c782230cc9bec3c58e5bd779ec6b85426a18",
+      "git_blob": "48ab97af23fa0edcd03d43d3c5d2765b31c8c185"
+    },
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication/docs/delivery/household-expense-plan-cf5799f6d38b/CHECKSUMS.json",
+      "mode": 436,
+      "inode": 6559722,
+      "device": 66306,
+      "mtime_ns": 1791509481063591016,
+      "bytes": 3192,
+      "sha256": "b92ee7c7929c4e3549cd28e879d472aa2c1f6429a1cb15192060b82aa9ff6c7e",
+      "git_blob": "96eb5ac3d09254778d0138890b82451e546a3685"
+    },
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication/docs/delivery/household-expense-plan-cf5799f6d38b/README.md",
+      "mode": 436,
+      "inode": 6559721,
+      "device": 66306,
+      "mtime_ns": 1791509481063452859,
+      "bytes": 3398,
+      "sha256": "464bc0c4ac073d42f24c4916098db8fc96244a4a643708ed18e75f3159ef6b61",
+      "git_blob": "c35a9bb66a8fc71158fec98dfab6d63a61523a9a"
+    },
+    {
+      "path": "/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964/publication/docs/delivery/household-expense-plan-cf5799f6d38b/household-expense-plan-node.zip",
+      "mode": 436,
+      "inode": 6559720,
+      "device": 66306,
+      "mtime_ns": 1791509481059593020,
+      "bytes": 21949,
+      "sha256": "e7504692186ab1e7643a015b2add924761c8ca0616690fa02c936dcde4140a98",
+      "git_blob": "6b127dfb8bcd086714f7a3184c1aaa1c6ab88111"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/expense-plan.js",
+      "mode": 436,
+      "inode": 9688281,
+      "device": 47,
+      "mtime_ns": 1791502908955023126,
+      "bytes": 14672,
+      "sha256": "7a3b7e51cd0da316bf4bed6bdbca3c2290146d0bcbfad3945bc866c251000d42",
+      "git_blob": "a086a5ffc998b94c0be519822137e7a324009d25"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/household-plan.js",
+      "mode": 436,
+      "inode": 9688284,
+      "device": 47,
+      "mtime_ns": 1791502908973023053,
+      "bytes": 6917,
+      "sha256": "f1b336d85e01d1dbf8613bb4148fa2e829e1fd7d3e3d0f52636d7e74efc3896c",
+      "git_blob": "4ee0f76502a3dd1b242c0297b868b75bcf9d46df"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/ledger.js",
+      "mode": 436,
+      "inode": 9688275,
+      "device": 47,
+      "mtime_ns": 1791502908908023319,
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/package.json",
+      "mode": 420,
+      "inode": 9682407,
+      "device": 47,
+      "mtime_ns": 1791501671999216890,
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/docs/EXPENSE_PLAN.md",
+      "mode": 436,
+      "inode": 9688212,
+      "device": 47,
+      "mtime_ns": 1791502694125903689,
+      "bytes": 6419,
+      "sha256": "e60b0019b313215af46ebfe8c4b71c95bb33a6e08af98da0c412b62693969b77",
+      "git_blob": "09941ac0e369c432f1861fefaeabd37386a5abd3"
+    },
+    {
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/ledger.json",
+      "mode": 436,
+      "inode": 6463306,
+      "device": 66306,
+      "mtime_ns": 1791503897364666684,
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/plan.json",
+      "mode": 436,
+      "inode": 6463307,
+      "device": 66306,
+      "mtime_ns": 1791503897364777352,
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/candidate-manifest.json",
+      "mode": 436,
+      "inode": 9689584,
+      "device": 47,
+      "mtime_ns": 1791502809518435885,
+      "bytes": 8002,
+      "sha256": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad",
+      "git_blob": "ccf02fc8ea2e269f9ccd0ef6e99ffca644656b8c"
+    },
+    {
+      "path": "/home/jacob/household-plan-admission-cf5799f6d38b-qzg_w0y6/ownership/pr8-recursive-tree.json",
+      "mode": 436,
+      "inode": 3747755,
+      "device": 66306,
+      "mtime_ns": 1791499208118164624,
+      "bytes": 37989,
+      "sha256": "4e0dc328bbc5d3b2418805912611809ee5a1c3adc3f6175360be78af2ee869e3",
+      "git_blob": "51a6f3a5d809fb9a9a8fb9f01e38117ca3079159"
+    },
+    {
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/report.html",
+      "mode": 436,
+      "inode": 6463305,
+      "device": 66306,
+      "mtime_ns": 1791503897363956197,
+      "bytes": 12948,
+      "sha256": "4643144441fc963b93b6822f8f409c97be36753a6b5e47f584ae87707f134503",
+      "git_blob": "0ad8d62f51c756a3ea787d99a2e11b292f631a3b"
+    },
+    {
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/browser-v3/result.json",
+      "mode": 436,
+      "inode": 6463639,
+      "device": 66306,
+      "mtime_ns": 1791503977624625661,
+      "bytes": 4422,
+      "sha256": "dbbd1d9b53bc8386c033d8d6bd29f96d136a07f7a5e3598f3013d5d4d4240243",
+      "git_blob": "46853574984e0e23234cb71ef8cd567ea6440004"
+    },
+    {
+      "path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/receipt.json",
+      "mode": 436,
+      "inode": 9755461,
+      "device": 47,
+      "mtime_ns": 1791504228413592842,
+      "bytes": 83285,
+      "sha256": "aa8b2de6c6e752ed586e25ca015680851c3c142e1c639c9829e7c4fd51cd494d",
+      "git_blob": "847a6bbb91936e3431e53f241812bc7810f5a234"
+    }
+  ]
+}

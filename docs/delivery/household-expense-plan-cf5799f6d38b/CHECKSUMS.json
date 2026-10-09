@@ -1,0 +1,88 @@
+{
+  "schema": "household.expense-plan.delivery-checksums.v2",
+  "archive": {
+    "path": "household-expense-plan-node.zip",
+    "bytes": 21949,
+    "sha256": "e7504692186ab1e7643a015b2add924761c8ca0616690fa02c936dcde4140a98",
+    "git_blob": "6b127dfb8bcd086714f7a3184c1aaa1c6ab88111"
+  },
+  "members": [
+    {
+      "path": "household-expense-plan/LICENSE",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb",
+      "git_blob": "edb188254288b40f2895833e3647b7e0be34c962",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/PROVENANCE.json",
+      "bytes": 5529,
+      "sha256": "26a00cb2b50e75c0ee0bb0bb61c8063f45d7f2930748e6b39948c4e6f9196c2d",
+      "git_blob": "11f7749f32f9a2452cae0998eca11bf5271d4ed7",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/README.md",
+      "bytes": 3002,
+      "sha256": "3bbe2b86242118961f277274fa7d5e9fa8b15be12612849365ba690bc8ed24a7",
+      "git_blob": "e2bccb4d59863411322741648dade3b20d27e366",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/SHA256SUMS",
+      "bytes": 859,
+      "sha256": "508d179179edb26ea186290ead1587239e54cc924648bb0947b4b0dd01bd30b4",
+      "git_blob": "30825b7682aa6eb4ec09ff82d659157b6dd671f7",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/dist/src/expense-plan.js",
+      "bytes": 14672,
+      "sha256": "7a3b7e51cd0da316bf4bed6bdbca3c2290146d0bcbfad3945bc866c251000d42",
+      "git_blob": "a086a5ffc998b94c0be519822137e7a324009d25",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/dist/src/household-plan.js",
+      "bytes": 6917,
+      "sha256": "f1b336d85e01d1dbf8613bb4148fa2e829e1fd7d3e3d0f52636d7e74efc3896c",
+      "git_blob": "4ee0f76502a3dd1b242c0297b868b75bcf9d46df",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/dist/src/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/docs/EXPENSE_PLAN.md",
+      "bytes": 6419,
+      "sha256": "e60b0019b313215af46ebfe8c4b71c95bb33a6e08af98da0c412b62693969b77",
+      "git_blob": "09941ac0e369c432f1861fefaeabd37386a5abd3",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/examples/fictional-ledger.json",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/examples/fictional-plan.json",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "mode": "100644"
+    }
+  ]
+}

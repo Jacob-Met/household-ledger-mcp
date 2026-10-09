@@ -1,0 +1,114 @@
+import hashlib,io,json,pathlib,stat,zipfile,re,shlex,posixpath,difflib
+from datetime import datetime,timezone
+R=pathlib.Path('/home/jacob/household-cli-delivery-v2-cf5799f6d38b-yxnka964')
+O=pathlib.Path('/tmp/household-portable-independent-cf5799f6d38b-v1')
+def pin(b):return dict(bytes=len(b),sha256=hashlib.sha256(b).hexdigest(),git_blob=hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest())
+def jb(x):return (json.dumps(x,ensure_ascii=True,indent=2)+'\n').encode()
+def save(p,b):
+ p.parent.mkdir(parents=True,exist_ok=True)
+ with p.open('xb') as f:f.write(b)
+def snap(p):
+ t=p.lstat();assert stat.S_ISREG(t.st_mode) and not p.is_symlink()
+ return dict(path=str(p),mode=stat.S_IMODE(t.st_mode),inode=t.st_ino,device=t.st_dev,mtime_ns=t.st_mtime_ns,**pin(p.read_bytes()))
+mraw=(R/'publication-manifest.json').read_bytes();m=json.loads(mraw)
+f={pathlib.Path(x['path']).name:pathlib.Path(x['native_path']) for x in m['files']}
+tracked=[R/'publication-manifest.json',R/'packaging-proof.json',R/'text-transfer.json']+list(f.values())
+before=[snap(p) for p in tracked]
+for row in m['files']:assert pin(pathlib.Path(row['native_path']).read_bytes())=={k:row[k] for k in ('bytes','sha256','git_blob')}
+t=(R/'text-transfer.json').read_bytes();assert len(t)==53994 and pin(t)['sha256']=='0e194ebb50e14e6da4efa1347364c782230cc9bec3c58e5bd779ec6b85426a18'
+zraw=f['household-expense-plan-node.zip'].read_bytes()
+assert len(zraw)==21949 and pin(zraw)['sha256']=='e7504692186ab1e7643a015b2add924761c8ca0616690fa02c936dcde4140a98'
+checks=json.loads(f['CHECKSUMS.json'].read_bytes());rows=checks['members']
+assert pin(zraw)=={k:checks['archive'][k] for k in ('bytes','sha256','git_blob')}
+with zipfile.ZipFile(io.BytesIO(zraw)) as z:
+ assert len(z.infolist())==len(set(z.namelist()))==11 and z.testzip() is None
+ assert set(z.namelist())=={x['path'] for x in rows} and sum(i.file_size for i in z.infolist())<100000
+ data={}
+ for i in z.infolist():
+  p=pathlib.PurePosixPath(i.filename)
+  assert not p.is_absolute() and p.parts[0]=='household-expense-plan' and all(v not in ('','..','.') for v in p.parts)
+  assert '\\' not in i.filename and ':' not in i.filename and i.external_attr>>16==0o100644 and i.create_system==3 and not i.is_dir() and not i.flag_bits&1
+  b=z.read(i);row=next(x for x in rows if x['path']==i.filename)
+  assert pin(b)=={k:row[k] for k in ('bytes','sha256','git_blob')}
+  data['/'.join(p.parts[1:])]=b
+sums={}
+for line in data['SHA256SUMS'].decode().splitlines():
+ h,n=line.split('  ',1);assert n not in sums;sums[n]=h
+assert set(sums)==set(data)-{'SHA256SUMS'} and all(pin(data[n])['sha256']==h for n,h in sums.items())
+prov=json.loads(data['PROVENANCE.json'])
+assert prov['product_tree']==m['product_tree']=='4da046012fb5b0007005204d624dc8b495e79c1c'
+for n,row in prov['source_files'].items():
+ assert pin(data[n])=={k:row[k] for k in ('bytes','sha256','git_blob')}
+ if not row['source'].startswith('https:'):
+  p=pathlib.Path(row['source']);assert p.read_bytes()==data[n];tracked.append(p);before.append(snap(p))
+assert len(prov['source_files'])==8
+candidate=pathlib.Path('/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/candidate-manifest.json')
+assert pin(candidate.read_bytes())['sha256']==prov['candidate_manifest_sha256']=='acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad'
+treepath=pathlib.Path('/home/jacob/household-plan-admission-cf5799f6d38b-qzg_w0y6/ownership/pr8-recursive-tree.json')
+tree=json.loads(treepath.read_bytes());lic=next(x for x in tree['tree'] if x['path']=='LICENSE')
+assert lic['sha']==pin(data['LICENSE'])['git_blob']=='edb188254288b40f2895833e3647b7e0be34c962'
+assert data['LICENSE'].decode().startswith('MIT License\n\nCopyright (c) 2026 Jacob Metoyer\n')
+for p in (candidate,treepath):tracked.append(p);before.append(snap(p))
+package=json.loads(data['package.json']);assert package['type']=='module' and package['engines']['node']=='>=20' and package['license']=='MIT'
+imports=[]
+for n in ('dist/src/expense-plan.js','dist/src/household-plan.js','dist/src/ledger.js'):
+ text=data[n].decode()
+ for spec in re.findall(r'(?m)^import\s+.*?\s+from\s+["\']([^"\']+)["\'];',text):
+  target=None if spec.startswith('node:') else posixpath.normpath(posixpath.join(posixpath.dirname(n),spec))
+  assert spec.startswith('node:') or target in data
+  imports.append(dict(module=n,specifier=spec,resolved_bundle_path=target,kind='Node builtin' if target is None else 'bundled exact relative module'))
+ assert not re.search(r'\brequire\s*\(|\bimport\s*\(|\bfetch\s*\(|\bXMLHttpRequest\b',text)
+assert len(imports)==11 and imports==prov['static_imports']
+internal=data['README.md'].decode();external=f['README.md'].read_text();cli=data['dist/src/household-plan.js'].decode()
+command=re.search(r'```sh\n(node[^\n]+)\n```',internal).group(1)
+assert command in external
+args=shlex.split(command);assert args[:2]==['node','dist/src/household-plan.js'] and len(args)==12
+options=dict(zip(args[2::2],args[3::2]))
+assert set(options)=={'--ledger','--plan','--month','--currency','--out'} and options['--month']=='2026-10' and options['--currency']=='USD'
+assert options['--ledger'] in data and options['--plan'] in data and options['--out']=='expense-preview.html' and options['--out'] not in data
+assert 'new Set(["ledger", "plan", "month", "currency", "out"])' in cli and 'await fs.link(temporary, destination);' in cli
+ledger=json.loads(data[options['--ledger']]);plan=json.loads(data[options['--plan']])
+assert plan['schema']=='household-expense-plan/1' and len(plan['expenses'])==5
+assert all(x['date'].startswith('2026-10-') and set(x)<={'amountMinor','date','category','note'} for x in plan['expenses'])
+selected=[x for x in ledger['transactions'] if x['currency']=='USD' and x['date'].startswith('2026-10-')]
+inc=sum(x['amountMinor'] for x in selected if x['type']=='income');exp=sum(x['amountMinor'] for x in selected if x['type']=='expense');add=sum(x['amountMinor'] for x in plan['expenses'])
+assert (inc,exp,add,inc-exp,inc-exp-add)==(202000,20000,6600,182000,175400)
+P=pathlib.Path('/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3')
+prior=[(P/'estate-cli/report.html','4643144441fc963b93b6822f8f409c97be36753a6b5e47f584ae87707f134503'),(P/'browser-v3/result.json','dbbd1d9b53bc8386c033d8d6bd29f96d136a07f7a5e3598f3013d5d4d4240243'),(pathlib.Path('/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/receipt.json'),'aa8b2de6c6e752ed586e25ca015680851c3c142e1c639c9829e7c4fd51cd494d')]
+for p,h in prior:assert pin(p.read_bytes())['sha256']==h;tracked.append(p);before.append(snap(p))
+report=json.loads(re.search(r'<script[^>]*>(.*?)</script>',prior[0][0].read_text(),re.S).group(1))
+assert report['month']=='2026-10' and report['currency']=='USD' and report['plannedExpenseMinor']==6600 and len(report['expenses'])==5
+assert (report['recorded']['expenseMinor'],report['hypothetical']['expenseMinor'],report['recorded']['netMinor'],report['hypothetical']['netMinor'])==(20000,26600,182000,175400)
+for key in ('ledger','plan'):assert report['provenance'][key]['sha256']==pin(data[options['--'+key]])['sha256']
+grocery=next(x for x in report['budgets'] if x['category']=='groceries')
+assert (grocery['limitMinor'],grocery['recordedSpentMinor'],grocery['hypotheticalSpentMinor'],grocery['hypotheticalOver'])==(20000,15000,20500,True)
+br=json.loads(prior[1][0].read_bytes());assert br['passed']==2 and br['failed']==0 and br['runtime']=='v22.22.1'
+be=next(v for g in br['groups'] if isinstance(g['evidence'],list) for v in g['evidence'] if v['id']=='estate-cli')
+assert be['totals']==['6600','20000 \u2192 26600','182000 \u2192 175400']
+cr=json.loads(prior[2][0].read_bytes());assert cr['passed'] and cr['node']=='v22.22.1' and cr['ordinaryGroups']==16 and cr['supplementalGroups']==3
+assert pathlib.Path(cr['candidateCli']).read_bytes()==data['dist/src/household-plan.js']
+bad='The complete input format and limits are in [docs/EXPENSE_PLAN.md](docs/EXPENSE_PLAN.md); the fictional plan is a small editable example.'
+good='After extraction, the complete input format and limits are in `household-expense-plan/docs/EXPENSE_PLAN.md`; the fictional plan is a small editable example. Build and test commands in that preserved source guide apply to a full repository checkout, not this prebuilt bundle; use the direct command above.'
+assert bad in external and not (f['README.md'].parent/'docs/EXPENSE_PLAN.md').exists()
+new=external.replace(bad,good).replace('`SHA256SUMS` covers every other file in this folder. `PROVENANCE.json` records the exact source and fixture identities.','Inside the extracted `household-expense-plan` folder, `SHA256SUMS` covers every other member and `PROVENANCE.json` records the exact source and fixture identities.').replace("The repository's original MIT license and copyright notice are included in `LICENSE`.","The repository's original MIT license and copyright notice are included in the extracted folder's `LICENSE`.")
+assert new!=external and re.findall(r'\[[^\]]+\]\(([^)]+)\)',new)==['household-expense-plan-node.zip']
+after=[snap(p) for p in tracked];assert before==after
+O.mkdir();save(O/'proposed/README.md',new.encode());save(O/'proposed/CHECKSUMS.json',f['CHECKSUMS.json'].read_bytes())
+patch=''.join(difflib.unified_diff(external.splitlines(True),new.splitlines(True),fromfile='v2-external/README.md',tofile='proposed-external/README.md'));save(O/'external-readme.patch',patch.encode())
+receipt=dict(schema='household.portable-delivery.independent-static.v1',finished=datetime.now(timezone.utc).isoformat(),status='ZIP_STATIC_ACCEPTED_EXTERNAL_README_CORRECTION_PROPOSED',
+archive=pin(zraw),original_transfer=pin(t),external_manifest=pin(mraw),members=rows,safe_regular_members=11,internal_checksum_entries=10,source_members_exact=7,license_primary_tree_leaf=dict(path=str(treepath),capture=pin(treepath.read_bytes()),git_blob=lic['sha']),product_tree=prov['product_tree'],static_imports=imports,command=command,
+sample=dict(month='2026-10',currency='USD',income=inc,recorded_expense=exp,planned_expense=add,hypothetical_expense=exp+add,recorded_net=inc-exp,hypothetical_net=inc-exp-add,occurrences=5,grocery_budget=grocery),
+prior_accepted_evidence=[dict(path=str(p),**pin(p.read_bytes())) for p,h in prior],all_inputs_before_after_exact=True,
+findings=[dict(id='external-guide-location',severity='delivery-doc correction',detail='External README link docs/EXPENSE_PLAN.md has no target in the three-file publication. SHA256SUMS/PROVENANCE and LICENSE describe extracted members, not external publication files. Internal ZIP README/layout is correct.',proposal='Only external README changes; exact separate proposal and diff included.'),
+dict(id='portable-entry',severity='scope clarification',detail='Original package scripts/bin refer to omitted MCP/full-repository targets. README explicitly selects the direct compiled CLI, whose complete11 static import edges are Node built-ins or the three bundled modules. Proposed external prose makes source-guide build/test commands explicitly full-checkout only. Source-map comments are optional debugging aids, not imports.'),
+dict(id='runtime',severity='qualified limit',detail='Node>=20 is original project metadata. The actual accepted runtime is Linux Node22.22.1; no new Node20/all-version/Windows result is claimed. Windows remains prepared/unrun.'),
+dict(id='example',severity='verified',detail='Exact fictional input SHA values bind the accepted report. Independent static arithmetic and historical browser/CLI records agree with all documented amounts, selected context, five occurrences and grocery crossing.')],
+proposal=dict(readme=pin(new.encode()),checksums=pin(f['CHECKSUMS.json'].read_bytes()),checksums_changed=False,reason='CHECKSUMS.json describes only unchanged ZIP and its11 internal members. Its internal README checksum must not be changed for a different external README.'),
+execution=dict(application=0,node=0,browser=0,windows=0,application_parser=0,build=0,install=0,extraction=0,description='Static ZIP/JSON data reads, source-text review and hash comparison only.'),
+preparation_events=['Read-only initial inspection requested dist/src/household-plan.js without the archive top folder and got KeyError after printing other members. Correct prefixed member is verified here.','First attempt to deliver this review script failed in the orchestrator JavaScript parser because Markdown backticks terminated a string; no native call/write occurred. The delivered script uses correctly escaped text.'],
+limits=['Original v2 and source/evidence unchanged.','Historical accepted results are attributed, not rerun.','No ZIP-contained code or application parser executed; no host probe, LA7 retry or live ledger.'])
+save(O/'receipt.json',jb(receipt));save(O/'custody.json',jb(dict(before=before,after=after)));save(O/'review-static.py.txt',pathlib.Path(__file__).read_bytes())
+allfiles=[O/'receipt.json',O/'custody.json',O/'review-static.py.txt',O/'external-readme.patch',O/'proposed/README.md',O/'proposed/CHECKSUMS.json']
+manifest=dict(schema='household.portable-delivery.proposal-review.v1',files=[dict(path=p.relative_to(O).as_posix(),native_path=str(p),mode='100644',**pin(p.read_bytes())) for p in allfiles],count=6,original_zip_unchanged=True)
+save(O/'manifest.json',jb(manifest));save(O/'text-transfer.json',jb(dict(manifest=manifest,files=[dict(**r,encoding='utf-8',content=pathlib.Path(r['native_path']).read_text()) for r in manifest['files']])))
+print(json.dumps(dict(root=str(O),receipt=pin((O/'receipt.json').read_bytes()),manifest=pin((O/'manifest.json').read_bytes()),transfer=pin((O/'text-transfer.json').read_bytes()),proposal=receipt['proposal'],status=receipt['status'])))

@@ -1,0 +1,335 @@
+{
+  "schema": "household.expense-plan.delivery-proof.v2",
+  "status": "PACKAGED_FROM_QUALIFIED_BYTES_NO_NEW_RUNTIME_EXECUTION",
+  "product_tree": "4da046012fb5b0007005204d624dc8b495e79c1c",
+  "predecessor_manifest_sha256": "d712b21ffa20b0f31d320a15db291473f04dc4ead40a0cfbeb67829f4b52397a",
+  "predecessor_zip_sha256": "96582ddb51371ecce5fe2f9fee9225b86e7a63fc6d092f8cafd29e2fca5c6331",
+  "source_before": {
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/expense-plan.js": {
+      "bytes": 14672,
+      "sha256": "7a3b7e51cd0da316bf4bed6bdbca3c2290146d0bcbfad3945bc866c251000d42",
+      "git_blob": "a086a5ffc998b94c0be519822137e7a324009d25",
+      "mode": "0o664",
+      "inode": 9688281,
+      "mtime_ns": 1791502908955023126
+    },
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/household-plan.js": {
+      "bytes": 6917,
+      "sha256": "f1b336d85e01d1dbf8613bb4148fa2e829e1fd7d3e3d0f52636d7e74efc3896c",
+      "git_blob": "4ee0f76502a3dd1b242c0297b868b75bcf9d46df",
+      "mode": "0o664",
+      "inode": 9688284,
+      "mtime_ns": 1791502908973023053
+    },
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/ledger.js": {
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "mode": "0o664",
+      "inode": 9688275,
+      "mtime_ns": 1791502908908023319
+    },
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/package.json": {
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "mode": "0o644",
+      "inode": 9682407,
+      "mtime_ns": 1791501671999216890
+    },
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/docs/EXPENSE_PLAN.md": {
+      "bytes": 6419,
+      "sha256": "e60b0019b313215af46ebfe8c4b71c95bb33a6e08af98da0c412b62693969b77",
+      "git_blob": "09941ac0e369c432f1861fefaeabd37386a5abd3",
+      "mode": "0o664",
+      "inode": 9688212,
+      "mtime_ns": 1791502694125903689
+    },
+    "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/ledger.json": {
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540",
+      "mode": "0o664",
+      "inode": 6463306,
+      "mtime_ns": 1791503897364666684
+    },
+    "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/plan.json": {
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c",
+      "mode": "0o664",
+      "inode": 6463307,
+      "mtime_ns": 1791503897364777352
+    },
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/candidate-manifest.json": {
+      "bytes": 8002,
+      "sha256": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad",
+      "git_blob": "ccf02fc8ea2e269f9ccd0ef6e99ffca644656b8c",
+      "mode": "0o664",
+      "inode": 9689584,
+      "mtime_ns": 1791502809518435885
+    }
+  },
+  "source_after": {
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/expense-plan.js": {
+      "bytes": 14672,
+      "sha256": "7a3b7e51cd0da316bf4bed6bdbca3c2290146d0bcbfad3945bc866c251000d42",
+      "git_blob": "a086a5ffc998b94c0be519822137e7a324009d25",
+      "mode": "0o664",
+      "inode": 9688281,
+      "mtime_ns": 1791502908955023126
+    },
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/household-plan.js": {
+      "bytes": 6917,
+      "sha256": "f1b336d85e01d1dbf8613bb4148fa2e829e1fd7d3e3d0f52636d7e74efc3896c",
+      "git_blob": "4ee0f76502a3dd1b242c0297b868b75bcf9d46df",
+      "mode": "0o664",
+      "inode": 9688284,
+      "mtime_ns": 1791502908973023053
+    },
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/dist/src/ledger.js": {
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "mode": "0o664",
+      "inode": 9688275,
+      "mtime_ns": 1791502908908023319
+    },
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/package.json": {
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "mode": "0o644",
+      "inode": 9682407,
+      "mtime_ns": 1791501671999216890
+    },
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source/docs/EXPENSE_PLAN.md": {
+      "bytes": 6419,
+      "sha256": "e60b0019b313215af46ebfe8c4b71c95bb33a6e08af98da0c412b62693969b77",
+      "git_blob": "09941ac0e369c432f1861fefaeabd37386a5abd3",
+      "mode": "0o664",
+      "inode": 9688212,
+      "mtime_ns": 1791502694125903689
+    },
+    "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/ledger.json": {
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540",
+      "mode": "0o664",
+      "inode": 6463306,
+      "mtime_ns": 1791503897364666684
+    },
+    "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/plan.json": {
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c",
+      "mode": "0o664",
+      "inode": 6463307,
+      "mtime_ns": 1791503897364777352
+    },
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/candidate-manifest.json": {
+      "bytes": 8002,
+      "sha256": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad",
+      "git_blob": "ccf02fc8ea2e269f9ccd0ef6e99ffca644656b8c",
+      "mode": "0o664",
+      "inode": 9689584,
+      "mtime_ns": 1791502809518435885
+    }
+  },
+  "predecessor_before": {
+    "/home/jacob/household-cli-delivery-cf5799f6d38b-shlx04v1/publication-manifest.json": {
+      "bytes": 1843,
+      "sha256": "d712b21ffa20b0f31d320a15db291473f04dc4ead40a0cfbeb67829f4b52397a",
+      "git_blob": "facebb9919e85acf3d2e21b4fa8720244ed6aa50",
+      "mode": "0o664",
+      "inode": 725589,
+      "mtime_ns": 1791509271004206429
+    },
+    "/home/jacob/household-cli-delivery-cf5799f6d38b-shlx04v1/packaging-proof.json": {
+      "bytes": 8079,
+      "sha256": "bbf277e6c1736f3564b0cfe64115a25eee5f098ceaa029eadaa8c9624342f9b6",
+      "git_blob": "de1e71f206adbef18daa40cd1a5035a6e248a872",
+      "mode": "0o664",
+      "inode": 725588,
+      "mtime_ns": 1791509271003986680
+    },
+    "/home/jacob/household-cli-delivery-cf5799f6d38b-shlx04v1/publication/docs/delivery/household-expense-plan-cf5799f6d38b/CHECKSUMS.json": {
+      "bytes": 2941,
+      "sha256": "a65dce744eab845b39cad59bc17e593e395043c6f892594a3c83a8ebd2c9df30",
+      "git_blob": "a21cddfe2385fc2b9aeb87e45e808fb1d447d62e",
+      "mode": "0o664",
+      "inode": 1782293,
+      "mtime_ns": 1791509271003662975
+    },
+    "/home/jacob/household-cli-delivery-cf5799f6d38b-shlx04v1/publication/docs/delivery/household-expense-plan-cf5799f6d38b/README.md": {
+      "bytes": 3308,
+      "sha256": "d61cb5333a9834eadd0572a6fda6aee8c922d8ef3d9d88a73abc268ffcbb70fb",
+      "git_blob": "45b2374a5451443b9b39ec77bc241ed5ad952cd4",
+      "mode": "0o664",
+      "inode": 1782292,
+      "mtime_ns": 1791509271003553062
+    },
+    "/home/jacob/household-cli-delivery-cf5799f6d38b-shlx04v1/publication/docs/delivery/household-expense-plan-cf5799f6d38b/household-expense-plan-node.zip": {
+      "bytes": 20837,
+      "sha256": "96582ddb51371ecce5fe2f9fee9225b86e7a63fc6d092f8cafd29e2fca5c6331",
+      "git_blob": "8051f9d3bc6cc59cd444cb98ad657786d3fa2125",
+      "mode": "0o664",
+      "inode": 1782291,
+      "mtime_ns": 1791509271001457666
+    }
+  },
+  "predecessor_after": {
+    "/home/jacob/household-cli-delivery-cf5799f6d38b-shlx04v1/publication-manifest.json": {
+      "bytes": 1843,
+      "sha256": "d712b21ffa20b0f31d320a15db291473f04dc4ead40a0cfbeb67829f4b52397a",
+      "git_blob": "facebb9919e85acf3d2e21b4fa8720244ed6aa50",
+      "mode": "0o664",
+      "inode": 725589,
+      "mtime_ns": 1791509271004206429
+    },
+    "/home/jacob/household-cli-delivery-cf5799f6d38b-shlx04v1/packaging-proof.json": {
+      "bytes": 8079,
+      "sha256": "bbf277e6c1736f3564b0cfe64115a25eee5f098ceaa029eadaa8c9624342f9b6",
+      "git_blob": "de1e71f206adbef18daa40cd1a5035a6e248a872",
+      "mode": "0o664",
+      "inode": 725588,
+      "mtime_ns": 1791509271003986680
+    },
+    "/home/jacob/household-cli-delivery-cf5799f6d38b-shlx04v1/publication/docs/delivery/household-expense-plan-cf5799f6d38b/CHECKSUMS.json": {
+      "bytes": 2941,
+      "sha256": "a65dce744eab845b39cad59bc17e593e395043c6f892594a3c83a8ebd2c9df30",
+      "git_blob": "a21cddfe2385fc2b9aeb87e45e808fb1d447d62e",
+      "mode": "0o664",
+      "inode": 1782293,
+      "mtime_ns": 1791509271003662975
+    },
+    "/home/jacob/household-cli-delivery-cf5799f6d38b-shlx04v1/publication/docs/delivery/household-expense-plan-cf5799f6d38b/README.md": {
+      "bytes": 3308,
+      "sha256": "d61cb5333a9834eadd0572a6fda6aee8c922d8ef3d9d88a73abc268ffcbb70fb",
+      "git_blob": "45b2374a5451443b9b39ec77bc241ed5ad952cd4",
+      "mode": "0o664",
+      "inode": 1782292,
+      "mtime_ns": 1791509271003553062
+    },
+    "/home/jacob/household-cli-delivery-cf5799f6d38b-shlx04v1/publication/docs/delivery/household-expense-plan-cf5799f6d38b/household-expense-plan-node.zip": {
+      "bytes": 20837,
+      "sha256": "96582ddb51371ecce5fe2f9fee9225b86e7a63fc6d092f8cafd29e2fca5c6331",
+      "git_blob": "8051f9d3bc6cc59cd444cb98ad657786d3fa2125",
+      "mode": "0o664",
+      "inode": 1782291,
+      "mtime_ns": 1791509271001457666
+    }
+  },
+  "source_and_predecessor_unchanged": true,
+  "license_primary_tree": {
+    "bytes": 37989,
+    "sha256": "4e0dc328bbc5d3b2418805912611809ee5a1c3adc3f6175360be78af2ee869e3",
+    "git_blob": "51a6f3a5d809fb9a9a8fb9f01e38117ca3079159",
+    "mode": "0o664",
+    "inode": 3747755,
+    "mtime_ns": 1791499208118164624
+  },
+  "license_entry": {
+    "path": "LICENSE",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "edb188254288b40f2895833e3647b7e0be34c962",
+    "size": 1070,
+    "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/edb188254288b40f2895833e3647b7e0be34c962"
+  },
+  "license_sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb",
+  "unchanged_source_guide_example_files": [
+    "dist/src/expense-plan.js",
+    "dist/src/household-plan.js",
+    "dist/src/ledger.js",
+    "docs/EXPENSE_PLAN.md",
+    "examples/fictional-ledger.json",
+    "examples/fictional-plan.json",
+    "package.json"
+  ],
+  "delivery_metadata_changes": [
+    "PROVENANCE.json",
+    "README.md",
+    "SHA256SUMS"
+  ],
+  "added": [
+    "LICENSE"
+  ],
+  "static_imports": [
+    {
+      "module": "dist/src/expense-plan.js",
+      "specifier": "node:crypto",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/expense-plan.js",
+      "specifier": "./ledger.js",
+      "resolved_bundle_path": "dist/src/ledger.js",
+      "kind": "bundled exact relative module"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "node:fs",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "node:crypto",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "node:path",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "node:url",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "./expense-plan.js",
+      "resolved_bundle_path": "dist/src/expense-plan.js",
+      "kind": "bundled exact relative module"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "./ledger.js",
+      "resolved_bundle_path": "dist/src/ledger.js",
+      "kind": "bundled exact relative module"
+    },
+    {
+      "module": "dist/src/ledger.js",
+      "specifier": "node:crypto",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/ledger.js",
+      "specifier": "node:fs",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/ledger.js",
+      "specifier": "node:path",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    }
+  ],
+  "static_import_closure_unchanged": true,
+  "archive": {
+    "members": 11,
+    "crc_pass": true,
+    "all_member_bytes_and_modes_exact": true,
+    "unsafe_path_or_symlink": false
+  },
+  "no_compile_runtime_test_browser_install_or_windows_execution": true,
+  "free_before": 176250880
+}

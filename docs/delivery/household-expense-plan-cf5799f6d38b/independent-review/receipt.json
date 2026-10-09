@@ -1,0 +1,282 @@
+{
+  "schema": "household.portable-delivery.independent-static.v1",
+  "finished": "2026-10-09T01:42:53.933784+00:00",
+  "status": "ZIP_STATIC_ACCEPTED_EXTERNAL_README_CORRECTION_PROPOSED",
+  "archive": {
+    "bytes": 21949,
+    "sha256": "e7504692186ab1e7643a015b2add924761c8ca0616690fa02c936dcde4140a98",
+    "git_blob": "6b127dfb8bcd086714f7a3184c1aaa1c6ab88111"
+  },
+  "original_transfer": {
+    "bytes": 53994,
+    "sha256": "0e194ebb50e14e6da4efa1347364c782230cc9bec3c58e5bd779ec6b85426a18",
+    "git_blob": "48ab97af23fa0edcd03d43d3c5d2765b31c8c185"
+  },
+  "external_manifest": {
+    "bytes": 1855,
+    "sha256": "6205e3b2e233b6f5845008ee2e5577c7b25b8e45bb37907350819874fcf45a58",
+    "git_blob": "1963ab72d8a6691a69dfee188d5ede865dd947b7"
+  },
+  "members": [
+    {
+      "path": "household-expense-plan/LICENSE",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb",
+      "git_blob": "edb188254288b40f2895833e3647b7e0be34c962",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/PROVENANCE.json",
+      "bytes": 5529,
+      "sha256": "26a00cb2b50e75c0ee0bb0bb61c8063f45d7f2930748e6b39948c4e6f9196c2d",
+      "git_blob": "11f7749f32f9a2452cae0998eca11bf5271d4ed7",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/README.md",
+      "bytes": 3002,
+      "sha256": "3bbe2b86242118961f277274fa7d5e9fa8b15be12612849365ba690bc8ed24a7",
+      "git_blob": "e2bccb4d59863411322741648dade3b20d27e366",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/SHA256SUMS",
+      "bytes": 859,
+      "sha256": "508d179179edb26ea186290ead1587239e54cc924648bb0947b4b0dd01bd30b4",
+      "git_blob": "30825b7682aa6eb4ec09ff82d659157b6dd671f7",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/dist/src/expense-plan.js",
+      "bytes": 14672,
+      "sha256": "7a3b7e51cd0da316bf4bed6bdbca3c2290146d0bcbfad3945bc866c251000d42",
+      "git_blob": "a086a5ffc998b94c0be519822137e7a324009d25",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/dist/src/household-plan.js",
+      "bytes": 6917,
+      "sha256": "f1b336d85e01d1dbf8613bb4148fa2e829e1fd7d3e3d0f52636d7e74efc3896c",
+      "git_blob": "4ee0f76502a3dd1b242c0297b868b75bcf9d46df",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/dist/src/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/docs/EXPENSE_PLAN.md",
+      "bytes": 6419,
+      "sha256": "e60b0019b313215af46ebfe8c4b71c95bb33a6e08af98da0c412b62693969b77",
+      "git_blob": "09941ac0e369c432f1861fefaeabd37386a5abd3",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/examples/fictional-ledger.json",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/examples/fictional-plan.json",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c",
+      "mode": "100644"
+    },
+    {
+      "path": "household-expense-plan/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "mode": "100644"
+    }
+  ],
+  "safe_regular_members": 11,
+  "internal_checksum_entries": 10,
+  "source_members_exact": 7,
+  "license_primary_tree_leaf": {
+    "path": "/home/jacob/household-plan-admission-cf5799f6d38b-qzg_w0y6/ownership/pr8-recursive-tree.json",
+    "capture": {
+      "bytes": 37989,
+      "sha256": "4e0dc328bbc5d3b2418805912611809ee5a1c3adc3f6175360be78af2ee869e3",
+      "git_blob": "51a6f3a5d809fb9a9a8fb9f01e38117ca3079159"
+    },
+    "git_blob": "edb188254288b40f2895833e3647b7e0be34c962"
+  },
+  "product_tree": "4da046012fb5b0007005204d624dc8b495e79c1c",
+  "static_imports": [
+    {
+      "module": "dist/src/expense-plan.js",
+      "specifier": "node:crypto",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/expense-plan.js",
+      "specifier": "./ledger.js",
+      "resolved_bundle_path": "dist/src/ledger.js",
+      "kind": "bundled exact relative module"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "node:fs",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "node:crypto",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "node:path",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "node:url",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "./expense-plan.js",
+      "resolved_bundle_path": "dist/src/expense-plan.js",
+      "kind": "bundled exact relative module"
+    },
+    {
+      "module": "dist/src/household-plan.js",
+      "specifier": "./ledger.js",
+      "resolved_bundle_path": "dist/src/ledger.js",
+      "kind": "bundled exact relative module"
+    },
+    {
+      "module": "dist/src/ledger.js",
+      "specifier": "node:crypto",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/ledger.js",
+      "specifier": "node:fs",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    },
+    {
+      "module": "dist/src/ledger.js",
+      "specifier": "node:path",
+      "resolved_bundle_path": null,
+      "kind": "Node builtin"
+    }
+  ],
+  "command": "node dist/src/household-plan.js --ledger examples/fictional-ledger.json --plan examples/fictional-plan.json --month 2026-10 --currency USD --out expense-preview.html",
+  "sample": {
+    "month": "2026-10",
+    "currency": "USD",
+    "income": 202000,
+    "recorded_expense": 20000,
+    "planned_expense": 6600,
+    "hypothetical_expense": 26600,
+    "recorded_net": 182000,
+    "hypothetical_net": 175400,
+    "occurrences": 5,
+    "grocery_budget": {
+      "position": 1,
+      "category": "groceries",
+      "currency": "USD",
+      "limitMinor": 20000,
+      "recordedSpentMinor": 15000,
+      "recordedRemainingMinor": 5000,
+      "recordedOver": false,
+      "hypotheticalSpentMinor": 20500,
+      "hypotheticalRemainingMinor": -500,
+      "hypotheticalOver": true
+    }
+  },
+  "prior_accepted_evidence": [
+    {
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/report.html",
+      "bytes": 12948,
+      "sha256": "4643144441fc963b93b6822f8f409c97be36753a6b5e47f584ae87707f134503",
+      "git_blob": "0ad8d62f51c756a3ea787d99a2e11b292f631a3b"
+    },
+    {
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/browser-v3/result.json",
+      "bytes": 4422,
+      "sha256": "dbbd1d9b53bc8386c033d8d6bd29f96d136a07f7a5e3598f3013d5d4d4240243",
+      "git_blob": "46853574984e0e23234cb71ef8cd567ea6440004"
+    },
+    {
+      "path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/receipt.json",
+      "bytes": 83285,
+      "sha256": "aa8b2de6c6e752ed586e25ca015680851c3c142e1c639c9829e7c4fd51cd494d",
+      "git_blob": "847a6bbb91936e3431e53f241812bc7810f5a234"
+    }
+  ],
+  "all_inputs_before_after_exact": true,
+  "findings": [
+    {
+      "id": "external-guide-location",
+      "severity": "delivery-doc correction",
+      "detail": "External README link docs/EXPENSE_PLAN.md has no target in the three-file publication. SHA256SUMS/PROVENANCE and LICENSE describe extracted members, not external publication files. Internal ZIP README/layout is correct.",
+      "proposal": "Only external README changes; exact separate proposal and diff included."
+    },
+    {
+      "id": "portable-entry",
+      "severity": "scope clarification",
+      "detail": "Original package scripts/bin refer to omitted MCP/full-repository targets. README explicitly selects the direct compiled CLI, whose complete11 static import edges are Node built-ins or the three bundled modules. Proposed external prose makes source-guide build/test commands explicitly full-checkout only. Source-map comments are optional debugging aids, not imports."
+    },
+    {
+      "id": "runtime",
+      "severity": "qualified limit",
+      "detail": "Node>=20 is original project metadata. The actual accepted runtime is Linux Node22.22.1; no new Node20/all-version/Windows result is claimed. Windows remains prepared/unrun."
+    },
+    {
+      "id": "example",
+      "severity": "verified",
+      "detail": "Exact fictional input SHA values bind the accepted report. Independent static arithmetic and historical browser/CLI records agree with all documented amounts, selected context, five occurrences and grocery crossing."
+    }
+  ],
+  "proposal": {
+    "readme": {
+      "bytes": 3632,
+      "sha256": "98647f1b7cb01ce1d298bb07f22dec3920d0724cc66f7b2a9e296afe9b05372e",
+      "git_blob": "6d76a51a9ea0744c2dc80851c9c82ee3327e8726"
+    },
+    "checksums": {
+      "bytes": 3192,
+      "sha256": "b92ee7c7929c4e3549cd28e879d472aa2c1f6429a1cb15192060b82aa9ff6c7e",
+      "git_blob": "96eb5ac3d09254778d0138890b82451e546a3685"
+    },
+    "checksums_changed": false,
+    "reason": "CHECKSUMS.json describes only unchanged ZIP and its11 internal members. Its internal README checksum must not be changed for a different external README."
+  },
+  "execution": {
+    "application": 0,
+    "node": 0,
+    "browser": 0,
+    "windows": 0,
+    "application_parser": 0,
+    "build": 0,
+    "install": 0,
+    "extraction": 0,
+    "description": "Static ZIP/JSON data reads, source-text review and hash comparison only."
+  },
+  "preparation_events": [
+    "Read-only initial inspection requested dist/src/household-plan.js without the archive top folder and got KeyError after printing other members. Correct prefixed member is verified here.",
+    "First attempt to deliver this review script failed in the orchestrator JavaScript parser because Markdown backticks terminated a string; no native call/write occurred. The delivered script uses correctly escaped text."
+  ],
+  "limits": [
+    "Original v2 and source/evidence unchanged.",
+    "Historical accepted results are attributed, not rerun.",
+    "No ZIP-contained code or application parser executed; no host probe, LA7 retry or live ledger."
+  ]
+}

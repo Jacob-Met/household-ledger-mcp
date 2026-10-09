@@ -1,0 +1,23 @@
+--- v2-external/README.md
++++ proposed-external/README.md
+@@ -18,7 +18,7 @@
+ 
+ ## Use your own saved inputs
+ 
+-Supply paths to your saved ledger JSON and a separate expense-plan JSON, the selected month, currency and a new report path. Keep the two source files separate. The complete input format and limits are in [docs/EXPENSE_PLAN.md](docs/EXPENSE_PLAN.md); the fictional plan is a small editable example.
++Supply paths to your saved ledger JSON and a separate expense-plan JSON, the selected month, currency and a new report path. Keep the two source files separate. After extraction, the complete input format and limits are in `household-expense-plan/docs/EXPENSE_PLAN.md`; the fictional plan is a small editable example. Build and test commands in that preserved source guide apply to a full repository checkout, not this prebuilt bundle; use the direct command above.
+ 
+ All amounts are integer minor units in the selected currency. No currency conversion is performed. The monthly net is income minus expenses, not an account balance. Repeated plan rows count separately; a missing budget is different from a zero limit. The report is a calculation from the captured inputs, not a prediction.
+ 
+@@ -28,9 +28,9 @@
+ 
+ The captured runtime qualification used Node.js 22.22.1 on Linux. Node.js 20+ is the project's stated requirement; it is not a claim that this package was rerun on every supported version. Windows receiving remains prepared and unrun. Delivery verification checks source hashes, the complete static import closure and ZIP byte roundtrip; it does not add a new application or browser qualification.
+ 
+-`SHA256SUMS` covers every other file in this folder. `PROVENANCE.json` records the exact source and fixture identities.
++Inside the extracted `household-expense-plan` folder, `SHA256SUMS` covers every other member and `PROVENANCE.json` records the exact source and fixture identities.
+ 
+-The repository's original MIT license and copyright notice are included in `LICENSE`.
++The repository's original MIT license and copyright notice are included in the extracted folder's `LICENSE`.
+ 
+ ## Download integrity
+ 
