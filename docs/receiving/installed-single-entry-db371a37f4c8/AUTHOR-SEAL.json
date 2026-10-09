@@ -1,0 +1,40 @@
+{
+  "finished": "2026-10-09T01:25:13.748935+00:00",
+  "archive": {
+    "name": "household-installed-record-author.tar.gz",
+    "bytes": 2172039,
+    "sha256": "2fa4ff14d0a7e62153242b3e788c33e425ca38ca64a0de0cc69393ec89cf9c06",
+    "git": "150193f3e05260e5254e06496a6592d978e1d095",
+    "members": 71
+  },
+  "manifest": {
+    "bytes": 27662,
+    "sha256": "0d0b12bbc00187f96db14ef4a3a9841feb07ede8613121401709e4976f840857",
+    "git": "e2ac9238e9f25c7a159ebc57f52f5bc179ac50c9"
+  },
+  "report": {
+    "bytes": 8644,
+    "sha256": "74d67508428440bb292e72cbd75e043eb4bf246c1b653637bdda3dc48fb3d896",
+    "git": "8afab092f84e0e1e11d49bb8c550ea0aba88d849"
+  },
+  "allArchiveMembersVerified": true,
+  "allPayloadSourcesBeforeAfterExact": true,
+  "sourceAndInstalledBefore": {
+    "source": 227,
+    "installed": 3874
+  },
+  "sourceAndInstalledAfter": {
+    "source": 227,
+    "installed": 3874
+  },
+  "sourceUnchanged": true,
+  "freeFilesystemObserved": 157069312,
+  "memAvailableBefore": 3454881792,
+  "memoryFloor": 1073741824,
+  "noFilesystemAllocation": true,
+  "noProductRun": true,
+  "sealingPid": 3392988,
+  "createdRepositoryBlob": "150193f3e05260e5254e06496a6592d978e1d095",
+  "transfer": "23 bounded base64 chunks; exact encoded length; Git create_blob SHA equals native whole-archive Git identity",
+  "sealingProcessClosure": "PID 3392988 observed exit 0, runtime 169.58 seconds after explicit close; product was not run"
+}

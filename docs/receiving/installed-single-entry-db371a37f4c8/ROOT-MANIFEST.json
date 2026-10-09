@@ -1,0 +1,2161 @@
+{
+  "created": "2026-10-09T02:06:15.159484+00:00",
+  "owner": "estate-db371a37f4c8/root",
+  "rows": [
+    {
+      "path": "persistent/CONTRACT.md",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-entry-receiving-db371a37f4c8/CONTRACT.md",
+      "bytes": 2303,
+      "sha256": "32430e477670ce9207af7796ee88e11e37abf81575434a4552adcd1f3a8f9bab",
+      "mode": 436
+    },
+    {
+      "path": "persistent/admit-installed-r1.py",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-entry-receiving-db371a37f4c8/admit-installed-r1.py",
+      "bytes": 9208,
+      "sha256": "f114976ab7e097d8468b45a9503ed12ab632f86df262a35b4e8200b08f6c0ae9",
+      "mode": 436
+    },
+    {
+      "path": "persistent/admit-installed-r2.py",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-entry-receiving-db371a37f4c8/admit-installed-r2.py",
+      "bytes": 9501,
+      "sha256": "c4a5decf099d8ebc8ef3baa41a33ac22597b18f1c527561cfa1682de742c8f6e",
+      "mode": 436
+    },
+    {
+      "path": "persistent/freeze-receipt.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-entry-receiving-db371a37f4c8/freeze-receipt.json",
+      "bytes": 308,
+      "sha256": "7cb8d2d9572c0727353653eb00cee15c5921734860a647d3548d669106034c29",
+      "mode": 436
+    },
+    {
+      "path": "persistent/installed-terminal-driver-stage-r1.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-entry-receiving-db371a37f4c8/installed-terminal-driver-stage-r1.json",
+      "bytes": 640,
+      "sha256": "73d8665bd97bdee9f7d86151ac3adc445e434748c067dfa0890d2e9bfcacccfc",
+      "mode": 436
+    },
+    {
+      "path": "persistent/installed-terminal-receiving-r1.py",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-entry-receiving-db371a37f4c8/installed-terminal-receiving-r1.py",
+      "bytes": 22531,
+      "sha256": "def3f3753bbc34518c6e6cac88ab1aa296b98cc842446690cbf3c949bdda4b42",
+      "mode": 436
+    },
+    {
+      "path": "persistent/quota-refusal-r1/partial-ram-files.tar.gz",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-entry-receiving-db371a37f4c8/quota-refusal-r1/partial-ram-files.tar.gz",
+      "bytes": 465637,
+      "sha256": "6f558b8068a0d29402e43c99dbd8ad5b0924a714d2925113723f5686455d6ee9",
+      "mode": 436
+    },
+    {
+      "path": "persistent/quota-refusal-r1/receipt.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-entry-receiving-db371a37f4c8/quota-refusal-r1/receipt.json",
+      "bytes": 2013,
+      "sha256": "e88a86466051c3f1f5f25541069ccd5fb9cbd6cdd27eb7f0f9c90deb9afac438",
+      "mode": 436
+    },
+    {
+      "path": "persistent/runtime-r2/admission-r1.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-entry-receiving-db371a37f4c8/runtime-r2/admission-r1.json",
+      "bytes": 1015,
+      "sha256": "a82c74838e078593d0cfb8417bcea4f9cd980044a546b60794c8ebb7bbe1f490",
+      "mode": 436
+    },
+    {
+      "path": "runtime/ROOT.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/ROOT.md",
+      "bytes": 12558,
+      "sha256": "b7f78caf833f6ddcbb1de7349620c066728e4febd96febd2b8f30f9844a60e01",
+      "mode": 436
+    },
+    {
+      "path": "runtime/admission-r1.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/admission-r1.json",
+      "bytes": 3134,
+      "sha256": "4c9f7ee5dc829511f3b5127c4d9bc7f3217cff3866009a910b43c6ef1045638f",
+      "mode": 436
+    },
+    {
+      "path": "runtime/admission-r4.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/admission-r4.json",
+      "bytes": 5718,
+      "sha256": "84f0fa3a775a6f3d4cf0358dde663d880d05d1cff425f8f5a3f2420403b964d2",
+      "mode": 436
+    },
+    {
+      "path": "runtime/admit-installed-r4.py",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/admit-installed-r4.py",
+      "bytes": 10207,
+      "sha256": "039cfbef480490b59483d67db34c8da8d6f5616c3cc2d7a36a0cc058161e16e8",
+      "mode": 436
+    },
+    {
+      "path": "runtime/final-custody-audit-r1.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/final-custody-audit-r1.json",
+      "bytes": 1049,
+      "sha256": "af01509c95253587141b79beaf64fadfd15de0b5e155d06944e9354dd74139f4",
+      "mode": 436
+    },
+    {
+      "path": "runtime/input/CONTRACT.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/input/CONTRACT.md",
+      "bytes": 2303,
+      "sha256": "32430e477670ce9207af7796ee88e11e37abf81575434a4552adcd1f3a8f9bab",
+      "mode": 436
+    },
+    {
+      "path": "runtime/input/accepted-entry-source-pins.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/input/accepted-entry-source-pins.json",
+      "bytes": 22067,
+      "sha256": "2997fb03586387cc9af8558c5920b6fd3036af7564ebba6a3ef24280c9dc005b",
+      "mode": 436
+    },
+    {
+      "path": "runtime/input/candidate-final.tgz",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/input/candidate-final.tgz",
+      "bytes": 264193,
+      "sha256": "a2faaa7dc271badaa70e178cb501293f02b47dc8ede01a757c082e6f914b07a8",
+      "mode": 436
+    },
+    {
+      "path": "runtime/input/candidate-source-manifest-r1.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/input/candidate-source-manifest-r1.json",
+      "bytes": 58646,
+      "sha256": "f60bbdd638c2687ddc4b7e496f125ff6f18683f124f8cf87053d4a7156d9047c",
+      "mode": 436
+    },
+    {
+      "path": "runtime/input/dependency-full-source-pins-r1.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/input/dependency-full-source-pins-r1.json",
+      "bytes": 673751,
+      "sha256": "5274e4b46eca7c11a4c894d7963f888852159c9276ec4a5c9a6ef4a02f7acd47",
+      "mode": 436
+    },
+    {
+      "path": "runtime/input/installed-candidate-manifest-r1.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/input/installed-candidate-manifest-r1.json",
+      "bytes": 1105534,
+      "sha256": "782e461f86a96c586488de4f74d72aa35e9f30a5870e67549fdb832c2c007d68",
+      "mode": 436
+    },
+    {
+      "path": "runtime/input/owner-package.tgz",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/input/owner-package.tgz",
+      "bytes": 241470,
+      "sha256": "bbe5d540d0a5c579135d71f80bc2f11573581c54308feee50cc7ea57e272c67b",
+      "mode": 436
+    },
+    {
+      "path": "runtime/installed-terminal-driver-stage-r2.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/installed-terminal-driver-stage-r2.json",
+      "bytes": 409,
+      "sha256": "f67ac57a8c508fd5b83694cfd7b8034b2217ba1b98ffcf3b5962d12117afe4ba",
+      "mode": 436
+    },
+    {
+      "path": "runtime/installed-terminal-driver-stage-r3.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/installed-terminal-driver-stage-r3.json",
+      "bytes": 492,
+      "sha256": "69764e713edabf4db4a8e40498d8266f98a552188a80e03dcdcab00cb1170084",
+      "mode": 436
+    },
+    {
+      "path": "runtime/installed-terminal-launch-r1.py",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/installed-terminal-launch-r1.py",
+      "bytes": 2154,
+      "sha256": "9daff73c3aa30871d7e8c8d2e1ab64baf625477a9bed42c24c5e11acb68a022c",
+      "mode": 436
+    },
+    {
+      "path": "runtime/installed-terminal-launch-r2.py",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/installed-terminal-launch-r2.py",
+      "bytes": 2308,
+      "sha256": "06b9cf79b575599d2b4e0275f24fd0970ddcba150ce298e4b69689d1166d8537",
+      "mode": 436
+    },
+    {
+      "path": "runtime/installed-terminal-receiving-r2.py",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/installed-terminal-receiving-r2.py",
+      "bytes": 23736,
+      "sha256": "6de5071a43b06950b9f4716418f3926e7d5ae3f549a63a5e2333e36e8cf2be90",
+      "mode": 436
+    },
+    {
+      "path": "runtime/installed-terminal-receiving-r3.py",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/installed-terminal-receiving-r3.py",
+      "bytes": 23487,
+      "sha256": "67e3188e95abd2d4de913c15e5340b66fec7a7031ce2d86b2f70ded34279b985",
+      "mode": 436
+    },
+    {
+      "path": "runtime/seal-root-receiving-r1.py",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/seal-root-receiving-r1.py",
+      "bytes": 18646,
+      "sha256": "48adcb890b21a9a5f9387757b5385e4224b9f15018abcdd0bd66d1063026d4e1",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/.github/workflows/ci.yml",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/.github/workflows/ci.yml",
+      "bytes": 425,
+      "sha256": "3b981eb9f20a37124b8aeb97626e8a8230db5cd5eb8fcdba2bee1e8fdb6fa5eb",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/LICENSE",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/LICENSE",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/README.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/README.md",
+      "bytes": 7393,
+      "sha256": "145a8b6b74a107fe600352e68cd259267ad9838202c41f800c884b70bf1a3595",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/SUMMARY_CURRENCY.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/SUMMARY_CURRENCY.md",
+      "bytes": 8094,
+      "sha256": "204067cbee746870c93c2e7d7c901c7e801465969ef2c81203244d6ad37d0f67",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/budget-copy.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/budget-copy.d.ts",
+      "bytes": 6925,
+      "sha256": "e75f2defab68827b2abebf46a3fb9373805faee6e4aa8b3f7a9752a04ef132d1",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/budget-copy.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/budget-copy.js",
+      "bytes": 14236,
+      "sha256": "9fc2aa75fe8d2df71b36ecb6d1582386b1d8516fb47227e54f54a71fb261f70d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/budget-copy.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/budget-copy.js.map",
+      "bytes": 13163,
+      "sha256": "d522f0ecfbc68e35f512110b6c75e192c42fdd52a9c1e1e03bb56ab50e277ff9",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/cashflow.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/cashflow.d.ts",
+      "bytes": 1341,
+      "sha256": "c0768281c388a564de146b530dfce307b141049004c4858a297678123252d653",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/cashflow.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/cashflow.js",
+      "bytes": 3978,
+      "sha256": "447e140cf5879861cf1e25dab9d25c3e74abef98ddf6ce9e8e8ac5a97a21507a",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/cashflow.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/cashflow.js.map",
+      "bytes": 3593,
+      "sha256": "31e09d40952511c702387b4a1723c7533602cf9414f31153822f4e77ef61f3d7",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/entrypoint.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/entrypoint.d.ts",
+      "bytes": 182,
+      "sha256": "4777610109c6707c1b2406f4af6a8beaadcce7aad339673eee8503d2245faf4d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/entrypoint.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/entrypoint.js",
+      "bytes": 539,
+      "sha256": "dcdc9e890751319ae07164794cd0c95aa137a864e222096ce037f1f4e527d833",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/entrypoint.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/entrypoint.js.map",
+      "bytes": 492,
+      "sha256": "c0ac1c766a0cbae9d0177d23a4b514b4c143482cc65184c94eeef76872762e3a",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/export-client.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/export-client.d.ts",
+      "bytes": 1232,
+      "sha256": "2fa67436f72f83d8eb7332705f4ac53527862bf0509f345ae45c3878050ab32f",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/export-client.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/export-client.js",
+      "bytes": 8830,
+      "sha256": "e5522a488428d204750f8e92d2c30cf257b9378ddadcc38298e5232f9a5a8505",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/export-client.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/export-client.js.map",
+      "bytes": 8289,
+      "sha256": "7efb91f32c468eeaa5baeedbfd7024c9a9e2238a5e5de51359df25bee64d8983",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/household-export.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/household-export.d.ts",
+      "bytes": 1117,
+      "sha256": "0eaa39b86df059a87a58e480996ebb12eed54db91878c6785015af9ed179e82c",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/household-export.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/household-export.js",
+      "bytes": 3346,
+      "sha256": "abf3f2ce3c6d829ee83490d77c0b18099fb33a6523a9129879e977ddd0402f5e",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/household-export.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/household-export.js.map",
+      "bytes": 3273,
+      "sha256": "ba6518d89966dade04833a8c06893ee47b3a4b3ca43dff1107a17a4d11cb1eda",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/household-record.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/household-record.d.ts",
+      "bytes": 91,
+      "sha256": "97466827f71550fd5756d4b9d1669bf98809c35a574bb8136069068c2836b6ef",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/src/household-record.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/household-record.js",
+      "bytes": 5883,
+      "sha256": "60715bd06a1650d560660d5e0a59effd42677ea0173757900564d88428d7acde",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/src/household-record.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/household-record.js.map",
+      "bytes": 5058,
+      "sha256": "f8e2f6b30c1354a9afac42f33eaddfabb238264f654d83a48548c97c4b645d3c",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/src/index.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/index.d.ts",
+      "bytes": 392,
+      "sha256": "addce4522bd491452a9f106b72224729f4209d2ad993bc5394f29aca4af49a3d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/index.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/index.js",
+      "bytes": 13358,
+      "sha256": "dcfe7cee1356a000e97aae556586764ac13f0067cb9825109e44f0b639182fe3",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/index.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/index.js.map",
+      "bytes": 10529,
+      "sha256": "090540f21068bfd7bf10cdcaf59676e27b22fb016c453b444be62773ee8dfa35",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/ledger.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/ledger.d.ts",
+      "bytes": 3387,
+      "sha256": "87466b9d379ba942fbc0c8c1ff06daa721b56108c17a1651507010b1bfadb5b4",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/ledger.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/ledger.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/ledger.js.map",
+      "bytes": 15602,
+      "sha256": "4654f884df5e3a8473d54abc3986ddbcc72c35c5f396d2bfb780406614f366da",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/record-client.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/record-client.d.ts",
+      "bytes": 1347,
+      "sha256": "c7a9175efc00b64dc0b32fe7b90361c65c069ee698cd936a11db62f5d97ed4c0",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/src/record-client.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/record-client.js",
+      "bytes": 7323,
+      "sha256": "5694ab243c014811582ea1da2d675aacd17365d4997bfaa220b419dc6d7c7cd5",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/src/record-client.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/record-client.js.map",
+      "bytes": 7394,
+      "sha256": "e637600bd4203676178e9375d4001350a05c3c95d810cec7bd2c5b071ce0bf3b",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/src/stdio.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/stdio.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/stdio.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/stdio.js",
+      "bytes": 616,
+      "sha256": "a1d3cd86de1eb41d0c6e64f1b92ccda5b8094ff0a22afe61e0bd89c8485821d4",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/stdio.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/stdio.js.map",
+      "bytes": 640,
+      "sha256": "4717b68c052b1e6fd8320608348423c72335b6f950445616db2ace806de6e7dd",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/transaction-csv.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/transaction-csv.d.ts",
+      "bytes": 603,
+      "sha256": "35eb0d97e94007ef7f336348ef3d85382024ce5c41331d15d9e6d47f84e09c5a",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/transaction-csv.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/transaction-csv.js",
+      "bytes": 6334,
+      "sha256": "3cc676ecff4cc02cf5c4276a690735abe3b0b465e84718db4647e1e852db1d9c",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/transaction-csv.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/transaction-csv.js.map",
+      "bytes": 5905,
+      "sha256": "118a43d05821c8993320c5e22cbdc9c93d1bd3afa65114872b7c6569839363c0",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/transaction-export.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/transaction-export.d.ts",
+      "bytes": 1978,
+      "sha256": "23aade0090eeaa312425edc23eba5ecf7432c99da9666b37a32712b737ed2cdd",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/transaction-export.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/transaction-export.js",
+      "bytes": 5301,
+      "sha256": "9995fb6b3a2e5797cc506b55b2db8a53d4858a033629faeb9452416c7eda15d2",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/transaction-export.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/transaction-export.js.map",
+      "bytes": 4782,
+      "sha256": "54c651efbd196f837cb45db316c4168c814180433e562543bae8adedb722aa66",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/transaction-import.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/transaction-import.d.ts",
+      "bytes": 4025,
+      "sha256": "bef82f573a82ee26e4ca99c6d146569105b3762e2f09852c6a6029f33dc6eadd",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/transaction-import.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/transaction-import.js",
+      "bytes": 7243,
+      "sha256": "d73723259e908213a8f6165af842414825550e04a47b77405b8075241c883f9b",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/src/transaction-import.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/src/transaction-import.js.map",
+      "bytes": 6338,
+      "sha256": "7f658c8377586195cf7b6ef3bfb2545ac49fd94511dcf6e032d83591523c6747",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/budget-copy-http.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/budget-copy-http.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/budget-copy-http.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/budget-copy-http.test.js",
+      "bytes": 11158,
+      "sha256": "64ce698456502e166c49e31803bc7eeb322e1159d5b1fd18ba31e5f390021eaa",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/budget-copy-http.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/budget-copy-http.test.js.map",
+      "bytes": 13374,
+      "sha256": "eb7706de5302a7ff7aacf1c0c9e8153a141229419dc1ad83f68f9b2711213267",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/budget-copy.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/budget-copy.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/budget-copy.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/budget-copy.test.js",
+      "bytes": 16286,
+      "sha256": "80ce8a918e738d82f855112c1202d6b83645c4f3ad80a3106a20ce6e864ed870",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/budget-copy.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/budget-copy.test.js.map",
+      "bytes": 20192,
+      "sha256": "3a2f74f5c28601a916b611f7322578ceb2fc2d9c3f4278e431e7b1cdbda12089",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/budget-currency.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/budget-currency.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/budget-currency.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/budget-currency.test.js",
+      "bytes": 13429,
+      "sha256": "9673c13565cc9491b286f1dd3eb96bbf05ae533b6d50fce61aa12be00f16a15b",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/budget-currency.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/budget-currency.test.js.map",
+      "bytes": 16280,
+      "sha256": "4a21da9ea46b15b858944e55d2a966712289df10671f343afb5154d58a0acfde",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/cashflow.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/cashflow.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/cashflow.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/cashflow.test.js",
+      "bytes": 10363,
+      "sha256": "21c9ae8a344e75d77c20baf98f5226a2cbbca7d685b5fe7367c0f48d60c6a10a",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/cashflow.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/cashflow.test.js.map",
+      "bytes": 12330,
+      "sha256": "061241502fa39545480dc98fbe2df440ec8a7eeb5ee111d885c6e52a5b71d099",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/export-client-http.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/export-client-http.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/export-client-http.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/export-client-http.test.js",
+      "bytes": 12967,
+      "sha256": "f1404144899722378474d8c92a8b606cf28a7667eb0eb69b48ae5a0155dab895",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/export-client-http.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/export-client-http.test.js.map",
+      "bytes": 16054,
+      "sha256": "2e54052abe6a87fc5566157679fa7457c77c5bfdc42b24d31a1a10da823189cc",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/export-client.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/export-client.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/export-client.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/export-client.test.js",
+      "bytes": 9447,
+      "sha256": "355be0195192fb9d1e0efd3bf4f7b89ba2cae1266517e120746542773ede0ba0",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/export-client.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/export-client.test.js.map",
+      "bytes": 11575,
+      "sha256": "be3857a30e57a4a5384b7a44599bfdb70b2626381c53456deaa694c927d3d0f9",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-cashflow.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-cashflow.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-cashflow.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-cashflow.test.js",
+      "bytes": 10707,
+      "sha256": "a412e6665f3e9d35e90fa7224f4af0c02db7cf27b0dc9dc26b8ac8865d582b1e",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-cashflow.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-cashflow.test.js.map",
+      "bytes": 12538,
+      "sha256": "d814a620d3ef05c9cbd58942f9e51448a791cfbf0913179010e49db1a77063b8",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-entrypoint.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-entrypoint.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-entrypoint.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-entrypoint.test.js",
+      "bytes": 5314,
+      "sha256": "15b0a3c7802155b937e72c31fe58e7f10ccbe5ceba71dad99f7c80f82d1d259e",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-entrypoint.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-entrypoint.test.js.map",
+      "bytes": 5922,
+      "sha256": "400acc8e9b4848717263e82a266e2d835d56f9c8811058429ab86e50dc3f7b59",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-recording.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-recording.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-recording.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-recording.test.js",
+      "bytes": 4668,
+      "sha256": "2a08adf4e7c9a4a3f1997919a0e845244175a8072f2a15f408907462acfee646",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-recording.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-recording.test.js.map",
+      "bytes": 5648,
+      "sha256": "8259807c68783515f2db10d28592c47217a9ef65c4299546fe0b189aa35433bb",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-summary.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-summary.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-summary.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-summary.test.js",
+      "bytes": 5513,
+      "sha256": "7974bd82b90cc9bb19c8d62b7a5e016f77d719e5dc2c47d47c6227f01aecf741",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/http-summary.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/http-summary.test.js.map",
+      "bytes": 6586,
+      "sha256": "db6a1245d0a1ca61e3474c349335a975cb5fc8314ba78eb7709da0c8209861c9",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/ledger.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/ledger.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/ledger.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/ledger.test.js",
+      "bytes": 6650,
+      "sha256": "69ff28dad64df1db8613381c6930bcbf7bcea942cd0654d7cdff92bbdbd85cbc",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/ledger.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/ledger.test.js.map",
+      "bytes": 7805,
+      "sha256": "1d27570a25f1d4b57d5c63ea486ebfeb9ee125083661cc57e0937d99c4b75aa4",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/linked-entrypoint.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/linked-entrypoint.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/linked-entrypoint.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/linked-entrypoint.test.js",
+      "bytes": 6036,
+      "sha256": "1950a93d64adf5a24639f0b161982a7967da288992ee83a7bd84b2f77a42e3ed",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/linked-entrypoint.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/linked-entrypoint.test.js.map",
+      "bytes": 6596,
+      "sha256": "2e596b5c6c2b4463a32af8fce93d87195699c45c08e0441e72960d9a95dd503a",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/mcp.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/mcp.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/mcp.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/mcp.test.js",
+      "bytes": 3659,
+      "sha256": "a15cc8eae8c7fb0c08d31cf04a4cc9e699be7e7af30c8bb1b56f9916d785a770",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/mcp.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/mcp.test.js.map",
+      "bytes": 4152,
+      "sha256": "28e9c8810df57530471891dd40e0bbedb1b4e0733078a13c1cc65a2e1ce643a8",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/receiving-composition.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/receiving-composition.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/receiving-composition.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/receiving-composition.test.js",
+      "bytes": 8642,
+      "sha256": "e54158557da5359951714ea65513a401de2a7e31ed7ced36b3ce18270d5452af",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/receiving-composition.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/receiving-composition.test.js.map",
+      "bytes": 10255,
+      "sha256": "a9ab5777af42c56942d94b0ea8c1894c4979576dad11132389187cda31b28807",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/record-client-http.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/record-client-http.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/test/record-client-http.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/record-client-http.test.js",
+      "bytes": 7741,
+      "sha256": "439a428f1c82056ccc06bc8bc5e8896cb09f7d7043d266dd7f7e45c04e3b1a37",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/test/record-client-http.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/record-client-http.test.js.map",
+      "bytes": 9094,
+      "sha256": "6558ebc48ede8f871b0a49649def050dc61d89a8de24578eeae00eb7ed85035a",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/test/record-client.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/record-client.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/test/record-client.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/record-client.test.js",
+      "bytes": 6260,
+      "sha256": "3e85d9a5587d5c2de34aa7ab2337ae4585e1fa7a72898462537090d34ecd10c0",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/test/record-client.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/record-client.test.js.map",
+      "bytes": 7377,
+      "sha256": "9182428ca9561bdc8ea081d1577c394df399a41f7e2b322605ce496a3295d96b",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/dist/test/recording.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/recording.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/recording.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/recording.test.js",
+      "bytes": 9947,
+      "sha256": "ded1b72caf1af7cdb312cab099395f28807e7461583d784f98ab6ef5373b411c",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/recording.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/recording.test.js.map",
+      "bytes": 11928,
+      "sha256": "7fd96c9f0c4b07f680658a3925e626a0586692cbe756f633da5b419d4c1ff854",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/summary-currency.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/summary-currency.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/summary-currency.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/summary-currency.test.js",
+      "bytes": 14033,
+      "sha256": "12f01510e28e2ac2ede79db82fccae61002ef3aebeb5cde0fb6fb5f3a2b215c2",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/summary-currency.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/summary-currency.test.js.map",
+      "bytes": 17068,
+      "sha256": "619f13b4315dbed4b1c07f7dda7d7ac35261d265cb637da3eaf747215a7ccc6b",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/summary_categories.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/summary_categories.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/summary_categories.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/summary_categories.test.js",
+      "bytes": 6828,
+      "sha256": "56aaed8c2574699db516fb8a85de2113df94c65aeb23fcc90e2cccefe9061b96",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/summary_categories.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/summary_categories.test.js.map",
+      "bytes": 6931,
+      "sha256": "b752717522c6bf36e07a960477b6188d6f70fddba35b7bd16c55ac4a5bfe5c9d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-export-csv-reader.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-export-csv-reader.d.ts",
+      "bytes": 153,
+      "sha256": "5f6d8c99b84fa010effd2b88ed6d0b9ce4aa40886f33410c395e5f37223da22a",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-export-csv-reader.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-export-csv-reader.js",
+      "bytes": 1122,
+      "sha256": "a6f460f015032c907d6d8dffd9f5ad550896bc74b1dc28c10eaf7a7be545fc0e",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-export-csv-reader.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-export-csv-reader.js.map",
+      "bytes": 1200,
+      "sha256": "983a8ea240c562f97376ca9414b951f598071436e3cea49725a62e311ef2a244",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-export-http.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-export-http.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-export-http.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-export-http.test.js",
+      "bytes": 12428,
+      "sha256": "94edeb5300819a7db0860151994a1b185d40e0916f995b50248a93403f2b322d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-export-http.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-export-http.test.js.map",
+      "bytes": 15011,
+      "sha256": "a6d34d006393d37505b668ad00180a9104b42fe4068de37497b648f8bc907853",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-export.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-export.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-export.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-export.test.js",
+      "bytes": 8142,
+      "sha256": "db2a7f1fdc449d5ba27ea0a10e1799d3e3ea137af979a6c043b8125d061f7e86",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-export.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-export.test.js.map",
+      "bytes": 9908,
+      "sha256": "06cd2e3f680998cd7a74b54394d2f47c5fe5d563b4b4e0dd54fa9a60bdeb1193",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-import-http.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-import-http.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-import-http.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-import-http.test.js",
+      "bytes": 11123,
+      "sha256": "815258cf41fd2946d2fad92231f3720d18e67060f78d8be6128e80681f9282d6",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-import-http.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-import-http.test.js.map",
+      "bytes": 12757,
+      "sha256": "8f7424390559ee38f9b6db2c7bbf6c9af5bf9d5fd5443f7ab6844418c9cfba0d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-import.test.d.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-import.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-import.test.js",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-import.test.js",
+      "bytes": 19589,
+      "sha256": "a24773c4d07e22abdd9c0a1a7156a297c54fdc41b8fc7379c004f1938c4e6d4d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/dist/test/transaction-import.test.js.map",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/dist/test/transaction-import.test.js.map",
+      "bytes": 24840,
+      "sha256": "2ba4f1ef271f06702bfc07532eab81f8cc8b35b609bdb005c8e0aad0407dd9a1",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/docs/BUDGET_COPY.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/docs/BUDGET_COPY.md",
+      "bytes": 6678,
+      "sha256": "f9c7c3eb379598e616f9dc48e7895025f25fb1b63e4a87a81995a0a8053f9293",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/docs/CASHFLOW_TREND.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/docs/CASHFLOW_TREND.md",
+      "bytes": 4884,
+      "sha256": "d4217e06a31f041e471859380221dc25b61210fe7333c8f1f1d4c486424e2075",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/docs/EXPORT_CLIENT.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/docs/EXPORT_CLIENT.md",
+      "bytes": 4775,
+      "sha256": "7e988dc92ad5974620a43543579712c07132edaf82710121e06a63c51adc46e3",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/docs/RECORD_CLIENT.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/docs/RECORD_CLIENT.md",
+      "bytes": 6258,
+      "sha256": "3c1a68d4f0e6487d58b3bc7ce60637dfe68ea09bcc4256371524dd1295736dbd",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/docs/TRANSACTION_EXPORT.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/docs/TRANSACTION_EXPORT.md",
+      "bytes": 3835,
+      "sha256": "bfb03f8e26940d91eccd8c2df53c583c969540a46d7c805c79c8fd10b06db753",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/docs/TRANSACTION_IMPORT.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/docs/TRANSACTION_IMPORT.md",
+      "bytes": 8656,
+      "sha256": "2fa7e3a44f4b498d0728ad512d4fd05f9f42dfb36db216cb28aab23b760fffce",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/budget-copy-a0eb/additive-seams.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/budget-copy-a0eb/additive-seams.json",
+      "bytes": 924,
+      "sha256": "696f198d2861ed808d6f00079beb9dbc5fb9424967b8bdbeb13496179cbfdfd5",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/budget-copy-a0eb/baseline-build.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/budget-copy-a0eb/baseline-build.log",
+      "bytes": 43,
+      "sha256": "9a1a6eaf2a9ebafa314727e5025c596030999cd26f284feec16d42ff587806b2",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/budget-copy-a0eb/baseline-missing-tools.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/budget-copy-a0eb/baseline-missing-tools.json",
+      "bytes": 3228,
+      "sha256": "fe4f87a7d672cd7ae4502e965ea7dce34d93cf63149f478d869e1b262643b986",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/budget-copy-a0eb/baseline-missing-tools.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/budget-copy-a0eb/baseline-missing-tools.log",
+      "bytes": 130,
+      "sha256": "bfbff94480aa0e597b88450d58b61a17e1df37965be2d71b90eb0057ab6ea838",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/budget-copy-a0eb/baseline-missing-tools.mjs",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/budget-copy-a0eb/baseline-missing-tools.mjs",
+      "bytes": 4646,
+      "sha256": "26e8785c5eac84ab0326fc6281da87c12b5b4383c2cf726932f89c7b76aa55df",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/budget-copy-a0eb/baseline-source.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/budget-copy-a0eb/baseline-source.json",
+      "bytes": 22474,
+      "sha256": "efd432558a1771255e75e0a2cbd94778e4521087ea5ea3e5303ca6cfaf63f49d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/budget-copy-a0eb/candidate-suite-first.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/budget-copy-a0eb/candidate-suite-first.json",
+      "bytes": 2834,
+      "sha256": "a5193043f47ae4ea22892ac0d6bfd4d608a7bcb9f4ec53ff34c2c6f278f855da",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/budget-copy-a0eb/candidate-suite-first.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/budget-copy-a0eb/candidate-suite-first.log",
+      "bytes": 12261,
+      "sha256": "ba5b3d889b0018f8d94b9a449cd44ed4e6ac3b28c4d062e4a9e0cfacb864773c",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/budget-copy-a0eb/candidate-typecheck-first.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/budget-copy-a0eb/candidate-typecheck-first.log",
+      "bytes": 56,
+      "sha256": "af9ba32d8f249cf7cc1cc2f563cbd7954c36fda9b83d6a19af5bd9e45006a9a1",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/budget-copy-a0eb/qualification.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/budget-copy-a0eb/qualification.md",
+      "bytes": 4645,
+      "sha256": "427f1a0ee688fbe8469d054b76778503fbd80b7a6c1d6bb0958c4ad340bf65cc",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/category-composition-401c5d17da79-20261008/README.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/category-composition-401c5d17da79-20261008/README.md",
+      "bytes": 2624,
+      "sha256": "e2fc5ae97d226cff7908244b18b74b2e84043b6741184645d756469e8da64cd9",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/category-composition-401c5d17da79-20261008/composed-build.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/category-composition-401c5d17da79-20261008/composed-build.log",
+      "bytes": 142,
+      "sha256": "815eec3e89980f0228d620bd6d19b3375277cd20b89f45a13e23011c0c4f8322",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/category-composition-401c5d17da79-20261008/composed-full-suite.tap",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/category-composition-401c5d17da79-20261008/composed-full-suite.tap",
+      "bytes": 8885,
+      "sha256": "8120dd245062dd47b3e73819a024ed37a37ca850f2b138b22df82e40d1f8dede",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/category-composition-401c5d17da79-20261008/composed-proto-http-diagnostic.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/category-composition-401c5d17da79-20261008/composed-proto-http-diagnostic.json",
+      "bytes": 2200,
+      "sha256": "41178ab80500443b2998519f7c85b005842ef55ff9f889229aace5b5b3bc58c1",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/category-composition-401c5d17da79-20261008/owner-baseline-build.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/category-composition-401c5d17da79-20261008/owner-baseline-build.log",
+      "bytes": 142,
+      "sha256": "815eec3e89980f0228d620bd6d19b3375277cd20b89f45a13e23011c0c4f8322",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/category-composition-401c5d17da79-20261008/owner-baseline-composition.tap",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/category-composition-401c5d17da79-20261008/owner-baseline-composition.tap",
+      "bytes": 3855,
+      "sha256": "e74ea8f16b6e7bec2fbffbc55988d3b34a151244b6c16420a98cee57d81fc337",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/category-composition-401c5d17da79-20261008/owner-baseline-proto-http-diagnostic.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/category-composition-401c5d17da79-20261008/owner-baseline-proto-http-diagnostic.json",
+      "bytes": 1635,
+      "sha256": "037bee1df01fe5ed71f9992694c0a92f4d31837d3455976fb087aaad904f63cc",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/category-composition-401c5d17da79-20261008/source-pins.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/category-composition-401c5d17da79-20261008/source-pins.json",
+      "bytes": 1905,
+      "sha256": "c589b7d5dcb0bcf780bddf055d1f8c69c847150890c7372b20f88b6b6b08ded8",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/category-composition-401c5d17da79-20261008/verification.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/category-composition-401c5d17da79-20261008/verification.json",
+      "bytes": 5052,
+      "sha256": "58696bc50113365be1cf21d24c7129c2cd94da88e7dcf3b2ea73edb0f294aa0b",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/README.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/README.md",
+      "bytes": 5135,
+      "sha256": "13713754ede31b21c3253431383da301c89c6c65be5c535acda7978267602cba",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-affected-tests.stderr.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-affected-tests.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-affected-tests.stdout.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-affected-tests.stdout.log",
+      "bytes": 6513,
+      "sha256": "c2fde89ed28d563681e091a2b533b47743d45a8f91f30432a6bb4c27b9af8c3f",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-build.stderr.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-build.stderr.log",
+      "bytes": 99,
+      "sha256": "7125f194612fcff2f454c05d848e7cb71facc1967b4d5017e25b34fdee3ba74f",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-build.stdout.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-build.stdout.log",
+      "bytes": 43,
+      "sha256": "9a1a6eaf2a9ebafa314727e5025c596030999cd26f284feec16d42ff587806b2",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-owner-recovery.stderr.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-owner-recovery.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-owner-recovery.stdout.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-owner-recovery.stdout.log",
+      "bytes": 1723,
+      "sha256": "d3ab13dcc22b4d85d2fdbc08e46e6f91e819385aceb2e2b7147b9e6a70aaccf1",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-recovery-build.stderr.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-recovery-build.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-recovery-build.stdout.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/candidate-recovery-build.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/category-cherry-pick-conflict.diff",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/category-cherry-pick-conflict.diff",
+      "bytes": 2010,
+      "sha256": "9a0e3d8b171b80d29d5b0e12c205524677fbffa3d4a7bdbdbee4a9cc16b95058",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/current-primary-source.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/current-primary-source.json",
+      "bytes": 8075,
+      "sha256": "a173331253ebad3d7ff31c08c76c84944ca15c2e0d4c9ac9c2577a839846f71f",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/native-receipt.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/native-receipt.json",
+      "bytes": 4722,
+      "sha256": "a3ef9de7f099d0d1cae2c8b0f6c8d99da217d658dedb5a5b573d89aced3061ef",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/owner-current-source.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/owner-current-source.json",
+      "bytes": 6944,
+      "sha256": "04efef3c9ca04814e9aa6415c17cd17bdd67face7e439c55c9b5b0f5285bf87a",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/current-category-composition-401c5d17da79-20261008/scope-verification.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/current-category-composition-401c5d17da79-20261008/scope-verification.json",
+      "bytes": 2123,
+      "sha256": "6e6d10c27f9fd0b7c293d255da38950d520dadaded970b654b26b00a4751d3d4",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/denominated-budgets-401c5d17da79-20261008/README.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/denominated-budgets-401c5d17da79-20261008/README.md",
+      "bytes": 3656,
+      "sha256": "e58724192eaf585db76f5a01562e5df96905a991ae8aa8f5a756f2a4c3f879a9",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/denominated-budgets-401c5d17da79-20261008/author-budget-11.txt",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/denominated-budgets-401c5d17da79-20261008/author-budget-11.txt",
+      "bytes": 1333,
+      "sha256": "d66bf925e4c4047a87e1ab566fd2c3b2ed295f67a313dfe40f2c99be9ee5e728",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/denominated-budgets-401c5d17da79-20261008/author-combined-62.txt",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/denominated-budgets-401c5d17da79-20261008/author-combined-62.txt",
+      "bytes": 6543,
+      "sha256": "4a66ead96701e61a1558be552139876e28ab958b2a21f49f8c1dc05a1a11e225",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/denominated-budgets-401c5d17da79-20261008/baseline-feature-expectations.txt",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/denominated-budgets-401c5d17da79-20261008/baseline-feature-expectations.txt",
+      "bytes": 11326,
+      "sha256": "f442540d63ebf0c83c7d2be69ce779715cc8f7186dbedba3bc526842d010915b",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/denominated-budgets-401c5d17da79-20261008/independent-http-receiving.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/denominated-budgets-401c5d17da79-20261008/independent-http-receiving.json",
+      "bytes": 39436,
+      "sha256": "2554c1c41e7b30e78dfdd0ec3379fe920c81ef26509bbe4ed9f06b851f9b373f",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/denominated-budgets-401c5d17da79-20261008/old-reader-control.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/denominated-budgets-401c5d17da79-20261008/old-reader-control.json",
+      "bytes": 444,
+      "sha256": "ead89c09ececd59fc1a8877105be38a827c3a6419fe1ff5737ba6e76c9c14dde",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/denominated-budgets-401c5d17da79-20261008/old-reader-v2-ledger.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/denominated-budgets-401c5d17da79-20261008/old-reader-v2-ledger.json",
+      "bytes": 175,
+      "sha256": "814a53543c513732ae51251f2e324adc6a95621b374ced26e87ec01511199da9",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/denominated-budgets-401c5d17da79-20261008/source-inputs.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/denominated-budgets-401c5d17da79-20261008/source-inputs.json",
+      "bytes": 2491,
+      "sha256": "ed1c1ad383e592b58f4136c7db2137a399fee09b378fc26359316388719f7161",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/monthly-category-summary-20261008/README.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/monthly-category-summary-20261008/README.md",
+      "bytes": 2921,
+      "sha256": "06b8b25846cc2f1293c681ab598b9e7e3c02dc50f013acfa3cd6b05570d4de41",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/monthly-category-summary-20261008/baseline.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/monthly-category-summary-20261008/baseline.log",
+      "bytes": 6746,
+      "sha256": "db03ac451d15ce61a9c9f906a698ad26642a8a9c8f752580e52d89266fea633a",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/monthly-category-summary-20261008/candidate.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/monthly-category-summary-20261008/candidate.log",
+      "bytes": 2491,
+      "sha256": "17ca62b35ebc233947b925563a0336a58d8edfe7f212e4b7de89272e837ed5f2",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/monthly-category-summary-20261008/verification.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/monthly-category-summary-20261008/verification.json",
+      "bytes": 2846,
+      "sha256": "ceafe677e86cc5bea437ae19eab04e39e4114acfe26dbf60dc9240883dbb4c19",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/README.md",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/README.md",
+      "bytes": 7542,
+      "sha256": "7effb234e2135f2d4cc1e77725dd128d6b1737e7774de158439c2713e0c850b6",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/baseline-authored.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/baseline-authored.log",
+      "bytes": 14773,
+      "sha256": "5400b2f369743eb9dcf07fea629991e95b7be5b6fc95ce9ba0c837bccbb87fc6",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/baseline-build.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/baseline-build.log",
+      "bytes": 142,
+      "sha256": "a4c2c02ae71a4c8217b1dcbfa7c054c4ce8aa86ebd4ddac113e79a642c8c0691",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/baseline-runs.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/baseline-runs.json",
+      "bytes": 933,
+      "sha256": "bea4b0982bdddad6729389a6196fc3ba03c464e451175149a73df0e6515e3bf2",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/before-image/baseline-source-pins.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/before-image/baseline-source-pins.json",
+      "bytes": 1577,
+      "sha256": "9a5978e91ea41194131dd3335b8d9733972079517f1ac084caa66b348219e94c",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/before-image/before-receipt.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/before-image/before-receipt.json",
+      "bytes": 886,
+      "sha256": "66f92d8636b8412b43fc87e30ddf2043a7e9f84bb90c02cdfa7477dd7f8919b5",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/before-image/frozen-recording-before.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/before-image/frozen-recording-before.log",
+      "bytes": 6279,
+      "sha256": "7590cb57be9c7b5b0717fb8c678412a9d66d5c562bd22f127b39de180edd254c",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/before-image/initial-before-receipt.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/before-image/initial-before-receipt.json",
+      "bytes": 551,
+      "sha256": "54e59aa036c67e9a59a86ba1f126cbde115a3e6bd38314fdb8adff258ba6fbc0",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/before-image/initial-frozen-recording-before.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/before-image/initial-frozen-recording-before.log",
+      "bytes": 6280,
+      "sha256": "d06ab15506481e26cdd51c23a31d5cb9562d1cae7c8ad37b11ca0f09f4327972",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/before-image/summary-before-initial.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/before-image/summary-before-initial.test.ts",
+      "bytes": 5925,
+      "sha256": "24730bfca4479886fb9fdb9bdaaeca9041695d8c7b0883723c603d2a566eb0f6",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/before-image/summary-before.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/before-image/summary-before.test.ts",
+      "bytes": 5955,
+      "sha256": "91414e1ecf2db116209551d41724f100d7ed6ef866a1d3f023712be3f0869c5c",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/before-image/tsconfig.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/before-image/tsconfig.json",
+      "bytes": 210,
+      "sha256": "5aeb3c4015142373c6bfff9c152adb328cfb9d42f43fa32f14553b8c8fdb319a",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/candidate-before-image-run.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/candidate-before-image-run.json",
+      "bytes": 823,
+      "sha256": "6ab658e99c75af3d875fd78633d27a20838492bbbbcfa407ee21f925924667a9",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/candidate-before-image.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/candidate-before-image.log",
+      "bytes": 3956,
+      "sha256": "5311bb448a9f174115a3cf2a1655ffd605b9a8b08478c7b4db1584f7d0fde24d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/candidate-full.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/candidate-full.log",
+      "bytes": 4003,
+      "sha256": "d075a5cccf253103dddc3c3ff8fb2b922ea9d89c057c773c1a6b0b14d384c87b",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/candidate-runs.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/candidate-runs.json",
+      "bytes": 845,
+      "sha256": "2c98deab2f2373b4c0c8782a6d000bb0020a2afea2ed9e083122a7860d54b84d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/candidate-typecheck.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/candidate-typecheck.log",
+      "bytes": 155,
+      "sha256": "5160a9c8cd8b4eb2ecdb043e4ad9dbc07a87eaeed246265c72be06d41d432318",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/source-pins.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/source-pins.json",
+      "bytes": 2415,
+      "sha256": "b0f81024f1485cccde0a65acd979d3e9b960481bcbf3aa27b3a138ea6e17c5df",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/evidence/summary-currency-ce7e-20261008/verification-receipt.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/evidence/summary-currency-ce7e-20261008/verification-receipt.json",
+      "bytes": 5136,
+      "sha256": "79f5b6a98363efa2f5322ba7ec0d40365f5a9750d1fb17566be9e681053513b3",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/package-lock.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/package-lock.json",
+      "bytes": 43800,
+      "sha256": "dba6ad760a58d7df00641fb7b69a7efedb6126132708ecb76cfa0d2f209d9629",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/package.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/package.json",
+      "bytes": 759,
+      "sha256": "d0f8c5234f48ddbe6b3bf3a969832d5bb61f780cf2b73be92a6ede8d1d1711fd",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/src/budget-copy.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/budget-copy.ts",
+      "bytes": 15120,
+      "sha256": "772d8086f9e336d995ad2496c5cbaf27fd13a874fc8b11c057494e7dd3b6b5f7",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/src/cashflow.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/cashflow.ts",
+      "bytes": 4761,
+      "sha256": "cb4631dce4679567d9d0e3a139440c51861dcdfad6029c8ef88b1b9bf122ce30",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/src/entrypoint.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/entrypoint.ts",
+      "bytes": 507,
+      "sha256": "e464ce6c67446625f5a884af6f3229449144bf12500e97962ef6af616aa88694",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/src/export-client.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/export-client.ts",
+      "bytes": 8982,
+      "sha256": "a6eba9ac076999279bd678578ccd80ad4a507e72f055257d0f19cf8d1d09f29c",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/src/household-export.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/household-export.ts",
+      "bytes": 3301,
+      "sha256": "216636c2678518700a11488f35a67404149e6f93b953fddf25be22fdb30351d1",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/src/household-record.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/household-record.ts",
+      "bytes": 5422,
+      "sha256": "ff411e1aab24b922fe723da2efed8e12f0b446d97933d32a5dbb6a4149cc3fbe",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/src/index.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/index.ts",
+      "bytes": 12523,
+      "sha256": "7ee91bb542cacabb4d1bde494cb9dcae714a9fb36c607b47ed2f02098369d7f7",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/src/ledger.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/ledger.ts",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/src/record-client.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/record-client.ts",
+      "bytes": 7756,
+      "sha256": "9da5321b65b12f3f8c1cb29c58d0ed85bbed7365409f8ca7d676ef9e82bc74aa",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/src/stdio.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/stdio.ts",
+      "bytes": 586,
+      "sha256": "9d49234e75f790601e8f327d156f3a4b9c62325d8496319fd9831e733153dc57",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/src/transaction-csv.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/transaction-csv.ts",
+      "bytes": 6189,
+      "sha256": "0357e1d405be49dd352fcc088e75aaaf47c00eaf81c55f785d77ca4d4e48e8f0",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/src/transaction-export.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/transaction-export.ts",
+      "bytes": 5415,
+      "sha256": "3692c09764ec871e8865d0e882f173367a38719c943c84489d113aea3c575a7e",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/src/transaction-import.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/src/transaction-import.ts",
+      "bytes": 8357,
+      "sha256": "729d0db509945c4670f03167497417799dd059f386a550b96d1162e1ccd3e985",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/budget-copy-http.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/budget-copy-http.test.ts",
+      "bytes": 11427,
+      "sha256": "5e8e978bb7d800d8f51cb7251af84b1c67462a5eb5fb2246552b767efade7795",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/budget-copy.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/budget-copy.test.ts",
+      "bytes": 15894,
+      "sha256": "465efb2a6c22fd2cfa5e38c3bdea4b57c837d8670f7297d62dbadb338ad8c1b1",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/budget-currency.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/budget-currency.test.ts",
+      "bytes": 13256,
+      "sha256": "fab4105ce5693ef0730943cca1c1b71c6e8c462475758221a6cf77881b132f98",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/cashflow.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/cashflow.test.ts",
+      "bytes": 10136,
+      "sha256": "b21797f077ee5d817ed456e334188ff7a2f52de3e2194c55a10d21bfeaa90137",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/export-client-http.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/export-client-http.test.ts",
+      "bytes": 12683,
+      "sha256": "3eb8b027c9a8abdd5a333d4463264947a1b521604c9e777ae3823b767439f324",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/export-client.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/export-client.test.ts",
+      "bytes": 9296,
+      "sha256": "fe2b55941cb1dfff581d7c3205915a6422f232de8e24dd78261e1fcf64978592",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/fixtures/transaction-export-ledger.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/fixtures/transaction-export-ledger.json",
+      "bytes": 2453,
+      "sha256": "b3695386fb294986b3a694b8f7082468853708927ca38219d8108dc4c0c0f530",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/http-cashflow.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/http-cashflow.test.ts",
+      "bytes": 10333,
+      "sha256": "4b9ef76831740392e371dee8fc5129076f64a4fb4614bde8066468acf18cf20c",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/http-entrypoint.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/http-entrypoint.test.ts",
+      "bytes": 4899,
+      "sha256": "0d613956d201caa0ad57a9ec4d34989e03bccd601c390ae467a9f9d52aa9b2b6",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/http-recording.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/http-recording.test.ts",
+      "bytes": 4433,
+      "sha256": "9419b74830f423b92fdb194dd827e8920461075d5cf4ba2e70a69c4da310e9fc",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/http-summary.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/http-summary.test.ts",
+      "bytes": 5220,
+      "sha256": "b5f76eb50355405e8d8c22750f40e02d1caf5e16cee3737c2a4a9ed9696716af",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/ledger.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/ledger.test.ts",
+      "bytes": 6378,
+      "sha256": "bb64e0cb1bbd593d9e5458ddd83ada330756b4b27816b09517d17e201789074c",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/linked-entrypoint.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/linked-entrypoint.test.ts",
+      "bytes": 5669,
+      "sha256": "dc8bae0c03115adfe6a9b9b178903a4b87cf89be20d1c907933c7c11f4eeb52b",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/mcp.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/mcp.test.ts",
+      "bytes": 3647,
+      "sha256": "f862221eea0494bb44a1f73670554e83f972480c04d344506c71b1d19ac6faaa",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/receiving-composition.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/receiving-composition.test.ts",
+      "bytes": 8166,
+      "sha256": "cc9c3678f2e5e42477febddabdd38dabd202faf0a18148d2d3067a194f4e239f",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/record-client-http.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/record-client-http.test.ts",
+      "bytes": 7000,
+      "sha256": "7b1e6d0bb5780434fcbe346bad856fb4faf80b6fc42536def4e44476fad1fe4c",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/test/record-client.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/record-client.test.ts",
+      "bytes": 5934,
+      "sha256": "c8ce69ed483435f30f206bf99d45d9ed48c2d4a98373b1a50b3cda85712bf133",
+      "mode": 436
+    },
+    {
+      "path": "runtime/source/test/recording.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/recording.test.ts",
+      "bytes": 9686,
+      "sha256": "18bebd788deece1012fcf4863203727b5e699fe61b766dd0d24075a39fab448c",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/summary-currency.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/summary-currency.test.ts",
+      "bytes": 13806,
+      "sha256": "13771393218d37bcc48c26182ea2daabd8a967c14d8c33bac9b3295343f18da3",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/summary_categories.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/summary_categories.test.ts",
+      "bytes": 6268,
+      "sha256": "141ddb02330dc5f8f59f2544b8846df1df530aab82b169c1f796c00aabe5fd8d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/transaction-export-csv-reader.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/transaction-export-csv-reader.ts",
+      "bytes": 848,
+      "sha256": "906dfaf43604aa811d6003700262494da254cea26389afa6e11bcc3368904fc2",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/transaction-export-http.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/transaction-export-http.test.ts",
+      "bytes": 12596,
+      "sha256": "f614a731de466c7464ef17e3dfbd80f9ae1f7b7cf687791ee68d69098366e449",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/transaction-export.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/transaction-export.test.ts",
+      "bytes": 8182,
+      "sha256": "e966da720234ca442d3398c785863a47a89830a84d80588c6e684a2269ee16bc",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/transaction-import-http.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/transaction-import-http.test.ts",
+      "bytes": 11250,
+      "sha256": "251ae501bfe3a654ea9fd6b1c69148d7ce418490ed565cfd0a4e11e7250fa291",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/test/transaction-import.test.ts",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/test/transaction-import.test.ts",
+      "bytes": 19299,
+      "sha256": "f465f7ed6ee960a1a2c36b877000137da588a98f6d44bce14f63484ad4bc255d",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/tsconfig.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/tsconfig.json",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72",
+      "mode": 420
+    },
+    {
+      "path": "runtime/source/validation/installed-record.mjs",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/source/validation/installed-record.mjs",
+      "bytes": 6051,
+      "sha256": "909941ebae327c977f34442713619539e9f418c8f93f5cb867c803539604fdb6",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r1/installed.request.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/installed.request.json",
+      "bytes": 323,
+      "sha256": "81f9ae75144c07430731b2e1da644c26450ecd5af36801845f22edbb8cf4d462",
+      "mode": 384
+    },
+    {
+      "path": "runtime/terminal-r1/ledger-before.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/ledger-before.json",
+      "bytes": 671,
+      "sha256": "45d88d24cb37900a5b6a33fb3b7f5f0bdd7ce0a08c0f1dd201b6ed4aaac6253d",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r1/ledger.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/ledger.json",
+      "bytes": 671,
+      "sha256": "45d88d24cb37900a5b6a33fb3b7f5f0bdd7ce0a08c0f1dd201b6ed4aaac6253d",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r1/native-server-1.stderr.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/native-server-1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r1/native-server-1.stdout.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/native-server-1.stdout.log",
+      "bytes": 83,
+      "sha256": "a5a4fc3494cb2b75d2a34a159b38330cf9deb1f9cc03cd867b219815cb6732d9",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r1/new-cancel.pty.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/new-cancel.pty.log",
+      "bytes": 828,
+      "sha256": "c8da5bd132790dba5678a1f1351524d335e1aefefd516267a286fc191a7292c0",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r1/new-cancel.terminal.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/new-cancel.terminal.json",
+      "bytes": 2171,
+      "sha256": "51619a570dc5f6ba1b1703ccd2673b40148085096537359a7e1a2f8fc4a2756a",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r1/os-help.stderr",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/os-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r1/os-help.stdout",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/os-help.stdout",
+      "bytes": 789,
+      "sha256": "8b6d4de7a920fe311f010484c51154731720b3b43e2f3baa1f4afc6490aff0da",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r1/passive-import.stderr",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/passive-import.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r1/passive-import.stdout",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/passive-import.stdout",
+      "bytes": 20,
+      "sha256": "d2db918dbc3170b04b5e9d6c368fdd42c5709054c9509fab71c3a991c11beb9f",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r1/receipt.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r1/receipt.json",
+      "bytes": 1981554,
+      "sha256": "1e5ea8f0e5ee82ffa6ba2d727f43bccbc2d0c3b55509c27a90389bfaa940fa15",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/09405e4fc89845fe86da436fe3f9e555.http-request-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/09405e4fc89845fe86da436fe3f9e555.http-request-body",
+      "bytes": 54,
+      "sha256": "1991440c743375cc3f711ec3788c732cfff71984933a8bf73701ff563427860d",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/09405e4fc89845fe86da436fe3f9e555.http-response-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/09405e4fc89845fe86da436fe3f9e555.http-response-body",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/2098bb457f864f3986c6836ef6271814.http-request-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/2098bb457f864f3986c6836ef6271814.http-request-body",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/53946388c1b54c748ffd8033f9c39b74.http-request-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/53946388c1b54c748ffd8033f9c39b74.http-request-body",
+      "bytes": 167,
+      "sha256": "290da002202cf2f30a09d80ea7efd8b3c87653b862fb34f964c067c1de76bf42",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/53946388c1b54c748ffd8033f9c39b74.http-response-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/53946388c1b54c748ffd8033f9c39b74.http-response-body",
+      "bytes": 180,
+      "sha256": "2d0095ba528832c1157cb4f02a2620fec21d4b4fb14c7d87b0b23777c5903968",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/5d1ac2f255c140408858d8f871dc507d.http-request-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/5d1ac2f255c140408858d8f871dc507d.http-request-body",
+      "bytes": 294,
+      "sha256": "94507c7bc12e7f7256779bf21b9ad39fb9bf76517ad28989996f028905d184f9",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/5d1ac2f255c140408858d8f871dc507d.http-response-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/5d1ac2f255c140408858d8f871dc507d.http-response-body",
+      "bytes": 409,
+      "sha256": "5805d02d9088ea60128e3a31dee6c3345e6641a2b295aac2222e29142f9d9605",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/79a2b0d2ef024e8aa04641de0d751f9a.http-request-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/79a2b0d2ef024e8aa04641de0d751f9a.http-request-body",
+      "bytes": 294,
+      "sha256": "94507c7bc12e7f7256779bf21b9ad39fb9bf76517ad28989996f028905d184f9",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/79a2b0d2ef024e8aa04641de0d751f9a.http-response-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/79a2b0d2ef024e8aa04641de0d751f9a.http-response-body",
+      "bytes": 409,
+      "sha256": "5805d02d9088ea60128e3a31dee6c3345e6641a2b295aac2222e29142f9d9605",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/a256928bbfa147d3a07122e04c0b0ef6.http-request-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/a256928bbfa147d3a07122e04c0b0ef6.http-request-body",
+      "bytes": 167,
+      "sha256": "290da002202cf2f30a09d80ea7efd8b3c87653b862fb34f964c067c1de76bf42",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/a256928bbfa147d3a07122e04c0b0ef6.http-response-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/a256928bbfa147d3a07122e04c0b0ef6.http-response-body",
+      "bytes": 180,
+      "sha256": "2d0095ba528832c1157cb4f02a2620fec21d4b4fb14c7d87b0b23777c5903968",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/a3a679e205f048f98c8c4d41e9c78c15.http-request-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/a3a679e205f048f98c8c4d41e9c78c15.http-request-body",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/b8669d59d31f4cc696356445f56f431d.http-request-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/b8669d59d31f4cc696356445f56f431d.http-request-body",
+      "bytes": 54,
+      "sha256": "1991440c743375cc3f711ec3788c732cfff71984933a8bf73701ff563427860d",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/b8669d59d31f4cc696356445f56f431d.http-response-body",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/b8669d59d31f4cc696356445f56f431d.http-response-body",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/installed.request.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/installed.request.json",
+      "bytes": 323,
+      "sha256": "86c82890126b9675718efa19c167aac254427a2c9133326a30cc8a451cd62bc0",
+      "mode": 384
+    },
+    {
+      "path": "runtime/terminal-r2/ledger-after-first.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/ledger-after-first.json",
+      "bytes": 1033,
+      "sha256": "e4ef72e6d1ba30137f5d62b1cb37b9e096cc70aac3e9532669c3224c54867ffd",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/ledger-after-second.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/ledger-after-second.json",
+      "bytes": 1033,
+      "sha256": "e4ef72e6d1ba30137f5d62b1cb37b9e096cc70aac3e9532669c3224c54867ffd",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/ledger-before.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/ledger-before.json",
+      "bytes": 671,
+      "sha256": "45d88d24cb37900a5b6a33fb3b7f5f0bdd7ce0a08c0f1dd201b6ed4aaac6253d",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/ledger.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/ledger.json",
+      "bytes": 1033,
+      "sha256": "e4ef72e6d1ba30137f5d62b1cb37b9e096cc70aac3e9532669c3224c54867ffd",
+      "mode": 384
+    },
+    {
+      "path": "runtime/terminal-r2/local-link-resume.pty.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/local-link-resume.pty.log",
+      "bytes": 809,
+      "sha256": "6d46211d232324cdf745824136dd5f37ebdfca34186cb4fcbfaaf52a78519186",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/local-link-resume.terminal.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/local-link-resume.terminal.json",
+      "bytes": 1495,
+      "sha256": "99c37d6251c593cdb506f978a8b6cdec4f86148faa08dc0c5b3a8020ee17869f",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/native-server-1.stderr.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/native-server-1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/native-server-1.stdout.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/native-server-1.stdout.log",
+      "bytes": 83,
+      "sha256": "e2917700c48a075ad15b2523fe86012d215ff927e3aa0c902a016343c54d0998",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/new-cancel.pty.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/new-cancel.pty.log",
+      "bytes": 892,
+      "sha256": "e035c61990148311062ef9f4c36da1608dd220a6b502f9229be84c26afab1f92",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/new-cancel.terminal.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/new-cancel.terminal.json",
+      "bytes": 3063,
+      "sha256": "1c05d4dd50564e8a8552d4ed1ca58990cacc9dd4d27555a562b010eb638054c9",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/receipt.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/receipt.json",
+      "bytes": 2009943,
+      "sha256": "83f694840230a9118756b7bae1fa65fa7c22b214e66e2d8dc50953729b60f656",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/resume-confirm.pty.log",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/resume-confirm.pty.log",
+      "bytes": 809,
+      "sha256": "6d46211d232324cdf745824136dd5f37ebdfca34186cb4fcbfaaf52a78519186",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/resume-confirm.terminal.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/resume-confirm.terminal.json",
+      "bytes": 1504,
+      "sha256": "28c9a468dcdf75b2637efeaa638d4bd287fd778720a4e4a62edf5fc77a1ae056",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/saved-request-before-any-connection.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/saved-request-before-any-connection.json",
+      "bytes": 148,
+      "sha256": "76e428c1a35beec5da8d3d9429d2821fce155ab9a64ceaa201e78a0485fd4fd9",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-r2/saved-request-observed.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-r2/saved-request-observed.json",
+      "bytes": 323,
+      "sha256": "86c82890126b9675718efa19c167aac254427a2c9133326a30cc8a451cd62bc0",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-wrapper-r1/driver.stderr",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-wrapper-r1/driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-wrapper-r1/driver.stdout",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-wrapper-r1/driver.stdout",
+      "bytes": 222,
+      "sha256": "92dda7d67514dcd90354a5827256036c48b184bf8ed9f7b78ea9ab038d156fcb",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-wrapper-r1/launch.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-wrapper-r1/launch.json",
+      "bytes": 387,
+      "sha256": "260fbf90b9cf89cff5aea39981f3c4a44709b7266fed982fb5f7435fa219ee11",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-wrapper-r1/receipt.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-wrapper-r1/receipt.json",
+      "bytes": 1115,
+      "sha256": "e827fa1fb80d11532e13a2d0cb8fb5bf7136d3f4078e6e817c5a7c28c7815c1e",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-wrapper-r2/driver.stderr",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-wrapper-r2/driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-wrapper-r2/driver.stdout",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-wrapper-r2/driver.stdout",
+      "bytes": 458,
+      "sha256": "a69c7a07b7a6c37c9a7961af61ce0752db71b0032702fa650c86db0bd196cbe5",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-wrapper-r2/launch.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-wrapper-r2/launch.json",
+      "bytes": 387,
+      "sha256": "0acbdea5d57be3524b65a11c9ad710d6903044710c84e252c4d478958c99fb4d",
+      "mode": 436
+    },
+    {
+      "path": "runtime/terminal-wrapper-r2/receipt.json",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/terminal-wrapper-r2/receipt.json",
+      "bytes": 1356,
+      "sha256": "34451c510369049102a479db98c9b5c5eced5937636302d3c9e97a31f1f9a587",
+      "mode": 436
+    },
+    {
+      "path": "runtime-stage/hamon-household-installed-entry-root-db371a37f4c8-admission-r3.py",
+      "nativePath": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8-admission-r3.py",
+      "bytes": 9587,
+      "sha256": "d0bd4dbfe57a809d03143caef2497f6adde2ffc7733e97ba01794bd24a192a11",
+      "mode": 436
+    }
+  ],
+  "literalLinksOmitted": [
+    {
+      "path": "runtime/unrelated-cwd/record-via-local-link",
+      "target": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/installation/node_modules/.bin/household-record"
+    }
+  ],
+  "installationPayloadExcluded": {
+    "path": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/installation",
+    "entries": 3874,
+    "bytes": 18488801,
+    "manifestSha256": "782e461f86a96c586488de4f74d72aa35e9f30a5870e67549fdb832c2c007d68"
+  },
+  "dependencyDonorIncluded": false
+}

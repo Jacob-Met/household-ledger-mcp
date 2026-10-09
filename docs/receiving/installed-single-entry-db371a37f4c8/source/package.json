@@ -1,0 +1,29 @@
+{
+  "bin": {
+    "household-ledger-mcp": "dist/src/index.js",
+    "household-record": "dist/src/household-record.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0"
+  },
+  "description": "TypeScript MCP server for household income, expenses, summaries, and budgets",
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "main": "dist/src/index.js",
+  "name": "household-ledger-mcp",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/src/index.js",
+    "start:stdio": "node dist/src/stdio.js",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "type": "module",
+  "version": "0.1.0"
+}

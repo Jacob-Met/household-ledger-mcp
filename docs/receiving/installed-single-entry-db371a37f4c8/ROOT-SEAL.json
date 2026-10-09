@@ -1,0 +1,22 @@
+{
+  "started": "2026-10-09T02:06:14.895217+00:00",
+  "pid": 3652802,
+  "memoryAvailable": 3684483072,
+  "freeBefore": 1382576128,
+  "passed": true,
+  "archive": "/run/user/1000/snap.chromium/hamon-household-installed-entry-root-db371a37f4c8/publication-r1/household-installed-entry-root-receiving.tar.gz",
+  "archiveBytes": 2623746,
+  "archiveSha256": "8bcfbccc692393279dae35b33b4a170391c9684cd3d2d0cb3a991954aaea615c",
+  "nativeGitBlob": "abafa5f341779bbf5716de529f147b0491c20d94",
+  "members": 307,
+  "payloadFiles": 306,
+  "payloadBytes": 8381347,
+  "manifestBytes": 109312,
+  "manifestSha256": "560e198f1f9dda75323a4007dcfb3c05ad504f4c93a5eba3d378c733bbb6db57",
+  "rootReportBytes": 12558,
+  "rootReportSha256": "b7f78caf833f6ddcbb1de7349620c066728e4febd96febd2b8f30f9844a60e01",
+  "finalAuditSha256": "af01509c95253587141b79beaf64fadfd15de0b5e155d06944e9354dd74139f4",
+  "allMembersRoundtripAndNativeUnchanged": true,
+  "freeAfter": 1379819520,
+  "completed": "2026-10-09T02:06:15.476084+00:00"
+}

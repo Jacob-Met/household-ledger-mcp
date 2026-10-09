@@ -1,0 +1,589 @@
+{
+  "created": "2026-10-09T01:25:13.434567+00:00",
+  "scope": "author installed command only; independent terminal receiving separate",
+  "sourceManifestSha256": "f60bbdd638c2687ddc4b7e496f125ff6f18683f124f8cf87053d4a7156d9047c",
+  "installedManifestSha256": "782e461f86a96c586488de4f74d72aa35e9f30a5870e67549fdb832c2c007d68",
+  "before": {
+    "source": 227,
+    "installed": 3874
+  },
+  "unchangedOwnerPackageMembers": "retained.txt",
+  "files": [
+    {
+      "path": "AUTHOR.md",
+      "nativePath": null,
+      "bytes": 8644,
+      "sha256": "74d67508428440bb292e72cbd75e043eb4bf246c1b653637bdda3dc48fb3d896",
+      "git": "8afab092f84e0e1e11d49bb8c550ea0aba88d849",
+      "mode": 420
+    },
+    {
+      "path": "author/evidence/compile-r1/receipt.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/compile-r1/receipt.json",
+      "bytes": 558,
+      "sha256": "b92ab99f82ed7f4080985753eb4b82f5df5468f057261017545f0b69908250e6",
+      "git": "ea9d842fdd738b845a5de26a252a3df9b344a56d",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/compile-r1/stderr.log",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/compile-r1/stderr.log",
+      "bytes": 814,
+      "sha256": "3385a1e0eea43236e5e845305a4d6614453be861fee31e82c9dfa5800e254097",
+      "git": "b3c8f04741f5f1fb5166a531552350db4c369802",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/compile-r1/stdout.log",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/compile-r1/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/compile-r2/receipt.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/compile-r2/receipt.json",
+      "bytes": 648,
+      "sha256": "8201fadb9f0d5c825438bd57a28a53ec75074f80bd859e32cb68b9875d90156d",
+      "git": "cc304bf6eab36d7b79f08ff93ff767383e7f1eb9",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/compile-r2/stderr.log",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/compile-r2/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/compile-r2/stdout.log",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/compile-r2/stdout.log",
+      "bytes": 965,
+      "sha256": "d6974282c0480a9dc89738f5444df50c4ed346b211ed75eab98aa30f0fbb5c28",
+      "git": "3f5366072ffafca8c0c1185661ae36341b5a9842",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/compile-r3/receipt.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/compile-r3/receipt.json",
+      "bytes": 642,
+      "sha256": "688d91457d6b54f70872bda750cbe3fc47c6f61389d9fae41a027854811fdc8c",
+      "git": "4e0ea462464a19b8193c5ee198b55af2e734634e",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/compile-r3/stderr.log",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/compile-r3/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/compile-r3/stdout.log",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/compile-r3/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/dependency-completion-r1.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/dependency-completion-r1.json",
+      "bytes": 747689,
+      "sha256": "7231d6fccedce2db45e67c9117e60e9e51d65daa6a309a2497384afc6e13f6cf",
+      "git": "b3294e2f492caa2f4da9b97d3f62ea731f563461",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/dependency-copy-correction-r1.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/dependency-copy-correction-r1.json",
+      "bytes": 915,
+      "sha256": "0bf3f9e5727bde1f7b8a20abb0cdd1f0c7f1033a1515c5fe5ede3855c30b1e58",
+      "git": "404001294453cd4d22fdcda008e1b261506078b3",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/install-r1/install-baseline.stderr",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/install-r1/install-baseline.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/install-r1/install-baseline.stdout",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/install-r1/install-baseline.stdout",
+      "bytes": 26,
+      "sha256": "001bacfe6ddd68022585329d006de0e938903aef23d76cec9e59f96e158bd24c",
+      "git": "cf4ad12df360790fae364154c054ad21ce414e35",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/install-r1/pack-candidate-final.stderr",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/install-r1/pack-candidate-final.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/install-r1/pack-candidate-final.stdout",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/install-r1/pack-candidate-final.stdout",
+      "bytes": 27507,
+      "sha256": "5395441ca50b2078dc4ab64c924a0d57d785e4c00735a496e512a05588d5ecac",
+      "git": "c3802e946839734067a16ff80bfa4c95b555240e",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/install-r1/receipt.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/install-r1/receipt.json",
+      "bytes": 32686,
+      "sha256": "66ac9cf763870e2b6ced4982e2939293d7a926bbf455eeb314d25134da72408a",
+      "git": "212b486de641a47d5c3f7b39cb46a7a443f0f096",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/install-r1/validator-syntax.stderr",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/install-r1/validator-syntax.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/install-r1/validator-syntax.stdout",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/install-r1/validator-syntax.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/install-runtime-prune-r1/receipt.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/install-runtime-prune-r1/receipt.json",
+      "bytes": 699,
+      "sha256": "d7960268409359d8a83afb6c3b0e2f318fbef354e0d821c1d4d592123470d519",
+      "git": "ce9395340373b928387b38440e726db04731385e",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/install-runtime-prune-r1/stderr.log",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/install-runtime-prune-r1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/install-runtime-prune-r1/stdout.log",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/install-runtime-prune-r1/stdout.log",
+      "bytes": 21,
+      "sha256": "afb5a1737063a76f43c2480bd0a7bc9fa7f9ade512ee676ac70941c880c4e05b",
+      "git": "39979b8ec03153ad5a6ea592e75d15bda5334ee2",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/npm-pack-r1/baseline.stderr",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/npm-pack-r1/baseline.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/npm-pack-r1/baseline.stdout",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/npm-pack-r1/baseline.stdout",
+      "bytes": 26714,
+      "sha256": "62d197f391914d41f4dce45ca3b8ab063789f831de5e9ed2d31a3a59fb36ad45",
+      "git": "afbc84e605f361bf7ad41b6184c33f183ff88f9b",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/npm-pack-r1/candidate.stderr",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/npm-pack-r1/candidate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/npm-pack-r1/candidate.stdout",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/npm-pack-r1/candidate.stdout",
+      "bytes": 27397,
+      "sha256": "3a436be9c2c3ac80262459f15ab7791c70fd45bedd72a3810b683b7813bda6f4",
+      "git": "6a33c8fc7c63e4910182275a1aac412a5479f174",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/npm-pack-r1/receipt.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/npm-pack-r1/receipt.json",
+      "bytes": 61848,
+      "sha256": "c5604303a05f54beaec7dcd4574aaba67cc4ab4125c8f17785df22ee56c1f105",
+      "git": "d2ab5fedfae219d8c3ae62979a835de6582a5099",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/retirement-alias-refusal-r1.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/retirement-alias-refusal-r1.json",
+      "bytes": 958,
+      "sha256": "ed0e8341366d041c3bf28cc021849f7c3d805e49f8311bcf25e0e00cd5eab449",
+      "git": "9ea896908e72b4e8931d11aa04efffd50e8f1b58",
+      "mode": 436
+    },
+    {
+      "path": "author/evidence/staging-r1.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/evidence/staging-r1.json",
+      "bytes": 77983,
+      "sha256": "c4d795cbc132ddbbc95b69326f65832c2e8aa6a1af2f79d9448cfb64e889821b",
+      "git": "dc2c9e59c85087c54d209aceb7bcc8ad017c7c9a",
+      "mode": 436
+    },
+    {
+      "path": "author/input/dependency-full-source-pins-r1.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/input/dependency-full-source-pins-r1.json",
+      "bytes": 673751,
+      "sha256": "5274e4b46eca7c11a4c894d7963f888852159c9276ec4a5c9a6ef4a02f7acd47",
+      "git": "e60f279dedd23372f3d27910b70e0f5d91df7589",
+      "mode": 436
+    },
+    {
+      "path": "author/input/dependency-source-pins.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/input/dependency-source-pins.json",
+      "bytes": 527287,
+      "sha256": "fc989762b3363bf781a61c689f5c97dbeebaea59a56b8f2311c5cc926a957d71",
+      "git": "371c090b2472f2a41a7f1935a0e54b419fbd8ed0",
+      "mode": 436
+    },
+    {
+      "path": "author/input/entry-source-pins.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/input/entry-source-pins.json",
+      "bytes": 22067,
+      "sha256": "2997fb03586387cc9af8558c5920b6fd3036af7564ebba6a3ef24280c9dc005b",
+      "git": "9c75a2fd84dc04e47b68fb36fc188af6203d63dc",
+      "mode": 436
+    },
+    {
+      "path": "author/input/owner-package.tgz",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/input/owner-package.tgz",
+      "bytes": 241470,
+      "sha256": "bbe5d540d0a5c579135d71f80bc2f11573581c54308feee50cc7ea57e272c67b",
+      "git": "54f91b63f325a93fd2d23d1cc5d0cf8f3deecae2",
+      "mode": 436
+    },
+    {
+      "path": "author/packages/baseline/household-ledger-mcp-0.1.0.tgz",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/packages/baseline/household-ledger-mcp-0.1.0.tgz",
+      "bytes": 256366,
+      "sha256": "079011006b7ea7c17391fd7b2709ac971d6f968c87dcbec2d3befcdaf5c41274",
+      "git": "a450274c3c366a18cbf54e3a328654d9cc655e0e",
+      "mode": 436
+    },
+    {
+      "path": "author/packages/candidate-final/household-ledger-mcp-0.1.0.tgz",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/packages/candidate-final/household-ledger-mcp-0.1.0.tgz",
+      "bytes": 264193,
+      "sha256": "a2faaa7dc271badaa70e178cb501293f02b47dc8ede01a757c082e6f914b07a8",
+      "git": "a4041efdd3280f95f2d2d84ba66084e88ba28cac",
+      "mode": 436
+    },
+    {
+      "path": "author/packages/candidate/household-ledger-mcp-0.1.0.tgz",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/packages/candidate/household-ledger-mcp-0.1.0.tgz",
+      "bytes": 262374,
+      "sha256": "d7ddffd800df217f62ad052db07aa15ca302968a6bec4e591e43b6691b773b55",
+      "git": "e36807873890cd7f241beeae29f45f285a0fdb45",
+      "mode": 436
+    },
+    {
+      "path": "memory-sealer-argv-negative-r1.json",
+      "nativePath": null,
+      "bytes": 345,
+      "sha256": "b639e06f474a88d368556829fbe07892d81130a10a0804c3a5ed82675646f861",
+      "git": "7921b3dd2fb95a4e215c169e46160b11a6fea873",
+      "mode": 420
+    },
+    {
+      "path": "persistent-seal-admission-refused.json",
+      "nativePath": null,
+      "bytes": 226,
+      "sha256": "e665ab1dd2f53a51ca34d1cb939098392758dec09c96f21ffe7b34325635afa4",
+      "git": "593e33fd12d54cca3219824eb03b9c60350f80ee",
+      "mode": 420
+    },
+    {
+      "path": "receiving/after-frozen-entry-installed.patch",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/after-frozen-entry-installed.patch",
+      "bytes": 8615,
+      "sha256": "dc503015ced5c9ce48c5719d6d30deac374255d818ef6c802c7c45d8abe05a52",
+      "git": "8e91114d5afe391e04e34d53718f38a819dcf19d",
+      "mode": 436
+    },
+    {
+      "path": "receiving/baseline-r1/receipt.json",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/baseline-r1/receipt.json",
+      "bytes": 2576,
+      "sha256": "dedf695fbcac445f2cb325923cb4d61270c1bb71800a41393fdc13add707590b",
+      "git": "fe85a963efeb08b2a921ec8b893b4be2111d1332",
+      "mode": 436
+    },
+    {
+      "path": "receiving/baseline-r1/unrelated caller 東京/retained.txt",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/baseline-r1/unrelated caller 東京/retained.txt",
+      "bytes": 38,
+      "sha256": "f7643d8e5817e7ccbae011ed397ca5c4388396b700336ce2875f348c9e9c3c66",
+      "git": "315fb2ec514c83b77f28920802fb868c90e0bc9c",
+      "mode": 436
+    },
+    {
+      "path": "receiving/baseline-wrapper.json",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/baseline-wrapper.json",
+      "bytes": 3312,
+      "sha256": "62ab4e10a7be7662e2bdc2d8e8a065fda801b7345fb5fac3b6dd72d377441be2",
+      "git": "5f5bd33efd7e3eaead2796baff3ee5fd09b9410d",
+      "mode": 436
+    },
+    {
+      "path": "receiving/baseline-wrapper.stderr",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/baseline-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "receiving/baseline-wrapper.stdout",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/baseline-wrapper.stdout",
+      "bytes": 147,
+      "sha256": "488be02cca84c55e40d8a41bc9ff7ec026f82b8e08689950899e646f8563eb71",
+      "git": "fa896c13bd062c178ccb4b4f222f4379e8a4459b",
+      "mode": 436
+    },
+    {
+      "path": "receiving/candidate-r1/receipt.json",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/candidate-r1/receipt.json",
+      "bytes": 7772,
+      "sha256": "84200367aba234d27d6da0c63f8833917363599ff84676b5e268f55543349692",
+      "git": "b32f170d24a98f0df100a95b50d19ccb0e5687ef",
+      "mode": 436
+    },
+    {
+      "path": "receiving/candidate-r1/unrelated caller 東京/retained.txt",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/candidate-r1/unrelated caller 東京/retained.txt",
+      "bytes": 38,
+      "sha256": "f7643d8e5817e7ccbae011ed397ca5c4388396b700336ce2875f348c9e9c3c66",
+      "git": "315fb2ec514c83b77f28920802fb868c90e0bc9c",
+      "mode": 436
+    },
+    {
+      "path": "receiving/candidate-source-manifest-r1.json",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/candidate-source-manifest-r1.json",
+      "bytes": 58646,
+      "sha256": "f60bbdd638c2687ddc4b7e496f125ff6f18683f124f8cf87053d4a7156d9047c",
+      "git": "e577e0be42c6d5aa3a3907addd67634eec5b3881",
+      "mode": 436
+    },
+    {
+      "path": "receiving/candidate-wrapper.json",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/candidate-wrapper.json",
+      "bytes": 8836,
+      "sha256": "32592e8269ba1bcabd50d4064b1781e2ab86d9789db40e4c133857087a97ab27",
+      "git": "975f8c6c0888050268a3fb9691128effbd3cdaa7",
+      "mode": 436
+    },
+    {
+      "path": "receiving/candidate-wrapper.stderr",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/candidate-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "receiving/candidate-wrapper.stdout",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/candidate-wrapper.stdout",
+      "bytes": 148,
+      "sha256": "87f1a974bd7fb1d3f18afeb7311bc7a0970b5b275f9a07637fe373c25ae91170",
+      "git": "1f108fbf8a61d76dd8c94ac3fc22cf7177acb97c",
+      "mode": 436
+    },
+    {
+      "path": "receiving/installed-candidate-manifest-r1.json",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/installed-candidate-manifest-r1.json",
+      "bytes": 1105534,
+      "sha256": "782e461f86a96c586488de4f74d72aa35e9f30a5870e67549fdb832c2c007d68",
+      "git": "977f08613fe316de99f0a27cd794a9b490e5327e",
+      "mode": 436
+    },
+    {
+      "path": "receiving/retirement-r1/closed-baseline-manifest.json",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/retirement-r1/closed-baseline-manifest.json",
+      "bytes": 828416,
+      "sha256": "2c90225426f8a35e53d339188d0cb7e39d075e7641ed4d13a3337ef90bf3c487",
+      "git": "1dfac2dced0e21d6112d6a7333e8deb822e318d5",
+      "mode": 436
+    },
+    {
+      "path": "receiving/retirement-r1/receipt.json",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/retirement-r1/receipt.json",
+      "bytes": 61985,
+      "sha256": "7865303305c0f15bc7befa8327dd1a08fb99345591e6fedc9e46dc5ae97d6c2b",
+      "git": "2f1b3090dd3eefdd664b427953038e6696139510",
+      "mode": 436
+    },
+    {
+      "path": "receiving/upgrade-r1/installed-baseline-files.json",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/upgrade-r1/installed-baseline-files.json",
+      "bytes": 40067,
+      "sha256": "1656948fb86bc68420a32e9f224bd23402df466fdacc1d662ebee7052bb45c9f",
+      "git": "57407927937e85cd68bce15691efbcba16b6d747",
+      "mode": 436
+    },
+    {
+      "path": "receiving/upgrade-r1/receipt.json",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/upgrade-r1/receipt.json",
+      "bytes": 171,
+      "sha256": "afd762c1553c75d220ed2b0c425d343f32f526864b4accb95e69ae0d7ffd648e",
+      "git": "af41d689d42ef5835b0037412e7440a59c8a9503",
+      "mode": 436
+    },
+    {
+      "path": "receiving/upgrade-ram-r1/receipt.json",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/upgrade-ram-r1/receipt.json",
+      "bytes": 899,
+      "sha256": "a06711e45f2a0d816b72fc83f5d2fbd9edc35556c490aed61e627cd76f22e098",
+      "git": "4c02d6a097798f98d9bfe7ea615b6d7e1bccd22c",
+      "mode": 436
+    },
+    {
+      "path": "receiving/upgrade-ram-r1/stderr.log",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/upgrade-ram-r1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436
+    },
+    {
+      "path": "receiving/upgrade-ram-r1/stdout.log",
+      "nativePath": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/upgrade-ram-r1/stdout.log",
+      "bytes": 28,
+      "sha256": "773d0254f07278d035ded8007d9ab5f9224b4c077c51a71a25ffa1796bf67618",
+      "git": "b65c2e657eb69d8518a2d54ee30633919f31b85d",
+      "mode": 436
+    },
+    {
+      "path": "sealing-script.py",
+      "nativePath": null,
+      "bytes": 16597,
+      "sha256": "93dedcad5023f9d2251dfa2b991900db1425745552ecd6562cdbb2b52507718e",
+      "git": "44bbdb2f8121216b4ed58558c043b80f31eebaf4",
+      "mode": 420
+    },
+    {
+      "path": "source/baseline/docs/RECORD_CLIENT.md",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/baseline/docs/RECORD_CLIENT.md",
+      "bytes": 5090,
+      "sha256": "90ebeae2764c1461686021f9cfbb8429a7cc0ebba5b4a7d1e0485d4bfe47bbb7",
+      "git": "5f03d76bfaaa9b755912d195ee9079881d275513",
+      "mode": 436
+    },
+    {
+      "path": "source/baseline/package-lock.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/baseline/package-lock.json",
+      "bytes": 43740,
+      "sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+      "git": "020c296d667264f890d47c5effc7abca9f4ea8cb",
+      "mode": 436
+    },
+    {
+      "path": "source/baseline/package.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/baseline/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "mode": 420
+    },
+    {
+      "path": "source/baseline/src/household-record.ts",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/baseline/src/household-record.ts",
+      "bytes": 5402,
+      "sha256": "7556222c4ec172f167644911690b09fcc8e408d3b1a01db9bf8fbb37847fa885",
+      "git": "04ab88f3e98c2c218fb240d1f0aa823c510275a0",
+      "mode": 436
+    },
+    {
+      "path": "source/baseline/src/record-client.ts",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/baseline/src/record-client.ts",
+      "bytes": 7756,
+      "sha256": "9da5321b65b12f3f8c1cb29c58d0ed85bbed7365409f8ca7d676ef9e82bc74aa",
+      "git": "9104ba0b1a6312888369c9dbac5d01aab4f6945a",
+      "mode": 436
+    },
+    {
+      "path": "source/candidate/docs/RECORD_CLIENT.md",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/candidate/docs/RECORD_CLIENT.md",
+      "bytes": 6258,
+      "sha256": "3c1a68d4f0e6487d58b3bc7ce60637dfe68ea09bcc4256371524dd1295736dbd",
+      "git": "5d4266f1e7071e856d8a3141a50b80a776117a46",
+      "mode": 436
+    },
+    {
+      "path": "source/candidate/package-lock.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/candidate/package-lock.json",
+      "bytes": 43800,
+      "sha256": "dba6ad760a58d7df00641fb7b69a7efedb6126132708ecb76cfa0d2f209d9629",
+      "git": "93b4f84db9f20d9638659859c6f5d95f3b86cd80",
+      "mode": 436
+    },
+    {
+      "path": "source/candidate/package.json",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/candidate/package.json",
+      "bytes": 759,
+      "sha256": "d0f8c5234f48ddbe6b3bf3a969832d5bb61f780cf2b73be92a6ede8d1d1711fd",
+      "git": "c28077c5d833744cf97d0e40f00f1413face56d8",
+      "mode": 420
+    },
+    {
+      "path": "source/candidate/src/household-record.ts",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/candidate/src/household-record.ts",
+      "bytes": 5422,
+      "sha256": "ff411e1aab24b922fe723da2efed8e12f0b446d97933d32a5dbb6a4149cc3fbe",
+      "git": "ba56af7c5a89a2cb53b154dbaa95c04195bf322e",
+      "mode": 436
+    },
+    {
+      "path": "source/candidate/src/record-client.ts",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/candidate/src/record-client.ts",
+      "bytes": 7756,
+      "sha256": "9da5321b65b12f3f8c1cb29c58d0ed85bbed7365409f8ca7d676ef9e82bc74aa",
+      "git": "9104ba0b1a6312888369c9dbac5d01aab4f6945a",
+      "mode": 436
+    },
+    {
+      "path": "source/candidate/validation/installed-record.mjs",
+      "nativePath": "/home/jacob/snap/chromium/common/hamon-household-installed-record-db371a37f4c8/candidate/validation/installed-record.mjs",
+      "bytes": 6051,
+      "sha256": "909941ebae327c977f34442713619539e9f418c8f93f5cb867c803539604fdb6",
+      "git": "3936ea0fe262d2098a9fbde3958f9326d5e697db",
+      "mode": 436
+    }
+  ],
+  "excluded": [
+    {
+      "path": "retirement-r1/closed-baseline-installation.tar.gz",
+      "bytes": 3864499,
+      "sha256": "ea8048daf72228f0d8945ad82e1f6ee1f361ac9cccb7f1642d85641d86cdc247",
+      "reason": "duplicate generated dependency contents omitted; exact original manifest and retirement receipt included"
+    },
+    {
+      "path": "candidate-r1/unrelated caller 東京/linked recording 東京",
+      "type": "link",
+      "target": "/dev/shm/hamon-household-installed-record-db371a37f4c8-receiving/installation/node_modules/.bin/household-record",
+      "reason": "receipt-local alias; identity retained without executable archive link"
+    }
+  ],
+  "noDependencyCopies": true,
+  "delivery": "in-process archive under memory guard; no filesystem allocation"
+}
