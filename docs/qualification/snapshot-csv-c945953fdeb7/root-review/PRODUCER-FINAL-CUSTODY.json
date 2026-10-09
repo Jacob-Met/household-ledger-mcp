@@ -1,0 +1,2066 @@
+{
+  "schema": "household-snapshot-csv-final-source-install-evidence-custody/v1",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "estate": "c945953fdeb7",
+  "recorded_utc": "2026-10-09T07:18:51Z",
+  "candidate": {
+    "commit": "399861e75ebe14388fe61dc524cf94920d54d0f9",
+    "tree": "54b7eb09c1e8856f79df72be28338d2bb43dea35",
+    "parents": [
+      "aac08aa93db2872aa1ff69e6bbd3844f0dfde015"
+    ],
+    "base_tree": "5a8131489011a42ac483b5b515cd29f8304919ea",
+    "branch_created": false,
+    "pr_created": false,
+    "exact_commit_readback": {
+      "sha": "399861e75ebe14388fe61dc524cf94920d54d0f9",
+      "node_id": "C_kwDOU74XEdoAKDM5OTg2MWU3NWViZTE0Mzg4ZmU2MWRjNTI0Y2Y5NDkyMGQ1NGQwZjk",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/commits/399861e75ebe14388fe61dc524cf94920d54d0f9",
+      "html_url": "https://github.com/Jacob-Met/household-ledger-mcp/commit/399861e75ebe14388fe61dc524cf94920d54d0f9",
+      "author": {
+        "name": "Jacob Metoyer",
+        "email": "150724801+Jacob-Met@users.noreply.github.com",
+        "date": "2026-10-09T07:18:12Z"
+      },
+      "committer": {
+        "name": "Jacob Metoyer",
+        "email": "150724801+Jacob-Met@users.noreply.github.com",
+        "date": "2026-10-09T07:18:12Z"
+      },
+      "tree": {
+        "sha": "54b7eb09c1e8856f79df72be28338d2bb43dea35",
+        "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/54b7eb09c1e8856f79df72be28338d2bb43dea35"
+      },
+      "message": "Add installed saved-ledger CSV command and native receiving evidence\n\nRead one explicit saved JSON ledger and publish a complete new physical CSV with the unchanged qualified validator and exporter. Preserve the original artifact parent, source archive and existing MCP/client owners.\n\nInclude the exclusive Mac installer, actual installed identity and recovery inputs, original author refusals, and independent F1–F3 receiving with the actual delivered CSV and child closure. Preserve all five parent leaves and add only the reserved tools/snapshot-csv and qualification paths.\n\nThis commit is prepared without any ref or PR mutation. Source-ref publication remains subject to root's fresh Actions and repository admission.",
+      "parents": [
+        {
+          "sha": "aac08aa93db2872aa1ff69e6bbd3844f0dfde015",
+          "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/commits/aac08aa93db2872aa1ff69e6bbd3844f0dfde015",
+          "html_url": "https://github.com/Jacob-Met/household-ledger-mcp/commit/aac08aa93db2872aa1ff69e6bbd3844f0dfde015"
+        }
+      ],
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "commit_create_result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "sha": "399861e75ebe14388fe61dc524cf94920d54d0f9"
+      },
+      "isError": false
+    },
+    "final_tree_create_result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "sha": "54b7eb09c1e8856f79df72be28338d2bb43dea35"
+      },
+      "isError": false
+    }
+  },
+  "tree_proof": {
+    "tree": "54b7eb09c1e8856f79df72be28338d2bb43dea35",
+    "truncated": false,
+    "parent_leaves": 5,
+    "all_parent_tuples_unchanged": true,
+    "exact_new_leaves": 82,
+    "all_new_tuples_match": true,
+    "final_leaves": 87,
+    "extra_leaves": [],
+    "modifications": [],
+    "deletions": [],
+    "workflows": 0
+  },
+  "full_parent_leaf_map": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c90411d4d3f70b78b1d323c509d296206bc38268",
+      "bytes": 1455
+    },
+    {
+      "path": "docs/receiving/transaction-export-after2b77-7a9310dad255/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ba5ccbc612b3eb084943cf380568a173f499f26",
+      "bytes": 8863
+    },
+    {
+      "path": "docs/receiving/transaction-export-after2b77-7a9310dad255/household-transaction-export-after2b77-receiving.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53c0af2d577119337f3a06ab956373814ffc341d",
+      "bytes": 861340
+    },
+    {
+      "path": "docs/receiving/transaction-export-after2b77-7a9310dad255/owner-package-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f23d6980de576e924d1ddd15160e025b25acc51",
+      "bytes": 2800
+    },
+    {
+      "path": "docs/receiving/transaction-export-after2b77-7a9310dad255/source.patch",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26961111dc4198476b23d5fe011c682618e147e4",
+      "bytes": 39585
+    }
+  ],
+  "full_added_leaf_map": [
+    {
+      "name": "AUTHOR-EXECUTION-TRANSPORT.json",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/AUTHOR-EXECUTION-TRANSPORT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee83063ee2432a1880b056957448333cd3693166",
+      "bytes": 106630,
+      "sha256": "3303135c119915dd3ee40eab5eda5891248f90b0ebcb4c17723ab5744503ed80"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/COMPOSITION.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66f8e92c81b0c72e8b901d704627f08f4433218b",
+      "bytes": 56964,
+      "sha256": "6411150f15c59b0c7863742e22a9310ee9087fdfe0101f9ca17b7ee220903b95"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/after.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b97d02cdff949ab4632cc7254d2e6b09bdfcbcae",
+      "bytes": 11353,
+      "sha256": "749f4c9354a1c98ba038c592889f49af45b8cb04e8b3b3ac562e38f5aebc1e48",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/ARTIFACT-CONTENTS.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8caf092ad9e5021f6dccf3b99c9b037f8d96df6f",
+      "bytes": 134464,
+      "sha256": "8c75a8a39ef580da3f29df9f30035778b3725872b0f6f945797c40b56c9e59a0",
+      "custody": "independent exact UTF-8 content carrier; uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/before.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b97d02cdff949ab4632cc7254d2e6b09bdfcbcae",
+      "bytes": 11353,
+      "sha256": "749f4c9354a1c98ba038c592889f49af45b8cb04e8b3b3ac562e38f5aebc1e48",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/calls/F1-new-output.stderr.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/calls/F1-new-output.stdout.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a21f487c709a0d11de4ed36bff49f7080b71f4f",
+      "bytes": 473,
+      "sha256": "68882f84ef3ec31967ae3b73fd91d778c106a59088c2a1e178f0106ff48855dd",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/calls/F2-existing-output.stderr.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a242c956f68b5e43a5cace1872f656b307a8024",
+      "bytes": 128,
+      "sha256": "de1fd3b767138f03b25ac1e092d95c46f3f26f815626f513fd74f59fcb2acdb7",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/calls/F2-existing-output.stdout.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/CONTRACT.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2012387eec7356f3035e85fd06d370ed163a7cc3",
+      "bytes": 8006,
+      "sha256": "9e24033677f7940b5e7ffdee271952f8d063e41e21b60dc8951186ce9599447d",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/CUSTODY.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "87828b0ccbd29936c7622dbeac9c70619162ebd1",
+      "bytes": 4439,
+      "sha256": "5dca271bd503089b37ee8c002f555eb9bc8f026801ec065ddd5a6b2ef559308c",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/delivery/statement.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "bytes": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/groups/F1_installed_physical_csv.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45522d3a0542c971450a970000e6f1c279b407be",
+      "bytes": 2440,
+      "sha256": "9939742ca475451a581e32f8ead5c132974f4ad3acacd946af00b6b846254fd5",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/groups/F2_existing_output_refusal.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fdb604dc88325f661d81dd34d9fbe3036bb317bf",
+      "bytes": 1444,
+      "sha256": "d162cf45e3bece67ec344a126a0da09cb237ce0305759924a5d188d5c8a7d53d",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/groups/F3_preservation_and_closure.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33d3cfbb4163f6aa8fdff7336d765d492903637e",
+      "bytes": 935,
+      "sha256": "b71f799bc91d2d74a9924832d8ae9900f2a98bff0903ae66c7585ddad0d4d75f",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/OUTER-CLOSURE.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cfd1a410c0cfeed11f94627d4a234f2981ecbe3e",
+      "bytes": 796,
+      "sha256": "31b62e9e0b71799385011504866e913281192ffe742205bc029b9ccde8c8a4b6",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/PORTABLE-CUSTODY.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13ba675a126a65c822caca0bc428ac51a0ee523f",
+      "bytes": 7880,
+      "sha256": "956af1ac2600e35d1a11e7bec9731433a84b3b7c0b3dc6f92c92de43d67ec7b8",
+      "custody": "uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/preparation/bootstrap.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "871f44a899ca409c394909bedf534600d8f18d10",
+      "bytes": 30057,
+      "sha256": "188bd192a9b2297f772e34e273ee20dc0d0c127a1bdc04ff90fe72ec9a8a010b",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/preparation/fresh-readonly-admission.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88495201109b55e4a43778cca272bfc503841942",
+      "bytes": 3346,
+      "sha256": "accec2cfce81bec0618197fcb2988ee9f3b91771d71f16019d266544d3528bd3",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff9f57dcb068cf449efeb94cac2e25ac434de9cf",
+      "bytes": 7941,
+      "sha256": "67252e174285709d70898008a61512ac5327f640a00c3453cb9c61cde3dec903",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/receive.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6498e78571eefb181720758e9e06c961f5f5468b",
+      "bytes": 12823,
+      "sha256": "a03dbcea313d2ce8445d156651b02ef65bbd0d868d9373af101ec887aff7ee0d",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/RECEIVING.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e6e924a0caa02e729f69db761187f826f77d0fa",
+      "bytes": 14876,
+      "sha256": "94a1cc3818a52ee6d79d8bba7d1ea215843ea759da9ef2b66e6b6a0aae338d3b",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/SOURCE-FREEZE.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09fd4fc21c65b3ec5c067aaa3e3910fcb4de1d24",
+      "bytes": 1090,
+      "sha256": "81354e57d38d359219583daff977e7cec6859d36503894ea09c1dde2720193e5",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/TRANSPORT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77a87a6205789536d54c99c587247fd5d0184c0a",
+      "bytes": 5201,
+      "sha256": "23a4bde380100b1f8068d3e4de7e2ca93bbc4234162a555b044502c63a599cde",
+      "custody": "independent exact native bytes; individually uploaded and exact-read-back"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/NATIVE-CUSTODY.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a3f59f3fe36f4657cc56a0b1f058761406d1fb3",
+      "bytes": 22653,
+      "sha256": "d8e439da3dfd3a95de05dae42c944f1c80a2cab1ad0e3483fe6ddd9c950539c5"
+    },
+    {
+      "scope": "author",
+      "relative_path": "author-install-and-refusals-v1.json",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/author-install-and-refusals-v1.json",
+      "bytes": 37150,
+      "sha256": "f949e3632ab95c987a71fc054e8ae2efa35647714fc4b1633a71d36ed408f8fa",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/author-install-and-refusals-v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "343a733eae520fb3c28658d4138bbc8b78c10c14",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "author-install-and-refusals-v1.py",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/author-install-and-refusals-v1.py",
+      "bytes": 9821,
+      "sha256": "cb71cdc4c08072a844c1a504185f9ba10957c59b17e223f5ebdc3af48427997a",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/author-install-and-refusals-v1.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f633e4f321ad7c6539b8c4deab4144b75f3612f6",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "author-invalid-ledger.json",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/author-invalid-ledger.json",
+      "bytes": 2,
+      "sha256": "a6fb08fda1acb957b6116bd37811a1fe41a01611c0631edbf786d6889a27a55c",
+      "native_mode": "0o444",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/author-invalid-ledger.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "98232c64fce9360c79f119cf6de8f670f69f1c44",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "independent-receiving-contract.md",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/independent-receiving-contract.md",
+      "bytes": 8006,
+      "sha256": "9e24033677f7940b5e7ffdee271952f8d063e41e21b60dc8951186ce9599447d",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/independent-receiving-contract.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2012387eec7356f3035e85fd06d370ed163a7cc3",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "native-original-intake.json",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/native-original-intake.json",
+      "bytes": 3826,
+      "sha256": "f921d0525d6312b2ea198bfb83a4cd9de7da2125b8dd32ac387bc4a3c19dbca9",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/native-original-intake.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba673ec9a2467b07df3b090cb8bdb6f33f27a590",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "original-qualified-owner-archive.tar.gz",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/original-qualified-owner-archive.tar.gz",
+      "bytes": 861340,
+      "sha256": "1213482711354e8a44f35230dd8d41061ad2cb3f868421075c705318cf9752f0",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/original-qualified-owner-archive.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53c0af2d577119337f3a06ab956373814ffc341d",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "original-source-and-ordinary-file-capsule.json",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/original-source-and-ordinary-file-capsule.json",
+      "bytes": 84777,
+      "sha256": "b2cace7a4c9f130645ec92bee4a19748c3dbdd67dbb15dc811413bb30d3d42c5",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/original-source-and-ordinary-file-capsule.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96e66759de9b5b390d72fe5142642392b80ad3d8",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "originals/ledger.ts",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ledger.ts",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ledger.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "originals/ordinary/expected.csv",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/expected.csv",
+      "bytes": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ordinary/expected.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "originals/ordinary/ledger.json",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/ledger.json",
+      "bytes": 2405,
+      "sha256": "ca1602b160685b5605c84390e60338c4e5317238d0a8ccf6f24a55bacba37f09",
+      "native_mode": "0o444",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ordinary/ledger.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64ae51bd94765295c5c5079829835ae584f49328",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "originals/ordinary/original-cases.json",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/original-cases.json",
+      "bytes": 6182,
+      "sha256": "55869d58264cc93ec7b794a2e65993aab2ad7da1a3c1c98b87f9583bc3d67790",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ordinary/original-cases.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d5b3b0c81e145aee10331e6779390f3a4a78975",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "originals/ordinary/original-receipt.json",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/original-receipt.json",
+      "bytes": 13760,
+      "sha256": "4220ba43c91422f9182a0c602514c22fd70ecde3f76dac9ea8b53824b48a9db6",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ordinary/original-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad1e95fc0793fb69f91a827dcefcb32142315288",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "originals/ordinary/original-receiving.md",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/original-receiving.md",
+      "bytes": 5124,
+      "sha256": "ca4acb4edb4c26139e21e228ab9a304cf6305178e4a9b8a84f578d19e8146fbe",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ordinary/original-receiving.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3dcd13384bd5ecb2c01e7dbd92c8fa6bdf67f286",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "originals/package.json",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "originals/runtime/ledger.js",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/runtime/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/runtime/ledger.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "originals/runtime/transaction-export.js",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/runtime/transaction-export.js",
+      "bytes": 5301,
+      "sha256": "9995fb6b3a2e5797cc506b55b2db8a53d4858a033629faeb9452416c7eda15d2",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/runtime/transaction-export.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "originals/transaction-export.ts",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/transaction-export.ts",
+      "bytes": 5415,
+      "sha256": "3692c09764ec871e8865d0e882f173367a38719c943c84489d113aea3c575a7e",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/transaction-export.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec9c082e348ff6803a3220e76ac8fb5391e9ce41",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "source-preparation-v1.json",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/source-preparation-v1.json",
+      "bytes": 10360,
+      "sha256": "744e2b0ca74807ee8c43cc2c3092647c7ac1b065bf7334110a511c1d54cf6213",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source-preparation-v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bae55ac3645d8c6ef76d952af4090280bc79f31",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "source/INPUTS.json",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/source/INPUTS.json",
+      "bytes": 3630,
+      "sha256": "51d4a6e3a44ed40bd42da4719df9eb85fcb24063bd42ebe6240da4aa1f62be03",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/INPUTS.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3da9f854ade5c40741604c2b7b3b285256aad62",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "source/install.py",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/source/install.py",
+      "bytes": 11479,
+      "sha256": "00bd7f96d18ffad595db6ee15002582fe5cfd032f4e2fd8cf197078bc24f2ef9",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/install.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57c93f9bff4bf1fe7d8618e43e70f0f0de66b9cb",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "source/launcher.sh.in",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/source/launcher.sh.in",
+      "bytes": 302,
+      "sha256": "560be2dbe1a60e821f377aaf946ccabdde9ca853c7d94feeb37f8dea17c5b61e",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/launcher.sh.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96c57b279a99770ba32e6578ec7ea7eb2e7382e1",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "source/lib/ledger.js",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/source/lib/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/lib/ledger.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "source/lib/package.json",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/source/lib/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/lib/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "source/lib/transaction-export.js",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/source/lib/transaction-export.js",
+      "bytes": 5301,
+      "sha256": "9995fb6b3a2e5797cc506b55b2db8a53d4858a033629faeb9452416c7eda15d2",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/lib/transaction-export.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "source/README.md",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/source/README.md",
+      "bytes": 7282,
+      "sha256": "5b91195abf7235b37bb7b0879c009ebd34374ee19de816159dd22f1b1b65d6be",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7bfe7dd5c7e9cbfd2c05b2204e9b4fd9f551c25",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "author",
+      "relative_path": "source/snapshot-csv.mjs",
+      "native_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/source/snapshot-csv.mjs",
+      "bytes": 7092,
+      "sha256": "698a7272d02bde76e638273dab3dd8e67914a9a838a21802a5f09769e76c2758",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/snapshot-csv.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47cd32e00535c1a483a854361842d949d3928b93",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "examples/expected-statement.csv",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/examples/expected-statement.csv",
+      "bytes": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/examples/expected-statement.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "examples/fictional-ledger.json",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/examples/fictional-ledger.json",
+      "bytes": 2405,
+      "sha256": "ca1602b160685b5605c84390e60338c4e5317238d0a8ccf6f24a55bacba37f09",
+      "native_mode": "0o444",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/examples/fictional-ledger.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64ae51bd94765295c5c5079829835ae584f49328",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "household-snapshot-csv",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/household-snapshot-csv",
+      "bytes": 384,
+      "sha256": "58499c451dadac3c74f82691a9def8c3dcde2eb367e699d557be275d44a51abe",
+      "native_mode": "0o700",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/household-snapshot-csv",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "2058d6ca4ded533098e5a3478dfe01f16d4af191",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "INPUTS.json",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/INPUTS.json",
+      "bytes": 3630,
+      "sha256": "51d4a6e3a44ed40bd42da4719df9eb85fcb24063bd42ebe6240da4aa1f62be03",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/INPUTS.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3da9f854ade5c40741604c2b7b3b285256aad62",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "INSTALLATION.json",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/INSTALLATION.json",
+      "bytes": 8134,
+      "sha256": "258eac826ec2c4591dfff75ec9c92fa877f81755752d3648dab30d49ec8a633f",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/INSTALLATION.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72ad7f6866e200910664bfc4cf385abe59b05c61",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "lib/ledger.js",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/lib/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/lib/ledger.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "lib/package.json",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/lib/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/lib/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "lib/transaction-export.js",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/lib/transaction-export.js",
+      "bytes": 5301,
+      "sha256": "9995fb6b3a2e5797cc506b55b2db8a53d4858a033629faeb9452416c7eda15d2",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/lib/transaction-export.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "README.md",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/README.md",
+      "bytes": 7282,
+      "sha256": "5b91195abf7235b37bb7b0879c009ebd34374ee19de816159dd22f1b1b65d6be",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7bfe7dd5c7e9cbfd2c05b2204e9b4fd9f551c25",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "recovery/original-qualified-owner-archive.tar.gz",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/recovery/original-qualified-owner-archive.tar.gz",
+      "bytes": 861340,
+      "sha256": "1213482711354e8a44f35230dd8d41061ad2cb3f868421075c705318cf9752f0",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/original-qualified-owner-archive.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53c0af2d577119337f3a06ab956373814ffc341d",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "recovery/source/INPUTS.json",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/recovery/source/INPUTS.json",
+      "bytes": 3630,
+      "sha256": "51d4a6e3a44ed40bd42da4719df9eb85fcb24063bd42ebe6240da4aa1f62be03",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/INPUTS.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3da9f854ade5c40741604c2b7b3b285256aad62",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "recovery/source/install.py",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/recovery/source/install.py",
+      "bytes": 11479,
+      "sha256": "00bd7f96d18ffad595db6ee15002582fe5cfd032f4e2fd8cf197078bc24f2ef9",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/install.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57c93f9bff4bf1fe7d8618e43e70f0f0de66b9cb",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "recovery/source/launcher.sh.in",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/recovery/source/launcher.sh.in",
+      "bytes": 302,
+      "sha256": "560be2dbe1a60e821f377aaf946ccabdde9ca853c7d94feeb37f8dea17c5b61e",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/launcher.sh.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96c57b279a99770ba32e6578ec7ea7eb2e7382e1",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "recovery/source/lib/ledger.js",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/recovery/source/lib/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/lib/ledger.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "recovery/source/lib/package.json",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/recovery/source/lib/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/lib/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "recovery/source/lib/transaction-export.js",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/recovery/source/lib/transaction-export.js",
+      "bytes": 5301,
+      "sha256": "9995fb6b3a2e5797cc506b55b2db8a53d4858a033629faeb9452416c7eda15d2",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/lib/transaction-export.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "recovery/source/README.md",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/recovery/source/README.md",
+      "bytes": 7282,
+      "sha256": "5b91195abf7235b37bb7b0879c009ebd34374ee19de816159dd22f1b1b65d6be",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7bfe7dd5c7e9cbfd2c05b2204e9b4fd9f551c25",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "recovery/source/snapshot-csv.mjs",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/recovery/source/snapshot-csv.mjs",
+      "bytes": 7092,
+      "sha256": "698a7272d02bde76e638273dab3dd8e67914a9a838a21802a5f09769e76c2758",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/snapshot-csv.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47cd32e00535c1a483a854361842d949d3928b93",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "scope": "installed",
+      "relative_path": "snapshot-csv.mjs",
+      "native_path": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/snapshot-csv.mjs",
+      "bytes": 7092,
+      "sha256": "698a7272d02bde76e638273dab3dd8e67914a9a838a21802a5f09769e76c2758",
+      "native_mode": "0o600",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/snapshot-csv.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47cd32e00535c1a483a854361842d949d3928b93",
+      "native_metadata_authority": "NATIVE-CUSTODY.json (raw exact native integer timestamps)"
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "690bc5dcb38be6d04954ff8a05c320fff827e48c",
+      "bytes": 9776,
+      "sha256": "d0b3f5eccaf15606c7c231e8a593a32e34b8993fbd627416db540ebef70eaefe"
+    },
+    {
+      "name": "RESERVATION.md",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/RESERVATION.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8ac407560db1bd5db706c2549d1b73213c35157",
+      "bytes": 5893,
+      "sha256": "9e517597ab6c183f85a0620707cffa37ea4bb60b62ef760e120547b8cddc4ba2"
+    },
+    {
+      "name": "SOURCE-AUTHORITY.json",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/SOURCE-AUTHORITY.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68d7cccd1b04aa8eadc29b1212350a49aa954912",
+      "bytes": 32034,
+      "sha256": "22089cbcff40656fc5c2e6f4e5fb73d3cfa907b28cc7d8afcf9b6482924272b0"
+    },
+    {
+      "name": "WORKFLOW-ADMISSION.json",
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/WORKFLOW-ADMISSION.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "462eaeecc013862e394b2911bf6a140a55dfe044",
+      "bytes": 23186,
+      "sha256": "0de6ed94f5de632abafcd611f055d1ba67c3f671a903e05af2224871958086d3"
+    },
+    {
+      "path": "tools/snapshot-csv/INPUTS.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3da9f854ade5c40741604c2b7b3b285256aad62",
+      "bytes": 3630,
+      "sha256": "51d4a6e3a44ed40bd42da4719df9eb85fcb24063bd42ebe6240da4aa1f62be03",
+      "source_role": "new standalone saved-file consumer source"
+    },
+    {
+      "path": "tools/snapshot-csv/install.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57c93f9bff4bf1fe7d8618e43e70f0f0de66b9cb",
+      "bytes": 11479,
+      "sha256": "00bd7f96d18ffad595db6ee15002582fe5cfd032f4e2fd8cf197078bc24f2ef9",
+      "source_role": "new standalone saved-file consumer source"
+    },
+    {
+      "path": "tools/snapshot-csv/launcher.sh.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96c57b279a99770ba32e6578ec7ea7eb2e7382e1",
+      "bytes": 302,
+      "sha256": "560be2dbe1a60e821f377aaf946ccabdde9ca853c7d94feeb37f8dea17c5b61e",
+      "source_role": "new standalone saved-file consumer source"
+    },
+    {
+      "path": "tools/snapshot-csv/lib/ledger.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "source_role": "unchanged original emitted module"
+    },
+    {
+      "path": "tools/snapshot-csv/lib/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "source_role": "new standalone saved-file consumer source"
+    },
+    {
+      "path": "tools/snapshot-csv/lib/transaction-export.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "bytes": 5301,
+      "sha256": "9995fb6b3a2e5797cc506b55b2db8a53d4858a033629faeb9452416c7eda15d2",
+      "source_role": "unchanged original emitted module"
+    },
+    {
+      "path": "tools/snapshot-csv/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7bfe7dd5c7e9cbfd2c05b2204e9b4fd9f551c25",
+      "bytes": 7282,
+      "sha256": "5b91195abf7235b37bb7b0879c009ebd34374ee19de816159dd22f1b1b65d6be",
+      "source_role": "new standalone saved-file consumer source"
+    },
+    {
+      "path": "tools/snapshot-csv/snapshot-csv.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47cd32e00535c1a483a854361842d949d3928b93",
+      "bytes": 7092,
+      "sha256": "698a7272d02bde76e638273dab3dd8e67914a9a838a21802a5f09769e76c2758",
+      "source_role": "new standalone saved-file consumer source"
+    }
+  ],
+  "full_final_leaf_map": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c90411d4d3f70b78b1d323c509d296206bc38268",
+      "bytes": 1455
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/AUTHOR-EXECUTION-TRANSPORT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee83063ee2432a1880b056957448333cd3693166",
+      "bytes": 106630
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/COMPOSITION.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66f8e92c81b0c72e8b901d704627f08f4433218b",
+      "bytes": 56964
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/NATIVE-CUSTODY.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a3f59f3fe36f4657cc56a0b1f058761406d1fb3",
+      "bytes": 22653
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "690bc5dcb38be6d04954ff8a05c320fff827e48c",
+      "bytes": 9776
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/RESERVATION.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8ac407560db1bd5db706c2549d1b73213c35157",
+      "bytes": 5893
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/SOURCE-AUTHORITY.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68d7cccd1b04aa8eadc29b1212350a49aa954912",
+      "bytes": 32034
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/WORKFLOW-ADMISSION.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "462eaeecc013862e394b2911bf6a140a55dfe044",
+      "bytes": 23186
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/ARTIFACT-CONTENTS.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8caf092ad9e5021f6dccf3b99c9b037f8d96df6f",
+      "bytes": 134464
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/CONTRACT.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2012387eec7356f3035e85fd06d370ed163a7cc3",
+      "bytes": 8006
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/CUSTODY.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "87828b0ccbd29936c7622dbeac9c70619162ebd1",
+      "bytes": 4439
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/OUTER-CLOSURE.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cfd1a410c0cfeed11f94627d4a234f2981ecbe3e",
+      "bytes": 796
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/PORTABLE-CUSTODY.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13ba675a126a65c822caca0bc428ac51a0ee523f",
+      "bytes": 7880
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff9f57dcb068cf449efeb94cac2e25ac434de9cf",
+      "bytes": 7941
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/RECEIVING.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e6e924a0caa02e729f69db761187f826f77d0fa",
+      "bytes": 14876
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/SOURCE-FREEZE.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09fd4fc21c65b3ec5c067aaa3e3910fcb4de1d24",
+      "bytes": 1090
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/TRANSPORT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77a87a6205789536d54c99c587247fd5d0184c0a",
+      "bytes": 5201
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/after.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b97d02cdff949ab4632cc7254d2e6b09bdfcbcae",
+      "bytes": 11353
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/before.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b97d02cdff949ab4632cc7254d2e6b09bdfcbcae",
+      "bytes": 11353
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/calls/F1-new-output.stderr.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/calls/F1-new-output.stdout.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a21f487c709a0d11de4ed36bff49f7080b71f4f",
+      "bytes": 473
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/calls/F2-existing-output.stderr.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a242c956f68b5e43a5cace1872f656b307a8024",
+      "bytes": 128
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/calls/F2-existing-output.stdout.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/delivery/statement.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "bytes": 976
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/groups/F1_installed_physical_csv.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45522d3a0542c971450a970000e6f1c279b407be",
+      "bytes": 2440
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/groups/F2_existing_output_refusal.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fdb604dc88325f661d81dd34d9fbe3036bb317bf",
+      "bytes": 1444
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/groups/F3_preservation_and_closure.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33d3cfbb4163f6aa8fdff7336d765d492903637e",
+      "bytes": 935
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/preparation/bootstrap.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "871f44a899ca409c394909bedf534600d8f18d10",
+      "bytes": 30057
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/preparation/fresh-readonly-admission.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88495201109b55e4a43778cca272bfc503841942",
+      "bytes": 3346
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/independent/receive.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6498e78571eefb181720758e9e06c961f5f5468b",
+      "bytes": 12823
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/author-install-and-refusals-v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "343a733eae520fb3c28658d4138bbc8b78c10c14",
+      "bytes": 37150
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/author-install-and-refusals-v1.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f633e4f321ad7c6539b8c4deab4144b75f3612f6",
+      "bytes": 9821
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/author-invalid-ledger.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "98232c64fce9360c79f119cf6de8f670f69f1c44",
+      "bytes": 2
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/independent-receiving-contract.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2012387eec7356f3035e85fd06d370ed163a7cc3",
+      "bytes": 8006
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/native-original-intake.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba673ec9a2467b07df3b090cb8bdb6f33f27a590",
+      "bytes": 3826
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/original-qualified-owner-archive.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53c0af2d577119337f3a06ab956373814ffc341d",
+      "bytes": 861340
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/original-source-and-ordinary-file-capsule.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96e66759de9b5b390d72fe5142642392b80ad3d8",
+      "bytes": 84777
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ledger.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+      "bytes": 17537
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ordinary/expected.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "bytes": 976
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ordinary/ledger.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64ae51bd94765295c5c5079829835ae584f49328",
+      "bytes": 2405
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ordinary/original-cases.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d5b3b0c81e145aee10331e6779390f3a4a78975",
+      "bytes": 6182
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ordinary/original-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad1e95fc0793fb69f91a827dcefcb32142315288",
+      "bytes": 13760
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/ordinary/original-receiving.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3dcd13384bd5ecb2c01e7dbd92c8fa6bdf67f286",
+      "bytes": 5124
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "bytes": 703
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/runtime/ledger.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "bytes": 15698
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/runtime/transaction-export.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "bytes": 5301
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/originals/transaction-export.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec9c082e348ff6803a3220e76ac8fb5391e9ce41",
+      "bytes": 5415
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source-preparation-v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bae55ac3645d8c6ef76d952af4090280bc79f31",
+      "bytes": 10360
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/INPUTS.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3da9f854ade5c40741604c2b7b3b285256aad62",
+      "bytes": 3630
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7bfe7dd5c7e9cbfd2c05b2204e9b4fd9f551c25",
+      "bytes": 7282
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/install.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57c93f9bff4bf1fe7d8618e43e70f0f0de66b9cb",
+      "bytes": 11479
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/launcher.sh.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96c57b279a99770ba32e6578ec7ea7eb2e7382e1",
+      "bytes": 302
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/lib/ledger.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "bytes": 15698
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/lib/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "bytes": 18
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/lib/transaction-export.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "bytes": 5301
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/author/source/snapshot-csv.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47cd32e00535c1a483a854361842d949d3928b93",
+      "bytes": 7092
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/INPUTS.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3da9f854ade5c40741604c2b7b3b285256aad62",
+      "bytes": 3630
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/INSTALLATION.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72ad7f6866e200910664bfc4cf385abe59b05c61",
+      "bytes": 8134
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7bfe7dd5c7e9cbfd2c05b2204e9b4fd9f551c25",
+      "bytes": 7282
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/examples/expected-statement.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "bytes": 976
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/examples/fictional-ledger.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64ae51bd94765295c5c5079829835ae584f49328",
+      "bytes": 2405
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/household-snapshot-csv",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "2058d6ca4ded533098e5a3478dfe01f16d4af191",
+      "bytes": 384
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/lib/ledger.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "bytes": 15698
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/lib/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "bytes": 18
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/lib/transaction-export.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "bytes": 5301
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/original-qualified-owner-archive.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53c0af2d577119337f3a06ab956373814ffc341d",
+      "bytes": 861340
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/INPUTS.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3da9f854ade5c40741604c2b7b3b285256aad62",
+      "bytes": 3630
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7bfe7dd5c7e9cbfd2c05b2204e9b4fd9f551c25",
+      "bytes": 7282
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/install.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57c93f9bff4bf1fe7d8618e43e70f0f0de66b9cb",
+      "bytes": 11479
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/launcher.sh.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96c57b279a99770ba32e6578ec7ea7eb2e7382e1",
+      "bytes": 302
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/lib/ledger.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "bytes": 15698
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/lib/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "bytes": 18
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/lib/transaction-export.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "bytes": 5301
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/recovery/source/snapshot-csv.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47cd32e00535c1a483a854361842d949d3928b93",
+      "bytes": 7092
+    },
+    {
+      "path": "docs/qualification/snapshot-csv-c945953fdeb7/native/installed/snapshot-csv.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47cd32e00535c1a483a854361842d949d3928b93",
+      "bytes": 7092
+    },
+    {
+      "path": "docs/receiving/transaction-export-after2b77-7a9310dad255/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ba5ccbc612b3eb084943cf380568a173f499f26",
+      "bytes": 8863
+    },
+    {
+      "path": "docs/receiving/transaction-export-after2b77-7a9310dad255/household-transaction-export-after2b77-receiving.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53c0af2d577119337f3a06ab956373814ffc341d",
+      "bytes": 861340
+    },
+    {
+      "path": "docs/receiving/transaction-export-after2b77-7a9310dad255/owner-package-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f23d6980de576e924d1ddd15160e025b25acc51",
+      "bytes": 2800
+    },
+    {
+      "path": "docs/receiving/transaction-export-after2b77-7a9310dad255/source.patch",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26961111dc4198476b23d5fe011c682618e147e4",
+      "bytes": 39585
+    },
+    {
+      "path": "tools/snapshot-csv/INPUTS.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3da9f854ade5c40741604c2b7b3b285256aad62",
+      "bytes": 3630
+    },
+    {
+      "path": "tools/snapshot-csv/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7bfe7dd5c7e9cbfd2c05b2204e9b4fd9f551c25",
+      "bytes": 7282
+    },
+    {
+      "path": "tools/snapshot-csv/install.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57c93f9bff4bf1fe7d8618e43e70f0f0de66b9cb",
+      "bytes": 11479
+    },
+    {
+      "path": "tools/snapshot-csv/launcher.sh.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96c57b279a99770ba32e6578ec7ea7eb2e7382e1",
+      "bytes": 302
+    },
+    {
+      "path": "tools/snapshot-csv/lib/ledger.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "bytes": 15698
+    },
+    {
+      "path": "tools/snapshot-csv/lib/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "bytes": 18
+    },
+    {
+      "path": "tools/snapshot-csv/lib/transaction-export.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "bytes": 5301
+    },
+    {
+      "path": "tools/snapshot-csv/snapshot-csv.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47cd32e00535c1a483a854361842d949d3928b93",
+      "bytes": 7092
+    }
+  ],
+  "observed_ref_boundary": {
+    "proof": {
+      "before_count": 27,
+      "after_count": 27,
+      "all_before_ref_tuples_unchanged": true,
+      "own_ref_created": false,
+      "commit_referenced": false
+    },
+    "before": [
+      {
+        "ref": "refs/heads/chatgpt/budget-removal-5f566b5ec8ef",
+        "type": "commit",
+        "sha": "39990d023afb0ea13e1dfc8781c04ba0ed369edb"
+      },
+      {
+        "ref": "refs/heads/contribution/budget-reallocation-6e5752b49b6f",
+        "type": "commit",
+        "sha": "d08ab77c7db240b58e4521f318fbc672a82b150c"
+      },
+      {
+        "ref": "refs/heads/estate/dependabot-config",
+        "type": "commit",
+        "sha": "13cd779a34dcb724471bc159a24ae2f8f6d51445"
+      },
+      {
+        "ref": "refs/heads/estate/mcp-server-initial",
+        "type": "commit",
+        "sha": "dffabba341a8bce74faa97de68054bd453509a98"
+      },
+      {
+        "ref": "refs/heads/feature/transaction-print-81ba1ed0179c",
+        "type": "commit",
+        "sha": "49856af07ed779c94e1dbaa75dab7530d4eb0429"
+      },
+      {
+        "ref": "refs/heads/main",
+        "type": "commit",
+        "sha": "c063549f5caae75a6bef764a5da703f0dccfec9f"
+      },
+      {
+        "ref": "refs/heads/receiving/budget-reallocation-client-db371a37f4c8",
+        "type": "commit",
+        "sha": "5914eec127bc5bb82cf35402375fcc59c47966f2"
+      },
+      {
+        "ref": "refs/heads/receiving/household-budget-copy-2b77b81a-a0eb505c",
+        "type": "commit",
+        "sha": "ef6c956d35ad9d0c9cd5befd07cd4bd81580647b"
+      },
+      {
+        "ref": "refs/heads/receiving/household-budget-copy-client-c92fc230-a0eb505c",
+        "type": "commit",
+        "sha": "322d9072f8d6dc139ec309cd3c8c141f492825a1"
+      },
+      {
+        "ref": "refs/heads/receiving/household-complete-07e223b5-31a349052b90",
+        "type": "commit",
+        "sha": "d821d8ce749d22568514efb4eb4dd25e5cdfbf06"
+      },
+      {
+        "ref": "refs/heads/receiving/household-complete-61749b-20261008",
+        "type": "commit",
+        "sha": "591ab6f5a2d65bf596aeb707dbb635ee981ec926"
+      },
+      {
+        "ref": "refs/heads/receiving/household-export-81aeb416-7a9310dad255",
+        "type": "commit",
+        "sha": "aac08aa93db2872aa1ff69e6bbd3844f0dfde015"
+      },
+      {
+        "ref": "refs/heads/receiving/household-filters-after-07e-18a24bf0c281",
+        "type": "commit",
+        "sha": "19c9aec87b84c5626de37c71b3a5ea98174567a5"
+      },
+      {
+        "ref": "refs/heads/receiving/household-recurring-347f3417824d-20261009",
+        "type": "commit",
+        "sha": "57268bfda9643f641852468ae459fb61b1080b6e"
+      },
+      {
+        "ref": "refs/heads/receiving/installed-single-entry-db371a37f4c8",
+        "type": "commit",
+        "sha": "7cd245a1820fe1ac2cc6e4c192e6aa9c9c8881ef"
+      },
+      {
+        "ref": "refs/heads/receiving/month-comparison-c36a60df2cc1",
+        "type": "commit",
+        "sha": "80c2df1b382f44baed48e9bc509e868e3290726e"
+      },
+      {
+        "ref": "refs/heads/receiving/monthly-review-a3425ebf9874",
+        "type": "commit",
+        "sha": "b8b3db1dda856bababe3c7d66173e5b90431dff9"
+      },
+      {
+        "ref": "refs/heads/receiving/single-entry-db371a37f4c8",
+        "type": "commit",
+        "sha": "4b135480d48089cc4aa08f25c0f8b0ee79b4d0e4"
+      },
+      {
+        "ref": "refs/heads/work/monthly-summary-categories-e3a41d2b3368",
+        "type": "commit",
+        "sha": "0a3daeedbd7520dd02d377ba18277566610854c2"
+      },
+      {
+        "ref": "refs/pull/1/head",
+        "type": "commit",
+        "sha": "dffabba341a8bce74faa97de68054bd453509a98"
+      },
+      {
+        "ref": "refs/pull/1/merge",
+        "type": "commit",
+        "sha": "dd1b5527409adfe067ac03b3f31da6f19c1137e4"
+      },
+      {
+        "ref": "refs/pull/2/head",
+        "type": "commit",
+        "sha": "13cd779a34dcb724471bc159a24ae2f8f6d51445"
+      },
+      {
+        "ref": "refs/pull/2/merge",
+        "type": "commit",
+        "sha": "84d26d5015e30efb27f5f1f6424ae446c9963172"
+      },
+      {
+        "ref": "refs/pull/4/head",
+        "type": "commit",
+        "sha": "0a3daeedbd7520dd02d377ba18277566610854c2"
+      },
+      {
+        "ref": "refs/pull/4/merge",
+        "type": "commit",
+        "sha": "f11d38baff28319661cc86b8f152d5edfaed57fd"
+      },
+      {
+        "ref": "refs/pull/8/head",
+        "type": "commit",
+        "sha": "591ab6f5a2d65bf596aeb707dbb635ee981ec926"
+      },
+      {
+        "ref": "refs/pull/8/merge",
+        "type": "commit",
+        "sha": "10c6f0b7882a86fd7a34d1eb7a436a43de16f4f8"
+      }
+    ],
+    "after": [
+      {
+        "ref": "refs/heads/chatgpt/budget-removal-5f566b5ec8ef",
+        "type": "commit",
+        "sha": "39990d023afb0ea13e1dfc8781c04ba0ed369edb"
+      },
+      {
+        "ref": "refs/heads/contribution/budget-reallocation-6e5752b49b6f",
+        "type": "commit",
+        "sha": "d08ab77c7db240b58e4521f318fbc672a82b150c"
+      },
+      {
+        "ref": "refs/heads/estate/dependabot-config",
+        "type": "commit",
+        "sha": "13cd779a34dcb724471bc159a24ae2f8f6d51445"
+      },
+      {
+        "ref": "refs/heads/estate/mcp-server-initial",
+        "type": "commit",
+        "sha": "dffabba341a8bce74faa97de68054bd453509a98"
+      },
+      {
+        "ref": "refs/heads/feature/transaction-print-81ba1ed0179c",
+        "type": "commit",
+        "sha": "49856af07ed779c94e1dbaa75dab7530d4eb0429"
+      },
+      {
+        "ref": "refs/heads/main",
+        "type": "commit",
+        "sha": "c063549f5caae75a6bef764a5da703f0dccfec9f"
+      },
+      {
+        "ref": "refs/heads/receiving/budget-reallocation-client-db371a37f4c8",
+        "type": "commit",
+        "sha": "5914eec127bc5bb82cf35402375fcc59c47966f2"
+      },
+      {
+        "ref": "refs/heads/receiving/household-budget-copy-2b77b81a-a0eb505c",
+        "type": "commit",
+        "sha": "ef6c956d35ad9d0c9cd5befd07cd4bd81580647b"
+      },
+      {
+        "ref": "refs/heads/receiving/household-budget-copy-client-c92fc230-a0eb505c",
+        "type": "commit",
+        "sha": "322d9072f8d6dc139ec309cd3c8c141f492825a1"
+      },
+      {
+        "ref": "refs/heads/receiving/household-complete-07e223b5-31a349052b90",
+        "type": "commit",
+        "sha": "d821d8ce749d22568514efb4eb4dd25e5cdfbf06"
+      },
+      {
+        "ref": "refs/heads/receiving/household-complete-61749b-20261008",
+        "type": "commit",
+        "sha": "591ab6f5a2d65bf596aeb707dbb635ee981ec926"
+      },
+      {
+        "ref": "refs/heads/receiving/household-export-81aeb416-7a9310dad255",
+        "type": "commit",
+        "sha": "aac08aa93db2872aa1ff69e6bbd3844f0dfde015"
+      },
+      {
+        "ref": "refs/heads/receiving/household-filters-after-07e-18a24bf0c281",
+        "type": "commit",
+        "sha": "19c9aec87b84c5626de37c71b3a5ea98174567a5"
+      },
+      {
+        "ref": "refs/heads/receiving/household-recurring-347f3417824d-20261009",
+        "type": "commit",
+        "sha": "57268bfda9643f641852468ae459fb61b1080b6e"
+      },
+      {
+        "ref": "refs/heads/receiving/installed-single-entry-db371a37f4c8",
+        "type": "commit",
+        "sha": "7cd245a1820fe1ac2cc6e4c192e6aa9c9c8881ef"
+      },
+      {
+        "ref": "refs/heads/receiving/month-comparison-c36a60df2cc1",
+        "type": "commit",
+        "sha": "80c2df1b382f44baed48e9bc509e868e3290726e"
+      },
+      {
+        "ref": "refs/heads/receiving/monthly-review-a3425ebf9874",
+        "type": "commit",
+        "sha": "b8b3db1dda856bababe3c7d66173e5b90431dff9"
+      },
+      {
+        "ref": "refs/heads/receiving/single-entry-db371a37f4c8",
+        "type": "commit",
+        "sha": "4b135480d48089cc4aa08f25c0f8b0ee79b4d0e4"
+      },
+      {
+        "ref": "refs/heads/work/monthly-summary-categories-e3a41d2b3368",
+        "type": "commit",
+        "sha": "0a3daeedbd7520dd02d377ba18277566610854c2"
+      },
+      {
+        "ref": "refs/pull/1/head",
+        "type": "commit",
+        "sha": "dffabba341a8bce74faa97de68054bd453509a98"
+      },
+      {
+        "ref": "refs/pull/1/merge",
+        "type": "commit",
+        "sha": "dd1b5527409adfe067ac03b3f31da6f19c1137e4"
+      },
+      {
+        "ref": "refs/pull/2/head",
+        "type": "commit",
+        "sha": "13cd779a34dcb724471bc159a24ae2f8f6d51445"
+      },
+      {
+        "ref": "refs/pull/2/merge",
+        "type": "commit",
+        "sha": "84d26d5015e30efb27f5f1f6424ae446c9963172"
+      },
+      {
+        "ref": "refs/pull/4/head",
+        "type": "commit",
+        "sha": "0a3daeedbd7520dd02d377ba18277566610854c2"
+      },
+      {
+        "ref": "refs/pull/4/merge",
+        "type": "commit",
+        "sha": "f11d38baff28319661cc86b8f152d5edfaed57fd"
+      },
+      {
+        "ref": "refs/pull/8/head",
+        "type": "commit",
+        "sha": "591ab6f5a2d65bf596aeb707dbb635ee981ec926"
+      },
+      {
+        "ref": "refs/pull/8/merge",
+        "type": "commit",
+        "sha": "10c6f0b7882a86fd7a34d1eb7a436a43de16f4f8"
+      }
+    ],
+    "main": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+    "repository_rulesets": [],
+    "all_event_head_actions": {
+      "total_count": 0,
+      "workflow_runs": []
+    },
+    "actions_query": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/actions/runs?head_sha=399861e75ebe14388fe61dc524cf94920d54d0f9&per_page=100",
+    "note": "This all-event raw API query returned total_count 0 for the candidate head. The pull-request-filtered wrapper was not substituted. No ref mutation occurred. Root must freshly admit any later source ref against current workflows and repository restrictions."
+  },
+  "source": {
+    "source_files": 8,
+    "authored_files": 6,
+    "unchanged_original_runtime_modules": 2,
+    "original_qualified_archive": {
+      "bytes": 861340,
+      "sha256": "1213482711354e8a44f35230dd8d41061ad2cb3f868421075c705318cf9752f0",
+      "git_blob": "53c0af2d577119337f3a06ab956373814ffc341d",
+      "already_anchored_in_parent": true
+    },
+    "original_native_content_tree": "81aeb4162cf6d793093f920ac7ca03a520169258",
+    "original_native_parent": "2b77b81ad59c5f3255aa25c37110e91d3bad6a01",
+    "native_ancestry_not_asserted_as_canonical_github_adoption": true
+  },
+  "installed_use": {
+    "target": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7",
+    "entry": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/household-snapshot-csv",
+    "installed_files": 19,
+    "installed_bytes": 963062,
+    "marker": "72ad7f6866e200910664bfc4cf385abe59b05c61",
+    "author_receipt": "343a733eae520fb3c28658d4138bbc8b78c10c14",
+    "source_preparation": "2bae55ac3645d8c6ef76d952af4090280bc79f31",
+    "native_custody": "8a3f59f3fe36f4657cc56a0b1f058761406d1fb3",
+    "independent_contract": "2012387eec7356f3035e85fd06d370ed163a7cc3",
+    "independent_receipt": "5e6e924a0caa02e729f69db761187f826f77d0fa",
+    "independent_portable_map": "13ba675a126a65c822caca0bc428ac51a0ee523f",
+    "independent_report": "ff9f57dcb068cf449efeb94cac2e25ac434de9cf",
+    "independent_carrier": "8caf092ad9e5021f6dccf3b99c9b037f8d96df6f",
+    "results": "F1 PASS: actual new physical CSV from installed absolute entry in /tmp, exit 0. F2 PASS: existing-output refusal, exit 1. F3 PASS: installed/source/original/runtime/receipts unchanged and owned child closure. Independent controller exit 0. Original author invalid-JSON exit 2 and existing-installation exit 1 preserved as actual expected refusals.",
+    "physical_csv": {
+      "native_path": "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv",
+      "bytes": 976,
+      "rows": 8,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "actual_new_file": true,
+      "original_expected_csv_regenerated": false
+    },
+    "product_calls_after_independent_receiving": 0
+  },
+  "composition_observation": {
+    "record": "66f8e92c81b0c72e8b901d704627f08f4433218b",
+    "initial_tree_422_and_three_subsequent_original_blob_404s_preserved": true,
+    "four_missing_exact_text_bodies_uploaded_with_original_ids": true,
+    "source_or_installed_byte_changes": 0,
+    "final_recursive_tree_nontruncated": true
+  },
+  "native_custody_retention": {
+    "directory": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/custody",
+    "readme": {
+      "git_blob": "690bc5dcb38be6d04954ff8a05c320fff827e48c",
+      "bytes": 9776,
+      "sha256": "d0b3f5eccaf15606c7c231e8a593a32e34b8993fbd627416db540ebef70eaefe",
+      "start": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Process started with PID 11699 (shell: /bin/zsh)\nInitial output:\n{\"utc\":\"2026-10-09T07:15:26.389230+00:00\",\"files\":[{\"path\":\"/Users/me/Developer/household-snapshot-csv-c945953fdeb7/custody/README.md\",\"bytes\":9776,\"git_blob\":\"690bc5dcb38be6d04954ff8a05c320fff827e48c\",\"sha256\":\"d0b3f5eccaf15606c7c231e8a593a32e34b8993fbd627416db540ebef70eaefe\"}],\"free_disk\":847851520,\"conservative_memory\":14043906048,\"combined_owned_bytes\":2302419,\"product_invocations\":0}\n"
+          },
+          {
+            "type": "text",
+            "text": "\n[executed on device: Mac.lan (0b4ac27b-8500-47d0-8f11-5a35402e9abc)]"
+          }
+        ],
+        "isError": false
+      },
+      "completion": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[Reading last 1 lines (total: 2 lines)]\n\n(No output in requested range)\n✅ Process completed with exit code 0 (runtime: 0.13s)"
+          },
+          {
+            "type": "text",
+            "text": "\n[executed on device: Mac.lan (0b4ac27b-8500-47d0-8f11-5a35402e9abc)]"
+          }
+        ],
+        "isError": false
+      }
+    },
+    "composition": {
+      "git_blob": "66f8e92c81b0c72e8b901d704627f08f4433218b",
+      "bytes": 56964,
+      "sha256": "6411150f15c59b0c7863742e22a9310ee9087fdfe0101f9ca17b7ee220903b95",
+      "start": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Process started with PID 13931 (shell: /bin/zsh)\nInitial output:\n{\"utc\":\"2026-10-09T07:18:51.837318+00:00\",\"files\":[{\"path\":\"/Users/me/Developer/household-snapshot-csv-c945953fdeb7/custody/COMPOSITION.json\",\"bytes\":56964,\"git_blob\":\"66f8e92c81b0c72e8b901d704627f08f4433218b\",\"sha256\":\"6411150f15c59b0c7863742e22a9310ee9087fdfe0101f9ca17b7ee220903b95\"}],\"free_disk\":818081792,\"conservative_memory\":13804027904,\"combined_owned_bytes\":2359383,\"product_invocations\":0}\n"
+          },
+          {
+            "type": "text",
+            "text": "\n[executed on device: Mac.lan (0b4ac27b-8500-47d0-8f11-5a35402e9abc)]"
+          }
+        ],
+        "isError": false
+      },
+      "completion": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[Reading last 1 lines (total: 2 lines)]\n\n(No output in requested range)\n✅ Process completed with exit code 0 (runtime: 0.11s)"
+          },
+          {
+            "type": "text",
+            "text": "\n[executed on device: Mac.lan (0b4ac27b-8500-47d0-8f11-5a35402e9abc)]"
+          }
+        ],
+        "isError": false
+      }
+    },
+    "metadata_guards": "Native evidence writes preserved 256 MiB disk / 2 GiB conservative RAM floors and the combined 4 MiB author/install cap. No installation or product invocation was added. Exact nanosecond metadata remains in original raw native receipts rather than derived JavaScript number fields."
+  },
+  "ownership": {
+    "reservation": "https://github.com/Jacob-Met/household-ledger-mcp/issues/7#issuecomment-6075561537",
+    "source": "tools/snapshot-csv/**",
+    "evidence": "docs/qualification/snapshot-csv-c945953fdeb7/**",
+    "retained": "99cea MCP client/server/export/package and ce7/61749 aggregate owners; exact EACCES advisory not retried or bypassed",
+    "full_code_claims_assertion": false
+  },
+  "self_exclusion": "This external FINAL-CUSTODY.json is not one of the 87 candidate leaves and does not recursively embed its own byte/hash/Git identity. Its exact uploaded/read-back identity and native write completion are supplied in the root handoff.",
+  "retention_limit": "At observation the candidate remains unreferenced. Inert object custody is supplemental until root admits and creates an appropriate nontriggering source ref. No Actions, PR, main or owner-ref operation is performed here."
+}

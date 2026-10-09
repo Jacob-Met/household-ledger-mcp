@@ -1,0 +1,229 @@
+{
+  "schema": "estate.c945953fdeb7.household.snapshot-csv.source-publication-admission.v1",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "source_branch": "receiving/snapshot-csv-c945953fdeb7",
+  "hold_authority": "https://github.com/Jacob-Met/hamon/issues/143#issuecomment-6067592767",
+  "hold_scope": "No Actions execution; check each write's trigger behavior. No workflow, gate, rule, permission, owner branch or source is disabled or changed here.",
+  "current_default": {
+    "name": "main",
+    "sha": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+    "tree": "9b26924692900212268587b7a1d6fe10c45d5f7b",
+    "complete_recursive_tree": [
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "c90411d4d3f70b78b1d323c509d296206bc38268",
+        "bytes": 1455
+      }
+    ],
+    "protected": false,
+    "protection": {
+      "enabled": false,
+      "required_status_checks": {
+        "enforcement_level": "off",
+        "contexts": [],
+        "checks": []
+      }
+    }
+  },
+  "rulesets": [],
+  "exact_new_source_ref_absent": {
+    "error": "GitHub API error 404: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/git/refs#get-a-reference\",\"status\":\"404\"}",
+    "error_code": "NOT_FOUND",
+    "error_data": {
+      "message": "Not Found",
+      "documentation_url": "https://docs.github.com/rest/git/refs#get-a-reference",
+      "status": "404"
+    }
+  },
+  "original_parent": {
+    "sha": "aac08aa93db2872aa1ff69e6bbd3844f0dfde015",
+    "tree": "5a8131489011a42ac483b5b515cd29f8304919ea",
+    "leaf_count": 5,
+    "workflows": 0
+  },
+  "producer": {
+    "sha": "399861e75ebe14388fe61dc524cf94920d54d0f9",
+    "tree": "54b7eb09c1e8856f79df72be28338d2bb43dea35",
+    "parents": [
+      "aac08aa93db2872aa1ff69e6bbd3844f0dfde015"
+    ],
+    "leaf_count": 87,
+    "workflows": 0
+  },
+  "root_receiving": {
+    "parent_leaves": 5,
+    "unchanged_parent_leaves": 5,
+    "exact_candidate_leaves": 87,
+    "exact_new_leaves": 82,
+    "exact_independent_files": 20,
+    "source_files_reviewed": 8,
+    "qualified_modules_unchanged": 2,
+    "actual_receiving_groups": [
+      "F1",
+      "F2",
+      "F3"
+    ],
+    "actual_product_calls": 2,
+    "actual_product_exits": [
+      0,
+      1
+    ],
+    "root_new_product_calls": 0,
+    "root_old_suite_replays": 0,
+    "root_native_commands": 0,
+    "actual_physical_csv": {
+      "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "bytes": 976,
+      "rows": 8,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2"
+    },
+    "before_after_receipts_identical_git_blob": "b97d02cdff949ab4632cc7254d2e6b09bdfcbcae"
+  },
+  "current_refs": [
+    {
+      "ref": "refs/heads/chatgpt/budget-removal-5f566b5ec8ef",
+      "type": "commit",
+      "sha": "39990d023afb0ea13e1dfc8781c04ba0ed369edb"
+    },
+    {
+      "ref": "refs/heads/contribution/budget-reallocation-6e5752b49b6f",
+      "type": "commit",
+      "sha": "d08ab77c7db240b58e4521f318fbc672a82b150c"
+    },
+    {
+      "ref": "refs/heads/estate/dependabot-config",
+      "type": "commit",
+      "sha": "13cd779a34dcb724471bc159a24ae2f8f6d51445"
+    },
+    {
+      "ref": "refs/heads/estate/mcp-server-initial",
+      "type": "commit",
+      "sha": "dffabba341a8bce74faa97de68054bd453509a98"
+    },
+    {
+      "ref": "refs/heads/feature/transaction-print-81ba1ed0179c",
+      "type": "commit",
+      "sha": "49856af07ed779c94e1dbaa75dab7530d4eb0429"
+    },
+    {
+      "ref": "refs/heads/main",
+      "type": "commit",
+      "sha": "c063549f5caae75a6bef764a5da703f0dccfec9f"
+    },
+    {
+      "ref": "refs/heads/receiving/budget-reallocation-client-db371a37f4c8",
+      "type": "commit",
+      "sha": "5914eec127bc5bb82cf35402375fcc59c47966f2"
+    },
+    {
+      "ref": "refs/heads/receiving/household-budget-copy-2b77b81a-a0eb505c",
+      "type": "commit",
+      "sha": "ef6c956d35ad9d0c9cd5befd07cd4bd81580647b"
+    },
+    {
+      "ref": "refs/heads/receiving/household-budget-copy-client-c92fc230-a0eb505c",
+      "type": "commit",
+      "sha": "322d9072f8d6dc139ec309cd3c8c141f492825a1"
+    },
+    {
+      "ref": "refs/heads/receiving/household-complete-07e223b5-31a349052b90",
+      "type": "commit",
+      "sha": "d821d8ce749d22568514efb4eb4dd25e5cdfbf06"
+    },
+    {
+      "ref": "refs/heads/receiving/household-complete-61749b-20261008",
+      "type": "commit",
+      "sha": "591ab6f5a2d65bf596aeb707dbb635ee981ec926"
+    },
+    {
+      "ref": "refs/heads/receiving/household-export-81aeb416-7a9310dad255",
+      "type": "commit",
+      "sha": "aac08aa93db2872aa1ff69e6bbd3844f0dfde015"
+    },
+    {
+      "ref": "refs/heads/receiving/household-filters-after-07e-18a24bf0c281",
+      "type": "commit",
+      "sha": "19c9aec87b84c5626de37c71b3a5ea98174567a5"
+    },
+    {
+      "ref": "refs/heads/receiving/household-recurring-347f3417824d-20261009",
+      "type": "commit",
+      "sha": "57268bfda9643f641852468ae459fb61b1080b6e"
+    },
+    {
+      "ref": "refs/heads/receiving/installed-single-entry-db371a37f4c8",
+      "type": "commit",
+      "sha": "7cd245a1820fe1ac2cc6e4c192e6aa9c9c8881ef"
+    },
+    {
+      "ref": "refs/heads/receiving/month-comparison-c36a60df2cc1",
+      "type": "commit",
+      "sha": "80c2df1b382f44baed48e9bc509e868e3290726e"
+    },
+    {
+      "ref": "refs/heads/receiving/monthly-review-a3425ebf9874",
+      "type": "commit",
+      "sha": "b8b3db1dda856bababe3c7d66173e5b90431dff9"
+    },
+    {
+      "ref": "refs/heads/receiving/single-entry-db371a37f4c8",
+      "type": "commit",
+      "sha": "4b135480d48089cc4aa08f25c0f8b0ee79b4d0e4"
+    },
+    {
+      "ref": "refs/heads/work/monthly-summary-categories-e3a41d2b3368",
+      "type": "commit",
+      "sha": "0a3daeedbd7520dd02d377ba18277566610854c2"
+    },
+    {
+      "ref": "refs/pull/1/head",
+      "type": "commit",
+      "sha": "dffabba341a8bce74faa97de68054bd453509a98"
+    },
+    {
+      "ref": "refs/pull/1/merge",
+      "type": "commit",
+      "sha": "dd1b5527409adfe067ac03b3f31da6f19c1137e4"
+    },
+    {
+      "ref": "refs/pull/2/head",
+      "type": "commit",
+      "sha": "13cd779a34dcb724471bc159a24ae2f8f6d51445"
+    },
+    {
+      "ref": "refs/pull/2/merge",
+      "type": "commit",
+      "sha": "84d26d5015e30efb27f5f1f6424ae446c9963172"
+    },
+    {
+      "ref": "refs/pull/4/head",
+      "type": "commit",
+      "sha": "0a3daeedbd7520dd02d377ba18277566610854c2"
+    },
+    {
+      "ref": "refs/pull/4/merge",
+      "type": "commit",
+      "sha": "f11d38baff28319661cc86b8f152d5edfaed57fd"
+    },
+    {
+      "ref": "refs/pull/8/head",
+      "type": "commit",
+      "sha": "591ab6f5a2d65bf596aeb707dbb635ee981ec926"
+    },
+    {
+      "ref": "refs/pull/8/merge",
+      "type": "commit",
+      "sha": "10c6f0b7882a86fd7a34d1eb7a436a43de16f4f8"
+    }
+  ],
+  "decision": "Only create the exclusive receiving source branch after fresh unchanged-default/rules/ref admission and exact root tree/commit readback. The current default and source trees have no workflows, so there is no matching Actions event subscriber. Do not modify aggregate/main/owner refs or claim aggregate source adoption.",
+  "after_write_requirements": "Read the exact new ref, all pre-existing refs and the ALL-event Actions query for the final head; report actual observations. A zero-run observation is not a CI pass.",
+  "additional_root_paths": [
+    "docs/qualification/snapshot-csv-c945953fdeb7/root-review/README.md",
+    "docs/qualification/snapshot-csv-c945953fdeb7/root-review/PRODUCER-FINAL-CUSTODY.json",
+    "docs/qualification/snapshot-csv-c945953fdeb7/root-review/PUBLICATION-ADMISSION.json"
+  ],
+  "expected_root_leaf_count": 90
+}
