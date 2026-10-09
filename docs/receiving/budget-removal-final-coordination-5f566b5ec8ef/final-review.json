@@ -1,0 +1,73 @@
+{
+  "schema": "household.budget-removal.final-independent-receiving.v1",
+  "reviewer": "chatgpt:5f566b5ec8ef:coordination",
+  "utc": "2026-10-09T03:55:04.367677+00:00",
+  "author": "chatgpt:5f566b5ec8ef:production",
+  "native_head": "9c876fc7a058dd81fe54b4e256b771788198496e",
+  "native_tree": "cdf92cbc25a56925817d4039c503615b935428ee",
+  "native_product": "2b847731becda98e11825e73547e1af5248711a1",
+  "native_manifest_sha256": "e4ac147535f03e1ba4111eba5a2f62ee983f0c4f757ac8416bb05ec693f461b9",
+  "complete_native_leaves": 190,
+  "receiving_parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "parent_tree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+  "unowned_parent_leaves_exact": 112,
+  "all_modes_exact": true,
+  "readme_parent_prefix_exact": true,
+  "index_three_insertion_inverse_exact": true,
+  "existing_store_schema_package_lock_workflow_exact": true,
+  "product_pins": {
+    "README.md": "d304b36cce48c020391f0dcd4f29df3ef69f74c13b2b64a83d53f4b20de9484a",
+    "src/index.ts": "0aa2bebb9a798f3c09747a42728d27ca9289a7fef6b05c0ab4e59470d8c30888",
+    "src/budget-removal.ts": "2ed829e4cff2609711021c06bc407bb55b7097e45d36d54f61d336e4e9c4ce26",
+    "src/budget-removal-client.ts": "1b93de420daead570e367130f4b599964b27285275ed5cde8c599b26e1546424",
+    "src/household-remove-budget.ts": "7875c8f8fe2b0337f313db0767978f6446d8f2d66a87a1b82a435ee9a6ff258d",
+    "test/mcp.test.ts": "0d814cf96f8bd6b519627240152ffcd89bd24314fc9d3435a0f59fd87f0491b4",
+    "test/transaction-import-http.test.ts": "9b3ca98801347d3f147ceafbdec936a279edf959aff4c0c7237a0edcc3b1e1f6",
+    "test/budget-removal.test.ts": "5ec95b45420645d9ef0052000c189c184216ca78580ff981de07ef83347f3d31",
+    "test/budget-removal-http.test.ts": "ed5013540fcd19e703618af6ef692ac8cc19a5a3825d064617a2564ab30d4b99",
+    "docs/BUDGET_REMOVAL.md": "1f8dacfdf5a0d3eb33984b0a5aff756b491ed4805d0e36f83dd73fc3c61c7a69"
+  },
+  "source_acceptance": [
+    "Exact category/month/explicit currency bind full literal saved target and read-only review.",
+    "Validated selector strings and token detach before the unchanged Store queue; fresh selected content and occurrence are rechecked inside update.",
+    "Finite-number refusal precedes any removal; other current decoded data and array order pass through unchanged Store semantics.",
+    "Actual MCP hints/dispatch are additive; existing handler source is inverse-identical.",
+    "Terminal validates complete preview before exact typed confirmation, sends one commit, and reports uncertain/malformed response without automatic retry.",
+    "Loopback endpoint is explicit, credentials/query/fragment and redirects refused; inherited Windows server direct-entry limitation is documented."
+  ],
+  "retained_author_phases": {
+    "candidate-domain-v1.json": {
+      "sha256": "14337b0ccce6ae1b2236b13bb22bf58fd9c4fcc49b7e93138228dcd2e4bc844b",
+      "exit": 0,
+      "seconds": 0.541104793548584
+    },
+    "candidate-http-v1.json": {
+      "sha256": "ab00e602ae4915a36a6d84a713813f09c81f17905155842c3dc1dd88db20a5c6",
+      "exit": 0,
+      "seconds": 4.7909040451049805
+    },
+    "nonfinite-focused-v2.json": {
+      "sha256": "c0e4e41423f03b7dbac2137d163f246cc76944dc748dcb91f72f996a72abeb14",
+      "exit": 0,
+      "seconds": 0.8953278064727783
+    },
+    "queued-token-focused-v3.json": {
+      "sha256": "1ebf6becc2383a2a9fc8d2b752fb44f66a9de161278cde6f54d60385e5402967",
+      "exit": 0,
+      "seconds": 0.2466130256652832
+    }
+  },
+  "phase_limits": "First16 new+4 existing MCP and5 real HTTP/terminal controls belong to initial27b core; finite guard3 controls on84b; queued-token maintained1 on2ed. No whole-final suite rerun inferred.",
+  "peer_review_sha256": "5bd5a104f6bbde982eae3327ce759350e94f3550d90a26f3b7d873aee1a4a734",
+  "peer_phases": "Seven passing groups retained84b; original queued-token wrong-limit99 removal retained; corrected sole failed group passes2ed; fast peer process exit codes were not retained.",
+  "verdict": "ACCEPT exact source and retained native receiving boundary; no new blocker found.",
+  "limits": [
+    "No author or peer suite/build/HTTP/terminal rerun by this reviewer.",
+    "Automated actual terminal transport is not a human terminal session or installed/live ledger adoption.",
+    "Token is current-content binding, not authorization/ledger identity/history detection. Existing single-process Store only; no cross-process/crash promise.",
+    "Canonical main is README-only; source contribution must remain a child of PR8 parent, not grafted onto main.",
+    "No personal root source/execution review attributed; implementation/integration ownership preserved.",
+    "Source branch can proceed only under fresh complete workflow guard; PR/main and required unrun Actions gates remain held.",
+    "No Conscience append during known storage failure."
+  ]
+}

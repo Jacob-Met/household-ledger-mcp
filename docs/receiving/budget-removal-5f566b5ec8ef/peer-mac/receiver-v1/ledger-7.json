@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "transactions": [
+    {
+      "id": "existing",
+      "type": "expense",
+      "amountMinor": 19,
+      "currency": "USD",
+      "date": "2026-10-02",
+      "category": "Different",
+      "createdAt": "literal",
+      "extra": {
+        "keep": true
+      }
+    }
+  ],
+  "budgets": [
+    {
+      "category": "Queued",
+      "month": "2026-09",
+      "currency": "JPY",
+      "limitMinor": 17
+    },
+    {
+      "category": "Other",
+      "month": "2026-09",
+      "currency": "CHF",
+      "limitMinor": 7,
+      "unowned": [
+        3,
+        2
+      ]
+    },
+    {
+      "category": "  Travel 旅行\nA  ",
+      "month": "2026-10",
+      "currency": "EUR",
+      "limitMinor": 5
+    }
+  ],
+  "rootUnknown": {
+    "ordering": [
+      "keep",
+      null,
+      1
+    ],
+    "queued": "preserved"
+  }
+}

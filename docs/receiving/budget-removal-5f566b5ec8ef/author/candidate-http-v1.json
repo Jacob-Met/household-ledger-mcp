@@ -1,0 +1,6 @@
+{
+  "exit": 0,
+  "seconds": 4.7909040451049805,
+  "stdout": "\u2714 actual HTTP advertises precise hints, previews without writes, commits one target and refuses stale replay (472.4677ms)\n\u2714 actual terminal cancel and EOF preserve exact bytes; explicit digest removes only one allowance (1543.5287ms)\n\u2714 actual terminal review refuses a changed target and keeps concurrent unrelated values (780.4487ms)\n\u2714 actual terminal removes reviewed target while retaining an unrelated intervening write (764.5022ms)\n\u2714 actual response loss after persistence yields unconfirmed exit and exactly one mutation request (793.9994ms)\n\u2139 tests 5\n\u2139 suites 0\n\u2139 pass 5\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 4703.7272\n",
+  "stderr": ""
+}

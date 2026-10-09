@@ -78,3 +78,7 @@ The first successful denominated-budget write saves ledger format version 2. Ver
 ## Competition readiness
 
 This is an unsubmitted local prototype. Source repository: https://github.com/Jacob-Met/household-ledger-mcp (public; MIT License). It is not onboarded to Alexa+: it has no public HTTPS endpoint, OAuth 2.1/PKCE, Protected Resource Metadata, privacy/terms URLs, Alexa add-on manifest, certification, or demo video. This task did not register or join a Devpost account, and no entry was submitted; existing Devpost identity/join state remains unverified. Do not expose this unauthenticated loopback server to the network.
+
+## Remove an obsolete allowance
+
+Use the explicit [reviewed budget removal client](docs/BUDGET_REMOVAL.md) to remove one denominated category/month budget while retaining transactions and all other budgets. Preview is read-only; exact confirmation and a fresh target-value check precede the one removal request.

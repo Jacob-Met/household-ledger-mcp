@@ -1,0 +1,69 @@
+{
+  "reviewer": "chatgpt:5f566b5ec8ef:mac_continuity",
+  "basis": {
+    "contract": "D:/HAMON/household-budget-removal-5f566b5ec8ef/CONTRACT.json",
+    "originalPR": 8,
+    "originalHead": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+    "originalTree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+    "originalLeaves": 116,
+    "readsBeforeFreeze": [
+      "contract",
+      "immutable original PR8 metadata",
+      "immutable original ledger.ts",
+      "immutable original index.ts"
+    ],
+    "candidateRead": false,
+    "ownerTestsRead": false
+  },
+  "cases": [
+    {
+      "id": "exact_literal_category",
+      "expected": "Select the exact stored category string, including surrounding/interior whitespace, Unicode and escaped newlines. A trimmed or differently normalized category must not choose another value. Normalized explicit currency may locate the existing denomination, while the returned complete target retains its literal stored currency."
+    },
+    {
+      "id": "zero_is_present",
+      "expected": "A selected zero-limit denominated budget is removable as an existing row; preview must distinguish it from absence. Other-currency and other-month rows survive byte-equivalent JSON values/order."
+    },
+    {
+      "id": "unknown_full_target",
+      "expected": "Preview/digest bind all selected target JSON fields, including nested objects/arrays/null and literal __proto__/constructor own keys. Object-key insertion-order changes alone remain equivalent; nested value/type or array-order changes are stale."
+    },
+    {
+      "id": "fresh_occurrence_shift",
+      "expected": "After preview, prepend/reorder unrelated budgets and add an unrelated transaction/root field. Commit removes the fresh occurrence of the unchanged target, never the old numeric index, and retains all current unrelated values and relative order."
+    },
+    {
+      "id": "queued_fresh_read",
+      "expected": "A same-process second LedgerStore on the same resolved path must wait for a held update, then evaluate the target against fresh data. An earlier queued target edit causes refusal/no extra write; an unrelated queued edit survives removal."
+    },
+    {
+      "id": "no_partial_stale_mutation",
+      "expected": "Changed target limit, literal raw currency/category or unknown field causes refusal with exact file bytes, metadata and current target intact. Missing target and identical second commit refuse; no idempotent-success speculation."
+    },
+    {
+      "id": "ambiguous_and_legacy",
+      "expected": "Unassigned legacy, duplicate-denomination/normalized collisions, malformed target and malformed current ledger refuse without saves. Preview on a missing path and refusal on an absent target create neither ledger nor parent output directory."
+    },
+    {
+      "id": "snapshot_immutability",
+      "expected": "Mutating a returned preview object or client arguments after review cannot change the stored ledger or substitute an unreviewed target at commit. Target identity and exact digest must be validated by the commit boundary; preview is not an authorization token."
+    },
+    {
+      "id": "confirmation_literal",
+      "expected": "Only exact REMOVE <reviewed digest> proceeds. Case/whitespace differences, empty answer, EOF and cancel issue zero commit calls. Literal category control characters are JSON-escaped in terminal review rather than creating a false confirmation prompt."
+    },
+    {
+      "id": "response_uncertainty",
+      "expected": "Transport rejection or malformed/mismatched commit receipt after one request yields unconfirmed failure, no success claim, no retry; current state is left for explicit fresh inspection. A malformed preview cannot reach commit."
+    },
+    {
+      "id": "selector_binding",
+      "expected": "A preview for one selector cannot be committed with another category/month/currency, even when budget amounts match; unrelated unknown fields never loosen target matching."
+    },
+    {
+      "id": "supported_ABA_boundary",
+      "expected": "An identical target removed/recreated before commit may pass current-content equality as explicitly documented. The receiver must not claim history/ABA detection or cross-process serialization."
+    }
+  ],
+  "receivingPlan": "Source-only challenge plus a few distinct actual model/client cases once final API and existing compiled runtime are known. No duplicate whole suite, install, live ledger or provider operation."
+}

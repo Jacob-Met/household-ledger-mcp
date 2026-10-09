@@ -1,0 +1,7 @@
+{
+  "exit": 0,
+  "seconds": 35.88540720939636,
+  "stdout": "\nadded 97 packages in 34s\n",
+  "stderr": "npm notice\nnpm notice New major version of npm available! 11.17.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n",
+  "lockSHA256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff"
+}

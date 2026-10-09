@@ -1,0 +1,14 @@
+--- 84b-model
++++ 2ed-model
+@@ -80,9 +80,10 @@
+   const args = record(value);
+   const selector = budgetRemovalSelector(args, true);
+   requireValue(Object.hasOwn(args, "reviewToken") && typeof args.reviewToken === "string" && /^[a-f0-9]{64}$/.test(args.reviewToken), "a reviewed budget removal token is required");
++  const reviewedToken = args.reviewToken; // detach before waiting on the Store queue
+   return store.update(data => {
+     const preview = previewIn(data, selector);
+-    requireValue(preview.reviewToken === args.reviewToken, "selected budget changed since review; no removal performed");
++    requireValue(preview.reviewToken === reviewedToken, "selected budget changed since review; no removal performed");
+     const index = findBudget(data, selector);
+     data.budgets.splice(index, 1);
+     return { schema: BUDGET_REMOVAL_SCHEMA, reviewToken: preview.reviewToken, removed: preview.before, budgetCountAfter: data.budgets.length };

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "transactions": [],
+  "budgets": [
+    {
+      "category": "Obsolete",
+      "month": "2026-10",
+      "limitMinor": 0,
+      "currency": "USD"
+    }
+  ]
+}

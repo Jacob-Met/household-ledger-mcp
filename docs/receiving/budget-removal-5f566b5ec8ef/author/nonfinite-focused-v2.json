@@ -1,0 +1,6 @@
+{
+  "exit": 0,
+  "seconds": 0.8953278064727783,
+  "stdout": "\u2714 actual HTTP advertises precise hints, previews without writes, commits one target and refuses stale replay (479.247ms)\n\u2714 preview retains complete literal target without writes; zero allowance removal is distinct (26.8492ms)\n\u2714 non-finite numbers in any current unknown field refuse before JSON normalization (29.5094ms)\n\u2139 tests 3\n\u2139 suites 0\n\u2139 pass 3\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 828.5562\n",
+  "stderr": ""
+}

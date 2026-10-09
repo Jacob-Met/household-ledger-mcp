@@ -1,0 +1,73 @@
+{
+  "originalToken": "add31fcc9568dd548eb1f1eff3062a85840c7c211d2e99abb8a00bb47abb4775",
+  "mutatedToken": "a02d406dffd2f79ba1d805146fe54855de0463b5e12b903f80382c796703a8d5",
+  "outcome": {
+    "status": "fulfilled",
+    "value": {
+      "schema": "household-budget-removal/1",
+      "reviewToken": "a02d406dffd2f79ba1d805146fe54855de0463b5e12b903f80382c796703a8d5",
+      "removed": {
+        "category": "  Travel 旅行\nA  ",
+        "month": "2026-10",
+        "currency": " usd ",
+        "limitMinor": 99,
+        "__proto__": {
+          "literal": true
+        },
+        "constructor": "literal-key",
+        "extra": {
+          "z": [
+            1,
+            {
+              "q": null
+            }
+          ],
+          "a": false
+        }
+      },
+      "budgetCountAfter": 2
+    }
+  },
+  "actual": {
+    "version": 2,
+    "transactions": [
+      {
+        "id": "existing",
+        "type": "expense",
+        "amountMinor": 19,
+        "currency": "USD",
+        "date": "2026-10-02",
+        "category": "Different",
+        "createdAt": "literal",
+        "extra": {
+          "keep": true
+        }
+      }
+    ],
+    "budgets": [
+      {
+        "category": "Other",
+        "month": "2026-09",
+        "currency": "CHF",
+        "limitMinor": 7,
+        "unowned": [
+          3,
+          2
+        ]
+      },
+      {
+        "category": "  Travel 旅行\nA  ",
+        "month": "2026-10",
+        "currency": "EUR",
+        "limitMinor": 5
+      }
+    ],
+    "rootUnknown": {
+      "ordering": [
+        "keep",
+        null,
+        1
+      ]
+    }
+  }
+}

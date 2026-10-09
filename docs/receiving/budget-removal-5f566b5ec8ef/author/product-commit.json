@@ -1,0 +1,18 @@
+{
+  "commit": "2b847731becda98e11825e73547e1af5248711a1",
+  "tree": "c8f8dab81360107afdf2a5442fe4b74a6840d261",
+  "parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "status": "",
+  "ownedPaths": [
+    "README.md",
+    "src/index.ts",
+    "src/budget-removal.ts",
+    "src/budget-removal-client.ts",
+    "src/household-remove-budget.ts",
+    "test/mcp.test.ts",
+    "test/transaction-import-http.test.ts",
+    "test/budget-removal.test.ts",
+    "test/budget-removal-http.test.ts",
+    "docs/BUDGET_REMOVAL.md"
+  ]
+}

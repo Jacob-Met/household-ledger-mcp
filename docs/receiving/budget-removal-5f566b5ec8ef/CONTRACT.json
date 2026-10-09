@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "owner": "chatgpt:5f566b5ec8ef:production",
+  "objective": "Review and explicitly remove one obsolete denominated monthly category budget through native MCP and terminal consumer.",
+  "source": {
+    "repo": "Jacob-Met/household-ledger-mcp",
+    "canonical": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+    "parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+    "parentTree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+    "leaves": 116
+  },
+  "scope": [
+    "new src/budget-removal.ts",
+    "additive tool registration and handlers in src/index.ts",
+    "new src/budget-removal-client.ts",
+    "new src/household-remove-budget.ts",
+    "new focused tests and guide",
+    "additive tool roster assertions only if required"
+  ],
+  "preserve": [
+    "ledger.ts including Store",
+    "transactions and IDs",
+    "schema/version",
+    "unknown fields",
+    "other budgets and ordering",
+    "existing handlers",
+    "other producers and clients",
+    "package, lock, workflow"
+  ],
+  "semantics": [
+    "Select exact stored category string, strict month, normalized explicit currency; only one denominated matching budget admitted.",
+    "Preview is read-only and includes complete exact saved budget plus digest bound to selector and target object; does not authorize anything by itself.",
+    "Commit fresh-loads within unchanged single-process Store.update, validates reviewed exact target and digest, removes exactly its array occurrence, preserving every unrelated current value and order.",
+    "A stale, missing, legacy/unassigned, ambiguous, malformed or changed target refuses with no write. Already absent is a refusal, never success speculation.",
+    "Unrelated current transaction/budget changes are preserved and do not require rejecting the unchanged selected target.",
+    "Full target content equality is current-state protection; identical remove/recreate ABA is not detected. No cross-process locking or authentication claim.",
+    "CLI connects only explicit loopback MCP URL; prints complete literal JSON review, requires exact typed REMOVE <digest> confirmation, one commit request, and no mutation retry. Cancel/EOF refuse without commit.",
+    "A transport error or ambiguous commit response is unconfirmed, never success; operator must inspect fresh state before any new action.",
+    "Only authored private ledger fixtures; no live ledger or installed service changes."
+  ],
+  "acceptance": [
+    "exact one removal vs zero-limit persistence",
+    "same category/month other currency preserved",
+    "all transactions and unknown fields unchanged",
+    "stale selected field or unknown field refuses before write",
+    "unrelated fresh changes survive",
+    "same target unknown-key order canonical hashing stable",
+    "legacy and duplicate ambiguity refusal",
+    "cancel EOF incorrect confirmation zero commit",
+    "actual MCP lists/calls both tools",
+    "actual Windows terminal review→confirm→readback and no duplicate request",
+    "missing ledger preview creates no file",
+    "Store serialization and atomic writer unchanged"
+  ],
+  "coordination": {
+    "database": "Unavailable: confirmed disk I/O during root filesystem full; no append attempted in this scope.",
+    "claim": "External source contribution only; no native lease",
+    "nativeRecordsRead": 761,
+    "nativeRecordsUnreadable": 0,
+    "householdRecords": 13,
+    "issue3Comments": 31,
+    "removalOwnerFound": false
+  },
+  "actions": {
+    "hold": true,
+    "canonicalWorkflowCount": 0,
+    "parentWorkflowCount": 1,
+    "parentWorkflowBlob": "39325b079fb40b0587ec231eeb3328f52e7ece74",
+    "events": "push branches main; pull_request branches main",
+    "metadataIssueEligible": false,
+    "sourcePublication": false
+  }
+}

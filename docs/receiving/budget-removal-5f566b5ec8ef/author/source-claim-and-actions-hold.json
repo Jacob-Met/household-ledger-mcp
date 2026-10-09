@@ -1,0 +1,35 @@
+{
+  "claim": {
+    "number": 19,
+    "url": "https://github.com/Jacob-Met/household-ledger-mcp/issues/19",
+    "title": "Native reviewed removal of one obsolete denominated monthly budget",
+    "body": "External source contribution claim: `chatgpt:5f566b5ec8ef:production`.\n\nThe current executable parent PR #8 (`591ab6f5a2d65bf596aeb707dbb635ee981ec926`, tree `bf7d8bedaa3ed02665e56b021f543259b8c4a854`, 116 leaves) can set/list budgets but cannot remove an obsolete allowance; setting zero retains a budget row. Canonical main `c063549f5caae75a6bef764a5da703f0dccfec9f` remains README-only. Source receiving/disposition ownership of PR #8 remains with estate-ce7eb129730f / estate-61749b0088e2.\n\nI am implementing a narrowly additive native TypeScript MCP preview/commit pair and terminal consumer: select one exact stored category, month and explicit currency; review the complete existing budget; explicitly confirm its content digest; fresh-check and remove only that array occurrence through the unchanged Store. Transactions, other budgets, unknown fields and current unrelated edits remain intact. Stale/missing/unassigned/ambiguous targets refuse without writes. This is current-value protection, not cross-process locking, authorization, or remove/recreate history detection. The terminal sends no mutation on cancel/EOF and never retries a commit automatically.\n\nScope: new removal module/client/CLI/tests/guide, additive tool definitions/dispatch in index and additive existing tool-roster expectations if needed. No ledger schema/Store, package/bin/lock/workflow, existing client, recording/import/copy/reallocation/report changes. Native qualification uses only private authored ledgers on MSI. Native root: `D:/HAMON/household-budget-removal-5f566b5ec8ef`; `CONTRACT.json` was written before implementation.\n\nOwnership evidence: current open scopes, all 31 core issue #3 comments, targeted removal search, and 761 readable existing native coordination records were checked; no budget-removal owner found. The Conscience database currently fails with disk I/O under the confirmed storage outage; no append or lease is asserted. This is the established external source-claim fallback only.\n\nNo-Actions hold remains active. The current canonical tree has no workflows. The executable parent's sole complete workflow `ci.yml` (`39325b079fb40b0587ec231eeb3328f52e7ece74`) triggers only push/main and pull_request/main; this metadata issue is not eligible. No source push, PR, merge, workflow/runner change, live ledger action or installed service change is included.",
+    "created_at": "2026-10-09T03:15:02Z",
+    "readBack": true
+  },
+  "sourceParent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "sourceTree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+  "canonicalMain": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+  "canonicalTree": "9b26924692900212268587b7a1d6fe10c45d5f7b",
+  "canonicalLeaves": 1,
+  "canonicalWorkflows": 0,
+  "parentWorkflow": {
+    "path": ".github/workflows/ci.yml",
+    "blob": "39325b079fb40b0587ec231eeb3328f52e7ece74",
+    "events": "push main, pull_request main; no issue/comment trigger"
+  },
+  "actionsHold": true,
+  "remoteSourceMutations": 0,
+  "coordination": {
+    "nativeFilesRead": 761,
+    "unreadable": 0,
+    "householdRecords": 13,
+    "coreIssueComments": 31,
+    "removalOwnerFound": false,
+    "nativeDB": "confirmed disk I/O outage; no retry or append attempted",
+    "sourceDispositionOwners": [
+      "estate-ce7eb129730f",
+      "estate-61749b0088e2"
+    ]
+  }
+}

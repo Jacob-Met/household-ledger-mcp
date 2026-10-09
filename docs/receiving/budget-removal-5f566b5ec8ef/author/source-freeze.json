@@ -1,0 +1,58 @@
+{
+  "parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "parentTree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+  "owned": [
+    {
+      "path": "README.md",
+      "bytes": 7017,
+      "sha256": "d304b36cce48c020391f0dcd4f29df3ef69f74c13b2b64a83d53f4b20de9484a"
+    },
+    {
+      "path": "src/index.ts",
+      "bytes": 12169,
+      "sha256": "0aa2bebb9a798f3c09747a42728d27ca9289a7fef6b05c0ab4e59470d8c30888"
+    },
+    {
+      "path": "src/budget-removal.ts",
+      "bytes": 8618,
+      "sha256": "2ed829e4cff2609711021c06bc407bb55b7097e45d36d54f61d336e4e9c4ce26"
+    },
+    {
+      "path": "src/budget-removal-client.ts",
+      "bytes": 3187,
+      "sha256": "1b93de420daead570e367130f4b599964b27285275ed5cde8c599b26e1546424"
+    },
+    {
+      "path": "src/household-remove-budget.ts",
+      "bytes": 2616,
+      "sha256": "7875c8f8fe2b0337f313db0767978f6446d8f2d66a87a1b82a435ee9a6ff258d"
+    },
+    {
+      "path": "test/mcp.test.ts",
+      "bytes": 3626,
+      "sha256": "0d814cf96f8bd6b519627240152ffcd89bd24314fc9d3435a0f59fd87f0491b4"
+    },
+    {
+      "path": "test/transaction-import-http.test.ts",
+      "bytes": 11229,
+      "sha256": "9b3ca98801347d3f147ceafbdec936a279edf959aff4c0c7237a0edcc3b1e1f6"
+    },
+    {
+      "path": "test/budget-removal.test.ts",
+      "bytes": 13463,
+      "sha256": "5ec95b45420645d9ef0052000c189c184216ca78580ff981de07ef83347f3d31"
+    },
+    {
+      "path": "test/budget-removal-http.test.ts",
+      "bytes": 8686,
+      "sha256": "ed5013540fcd19e703618af6ef692ac8cc19a5a3825d064617a2564ab30d4b99"
+    },
+    {
+      "path": "docs/BUDGET_REMOVAL.md",
+      "bytes": 7442,
+      "sha256": "1f8dacfdf5a0d3eb33984b0a5aff756b491ed4805d0e36f83dd73fc3c61c7a69"
+    }
+  ],
+  "unownedPreserved": 112,
+  "READMEOriginalPrefixSHA256": "d7675b4f5d20bcb6a031cc39a71576bb3a44c576bbc0fdb1945e94dd4c7773fd"
+}

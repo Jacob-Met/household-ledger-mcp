@@ -78,7 +78,7 @@ test("real HTTP import previews exact values, records the batch once and preserv
   try {
     service = await launch(path);
     const names = (await service.client.listTools()).tools.map(tool => tool.name).sort();
-    assert.deepEqual(names, ["cashflow_trend", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_transaction_import", "record_transaction", "set_budget"]);
+    assert.deepEqual(names, ["cashflow_trend", "commit_budget_removal", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_budget_removal", "preview_transaction_import", "record_transaction", "set_budget"]);
     const csv = HEADER + 'bank:one,income,02000, usd ,2026-10-01, salary ,"  payer, \"\"October\"\"\r\npaid  "\n' +
       "bank:two,expense,500,USD,2026-10-02,food,\n" + "bank:three,expense,75,EUR,2026-10-02,food,";
     const preview = payload<TransactionImportPreview>(await service.client.callTool({ name: "preview_transaction_import", arguments: { csv } }));

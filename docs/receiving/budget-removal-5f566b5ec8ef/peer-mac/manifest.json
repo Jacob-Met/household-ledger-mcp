@@ -1,0 +1,125 @@
+{
+  "files": [
+    {
+      "path": "freeze.json",
+      "size": 290,
+      "sha256": "8ae815194a8af869c0f267ec1371cf2b4029a3f7669b8dbbed9c80efe8ca8728"
+    },
+    {
+      "path": "freeze.py",
+      "size": 613,
+      "sha256": "58c2d8e9ad7cc93eec8885294c640220a3847835d4ac2f768d007d089b4d1032"
+    },
+    {
+      "path": "immutable-parent-inputs.json",
+      "size": 103778,
+      "sha256": "52f131028c8bd8e8d37febef59a78e7e7a0be2a3609be1c117b388dc50f3a0a9"
+    },
+    {
+      "path": "independent-expectations.json",
+      "size": 4441,
+      "sha256": "1b12206c9c4513df30c6c69504cb33020df263001209d1097309494ce73e9a40"
+    },
+    {
+      "path": "independent-receiver-v1.mjs",
+      "size": 8466,
+      "sha256": "2007b19631fa93d87fb95cc8d250cb13c7cf674fa99992a85ea24b1687cda890"
+    },
+    {
+      "path": "independent-receiver-v2-fixed.mjs",
+      "size": 8516,
+      "sha256": "3410c508165886fbdc3149d8e442a3964777fe9aec9702f26e80e69123cf3514"
+    },
+    {
+      "path": "independent-review.json",
+      "size": 4666,
+      "sha256": "5bd5a104f6bbde982eae3327ce759350e94f3550d90a26f3b7d873aee1a4a734"
+    },
+    {
+      "path": "receiver-v1/ledger-1.json",
+      "size": 1031,
+      "sha256": "0a274baece8056c1d4a9eddfdc25b7d06e40d6eb84b3a1f5f5187aeb23f9bb95"
+    },
+    {
+      "path": "receiver-v1/ledger-2.json",
+      "size": 1075,
+      "sha256": "292e244dba7426a422ebc14dea4c763c3ee9b012ec9fa59791bc451563bc4f31"
+    },
+    {
+      "path": "receiver-v1/ledger-3.json",
+      "size": 1369,
+      "sha256": "94494483be9abaf7e4b021c8ebd97333416328fa4497f931e48c0db703823d1e"
+    },
+    {
+      "path": "receiver-v1/ledger-4.json",
+      "size": 681,
+      "sha256": "70c84692e0b9bdb06e79827c60b6a2674c8d15332d76e7ee0fb88f2fc3898a48"
+    },
+    {
+      "path": "receiver-v1/ledger-5.json",
+      "size": 1031,
+      "sha256": "0a274baece8056c1d4a9eddfdc25b7d06e40d6eb84b3a1f5f5187aeb23f9bb95"
+    },
+    {
+      "path": "receiver-v1/ledger-6.json",
+      "size": 1031,
+      "sha256": "0a274baece8056c1d4a9eddfdc25b7d06e40d6eb84b3a1f5f5187aeb23f9bb95"
+    },
+    {
+      "path": "receiver-v1/ledger-7.json",
+      "size": 823,
+      "sha256": "672a1ca1c8096ef92e3bde222f18a74b0d158f8ee3904645906d61cf8e50e1b1"
+    },
+    {
+      "path": "receiver-v1/ledger-8.json",
+      "size": 681,
+      "sha256": "70c84692e0b9bdb06e79827c60b6a2674c8d15332d76e7ee0fb88f2fc3898a48"
+    },
+    {
+      "path": "receiver-v1/ledger-9.json",
+      "size": 1032,
+      "sha256": "1b5fcd18e540da8676c3c83a37f4c7bf52126287f05aa2a69f95921a3bf36488"
+    },
+    {
+      "path": "receiver-v1/queued-argument-outcome.json",
+      "size": 1582,
+      "sha256": "3562d2459ad0707e67abbbf5bf771173db2108a484cb8ee7f3654cc342a63ce2"
+    },
+    {
+      "path": "receiver-v1/result.json",
+      "size": 2385,
+      "sha256": "cfb5c560d8b2db6b671725952b8a7d74a30aa1e2b472990974f29e36e9dbd1d5"
+    },
+    {
+      "path": "receiver-v2-fixed/ledger-1.json",
+      "size": 1032,
+      "sha256": "1b5fcd18e540da8676c3c83a37f4c7bf52126287f05aa2a69f95921a3bf36488"
+    },
+    {
+      "path": "receiver-v2-fixed/ledger-2.json",
+      "size": 1032,
+      "sha256": "1b5fcd18e540da8676c3c83a37f4c7bf52126287f05aa2a69f95921a3bf36488"
+    },
+    {
+      "path": "receiver-v2-fixed/queued-argument-outcome.json",
+      "size": 1467,
+      "sha256": "cbc96513c6754835231e46b77764c6777a3eca52b7637186057de64a473777cc"
+    },
+    {
+      "path": "receiver-v2-fixed/result.json",
+      "size": 1007,
+      "sha256": "d3e970091e1b7d6fa17867829536fe6a0a8846de7a23452a26152664aaf7d80b"
+    },
+    {
+      "path": "seal-review.py",
+      "size": 6718,
+      "sha256": "93482a582e1800b2d83f048130ab1ffa1b03f39ba026f3fbfbb46241c7fcd063"
+    },
+    {
+      "path": "token-correction.diff",
+      "size": 969,
+      "sha256": "85e8467c57ba837673ea3cd9898c3befb703d666434339c37cbb2ac2b80cbadf"
+    }
+  ],
+  "sourceNamespaceOnly": "Peer fixtures, immutable original-source references, scripts and results; no owner product edits."
+}

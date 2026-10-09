@@ -1,0 +1,6 @@
+{
+  "exit": 0,
+  "seconds": 0.2466130256652832,
+  "stdout": "\u2714 a caller cannot replace the reviewed token while commit waits behind another update (42.7818ms)\n\u2139 tests 1\n\u2139 suites 0\n\u2139 pass 1\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 168.6409\n",
+  "stderr": ""
+}

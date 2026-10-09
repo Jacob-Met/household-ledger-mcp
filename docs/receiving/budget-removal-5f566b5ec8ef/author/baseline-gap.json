@@ -1,0 +1,24 @@
+{
+  "missingTool": true,
+  "zeroBudgetRetained": true,
+  "unchangedBytes": true,
+  "names": [
+    "cashflow_trend",
+    "record_transaction",
+    "list_transactions",
+    "monthly_summary",
+    "set_budget",
+    "get_budgets",
+    "preview_transaction_import",
+    "commit_transaction_import"
+  ],
+  "reply": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Unknown tool: preview_budget_removal"
+      }
+    ],
+    "isError": true
+  }
+}

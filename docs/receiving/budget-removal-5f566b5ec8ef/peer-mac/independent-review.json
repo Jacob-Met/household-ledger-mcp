@@ -1,0 +1,79 @@
+{
+  "reviewer": "chatgpt:5f566b5ec8ef:mac_continuity",
+  "at": "2026-10-09T03:40:52.173219+00:00",
+  "decision": "Accepted corrected bounded source and independent native receiving",
+  "blindFreeze": {
+    "at": "2026-10-09T03:24:11.829526+00:00",
+    "contractSha256": "a9e5edd1f53585584865a793a07262ad81e4a0598707a867d656fce78eae1594",
+    "expectationsSha256": "1b12206c9c4513df30c6c69504cb33020df263001209d1097309494ce73e9a40",
+    "groups": 12,
+    "candidateAccessBeforeFreeze": false
+  },
+  "originalPR8Head": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "candidateHead": "2b847731becda98e11825e73547e1af5248711a1",
+  "sourcePins": {
+    "README.md": "d304b36cce48c020391f0dcd4f29df3ef69f74c13b2b64a83d53f4b20de9484a",
+    "src/index.ts": "0aa2bebb9a798f3c09747a42728d27ca9289a7fef6b05c0ab4e59470d8c30888",
+    "src/budget-removal.ts": "2ed829e4cff2609711021c06bc407bb55b7097e45d36d54f61d336e4e9c4ce26",
+    "src/budget-removal-client.ts": "1b93de420daead570e367130f4b599964b27285275ed5cde8c599b26e1546424",
+    "src/household-remove-budget.ts": "7875c8f8fe2b0337f313db0767978f6446d8f2d66a87a1b82a435ee9a6ff258d",
+    "test/mcp.test.ts": "0d814cf96f8bd6b519627240152ffcd89bd24314fc9d3435a0f59fd87f0491b4",
+    "test/transaction-import-http.test.ts": "9b3ca98801347d3f147ceafbdec936a279edf959aff4c0c7237a0edcc3b1e1f6",
+    "test/budget-removal.test.ts": "5ec95b45420645d9ef0052000c189c184216ca78580ff981de07ef83347f3d31",
+    "test/budget-removal-http.test.ts": "ed5013540fcd19e703618af6ef692ac8cc19a5a3825d064617a2564ab30d4b99",
+    "docs/BUDGET_REMOVAL.md": "1f8dacfdf5a0d3eb33984b0a5aff756b491ed4805d0e36f83dd73fc3c61c7a69"
+  },
+  "preservation": {
+    "unownedParentLeavesExactBlobAndMode": 112,
+    "indexThreeInsertionInverseExact": true,
+    "ledgerStoreBytesExact": true,
+    "packageLockWorkflowWithinUnowned": true
+  },
+  "nativePhases": [
+    {
+      "source": "84b2e89ac2d9a7016d4a993a90254d0a1dae02ec6e5b5b00e3a8380a9909434b",
+      "result": "receiver-v1/result.json",
+      "sha256": "cfb5c560d8b2db6b671725952b8a7d74a30aa1e2b472990974f29e36e9dbd1d5",
+      "passed": 7,
+      "failed": 1,
+      "node": "v24.19.0",
+      "inputsUnchanged": true
+    },
+    {
+      "source": "2ed829e4cff2609711021c06bc407bb55b7097e45d36d54f61d336e4e9c4ce26",
+      "result": "receiver-v2-fixed/result.json",
+      "sha256": "d3e970091e1b7d6fa17867829536fe6a0a8846de7a23452a26152664aaf7d80b",
+      "passed": 1,
+      "failed": 0,
+      "scope": "Only prior failed queued-argument group replayed",
+      "inputsUnchanged": true
+    }
+  ],
+  "finding": {
+    "original": "Validated reviewToken was borrowed again from mutable caller arguments after waiting behind Store.update; actual queued call removed a selected limit99 target despite having been invoked with reviewed limit0 token.",
+    "correction": "Snapshot validated reviewToken before entering queue; exact same independent case now refuses changed selected target and retains99.",
+    "boundary": "Exported native API input lifetime; no remote authentication or network exploit claim."
+  },
+  "acceptedSourceBoundaries": [
+    "Exact category/normalized currency with complete literal target and zero allowance identity",
+    "Unknown own keys and nested JSON values bound; object key order stable, array changes stale",
+    "Fresh array occurrence found after unrelated queued/inserted state changes",
+    "All current unrelated values, Store implementation and existing handlers preserved",
+    "Preview object detached and client validates complete content binding before prompt",
+    "Mismatched receipt is unconfirmed after one commit; no automatic retry",
+    "Finite-number refusal preserves otherwise lossy unknown values; owner witness retained separately",
+    "Guide honestly states schema/formatting/ABA/token-not-ledger-identity and Windows inherited direct-entry limitation"
+  ],
+  "limits": [
+    "No owner baseline/full suite, build, installation, HTTP or terminal fixture repeated by peer.",
+    "First seven groups retain84b phase; only failed group executed on2ed correction.",
+    "Direct RDC Node invocations returned recorded case outputs; process exit codes were not independently retained by those fast sessions.",
+    "No live ledger/provider, authentication, cross-process writer or identical-recreate history guarantee."
+  ],
+  "extraSourceReads": [
+    "Final guide1f8dacfdf5a0d3eb33984b0a5aff756b491ed4805d0e36f83dd73fc3c61c7a69",
+    "Final correction diff",
+    "Whole original PR8 ledger/index; full candidate client/CLI/core and additive index inverse"
+  ],
+  "ownerSourceEdits": false
+}

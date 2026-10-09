@@ -1,0 +1,78 @@
+diff --git a/README.md b/README.md
+index c531794..82fc613 100644
+--- a/README.md
++++ b/README.md
+@@ -78,3 +78,7 @@ The first successful denominated-budget write saves ledger format version 2. Ver
+ ## Competition readiness
+ 
+ This is an unsubmitted local prototype. Source repository: https://github.com/Jacob-Met/household-ledger-mcp (public; MIT License). It is not onboarded to Alexa+: it has no public HTTPS endpoint, OAuth 2.1/PKCE, Protected Resource Metadata, privacy/terms URLs, Alexa add-on manifest, certification, or demo video. This task did not register or join a Devpost account, and no entry was submitted; existing Devpost identity/join state remains unverified. Do not expose this unauthenticated loopback server to the network.
++
++## Remove an obsolete allowance
++
++Use the explicit [reviewed budget removal client](docs/BUDGET_REMOVAL.md) to remove one denominated category/month budget while retaining transactions and all other budgets. Preview is read-only; exact confirmation and a fresh target-value check precede the one removal request.
+diff --git a/src/index.ts b/src/index.ts
+index 4df8046..fd9125c 100644
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -24,6 +24,7 @@ import {
+   ValidationError,
+ } from "./ledger.js";
+ import { commitTransactionImport, previewTransactionImport, TRANSACTION_IMPORT_TOOL_DEFS } from "./transaction-import.js";
++import { commitBudgetRemoval, previewBudgetRemoval, BUDGET_REMOVAL_TOOL_DEFS } from "./budget-removal.js";
+ 
+ export function resolveDataPath(): string {
+   return (
+@@ -141,6 +142,7 @@ const TOOL_DEFS = [
+     },
+   },
+   ...TRANSACTION_IMPORT_TOOL_DEFS,
++  ...BUDGET_REMOVAL_TOOL_DEFS,
+ ] as const;
+ 
+ export function createMcpServer(store: LedgerStore): Server {
+@@ -152,6 +154,14 @@ export function createMcpServer(store: LedgerStore): Server {
+     const args = (request.params.arguments ?? {}) as Record<string, unknown>;
+     try {
+       switch (request.params.name) {
++        case "preview_budget_removal": {
++          const result = await previewBudgetRemoval(store, args);
++          return { content: [{ type: "text", text: JSON.stringify(result) }] };
++        }
++        case "commit_budget_removal": {
++          const result = await commitBudgetRemoval(store, args);
++          return { content: [{ type: "text", text: JSON.stringify(result) }] };
++        }
+         case "preview_transaction_import": {
+           const result = await previewTransactionImport(store, args);
+           return { content: [{ type: "text", text: JSON.stringify(result) }] };
+diff --git a/test/mcp.test.ts b/test/mcp.test.ts
+index f1280a6..8353d91 100644
+--- a/test/mcp.test.ts
++++ b/test/mcp.test.ts
+@@ -28,11 +28,11 @@ describe("mcp tools", () => {
+     await client.connect(clientTransport);
+   });
+ 
+-  it("exposes the eight ledger tools", async () => {
++  it("exposes the ten ledger tools", async () => {
+     const { tools } = await client.listTools();
+     assert.deepEqual(
+       tools.map((t) => t.name).sort(),
+-      ["cashflow_trend", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_transaction_import", "record_transaction", "set_budget"]
++      ["cashflow_trend", "commit_budget_removal", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_budget_removal", "preview_transaction_import", "record_transaction", "set_budget"]
+     );
+   });
+ 
+diff --git a/test/transaction-import-http.test.ts b/test/transaction-import-http.test.ts
+index 0594d21..c96aeeb 100644
+--- a/test/transaction-import-http.test.ts
++++ b/test/transaction-import-http.test.ts
+@@ -78,7 +78,7 @@ test("real HTTP import previews exact values, records the batch once and preserv
+   try {
+     service = await launch(path);
+     const names = (await service.client.listTools()).tools.map(tool => tool.name).sort();
+-    assert.deepEqual(names, ["cashflow_trend", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_transaction_import", "record_transaction", "set_budget"]);
++    assert.deepEqual(names, ["cashflow_trend", "commit_budget_removal", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_budget_removal", "preview_transaction_import", "record_transaction", "set_budget"]);
+     const csv = HEADER + 'bank:one,income,02000, usd ,2026-10-01, salary ,"  payer, \"\"October\"\"\r\npaid  "\n' +
+       "bank:two,expense,500,USD,2026-10-02,food,\n" + "bank:three,expense,75,EUR,2026-10-02,food,";
+     const preview = payload<TransactionImportPreview>(await service.client.callTool({ name: "preview_transaction_import", arguments: { csv } }));

@@ -1,0 +1,60 @@
+{
+  "node": "v24.19.0",
+  "checks": [
+    {
+      "name": "Exact literal category, normalized explicit currency and complete unknown own keys",
+      "passed": true,
+      "reviewToken": "add31fcc9568dd548eb1f1eff3062a85840c7c211d2e99abb8a00bb47abb4775",
+      "unknownOwnKeys": [
+        "category",
+        "month",
+        "currency",
+        "limitMinor",
+        "__proto__",
+        "constructor",
+        "extra"
+      ]
+    },
+    {
+      "name": "Fresh unrelated insertion and object-key order changes preserve identity and remove current occurrence",
+      "passed": true
+    },
+    {
+      "name": "Target nested array-order change refuses with literal current file bytes intact",
+      "passed": true
+    },
+    {
+      "name": "Preview copy mutation leaves saved target intact and cannot alter commit result",
+      "passed": true
+    },
+    {
+      "name": "Malformed preview binding is refused before prompt or commit",
+      "passed": true
+    },
+    {
+      "name": "Mismatched unknown content in commit receipt is unconfirmed after exactly one request",
+      "passed": true
+    },
+    {
+      "name": "Held same-process Store update is fresh-read and unrelated state survives",
+      "passed": true
+    },
+    {
+      "name": "Queued commit retains the token passed at invocation despite caller argument mutation",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Commit borrowed the later mutated token and removed a target changed after invocation\n+ actual - expected\n\n+ 'fulfilled'\n- 'rejected'\n"
+    }
+  ],
+  "passed": 7,
+  "total": 8,
+  "sourceAndModulesBefore": {
+    "src/ledger.ts": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+    "src/budget-removal.ts": "84b2e89ac2d9a7016d4a993a90254d0a1dae02ec6e5b5b00e3a8380a9909434b",
+    "src/budget-removal-client.ts": "1b93de420daead570e367130f4b599964b27285275ed5cde8c599b26e1546424",
+    "dist/src/ledger.js": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+    "dist/src/budget-removal.js": "08b56486ebe122e14d9fb8126a64245a746a3a1e5c1adc4decb046955ad267b6",
+    "dist/src/budget-removal-client.js": "0adf5e4a8919d257c7a0c1ed3dae6b44298295e29a65628ccd2989a76a989101"
+  },
+  "sourceAndModulesUnchanged": true,
+  "boundary": "Independent private native fixtures and injected protocol replies; no owner suite, real ledger or provider action."
+}

@@ -28,11 +28,11 @@ describe("mcp tools", () => {
     await client.connect(clientTransport);
   });
 
-  it("exposes the eight ledger tools", async () => {
+  it("exposes the ten ledger tools", async () => {
     const { tools } = await client.listTools();
     assert.deepEqual(
       tools.map((t) => t.name).sort(),
-      ["cashflow_trend", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_transaction_import", "record_transaction", "set_budget"]
+      ["cashflow_trend", "commit_budget_removal", "commit_transaction_import", "get_budgets", "list_transactions", "monthly_summary", "preview_budget_removal", "preview_transaction_import", "record_transaction", "set_budget"]
     );
   });
 

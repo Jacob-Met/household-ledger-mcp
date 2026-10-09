@@ -1,0 +1,21 @@
+{
+  "node": "v24.19.0",
+  "checks": [
+    {
+      "name": "Queued commit retains the token passed at invocation despite caller argument mutation",
+      "passed": true
+    }
+  ],
+  "passed": 1,
+  "total": 1,
+  "sourceAndModulesBefore": {
+    "src/ledger.ts": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+    "src/budget-removal.ts": "2ed829e4cff2609711021c06bc407bb55b7097e45d36d54f61d336e4e9c4ce26",
+    "src/budget-removal-client.ts": "1b93de420daead570e367130f4b599964b27285275ed5cde8c599b26e1546424",
+    "dist/src/ledger.js": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+    "dist/src/budget-removal.js": "d3ad531612bd8350b4cda87504ff947ae82f05d4d1952fa31a9368f2e30ba531",
+    "dist/src/budget-removal-client.js": "0adf5e4a8919d257c7a0c1ed3dae6b44298295e29a65628ccd2989a76a989101"
+  },
+  "sourceAndModulesUnchanged": true,
+  "boundary": "Independent private native fixtures and injected protocol replies; no owner suite, real ledger or provider action."
+}
