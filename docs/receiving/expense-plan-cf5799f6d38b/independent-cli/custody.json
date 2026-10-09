@@ -1,0 +1,2899 @@
+{
+  "source_tree": "4da046012fb5b0007005204d624dc8b495e79c1c",
+  "required_frozen_pins": {
+    "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3-manifest.json": "82e8b312d7f05fc9f21a40b98d6430c9c19c3bea696c371289872d9548589b0d",
+    "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0-manifest.json": "a63171ad09971b515b48849558c5d2ff606fb9e2a3ec889636f101aebc9c45c8",
+    "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh-manifest.json": "b84cbc53a67199f906848db66027c15cf558e0d0eadda3b37b5431a23db0a528",
+    "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/native-corpus-v1-receipt.json": "4eb9fa3ca8073d949ace234a19ad68e581055ddbeb88039c15ab304354159e94",
+    "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/receipt.json": "ae7ee25bf3b7c65af13d1affdbfae3e1bf0df840ec8bee40742c11dadab43ab2",
+    "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/receipt.json": "aa8b2de6c6e752ed586e25ca015680851c3c142e1c639c9829e7c4fd51cd494d",
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/candidate-manifest.json": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad"
+  },
+  "preserved_originals": [
+    {
+      "path": "baseline/README.md",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/README.md",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 4576,
+      "sha256": "bca3480aaf76882f18622859d0a7845eecc4a5cbea93fbae594a7eedb3bb6555",
+      "git_blob": "020f3b16177a9cc5cf10208803b63999f27b10bd"
+    },
+    {
+      "path": "baseline/ROOT.txt",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/ROOT.txt",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 47,
+      "sha256": "679c5182c9867b7ec886f42e549334972a8ebb5b52309172035340657fbb9981",
+      "git_blob": "9a4c19aec69a431950e590627981d22abecc80e1"
+    },
+    {
+      "path": "baseline/baseline-build-original.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/baseline-build-original.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1382,
+      "sha256": "e71d748a4b8ffb16096cf16d45f410d99cd3a4e543972ab2466946824ca3c8fc",
+      "git_blob": "ebdc377b4d7b05afd09262118c49914818371190"
+    },
+    {
+      "path": "baseline/baseline-manifest-original.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/baseline-manifest-original.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 6441,
+      "sha256": "beab8c9c76375519e0074b0d52b2e05764ba3d05a80af90c4f3ab05fec78abd4",
+      "git_blob": "0b530994f4df97feb47d3d9d88df441e6cee67c8"
+    },
+    {
+      "path": "baseline/baseline/dist/src/cashflow.js",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/baseline/dist/src/cashflow.js",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 3978,
+      "sha256": "447e140cf5879861cf1e25dab9d25c3e74abef98ddf6ce9e8e8ac5a97a21507a",
+      "git_blob": "53b1df162e46e57c880165dea7a299edcdf5b802"
+    },
+    {
+      "path": "baseline/baseline/dist/src/ledger.js",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/baseline/dist/src/ledger.js",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197"
+    },
+    {
+      "path": "baseline/baseline/package.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/baseline/package.json",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63"
+    },
+    {
+      "path": "baseline/baseline/src/cashflow.ts",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/baseline/src/cashflow.ts",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 4761,
+      "sha256": "cb4631dce4679567d9d0e3a139440c51861dcdfad6029c8ef88b1b9bf122ce30",
+      "git_blob": "7ef82c27ef41f3ef65198d6045beb6779364bf45"
+    },
+    {
+      "path": "baseline/baseline/src/ledger.ts",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/baseline/src/ledger.ts",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "git_blob": "2ff8133404f19c705eb7b7f0a943e8190f3328d6"
+    },
+    {
+      "path": "baseline/baseline/tsconfig.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/baseline/tsconfig.json",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72",
+      "git_blob": "22a92039fc845256859c3b4921063f3a16a0ae3e"
+    },
+    {
+      "path": "baseline/fictional-inputs/existing-report.html",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/fictional-inputs/existing-report.html",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 27,
+      "sha256": "ba7b539a8fae50602c818f9b8ce2c5190370d757416712f9cd9bd04a12424861",
+      "git_blob": "14cf015af9b1f25c9b11e111f65c83dc196c3517"
+    },
+    {
+      "path": "baseline/fictional-inputs/hardlink-ledger.html",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/fictional-inputs/hardlink-ledger.html",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "baseline/fictional-inputs/invalid-later-plan.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/fictional-inputs/invalid-later-plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 200,
+      "sha256": "de4767ed02e2568e379497eb81220ae010f2da3018a9e433b3f72bc885443d5d",
+      "git_blob": "426ce97dd09c43397cca2269cd9e49f4d5cf2441"
+    },
+    {
+      "path": "baseline/fictional-inputs/ledger.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/fictional-inputs/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "baseline/fictional-inputs/malformed-ledger.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/fictional-inputs/malformed-ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 10,
+      "sha256": "6a7328ea2cd43a5ad89438c3a059232521b99a0b7208ba86e9bbdf85198c400c",
+      "git_blob": "0d0ba41cf94d2b5bd1fef0b2c77819aa7e5ee55d"
+    },
+    {
+      "path": "baseline/fictional-inputs/plan.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/fictional-inputs/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "baseline/fictional-inputs/symlink-ledger.html",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/fictional-inputs/symlink-ledger.html",
+      "filesystem_mode": 511,
+      "type": "symlink-metadata",
+      "target": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/fictional-inputs/ledger.json"
+    },
+    {
+      "path": "baseline/fixture-manifest.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/fixture-manifest.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 3360,
+      "sha256": "d74533ebe2abfe20eb6ba0b68ba1e4a366aafe752571c9e233a1c27a3cc81ee0",
+      "git_blob": "f3fd22e2e5b593300b6e1dfd97d66c8e940c7021"
+    },
+    {
+      "path": "baseline/household-plan-peer-preparation-failure-cf5799f6d38b.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/household-plan-peer-preparation-failure-cf5799f6d38b.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 431,
+      "sha256": "d0684c7ac7c74e94f8de350e0cd633d0c8303c7f5fff0763a50cb023ad8662fd",
+      "git_blob": "756fc17d11df3e9ed8a6318b8092f7f446d65d46"
+    },
+    {
+      "path": "baseline/household-plan-peer-preparation-v2.stderr",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/household-plan-peer-preparation-v2.stderr",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "baseline/household-plan-peer-preparation-v2.stdout",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/household-plan-peer-preparation-v2.stdout",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 343,
+      "sha256": "34e0dcc8a0e05e50d76cad56536c5cedfb4a1f0fc635ee13a08e56489fde862e",
+      "git_blob": "4f906cda9b3e42d27a9873c316dd6a9a2683ea6d"
+    },
+    {
+      "path": "baseline/native-corpus-v1-receipt.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/native-corpus-v1-receipt.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 40033,
+      "sha256": "4eb9fa3ca8073d949ace234a19ad68e581055ddbeb88039c15ab304354159e94",
+      "git_blob": "28d87558f6368ccc13d40830e29faef56b5f31e5"
+    },
+    {
+      "path": "baseline/native-corpus-v1.mjs",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/native-corpus-v1.mjs",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 16294,
+      "sha256": "8b67e3abe48c98c9a0e6fc704be7ef9c2e31f1a7f84e04c2e150df270d8e5262",
+      "git_blob": "7de0e6a3055fee7a9883f5816d307ba52eb401a0"
+    },
+    {
+      "path": "baseline/native.stderr.log",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/native.stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "baseline/native.stdout.log",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/native.stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 539,
+      "sha256": "f293b21800e4652d1e0c01d8ec44cc3dbbe9958f2a63f60613876f8c5920eab1",
+      "git_blob": "2426dad82266f9b07037451e54547bda41d1bead"
+    },
+    {
+      "path": "baseline/pre-execution-freeze.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/pre-execution-freeze.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 834,
+      "sha256": "c8672c73a007441a2ce4182371b4a896f51596f01bf6d62e082ace85264148ac",
+      "git_blob": "5fce49759eec19dbe92805c8ceedc4979c84ac9f"
+    },
+    {
+      "path": "baseline/preparation-v1-tool-output.txt",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/preparation-v1-tool-output.txt",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 692,
+      "sha256": "3c73206cf32b003df290d580d2c60c30c94cccd09b16621d845726090941b826",
+      "git_blob": "ff71f91317aede0fac37b0600f4634e4338f3f5e"
+    },
+    {
+      "path": "baseline/prepare-household-plan-peer-cf5799f6d38b-v2.py.txt",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/prepare-household-plan-peer-cf5799f6d38b-v2.py.txt",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 4302,
+      "sha256": "431222b9ee08128525cea617f197eebec7c0263186da5c52a65783c308132957",
+      "git_blob": "a6ae305e2d2266f7715bfd88c54cccc2b45a775b"
+    },
+    {
+      "path": "baseline/prepare-household-plan-peer-cf5799f6d38b.py.txt",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/prepare-household-plan-peer-cf5799f6d38b.py.txt",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 4309,
+      "sha256": "bf862187710d383f7da2d3553aa875915ee0590b7041e4244eef641c4d6b56e7",
+      "git_blob": "f3f831ac039a9f4455750cb5bd4219e1d44be964"
+    },
+    {
+      "path": "baseline/process-v1.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/process-v1.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1302,
+      "sha256": "3665c7b1c8496a9e41992641f9eea78dab31b7205b3cc94057ae509c6fecbfd1",
+      "git_blob": "4d31cd669f9d1d206853aa6fd2a7e1b399f80f02"
+    },
+    {
+      "path": "baseline/public-contract-v1.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/public-contract-v1.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1611,
+      "sha256": "3f8a35355380cf9252641a3c6de0e2c133fb32d5c1745524dfc46a2453207f7c",
+      "git_blob": "ac141bd82e75091b947462e61df5c87391a34387"
+    },
+    {
+      "path": "baseline/scope-v1.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/scope-v1.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2806,
+      "sha256": "b7005a7168f76fdf2644daea73e422b9a514f3bbea6610220b9f8960e3209951",
+      "git_blob": "9c3393c15dfab136eb0f1f5b3173e8bbac45fa15"
+    },
+    {
+      "path": "baseline/source-after.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/source-after.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 10313,
+      "sha256": "c4175ad68ec9165a58a79d8f8b52eb035fe7870f1b6d19cbefff83804dd356ff",
+      "git_blob": "8c446e15e57b699786933644682e00bc83c5e4a0"
+    },
+    {
+      "path": "baseline/source-before.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/source-before.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 8210,
+      "sha256": "551d3c4563d19b37c7252ac58d91deb32aac9dd4ad970e0f493e01b35d602455",
+      "git_blob": "80144434232199668f132d1bfc8229de61fcfaba"
+    },
+    {
+      "path": "baseline/syntax.stderr.log",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/syntax.stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "baseline/syntax.stdout.log",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/syntax.stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/candidate-manifest-original.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/candidate-manifest-original.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 8002,
+      "sha256": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad",
+      "git_blob": "ccf02fc8ea2e269f9ccd0ef6e99ffca644656b8c"
+    },
+    {
+      "path": "candidate-final/cases/changed-ledger/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/changed-ledger/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2695,
+      "sha256": "32ef31c55b87a7d5dd5577e0ff74f7cf54e04136c13ee5dbaf53764fa232f20f",
+      "git_blob": "c52bb69c94071fa1cdfd3467b648786efab2a563"
+    },
+    {
+      "path": "candidate-final/cases/changed-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/changed-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/changed-ledger/seam.jsonl",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/changed-ledger/seam.jsonl",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 970,
+      "sha256": "0606d02649bc3fc744e38cf3ca210e16e4cefd07b1aa65ba4ca3ed8826997b3b",
+      "git_blob": "b8ff8ded7e6b9cf7176cfa1e40f66bc42441c9ab"
+    },
+    {
+      "path": "candidate-final/cases/changed-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/changed-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 108,
+      "sha256": "68d684f1a868508e85660e59dbe1e24b253efe9279e1a2c09aeac50eef8b9d3e",
+      "git_blob": "a3c724e1e7545233c5607228d2e61290b5fe156e"
+    },
+    {
+      "path": "candidate-final/cases/changed-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/changed-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/directory-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/directory-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/directory-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/directory-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 60,
+      "sha256": "bb85af0994c9dc2042c2f3347ee026b615b66257306c0a6532fd26c7ad927aaf",
+      "git_blob": "c20fa25637d01dfb27a07162b57810788b7577f0"
+    },
+    {
+      "path": "candidate-final/cases/directory-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/directory-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/directory-output/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/directory-output/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/directory-output/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/directory-output/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/directory-output/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/directory-output/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 295,
+      "sha256": "574b26f535433cf79d440e53030366e87e86f98610f97d35bfb4fc31b867b7ed",
+      "git_blob": "b706398df65f1552b9b9f3b93c664fd8490ca6ec"
+    },
+    {
+      "path": "candidate-final/cases/directory-output/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/directory-output/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/empty/html-parser.stderr",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/empty/html-parser.stderr",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/empty/html-parser.stdout",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/empty/html-parser.stdout",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 15933,
+      "sha256": "baa19ce9396a741297cada0b123247f60176bf24fc8ffed23997ea2490c0b3a1",
+      "git_blob": "eab8b849738f13efecf83d416140ff31a63b7c69"
+    },
+    {
+      "path": "candidate-final/cases/empty/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/empty/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/empty/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/empty/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 52,
+      "sha256": "b9e57cc2d33a3adc7abd43ad62ed6d434ea472e722f8f6614e417f397730baaa",
+      "git_blob": "8e268e04e1401f493c8613f8db5477b93afcdbc8"
+    },
+    {
+      "path": "candidate-final/cases/empty/report.html",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/empty/report.html",
+      "filesystem_mode": 384,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 10473,
+      "sha256": "7451b0ac1494ae4c6db9c86a30d15d7ff09bd6786fcaf10cb5448ba6a1a149d3",
+      "git_blob": "e951ee310e517a4de97ba72d3c0b5d8bb4096956"
+    },
+    {
+      "path": "candidate-final/cases/empty/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/empty/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/empty/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/empty/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 106,
+      "sha256": "3939ea3657548c35a2f092c4fa0c4177147a5de7d3facc930d21cef56804d7f8",
+      "git_blob": "3f782c731aae380f91cfcd0cf9a6c4a50bd5867f"
+    },
+    {
+      "path": "candidate-final/cases/exclusive-race/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/exclusive-race/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/exclusive-race/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/exclusive-race/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/exclusive-race/report.html",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/exclusive-race/report.html",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 34,
+      "sha256": "aae345097e24896b719c8cc3326b393c2bfbe7836a03ab85b17647c30b24896b",
+      "git_blob": "f195c07d3ecae144c6466cd823784261f372ec6e"
+    },
+    {
+      "path": "candidate-final/cases/exclusive-race/seam.jsonl",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/exclusive-race/seam.jsonl",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 762,
+      "sha256": "424d37f61804bee8bd022c87327d40c55457924b3ce21d1a13966e40afeb77e3",
+      "git_blob": "38b6e6704571682191f99d26632dae257ea4fc70"
+    },
+    {
+      "path": "candidate-final/cases/exclusive-race/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/exclusive-race/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 291,
+      "sha256": "5b8b9cf863f155c78618adee82689b6d5bc1c631aa5358879990c2d60a4a1092",
+      "git_blob": "4ce8202c658b7a369f30efc65fb5dae2a1c4cd11"
+    },
+    {
+      "path": "candidate-final/cases/exclusive-race/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/exclusive-race/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/existing-output/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/existing-output/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/existing-output/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/existing-output/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/existing-output/report.html",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/existing-output/report.html",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 21,
+      "sha256": "bdc63fec18465a4cd2d8d96164cd73fab2806782ef99e0f242988f32c7aaf451",
+      "git_blob": "a655648c4699cb7ae71e3265bf9f0a7e7cb9cb64"
+    },
+    {
+      "path": "candidate-final/cases/existing-output/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/existing-output/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 293,
+      "sha256": "2052c3a5eb6f309359ecda31c2b62c7feeea468d6c5055755bca09c01bc8efe9",
+      "git_blob": "f06865e45f14bb00e46bd0474c9d5b6e95091b8c"
+    },
+    {
+      "path": "candidate-final/cases/existing-output/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/existing-output/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/fresh/html-parser.stderr",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/fresh/html-parser.stderr",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/fresh/html-parser.stdout",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/fresh/html-parser.stdout",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 16867,
+      "sha256": "f43a7d1b70d6a04b6398dc272eb9c3daebe48120f34475bf502727310a2ee788",
+      "git_blob": "0fc546e7036c4bac073561d77c8b163cb26d6916"
+    },
+    {
+      "path": "candidate-final/cases/fresh/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/fresh/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/fresh/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/fresh/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 114,
+      "sha256": "c80212fd1c6e286fd77b5f0c415f853e608fa9de71aa1cf5cadad56641ff66ae",
+      "git_blob": "177fcbf8b8d7ce58fee2d339bae95b81517c5b5f"
+    },
+    {
+      "path": "candidate-final/cases/fresh/report.html",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/fresh/report.html",
+      "filesystem_mode": 384,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 10870,
+      "sha256": "62deab8ead5f5a8e2423adfaeb90315fe2ae3d1b832e237575e6a111d50e1c77",
+      "git_blob": "10d92279c48e6979e20851b37bdb3a2a20bccfaf"
+    },
+    {
+      "path": "candidate-final/cases/fresh/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/fresh/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/fresh/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/fresh/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 106,
+      "sha256": "f50185096c8835b344a458b947515689145c76fd5a48e63a961c0c3581ee1300",
+      "git_blob": "c86210ee478f08da47c928b799baf62125ff0091"
+    },
+    {
+      "path": "candidate-final/cases/hardlink-ledger/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/hardlink-ledger/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/hardlink-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/hardlink-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/hardlink-ledger/report.html",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/hardlink-ledger/report.html",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/hardlink-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/hardlink-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 293,
+      "sha256": "e7b41543abe525b856b269e1391720320ca204a63fa3023af9da0f2ccf4026eb",
+      "git_blob": "6f38eaac87941524622c0b8b3f7df3d8c72c9fbe"
+    },
+    {
+      "path": "candidate-final/cases/hardlink-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/hardlink-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/late-invalid/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/late-invalid/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/late-invalid/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/late-invalid/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 480,
+      "sha256": "12fc9b17f491fa23b26c0179af48e3dd964e4adcb30571158f5be0f1609ea08e",
+      "git_blob": "86f11cfc75a0db5edfe7756abe3831895c2c4a0e"
+    },
+    {
+      "path": "candidate-final/cases/late-invalid/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/late-invalid/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 91,
+      "sha256": "521dca1c37a6c9f9c426c51f4c0568ab46694a4dee8bc28b172be10de435d9b5",
+      "git_blob": "fe7becdecc7834475a9e531b7fec974c5f1720aa"
+    },
+    {
+      "path": "candidate-final/cases/late-invalid/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/late-invalid/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/malformed-ledger/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/malformed-ledger/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 9,
+      "sha256": "aa240a0ccab83012343d3c5968854e2015e18ba9061a9dff49e2b115ce86f98a",
+      "git_blob": "2df2499e368b0c121392f709429bb1a8953b373c"
+    },
+    {
+      "path": "candidate-final/cases/malformed-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/malformed-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/malformed-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/malformed-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 64,
+      "sha256": "9a5c7a67a96d6d3a986ca2dc3f3aa9e58ef589f7fba535656fa37fb2931d25d6",
+      "git_blob": "de79a6f75fcdbc462b6948b3b31884b6e9b4add7"
+    },
+    {
+      "path": "candidate-final/cases/malformed-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/malformed-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/missing-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/missing-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/missing-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/missing-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 157,
+      "sha256": "ac2203163433052a87b0bda0050d1cc516fa017cece98d028da4378626116243",
+      "git_blob": "7fb06553a84eec761a936ea848678325df689ecd"
+    },
+    {
+      "path": "candidate-final/cases/missing-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/missing-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/missing-parent/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/missing-parent/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/missing-parent/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/missing-parent/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/missing-parent/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/missing-parent/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 152,
+      "sha256": "8ef5e2127d537174141116e9374d011fae264d3bcdbdce58ead98d72fb49ea01",
+      "git_blob": "dc37243d4a9a4ac7c8a26bc3de824f3ea438d5d6"
+    },
+    {
+      "path": "candidate-final/cases/missing-parent/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/missing-parent/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/multi/html-parser.stderr",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/multi/html-parser.stderr",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/multi/html-parser.stdout",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/multi/html-parser.stdout",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 20703,
+      "sha256": "d8d67b43d1419b63437c22a4fdd3325def4ddb219390f255bba4515be50cfefe",
+      "git_blob": "39cd80e51a187da0a66f01a61f8175d0ae383709"
+    },
+    {
+      "path": "candidate-final/cases/multi/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/multi/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/multi/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/multi/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/multi/report.html",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/multi/report.html",
+      "filesystem_mode": 384,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 12932,
+      "sha256": "8844400cab3972418b9376afa70a003a496575bd3d82ef48f9f3fb0eee91dc9c",
+      "git_blob": "072c63ff8024a94711c454ba12f03b909e1f47d0"
+    },
+    {
+      "path": "candidate-final/cases/multi/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/multi/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/multi/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/multi/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 106,
+      "sha256": "7b9b8004566fc36967f6ac344f508b8306cf8a04a8a3c7516cca584c5bbe9ece",
+      "git_blob": "7c6cdbd80eef28bf63491c39b07338e96efcb5a3"
+    },
+    {
+      "path": "candidate-final/cases/outside-month/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/outside-month/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/outside-month/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/outside-month/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 424,
+      "sha256": "112165718a747bbc82901a386284fcc05940341b3428c0932fe5be4aed6f2c0b",
+      "git_blob": "4fc5d366bf4bf28b99caf7902fe4b7df627939bc"
+    },
+    {
+      "path": "candidate-final/cases/outside-month/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/outside-month/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 68,
+      "sha256": "8235d8142e879588c2afb811d7468e8b9f2784f4df2d74b78e9ab0d674dd9a13",
+      "git_blob": "b076c3eed31faf2d902a943c30e0e54577786060"
+    },
+    {
+      "path": "candidate-final/cases/outside-month/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/outside-month/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/receipt.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/receipt.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 83285,
+      "sha256": "aa8b2de6c6e752ed586e25ca015680851c3c142e1c639c9829e7c4fd51cd494d",
+      "git_blob": "847a6bbb91936e3431e53f241812bc7810f5a234"
+    },
+    {
+      "path": "candidate-final/cases/recording-key/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/recording-key/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/recording-key/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/recording-key/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 456,
+      "sha256": "c14c252b6b16268eb6886bc49feeb65ba044c0035a74845c537d4bf63db7b02b",
+      "git_blob": "99454b9479100e1bb27e2749dcb8dbd4a4443473"
+    },
+    {
+      "path": "candidate-final/cases/recording-key/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/recording-key/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 68,
+      "sha256": "b8f0e6f38faf91175e62642fd28c6f99aec71acdcc3383e4992d142ae3c79a08",
+      "git_blob": "bd71b93191b6acfa07bd1cc51571fb9fc67980d3"
+    },
+    {
+      "path": "candidate-final/cases/recording-key/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/recording-key/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/replaced-plan/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/replaced-plan/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/replaced-plan/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/replaced-plan/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/replaced-plan/seam.jsonl",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/replaced-plan/seam.jsonl",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 958,
+      "sha256": "05ad4bad9a23e3fed3ff4969a44e4842300704d699ca11b5e5460d75fd549bd9",
+      "git_blob": "382e9930629f2d476d335bcbacf8513b043d688e"
+    },
+    {
+      "path": "candidate-final/cases/replaced-plan/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/replaced-plan/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 106,
+      "sha256": "921db4309546e78dfd273021de83c77883a87dda2bdc28936239012d1befb28d",
+      "git_blob": "119d1cfe9f137660e4a3ad66269885c637602fed"
+    },
+    {
+      "path": "candidate-final/cases/replaced-plan/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/replaced-plan/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/same-ledger/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/same-ledger/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/same-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/same-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/same-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/same-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 285,
+      "sha256": "8299fd8b98e0fa10774fb23aef4d3d6787535586f9dd7f0e9ae39b3449ff334d",
+      "git_blob": "8272a1d4e4eb951b6342f74e4a2a392e40a4d1c9"
+    },
+    {
+      "path": "candidate-final/cases/same-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/same-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/same-plan/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/same-plan/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/same-plan/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/same-plan/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/same-plan/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/same-plan/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 277,
+      "sha256": "a9aa37ab9e7b32df9f111d13fc5b6c05f27fc0649cf329f6eeefe6312ff37a7f",
+      "git_blob": "71de471bf33115f3fbdfb9194d6717391d9e6953"
+    },
+    {
+      "path": "candidate-final/cases/same-plan/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/same-plan/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/cases/symlink-plan/ledger.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/symlink-plan/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-final/cases/symlink-plan/plan.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/symlink-plan/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-final/cases/symlink-plan/report.html",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/symlink-plan/report.html",
+      "filesystem_mode": 511,
+      "type": "symlink-metadata",
+      "target": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/symlink-plan/plan.json"
+    },
+    {
+      "path": "candidate-final/cases/symlink-plan/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/symlink-plan/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 287,
+      "sha256": "181ed5081fc245da1a9e69a9fe836e587f0b77fa896c951ac78af997f30b2173",
+      "git_blob": "67b10f7183d8030626959d6080e419ef06e7c1d8"
+    },
+    {
+      "path": "candidate-final/cases/symlink-plan/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/symlink-plan/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/handoff.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/handoff.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 3764,
+      "sha256": "bfd0c00ff9ec862675e9940e1fefea350a767423ec733e8834f36a050955948e",
+      "git_blob": "112f60644dfcf01e4d604a4ccc60da7e16f32757"
+    },
+    {
+      "path": "candidate-final/process-final.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/process-final.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1406,
+      "sha256": "f40d71e5dd56d95efdaedfa7e2ff8989d0e7d77f105d5e5eb7b8c697030d10b6",
+      "git_blob": "a8590042de7fd4bc9ef7f2cf9247babf859fb09a"
+    },
+    {
+      "path": "candidate-final/process-start.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/process-start.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 914,
+      "sha256": "940e18c3db225653d479812c03ab3b2e939d37be9f27ad9a8cf46eb0b7c196cd",
+      "git_blob": "dba89e29a5dda309cebc3d0ec53dc06ac6dcc841"
+    },
+    {
+      "path": "candidate-final/receiver-manifest-original.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/receiver-manifest-original.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 9235,
+      "sha256": "b84cbc53a67199f906848db66027c15cf558e0d0eadda3b37b5431a23db0a528",
+      "git_blob": "462838baa6cdcc6f01722d468e15f8fdf404801e"
+    },
+    {
+      "path": "candidate-final/source-after.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/source-after.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 7729,
+      "sha256": "4c1c9e49a1ec66c17a345878af582048f562ffa4ef18261f8c8f53980480640c",
+      "git_blob": "fcd5fc980db2ccfcabaaf229e891c0e55a47438a"
+    },
+    {
+      "path": "candidate-final/source-before.json",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/source-before.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 7729,
+      "sha256": "4c1c9e49a1ec66c17a345878af582048f562ffa4ef18261f8c8f53980480640c",
+      "git_blob": "fcd5fc980db2ccfcabaaf229e891c0e55a47438a"
+    },
+    {
+      "path": "candidate-final/stderr.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-final/stdout.log",
+      "native_path": "/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 159,
+      "sha256": "1e1caf0cd2fe1b1ffc4485ca55a8da13e686236cb6811bed81c50d2854a0e99c",
+      "git_blob": "346043900b0f5930dd52309ebea2ebc9bc74e32f"
+    },
+    {
+      "path": "candidate-first/candidate-manifest-original.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/candidate-manifest-original.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 8002,
+      "sha256": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad",
+      "git_blob": "ccf02fc8ea2e269f9ccd0ef6e99ffca644656b8c"
+    },
+    {
+      "path": "candidate-first/cases/changed-ledger/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/changed-ledger/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2695,
+      "sha256": "32ef31c55b87a7d5dd5577e0ff74f7cf54e04136c13ee5dbaf53764fa232f20f",
+      "git_blob": "c52bb69c94071fa1cdfd3467b648786efab2a563"
+    },
+    {
+      "path": "candidate-first/cases/changed-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/changed-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/changed-ledger/seam.jsonl",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/changed-ledger/seam.jsonl",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 982,
+      "sha256": "03eec8c6bbe0f5e3f7768b6718e00a397ffb2a27b26b3bd5e7c7d9adf3e1357a",
+      "git_blob": "6369fa4e0c2feec3ec3b14f4bfa2c9d269c69d0a"
+    },
+    {
+      "path": "candidate-first/cases/changed-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/changed-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 108,
+      "sha256": "68d684f1a868508e85660e59dbe1e24b253efe9279e1a2c09aeac50eef8b9d3e",
+      "git_blob": "a3c724e1e7545233c5607228d2e61290b5fe156e"
+    },
+    {
+      "path": "candidate-first/cases/changed-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/changed-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/directory-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/directory-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/directory-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/directory-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 60,
+      "sha256": "bb85af0994c9dc2042c2f3347ee026b615b66257306c0a6532fd26c7ad927aaf",
+      "git_blob": "c20fa25637d01dfb27a07162b57810788b7577f0"
+    },
+    {
+      "path": "candidate-first/cases/directory-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/directory-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/directory-output/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/directory-output/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/directory-output/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/directory-output/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/directory-output/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/directory-output/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 303,
+      "sha256": "09c04aea77da3a53860ac5afe1db536f1a7ddf5f3ab72bf21affed2b8d223b1c",
+      "git_blob": "8f7a3d5bec8fa9ab72a2801e068cc6ba6922d6ab"
+    },
+    {
+      "path": "candidate-first/cases/directory-output/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/directory-output/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/empty/html-parser.stderr",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/empty/html-parser.stderr",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/empty/html-parser.stdout",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/empty/html-parser.stdout",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 15953,
+      "sha256": "cc1050c931b5f1bfb7dbc84413fbfb9356ba7d12a47bf6e7bd2f747ee38eae5f",
+      "git_blob": "c8df1fe061edc1a3f4117bc7e98d20a485865700"
+    },
+    {
+      "path": "candidate-first/cases/empty/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/empty/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/empty/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/empty/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 52,
+      "sha256": "b9e57cc2d33a3adc7abd43ad62ed6d434ea472e722f8f6614e417f397730baaa",
+      "git_blob": "8e268e04e1401f493c8613f8db5477b93afcdbc8"
+    },
+    {
+      "path": "candidate-first/cases/empty/report.html",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/empty/report.html",
+      "filesystem_mode": 384,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 10489,
+      "sha256": "57c74588c492fa83921e96784a727d570ed6f9dda876ec0455753b5f9182b375",
+      "git_blob": "5376fcf5e0a734a87feab4fb51d5a9bd5965444e"
+    },
+    {
+      "path": "candidate-first/cases/empty/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/empty/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/empty/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/empty/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 110,
+      "sha256": "6a53d788624ec08abb98fca4ff6030fe1687d7bb0dee21370fead73456b4fb05",
+      "git_blob": "d273d82fed98198cd23615adec75a7fb70931c37"
+    },
+    {
+      "path": "candidate-first/cases/exclusive-race/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/exclusive-race/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/exclusive-race/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/exclusive-race/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/exclusive-race/report.html",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/exclusive-race/report.html",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 34,
+      "sha256": "aae345097e24896b719c8cc3326b393c2bfbe7836a03ab85b17647c30b24896b",
+      "git_blob": "f195c07d3ecae144c6466cd823784261f372ec6e"
+    },
+    {
+      "path": "candidate-first/cases/exclusive-race/seam.jsonl",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/exclusive-race/seam.jsonl",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 774,
+      "sha256": "bbe98799d4b1a43fcda4ec90e1ab8d7742a3ab5b291627c71df9e487feb091e5",
+      "git_blob": "361f17b80a8eb9663b0e2d62b4a53fe610fc9055"
+    },
+    {
+      "path": "candidate-first/cases/exclusive-race/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/exclusive-race/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 299,
+      "sha256": "079fbfec9d1ff96d14111b1ac3e8d17b85fd6c016cec9386a38e1ee74184ce7e",
+      "git_blob": "3149ddfc51325f880c4ecdaee714683e1f01e50d"
+    },
+    {
+      "path": "candidate-first/cases/exclusive-race/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/exclusive-race/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/existing-output/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/existing-output/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/existing-output/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/existing-output/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/existing-output/report.html",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/existing-output/report.html",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 21,
+      "sha256": "bdc63fec18465a4cd2d8d96164cd73fab2806782ef99e0f242988f32c7aaf451",
+      "git_blob": "a655648c4699cb7ae71e3265bf9f0a7e7cb9cb64"
+    },
+    {
+      "path": "candidate-first/cases/existing-output/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/existing-output/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 301,
+      "sha256": "8b693ed5ea44dc74bfb8e64b6bd9ea87bcf8a1f6476906819d17adffef6ae1aa",
+      "git_blob": "b1289c409dd54c4427abfe0b7d24ccf005230487"
+    },
+    {
+      "path": "candidate-first/cases/existing-output/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/existing-output/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/fresh/html-parser.stderr",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/fresh/html-parser.stderr",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/fresh/html-parser.stdout",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/fresh/html-parser.stdout",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 16887,
+      "sha256": "e542ab01e8be5e27bb726e2f46a416b1523bea5bcf2c6f102ddc654c43bcf425",
+      "git_blob": "03408801a5d3cf22440beab4f780aa50601ad447"
+    },
+    {
+      "path": "candidate-first/cases/fresh/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/fresh/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/fresh/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/fresh/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 114,
+      "sha256": "c80212fd1c6e286fd77b5f0c415f853e608fa9de71aa1cf5cadad56641ff66ae",
+      "git_blob": "177fcbf8b8d7ce58fee2d339bae95b81517c5b5f"
+    },
+    {
+      "path": "candidate-first/cases/fresh/report.html",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/fresh/report.html",
+      "filesystem_mode": 384,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 10886,
+      "sha256": "47f00904996c0b087b7bce312699dbf2f71c3cb252e9b5344d96c0b3045ccda6",
+      "git_blob": "5b057336b91f252ce733c2d7f7b43606c4a1e5a9"
+    },
+    {
+      "path": "candidate-first/cases/fresh/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/fresh/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/fresh/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/fresh/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 110,
+      "sha256": "13e2603b307c392fdff4583218c699b588bcdbedd57f0c674ed2ce424eed5c9d",
+      "git_blob": "2a22b50463d3c830cefa0be07a92e126b8b86d38"
+    },
+    {
+      "path": "candidate-first/cases/hardlink-ledger/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/hardlink-ledger/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/hardlink-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/hardlink-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/hardlink-ledger/report.html",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/hardlink-ledger/report.html",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/hardlink-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/hardlink-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 301,
+      "sha256": "db98f39e825ae4a9b77a0427865176871a9e1f3467f0393d83ee0333961e72e0",
+      "git_blob": "3ec4caea328aec3fdc119f4dd49bf39685820e8c"
+    },
+    {
+      "path": "candidate-first/cases/hardlink-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/hardlink-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/late-invalid/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/late-invalid/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/late-invalid/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/late-invalid/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 480,
+      "sha256": "12fc9b17f491fa23b26c0179af48e3dd964e4adcb30571158f5be0f1609ea08e",
+      "git_blob": "86f11cfc75a0db5edfe7756abe3831895c2c4a0e"
+    },
+    {
+      "path": "candidate-first/cases/late-invalid/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/late-invalid/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 91,
+      "sha256": "521dca1c37a6c9f9c426c51f4c0568ab46694a4dee8bc28b172be10de435d9b5",
+      "git_blob": "fe7becdecc7834475a9e531b7fec974c5f1720aa"
+    },
+    {
+      "path": "candidate-first/cases/late-invalid/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/late-invalid/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/malformed-ledger/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/malformed-ledger/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 9,
+      "sha256": "aa240a0ccab83012343d3c5968854e2015e18ba9061a9dff49e2b115ce86f98a",
+      "git_blob": "2df2499e368b0c121392f709429bb1a8953b373c"
+    },
+    {
+      "path": "candidate-first/cases/malformed-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/malformed-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/malformed-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/malformed-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 64,
+      "sha256": "9a5c7a67a96d6d3a986ca2dc3f3aa9e58ef589f7fba535656fa37fb2931d25d6",
+      "git_blob": "de79a6f75fcdbc462b6948b3b31884b6e9b4add7"
+    },
+    {
+      "path": "candidate-first/cases/malformed-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/malformed-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/missing-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/missing-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/missing-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/missing-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 161,
+      "sha256": "e7081355f5ff883461d9a798622ed0c510d2860b0f83fa288fd9ff53120c4be2",
+      "git_blob": "1ca90996fe4d589514c9568e64068782d1d18b0c"
+    },
+    {
+      "path": "candidate-first/cases/missing-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/missing-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/missing-parent/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/missing-parent/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/missing-parent/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/missing-parent/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/missing-parent/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/missing-parent/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 156,
+      "sha256": "ac68608e171746c5b93b641e9b3960058323bce6206071c192dc9e9cbb0e4d06",
+      "git_blob": "abea21bda5d716d483d825f5c165025b452ecc5c"
+    },
+    {
+      "path": "candidate-first/cases/missing-parent/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/missing-parent/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/multi/html-parser.stderr",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/multi/html-parser.stderr",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/multi/html-parser.stdout",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/multi/html-parser.stdout",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 20723,
+      "sha256": "19c0e1da6df9cf5089d6d240a11f9d7164011000a91793d8f9753baf1e9ff3ac",
+      "git_blob": "a140dcef95ebb88238ab8454928ef3468ee5ab8c"
+    },
+    {
+      "path": "candidate-first/cases/multi/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/multi/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/multi/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/multi/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/multi/report.html",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/multi/report.html",
+      "filesystem_mode": 384,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 12948,
+      "sha256": "4643144441fc963b93b6822f8f409c97be36753a6b5e47f584ae87707f134503",
+      "git_blob": "0ad8d62f51c756a3ea787d99a2e11b292f631a3b"
+    },
+    {
+      "path": "candidate-first/cases/multi/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/multi/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/multi/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/multi/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 110,
+      "sha256": "0cdc41c52874c13decc792fd0976ffdea91ce742883c1e5fba6d1b0667b44e47",
+      "git_blob": "7226ea9ae76a1d9d994394c99628671e6d056715"
+    },
+    {
+      "path": "candidate-first/cases/outside-month/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/outside-month/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/outside-month/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/outside-month/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 424,
+      "sha256": "112165718a747bbc82901a386284fcc05940341b3428c0932fe5be4aed6f2c0b",
+      "git_blob": "4fc5d366bf4bf28b99caf7902fe4b7df627939bc"
+    },
+    {
+      "path": "candidate-first/cases/outside-month/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/outside-month/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 68,
+      "sha256": "8235d8142e879588c2afb811d7468e8b9f2784f4df2d74b78e9ab0d674dd9a13",
+      "git_blob": "b076c3eed31faf2d902a943c30e0e54577786060"
+    },
+    {
+      "path": "candidate-first/cases/outside-month/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/outside-month/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/receipt.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/receipt.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 75872,
+      "sha256": "ae7ee25bf3b7c65af13d1affdbfae3e1bf0df840ec8bee40742c11dadab43ab2",
+      "git_blob": "d49356f31c2224b2a36e79a0749f3c5f69eae89d"
+    },
+    {
+      "path": "candidate-first/cases/recording-key/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/recording-key/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/recording-key/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/recording-key/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 456,
+      "sha256": "c14c252b6b16268eb6886bc49feeb65ba044c0035a74845c537d4bf63db7b02b",
+      "git_blob": "99454b9479100e1bb27e2749dcb8dbd4a4443473"
+    },
+    {
+      "path": "candidate-first/cases/recording-key/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/recording-key/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 68,
+      "sha256": "b8f0e6f38faf91175e62642fd28c6f99aec71acdcc3383e4992d142ae3c79a08",
+      "git_blob": "bd71b93191b6acfa07bd1cc51571fb9fc67980d3"
+    },
+    {
+      "path": "candidate-first/cases/recording-key/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/recording-key/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/replaced-plan/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/replaced-plan/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/replaced-plan/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/replaced-plan/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/replaced-plan/seam.jsonl",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/replaced-plan/seam.jsonl",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 970,
+      "sha256": "d803215970e8dbb81af7aa02898eba7a558dc65f16b00caa3d0ca7ffc5f36f2b",
+      "git_blob": "ff05d7412287fd4d2c4817ffc64cf327e9af3e9a"
+    },
+    {
+      "path": "candidate-first/cases/replaced-plan/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/replaced-plan/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 106,
+      "sha256": "921db4309546e78dfd273021de83c77883a87dda2bdc28936239012d1befb28d",
+      "git_blob": "119d1cfe9f137660e4a3ad66269885c637602fed"
+    },
+    {
+      "path": "candidate-first/cases/replaced-plan/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/replaced-plan/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/same-ledger/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/same-ledger/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/same-ledger/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/same-ledger/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/same-ledger/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/same-ledger/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 293,
+      "sha256": "96cfcc1f6abae41dd572a78e0e0cb983931b48fbc71b091177af10f7c99a5158",
+      "git_blob": "d0b27a96bbd921edc96e13730c82da8140c632fa"
+    },
+    {
+      "path": "candidate-first/cases/same-ledger/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/same-ledger/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/same-plan/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/same-plan/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/same-plan/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/same-plan/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/same-plan/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/same-plan/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 285,
+      "sha256": "b58f1725331a4bb78aeaa51ea3d0ed154083fe413a393fbdfbf242842da6ff71",
+      "git_blob": "9f84b09c78e8af0906459568ee31493cb8403a3b"
+    },
+    {
+      "path": "candidate-first/cases/same-plan/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/same-plan/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/cases/symlink-plan/ledger.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/symlink-plan/ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "candidate-first/cases/symlink-plan/plan.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/symlink-plan/plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "candidate-first/cases/symlink-plan/report.html",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/symlink-plan/report.html",
+      "filesystem_mode": 511,
+      "type": "symlink-metadata",
+      "target": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/symlink-plan/plan.json"
+    },
+    {
+      "path": "candidate-first/cases/symlink-plan/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/symlink-plan/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 295,
+      "sha256": "30ad856b4b2e1960001fbb38d0ff4f672c93507ccb35f59d1930a1e26abe5462",
+      "git_blob": "784f4c95f743e736a3d855af6067e6c05160e822"
+    },
+    {
+      "path": "candidate-first/cases/symlink-plan/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/symlink-plan/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/handoff.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/handoff.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 4386,
+      "sha256": "926e8d3671c336bdfd3b49aafdab0e7768627a8b7ff350f1a95d2755afddcba4",
+      "git_blob": "5b849fe24b83cc394577f4c763bb97edfd7e9de6"
+    },
+    {
+      "path": "candidate-first/process-final.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/process-final.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1325,
+      "sha256": "885d8b00ff3057e58341a99bc04d938b0e3359a8442ab000b953a5fd341d5780",
+      "git_blob": "4c80d996bca69d6db95f31493a3dc2f19080dc35"
+    },
+    {
+      "path": "candidate-first/process-start.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/process-start.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 831,
+      "sha256": "a0038a44047e8a23e43f0b5cc9728e8372c213a37abc4ea9d166f07acc22a5f3",
+      "git_blob": "22f6e8aae71064db38f7c3749d068b8ff3003511"
+    },
+    {
+      "path": "candidate-first/receiver-manifest-original.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/receiver-manifest-original.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 7560,
+      "sha256": "a63171ad09971b515b48849558c5d2ff606fb9e2a3ec889636f101aebc9c45c8",
+      "git_blob": "5b96e3288435b6c87dd550f712a06d3d11fb319a"
+    },
+    {
+      "path": "candidate-first/source-after.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/source-after.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 13756,
+      "sha256": "48e361100df851311cbd0bf01c8806a5e553fbfc0263a4da28f0207ef6e7e839",
+      "git_blob": "740bddf432be2874fb5cf8b7b4353ea40118e156"
+    },
+    {
+      "path": "candidate-first/source-before.json",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/source-before.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 13756,
+      "sha256": "48e361100df851311cbd0bf01c8806a5e553fbfc0263a4da28f0207ef6e7e839",
+      "git_blob": "740bddf432be2874fb5cf8b7b4353ea40118e156"
+    },
+    {
+      "path": "candidate-first/stderr.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/stderr.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "candidate-first/stdout.log",
+      "native_path": "/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/stdout.log",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 164,
+      "sha256": "bab90d2265c7250174a71c63be1f6526c200a8a7939f02771261ebdb1c7029af",
+      "git_blob": "e2174efe8a9d392a314de096649667e41bd6b2e7"
+    },
+    {
+      "path": "empty-successor/README.md",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/README.md",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2496,
+      "sha256": "4074a2ba92a8f372a3534dcf4189a3f471777dba03cde2e560aaffda8af0a519",
+      "git_blob": "585f3d20eb5e6de462b7b0864effb314219a5206"
+    },
+    {
+      "path": "empty-successor/ROOT.txt",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/ROOT.txt",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 51,
+      "sha256": "1e0ecb37f5da622e426e49373d1c2161bd2a02441f7327c2cd4d99cce374c37e",
+      "git_blob": "cd58dd29f6b438baa7317a659b579a1ebd183174"
+    },
+    {
+      "path": "empty-successor/baseline-pre-execution-freeze.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/baseline-pre-execution-freeze.json",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 834,
+      "sha256": "c8672c73a007441a2ce4182371b4a896f51596f01bf6d62e082ace85264148ac",
+      "git_blob": "5fce49759eec19dbe92805c8ceedc4979c84ac9f"
+    },
+    {
+      "path": "empty-successor/baseline-public-contract-v1.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/baseline-public-contract-v1.json",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1611,
+      "sha256": "3f8a35355380cf9252641a3c6de0e2c133fb32d5c1745524dfc46a2453207f7c",
+      "git_blob": "ac141bd82e75091b947462e61df5c87391a34387"
+    },
+    {
+      "path": "empty-successor/baseline-scope-v1.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/baseline-scope-v1.json",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2806,
+      "sha256": "b7005a7168f76fdf2644daea73e422b9a514f3bbea6610220b9f8960e3209951",
+      "git_blob": "9c3393c15dfab136eb0f1f5b3173e8bbac45fa15"
+    },
+    {
+      "path": "empty-successor/contract-correction-v2.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/contract-correction-v2.json",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1655,
+      "sha256": "a5f0c4ef88b44f8f50e8e6d11792dd0add8f2e263df25b6e6c679558e2ec9aa4",
+      "git_blob": "ca3d6f7b0bc0d6977c3fb0182178ff0b4ab7ac97"
+    },
+    {
+      "path": "empty-successor/empty-state-only.patch",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/empty-state-only.patch",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 3289,
+      "sha256": "c8a9bc51619a0c27e03426be795e473a0854fc44f6832c683078662c8b19a50d",
+      "git_blob": "13adb557ddc9c8b363544c03ad421817ca93d16b"
+    },
+    {
+      "path": "empty-successor/expected-v1.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/expected-v1.json",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 8842,
+      "sha256": "6208a3eab951d022eb9a973bf35fb4e6d293a849d373f34888d35537d7935289",
+      "git_blob": "1e824aae2c57235fa4e2e60d791cafb91f7613d2"
+    },
+    {
+      "path": "empty-successor/issue14-primary.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/issue14-primary.json",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 9104,
+      "sha256": "0e4343d5ba6c238d49cefb6068902e3571f9fc822b55483d01493f5f9534b2a1",
+      "git_blob": "c724347ca25b8e238614d6c0175400fac8b2f082"
+    },
+    {
+      "path": "empty-successor/mutation-seam-v1.mjs",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/mutation-seam-v1.mjs",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2480,
+      "sha256": "fa762f70f683b5b96daefad9f1c1f6a0f9531c94d216bbba8c0902dcfe74a9a4",
+      "git_blob": "2e8d6a7825274def7cac40b8265b86b608eb1293"
+    },
+    {
+      "path": "empty-successor/mutation-seam-v1.mjs.syntax.stderr",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/mutation-seam-v1.mjs.syntax.stderr",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "empty-successor/mutation-seam-v1.mjs.syntax.stdout",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/mutation-seam-v1.mjs.syntax.stdout",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "empty-successor/original-ledger.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/original-ledger.json",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "empty-successor/original-plan.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/original-plan.json",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "empty-successor/parse-report.py",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/parse-report.py",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1161,
+      "sha256": "ee85293f08994f2657b93883a08483e1a24f76234a81560d874bd7e0deeb2540",
+      "git_blob": "2fc43b7066b95972be66c20ba495dd3749682c16"
+    },
+    {
+      "path": "empty-successor/predecessor-manifest.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/predecessor-manifest.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 7560,
+      "sha256": "a63171ad09971b515b48849558c5d2ff606fb9e2a3ec889636f101aebc9c45c8",
+      "git_blob": "5b96e3288435b6c87dd550f712a06d3d11fb319a"
+    },
+    {
+      "path": "empty-successor/preservation-proof.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/preservation-proof.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2582,
+      "sha256": "48e0ac5615fcc95247b7047da2c0bacd8e05612f5af90adc3f8ebc95566694b9",
+      "git_blob": "aeb5a26be68f89fd2b8e825ad4c306b90752fd2f"
+    },
+    {
+      "path": "empty-successor/receive-cli-v2.mjs",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/receive-cli-v2.mjs",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 8469,
+      "sha256": "5d856bc526b865df83958a8286e92c1c4313da66a962ab9131d6443479773825",
+      "git_blob": "ae0cb027c0f92700fd6b252b4cec951688e37e21"
+    },
+    {
+      "path": "empty-successor/receive-cli-v2.mjs.syntax.stderr",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/receive-cli-v2.mjs.syntax.stderr",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "empty-successor/receive-cli-v2.mjs.syntax.stdout",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/receive-cli-v2.mjs.syntax.stdout",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "empty-successor/semantic-oracle-v1.mjs",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/semantic-oracle-v1.mjs",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 4686,
+      "sha256": "a3b0200b2bed3c4ae645ddd3aa47a52327fd804f7143f6de3e238ad4f4cf0e6d",
+      "git_blob": "960ba6bf4a4519397088ace1f11587e01df9b1f1"
+    },
+    {
+      "path": "empty-successor/semantic-oracle-v1.mjs.syntax.stderr",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/semantic-oracle-v1.mjs.syntax.stderr",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "empty-successor/semantic-oracle-v1.mjs.syntax.stdout",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/semantic-oracle-v1.mjs.syntax.stdout",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "empty-successor/successor-syntax.stderr",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/successor-syntax.stderr",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "empty-successor/successor-syntax.stdout",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/successor-syntax.stdout",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "empty-successor/syntax-receipt.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh/syntax-receipt.json",
+      "filesystem_mode": 420,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1739,
+      "sha256": "fc89258862b7271fef3dc946a972b795ae6ba21a73d35786fc6e66ce27d550d4",
+      "git_blob": "15a8f5cc65b719ea929eb418890416476e53b75b"
+    },
+    {
+      "path": "external-manifests/candidate-manifest.json",
+      "native_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/candidate-manifest.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 8002,
+      "sha256": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad",
+      "git_blob": "ccf02fc8ea2e269f9ccd0ef6e99ffca644656b8c"
+    },
+    {
+      "path": "external-manifests/household-cli-empty-successor-cf5799f6d38b-fs109byh-manifest.json",
+      "native_path": "/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh-manifest.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 9235,
+      "sha256": "b84cbc53a67199f906848db66027c15cf558e0d0eadda3b37b5431a23db0a528",
+      "git_blob": "462838baa6cdcc6f01722d468e15f8fdf404801e"
+    },
+    {
+      "path": "external-manifests/household-plan-cli-peer-cf5799f6d38b-1qutw3k0-manifest.json",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0-manifest.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 7560,
+      "sha256": "a63171ad09971b515b48849558c5d2ff606fb9e2a3ec889636f101aebc9c45c8",
+      "git_blob": "5b96e3288435b6c87dd550f712a06d3d11fb319a"
+    },
+    {
+      "path": "external-manifests/household-plan-peer-cf5799f6d38b-vhmasgs3-manifest.json",
+      "native_path": "/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3-manifest.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 12642,
+      "sha256": "82e8b312d7f05fc9f21a40b98d6430c9c19c3bea696c371289872d9548589b0d",
+      "git_blob": "93b7fea67e981b57295e5d86a917b92dbbb826dc"
+    },
+    {
+      "path": "prepared-cli/README.md",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/README.md",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2496,
+      "sha256": "4074a2ba92a8f372a3534dcf4189a3f471777dba03cde2e560aaffda8af0a519",
+      "git_blob": "585f3d20eb5e6de462b7b0864effb314219a5206"
+    },
+    {
+      "path": "prepared-cli/ROOT.txt",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/ROOT.txt",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 51,
+      "sha256": "1e0ecb37f5da622e426e49373d1c2161bd2a02441f7327c2cd4d99cce374c37e",
+      "git_blob": "cd58dd29f6b438baa7317a659b579a1ebd183174"
+    },
+    {
+      "path": "prepared-cli/baseline-pre-execution-freeze.json",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/baseline-pre-execution-freeze.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 834,
+      "sha256": "c8672c73a007441a2ce4182371b4a896f51596f01bf6d62e082ace85264148ac",
+      "git_blob": "5fce49759eec19dbe92805c8ceedc4979c84ac9f"
+    },
+    {
+      "path": "prepared-cli/baseline-public-contract-v1.json",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/baseline-public-contract-v1.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1611,
+      "sha256": "3f8a35355380cf9252641a3c6de0e2c133fb32d5c1745524dfc46a2453207f7c",
+      "git_blob": "ac141bd82e75091b947462e61df5c87391a34387"
+    },
+    {
+      "path": "prepared-cli/baseline-scope-v1.json",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/baseline-scope-v1.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2806,
+      "sha256": "b7005a7168f76fdf2644daea73e422b9a514f3bbea6610220b9f8960e3209951",
+      "git_blob": "9c3393c15dfab136eb0f1f5b3173e8bbac45fa15"
+    },
+    {
+      "path": "prepared-cli/contract-correction-v2.json",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/contract-correction-v2.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1655,
+      "sha256": "a5f0c4ef88b44f8f50e8e6d11792dd0add8f2e263df25b6e6c679558e2ec9aa4",
+      "git_blob": "ca3d6f7b0bc0d6977c3fb0182178ff0b4ab7ac97"
+    },
+    {
+      "path": "prepared-cli/expected-v1.json",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/expected-v1.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 8842,
+      "sha256": "6208a3eab951d022eb9a973bf35fb4e6d293a849d373f34888d35537d7935289",
+      "git_blob": "1e824aae2c57235fa4e2e60d791cafb91f7613d2"
+    },
+    {
+      "path": "prepared-cli/issue14-primary.json",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/issue14-primary.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 9104,
+      "sha256": "0e4343d5ba6c238d49cefb6068902e3571f9fc822b55483d01493f5f9534b2a1",
+      "git_blob": "c724347ca25b8e238614d6c0175400fac8b2f082"
+    },
+    {
+      "path": "prepared-cli/mutation-seam-v1.mjs",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/mutation-seam-v1.mjs",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2480,
+      "sha256": "fa762f70f683b5b96daefad9f1c1f6a0f9531c94d216bbba8c0902dcfe74a9a4",
+      "git_blob": "2e8d6a7825274def7cac40b8265b86b608eb1293"
+    },
+    {
+      "path": "prepared-cli/mutation-seam-v1.mjs.syntax.stderr",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/mutation-seam-v1.mjs.syntax.stderr",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "prepared-cli/mutation-seam-v1.mjs.syntax.stdout",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/mutation-seam-v1.mjs.syntax.stdout",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "prepared-cli/original-ledger.json",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/original-ledger.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 2694,
+      "sha256": "e5ebc0c855021a545dd5672de358ef552c394f73d151f356a5e0ed41c75cc4e7",
+      "git_blob": "986115c779204320d275cf043f26e1e092430540"
+    },
+    {
+      "path": "prepared-cli/original-plan.json",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/original-plan.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 623,
+      "sha256": "2add8786f3d473a806cea8bab95cee05764eb52c627c5ac5f9ecc5058a34b382",
+      "git_blob": "fea4a3c0a92df6a465e58e04ccdd3dc1c490297c"
+    },
+    {
+      "path": "prepared-cli/parse-report.py",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/parse-report.py",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1161,
+      "sha256": "ee85293f08994f2657b93883a08483e1a24f76234a81560d874bd7e0deeb2540",
+      "git_blob": "2fc43b7066b95972be66c20ba495dd3749682c16"
+    },
+    {
+      "path": "prepared-cli/receive-cli-v2.mjs",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/receive-cli-v2.mjs",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 8469,
+      "sha256": "5d856bc526b865df83958a8286e92c1c4313da66a962ab9131d6443479773825",
+      "git_blob": "ae0cb027c0f92700fd6b252b4cec951688e37e21"
+    },
+    {
+      "path": "prepared-cli/receive-cli-v2.mjs.syntax.stderr",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/receive-cli-v2.mjs.syntax.stderr",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "prepared-cli/receive-cli-v2.mjs.syntax.stdout",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/receive-cli-v2.mjs.syntax.stdout",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "prepared-cli/semantic-oracle-v1.mjs",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/semantic-oracle-v1.mjs",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 4346,
+      "sha256": "6583e3150a9e0624a34148e22e5445c6af03c4d5459f5d175c32d8b9bbf99390",
+      "git_blob": "9d78a50a5e0a500ef9c737f166b6519356f7cde6"
+    },
+    {
+      "path": "prepared-cli/semantic-oracle-v1.mjs.syntax.stderr",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/semantic-oracle-v1.mjs.syntax.stderr",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "prepared-cli/semantic-oracle-v1.mjs.syntax.stdout",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/semantic-oracle-v1.mjs.syntax.stdout",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "prepared-cli/syntax-receipt.json",
+      "native_path": "/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0/syntax-receipt.json",
+      "filesystem_mode": 436,
+      "type": "file",
+      "mode": "100644",
+      "bytes": 1739,
+      "sha256": "fc89258862b7271fef3dc946a972b795ae6ba21a73d35786fc6e66ce27d550d4",
+      "git_blob": "15a8f5cc65b719ea929eb418890416476e53b75b"
+    }
+  ],
+  "baseline": {
+    "controls": 58,
+    "groups": 5,
+    "exit": 0
+  },
+  "first_cli": {
+    "passed": 18,
+    "total": 19,
+    "exit": 1,
+    "failure": "receiver assumed empty expense table"
+  },
+  "corrected_cli": {
+    "passed": 19,
+    "total": 19,
+    "ordinary": 16,
+    "supplemental": 3,
+    "exit": 0
+  },
+  "new_product_or_browser_tests": false,
+  "packaging_transport_observation": {
+    "inventory": "MCP -32603 timeout; no PID/output; read-only, no test/write",
+    "pending_proof_read": "48 lines returned successfully before root released assembly"
+  },
+  "created_utc": "2026-10-09T00:19:17.858199+00:00"
+}

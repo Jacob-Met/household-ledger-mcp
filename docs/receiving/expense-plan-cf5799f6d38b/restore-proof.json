@@ -1,0 +1,15 @@
+{
+  "schema": "actual-record-restoration/1",
+  "command": [
+    "/usr/bin/python3",
+    "restore-records.py.txt",
+    "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/author-restored-final-proof"
+  ],
+  "returncode": 0,
+  "stdout": "{\"restored\": 57, \"unique_streams\": 45, \"root\": \"/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/author-restored-final-proof\"}\n",
+  "stderr": "",
+  "files_verified": 57,
+  "all_bytes_and_modes_exact": true,
+  "record_manifest_sha256": "ede7fee292719cb8c7822541e5d8840fdb907a14af5db5ef9b8cc4a497f53810",
+  "product_tests_rerun": false
+}

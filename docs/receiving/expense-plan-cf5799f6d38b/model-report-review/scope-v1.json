@@ -1,0 +1,209 @@
+{
+  "schema": "household.expense-plan.independent-scope.v1",
+  "role": "Independent model/report/guide receiving after candidate source review; not a blind pre-candidate review",
+  "candidate_manifest_sha256": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad",
+  "candidate_tree": "4da046012fb5b0007005204d624dc8b495e79c1c",
+  "matrix": {
+    "ledger": {
+      "version": 2,
+      "transactions": [
+        {
+          "id": "prior-id-pay",
+          "type": "income",
+          "amountMinor": 2000,
+          "category": "pay",
+          "currency": "USD",
+          "date": "2026-10-01",
+          "note": "PRIOR-PRIVATE-NOTE"
+        },
+        {
+          "id": "prior-id-food",
+          "type": "expense",
+          "amountMinor": 80,
+          "category": "food",
+          "currency": "USD",
+          "date": "2026-10-01",
+          "note": "PRIOR-PRIVATE-NOTE"
+        },
+        {
+          "id": "prior-id-space",
+          "type": "expense",
+          "amountMinor": 20,
+          "category": " food ",
+          "currency": "USD",
+          "date": "2026-10-01",
+          "note": "PRIOR-PRIVATE-NOTE"
+        },
+        {
+          "id": "prior-id-foreign",
+          "type": "expense",
+          "amountMinor": 500,
+          "category": "euro",
+          "currency": "EUR",
+          "date": "2026-10-01",
+          "note": "PRIOR-PRIVATE-NOTE"
+        },
+        {
+          "id": "prior-id-old",
+          "type": "expense",
+          "amountMinor": 700,
+          "category": "prior-month",
+          "currency": "USD",
+          "date": "2026-09-01",
+          "note": "PRIOR-PRIVATE-NOTE"
+        }
+      ],
+      "budgets": [
+        {
+          "category": "food",
+          "month": "2026-10",
+          "limitMinor": 100,
+          "currency": "USD"
+        },
+        {
+          "category": "zero",
+          "month": "2026-10",
+          "limitMinor": 0,
+          "currency": "USD"
+        },
+        {
+          "category": "budget-only",
+          "month": "2026-10",
+          "limitMinor": 0,
+          "currency": "USD"
+        },
+        {
+          "category": "euro",
+          "month": "2026-10",
+          "limitMinor": 1000,
+          "currency": "EUR"
+        }
+      ]
+    },
+    "plan": {
+      "schema": "household-expense-plan/1",
+      "expenses": [
+        {
+          "date": "2026-10-20",
+          "category": " food ",
+          "amountMinor": 10,
+          "note": "First occurrence"
+        },
+        {
+          "date": "2026-10-20",
+          "category": "food",
+          "amountMinor": 11,
+          "note": "Second occurrence"
+        },
+        {
+          "date": "2026-10-21",
+          "category": "zero",
+          "amountMinor": 1
+        },
+        {
+          "date": "2026-10-22",
+          "category": "unbudgeted",
+          "amountMinor": 7
+        }
+      ]
+    }
+  },
+  "legacy": {
+    "ledger": {
+      "version": 1,
+      "transactions": [
+        {
+          "id": "prior-id-legacy",
+          "type": "expense",
+          "amountMinor": 100,
+          "category": "food",
+          "currency": "USD",
+          "date": "2026-10-01",
+          "note": "PRIOR-PRIVATE-NOTE"
+        }
+      ],
+      "budgets": [
+        {
+          "category": "food",
+          "month": "2026-10",
+          "limitMinor": 100
+        },
+        {
+          "category": "food",
+          "month": "2026-10",
+          "limitMinor": 150
+        }
+      ]
+    },
+    "plan": {
+      "schema": "household-expense-plan/1",
+      "expenses": [
+        {
+          "date": "2026-10-01",
+          "category": "food",
+          "amountMinor": 1
+        }
+      ]
+    }
+  },
+  "literals": [
+    {
+      "present": true,
+      "value": "\nleading LF\n"
+    },
+    {
+      "present": true,
+      "value": "\rleading CR\r"
+    },
+    {
+      "present": true,
+      "value": "CRLF\r\nmiddle\nLF\rCR"
+    },
+    {
+      "present": true,
+      "value": "<em data-peer-literal=\"yes\">literal</em> & \"quotes\" 'apostrophe'"
+    },
+    {
+      "present": true,
+      "value": "NUL\u0000tail"
+    },
+    {
+      "present": true,
+      "value": "literal \\u0000 text"
+    },
+    {
+      "present": true,
+      "value": "paired astral \ud83d\udca7 and e\u0301 versus \u00e9"
+    },
+    {
+      "present": true,
+      "value": "unpaired \ud800 high"
+    },
+    {
+      "present": true,
+      "value": "unpaired \udfff low"
+    },
+    {
+      "present": true,
+      "value": ""
+    },
+    {
+      "present": false
+    }
+  ],
+  "browser_contract": {
+    "groups": [
+      "Literal note text or visibly labeled reversible JSON notation; exact inert inspection record; no executable script or external resources; no storage/network",
+      "Financial matrix, retained legacy occurrences, no-budget/zero-budget/equality crossings, empty and maximum values; desktop and390px viewport with table scroll containment"
+    ],
+    "launch_ms": 30000,
+    "outer_seconds": 180,
+    "browser": "existing /snap/bin/chromium",
+    "flags": [
+      "--disk-cache-size=1048576",
+      "--disable-background-networking"
+    ],
+    "temp": "private home TMPDIR/TMP/TEMP",
+    "no_browser_yet": true
+  }
+}

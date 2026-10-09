@@ -1,0 +1,40 @@
+"""Restore the declared exact receiving records into a new directory."""
+import base64
+import gzip
+import hashlib
+import json
+import os
+import sys
+from pathlib import Path, PurePosixPath
+
+here = Path(__file__).resolve().parent
+if len(sys.argv) != 2:
+    raise SystemExit("Usage: python3 restore-records.py.txt NEW-DIRECTORY")
+manifest = json.loads((here / "records-manifest.json").read_text())
+packed = base64.b64decode((here / "records.json.gz.b64").read_bytes(), validate=False)
+if hashlib.sha256(packed).hexdigest() != manifest["gzip_sha256"]:
+    raise SystemExit("Compressed record hash mismatch")
+raw = gzip.decompress(packed)
+if len(raw) != manifest["raw_json_bytes"] or hashlib.sha256(raw).hexdigest() != manifest["raw_json_sha256"]:
+    raise SystemExit("Record document hash mismatch")
+record = json.loads(raw)
+if record["schema"] != "sha256-deduplicated-records/1" or record["files"] != manifest["files"]:
+    raise SystemExit("Record manifest mismatch")
+root = Path(sys.argv[1]).absolute()
+root.mkdir(mode=0o700)
+seen = set()
+for row in record["files"]:
+    relative = PurePosixPath(row["path"])
+    if relative.is_absolute() or ".." in relative.parts or not relative.parts or row["path"] in seen:
+        raise SystemExit("Unsafe or repeated record path")
+    seen.add(row["path"])
+    content = base64.b64decode(record["streams"][row["sha256"]], validate=True)
+    blob = hashlib.sha1(b"blob " + str(len(content)).encode() + b"\0" + content).hexdigest()
+    if len(content) != row["bytes"] or hashlib.sha256(content).hexdigest() != row["sha256"] or blob != row["git_blob"]:
+        raise SystemExit("Record content mismatch: " + row["path"])
+    destination = root.joinpath(*relative.parts)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with destination.open("xb") as handle:
+        handle.write(content)
+    os.chmod(destination, row["mode"])
+print(json.dumps({"restored": len(seen), "unique_streams": len(record["streams"]), "root": str(root)}))

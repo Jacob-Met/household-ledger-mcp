@@ -1,0 +1,77 @@
+import pathlib,json,hashlib,os,stat,subprocess,signal,time,datetime,sys
+root=pathlib.Path("/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3")
+owner=pathlib.Path('/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl')
+manifest_raw=(owner/'candidate-manifest.json').read_bytes()
+assert hashlib.sha256(manifest_raw).hexdigest()=='acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad'
+manifest=json.loads(manifest_raw);source=pathlib.Path(manifest['source_dir'])
+script=root/'browser-receive-v3.mjs';out=root/'browser-v3';temp=root/'runtime-tmp-v3'
+assert script.is_file() and not out.exists() and not temp.exists(),'Fresh paths required; do not replay'
+freeze=json.loads((root/'browser-freeze-v3.json').read_text())
+expected=next(r['sha256'] for r in freeze['files'] if r.get('path')==script.name)
+assert hashlib.sha256(script.read_bytes()).hexdigest()==expected
+def pin(p):
+ b=p.read_bytes();return {'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'mode':oct(stat.S_IMODE(p.lstat().st_mode))}
+def inputs():
+ rows=[]
+ for row in manifest['files']:
+  p=source/row['path'];r=pin(p)
+  assert r['bytes']==row['bytes'] and r['sha256']==row['sha256'],str(p)
+  rows.append(r)
+ for dirname in ['src','compiled','inputs','reports','estate-cli']:
+  rows.extend(pin(p) for p in sorted((root/dirname).rglob('*')) if p.is_file())
+ for name in ['scope-and-fixtures-v1.json','native-receive-v1.mjs','native-result.json','field-report-v1.mjs','field-literals-expected.json','browser-receive-v1.mjs','browser-receive-v3.mjs','browser-freeze-v1.json','browser-freeze-v3.json','estate-cli-expected.json']:
+  rows.append(pin(root/name))
+ return rows
+profile=out/'browser-profile'
+def custody():
+ rows=[]
+ for p in pathlib.Path('/proc').iterdir():
+  if not p.name.isdigit() or int(p.name)==os.getpid():continue
+  try:
+   raw=(p/'cmdline').read_bytes();parts=raw.split(b'\0')
+   if any(str(script).encode()==v or (b'--user-data-dir='+str(profile).encode())==v for v in parts):
+    rows.append({'pid':int(p.name),'executable':os.path.basename(os.fsdecode(parts[0])),'bound_to':'receiver or exact private profile'})
+  except (OSError,PermissionError):pass
+ return rows
+assert custody()==[],'An owned browser or receiver is already active'
+v=os.statvfs(root);free=v.f_bavail*v.f_frsize
+assert free>100*1024*1024,'Insufficient headroom for a bounded browser run'
+before=inputs();temp.mkdir()
+env=os.environ.copy();env.update({k:str(temp) for k in ['TMPDIR','TMP','TEMP']})
+receipt={'schema':'household.model-peer.browser-process.v3','startedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'free_before':free,'source_tree':'4da046012fb5b0007005204d624dc8b495e79c1c','runtime_scope':'existing Node22/Puppeteer/Snap; no installs','inputs_before':before,'limits':{'launch_ms':30000,'outer_seconds':180,'terminate_grace_seconds':5},'environment':{k:env[k] for k in ['TMPDIR','TMP','TEMP']},'receiver_sha256':expected,'command':['node',str(script)]}
+(root/'browser-v3.process-start.json').write_text(json.dumps(receipt,indent=2)+'\n')
+with (root/'browser-v3.stdout.log').open('xb') as stdout,(root/'browser-v3.stderr.log').open('xb') as stderr:
+ child=subprocess.Popen(['node',str(script)],cwd=root,env=env,stdout=stdout,stderr=stderr,start_new_session=True)
+ receipt['pid']=child.pid;receipt['pgid']=child.pid
+ (root/'browser-v3.process-start.json').write_text(json.dumps(receipt,indent=2)+'\n')
+ try:receipt['exit_code']=child.wait(timeout=180);receipt['timed_out']=False
+ except subprocess.TimeoutExpired:
+  receipt['timed_out']=True
+  try:os.killpg(child.pid,signal.SIGTERM)
+  except ProcessLookupError:pass
+  try:receipt['exit_code']=child.wait(timeout=5)
+  except subprocess.TimeoutExpired:
+   try:os.killpg(child.pid,signal.SIGKILL)
+   except ProcessLookupError:pass
+   receipt['exit_code']=child.wait(timeout=5)
+receipt['after_child_owned_processes']=custody()
+for row in receipt['after_child_owned_processes']:
+ try:os.kill(row['pid'],signal.SIGTERM)
+ except ProcessLookupError:pass
+deadline=time.monotonic()+5
+while custody() and time.monotonic()<deadline:time.sleep(.1)
+for row in custody():
+ try:os.kill(row['pid'],signal.SIGKILL)
+ except ProcessLookupError:pass
+deadline=time.monotonic()+5
+while custody() and time.monotonic()<deadline:time.sleep(.1)
+receipt['remaining_owned_processes']=custody()
+receipt['inputs_after']=inputs();receipt['inputs_unchanged']=receipt['inputs_after']==before
+assert receipt['inputs_unchanged']
+v=os.statvfs(root);receipt['free_after']=v.f_bavail*v.f_frsize
+receipt['outputs']=[pin(p) for p in [root/'browser-v3.stdout.log',root/'browser-v3.stderr.log',out/'result.json',out/'progress.json'] if p.is_file()]
+receipt['finishedAt']=datetime.datetime.now(datetime.timezone.utc).isoformat()
+(root/'browser-v3.process.json').write_text(json.dumps(receipt,indent=2)+'\n')
+print(json.dumps({k:v for k,v in receipt.items() if k not in ['inputs_before','inputs_after']},indent=2))
+assert receipt['remaining_owned_processes']==[]
+sys.exit(0 if receipt['exit_code']==0 and not receipt['timed_out'] else 1)

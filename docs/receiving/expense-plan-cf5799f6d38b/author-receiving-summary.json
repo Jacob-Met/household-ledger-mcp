@@ -1,0 +1,74 @@
+{
+  "source_manifest_sha256": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad",
+  "derived_tree": "4da046012fb5b0007005204d624dc8b495e79c1c",
+  "source28_unchanged": true,
+  "baseline43_unchanged": true,
+  "author_corpus28_unchanged_and_unexecuted": true,
+  "focused": {
+    "pass": 17,
+    "fail": 0,
+    "skip": 0
+  },
+  "normal_npm_test": {
+    "pass": 118,
+    "fail": 0,
+    "skip": 0,
+    "suites": 6
+  },
+  "maintained_actual_cli": {
+    "checks": 8,
+    "ok": true
+  },
+  "browser_received_by_author": false,
+  "independent_reviews": "pending",
+  "gates": [
+    {
+      "stage": "maintained",
+      "argv": [
+        "/usr/bin/node",
+        "tools/check-expense-plan.mjs",
+        "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/example"
+      ],
+      "cwd": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source",
+      "pid": 2829898,
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 5.010380029678345
+    },
+    {
+      "stage": "normal-suite",
+      "argv": [
+        "/usr/bin/npm",
+        "test"
+      ],
+      "cwd": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/source",
+      "pid": 2830579,
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 20.36029291152954
+    }
+  ],
+  "custody": {
+    "all28_source_files_unchanged": true,
+    "runtime_pins_unchanged": true,
+    "compiled": [
+      {
+        "path": "dist/src/ledger.js",
+        "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+        "matches": true
+      },
+      {
+        "path": "dist/src/expense-plan.js",
+        "sha256": "7a3b7e51cd0da316bf4bed6bdbca3c2290146d0bcbfad3945bc866c251000d42",
+        "matches": true
+      },
+      {
+        "path": "dist/src/household-plan.js",
+        "sha256": "f1b336d85e01d1dbf8613bb4148fa2e829e1fd7d3e3d0f52636d7e74efc3896c",
+        "matches": true
+      }
+    ],
+    "maintained_exit": 0,
+    "normal_suite_exit": 0
+  }
+}

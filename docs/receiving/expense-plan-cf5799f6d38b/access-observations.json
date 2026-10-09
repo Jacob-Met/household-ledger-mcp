@@ -1,0 +1,28 @@
+{
+  "schema": "tool-observed-access-summary/1",
+  "basis": "Explicit tool responses preserved in session; these summaries are not reconstructed raw process logs.",
+  "events": [
+    {
+      "event": "Source-construction JavaScript syntax error",
+      "effect": "Before any native write or process."
+    },
+    {
+      "event": "Guide write tool timeout",
+      "effect": "Subsequent read returned ENOENT; guide was then written successfully and qualified."
+    },
+    {
+      "event": "Earlier home evidence writes encountered ENOSPC",
+      "effect": "Original attempts remain untouched; exact captured primary README/comment bytes were later recovered and hash-verified."
+    },
+    {
+      "event": "Earlier capacity/discovery process request timed out without PID",
+      "effect": "Execution identity remained unknown; no blind redrive."
+    },
+    {
+      "event": "Final assembly write and process rejected because original cada device was offline",
+      "effect": "No PID; parent later established exact original device recovery. Read-only directory inventory confirmed assemble-held.py and final publication absent before this separate assembly."
+    }
+  ],
+  "product_source_changes": 0,
+  "product_gate_replays": 0
+}

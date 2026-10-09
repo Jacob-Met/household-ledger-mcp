@@ -1,0 +1,815 @@
+diff --git a/src/expense-plan.ts b/src/expense-plan.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..df3771addfd3659782182be7217a15cfb5c69e61
+--- /dev/null
++++ b/src/expense-plan.ts
+@@ -0,0 +1,176 @@
++import { createHash } from "node:crypto";
++import { monthlySummary, recordTransaction, validateLedgerData, validateMonth, ValidationError } from "./ledger.js";
++import type { MonthlySummary } from "./ledger.js";
++
++export const MAX_LEDGER_BYTES = 8 * 1024 * 1024;
++export const MAX_PLAN_BYTES = 1024 * 1024;
++export const MAX_EXPENSES = 500;
++export const MAX_CATEGORIES = 5000;
++export const MAX_REPORT_BYTES = 16 * 1024 * 1024;
++
++export interface PlannedExpense {
++  position: number; date: string; category: string; amountMinor: number; currency: string; note?: string;
++}
++export interface CategoryComparison {
++  category: string; recordedIncomeMinor: number; recordedExpenseMinor: number;
++  plannedExpenseMinor: number; hypotheticalIncomeMinor: number; hypotheticalExpenseMinor: number; budgetCount: number;
++}
++export interface BudgetComparison {
++  position: number; category: string; currency?: string; limitMinor: number;
++  recordedSpentMinor: number; recordedRemainingMinor: number; recordedOver: boolean;
++  hypotheticalSpentMinor: number; hypotheticalRemainingMinor: number; hypotheticalOver: boolean;
++}
++export interface ExpensePlanPreview {
++  schema: "household-expense-plan-preview/1"; month: string; currency: string;
++  expenses: PlannedExpense[]; plannedExpenseMinor: number; recorded: MonthlySummary; hypothetical: MonthlySummary;
++  categories: CategoryComparison[]; budgets: BudgetComparison[];
++}
++export interface SnapshotIdentity { path: string; bytes: number; sha256: string }
++export interface ReportIdentity { ledger: SnapshotIdentity; plan: SnapshotIdentity; generatedAt: string }
++
++function requireValue(condition: unknown, message: string): asserts condition {
++  if (!condition) throw new ValidationError(message);
++}
++function objectWithKeys(value: unknown, keys: string[], required: string[], label: string): Record<string, unknown> {
++  requireValue(typeof value === "object" && value !== null && !Array.isArray(value), `${label} must be an object`);
++  const obj = value as Record<string, unknown>;
++  requireValue(Object.keys(obj).every(key => keys.includes(key)), `${label} contains unsupported fields`);
++  requireValue(required.every(key => Object.hasOwn(obj, key)), `${label} is missing required fields`);
++  return obj;
++}
++function addMinor(a: number, b: number): number {
++  const result = a + b;
++  requireValue(Number.isSafeInteger(result), "planned expense total exceeds the safe integer range");
++  return result;
++}
++function ordered(a: string, b: string): number { return a < b ? -1 : a > b ? 1 : 0; }
++
++// Parse complete bounded UTF-8 JSON; source hashes retain original bytes, including a BOM.
++export function parseSnapshot(bytes: Uint8Array, maximum: number, label: string): unknown {
++  requireValue(bytes.byteLength > 0 && bytes.byteLength <= maximum, `${label} must contain 1..${maximum} bytes`);
++  let text: string;
++  try { text = new TextDecoder("utf-8", { fatal: true }).decode(bytes); }
++  catch { throw new ValidationError(`${label} must be complete UTF-8`); }
++  try { return JSON.parse(text); }
++  catch { throw new ValidationError(`${label} must contain complete JSON`); }
++}
++export function identifySnapshot(path: string, bytes: Uint8Array): SnapshotIdentity {
++  return { path, bytes: bytes.byteLength, sha256: createHash("sha256").update(bytes).digest("hex") };
++}
++
++// The recorded summary qualifies before planned rows can affect currency context.
++// Only detached native state is changed; no Store or persistent identity is returned.
++export function previewExpensePlan(ledger: unknown, input: unknown, month: unknown, currency: unknown): ExpensePlanPreview {
++  requireValue(typeof month === "string", "month is required");
++  validateMonth(month);
++  requireValue(typeof currency === "string", "currency is required");
++  const [year, monthNumber] = month.split("-").map(Number);
++  const recordedData = validateLedgerData(structuredClone(ledger));
++  const recorded = monthlySummary(recordedData, year, monthNumber, currency);
++  requireValue(recorded.currency !== null, "an explicit currency is required");
++  const selectedCurrency = recorded.currency;
++  const plan = objectWithKeys(input, ["schema", "expenses"], ["schema", "expenses"], "plan");
++  requireValue(plan.schema === "household-expense-plan/1", "plan schema must be household-expense-plan/1");
++  requireValue(Array.isArray(plan.expenses), "plan.expenses must be an array");
++  requireValue(plan.expenses.length <= MAX_EXPENSES, `plan may contain at most ${MAX_EXPENSES} expenses`);
++  const hypotheticalData = structuredClone(recordedData);
++  const expenses: PlannedExpense[] = [];
++  const plannedByCategory = new Map<string, number>();
++  let plannedExpenseMinor = 0;
++  for (const [index, raw] of plan.expenses.entries()) {
++    const item = objectWithKeys(raw, ["date", "category", "amountMinor", "note"], ["date", "category", "amountMinor"], `expense ${index + 1}`);
++    const native = recordTransaction(hypotheticalData, {
++      type: "expense", amountMinor: item.amountMinor as number, currency: selectedCurrency,
++      date: item.date as string, category: item.category as string,
++      ...(Object.hasOwn(item, "note") ? { note: item.note as string } : {}),
++    });
++    requireValue(native.date.startsWith(`${month}-`), `expense ${index + 1} date must be inside ${month}`);
++    const row: PlannedExpense = {
++      position: index + 1, date: native.date, category: native.category,
++      amountMinor: native.amountMinor, currency: native.currency,
++    };
++    if (native.note !== undefined) row.note = native.note;
++    expenses.push(row);
++    plannedExpenseMinor = addMinor(plannedExpenseMinor, row.amountMinor);
++    plannedByCategory.set(row.category, addMinor(plannedByCategory.get(row.category) ?? 0, row.amountMinor));
++  }
++  const hypothetical = monthlySummary(hypotheticalData, year, monthNumber, selectedCurrency);
++  const names = new Set([
++    ...Object.keys(recorded.byCategory), ...Object.keys(hypothetical.byCategory),
++    ...recorded.budgets.map(row => row.category),
++  ]);
++  requireValue(names.size <= MAX_CATEGORIES, `report may contain at most ${MAX_CATEGORIES} categories`);
++  const categories = [...names].sort(ordered).map(category => ({
++    category, recordedIncomeMinor: recorded.byCategory[category]?.incomeMinor ?? 0,
++    recordedExpenseMinor: recorded.byCategory[category]?.expenseMinor ?? 0,
++    plannedExpenseMinor: plannedByCategory.get(category) ?? 0,
++    hypotheticalIncomeMinor: hypothetical.byCategory[category]?.incomeMinor ?? 0,
++    hypotheticalExpenseMinor: hypothetical.byCategory[category]?.expenseMinor ?? 0,
++    budgetCount: recorded.budgets.filter(row => row.category === category).length,
++  }));
++  // Preserve every native budget occurrence, including repeated legacy rows.
++  const budgets = recorded.budgets.map((before, index): BudgetComparison => {
++    const after = hypothetical.budgets[index];
++    requireValue(after !== undefined && after.category === before.category &&
++      after.limitMinor === before.limitMinor && after.currency === before.currency,
++      "native budget correspondence changed");
++    return {
++      position: index + 1, category: before.category,
++      ...(before.currency !== undefined ? { currency: before.currency } : {}),
++      limitMinor: before.limitMinor,
++      recordedSpentMinor: before.spentMinor, recordedRemainingMinor: before.remainingMinor, recordedOver: before.over,
++      hypotheticalSpentMinor: after.spentMinor, hypotheticalRemainingMinor: after.remainingMinor, hypotheticalOver: after.over,
++    };
++  });
++  requireValue(hypothetical.budgets.length === budgets.length, "native budget count changed");
++  return { schema: "household-expense-plan-preview/1", month, currency: selectedCurrency,
++    expenses, plannedExpenseMinor, recorded, hypothetical, categories, budgets };
++}
++
++function escape(value: string): string {
++  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
++    .replace(/"/g, "&quot;").replace(/'/g, "&#39;").replace(/\r/g, "&#13;");
++}
++// A child span retains an initial LF; CR references survive HTML parser normalization.
++function literal(value: string): string {
++  const encoded = /\u0000|[\uD800-\uDFFF]/u.test(value);
++  const shown = encoded ? JSON.stringify(value) : value;
++  return `${encoded ? '<span class="notation">JSON string notation</span>' : ""}<pre class="literal"><span>${escape(shown)}</span></pre>`;
++}
++function status(over: boolean): string { return over ? "Over limit" : "Within limit"; }
++function snapshot(label: string, source: SnapshotIdentity): string {
++  return `<section class="source"><h3>${label}</h3>${literal(source.path)}<p>${source.bytes} captured bytes</p><p class="hash">SHA-256 ${escape(source.sha256)}</p></section>`;
++}
++export function renderExpensePlan(preview: ExpensePlanPreview, identity: ReportIdentity): string {
++  const categoryRows = preview.categories.map((row, index) => `<tr data-category-position="${index + 1}"><th scope="row">${literal(row.category)}</th><td>${row.recordedIncomeMinor}</td><td>${row.recordedExpenseMinor}</td><td>${row.plannedExpenseMinor}</td><td>${row.hypotheticalExpenseMinor}</td><td>${row.budgetCount === 0 ? "No budget in snapshot" : `${row.budgetCount} budget row${row.budgetCount === 1 ? "" : "s"}`}</td></tr>`).join("");
++  const budgetRows = preview.budgets.map(row => `<tr data-budget-position="${row.position}"><td>${row.position}</td><th scope="row">${literal(row.category)}</th><td>${row.currency === undefined ? "Legacy unassigned; qualified by recorded currency context" : escape(row.currency)}</td><td>${row.limitMinor}</td><td>${row.recordedSpentMinor}</td><td>${row.recordedRemainingMinor}</td><td>${status(row.recordedOver)}</td><td>${row.hypotheticalSpentMinor}</td><td>${row.hypotheticalRemainingMinor}</td><td>${status(row.hypotheticalOver)}</td></tr>`).join("");
++  const expenseRows = preview.expenses.map(row => `<tr data-expense-position="${row.position}"><td>${row.position}</td><td>${escape(row.date)}</td><th scope="row">${literal(row.category)}</th><td>${row.amountMinor}</td><td>${row.note === undefined ? '<span class="absent">No note supplied</span>' : literal(row.note)}</td></tr>`).join("");
++  const inspection = JSON.stringify({ ...preview, provenance: identity }).replace(/</g, "\\u003c");
++  const html = `<!doctype html>
++<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
++<title>Expense plan preview — ${escape(preview.month)}</title>
++<style>
++:root{font-family:system-ui,sans-serif;color:#192d31;background:#f2f5f3;line-height:1.55}*{box-sizing:border-box}body{margin:0}main{max-width:1180px;margin:auto;padding:clamp(18px,4vw,46px)}h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15}h2{margin-top:2rem}h3{font-size:1rem}.eyebrow{text-transform:uppercase;letter-spacing:.1em;color:#47675b;font-weight:700}.intro{max-width:75ch}.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:24px 0}.card{background:white;border:1px solid #cbd8d0;border-radius:12px;padding:18px}.card strong{display:block;font-size:1.65rem}.muted,.absent{color:#536668}.callout{border-left:4px solid #517c62;padding:10px 16px;background:#e2ece5}.table-wrap{overflow:auto;border:1px solid #cbd8d0;border-radius:8px;background:white;margin:14px 0}table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{padding:11px 13px;border-bottom:1px solid #dde5df;text-align:left;vertical-align:top}thead{background:#e7eee9}thead th{white-space:normal;min-width:90px}tbody th{font-weight:500;min-width:130px}.literal{font:inherit;margin:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;min-width:0}.notation{display:block;font-size:.78rem;color:#5b485a;font-weight:700}.hash{font-family:monospace;overflow-wrap:anywhere}.sources{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.source{min-width:0}.table-note{font-size:.9rem}footer{border-top:1px solid #bdcdc4;margin-top:2rem;padding-top:1rem;font-size:.9rem}
++@media print{:root{background:white;color:black}main{max-width:none;padding:0}.card,.table-wrap{border-radius:0}.table-wrap{overflow:visible}table{font-size:8pt;table-layout:fixed}th,td{padding:5px;overflow-wrap:anywhere}thead{display:table-header-group}tr{break-inside:avoid}h2,h3{break-after:avoid}.summary{grid-template-columns:repeat(3,1fr)}.source,.card{break-inside:avoid}}
++</style></head><body><main>
++<p class="eyebrow">Household · What-if preview</p><h1>Expense plan for ${escape(preview.month)}</h1>
++<p class="intro">Compare the recorded snapshot with the same month after adding your declared expenses. <strong>These planned expenses have not been recorded.</strong> This report cannot record transactions or change budgets.</p>
++<p>All amounts are exact integer <strong>${escape(preview.currency)} minor units</strong>. No currency conversion is performed.</p>
++<div class="summary"><section class="card"><span>Declared additions</span><strong>${preview.plannedExpenseMinor}</strong><span>${preview.expenses.length} planned expense occurrence${preview.expenses.length === 1 ? "" : "s"}</span></section>
++<section class="card"><span>Recorded expenses → with plan</span><strong>${preview.recorded.expenseMinor} → ${preview.hypothetical.expenseMinor}</strong></section>
++<section class="card"><span>Monthly net → with plan</span><strong>${preview.recorded.netMinor} → ${preview.hypothetical.netMinor}</strong><span>Income minus expenses, not an account balance.</span></section></div>
++<p class="callout">This is a calculation from the two captured inputs, not a prediction of future spending. Budget limits and recorded income (${preview.recorded.incomeMinor}) are unchanged.</p>
++<h2>Category comparison</h2><p>Exact category spellings remain separate. A missing budget is different from a present zero limit.</p>
++${categoryRows ? `<div class="table-wrap"><table id="category-comparison"><thead><tr><th>Category</th><th>Recorded income</th><th>Recorded expenses</th><th>Planned additions</th><th>Expenses with plan</th><th>Budget presence</th></tr></thead><tbody>${categoryRows}</tbody></table></div>` : "<p>No categories in this selected snapshot or plan.</p>"}
++<h2>Budget comparison</h2><p class="table-note">Every native budget row is retained. “Over limit” means expenses are strictly greater than the limit; equality stays within it. Negative remaining amounts show the modeled overage.</p>
++${budgetRows ? `<div class="table-wrap"><table id="budget-comparison"><thead><tr><th>Row</th><th>Category</th><th>Denomination</th><th>Limit</th><th>Recorded spent</th><th>Recorded remaining</th><th>Recorded status</th><th>Spent with plan</th><th>Remaining with plan</th><th>Status with plan</th></tr></thead><tbody>${budgetRows}</tbody></table></div>` : "<p>No applicable budget rows. No zero limit is inferred.</p>"}
++<h2>Declared expense occurrences</h2><p>Repeated rows count separately. Categories use the native trimmed form; notes retain their literal text.</p>
++${expenseRows ? `<div class="table-wrap"><table id="planned-expenses"><thead><tr><th>Occurrence</th><th>Date</th><th>Category</th><th>Amount</th><th>Note</th></tr></thead><tbody>${expenseRows}</tbody></table></div>` : "<p>The plan has no additions; the hypothetical results equal the recorded results.</p>"}
++<h2>Captured inputs</h2><div class="sources">${snapshot("Recorded ledger", identity.ledger)}${snapshot("Expense plan", identity.plan)}</div>
++<p>Generated ${escape(identity.generatedAt)}. Each input was captured separately; this is not a live or automatically refreshed view.</p>
++<footer>Literal text is preserved. Values containing NUL or an unpaired surrogate are explicitly labeled JSON string notation so the entire original string remains reversible. The inspection record contains this comparison and the declared expenses, not the full ledger or prior transaction notes.</footer>
++<script type="application/json" id="expense-plan-data">${inspection}</script>
++</main></body></html>`;
++  requireValue(Buffer.byteLength(html, "utf8") <= MAX_REPORT_BYTES, `complete report exceeds ${MAX_REPORT_BYTES} bytes`);
++  return html;
++}
+diff --git a/src/household-plan.ts b/src/household-plan.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..a19b47158e96a83d217c47efa6c059febe2b4f4c
+--- /dev/null
++++ b/src/household-plan.ts
+@@ -0,0 +1,140 @@
++import { constants, promises as fs } from "node:fs";
++import { randomUUID } from "node:crypto";
++import { basename, dirname, resolve } from "node:path";
++import { pathToFileURL } from "node:url";
++import {
++  identifySnapshot, MAX_LEDGER_BYTES, MAX_PLAN_BYTES, parseSnapshot,
++  previewExpensePlan, renderExpensePlan,
++} from "./expense-plan.js";
++import { ValidationError } from "./ledger.js";
++
++const USAGE = `Usage: node dist/src/household-plan.js --ledger FILE --plan FILE --month YYYY-MM --currency CODE --out NEW.html
++Create an offline what-if expense preview. Both inputs must already exist; the output must be new.
++The plan schema is household-expense-plan/1 with expenses [{date,category,amountMinor,note?}].
++No ledger or budget is changed. Use --help alone for this text.
++`;
++interface Options { ledger: string; plan: string; month: string; currency: string; out: string }
++interface Stamp { dev: string; ino: string; size: string; mtimeNs: string; ctimeNs: string }
++export interface CapturedInput { path: string; bytes: Buffer; stamp: Stamp; maximum: number; label: string }
++
++function fail(message: string): never { throw new ValidationError(message); }
++function parseOptions(argv: string[]): Options {
++  const names = new Set(["ledger", "plan", "month", "currency", "out"]);
++  const found: Record<string, string> = Object.create(null);
++  for (let i = 0; i < argv.length; i += 2) {
++    const flag = argv[i];
++    const key = flag.startsWith("--") ? flag.slice(2) : "";
++    const value = argv[i + 1];
++    if (!names.has(key) || Object.hasOwn(found, key)) fail(`unknown or repeated option: ${flag}`);
++    if (value === undefined || value.length === 0 || value.startsWith("--")) fail(`${flag} requires one value`);
++    found[key] = value;
++  }
++  if ([...names].some(key => !Object.hasOwn(found, key))) fail("all five options are required; use --help");
++  return found as unknown as Options;
++}
++function stamp(stats: { dev: bigint; ino: bigint; size: bigint; mtimeNs: bigint; ctimeNs: bigint }): Stamp {
++  return { dev: String(stats.dev), ino: String(stats.ino), size: String(stats.size),
++    mtimeNs: String(stats.mtimeNs), ctimeNs: String(stats.ctimeNs) };
++}
++function sameStamp(a: Stamp, b: Stamp): boolean {
++  return a.dev === b.dev && a.ino === b.ino && a.size === b.size &&
++    a.mtimeNs === b.mtimeNs && a.ctimeNs === b.ctimeNs;
++}
++
++// Nonblocking open lets a non-regular input refuse without waiting for a FIFO writer.
++export async function captureInput(path: string, maximum: number, label: string): Promise<CapturedInput> {
++  const selected = resolve(path);
++  const handle = await fs.open(selected, constants.O_RDONLY | (constants.O_NONBLOCK ?? 0));
++  try {
++    const before = await handle.stat({ bigint: true });
++    if (!before.isFile()) fail(`${label} must be a regular file`);
++    if (before.size < 1n || before.size > BigInt(maximum)) fail(`${label} must contain 1..${maximum} bytes`);
++    const chunks: Buffer[] = [];
++    let total = 0;
++    while (true) {
++      const chunk = Buffer.allocUnsafe(Math.min(65536, maximum + 1 - total));
++      const { bytesRead } = await handle.read(chunk, 0, chunk.length, null);
++      if (bytesRead === 0) break;
++      total += bytesRead;
++      if (total > maximum) fail(`${label} exceeds ${maximum} bytes`);
++      chunks.push(chunk.subarray(0, bytesRead));
++    }
++    const after = await handle.stat({ bigint: true });
++    if (!sameStamp(stamp(before), stamp(after)) || BigInt(total) !== after.size) fail(`${label} changed while being captured`);
++    return { path: selected, bytes: Buffer.concat(chunks, total), stamp: stamp(after), maximum, label };
++  } finally { await handle.close(); }
++}
++
++export async function checkCapturedInputs(inputs: CapturedInput[]): Promise<void> {
++  for (const original of inputs) {
++    let current: CapturedInput;
++    try { current = await captureInput(original.path, original.maximum, original.label); }
++    catch (error) { fail(`${original.label} cannot be confirmed before delivery: ${(error as Error).message}`); }
++    if (!sameStamp(original.stamp, current.stamp) || !original.bytes.equals(current.bytes)) {
++      fail(`${original.label} changed before delivery; create a new preview from the intended inputs`);
++    }
++  }
++}
++
++// Complete the owned temporary file, then confirm sources and publish by exclusive link.
++// This checks the captured source at delivery time; it does not create a writer lock.
++export async function publishNewReport(path: string, html: string, inputs: CapturedInput[]): Promise<void> {
++  const destination = resolve(path);
++  const parent = dirname(destination);
++  const parentStat = await fs.stat(parent);
++  if (!parentStat.isDirectory()) throw new Error("output parent must be an existing directory");
++  const temporary = resolve(parent, `.${basename(destination)}.${process.pid}.${randomUUID()}.tmp`);
++  let ownsTemporary = false;
++  let delivered = false;
++  let failure: unknown;
++  try {
++    const handle = await fs.open(temporary, "wx", 0o600);
++    ownsTemporary = true;
++    try {
++      await handle.writeFile(html, "utf8");
++      await handle.sync();
++    } finally { await handle.close(); }
++    await checkCapturedInputs(inputs);
++    await fs.link(temporary, destination);
++    delivered = true;
++  } catch (error) { failure = error; }
++  if (ownsTemporary) {
++    try { await fs.unlink(temporary); }
++    catch (error) {
++      throw new Error(`${failure ? `${(failure as Error).message}; ` : ""}temporary cleanup failed at ${temporary}: ${(error as Error).message}${delivered ? `; complete report already exists at ${destination}` : ""}`);
++    }
++  }
++  if (failure) throw failure;
++}
++
++export async function main(argv = process.argv.slice(2)): Promise<number> {
++  if (argv.length === 1 && argv[0] === "--help") { process.stdout.write(USAGE); return 0; }
++  let publishing = false;
++  try {
++    const options = parseOptions(argv);
++    const ledger = await captureInput(options.ledger, MAX_LEDGER_BYTES, "ledger");
++    const plan = await captureInput(options.plan, MAX_PLAN_BYTES, "plan");
++    const preview = previewExpensePlan(
++      parseSnapshot(ledger.bytes, MAX_LEDGER_BYTES, "ledger"),
++      parseSnapshot(plan.bytes, MAX_PLAN_BYTES, "plan"),
++      options.month, options.currency,
++    );
++    const html = renderExpensePlan(preview, {
++      ledger: identifySnapshot(ledger.path, ledger.bytes), plan: identifySnapshot(plan.path, plan.bytes),
++      generatedAt: new Date().toISOString(),
++    });
++    publishing = true;
++    await publishNewReport(options.out, html, [ledger, plan]);
++    process.stdout.write(`Created expense-plan preview: ${resolve(options.out)}\n`);
++    return 0;
++  } catch (error) {
++    process.stderr.write(`Expense-plan preview refused: ${(error as Error).message}\n`);
++    return error instanceof ValidationError || !publishing ? 2 : 1;
++  }
++}
++if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
++  main().then(code => { process.exitCode = code; }).catch(error => {
++    process.stderr.write(`Expense-plan preview failed: ${(error as Error).message}\n`);
++    process.exitCode = 1;
++  });
++}
+diff --git a/test/expense-plan.test.ts b/test/expense-plan.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..3f283d782c39bd0d068be131b5dfea635382e1a3
+--- /dev/null
++++ b/test/expense-plan.test.ts
+@@ -0,0 +1,151 @@
++import assert from "node:assert/strict";
++import { test } from "node:test";
++import {
++  identifySnapshot, MAX_CATEGORIES, MAX_EXPENSES, MAX_PLAN_BYTES, parseSnapshot,
++  previewExpensePlan, renderExpensePlan,
++} from "../src/expense-plan.js";
++import type { LedgerData } from "../src/ledger.js";
++
++const plan = (expenses: unknown[] = []) => ({ schema: "household-expense-plan/1", expenses });
++const expense = (amountMinor = 1, category = "food", extra = {}) =>
++  ({ date: "2026-10-20", amountMinor, category, ...extra });
++const tx = (amountMinor: number, category = "food", extra = {}) =>
++  ({ id: "existing", type: "expense" as const, amountMinor, category, currency: "USD", date: "2026-10-01", createdAt: "2026-10-01T00:00:00Z", ...extra });
++const ledger = (transactions: LedgerData["transactions"] = [], budgets: LedgerData["budgets"] = []): LedgerData =>
++  ({ version: 2, transactions, budgets });
++const budget = (category = "food", limitMinor = 10, currency?: string) =>
++  ({ category, month: "2026-10", limitMinor, ...(currency === undefined ? {} : { currency }) });
++const identity = { ledger: { path: "fictional-ledger.json", bytes: 1, sha256: "a".repeat(64) },
++  plan: { path: "fictional-plan.json", bytes: 1, sha256: "b".repeat(64) }, generatedAt: "2026-10-08T00:00:00Z" };
++
++test("complete recorded/planned/hypothetical model retains repeated rows and the source", () => {
++  const data = ledger([tx(45000), tx(20000, "travel"),
++    tx(500000, "salary", { type: "income" as const }), tx(900, "food", { currency: "EUR" })],
++  [budget("food", 50000, "USD"), budget("travel", 30000, "USD"), budget("food", 1000, "EUR")]);
++  const input = plan([expense(3750), expense(3750), expense(12000, "travel")]);
++  const original = structuredClone({ data, input });
++  const p = previewExpensePlan(data, input, "2026-10", " usd ");
++  assert.equal(p.currency, "USD");
++  assert.equal(p.recorded.expenseMinor, 65000);
++  assert.equal(p.hypothetical.expenseMinor, 84500);
++  assert.equal(p.plannedExpenseMinor, 19500);
++  assert.equal(p.hypothetical.netMinor, 415500);
++  assert.deepEqual(p.expenses.map(row => row.position), [1, 2, 3]);
++  assert.deepEqual(p.budgets.map(row => [row.category, row.recordedRemainingMinor, row.hypotheticalRemainingMinor, row.hypotheticalOver]),
++    [["food", 5000, -2500, true], ["travel", 10000, -2000, true]]);
++  assert.deepEqual({ data, input }, original);
++  assert.equal(JSON.stringify(p).includes("existing"), false);
++});
++
++test("native text normalization preserves historic spelling, notes and prototype names", () => {
++  const p = previewExpensePlan(ledger([tx(2, " food ")]), plan([
++    expense(3, " food ", { note: "\r\n  literal Ω <x> \0" }),
++    expense(4, "__proto__"), expense(5, "constructor"),
++    expense(6, "é"), expense(7, "e\u0301"),
++  ]), "2026-10", "ZZZ");
++  assert.equal(p.expenses[0].category, "food");
++  assert.equal(p.expenses[0].note, "\r\n  literal Ω <x> \0");
++  assert.equal(p.recorded.expenseMinor, 0);
++  assert.equal(p.hypothetical.expenseMinor, 25);
++  assert.deepEqual(p.categories.map(row => row.category), ["__proto__", "constructor", "e\u0301", "food", "é"]);
++  const usd = previewExpensePlan(ledger([tx(2, " food ")]), plan([expense(3, " food ")]), "2026-10", "USD");
++  assert.deepEqual(usd.categories.map(row => [row.category, row.hypotheticalExpenseMinor]), [[" food ", 2], ["food", 3]]);
++});
++
++test("missing, zero, equality and repeated legacy budgets stay distinct", () => {
++  const p = previewExpensePlan(ledger([tx(2)], [budget("food", 5), budget("food", 9), budget("zero", 0)]),
++    plan([expense(3), expense(1, "zero"), expense(4, "unbudgeted")]), "2026-10", "USD");
++  assert.deepEqual(p.budgets.map(row => [row.position, row.limitMinor, row.hypotheticalRemainingMinor, row.hypotheticalOver]),
++    [[1, 5, 0, false], [2, 9, 4, false], [3, 0, -1, true]]);
++  assert.equal(p.categories.find(row => row.category === "unbudgeted")?.budgetCount, 0);
++  assert.equal(p.budgets[0].currency, undefined);
++});
++
++test("actual legacy context must qualify before any additions", () => {
++  for (const data of [
++    ledger([], [budget()]),
++    ledger([tx(2), tx(3, "food", { currency: "EUR" })], [budget()]),
++  ]) {
++    assert.throws(() => previewExpensePlan(data, plan([expense(4)]), "2026-10", "USD"), /budgets have no currency/);
++  }
++  assert.throws(() => previewExpensePlan(ledger([tx(1)], [budget()]), plan(), "2026-10", "EUR"), /budgets have no currency/);
++});
++
++test("invalid later item refuses the whole plan without changing the input", () => {
++  const data = ledger([tx(2)]);
++  const original = JSON.stringify(data);
++  for (const bad of [expense(0), expense(-1), expense(1.5), expense(Number.MAX_SAFE_INTEGER + 1),
++    expense(1, " "), expense(1, "food", { date: "2026-02-29" }),
++    expense(1, "food", { date: "2026-11-01" }), expense(1, "food", { note: 42 })]) {
++    assert.throws(() => previewExpensePlan(data, plan([expense(1), bad]), "2026-10", "USD"));
++    assert.equal(JSON.stringify(data), original);
++  }
++});
++
++test("plan identity and unsupported fields cannot become recording requests", () => {
++  for (const key of ["type", "currency", "idempotencyKey", "id", "unexpected"]) {
++    assert.throws(() => previewExpensePlan(ledger(), plan([expense(1, "food", { [key]: "value" })]), "2026-10", "USD"), /unsupported/);
++  }
++  for (const input of [null, [], {}, { schema: "other", expenses: [] },
++    { ...plan(), extra: true }, { schema: "household-expense-plan/1", expenses: {} }]) {
++    assert.throws(() => previewExpensePlan(ledger(), input, "2026-10", "USD"));
++  }
++});
++
++test("safe total boundary is preserved in recorded and hypothetical summaries", () => {
++  const p = previewExpensePlan(ledger([tx(Number.MAX_SAFE_INTEGER - 1)]), plan([expense(1)]), "2026-10", "USD");
++  assert.equal(p.hypothetical.expenseMinor, Number.MAX_SAFE_INTEGER);
++  assert.throws(() => previewExpensePlan(ledger([tx(Number.MAX_SAFE_INTEGER)]), plan([expense(1)]), "2026-10", "USD"), /safe integer/);
++  assert.throws(() => previewExpensePlan(ledger(), plan([expense(Number.MAX_SAFE_INTEGER), expense(1)]), "2026-10", "USD"), /safe integer/);
++});
++
++test("complete native validation refuses unrelated malformed records and wrong selectors", () => {
++  assert.throws(() => previewExpensePlan(ledger([tx(0, "other", { currency: "EUR", date: "2020-01-01" })]), plan(), "2026-10", "USD"), /positive integer/);
++  for (const month of ["1969-12", "0000-01", "2026-13", "2026-1", undefined]) {
++    assert.throws(() => previewExpensePlan(ledger(), plan(), month, "USD"));
++  }
++  for (const currency of [undefined, "", "US", "US1", 3]) {
++    assert.throws(() => previewExpensePlan(ledger(), plan(), "2026-10", currency));
++  }
++  assert.equal(previewExpensePlan(ledger(), plan([{ ...expense(), date: "2024-02-29" }]), "2024-02", "zzz").currency, "ZZZ");
++});
++
++test("empty and maximum-size plans are whole comparisons, never prefixes", () => {
++  const empty = previewExpensePlan(ledger([tx(2)]), plan(), "2026-10", "USD");
++  assert.equal(empty.expenses.length, 0);
++  assert.deepEqual(empty.recorded, empty.hypothetical);
++  assert.equal(previewExpensePlan(ledger(), plan(Array.from({ length: MAX_EXPENSES }, () => expense())), "2026-10", "USD").expenses.length, MAX_EXPENSES);
++  assert.throws(() => previewExpensePlan(ledger(), plan(Array.from({ length: MAX_EXPENSES + 1 }, () => expense())), "2026-10", "USD"), /at most/);
++  const many = Array.from({ length: MAX_CATEGORIES + 1 }, (_, i) => budget(`c${i}`, 0, "USD"));
++  assert.throws(() => previewExpensePlan(ledger([], many), plan(), "2026-10", "USD"), /categories/);
++});
++
++test("bounded UTF-8 parsing retains source identity and rejects malformed complete input", () => {
++  const bytes = Buffer.from("\ufeff" + JSON.stringify(plan()), "utf8");
++  assert.deepEqual(parseSnapshot(bytes, MAX_PLAN_BYTES, "plan"), plan());
++  assert.equal(identifySnapshot("plan.json", bytes).bytes, bytes.length);
++  for (const bytes of [Buffer.alloc(0), Buffer.from([0xc3, 0x28]), Buffer.from("{}x"), Buffer.alloc(MAX_PLAN_BYTES + 1, 32)]) {
++    assert.throws(() => parseSnapshot(bytes, MAX_PLAN_BYTES, "plan"));
++  }
++});
++
++test("static report keeps inspection data inert and distinguishes literal controls", () => {
++  const p = previewExpensePlan(ledger([tx(2, "food", { note: "PRIVATE RECORDED NOTE" })]), plan([
++    expense(1, "<script>", { note: "\nstart\r\n<&> Ω 😀" }),
++    expense(1, "x\0", { note: "real\0nul" }),
++    expense(1, "x\\u0000", { note: "literal\\u0000" }),
++    expense(1, "lone\ud800"),
++  ]), "2026-10", "USD");
++  const html = renderExpensePlan(p, identity);
++  assert.equal(html.includes("PRIVATE RECORDED NOTE"), false);
++  assert.match(html, /<span>\nstart&#13;\n&lt;&amp;&gt; Ω 😀<\/span>/);
++  assert.match(html, /JSON string notation/);
++  assert.equal(html.includes("<script>"), false);
++  assert.equal(html.includes("\0"), false);
++  const raw = html.match(/<script type="application\/json" id="expense-plan-data">([\s\S]*?)<\/script>/)?.[1];
++  assert.ok(raw);
++  assert.deepEqual(JSON.parse(raw).expenses, p.expenses);
++  assert.equal(JSON.parse(raw).provenance.ledger.sha256, identity.ledger.sha256);
++  assert.match(html, /@media print/);
++  assert.equal(/<script(?! type="application\/json")|<link |<iframe|https?:\/\//.test(html), false);
++});
+diff --git a/test/expense-plan-cli.test.ts b/test/expense-plan-cli.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..0ea423ef40e7d60414e8e7e0a8d58b41ffed145e
+--- /dev/null
++++ b/test/expense-plan-cli.test.ts
+@@ -0,0 +1,155 @@
++import assert from "node:assert/strict";
++import { test } from "node:test";
++import { spawnSync } from "node:child_process";
++import { createHash } from "node:crypto";
++import { promises as fs } from "node:fs";
++import { tmpdir } from "node:os";
++import { join } from "node:path";
++import { fileURLToPath } from "node:url";
++import { captureInput, publishNewReport } from "../src/household-plan.js";
++import { MAX_LEDGER_BYTES, MAX_PLAN_BYTES } from "../src/expense-plan.js";
++
++const entry = fileURLToPath(new URL("../src/household-plan.js", import.meta.url));
++const data = { version: 2, transactions: [
++  { id: "existing", type: "expense", amountMinor: 4, currency: "USD", date: "2026-10-01", category: "food", createdAt: "2026-10-01T00:00:00Z" },
++], budgets: [{ category: "food", month: "2026-10", currency: "USD", limitMinor: 10 }] };
++const plan = { schema: "household-expense-plan/1", expenses: [
++  { date: "2026-10-20", amountMinor: 3, category: "food", note: "\nexact\r\nnote Ω" },
++  { date: "2026-10-20", amountMinor: 3, category: "food", note: "\nexact\r\nnote Ω" },
++] };
++const hash = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");
++async function setup() {
++  const root = await fs.mkdtemp(join(tmpdir(), "household-plan-test-"));
++  const ledger = join(root, "ledger.json"), input = join(root, "plan.json");
++  await fs.writeFile(ledger, JSON.stringify(data) + "\n");
++  await fs.writeFile(input, JSON.stringify(plan) + "\n");
++  const output = join(root, "report.html");
++  return { root, ledger, input, output };
++}
++function run(ledger: string, plan: string, output: string, extra: string[] = []) {
++  return spawnSync(process.execPath, [entry, "--ledger", ledger, "--plan", plan,
++    "--month", "2026-10", "--currency", "USD", "--out", output, ...extra],
++  { encoding: "utf8", timeout: 10000 });
++}
++async function absent(path: string) { await assert.rejects(fs.lstat(path), { code: "ENOENT" }); }
++
++test("real CLI creates complete static report and preserves both input identities", async () => {
++  const f = await setup();
++  try {
++    const original = await Promise.all([f.ledger, f.input].map(async path => ({ bytes: await fs.readFile(path), stat: await fs.stat(path, { bigint: true }) })));
++    const r = run(f.ledger, f.input, f.output);
++    assert.equal(r.status, 0, r.stderr);
++    assert.equal(r.stderr, "");
++    const html = await fs.readFile(f.output, "utf8");
++    const raw = html.match(/id="expense-plan-data">([\s\S]*?)<\/script>/)?.[1];
++    assert.ok(raw);
++    const p = JSON.parse(raw);
++    assert.equal(p.recorded.expenseMinor, 4);
++    assert.equal(p.plannedExpenseMinor, 6);
++    assert.equal(p.hypothetical.expenseMinor, 10);
++    assert.equal(p.budgets[0].hypotheticalOver, false);
++    assert.equal(p.expenses.length, 2);
++    assert.equal(p.expenses[0].note, "\nexact\r\nnote Ω");
++    for (const [i, path] of [f.ledger, f.input].entries()) {
++      assert.deepEqual(await fs.readFile(path), original[i].bytes);
++      const after = await fs.stat(path, { bigint: true });
++      assert.equal(after.ino, original[i].stat.ino);
++      assert.equal(after.mtimeNs, original[i].stat.mtimeNs);
++    }
++    assert.equal(p.provenance.ledger.sha256, hash(original[0].bytes));
++    assert.equal(p.provenance.plan.sha256, hash(original[1].bytes));
++    assert.deepEqual((await fs.readdir(f.root)).sort(), ["ledger.json", "plan.json", "report.html"]);
++  } finally { await fs.rm(f.root, { recursive: true, force: true }); }
++});
++
++test("real CLI refuses every existing destination without replacing its contents", async () => {
++  const f = await setup();
++  try {
++    const existing = join(f.root, "existing.html");
++    await fs.writeFile(existing, "other writer\n");
++    const hard = join(f.root, "hard.html"), symbolic = join(f.root, "symbolic.html"), directory = join(f.root, "directory");
++    await fs.link(f.ledger, hard); await fs.symlink(existing, symbolic); await fs.mkdir(directory);
++    const original = await fs.readFile(f.ledger);
++    for (const out of [existing, hard, symbolic, directory, f.ledger, f.input]) {
++      const r = run(f.ledger, f.input, out);
++      assert.notEqual(r.status, 0);
++      assert.equal(r.stdout, "");
++    }
++    assert.equal(await fs.readFile(existing, "utf8"), "other writer\n");
++    assert.deepEqual(await fs.readFile(f.ledger), original);
++    assert.equal((await fs.lstat(symbolic)).isSymbolicLink(), true);
++    assert.equal((await fs.readdir(f.root)).some(name => name.endsWith(".tmp")), false);
++  } finally { await fs.rm(f.root, { recursive: true, force: true }); }
++});
++
++test("real CLI invalid later expense, invalid UTF-8 and source/destination paths create no output", async () => {
++  const f = await setup();
++  try {
++    await fs.writeFile(f.input, JSON.stringify({ ...plan, expenses: [...plan.expenses, { ...plan.expenses[0], amountMinor: 0 }] }));
++    assert.equal(run(f.ledger, f.input, f.output).status, 2);
++    await absent(f.output);
++    await fs.writeFile(f.input, Buffer.from([0xc3, 0x28]));
++    assert.equal(run(f.ledger, f.input, f.output).status, 2);
++    await absent(f.output);
++    await fs.writeFile(f.input, JSON.stringify(plan));
++    for (const source of [join(f.root, "absent.json"), f.root]) {
++      assert.equal(run(source, f.input, f.output).status, 2);
++      await absent(f.output);
++    }
++    assert.notEqual(run(f.ledger, f.input, join(f.root, "missing", "report.html")).status, 0);
++    assert.equal(run(f.ledger, f.input, f.output, ["--month", "2026-10"]).status, 2);
++    await absent(f.output);
++  } finally { await fs.rm(f.root, { recursive: true, force: true }); }
++});
++
++test("changed bytes and same-byte replacement refuse after capture without delivery", async () => {
++  for (const which of ["ledger", "plan", "replacement"] as const) {
++    const f = await setup();
++    try {
++      const captured = [await captureInput(f.ledger, MAX_LEDGER_BYTES, "ledger"), await captureInput(f.input, MAX_PLAN_BYTES, "plan")];
++      if (which === "replacement") {
++        const replacement = join(f.root, "replacement.json");
++        await fs.writeFile(replacement, captured[0].bytes);
++        await fs.rename(replacement, f.ledger);
++      } else {
++        const path = which === "ledger" ? f.ledger : f.input;
++        await fs.appendFile(path, " ");
++      }
++      const changed = await fs.readFile(which === "plan" ? f.input : f.ledger);
++      await assert.rejects(publishNewReport(f.output, "<!doctype html><p>complete</p>", captured), /changed before delivery/);
++      await absent(f.output);
++      assert.deepEqual(await fs.readFile(which === "plan" ? f.input : f.ledger), changed);
++      assert.equal((await fs.readdir(f.root)).some(name => name.endsWith(".tmp")), false);
++    } finally { await fs.rm(f.root, { recursive: true, force: true }); }
++  }
++});
++
++test("source disappearance refuses delivery and publication retains an existing writer", async () => {
++  const f = await setup();
++  try {
++    const captured = [await captureInput(f.ledger, MAX_LEDGER_BYTES, "ledger"), await captureInput(f.input, MAX_PLAN_BYTES, "plan")];
++    await fs.unlink(f.input);
++    await assert.rejects(publishNewReport(f.output, "complete", captured), /cannot be confirmed/);
++    await absent(f.output);
++    await fs.writeFile(f.input, captured[1].bytes);
++    const current = [await captureInput(f.ledger, MAX_LEDGER_BYTES, "ledger"), await captureInput(f.input, MAX_PLAN_BYTES, "plan")];
++    await fs.writeFile(f.output, "winner", { flag: "wx" });
++    await assert.rejects(publishNewReport(f.output, "complete", current), { code: "EEXIST" });
++    assert.equal(await fs.readFile(f.output, "utf8"), "winner");
++    assert.equal((await fs.readdir(f.root)).some(name => name.endsWith(".tmp")), false);
++  } finally { await fs.rm(f.root, { recursive: true, force: true }); }
++});
++
++test("real CLI empty plan and standalone help remain explicit", async () => {
++  const f = await setup();
++  try {
++    await fs.writeFile(f.input, JSON.stringify({ schema: "household-expense-plan/1", expenses: [] }));
++    const r = run(f.ledger, f.input, f.output);
++    assert.equal(r.status, 0, r.stderr);
++    assert.match(await fs.readFile(f.output, "utf8"), /plan has no additions/);
++    const help = spawnSync(process.execPath, [entry, "--help"], { encoding: "utf8", timeout: 5000 });
++    assert.equal(help.status, 0);
++    assert.match(help.stdout, /--ledger FILE --plan FILE/);
++    assert.equal(spawnSync(process.execPath, [entry, "--help", "--out", f.output], { encoding: "utf8", timeout: 5000 }).status, 2);
++  } finally { await fs.rm(f.root, { recursive: true, force: true }); }
++});
+diff --git a/tools/check-expense-plan.mjs b/tools/check-expense-plan.mjs
+new file mode 100644
+index 0000000000000000000000000000000000000000..9e35fab52ef1cfd0ab57e027ef050b5b54df9d02
+--- /dev/null
++++ b/tools/check-expense-plan.mjs
+@@ -0,0 +1,88 @@
++import assert from "node:assert/strict";
++import { spawnSync } from "node:child_process";
++import { createHash } from "node:crypto";
++import { promises as fs } from "node:fs";
++import { resolve, join } from "node:path";
++import { fileURLToPath } from "node:url";
++
++const target = process.argv[2];
++if (!target || process.argv.length !== 3) {
++  process.stderr.write("Usage: node tools/check-expense-plan.mjs NEW-RECEIVING-DIRECTORY\n");
++  process.exitCode = 2;
++} else {
++  const root = resolve(target);
++  await fs.mkdir(root, { mode: 0o700 });
++  const entry = fileURLToPath(new URL("../dist/src/household-plan.js", import.meta.url));
++  const ledger = join(root, "fictional-ledger.json"), plan = join(root, "fictional-plan.json"), output = join(root, "expense-preview.html");
++  const stamp = "2026-10-08T00:00:00Z";
++  const transaction = (id, type, amountMinor, category, currency = "USD") =>
++    ({ id, type, amountMinor, category, currency, date: "2026-10-08", createdAt: stamp });
++  const data = { version: 2, transactions: [
++    transaction("fixture-income", "income", 500000, "salary"),
++    transaction("fixture-food", "expense", 45000, "food"),
++    transaction("fixture-travel", "expense", 20000, "travel"),
++    transaction("fixture-eur", "expense", 900, "food", "EUR"),
++  ], budgets: [
++    { category: "food", month: "2026-10", limitMinor: 50000, currency: "USD" },
++    { category: "travel", month: "2026-10", limitMinor: 30000, currency: "USD" },
++    { category: "food", month: "2026-10", limitMinor: 1000, currency: "EUR" },
++  ] };
++  const input = { schema: "household-expense-plan/1", expenses: [
++    { date: "2026-10-20", amountMinor: 3750, category: "food", note: "\nFictional groceries\r\nΩ" },
++    { date: "2026-10-20", amountMinor: 3750, category: "food", note: "\nFictional groceries\r\nΩ" },
++    { date: "2026-10-21", amountMinor: 12000, category: "travel" },
++  ] };
++  await fs.writeFile(ledger, JSON.stringify(data, null, 2) + "\n", { flag: "wx", mode: 0o600 });
++  await fs.writeFile(plan, JSON.stringify(input, null, 2) + "\n", { flag: "wx", mode: 0o600 });
++  const before = await Promise.all([ledger, plan].map(async path => ({ bytes: await fs.readFile(path), stat: await fs.stat(path, { bigint: true }) })));
++  const args = [entry, "--ledger", ledger, "--plan", plan, "--month", "2026-10", "--currency", "USD", "--out", output];
++  const processResult = spawnSync(process.execPath, args, { encoding: "utf8", timeout: 15000 });
++  await fs.writeFile(join(root, "cli.stdout"), processResult.stdout ?? "", { flag: "wx" });
++  await fs.writeFile(join(root, "cli.stderr"), processResult.stderr ?? "", { flag: "wx" });
++  const receipt = { schema: "household-expense-plan-native-receiving/1", executable: process.execPath, node: process.version,
++    args, exitCode: processResult.status, signal: processResult.signal, browserReceived: false, checks: [] };
++  try {
++    assert.equal(processResult.status, 0, processResult.stderr || String(processResult.error));
++    const bytes = await fs.readFile(output), html = bytes.toString("utf8");
++    const raw = html.match(/<script type="application\/json" id="expense-plan-data">([\s\S]*?)<\/script>/)?.[1];
++    assert.ok(raw);
++    const p = JSON.parse(raw);
++    assert.deepEqual([p.recorded.incomeMinor, p.recorded.expenseMinor, p.recorded.netMinor], [500000, 65000, 435000]);
++    receipt.checks.push("recorded totals");
++    assert.deepEqual([p.plannedExpenseMinor, p.hypothetical.expenseMinor, p.hypothetical.netMinor], [19500, 84500, 415500]);
++    receipt.checks.push("planned and hypothetical totals");
++    assert.deepEqual(p.budgets.map(row => [row.category, row.recordedRemainingMinor, row.hypotheticalRemainingMinor, row.hypotheticalOver]),
++      [["food", 5000, -2500, true], ["travel", 10000, -2000, true]]);
++    receipt.checks.push("unchanged allowance and budget crossings");
++    assert.deepEqual(p.expenses.map(row => [row.position, row.amountMinor, row.note]),
++      [[1, 3750, "\nFictional groceries\r\nΩ"], [2, 3750, "\nFictional groceries\r\nΩ"], [3, 12000, undefined]]);
++    receipt.checks.push("occurrence and note fidelity");
++    for (const [i, path] of [ledger, plan].entries()) {
++      assert.deepEqual(await fs.readFile(path), before[i].bytes);
++      const after = await fs.stat(path, { bigint: true });
++      assert.equal(after.ino, before[i].stat.ino); assert.equal(after.mtimeNs, before[i].stat.mtimeNs);
++      assert.equal((i === 0 ? p.provenance.ledger : p.provenance.plan).sha256, createHash("sha256").update(before[i].bytes).digest("hex"));
++    }
++    receipt.checks.push("source bytes identities write-times and hashes");
++    assert.equal(p.currency, "USD");
++    assert.equal(p.budgets.some(row => row.currency === "EUR"), false);
++    receipt.checks.push("selected currency");
++    assert.match(html, /not an account balance/);
++    assert.match(html, /These planned expenses have not been recorded/);
++    assert.match(html, /id="planned-expenses"/);
++    receipt.checks.push("visible consumer explanation and report structure");
++    const second = spawnSync(process.execPath, args, { encoding: "utf8", timeout: 15000 });
++    await fs.writeFile(join(root, "existing-destination.stdout"), second.stdout ?? "", { flag: "wx" });
++    await fs.writeFile(join(root, "existing-destination.stderr"), second.stderr ?? "", { flag: "wx" });
++    assert.notEqual(second.status, 0);
++    assert.deepEqual(await fs.readFile(output), bytes);
++    receipt.checks.push("new-only output refusal");
++    receipt.output = { path: output, bytes: bytes.length, sha256: createHash("sha256").update(bytes).digest("hex") };
++    receipt.ok = true;
++  } catch (error) {
++    receipt.ok = false; receipt.error = { message: String(error), stack: error.stack }; process.exitCode = 1;
++  } finally {
++    await fs.writeFile(join(root, "receipt.json"), JSON.stringify(receipt, null, 2) + "\n", { flag: "wx" });
++  }
++  process.stdout.write(JSON.stringify({ root, ok: receipt.ok, checks: receipt.checks.length }) + "\n");
++}
+diff --git a/docs/EXPENSE_PLAN.md b/docs/EXPENSE_PLAN.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..09941ac0e369c432f1861fefaeabd37386a5abd3
+--- /dev/null
++++ b/docs/EXPENSE_PLAN.md
+@@ -0,0 +1,69 @@
++# Preview a household expense plan
++
++Compare one recorded ledger snapshot with the same month after adding declared planned expenses. The command produces a self-contained HTML report for local review or printing. It never records transactions, changes limits or starts the MCP server.
++
++```sh
++npm run build
++node dist/src/household-plan.js --ledger /path/ledger.json --plan /path/plan.json --month 2026-10 --currency USD --out /existing/folder/new-preview.html
++```
++
++All five options are required. Both input files and the output parent must exist; the output must be new. Use `--help` alone for usage. The existing build emits the explicitly invoked CLI; no package binary, MCP registration or dependency is added.
++
++## Plan format
++
++```json
++{
++  "schema": "household-expense-plan/1",
++  "expenses": [
++    {"date": "2026-10-20", "category": "food", "amountMinor": 7500, "note": "Groceries to consider"},
++    {"date": "2026-10-21", "category": "travel", "amountMinor": 12000}
++  ]
++}
++```
++
++Each occurrence requires `date`, `category` and `amountMinor`; `note` is optional. Unknown root/item fields refuse, including type, currency, recording IDs and idempotency keys. Every item is an additional expense in the selected currency. Identical rows count separately. An empty array gives an explicit zero-addition comparison.
++
++Native admission remains authoritative: positive safe integer minor units, nonblank trimmed categories, exact literal notes, and an uppercased three-ASCII-letter currency. No ISO whitelist or conversion is added. Each real calendar date must fall in the selected month, which must be in the native summary range 1970-01 through 9999-12.
++
++## Reading the report
++
++The report separates recorded values, planned additions and hypothetical values. It shows all participating categories, every applicable native budget row and every declared occurrence. Missing budgets remain absent; a present zero limit remains zero. Repeated legacy budget rows are retained separately. Equality with a limit is within it; only a strictly greater expense is over.
++
++Historical category spellings remain exact, including whitespace and Unicode differences. Planned categories use native trimming. The report identifies occurrence positions and qualified legacy unassigned-budget context. The recorded summary must qualify before additions: planned expenses cannot establish missing currency context for an empty or mixed-currency legacy month. Complete ledger validation includes unselected months/currencies. Native malformed-input and unsafe-total refusals remain in force.
++
++Monthly net is income minus expenses, not an account balance. The calculation describes only the declared additions in the existing model, not actual future spending. Budget allowance and recorded income remain unchanged. No persistent transaction identity or commit action is produced.
++
++## Input capture and exclusive delivery
++
++Each input is captured separately through one read-only descriptor. It must be a regular file containing complete UTF-8 JSON. One leading UTF-8 BOM is accepted and remains in the source hash. A size or write-metadata change during capture refuses.
++
++Only the first captured bytes determine the report. The complete report is written, synced and closed at a new private temporary name in the destination directory. Immediately before final delivery, both input paths are reopened and their device/inode, size/write metadata and complete bytes are compared with the original capture. Changed, replaced, missing or unreadable inputs refuse; the temporary file is removed and no final report is created. The command does not recapture and recompute a different preview.
++
++An exclusive hard link creates the final destination from the completed temporary file. Existing files, directories, symlinks and hard-link aliases are not overwritten. The owned temporary name is removed after success or failure. A cleanup error names any remaining temporary file or already delivered complete report on stderr.
++
++This delivery-time check is not a writer lock or an atomic two-file snapshot. A source can still change after the final check. Both captured byte counts, SHA-256 values, selected paths and generation time are visible in the report. It is not a live or automatically refreshed view. The destination filesystem must support hard links; no crash-durability guarantee is made.
++
++The inert inspection record has schema `household-expense-plan-preview/1`. It contains the comparison, planned notes and source identities, not the full ledger or prior transaction notes/keys/IDs. There is no active script, network resource or browser-storage operation. Ordinary CR/LF strings remain literal. NUL-containing strings and unpaired surrogates use visibly labeled reversible JSON string notation rather than silent replacement.
++
++## Whole-result limits and exit status
++
++| Input/result | Limit |
++| --- | --- |
++| Ledger | 1–8,388,608 bytes |
++| Plan | 1–1,048,576 bytes |
++| Planned occurrences | 0–500 |
++| Category union | At most 5,000 |
++| Complete HTML | At most 16,777,216 UTF-8 bytes |
++
++Exceeding a limit refuses the entire result; no prefix is presented as complete. Exit 0 means complete delivery or standalone help. Exit 2 means argument, source, native calculation, rendering or final source-confirmation refusal. Exit 1 means publication/cleanup failure. Failure prints no success. A cleanup error can follow complete delivery; its diagnostic explicitly names that destination.
++
++## Native receiving and ownership
++
++```sh
++node --test dist/test/expense-plan.test.js dist/test/expense-plan-cli.test.js
++node tools/check-expense-plan.mjs /existing/NEW-receiving-directory
++```
++
++The maintained receiver runs the actual compiled CLI on fictional inputs and retains the report, process logs and receipt. It checks hand-specified totals, budget crossings, occurrence/note fidelity, source custody and existing-output refusal. That result is separate from actual browser/print receiving.
++
++[Issue 14](https://github.com/Jacob-Met/household-ledger-mcp/issues/14) reserves these six additive source/test/tool/document paths over receiving PR8 `591ab6f5a2d65bf596aeb707dbb635ee981ec926`. Ledger/Store, HTTP/stdio, existing clients/tests, package/lock/config and workflows retain their source and owners. Delivery follows the ce7 source-parent and 61749 canonical receiving route; it does not adopt native snapshot ancestry or deploy a service.

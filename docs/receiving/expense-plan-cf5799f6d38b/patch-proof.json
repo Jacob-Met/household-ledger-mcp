@@ -1,0 +1,12 @@
+{
+  "schema": "source-patch-materialization/1",
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "Checking patch src/expense-plan.ts...\nChecking patch src/household-plan.ts...\nChecking patch test/expense-plan.test.ts...\nChecking patch test/expense-plan-cli.test.ts...\nChecking patch tools/check-expense-plan.mjs...\nChecking patch docs/EXPENSE_PLAN.md...\nApplied patch src/expense-plan.ts cleanly.\nApplied patch src/household-plan.ts cleanly.\nApplied patch test/expense-plan.test.ts cleanly.\nApplied patch test/expense-plan-cli.test.ts cleanly.\nApplied patch tools/check-expense-plan.mjs cleanly.\nApplied patch docs/EXPENSE_PLAN.md cleanly.\n",
+  "baseline_files": 22,
+  "added_files": 6,
+  "result_files_verified": 28,
+  "patch_sha256": "4562062d07aed8af70b07cd9fa0c57d5ce9fee38440f6edab133d449229c817f",
+  "canonical_git_ancestry_claimed": false,
+  "product_tests_rerun": false
+}

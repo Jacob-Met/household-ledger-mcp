@@ -1,0 +1,839 @@
+{
+  "schema": "household.expense-plan.independent-model-review.v1",
+  "runtime": "v22.22.1",
+  "groups": [
+    {
+      "name": "hand-calculated-currency-category-budget-crossings",
+      "evidence": {
+        "report": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/matrix.html",
+        "totals": [
+          2000,
+          100,
+          1900,
+          29,
+          129,
+          1871
+        ],
+        "budgets": 3,
+        "occurrences": 4
+      },
+      "passed": true
+    },
+    {
+      "name": "repeated-legacy-equality-and-empty-snapshot",
+      "evidence": {
+        "legacy": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/legacy.html",
+        "empty": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/empty.html",
+        "maximum": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/maximum.html",
+        "nativeNonIsoCurrencyAccepted": true
+      },
+      "passed": true
+    },
+    {
+      "name": "native-refusals-do-not-borrow-planned-currency-or-rewrite-inputs",
+      "evidence": {
+        "refusals": 4,
+        "reason": "Consumer preserves existing native admissions; no new identity or currency assignment"
+      },
+      "passed": true
+    },
+    {
+      "name": "literal-and-inspection-record-provenance",
+      "evidence": {
+        "report": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/literals.html",
+        "strings": 11,
+        "inspectionExact": true
+      },
+      "passed": true
+    }
+  ],
+  "passed": 4,
+  "failed": 0,
+  "reports": [
+    {
+      "id": "matrix",
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/matrix.html",
+      "htmlBytes": 11964,
+      "sha256": "9ec7b45431864c08186fdcc616183911f83af173ba4e9279ee7698c9dfdca701",
+      "preview": {
+        "schema": "household-expense-plan-preview/1",
+        "month": "2026-10",
+        "currency": "USD",
+        "expenses": [
+          {
+            "position": 1,
+            "date": "2026-10-20",
+            "category": "food",
+            "amountMinor": 10,
+            "currency": "USD",
+            "note": "First occurrence"
+          },
+          {
+            "position": 2,
+            "date": "2026-10-20",
+            "category": "food",
+            "amountMinor": 11,
+            "currency": "USD",
+            "note": "Second occurrence"
+          },
+          {
+            "position": 3,
+            "date": "2026-10-21",
+            "category": "zero",
+            "amountMinor": 1,
+            "currency": "USD"
+          },
+          {
+            "position": 4,
+            "date": "2026-10-22",
+            "category": "unbudgeted",
+            "amountMinor": 7,
+            "currency": "USD"
+          }
+        ],
+        "plannedExpenseMinor": 29,
+        "recorded": {
+          "year": 2026,
+          "month": 10,
+          "currency": "USD",
+          "incomeMinor": 2000,
+          "expenseMinor": 100,
+          "netMinor": 1900,
+          "byCategory": {
+            "pay": {
+              "incomeMinor": 2000,
+              "expenseMinor": 0
+            },
+            "food": {
+              "incomeMinor": 0,
+              "expenseMinor": 80
+            },
+            " food ": {
+              "incomeMinor": 0,
+              "expenseMinor": 20
+            }
+          },
+          "budgets": [
+            {
+              "category": "food",
+              "currency": "USD",
+              "limitMinor": 100,
+              "spentMinor": 80,
+              "remainingMinor": 20,
+              "over": false
+            },
+            {
+              "category": "zero",
+              "currency": "USD",
+              "limitMinor": 0,
+              "spentMinor": 0,
+              "remainingMinor": 0,
+              "over": false
+            },
+            {
+              "category": "budget-only",
+              "currency": "USD",
+              "limitMinor": 0,
+              "spentMinor": 0,
+              "remainingMinor": 0,
+              "over": false
+            }
+          ]
+        },
+        "hypothetical": {
+          "year": 2026,
+          "month": 10,
+          "currency": "USD",
+          "incomeMinor": 2000,
+          "expenseMinor": 129,
+          "netMinor": 1871,
+          "byCategory": {
+            "pay": {
+              "incomeMinor": 2000,
+              "expenseMinor": 0
+            },
+            "food": {
+              "incomeMinor": 0,
+              "expenseMinor": 101
+            },
+            " food ": {
+              "incomeMinor": 0,
+              "expenseMinor": 20
+            },
+            "zero": {
+              "incomeMinor": 0,
+              "expenseMinor": 1
+            },
+            "unbudgeted": {
+              "incomeMinor": 0,
+              "expenseMinor": 7
+            }
+          },
+          "budgets": [
+            {
+              "category": "food",
+              "currency": "USD",
+              "limitMinor": 100,
+              "spentMinor": 101,
+              "remainingMinor": -1,
+              "over": true
+            },
+            {
+              "category": "zero",
+              "currency": "USD",
+              "limitMinor": 0,
+              "spentMinor": 1,
+              "remainingMinor": -1,
+              "over": true
+            },
+            {
+              "category": "budget-only",
+              "currency": "USD",
+              "limitMinor": 0,
+              "spentMinor": 0,
+              "remainingMinor": 0,
+              "over": false
+            }
+          ]
+        },
+        "categories": [
+          {
+            "category": " food ",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 20,
+            "plannedExpenseMinor": 0,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 20,
+            "budgetCount": 0
+          },
+          {
+            "category": "budget-only",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 0,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 0,
+            "budgetCount": 1
+          },
+          {
+            "category": "food",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 80,
+            "plannedExpenseMinor": 21,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 101,
+            "budgetCount": 1
+          },
+          {
+            "category": "pay",
+            "recordedIncomeMinor": 2000,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 0,
+            "hypotheticalIncomeMinor": 2000,
+            "hypotheticalExpenseMinor": 0,
+            "budgetCount": 0
+          },
+          {
+            "category": "unbudgeted",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 7,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 7,
+            "budgetCount": 0
+          },
+          {
+            "category": "zero",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 1,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 1,
+            "budgetCount": 1
+          }
+        ],
+        "budgets": [
+          {
+            "position": 1,
+            "category": "food",
+            "currency": "USD",
+            "limitMinor": 100,
+            "recordedSpentMinor": 80,
+            "recordedRemainingMinor": 20,
+            "recordedOver": false,
+            "hypotheticalSpentMinor": 101,
+            "hypotheticalRemainingMinor": -1,
+            "hypotheticalOver": true
+          },
+          {
+            "position": 2,
+            "category": "zero",
+            "currency": "USD",
+            "limitMinor": 0,
+            "recordedSpentMinor": 0,
+            "recordedRemainingMinor": 0,
+            "recordedOver": false,
+            "hypotheticalSpentMinor": 1,
+            "hypotheticalRemainingMinor": -1,
+            "hypotheticalOver": true
+          },
+          {
+            "position": 3,
+            "category": "budget-only",
+            "currency": "USD",
+            "limitMinor": 0,
+            "recordedSpentMinor": 0,
+            "recordedRemainingMinor": 0,
+            "recordedOver": false,
+            "hypotheticalSpentMinor": 0,
+            "hypotheticalRemainingMinor": 0,
+            "hypotheticalOver": false
+          }
+        ]
+      },
+      "identity": {
+        "ledger": {
+          "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/inputs/matrix-ledger.json",
+          "bytes": 1048,
+          "sha256": "16b4f2c58b93576a2ddd876e2cc3e30a8bed38eb492a8716df4dfac6ea5ddd98"
+        },
+        "plan": {
+          "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/inputs/matrix-plan.json",
+          "bytes": 338,
+          "sha256": "8b859e5e4c76f6661ab9ae5d8c8bf09a5bdf867b4bad94390370fc32981ce367"
+        },
+        "generatedAt": "2026-10-08T23:40:00.000Z"
+      }
+    },
+    {
+      "id": "legacy",
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/legacy.html",
+      "htmlBytes": 8423,
+      "sha256": "0166eca6cf80b67e002d703862fc2bff5c37a76a23f713640cca5dcc59a6ddaa",
+      "preview": {
+        "schema": "household-expense-plan-preview/1",
+        "month": "2026-10",
+        "currency": "USD",
+        "expenses": [
+          {
+            "position": 1,
+            "date": "2026-10-01",
+            "category": "food",
+            "amountMinor": 1,
+            "currency": "USD"
+          }
+        ],
+        "plannedExpenseMinor": 1,
+        "recorded": {
+          "year": 2026,
+          "month": 10,
+          "currency": "USD",
+          "incomeMinor": 0,
+          "expenseMinor": 100,
+          "netMinor": -100,
+          "byCategory": {
+            "food": {
+              "incomeMinor": 0,
+              "expenseMinor": 100
+            }
+          },
+          "budgets": [
+            {
+              "category": "food",
+              "limitMinor": 100,
+              "spentMinor": 100,
+              "remainingMinor": 0,
+              "over": false
+            },
+            {
+              "category": "food",
+              "limitMinor": 150,
+              "spentMinor": 100,
+              "remainingMinor": 50,
+              "over": false
+            }
+          ]
+        },
+        "hypothetical": {
+          "year": 2026,
+          "month": 10,
+          "currency": "USD",
+          "incomeMinor": 0,
+          "expenseMinor": 101,
+          "netMinor": -101,
+          "byCategory": {
+            "food": {
+              "incomeMinor": 0,
+              "expenseMinor": 101
+            }
+          },
+          "budgets": [
+            {
+              "category": "food",
+              "limitMinor": 100,
+              "spentMinor": 101,
+              "remainingMinor": -1,
+              "over": true
+            },
+            {
+              "category": "food",
+              "limitMinor": 150,
+              "spentMinor": 101,
+              "remainingMinor": 49,
+              "over": false
+            }
+          ]
+        },
+        "categories": [
+          {
+            "category": "food",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 100,
+            "plannedExpenseMinor": 1,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 101,
+            "budgetCount": 2
+          }
+        ],
+        "budgets": [
+          {
+            "position": 1,
+            "category": "food",
+            "limitMinor": 100,
+            "recordedSpentMinor": 100,
+            "recordedRemainingMinor": 0,
+            "recordedOver": false,
+            "hypotheticalSpentMinor": 101,
+            "hypotheticalRemainingMinor": -1,
+            "hypotheticalOver": true
+          },
+          {
+            "position": 2,
+            "category": "food",
+            "limitMinor": 150,
+            "recordedSpentMinor": 100,
+            "recordedRemainingMinor": 50,
+            "recordedOver": false,
+            "hypotheticalSpentMinor": 101,
+            "hypotheticalRemainingMinor": 49,
+            "hypotheticalOver": false
+          }
+        ]
+      },
+      "identity": {
+        "ledger": {
+          "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/inputs/legacy-ledger.json",
+          "bytes": 296,
+          "sha256": "4ecf8f41b055e675f59f911ec8d7d32bcb261989826a3572229e9cbb0c90e761"
+        },
+        "plan": {
+          "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/inputs/legacy-plan.json",
+          "bytes": 107,
+          "sha256": "4a02fef0a647620eb5abe6faeb49033f8eb88472c44f1a2f4ebae55bf33bfcff"
+        },
+        "generatedAt": "2026-10-08T23:40:00.000Z"
+      }
+    },
+    {
+      "id": "empty",
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/empty.html",
+      "htmlBytes": 5832,
+      "sha256": "8150ff46bcd38cb3a1149f6ba2128247599dc9c468bbee8677edb7aa7380a190",
+      "preview": {
+        "schema": "household-expense-plan-preview/1",
+        "month": "2026-10",
+        "currency": "XYZ",
+        "expenses": [],
+        "plannedExpenseMinor": 0,
+        "recorded": {
+          "year": 2026,
+          "month": 10,
+          "currency": "XYZ",
+          "incomeMinor": 0,
+          "expenseMinor": 0,
+          "netMinor": 0,
+          "byCategory": {},
+          "budgets": []
+        },
+        "hypothetical": {
+          "year": 2026,
+          "month": 10,
+          "currency": "XYZ",
+          "incomeMinor": 0,
+          "expenseMinor": 0,
+          "netMinor": 0,
+          "byCategory": {},
+          "budgets": []
+        },
+        "categories": [],
+        "budgets": []
+      },
+      "identity": {
+        "ledger": {
+          "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/inputs/empty-ledger.json",
+          "bytes": 45,
+          "sha256": "5b8b7b26424c00389c3ca096a13b949fa78b72f60b09dcba69861f0893091e81"
+        },
+        "plan": {
+          "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/inputs/empty-plan.json",
+          "bytes": 52,
+          "sha256": "b9e57cc2d33a3adc7abd43ad62ed6d434ea472e722f8f6614e417f397730baaa"
+        },
+        "generatedAt": "2026-10-08T23:40:00.000Z"
+      }
+    },
+    {
+      "id": "maximum",
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/maximum.html",
+      "htmlBytes": 7017,
+      "sha256": "b1bd95b4480b45e5047ee643d4ee713e50da9f87f5776d0ff448d5839ed78bec",
+      "preview": {
+        "schema": "household-expense-plan-preview/1",
+        "month": "2026-10",
+        "currency": "XYZ",
+        "expenses": [
+          {
+            "position": 1,
+            "date": "2026-10-31",
+            "category": "unbudgeted",
+            "amountMinor": 9007199254740991,
+            "currency": "XYZ"
+          }
+        ],
+        "plannedExpenseMinor": 9007199254740991,
+        "recorded": {
+          "year": 2026,
+          "month": 10,
+          "currency": "XYZ",
+          "incomeMinor": 0,
+          "expenseMinor": 0,
+          "netMinor": 0,
+          "byCategory": {},
+          "budgets": []
+        },
+        "hypothetical": {
+          "year": 2026,
+          "month": 10,
+          "currency": "XYZ",
+          "incomeMinor": 0,
+          "expenseMinor": 9007199254740991,
+          "netMinor": -9007199254740991,
+          "byCategory": {
+            "unbudgeted": {
+              "incomeMinor": 0,
+              "expenseMinor": 9007199254740991
+            }
+          },
+          "budgets": []
+        },
+        "categories": [
+          {
+            "category": "unbudgeted",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 9007199254740991,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 9007199254740991,
+            "budgetCount": 0
+          }
+        ],
+        "budgets": []
+      },
+      "identity": {
+        "ledger": {
+          "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/inputs/maximum-ledger.json",
+          "bytes": 45,
+          "sha256": "5b8b7b26424c00389c3ca096a13b949fa78b72f60b09dcba69861f0893091e81"
+        },
+        "plan": {
+          "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/inputs/maximum-plan.json",
+          "bytes": 128,
+          "sha256": "75b5d9eb59256213693ff008a1db7077f5a72dd59dcfd129eeab99fd3f3ab4a5"
+        },
+        "generatedAt": "2026-10-08T23:40:00.000Z"
+      }
+    },
+    {
+      "id": "literals",
+      "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/literals.html",
+      "htmlBytes": 14438,
+      "sha256": "804a12d4a6929f409da3470bc6d9c1c74bd8d10d04d2008f48ceb766a528d3a2",
+      "preview": {
+        "schema": "household-expense-plan-preview/1",
+        "month": "2026-10",
+        "currency": "USD",
+        "expenses": [
+          {
+            "position": 1,
+            "date": "2026-10-01",
+            "category": "literal-1",
+            "amountMinor": 1,
+            "currency": "USD",
+            "note": "\nleading LF\n"
+          },
+          {
+            "position": 2,
+            "date": "2026-10-01",
+            "category": "literal-2",
+            "amountMinor": 2,
+            "currency": "USD",
+            "note": "\rleading CR\r"
+          },
+          {
+            "position": 3,
+            "date": "2026-10-01",
+            "category": "literal-3",
+            "amountMinor": 3,
+            "currency": "USD",
+            "note": "CRLF\r\nmiddle\nLF\rCR"
+          },
+          {
+            "position": 4,
+            "date": "2026-10-01",
+            "category": "literal-4",
+            "amountMinor": 4,
+            "currency": "USD",
+            "note": "<em data-peer-literal=\"yes\">literal</em> & \"quotes\" 'apostrophe'"
+          },
+          {
+            "position": 5,
+            "date": "2026-10-01",
+            "category": "literal-5",
+            "amountMinor": 5,
+            "currency": "USD",
+            "note": "NUL\u0000tail"
+          },
+          {
+            "position": 6,
+            "date": "2026-10-01",
+            "category": "literal-6",
+            "amountMinor": 6,
+            "currency": "USD",
+            "note": "literal \\u0000 text"
+          },
+          {
+            "position": 7,
+            "date": "2026-10-01",
+            "category": "literal-7",
+            "amountMinor": 7,
+            "currency": "USD",
+            "note": "paired astral 💧 and é versus é"
+          },
+          {
+            "position": 8,
+            "date": "2026-10-01",
+            "category": "literal-8",
+            "amountMinor": 8,
+            "currency": "USD",
+            "note": "unpaired \ud800 high"
+          },
+          {
+            "position": 9,
+            "date": "2026-10-01",
+            "category": "literal-9",
+            "amountMinor": 9,
+            "currency": "USD",
+            "note": "unpaired \udfff low"
+          },
+          {
+            "position": 10,
+            "date": "2026-10-01",
+            "category": "literal-10",
+            "amountMinor": 10,
+            "currency": "USD",
+            "note": ""
+          },
+          {
+            "position": 11,
+            "date": "2026-10-01",
+            "category": "literal-11",
+            "amountMinor": 11,
+            "currency": "USD"
+          }
+        ],
+        "plannedExpenseMinor": 66,
+        "recorded": {
+          "year": 2026,
+          "month": 10,
+          "currency": "USD",
+          "incomeMinor": 0,
+          "expenseMinor": 0,
+          "netMinor": 0,
+          "byCategory": {},
+          "budgets": []
+        },
+        "hypothetical": {
+          "year": 2026,
+          "month": 10,
+          "currency": "USD",
+          "incomeMinor": 0,
+          "expenseMinor": 66,
+          "netMinor": -66,
+          "byCategory": {
+            "literal-1": {
+              "incomeMinor": 0,
+              "expenseMinor": 1
+            },
+            "literal-2": {
+              "incomeMinor": 0,
+              "expenseMinor": 2
+            },
+            "literal-3": {
+              "incomeMinor": 0,
+              "expenseMinor": 3
+            },
+            "literal-4": {
+              "incomeMinor": 0,
+              "expenseMinor": 4
+            },
+            "literal-5": {
+              "incomeMinor": 0,
+              "expenseMinor": 5
+            },
+            "literal-6": {
+              "incomeMinor": 0,
+              "expenseMinor": 6
+            },
+            "literal-7": {
+              "incomeMinor": 0,
+              "expenseMinor": 7
+            },
+            "literal-8": {
+              "incomeMinor": 0,
+              "expenseMinor": 8
+            },
+            "literal-9": {
+              "incomeMinor": 0,
+              "expenseMinor": 9
+            },
+            "literal-10": {
+              "incomeMinor": 0,
+              "expenseMinor": 10
+            },
+            "literal-11": {
+              "incomeMinor": 0,
+              "expenseMinor": 11
+            }
+          },
+          "budgets": []
+        },
+        "categories": [
+          {
+            "category": "literal-1",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 1,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 1,
+            "budgetCount": 0
+          },
+          {
+            "category": "literal-10",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 10,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 10,
+            "budgetCount": 0
+          },
+          {
+            "category": "literal-11",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 11,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 11,
+            "budgetCount": 0
+          },
+          {
+            "category": "literal-2",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 2,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 2,
+            "budgetCount": 0
+          },
+          {
+            "category": "literal-3",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 3,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 3,
+            "budgetCount": 0
+          },
+          {
+            "category": "literal-4",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 4,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 4,
+            "budgetCount": 0
+          },
+          {
+            "category": "literal-5",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 5,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 5,
+            "budgetCount": 0
+          },
+          {
+            "category": "literal-6",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 6,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 6,
+            "budgetCount": 0
+          },
+          {
+            "category": "literal-7",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 7,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 7,
+            "budgetCount": 0
+          },
+          {
+            "category": "literal-8",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 8,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 8,
+            "budgetCount": 0
+          },
+          {
+            "category": "literal-9",
+            "recordedIncomeMinor": 0,
+            "recordedExpenseMinor": 0,
+            "plannedExpenseMinor": 9,
+            "hypotheticalIncomeMinor": 0,
+            "hypotheticalExpenseMinor": 9,
+            "budgetCount": 0
+          }
+        ],
+        "budgets": []
+      },
+      "identity": {
+        "ledger": {
+          "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/inputs/literals-ledger.json",
+          "bytes": 45,
+          "sha256": "5b8b7b26424c00389c3ca096a13b949fa78b72f60b09dcba69861f0893091e81"
+        },
+        "plan": {
+          "path": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/inputs/literals-plan.json",
+          "bytes": 1052,
+          "sha256": "861868cdb396cb401828590b987127d98712274361f1225b74a00308aa1784cd"
+        },
+        "generatedAt": "2026-10-08T23:40:00.000Z"
+      }
+    }
+  ],
+  "browserExecuted": false
+}

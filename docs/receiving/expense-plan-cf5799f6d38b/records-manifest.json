@@ -1,0 +1,467 @@
+{
+  "schema": "sha256-deduplicated-records/1",
+  "files": [
+    {
+      "path": "admission/cases/native-admission-v1.json",
+      "bytes": 23839,
+      "sha256": "c88bc367dfb9264429d455c0585e9870083615f880a7e4159b3c305ffc03c5d7",
+      "git_blob": "7f175c96f94392f88209918ab4e249a2c77613f7",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-admission-cf5799f6d38b-qzg_w0y6/cases/native-admission-v1.json"
+    },
+    {
+      "path": "admission/ownership/issues-all.json",
+      "bytes": 88930,
+      "sha256": "a55769adb3ca5a3a0873e72c1370bedfb4c357ced0da90097ad0be8140e8948c",
+      "git_blob": "8b752fd3e21304d03f2e0a41309989acb5487877",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-admission-cf5799f6d38b-qzg_w0y6/ownership/issues-all.json"
+    },
+    {
+      "path": "admission/ownership/main-commit.json",
+      "bytes": 5231,
+      "sha256": "34ee6654f174e8a03e8f7f3d0ca752b60bea2a8123a6410840e1b287e116cd90",
+      "git_blob": "658611a0757595beccad3189326c632351928ee3",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-admission-cf5799f6d38b-qzg_w0y6/ownership/main-commit.json"
+    },
+    {
+      "path": "admission/ownership/pr8-recursive-tree.json",
+      "bytes": 37989,
+      "sha256": "4e0dc328bbc5d3b2418805912611809ee5a1c3adc3f6175360be78af2ee869e3",
+      "git_blob": "51a6f3a5d809fb9a9a8fb9f01e38117ca3079159",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-admission-cf5799f6d38b-qzg_w0y6/ownership/pr8-recursive-tree.json"
+    },
+    {
+      "path": "admission/ownership/pr8.json",
+      "bytes": 22453,
+      "sha256": "8096bcdccb234f4e4fe0c7055efed484006cd8de541431c4491d4ae063906696",
+      "git_blob": "c0c9acd87cad97950f5938ff3145381199c967a3",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-admission-cf5799f6d38b-qzg_w0y6/ownership/pr8.json"
+    },
+    {
+      "path": "admission/pre-execution-freeze.json",
+      "bytes": 782,
+      "sha256": "c4f4138da7071030effbfc1bb1ef735135f8d7c22234cd3bbd39366ca5e21e21",
+      "git_blob": "b2ee6703ba3d2fa4864ae02a906f43dd42411c86",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-admission-cf5799f6d38b-qzg_w0y6/pre-execution-freeze.json"
+    },
+    {
+      "path": "baseline/BASELINE.md",
+      "bytes": 4804,
+      "sha256": "14824a6c880aa17cb1de08d692cf05ea70a3f251ab5a6f1196a57503847a0421",
+      "git_blob": "0b310fea3267a5606681a05bb0e7f1668dfe6cd2",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/BASELINE.md"
+    },
+    {
+      "path": "baseline/baseline-manifest.json",
+      "bytes": 6441,
+      "sha256": "beab8c9c76375519e0074b0d52b2e05764ba3d05a80af90c4f3ab05fec78abd4",
+      "git_blob": "0b530994f4df97feb47d3d9d88df441e6cee67c8",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/baseline-manifest.json"
+    },
+    {
+      "path": "baseline/baseline-receiver.mjs",
+      "bytes": 8004,
+      "sha256": "48655ea812a43f1e622315039d21388e8be684551ffa569b655dc6c870be6713",
+      "git_blob": "933fad42c2ce3f3a57ce0c3150609fe7cd250a0a",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/baseline-receiver.mjs"
+    },
+    {
+      "path": "baseline/discovery-manifest.json",
+      "bytes": 11166,
+      "sha256": "3ecba4c744fbf0cee1f75859de7f8716593f7a74273617d37544c876092c985d",
+      "git_blob": "5011fb9b17347e09bd0b41b2bf74d1d4eb0ccbed",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/discovery-manifest.json"
+    },
+    {
+      "path": "baseline/evidence/baseline-build.json",
+      "bytes": 1382,
+      "sha256": "e71d748a4b8ffb16096cf16d45f410d99cd3a4e543972ab2466946824ca3c8fc",
+      "git_blob": "ebdc377b4d7b05afd09262118c49914818371190",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/evidence/baseline-build.json"
+    },
+    {
+      "path": "baseline/evidence/baseline-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/evidence/baseline-build.stderr"
+    },
+    {
+      "path": "baseline/evidence/baseline-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/evidence/baseline-build.stdout"
+    },
+    {
+      "path": "baseline/evidence/baseline-receipt.json",
+      "bytes": 12687,
+      "sha256": "ee86ae79603f75f0c25a8433c1e3a200325729513a12d276eebe134b18643dd3",
+      "git_blob": "0647c2766111c15d70f98ecfc8523af77d294283",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/evidence/baseline-receipt.json"
+    },
+    {
+      "path": "baseline/evidence/baseline-receiver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/evidence/baseline-receiver.stderr"
+    },
+    {
+      "path": "baseline/evidence/baseline-receiver.stdout",
+      "bytes": 465,
+      "sha256": "957228b4969316721da2965947f22fc91504e0a832499f50d77cdc30323b60cc",
+      "git_blob": "e6f34cd72ba0aa9ffb6bb76c8619b30ce936beb6",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/evidence/baseline-receiver.stdout"
+    },
+    {
+      "path": "baseline/evidence/baseline-server.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/evidence/baseline-server.stderr"
+    },
+    {
+      "path": "baseline/evidence/baseline-server.stdout",
+      "bytes": 83,
+      "sha256": "a21f538492cc12182e5d69ca3291f5a966560f1f20a37c76131ba2192c67eb8a",
+      "git_blob": "5fc80cf513b8030962d140dc565d566b34e5878c",
+      "mode": 436,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/evidence/baseline-server.stdout"
+    },
+    {
+      "path": "baseline/evidence/fictional-ledger.json",
+      "bytes": 1284,
+      "sha256": "d08808c083d9e4ac5d53e28704705e97e7ea8a853e73a09d944f405d7c40c7d1",
+      "git_blob": "6ab7c458bcbc1c945a04014fe3212ccdae49696a",
+      "mode": 384,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/evidence/fictional-ledger.json"
+    },
+    {
+      "path": "baseline/evidence/fictional-plan.json",
+      "bytes": 407,
+      "sha256": "a64bac3388268752f06216132c6db3bca62506980b01074e03159e7a2f2e3474",
+      "git_blob": "8ce88cf60080e6e81d22243913db8b5aed6b4a0f",
+      "mode": 384,
+      "source_path": "/home/jacob/household-plan-discovery-cf5799f6d38b-517n0wi8/evidence/fictional-plan.json"
+    },
+    {
+      "path": "candidate/author-receiving-summary.json",
+      "bytes": 1949,
+      "sha256": "1b927f0216487ae73726df284a2200d3337c5acb13a053c93b81e1b1b76093dc",
+      "git_blob": "e9109e9ba12ca8059e4abc469ab423a7c4e89d7f",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/author-receiving-summary.json"
+    },
+    {
+      "path": "candidate/candidate-manifest.json",
+      "bytes": 8002,
+      "sha256": "acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad",
+      "git_blob": "ccf02fc8ea2e269f9ccd0ef6e99ffca644656b8c",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/candidate-manifest.json"
+    },
+    {
+      "path": "candidate/run-gates.py",
+      "bytes": 2164,
+      "sha256": "1c371236a419204182201f7659944049194b3a0abd6f28c6c5d0e88a723df094",
+      "git_blob": "caf5e5fa8d3cf898b0337307f5eaff19718f0d0d",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/run-gates.py"
+    },
+    {
+      "path": "candidate/run-r1.py",
+      "bytes": 2379,
+      "sha256": "c4c889a688f4bb68a24b8970d73fdabafadbc293383d4a5424a7b6df3d5c3310",
+      "git_blob": "39cd9cabd1782401b7b480cdda286bca2096d447",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/run-r1.py"
+    },
+    {
+      "path": "receiving/driver-r1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/driver-r1.stderr"
+    },
+    {
+      "path": "receiving/driver-r1.stdout",
+      "bytes": 873,
+      "sha256": "22290268e0c62a4e8aa2647b033f4b91bbe06c8997dd7182a43cd27793c603cf",
+      "git_blob": "1bd76877969d8c5c21434aa5470fc343846a6575",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/driver-r1.stdout"
+    },
+    {
+      "path": "receiving/gates-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates-driver.stderr"
+    },
+    {
+      "path": "receiving/gates-driver.stdout",
+      "bytes": 596,
+      "sha256": "57b79ac877234c7d4bf89b4d909ae9a40868ea91810b92c888967453f066e577",
+      "git_blob": "93085f39c0f1767db480f3049b57a3151c0bca49",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates-driver.stdout"
+    },
+    {
+      "path": "receiving/gates/custody-after.json",
+      "bytes": 626,
+      "sha256": "a368ae71d36ccbe535ad2a9af0512e92a03afd34918db88cbaff04afe1615376",
+      "git_blob": "eb3e87d64ea2c1bf3deec145f2f8bf3b786ef5f6",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/custody-after.json"
+    },
+    {
+      "path": "receiving/gates/example/cli.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/example/cli.stderr"
+    },
+    {
+      "path": "receiving/gates/example/cli.stdout",
+      "bytes": 125,
+      "sha256": "7718fe650385cb6cdbe01e15a15dd6448026c2962996142e706fcad02cf5414c",
+      "git_blob": "84269c71667e50ba48bf9b5772680d00279e9a11",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/example/cli.stdout"
+    },
+    {
+      "path": "receiving/gates/example/existing-destination.stderr",
+      "bytes": 311,
+      "sha256": "82547dd4ced1a75f140545b0ad19b83508ef5701f7a5090f9ce2a80ce1455e85",
+      "git_blob": "23a8dbf1f47e4557f953f3a62e0623e12165bb6f",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/example/existing-destination.stderr"
+    },
+    {
+      "path": "receiving/gates/example/existing-destination.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/example/existing-destination.stdout"
+    },
+    {
+      "path": "receiving/gates/example/expense-preview.html",
+      "bytes": 10224,
+      "sha256": "bdbd0a8a22ea7477308ba6c9579b47ef8c524fa312f26704fe6ed76b0e46a2d8",
+      "git_blob": "ca080910d4f3168e50149772a7bf14f94626d691",
+      "mode": 384,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/example/expense-preview.html"
+    },
+    {
+      "path": "receiving/gates/example/fictional-ledger.json",
+      "bytes": 1276,
+      "sha256": "cf3e9ca5712d0b405f836a8f366d293f853fa9ecb01efa99c234f6ee0c3b9c3d",
+      "git_blob": "5dfbd46b4386ae9d13878ecf6fb074e1cb27ec08",
+      "mode": 384,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/example/fictional-ledger.json"
+    },
+    {
+      "path": "receiving/gates/example/fictional-plan.json",
+      "bytes": 435,
+      "sha256": "46b50c5443b1b5d22bf20a99376272654b20ff9f59802121e7c601836f532b7a",
+      "git_blob": "3f03d2f4bfa6ebdea04289efed2e075915187b14",
+      "mode": 384,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/example/fictional-plan.json"
+    },
+    {
+      "path": "receiving/gates/example/receipt.json",
+      "bytes": 1268,
+      "sha256": "80ec41106ac0a3f32484fca73b21999c0038c7b4fc8dbe161d272dc23a44787d",
+      "git_blob": "66a9713d94f029b0269b6403f33488e6dae5a2a6",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/example/receipt.json"
+    },
+    {
+      "path": "receiving/gates/maintained.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/maintained.stderr"
+    },
+    {
+      "path": "receiving/gates/maintained.stdout",
+      "bytes": 106,
+      "sha256": "4418de531ceea8dd508a5f8d81938c6d62249e6bbda01530e016115cbe183ef4",
+      "git_blob": "cd6a99ad3f2d607d67f2d48c567f2100267664ce",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/maintained.stdout"
+    },
+    {
+      "path": "receiving/gates/normal-suite.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/normal-suite.stderr"
+    },
+    {
+      "path": "receiving/gates/normal-suite.stdout",
+      "bytes": 28394,
+      "sha256": "d3a2a4fa165551b14e8d7ef1fca3983d16e3bb9e4ed28706c886aa42980b1504",
+      "git_blob": "d1888e493168f1f1ae0c1e3229b68549949424da",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/normal-suite.stdout"
+    },
+    {
+      "path": "receiving/gates/runs.json",
+      "bytes": 629,
+      "sha256": "9a1017aabc1832aa0e53125f6c2eeba142d97fbf72c962f01ded13b86344b3fd",
+      "git_blob": "9616294a4a682899e1a22a5095553e385a531d50",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/gates/runs.json"
+    },
+    {
+      "path": "receiving/issue3-comments-since2100-primary.json",
+      "bytes": 4410,
+      "sha256": "cb53e507e487c8da625982b4f77aa3eb4d90dca8b9e85139f474552fb1f8a487",
+      "git_blob": "7d04a4734fbd20aaa220243631c326675ca66ed9",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/issue3-comments-since2100-primary.json"
+    },
+    {
+      "path": "receiving/pr8-README-primary.md",
+      "bytes": 6704,
+      "sha256": "d7675b4f5d20bcb6a031cc39a71576bb3a44c576bbc0fdb1945e94dd4c7773fd",
+      "git_blob": "c531794d60442954a836db32c6fdafab5e08ba0e",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/pr8-README-primary.md"
+    },
+    {
+      "path": "receiving/r1/build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/build.stderr"
+    },
+    {
+      "path": "receiving/r1/build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/build.stdout"
+    },
+    {
+      "path": "receiving/r1/focused.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/focused.stderr"
+    },
+    {
+      "path": "receiving/r1/focused.stdout",
+      "bytes": 3846,
+      "sha256": "de4f486b397f7030ace867bb0c90de3e09b7758c5791869d11fc3ae10e71f24a",
+      "git_blob": "9e7f4034302a013aaf19428b00d579a1ab0f2024",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/focused.stdout"
+    },
+    {
+      "path": "receiving/r1/input-source/docs/EXPENSE_PLAN.md",
+      "bytes": 6419,
+      "sha256": "e60b0019b313215af46ebfe8c4b71c95bb33a6e08af98da0c412b62693969b77",
+      "git_blob": "09941ac0e369c432f1861fefaeabd37386a5abd3",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/input-source/docs/EXPENSE_PLAN.md"
+    },
+    {
+      "path": "receiving/r1/input-source/src/expense-plan.ts",
+      "bytes": 16062,
+      "sha256": "a02197d6ac9889af3c31c5894d87a8ff4a9efbdc0b215f0a26b32326baa2deba",
+      "git_blob": "df3771addfd3659782182be7217a15cfb5c69e61",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/input-source/src/expense-plan.ts"
+    },
+    {
+      "path": "receiving/r1/input-source/src/household-plan.ts",
+      "bytes": 7043,
+      "sha256": "aa5b564064395cf249377ad8382231e5b068f4f9120b6528e1bfb9e367f5b922",
+      "git_blob": "a19b47158e96a83d217c47efa6c059febe2b4f4c",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/input-source/src/household-plan.ts"
+    },
+    {
+      "path": "receiving/r1/input-source/test/expense-plan-cli.test.ts",
+      "bytes": 8510,
+      "sha256": "7be9ec3dbe30339b0c2635a9f6d6e838d2415655a23372fac1d2591b15cb3477",
+      "git_blob": "0ea423ef40e7d60414e8e7e0a8d58b41ffed145e",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/input-source/test/expense-plan-cli.test.ts"
+    },
+    {
+      "path": "receiving/r1/input-source/test/expense-plan.test.ts",
+      "bytes": 9211,
+      "sha256": "d5c9c5b5f09a3f09f63634b0e6184ae26bab57d578ae03d1c86955ea6b0349de",
+      "git_blob": "3f283d782c39bd0d068be131b5dfea635382e1a3",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/input-source/test/expense-plan.test.ts"
+    },
+    {
+      "path": "receiving/r1/input-source/tools/check-expense-plan.mjs",
+      "bytes": 5953,
+      "sha256": "f021361cebca0714258e10d86215c5f175a1611a972b4408a83ae8b9c4b8f71d",
+      "git_blob": "9e35fab52ef1cfd0ab57e027ef050b5b54df9d02",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/input-source/tools/check-expense-plan.mjs"
+    },
+    {
+      "path": "receiving/r1/runs.json",
+      "bytes": 942,
+      "sha256": "915d30860e371759de112bceb34c892b9c1e197086e1596f7b2622bd9495c96e",
+      "git_blob": "6dea3d3ebd364fce44edf3360e6c6bdde69c9188",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/runs.json"
+    },
+    {
+      "path": "receiving/r1/source-after.json",
+      "bytes": 1403,
+      "sha256": "4ce6227477409ecb4ce925fdd6d472546410cfb0d4698152b9ed4477f54b92ce",
+      "git_blob": "a59ee69469a2cf9b323b8b6a6e54075ad3ddfc93",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/source-after.json"
+    },
+    {
+      "path": "receiving/r1/source-before.json",
+      "bytes": 1377,
+      "sha256": "533cfe1e5db2f7447a674ce3684697bbec91cf5391666c5999befa2e0e667959",
+      "git_blob": "4fbe70fcf45f12ff259b754c110a8cc89c0064b8",
+      "mode": 436,
+      "source_path": "/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/receiving/r1/source-before.json"
+    }
+  ],
+  "alias_count": 57,
+  "unique_streams": 45,
+  "raw_json_bytes": 496790,
+  "raw_json_sha256": "44ea62292d9e850e561dd277881709de209585172263276fd15e8c223b46585d",
+  "gzip_bytes": 135103,
+  "gzip_sha256": "1f93134dae58b815b7b6ac59d6610f13413739441a3729e5880eb644a3011ba4"
+}

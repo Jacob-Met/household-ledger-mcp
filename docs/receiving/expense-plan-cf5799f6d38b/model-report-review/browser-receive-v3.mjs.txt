@@ -1,0 +1,93 @@
+import assert from 'node:assert/strict';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {join} from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {createHash} from 'node:crypto';
+import puppeteer from '/home/jacob/.local/lib/node_modules/@wonderwhy-er/desktop-commander/node_modules/puppeteer/lib/puppeteer/puppeteer.js';
+const root=new URL('./',import.meta.url).pathname,out=join(root,'browser-v3');
+await mkdir(out,{recursive:false});
+const result={schema:'household.expense-plan.independent-browser.v3',startedAt:new Date().toISOString(),runtime:process.version,groups:[],requests:[],pageErrors:[],storageWrites:[],temp:{TMPDIR:process.env.TMPDIR,TMP:process.env.TMP,TEMP:process.env.TEMP}};
+const native=JSON.parse(await readFile(join(root,'native-result.json'),'utf8'));
+const reportById=new Map(native.reports.map(x=>[x.id,x]));
+const estate=JSON.parse(await readFile(join(root,'estate-cli-expected.json'),'utf8'));reportById.set('estate-cli',estate);
+const fields=JSON.parse(await readFile(join(root,'field-literals-expected.json'),'utf8'));
+const sha=x=>createHash('sha256').update(x).digest('hex');
+let browser;
+function notation(s){for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);if(c===0)return true;if(c>=0xd800&&c<=0xdbff){const n=s.charCodeAt(i+1);if(!(n>=0xdc00&&n<=0xdfff))return true;i++;}else if(c>=0xdc00&&c<=0xdfff)return true;}return false;}
+async function open(report,width=1280){
+ assert.equal(sha(await readFile(report.path)),report.sha256);
+ const page=await browser.newPage();await page.setViewport({width,height:900});await page.setOfflineMode(true);
+ page.setDefaultTimeout(15000);
+ page.on('pageerror',e=>result.pageErrors.push(String(e)));
+ await page.setRequestInterception(true);page.on('request',r=>{result.requests.push(r.url());if(r.url()===pathToFileURL(report.path).href)r.continue();else r.abort();});
+ await page.evaluateOnNewDocument(()=>{globalThis.__storageWrites=[];for(const key of ['setItem','removeItem','clear']){const old=Storage.prototype[key];Storage.prototype[key]=function(...args){__storageWrites.push({key,args});return old.apply(this,args);};}});
+ await page.goto(pathToFileURL(report.path).href,{waitUntil:'load',timeout:30000});await page.bringToFront();
+ const observed=await page.$eval('#expense-plan-data',el=>JSON.parse(el.textContent));
+ assert.deepEqual(observed,JSON.parse(JSON.stringify({...report.preview,provenance:report.identity})));
+ assert.equal(await page.$$eval('script:not([type="application/json"]),img,iframe,link,form,input,button,a[href]',els=>els.length),0);
+ result.storageWrites.push(...await page.evaluate(()=>__storageWrites));return page;
+}
+async function group(id,fn){const g={id};try{g.evidence=await fn();g.passed=true;}catch(e){g.passed=false;g.error={message:String(e),stack:e.stack};}result.groups.push(g);await writeFile(join(out,'progress.json'),JSON.stringify(result.groups,null,2)+'\n');console.log(JSON.stringify({id,passed:g.passed,error:g.error?.message}));}
+try{
+ browser=await puppeteer.launch({dumpio:true,executablePath:'/snap/bin/chromium',headless:true,userDataDir:join(out,'browser-profile'),timeout:30000,args:['--disk-cache-size=1048576','--disable-background-networking']});
+ result.browser=await browser.version();
+ await group('native-admitted-literals-are-readable-and-inert',async()=>{
+  const page=await open(fields);
+  const rows=await page.$$eval('#planned-expenses tbody tr',els=>els.map(tr=>({category:tr.cells[2].querySelector('.literal span').textContent,categoryNotation:tr.cells[2].querySelector('.notation')?.textContent??null,note:tr.cells[4].querySelector('.literal span')?.textContent,noteNotation:tr.cells[4].querySelector('.notation')?.textContent??null,absent:tr.cells[4].querySelector('.absent')?.textContent??null})));
+  assert.equal(rows.length,fields.preview.expenses.length);
+  for(const [i,e] of fields.preview.expenses.entries()){
+   assert.equal(rows[i].category,notation(e.category)?JSON.stringify(e.category):e.category,'category '+i);
+   assert.equal(rows[i].categoryNotation,notation(e.category)?'JSON string notation':null);
+   if(Object.hasOwn(e,'note')){assert.equal(rows[i].note,notation(e.note)?JSON.stringify(e.note):e.note,'note '+i);assert.equal(rows[i].noteNotation,notation(e.note)?'JSON string notation':null);assert.equal(rows[i].absent,null);}
+   else{assert.equal(rows[i].note,undefined);assert.equal(rows[i].absent,'No note supplied');}
+  }
+  assert.equal(await page.$('[data-peer-literal]'),null);
+  const inspection=await page.$eval('#expense-plan-data',e=>e.textContent);assert(!inspection.includes('PRIOR-PRIVATE-NOTE'));
+  await page.screenshot({path:join(out,'literal-report.png'),fullPage:true});await page.close();
+  return {rows:rows.length,report:fields.path,sha256:fields.sha256,ordinaryAndJsonNotationExact:true};
+ });
+ await group('money-context-zero-empty-and-narrow-layout',async()=>{
+  const checks=[];
+  for(const id of ['matrix','legacy','empty','maximum','estate-cli']){
+   const report=reportById.get(id),page=await open(report,390);
+   const width=await page.evaluate(()=>({viewport:innerWidth,body:document.documentElement.scrollWidth}));
+   assert(width.body<=width.viewport+1,JSON.stringify({id,width}));
+   const totals=await page.$$eval('.summary .card strong',els=>els.map(x=>x.textContent));
+   if(id==='matrix'){
+    assert.deepEqual(totals,['29','100 → 129','1900 → 1871']);
+    const cats=await page.$$eval('#category-comparison tbody tr',els=>els.map(r=>({category:r.cells[0].querySelector('.literal span').textContent,values:[...r.cells].slice(1).map(x=>x.textContent)})));
+    assert.deepEqual(cats.find(x=>x.category===' food ').values,['0','20','0','20','No budget in snapshot']);
+    assert.deepEqual(cats.find(x=>x.category==='unbudgeted').values,['0','0','7','7','No budget in snapshot']);
+    assert.deepEqual(cats.find(x=>x.category==='budget-only').values,['0','0','0','0','1 budget row']);
+    const budgets=await page.$$eval('#budget-comparison tbody tr',els=>els.map(r=>[r.cells[1].querySelector('.literal span').textContent,...[...r.cells].slice(3).map(x=>x.textContent)]));
+    assert.deepEqual(budgets,[['food','100','80','20','Within limit','101','-1','Over limit'],['zero','0','0','0','Within limit','1','-1','Over limit'],['budget-only','0','0','0','Within limit','0','0','Within limit']]);
+    await page.screenshot({path:join(out,'matrix-390.png'),fullPage:true});
+   }else if(id==='legacy'){
+    const rows=await page.$$eval('#budget-comparison tbody tr',els=>els.map(r=>[r.cells[0].textContent,r.cells[2].textContent,r.cells[6].textContent,r.cells[9].textContent]));
+    assert.deepEqual(rows,[['1','Legacy unassigned; qualified by recorded currency context','Within limit','Over limit'],['2','Legacy unassigned; qualified by recorded currency context','Within limit','Within limit']]);
+   }else if(id==='empty'){
+    assert.deepEqual(totals,['0','0 → 0','0 → 0']);assert.equal(await page.$('#category-comparison'),null);assert.equal(await page.$('#budget-comparison'),null);assert.equal(await page.$('#planned-expenses'),null);
+    assert((await page.$eval('main',e=>e.textContent)).includes('No applicable budget rows. No zero limit is inferred.'));
+   }else if(id==='estate-cli'){
+    assert.deepEqual(totals,['6600','20000 → 26600','182000 → 175400']);
+    const rows=await page.$$eval('#planned-expenses tbody tr',els=>els.map(r=>[r.cells[0].textContent,r.cells[2].querySelector('.literal span').textContent,r.cells[3].textContent]));
+    assert.deepEqual(rows,[['1','groceries','2500'],['2','groceries','3000'],['3','transit','1'],['4','tools','999'],['5','Uncategorized','100']]);
+    const groceries=await page.$$eval('#budget-comparison tbody tr',els=>els.filter(r=>r.cells[1].querySelector('.literal span').textContent==='groceries').map(r=>[r.cells[2].textContent,...[...r.cells].slice(3).map(x=>x.textContent)]));
+    assert.deepEqual(groceries,[['USD','20000','15000','5000','Within limit','20500','-500','Over limit']]);
+   }else assert.deepEqual(totals,['9007199254740991','0 → 9007199254740991','0 → -9007199254740991']);
+   const scroll=await page.$$eval('.table-wrap',els=>els.map(el=>({width:el.clientWidth,full:el.scrollWidth,overflow:getComputedStyle(el).overflowX})));
+   assert(scroll.every(x=>x.full<=x.width||['auto','scroll'].includes(x.overflow)));
+   checks.push({id,width,totals,scroll});await page.close();
+  }
+  return checks;
+ });
+ assert.deepEqual(result.pageErrors,[]);assert.deepEqual(result.storageWrites,[]);
+ assert(result.requests.every(u=>u.startsWith('file:')),'No external or active resource requests');
+}catch(e){result.groups.push({id:'receiver-global-boundary',passed:false,error:{message:String(e),stack:e.stack}});}
+finally{
+ if(browser)await browser.close();
+ result.finishedAt=new Date().toISOString();result.passed=result.groups.filter(x=>x.passed).length;result.failed=result.groups.filter(x=>!x.passed).length;
+ result.receiverSha256=sha(await readFile(new URL(import.meta.url)));
+ await writeFile(join(out,'result.json'),JSON.stringify(result,null,2)+'\n');
+ console.log(JSON.stringify({passed:result.passed,failed:result.failed}));if(result.failed)process.exitCode=1;
+}

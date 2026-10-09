@@ -1,0 +1,113 @@
+import base64,datetime,gzip,hashlib,json,os,pathlib,stat,subprocess,sys,tempfile
+PREFIX='docs/receiving/expense-plan-cf5799f6d38b/independent-cli'
+ROOTS={'baseline':'/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3','prepared-cli':'/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0','empty-successor':'/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh','candidate-first':'/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph','candidate-final':'/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3'}
+EXPECTED={'/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3-manifest.json':'82e8b312d7f05fc9f21a40b98d6430c9c19c3bea696c371289872d9548589b0d','/tmp/household-plan-cli-peer-cf5799f6d38b-1qutw3k0-manifest.json':'a63171ad09971b515b48849558c5d2ff606fb9e2a3ec889636f101aebc9c45c8','/tmp/household-cli-empty-successor-cf5799f6d38b-fs109byh-manifest.json':'b84cbc53a67199f906848db66027c15cf558e0d0eadda3b37b5431a23db0a528','/tmp/household-plan-peer-cf5799f6d38b-vhmasgs3/native-corpus-v1-receipt.json':'4eb9fa3ca8073d949ace234a19ad68e581055ddbeb88039c15ab304354159e94','/tmp/household-plan-cli-execution-cf5799f6d38b-m5hel5ph/cases/receipt.json':'ae7ee25bf3b7c65af13d1affdbfae3e1bf0df840ec8bee40742c11dadab43ab2','/tmp/household-plan-cli-final-cf5799f6d38b-tdnoh5_3/cases/receipt.json':'aa8b2de6c6e752ed586e25ca015680851c3c142e1c639c9829e7c4fd51cd494d','/tmp/household-expense-plan-cf5799f6d38b-xdlgs4xl/candidate-manifest.json':'acedf02c66a2641c4fb781ce732f6ef50c0f5a5a0de998f1631502a41095f9ad'}
+def pin(b):
+ return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'git_blob':hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()}
+def jb(v):return (json.dumps(v,ensure_ascii=True,indent=2)+'\n').encode()
+def write(p,b):
+ p.parent.mkdir(parents=True,exist_ok=True)
+ with p.open('xb') as f:f.write(b)
+def collect():
+ rows=[];blobs={}
+ def add(p,rel):
+  s=p.lstat();r={'path':rel,'native_path':str(p),'filesystem_mode':stat.S_IMODE(s.st_mode)}
+  if stat.S_ISLNK(s.st_mode):r.update(type='symlink-metadata',target=os.readlink(p))
+  elif stat.S_ISREG(s.st_mode):
+   b=p.read_bytes();r.update(type='file',mode='100755' if s.st_mode&0o111 else '100644',**pin(b));blobs.setdefault(r['sha256'],base64.b64encode(b).decode())
+  else:raise ValueError('Unexpected evidence type: '+str(p))
+  rows.append(r)
+ for alias,root in ROOTS.items():
+  root=pathlib.Path(root)
+  for d,ds,fs in os.walk(root,followlinks=False):
+   d=pathlib.Path(d);ds[:]=sorted(x for x in ds if x not in {'candidate','node_modules','__pycache__','.git'})
+   for name in sorted(fs+[x for x in ds if (d/x).is_symlink()]):
+    p=d/name;add(p,alias+'/'+p.relative_to(root).as_posix())
+ for native in EXPECTED:
+  if not any(native.startswith(root+'/') for root in ROOTS.values()):add(pathlib.Path(native),'external-manifests/'+pathlib.Path(native).name)
+ assert len({r['path'] for r in rows})==len(rows)
+ return sorted(rows,key=lambda r:r['path']),blobs
+RESTORE=r'''import base64,gzip,hashlib,json,pathlib,stat,sys
+def pin(b):
+ return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'git_blob':hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()}
+w=json.loads(pathlib.Path(sys.argv[1]).read_text())
+raw=gzip.decompress(base64.b64decode(w['payload_base64'],validate=True))
+if pin(raw)!=w['uncompressed']:raise ValueError('Payload mismatch')
+d=json.loads(raw);out=pathlib.Path(sys.argv[2]);out.mkdir(parents=True,exist_ok=False)
+links=[];files=[]
+for r in d['entries']:
+ rel=pathlib.PurePosixPath(r['path'])
+ if rel.is_absolute() or '..' in rel.parts:raise ValueError('Unsafe path')
+ if r['type']=='symlink-metadata':links.append(r);continue
+ b=base64.b64decode(d['blobs'][r['sha256']],validate=True)
+ if pin(b)!={k:r[k] for k in ('bytes','sha256','git_blob')}:raise ValueError('Byte identity mismatch')
+ p=out.joinpath(*rel.parts);p.parent.mkdir(parents=True,exist_ok=True)
+ with p.open('xb') as f:f.write(b)
+ p.chmod(r['filesystem_mode'])
+ if pin(p.read_bytes())!=pin(b) or stat.S_IMODE(p.stat().st_mode)!=r['filesystem_mode']:raise ValueError('Restore mismatch')
+ files.append({k:r[k] for k in ('path','bytes','sha256','git_blob','mode','filesystem_mode')})
+(out/'historical-symlink-metadata.json').write_text(json.dumps(links,ensure_ascii=True,indent=2)+'\n')
+print(json.dumps({'restored_regular_files':len(files),'restored_bytes':sum(r['bytes'] for r in files),'historical_symlinks_as_metadata':len(links),'all_bytes_modes_sha_git_exact':True,'historical_inodes_recreated':False,'files':files}))
+'''
+README="""# Independent Household expense-plan CLI receiving
+
+This strictly additive packet receives issue 14 against PR8 commit 591ab6f5a2d65bf596aeb707dbb635ee981ec926 and unchanged candidate tree 4da046012fb5b0007005204d624dc8b495e79c1c. It contains no application source changes. Author and optimizer receiving remain separately attributed.
+
+The source-blind baseline passed 58 native controls in five groups using unchanged ledger functions. The independent CLI receiver was then frozen before candidate access. Its first actual run passed 18 of 19 groups: the empty plan correctly produced explicit no-additions prose and zero/equal native data, but the receiver had incorrectly required an expense table. That failure is preserved. Root read the exact 29-line receiver-only correction and preservation proof before authorizing one corrected run. The correction applies only to the empty state, requires zero occurrence rows and exact recorded/hypothetical equality, and leaves all nonempty, refusal and mutation predicates byte-exact.
+
+The corrected run passed 19/19 groups on the same source: 16 ordinary CLI cases and three supplemental controlled filesystem mutations. Node 22.22.1 satisfies the project's Node 20+ requirement. Both generations retain their actual commands, input identities, stdout/stderr, reports, source custody and receiver pins. All 31 owner/private source and compiled files remained unchanged. No further test or browser execution occurred during archival assembly.
+
+Ordinary cases cover the five-expense plan, empty plan and a new between-invocation snapshot, plus 13 refusals involving existing destinations, input aliases, hardlinks, symlinks, directory paths, malformed or late-invalid data, forbidden recording keys and outside-month dates. They check input bytes, device/inode, size, mode and modification time, and preserve existing output bytes/identity. Supplemental cases alone use an explicit external Node filesystem preload to perform real late ledger append, same-byte plan inode replacement and competing destination creation. Those three are instrumented final-publication-fence checks, not ordinary uninstrumented cases. Their triggers and real mutation outcomes are archived.
+
+The fictional plan adds 6,600 minor units to 20,000 recorded expenses, yielding 26,600; monthly net moves from 182,000 to 175,400. Groceries reach 20,500 against a 20,000 limit; transit reaches 4,001 against 4,000. These are detached hypothetical native summaries, not an account balance, settlement inference or financial recommendation. No provider, installed dependency, ledger write, GitHub Action or payment action was invoked by this CLI lane.
+
+## Restore
+
+Using an existing Python 3 installation, run:
+    python3 restore-review.py records.json NEW_RESTORED_DIRECTORY
+
+The destination must not exist. The archive losslessly deduplicates identical byte streams; every alias retains its original native path, byte length, SHA-256, Git blob and file mode. The restore verifies each identity and creates regular files only. Historical symlink targets are retained in historical-symlink-metadata.json; inode/hardlink relationships and timestamps remain in original receipts and are not recreated. No archived script executes automatically.
+
+Namespaces: baseline, prepared-cli, empty-successor, candidate-first, candidate-final and external-manifests. The corrected receiver is empty-successor/receive-cli-v2.mjs with its exact adjacent helper, expected data and parser. Actual original commands/source arguments are in the candidate-final process receipts. Replay requires separately obtaining and compiling the pinned author source, plus a new private output directory. The duplicate candidate checkout, installed dependencies and caches are excluded.
+
+The baseline ENOSPC, timed-out initial receiver write and absent-target readback, original empty-table assumption, and device Offline hold remain distinct. A later read-only packaging inventory timed out at MCP -32603 with no PID or durable output; it performed no writes or receiving. Its already-pending proof read returned the frozen 48-line preservation proof, and root explicitly released assembly after that recovery. No failed or unknown run is relabeled as success.
+
+No merged, deployed, current-main or external-publication claim is made. This packet demonstrates archival custody; root's separate intake remains required.
+"""
+for p,expected in EXPECTED.items():
+ actual=hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+ if actual!=expected:raise ValueError('Frozen pin mismatch: '+p+' '+actual)
+rows,blobs=collect()
+out=pathlib.Path(tempfile.mkdtemp(prefix='household-cli-peer-publication-cf5799f6d38b-',dir='/tmp'))
+pub=out/'publication'/PREFIX;pub.mkdir(parents=True)
+raw=jb({'schema':'exact-native-evidence/1','entries':rows,'blobs':blobs})
+write(pub/'records.json',jb({'schema':'gzip-base64-exact-evidence/1','uncompressed':pin(raw),'payload_base64':base64.b64encode(gzip.compress(raw,mtime=0)).decode()}))
+write(pub/'restore-review.py',RESTORE.encode())
+write(pub/'README.md',README.encode())
+write(pub/'assembly-driver.py.txt',pathlib.Path(__file__).read_bytes())
+p=subprocess.run([sys.executable,'-B',str(pub/'restore-review.py'),str(pub/'records.json'),str(out/'restored')],capture_output=True,timeout=60)
+write(out/'restoration.stdout.log',p.stdout);write(out/'restoration.stderr.log',p.stderr)
+if p.returncode:raise RuntimeError(p.stderr.decode())
+verification=json.loads(p.stdout)
+rows2,blobs2=collect()
+if rows2!=rows or blobs2!=blobs:raise ValueError('Original evidence changed during assembly')
+verification.update(originals_exact_before_after=True,unique_byte_streams=len(blobs),archive=pin((pub/'records.json').read_bytes()))
+write(pub/'restoration-verification.json',jb(verification))
+write(pub/'custody.json',jb({'source_tree':'4da046012fb5b0007005204d624dc8b495e79c1c','required_frozen_pins':EXPECTED,'preserved_originals':rows,'baseline':{'controls':58,'groups':5,'exit':0},'first_cli':{'passed':18,'total':19,'exit':1,'failure':'receiver assumed empty expense table'},'corrected_cli':{'passed':19,'total':19,'ordinary':16,'supplemental':3,'exit':0},'new_product_or_browser_tests':False,'packaging_transport_observation':{'inventory':'MCP -32603 timeout; no PID/output; read-only, no test/write','pending_proof_read':'48 lines returned successfully before root released assembly'},'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}))
+files=[]
+for f in sorted(pub.rglob('*')):
+ if f.is_file():files.append({'path':f.relative_to(out/'publication').as_posix(),'source_path':str(f),'mode':'100644',**pin(f.read_bytes())})
+manifest={'schema':'publication-files/1','files':files,'count':len(files),'bytes':sum(f['bytes'] for f in files),'prefix':PREFIX,'application_source_modified':False,'root_intake_required':True}
+write(out/'publication-manifest.json',jb(manifest))
+transfer=jb({'schema':'base64-publication-transfer/1','manifest':manifest,'files':[dict(f,content_base64=base64.b64encode(pathlib.Path(f['source_path']).read_bytes()).decode()) for f in files]})
+write(out/'text-transfer.json',transfer)
+tr=out/'transport';tr.mkdir();parts=[]
+for n,start in enumerate(range(0,len(transfer),45000),1):
+ b=transfer[start:start+45000];f=tr/(str(n).zfill(3)+'.fragment.json')
+ write(f,jb({'part':n,'offset':start,**pin(b),'content_base64':base64.b64encode(b).decode()}))
+ parts.append({'path':str(f),**pin(f.read_bytes()),'payload_bytes':len(b),'payload_sha256':hashlib.sha256(b).hexdigest()})
+write(tr/'index.json',jb({'schema':'bounded-base64-fragments/1','manifest':{'path':str(out/'publication-manifest.json'),**pin((out/'publication-manifest.json').read_bytes())},'transfer':pin(transfer),'fragments':parts}))
+recovered=b''.join(base64.b64decode(json.loads(pathlib.Path(f['path']).read_text())['content_base64'],validate=True) for f in parts)
+if recovered!=transfer:raise ValueError('Transport mismatch')
+write(out/'transport-verification.json',jb({'all_fragment_bytes_exact':True,'complete_transfer_exact':True,'transfer':pin(recovered),'fragments':len(parts)}))
+print(json.dumps({'root':str(out),'manifest':{'path':str(out/'publication-manifest.json'),**pin((out/'publication-manifest.json').read_bytes())},'file_count':len(files),'publication_bytes':manifest['bytes'],'regular_aliases':verification['restored_regular_files'],'symlink_metadata':verification['historical_symlinks_as_metadata'],'unique_streams':len(blobs),'restoration_exact':True,'index':{'path':str(tr/'index.json'),**pin((tr/'index.json').read_bytes())},'fragments':len(parts)}))

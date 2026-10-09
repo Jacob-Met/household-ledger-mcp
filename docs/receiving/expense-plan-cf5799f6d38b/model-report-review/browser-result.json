@@ -1,0 +1,167 @@
+{
+  "schema": "household.expense-plan.independent-browser.v3",
+  "startedAt": "2026-10-08T23:59:26.401Z",
+  "runtime": "v22.22.1",
+  "groups": [
+    {
+      "id": "native-admitted-literals-are-readable-and-inert",
+      "evidence": {
+        "rows": 11,
+        "report": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/field-literals.html",
+        "sha256": "d94f4eb8883e3905387deef0f991b7c99cf904177456be70d6b2f0d2ad8a1dac",
+        "ordinaryAndJsonNotationExact": true
+      },
+      "passed": true
+    },
+    {
+      "id": "money-context-zero-empty-and-narrow-layout",
+      "evidence": [
+        {
+          "id": "matrix",
+          "width": {
+            "viewport": 390,
+            "body": 390
+          },
+          "totals": [
+            "29",
+            "100 → 129",
+            "1900 → 1871"
+          ],
+          "scroll": [
+            {
+              "width": 352,
+              "full": 601,
+              "overflow": "auto"
+            },
+            {
+              "width": 352,
+              "full": 1019,
+              "overflow": "auto"
+            },
+            {
+              "width": 352,
+              "full": 510,
+              "overflow": "auto"
+            }
+          ]
+        },
+        {
+          "id": "legacy",
+          "width": {
+            "viewport": 390,
+            "body": 390
+          },
+          "totals": [
+            "1",
+            "100 → 101",
+            "-100 → -101"
+          ],
+          "scroll": [
+            {
+              "width": 352,
+              "full": 601,
+              "overflow": "auto"
+            },
+            {
+              "width": 352,
+              "full": 1019,
+              "overflow": "auto"
+            },
+            {
+              "width": 352,
+              "full": 510,
+              "overflow": "auto"
+            }
+          ]
+        },
+        {
+          "id": "empty",
+          "width": {
+            "viewport": 390,
+            "body": 390
+          },
+          "totals": [
+            "0",
+            "0 → 0",
+            "0 → 0"
+          ],
+          "scroll": []
+        },
+        {
+          "id": "maximum",
+          "width": {
+            "viewport": 390,
+            "body": 390
+          },
+          "totals": [
+            "9007199254740991",
+            "0 → 9007199254740991",
+            "0 → -9007199254740991"
+          ],
+          "scroll": [
+            {
+              "width": 352,
+              "full": 733,
+              "overflow": "auto"
+            },
+            {
+              "width": 352,
+              "full": 581,
+              "overflow": "auto"
+            }
+          ]
+        },
+        {
+          "id": "estate-cli",
+          "width": {
+            "viewport": 390,
+            "body": 390
+          },
+          "totals": [
+            "6600",
+            "20000 → 26600",
+            "182000 → 175400"
+          ],
+          "scroll": [
+            {
+              "width": 352,
+              "full": 601,
+              "overflow": "auto"
+            },
+            {
+              "width": 352,
+              "full": 1019,
+              "overflow": "auto"
+            },
+            {
+              "width": 352,
+              "full": 510,
+              "overflow": "auto"
+            }
+          ]
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "requests": [
+    "file:///home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/field-literals.html",
+    "file:///home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/matrix.html",
+    "file:///home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/legacy.html",
+    "file:///home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/empty.html",
+    "file:///home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/reports/maximum.html",
+    "file:///home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/estate-cli/report.html"
+  ],
+  "pageErrors": [],
+  "storageWrites": [],
+  "temp": {
+    "TMPDIR": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/runtime-tmp-v3",
+    "TMP": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/runtime-tmp-v3",
+    "TEMP": "/home/jacob/household-model-peer-cf5799f6d38b-fu_w_s_3/runtime-tmp-v3"
+  },
+  "browser": "Chrome/153.0.8010.47",
+  "finishedAt": "2026-10-08T23:59:37.625Z",
+  "passed": 2,
+  "failed": 0,
+  "receiverSha256": "4f2c7d4749fd6d01782f558927ac9836882a7d4630aa4af47dcf1667be37547c"
+}

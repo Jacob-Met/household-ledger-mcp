@@ -1,0 +1,73 @@
+import assert from 'node:assert/strict';
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {join} from 'node:path';
+import {previewExpensePlan,renderExpensePlan,identifySnapshot} from './compiled/src/expense-plan.js';
+const root=new URL('./',import.meta.url).pathname;
+const corpus=JSON.parse(await readFile(join(root,'scope-and-fixtures-v1.json'),'utf8'));
+const groups=[],reports=[];
+function deepFreeze(value){if(value&&typeof value==='object'){Object.values(value).forEach(deepFreeze);Object.freeze(value);}return value;}
+async function group(name,fn){const row={name};try{row.evidence=await fn();row.passed=true;}catch(e){row.passed=false;row.error={message:String(e),stack:e.stack};}groups.push(row);}
+async function make(id,ledger,plan,month='2026-10',currency='usd'){
+ const before=JSON.stringify({ledger,plan});deepFreeze(ledger);deepFreeze(plan);
+ const preview=previewExpensePlan(ledger,plan,month,currency);
+ assert.equal(JSON.stringify({ledger,plan}),before,'Inputs remain unchanged');
+ const ledgerBytes=Buffer.from(JSON.stringify(ledger)+'\n'),planBytes=Buffer.from(JSON.stringify(plan)+'\n');
+ const ledgerPath=join(root,'inputs',id+'-ledger.json'),planPath=join(root,'inputs',id+'-plan.json');
+ await writeFile(ledgerPath,ledgerBytes,{flag:'wx'});await writeFile(planPath,planBytes,{flag:'wx'});
+ const identity={ledger:identifySnapshot(ledgerPath,ledgerBytes),plan:identifySnapshot(planPath,planBytes),generatedAt:'2026-10-08T23:40:00.000Z'};
+ const html=renderExpensePlan(preview,identity);
+ const inspection=html.match(/<script type="application\/json" id="expense-plan-data">([\s\S]*?)<\/script>/);
+ assert(inspection);assert.deepEqual(JSON.parse(inspection[1]),JSON.parse(JSON.stringify({...preview,provenance:identity})));
+ const path=join(root,'reports',id+'.html');await writeFile(path,html,{flag:'wx'});
+ const item={id,path,htmlBytes:Buffer.byteLength(html),sha256:createHash('sha256').update(html).digest('hex'),preview,identity};
+ reports.push(item);return item;
+}
+await group('hand-calculated-currency-category-budget-crossings',async()=>{
+ const x=await make('matrix',corpus.matrix.ledger,corpus.matrix.plan),p=x.preview;
+ assert.deepEqual([p.recorded.incomeMinor,p.recorded.expenseMinor,p.recorded.netMinor,p.plannedExpenseMinor,p.hypothetical.incomeMinor,p.hypothetical.expenseMinor,p.hypothetical.netMinor],[2000,100,1900,29,2000,129,1871]);
+ assert.equal(p.currency,'USD');assert.equal(p.expenses.length,4);assert.deepEqual(p.expenses.map(x=>[x.position,x.category,x.amountMinor]),[[1,'food',10],[2,'food',11],[3,'zero',1],[4,'unbudgeted',7]]);
+ const cats=new Map(p.categories.map(x=>[x.category,x]));
+ assert.equal(cats.get(' food ').recordedExpenseMinor,20);assert.equal(cats.get(' food ').plannedExpenseMinor,0);
+ assert.deepEqual([cats.get('food').recordedExpenseMinor,cats.get('food').plannedExpenseMinor,cats.get('food').hypotheticalExpenseMinor],[80,21,101]);
+ assert.equal(cats.get('unbudgeted').budgetCount,0);assert.equal(cats.get('budget-only').budgetCount,1);
+ assert.equal(cats.has('euro'),false);assert.equal(cats.has('prior-month'),false);
+ assert.deepEqual(p.budgets.map(x=>[x.category,x.limitMinor,x.recordedSpentMinor,x.recordedRemainingMinor,x.recordedOver,x.hypotheticalSpentMinor,x.hypotheticalRemainingMinor,x.hypotheticalOver]),[['food',100,80,20,false,101,-1,true],['zero',0,0,0,false,1,-1,true],['budget-only',0,0,0,false,0,0,false]]);
+ assert.equal(JSON.stringify(p).includes('PRIOR-PRIVATE-NOTE'),false);assert.equal(JSON.stringify(p).includes('prior-id-'),false);
+ return {report:x.path,totals:[2000,100,1900,29,129,1871],budgets:3,occurrences:4};
+});
+await group('repeated-legacy-equality-and-empty-snapshot',async()=>{
+ const x=await make('legacy',corpus.legacy.ledger,corpus.legacy.plan);
+ assert.deepEqual(x.preview.budgets.map(b=>[b.position,b.limitMinor,b.recordedOver,b.hypotheticalOver,b.hypotheticalRemainingMinor]),[[1,100,false,true,-1],[2,150,false,false,49]]);
+ assert(x.preview.budgets.every(b=>!Object.hasOwn(b,'currency')));
+ const y=await make('empty',{version:2,transactions:[],budgets:[]},{schema:'household-expense-plan/1',expenses:[]},'2026-10','XYZ');
+ assert.equal(y.preview.currency,'XYZ');assert.deepEqual([y.preview.recorded.incomeMinor,y.preview.recorded.expenseMinor,y.preview.hypothetical.netMinor,y.preview.plannedExpenseMinor],[0,0,0,0]);assert.deepEqual(y.preview.categories,[]);assert.deepEqual(y.preview.budgets,[]);
+ const z=await make('maximum',{version:2,transactions:[],budgets:[]},{schema:'household-expense-plan/1',expenses:[{date:'2026-10-31',category:'unbudgeted',amountMinor:Number.MAX_SAFE_INTEGER}]},'2026-10','XYZ');
+ assert.equal(z.preview.hypothetical.netMinor,-Number.MAX_SAFE_INTEGER);assert.equal(z.preview.hypothetical.expenseMinor,Number.MAX_SAFE_INTEGER);assert.equal(z.preview.categories[0].budgetCount,0);
+ return {legacy:x.path,empty:y.path,maximum:z.path,nativeNonIsoCurrencyAccepted:true};
+});
+await group('native-refusals-do-not-borrow-planned-currency-or-rewrite-inputs',async()=>{
+ const base={version:1,transactions:[],budgets:[{category:'food',month:'2026-10',limitMinor:100}]};
+ const expense={schema:'household-expense-plan/1',expenses:[{date:'2026-10-01',category:'food',amountMinor:1}]};
+ const cases=[
+ [base,expense,'2026-10','USD',/no currency/],
+ [corpus.matrix.ledger,{schema:'household-expense-plan/1',expenses:[{date:'2026-11-01',category:'food',amountMinor:1}]},'2026-10','USD',/inside/],
+ [{version:2,transactions:[{id:'other',type:'expense',amountMinor:1,currency:'EUR',date:'2026-09-31',category:'other'}],budgets:[]},expense,'2026-10','USD',/real calendar/],
+ [{version:2,transactions:[{id:'max',type:'expense',amountMinor:Number.MAX_SAFE_INTEGER,currency:'USD',date:'2026-10-01',category:'food'}],budgets:[]},expense,'2026-10','USD',/safe integer/]
+ ];
+ for(const [l,p,m,c,err] of cases){const before=JSON.stringify([l,p]);assert.throws(()=>previewExpensePlan(l,p,m,c),err);assert.equal(JSON.stringify([l,p]),before);}
+ return {refusals:cases.length,reason:'Consumer preserves existing native admissions; no new identity or currency assignment'};
+});
+await group('literal-and-inspection-record-provenance',async()=>{
+ const l={version:2,transactions:[],budgets:[]};
+ const p={schema:'household-expense-plan/1',expenses:corpus.literals.map((note,i)=>({date:'2026-10-01',category:'literal-'+(i+1),amountMinor:i+1,...(note.present?{note:note.value}:{})}))};
+ const x=await make('literals',l,p);
+ assert.deepEqual(x.preview.expenses.map(e=>Object.hasOwn(e,'note')?{present:true,value:e.note}:{present:false}),corpus.literals);
+ assert.equal(x.preview.plannedExpenseMinor,corpus.literals.length*(corpus.literals.length+1)/2);
+ for(const name of ['recorded','hypothetical'])assert.equal(x.preview[name].currency,'USD');
+ return {report:x.path,strings:corpus.literals.length,inspectionExact:true};
+});
+const result={schema:'household.expense-plan.independent-model-review.v1',runtime:process.version,groups,passed:groups.filter(x=>x.passed).length,failed:groups.filter(x=>!x.passed).length,reports,browserExecuted:false};
+await writeFile(join(root,'native-result.json'),JSON.stringify(result,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({passed:result.passed,failed:result.failed,reports:reports.map(x=>({id:x.id,path:x.path,sha256:x.sha256})),groups:groups.map(g=>({name:g.name,passed:g.passed,error:g.error}))}));
+if(result.failed)process.exitCode=1;
