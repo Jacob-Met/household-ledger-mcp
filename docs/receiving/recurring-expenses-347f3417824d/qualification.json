@@ -1,0 +1,304 @@
+{
+  "schema": "household-recurring-expenses-qualification/1",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "scope_issue": 18,
+  "product_revision": "v2",
+  "parent": {
+    "commit": "a74357bac7cf888e02b49c0d0cfa5f48c1fecf7b",
+    "tree": "56176c99771858cfe83df5270f6d15685a6e2165",
+    "leaves": 161
+  },
+  "source_composition": {
+    "tree": "7c5341ef299d5e9e35a3b47481c4b5e3a7597272",
+    "leaves": 166,
+    "inherited_leaves_preserved": 161,
+    "added_maintained_leaves": 5,
+    "modified_inherited_leaves": 0,
+    "removed_leaves": 0,
+    "mode_changes": 0,
+    "evidence_not_in_source_only_tree": true
+  },
+  "contract": {
+    "bytes": 9730,
+    "sha256": "c5fe764deca48d8fa9750a0963a2b39a3d0404473e9430fa5a3e78a61ca34b18"
+  },
+  "source_freeze": {
+    "bytes": 9726,
+    "sha256": "d799201b82668a3a8a62d8e72038c06d1bcdc3d233f1b8e875a67cd9228f19de"
+  },
+  "source_review": {
+    "status": "accepted",
+    "method": "Independent immutable-parent inventory composition and exact source review; no behavior rerun.",
+    "receipt": {
+      "bytes": 12518,
+      "sha256": "b5a16b3e72472facc82dba33759e69ef819105d8fcea298f691e214b443b7982",
+      "git_blob": "1f892d233cd64d2ddf0f7607571cf90a0c64da69"
+    },
+    "inventory": {
+      "bytes": 25848,
+      "sha256": "82ec75b06de228b6ade08100149bfb9812f97c4132cfade1ca513d3ac3a07b08",
+      "git_blob": "154651165d30ae60180c2abc1d3d6e27f4daf954"
+    }
+  },
+  "maintained_sources": [
+    {
+      "path": "src/recurring-expenses.ts",
+      "bytes": 10344,
+      "sha256": "4e14d3adb59c21525d413c411c991bd1558ae42f48b29f0a6b7c1bb1af8e3444",
+      "git_blob": "4e7ef9fbd0f9361015167049ebb694d16e5b34b7"
+    },
+    {
+      "path": "src/household-recurring-plan.ts",
+      "bytes": 4155,
+      "sha256": "802c59fe96d42377c0375a8b24ec4bb74c436e2a33467c8bbb33bd99a3aaf734",
+      "git_blob": "d200654a44cbec7613e50b749cedcc47a2c0cf84"
+    },
+    {
+      "path": "test/recurring-expenses.test.ts",
+      "bytes": 10683,
+      "sha256": "e6f234f60dee4d9edb5884dab376e00ebb0152274497fe4393c517fc8e62f5e2",
+      "git_blob": "c64aab7586279e55536607839fec6890b54b1d91"
+    },
+    {
+      "path": "test/recurring-expenses-cli.test.ts",
+      "bytes": 6554,
+      "sha256": "c34ae10424e27e11ea69bc9b656968dfe002bc0ab430e2671f2e6912eb6c6b7c",
+      "git_blob": "f1e3c59d9774ef9f1b682a6b7cb340f7e59ca380"
+    },
+    {
+      "path": "docs/RECURRING_EXPENSES.md",
+      "bytes": 7861,
+      "sha256": "3c11f7345926c553dab7280104086f25418622b4f55d1955960134493ad8bc13",
+      "git_blob": "cc3586b1e7cabce020e55e9da8be427ee8fdc01c"
+    }
+  ],
+  "compiled_modules": [
+    {
+      "path": "dist/src/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197"
+    },
+    {
+      "path": "dist/src/expense-plan.js",
+      "bytes": 14672,
+      "sha256": "7a3b7e51cd0da316bf4bed6bdbca3c2290146d0bcbfad3945bc866c251000d42",
+      "git_blob": "a086a5ffc998b94c0be519822137e7a324009d25"
+    },
+    {
+      "path": "dist/src/household-plan.js",
+      "bytes": 6917,
+      "sha256": "f1b336d85e01d1dbf8613bb4148fa2e829e1fd7d3e3d0f52636d7e74efc3896c",
+      "git_blob": "4ee0f76502a3dd1b242c0297b868b75bcf9d46df"
+    },
+    {
+      "path": "dist/src/recurring-expenses.js",
+      "bytes": 9562,
+      "sha256": "bf4781a0bf6fce45732ce3fbaba9816a2c780950f3b4e59f656422cc0e34ed66",
+      "git_blob": "8b001732d5a3b82966bc5ec909d2af40b9eae9e2"
+    },
+    {
+      "path": "dist/src/household-recurring-plan.js",
+      "bytes": 4409,
+      "sha256": "07d0d3f8092b9880d5947f8192f6b2ec15726099c6f46c32ee86a009d0a11d6d",
+      "git_blob": "a23bae6adcca8b1460d1edc713e6a3d65fa894ea"
+    }
+  ],
+  "archives": [
+    {
+      "role": "author",
+      "path": "author-v2.tar.gz",
+      "bytes": 138603,
+      "sha256": "a29379c13700cf9ecaa2e71d0d5af83782bad93f4ef39d5127adf82cb93924f6",
+      "git_blob": "b917df4953a1ab5a94325784d08e613286bd541d",
+      "members": 96,
+      "uncompressed_bytes": 573234,
+      "manifest": {
+        "bytes": 46368,
+        "sha256": "a0aecf4dac821289fc51002b8a05fcd90cdd8f5130e941bc60f98449028e9e56",
+        "git_blob": "da18c3aabf3bb0192060aa23c90d2113775516dc"
+      },
+      "readme": {
+        "bytes": 4474,
+        "sha256": "5b29a7d560b88766a57d7b966747580437ffc5a3cc4a1851a9184ed1a0c317ae",
+        "git_blob": "561d644aa6ae1448c506c623d65bbb8ef9e1378c"
+      }
+    },
+    {
+      "role": "independent",
+      "path": "independent-v3.tar.gz",
+      "bytes": 33718,
+      "sha256": "622b087fa6a697f3ffb2ddce1804ae04ff76d93739840952e02f5f5a13b7ce08",
+      "git_blob": "a4b8592a623f35e3ba47abc65cc6917c1f5aeb9f",
+      "members": 25,
+      "uncompressed_bytes": 136288,
+      "manifest": {
+        "bytes": 4063,
+        "sha256": "16a173fc2247269f3ab8ab53d1f32c846fe414e1dfb5b3aebba1ce68f6bdc467",
+        "git_blob": "0f0e8880fd1e141670b92ae3d6d12971a7dea9ba"
+      },
+      "readme": {
+        "bytes": 4027,
+        "sha256": "3d6a2c6b7f4f5fe0ceb87a82f23fcd9d94f04371384bf39975ecb1d5a0d2ceb2",
+        "git_blob": "b49538157cbfb63458f40bb1426a1345f1d53702"
+      }
+    }
+  ],
+  "original": {
+    "passed": 3,
+    "total": 3,
+    "attribution": "Pre-candidate independent controls on the unchanged explicit-plan consumer.",
+    "missing_feature_witness": {
+      "refused": true,
+      "error_name": "Error",
+      "message": "plan contains unsupported fields",
+      "meaning": "The unchanged consumer rejected recurring-rules input; no recurring producer implementation was invoked."
+    }
+  },
+  "author": {
+    "v1": {
+      "compile_exit": 0,
+      "maintained_tests_passed": 15,
+      "maintained_tests_total": 15,
+      "independent_candidate_matrix_run": false,
+      "package_context": "Historical sibling build had no separately frozen package ancestry; a package supplied for portable replay does not retroactively qualify it."
+    },
+    "post_freeze_findings": [
+      {
+        "finding": "bigint diagnostics and special rules-array admission",
+        "discovery": "author and root source review",
+        "native_probe": "author",
+        "v1_exit": 1,
+        "v1_failed_cases": 8
+      },
+      {
+        "finding": "Proxy admission before reflection",
+        "discovery": "independent protected-source review",
+        "native_probe": "author",
+        "v1_exit": 1,
+        "v1_failed_cases": 6
+      }
+    ],
+    "findings_are_pre_candidate_independent_oracles": false,
+    "preliminary_wrapper_failure": {
+      "exit": 1,
+      "before_product_or_file_action": true,
+      "preserved": true,
+      "meaning": "An overescaped resource-parser expression was corrected; the failed wrapper result remains historical evidence."
+    },
+    "v2": {
+      "compile_exit": 0,
+      "maintained_tests_passed": 17,
+      "maintained_tests_total": 17,
+      "non_json_probe_exit": 0,
+      "proxy_probe_exit": 0,
+      "change_scope": "API input admission and two maintained API tests; other source inputs unchanged."
+    }
+  },
+  "independent": {
+    "product_revision": "v2",
+    "packet_revision": "v3",
+    "original_controls_repeated": false,
+    "v1_matrix_run": false,
+    "api": {
+      "passed": 10,
+      "total": 10,
+      "analytical_calendar_cases": 21
+    },
+    "cli": {
+      "passed": 4,
+      "total": 4
+    },
+    "stdout_failure": {
+      "passed": 3,
+      "total": 3
+    },
+    "bound_inputs": 38,
+    "all_bound_inputs_unchanged": true,
+    "governing_package": {
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "type": "module"
+    },
+    "intermediate_package_absent": true,
+    "runtime": {
+      "platform": "macOS",
+      "node": "v26.3.0"
+    },
+    "frozen_inputs": [
+      {
+        "path": "oracles-v1.json",
+        "bytes": 17802,
+        "sha256": "860f6161c3b6ca8d07c70a25a9455abe7247bc3b701f83851ffb3afbdc033dd7"
+      },
+      {
+        "path": "receive-original-v1.mjs",
+        "bytes": 3516,
+        "sha256": "2a5d5103baa59706cc1f88db0f423099376d2cf561a7069c5f526617a9768c3a"
+      },
+      {
+        "path": "receive-api-v1.mjs",
+        "bytes": 10702,
+        "sha256": "b2218ff6c531d01c1713931b18797f2f2e84766c160d8ea2c464b3e2595e8b76"
+      },
+      {
+        "path": "receive-cli-v1.mjs",
+        "bytes": 7452,
+        "sha256": "e3fa25d8bd39f999092136d4e8d6fde3bd2b637a669a1a2aa84a503fef3fcca4"
+      },
+      {
+        "path": "oracle-seal-v1.json",
+        "bytes": 393,
+        "sha256": "69b7c23a27a1c549876a77961aeb0f2d50d8d9c10ba859cfc8ad24361353691a"
+      },
+      {
+        "path": "executable-seal-v1.json",
+        "bytes": 973,
+        "sha256": "016c72d6c0b585c8e876bcffefe68179e2f84228d51e09ca9347c69058afb6e0"
+      },
+      {
+        "path": "cli-seal-v1.json",
+        "bytes": 334,
+        "sha256": "010609f77b0a39cd1553ead4892e9b5363d86f13f6e9720d0001297b62183d56"
+      },
+      {
+        "path": "receive-cli-v2.mjs",
+        "bytes": 7482,
+        "sha256": "4b8cf3e2fcc2c5156db42729f0794489aba65d7db01503a04c18fd30a986c330"
+      },
+      {
+        "path": "cli-pre-exposure-correction-v2.json",
+        "bytes": 1345,
+        "sha256": "3eedbc504d3d1f5f1a7495f37919f8acd8475f12fdedf55dea13a0dc987836e9"
+      },
+      {
+        "path": "receive-stdout-failure-v1.mjs",
+        "bytes": 6046,
+        "sha256": "772b6e14bc7d673bf3b32c53b9e78ff991b57663bbbc00eb38586819824c935a"
+      },
+      {
+        "path": "stdout-failure-seal-v1.json",
+        "bytes": 1242,
+        "sha256": "a78ab5494e7328e522313db5612d9d6844a8a3953dda1139d9e1ea00aaff9644"
+      }
+    ],
+    "packet_revision_reason": "README attribution correction only; qualification, runtime, drivers, oracles and physical examples remain exact."
+  },
+  "portable_evidence": {
+    "author_payloads_exact": 82,
+    "author_payloads_with_documented_private_path_substitutions": 13,
+    "author_manifest_self_additional": true,
+    "raw_private_receipts_included": false,
+    "independent_qualification": "Derived portable projection with exact raw receipt hashes; raw contents remain private.",
+    "failed_results_preserved": true,
+    "packaging_behavior_runs": 0,
+    "archive_receiving_behavior_runs": 0
+  },
+  "limitations": [
+    "This is component qualification using synthetic data; no persistent Store, provider or real household ledger was changed.",
+    "The explicit expense plan has no currency field; the consumer must receive the same currency and month as the producer receipt.",
+    "A later receipt or stdout failure can leave a complete plan file; every nonzero CLI delivery status is a failure.",
+    "No cross-version or cross-platform runtime matrix, full inherited service build, browser acceptance, hosted-check result, merge or product adoption is asserted.",
+    "Publication and the final evidence-overlay tree are separate source-custody actions."
+  ]
+}
