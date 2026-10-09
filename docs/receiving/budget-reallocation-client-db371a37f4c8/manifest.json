@@ -1,0 +1,118 @@
+{
+  "schema": "household-reallocation-client-custody/1",
+  "time": "2026-10-09T01:12:19.257912+00:00",
+  "canonicalParent": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+  "canonicalParentTree": "9b26924692900212268587b7a1d6fe10c45d5f7b",
+  "prefix": "docs/receiving/budget-reallocation-client-db371a37f4c8",
+  "productTree": "5b88c9f61af7db76ed3489f6be9a3e65d2214ffe",
+  "files": [
+    {
+      "path": "source/src/reallocation-client.ts",
+      "bytes": 10031,
+      "sha256": "a430da6e0ffc59ac4dc70a20eda0d76b7c02f02afe7fd0886496a08f94ae8545",
+      "git": "be5cd580e4702d433b9607eff2a3283e93cbd097"
+    },
+    {
+      "path": "source/src/household-reallocate.ts",
+      "bytes": 5786,
+      "sha256": "b52b6c5c87d338504c2712bc8a7a31cd7c926f6b139787dc38210d52ca082ae5",
+      "git": "d2e83a9cd013ec9b7c32357fd5d4c6d2817fb446"
+    },
+    {
+      "path": "source/test/reallocation-client.test.ts",
+      "bytes": 4071,
+      "sha256": "717b882d05155cf3373b8d3c0f4ad41b8f59956cee7b4545137c4f365ba9ea8f",
+      "git": "1d1bcccdafeac136b718059022d9c6b6d87a5de4"
+    },
+    {
+      "path": "source/test/reallocation-client-http.test.ts",
+      "bytes": 7603,
+      "sha256": "7fdaccd879d852a5e1a5ab65582a9db04c826eb6a84d70bea301e8316e48d190",
+      "git": "03717f9a58353bde3eb24b32f93c576142bdcd6f"
+    },
+    {
+      "path": "source/docs/REALLOCATION_CLIENT.md",
+      "bytes": 3950,
+      "sha256": "1f478cdf0e3b0e2defb8226850546f7df85e4e8f2cc241c85c1f8ca9d1c345b7",
+      "git": "c1fdf93a291ce9a7f803c132151e77b2b703cc19"
+    },
+    {
+      "path": "after-producer.patch",
+      "bytes": 32697,
+      "sha256": "bfdd32804d2b36e993caafdae6bb1f0b29d27884874c3ee133a8e3358ab926d4",
+      "git": "4c3bdf7a05a299554fce26e7473176e43041ac7c"
+    },
+    {
+      "path": "candidate-source-pins.json",
+      "bytes": 24542,
+      "sha256": "0a9c93ee5792d3df8394e31969a35a7716d971a7d4748eb81b486e5aef4cfde4",
+      "git": "738c900bcd3f78ee4f66f12f443bb7b2f234766a"
+    },
+    {
+      "path": "original-source-pins.json",
+      "bytes": 6380,
+      "sha256": "2354d594296ec2e890505aa07d9e84105ab3f4d2f8781426b4efda7f6f19de9d",
+      "git": "811c16f507531a7b8e3149d818f1edcb3932bc58"
+    },
+    {
+      "path": "published-parent-tree.json",
+      "bytes": 46880,
+      "sha256": "a8d2c59ffb21c868166d0699f0a95dfaff764e2754123deaac006fc02194f705",
+      "git": "b64dd268a407878f4bdeaafe5972e79395645ebf"
+    },
+    {
+      "path": "AUTHOR.md",
+      "bytes": 6984,
+      "sha256": "d5896a2a94962c8fafbf6460f7766c5ab3a151aef46e5b1c1750b6af1a890ab3",
+      "git": "9c461341cc566a27cd40ca7c7e248eb5d937d7b4"
+    },
+    {
+      "path": "author-seal.json",
+      "bytes": 486,
+      "sha256": "c9ad4ec0ce64114ce78a9346323f12b1833583515c18347a4808d1128146bf51",
+      "git": "60c3c75495c1adab3c2f344adca918d7ca61b7a8"
+    },
+    {
+      "path": "root-seal.json",
+      "bytes": 2201,
+      "sha256": "d902ee44576ecead6950301ad0435206adde31c54766688c063d929b9598050f",
+      "git": "25747330ad2b555381e60ca758944be055c072ae"
+    },
+    {
+      "path": "full-dependency-source-pins.json",
+      "bytes": 673751,
+      "sha256": "5274e4b46eca7c11a4c894d7963f888852159c9276ec4a5c9a6ef4a02f7acd47",
+      "git": "e60f279dedd23372f3d27910b70e0f5d91df7589"
+    },
+    {
+      "path": "ROOT.md",
+      "bytes": 21390,
+      "sha256": "5f98b0cebf9c78ebaa150e059369ca1c42ee08548e5db5b3b06a05394c195c19",
+      "git": "9eda78b142932c1f9c62850a21ade35da8ee263a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4976,
+      "sha256": "932a2079d7675fb5253da30241d8961de2929fd4abd00cb023fdca28947efebb",
+      "git": "77c98e961459b77038634a570fb75944695f7598"
+    },
+    {
+      "path": "DEPENDENCY-PROVENANCE.md",
+      "bytes": 2431,
+      "sha256": "57515f770f96ba3328e35d25144ecc57354b411d2d7ae79cdc3d0456c87845a9",
+      "git": "e9e5fb234dd7af1b1bfb06344fc5bed871b9cae0"
+    },
+    {
+      "path": "author-r1.tar.gz",
+      "bytes": 573029,
+      "sha256": "1dd3c56d4e37b45c384f8504acc84ffe6f737f698501b73e976826d362ee4056",
+      "git": "aeb5bc4aed7c75673dca30c862c9a3e1892d0175"
+    },
+    {
+      "path": "root-receiving-r2.tar.gz",
+      "bytes": 1143024,
+      "sha256": "887a23714ec250d063f62cf28fd3c06f17b8531e2fe7f8b2891e66953f6c488e",
+      "git": "696da3a48753106cae29a37e9f550ef3a44dfe23"
+    }
+  ]
+}

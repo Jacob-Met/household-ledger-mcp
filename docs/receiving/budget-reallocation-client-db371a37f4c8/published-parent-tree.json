@@ -1,0 +1,1093 @@
+{
+  "sha": "f039e5d078827746c896e5e167ba95299e48cd17",
+  "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/f039e5d078827746c896e5e167ba95299e48cd17",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1301a72940b8e8c513e18a2683022e72df6caf62",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/1301a72940b8e8c513e18a2683022e72df6caf62"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4fde36323d44a974d3b609a2b62ed37d1c6df313",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/4fde36323d44a974d3b609a2b62ed37d1c6df313"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39325b079fb40b0587ec231eeb3328f52e7ece74",
+      "size": 425,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/39325b079fb40b0587ec231eeb3328f52e7ece74"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9470778764f72c5257a3361590d2994547f90e1",
+      "size": 20,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/b9470778764f72c5257a3361590d2994547f90e1"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "edb188254288b40f2895833e3647b7e0be34c962",
+      "size": 1070,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/edb188254288b40f2895833e3647b7e0be34c962"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c531794d60442954a836db32c6fdafab5e08ba0e",
+      "size": 6704,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/c531794d60442954a836db32c6fdafab5e08ba0e"
+    },
+    {
+      "path": "SUMMARY_CURRENCY.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9245261e5993187e6ab467bbe8ef6e5588465d0",
+      "size": 8094,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/d9245261e5993187e6ab467bbe8ef6e5588465d0"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "02a9f4167318190bfd0eaf1907ace98c9ab90661",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/02a9f4167318190bfd0eaf1907ace98c9ab90661"
+    },
+    {
+      "path": "docs/BUDGET_REALLOCATION.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c816c09e860f1a04b23f9ffa2c4b3216a34c8e9",
+      "size": 4862,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/6c816c09e860f1a04b23f9ffa2c4b3216a34c8e9"
+    },
+    {
+      "path": "docs/CASHFLOW_TREND.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "428b4ac69be656cf5307715274f624e3544a1c01",
+      "size": 4884,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/428b4ac69be656cf5307715274f624e3544a1c01"
+    },
+    {
+      "path": "docs/TRANSACTION_IMPORT.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "703097faefa4b8d25dc50577560b9a29748b2f84",
+      "size": 8656,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/703097faefa4b8d25dc50577560b9a29748b2f84"
+    },
+    {
+      "path": "docs/receiving",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "453a4f746935e3a67615e24d599cc9c94e805398",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/453a4f746935e3a67615e24d599cc9c94e805398"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "26e6f391903831dbcc9e21d315c72b84b332e1c0",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/26e6f391903831dbcc9e21d315c72b84b332e1c0"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/RECEIVING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "148a650c89c345757300f42676a0f2ddb533a9d0",
+      "size": 4555,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/148a650c89c345757300f42676a0f2ddb533a9d0"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "deeb943b6a15a214f477fc4eb3e0c6d8c69074d2",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/deeb943b6a15a214f477fc4eb3e0c6d8c69074d2"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf90b4bfd4f0c0bf93a264ffae6cefe9ab14f8f6",
+      "size": 5631,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/cf90b4bfd4f0c0bf93a264ffae6cefe9ab14f8f6"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/compile-native.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45a8432d4ddae6dfc98d891d7be45b9c4fc53074",
+      "size": 3798,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/45a8432d4ddae6dfc98d891d7be45b9c4fc53074"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/expected.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02af2040d8097e961519a24e2f543f9368a5bef6",
+      "size": 10767,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/02af2040d8097e961519a24e2f543f9368a5bef6"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/fixture.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b606a3bfecc804c8756550debb54d9621ceb819a",
+      "size": 503,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/b606a3bfecc804c8756550debb54d9621ceb819a"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/gap-analysis.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74ba83b50eb429d6503e9a3b7cf730f6da9ece38",
+      "size": 10255,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/74ba83b50eb429d6503e9a3b7cf730f6da9ece38"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "adf6c6d4ef40ce73edb22aef49c1bcf5f5266f67",
+      "size": 9108,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/adf6c6d4ef40ce73edb22aef49c1bcf5f5266f67"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/original-runtime-body-custody.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d25a86657fac80b4abc367827946bfab2aacafc7",
+      "size": 1773,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/d25a86657fac80b4abc367827946bfab2aacafc7"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/review.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c74c02f26eaa488161837fec8b0f5735343c2330",
+      "size": 8528,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/c74c02f26eaa488161837fec8b0f5735343c2330"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b098e009fc8b6ef4248d6a0d5e9e03ee1cb88700",
+      "size": 4842,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/b098e009fc8b6ef4248d6a0d5e9e03ee1cb88700"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9e8bee91d6ca27bc77bbbc6768e7229b9992d6f0",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/9e8bee91d6ca27bc77bbbc6768e7229b9992d6f0"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/before-import-ledger.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5740d1c2d6ca8fe604c8c1f5b03e43b27c79150",
+      "size": 531,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/a5740d1c2d6ca8fe604c8c1f5b03e43b27c79150"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/before-replay-ledger.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0e624ebaaf9c4068e70a3264373a58d7138e47a",
+      "size": 3314,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/f0e624ebaaf9c4068e70a3264373a58d7138e47a"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/compile.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1e9db83353d72f2950cf6f706f19f1e3d781867",
+      "size": 48623,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/b1e9db83353d72f2950cf6f706f19f1e3d781867"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/compile.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/compile.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b2b6923885312ba81c52479d323fd9a17d77599",
+      "size": 92,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/9b2b6923885312ba81c52479d323fd9a17d77599"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/emitted",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "559f79ec70fd7be33d874691d5fa4289509487f2",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/559f79ec70fd7be33d874691d5fa4289509487f2"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/emitted/cashflow.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47096ff6caa6a680f3cca9edae48f709a6ff732a",
+      "size": 3942,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/47096ff6caa6a680f3cca9edae48f709a6ff732a"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/emitted/ledger.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64bf18d3162efc62dc8d56c45b3cf62bf8340d41",
+      "size": 15664,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/64bf18d3162efc62dc8d56c45b3cf62bf8340d41"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/emitted/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "size": 18,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/089153bcb5adf57dc25f206a9dad3114c9cff80d"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/emitted/transaction-csv.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8fc100dd7935feb1d53fff35d9585f4d064567ae",
+      "size": 6291,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/8fc100dd7935feb1d53fff35d9585f4d064567ae"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/emitted/transaction-import.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1742963543c9ca976526a48cb61266375e9cb8d5",
+      "size": 7197,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/1742963543c9ca976526a48cb61266375e9cb8d5"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/initial.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5f78b45870fdba71c74c71ed0483c1f28dbbdfa",
+      "size": 20714,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/f5f78b45870fdba71c74c71ed0483c1f28dbbdfa"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/initial.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/initial.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3b6489bcff16c9676948a5637630c1abc66df17",
+      "size": 60,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/c3b6489bcff16c9676948a5637630c1abc66df17"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "221cc59bb4c2f394fe61398d6bbc2d1c16f8a215",
+      "size": 4448,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/221cc59bb4c2f394fe61398d6bbc2d1c16f8a215"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/reopened.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff860dd30c5065c8d57957dc624cd413c69bc1e7",
+      "size": 25630,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/ff860dd30c5065c8d57957dc624cd413c69bc1e7"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/reopened.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/reopened.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "beb3737b22352b2f4d0ffac6782fc8982e4f52e1",
+      "size": 61,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/beb3737b22352b2f4d0ffac6782fc8982e4f52e1"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/state",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2223f9257b8bf8103bddd4a3a371e3513b539c3a",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/2223f9257b8bf8103bddd4a3a371e3513b539c3a"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/state/household.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0e624ebaaf9c4068e70a3264373a58d7138e47a",
+      "size": 3314,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/f0e624ebaaf9c4068e70a3264373a58d7138e47a"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/workflow.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b94d08f01c72c85de1e9db56ed41e1dc3bd307f4",
+      "size": 9904,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/b94d08f01c72c85de1e9db56ed41e1dc3bd307f4"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/original-07e223b5-receiving.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ae89d845c9e1fd433d805e5dabd8b4af88008ed",
+      "size": 247848,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/3ae89d845c9e1fd433d805e5dabd8b4af88008ed"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/publication-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "81c5e77163af303c6ebf912916f1b0939aa59cf6",
+      "size": 30013,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/81c5e77163af303c6ebf912916f1b0939aa59cf6"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/receiving-verification.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ef490ee34df397174257f37d414e88b71c09296",
+      "size": 4326,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/7ef490ee34df397174257f37d414e88b71c09296"
+    },
+    {
+      "path": "docs/receiving/complete-native-61749b-20261008/source-custody.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7be06bb6c886eb8b03678fa8c45510e0decf78b5",
+      "size": 29896,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/7be06bb6c886eb8b03678fa8c45510e0decf78b5"
+    },
+    {
+      "path": "evidence",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d5680c92bbac6804912422a6882aaaccc70238c0",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/d5680c92bbac6804912422a6882aaaccc70238c0"
+    },
+    {
+      "path": "evidence/category-composition-401c5d17da79-20261008",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a99b71a74b6b6d29a95894d5ef11db25c6ac7ba6",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/a99b71a74b6b6d29a95894d5ef11db25c6ac7ba6"
+    },
+    {
+      "path": "evidence/category-composition-401c5d17da79-20261008/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86068c52109e98b310c5d5a2fcfaf1453874553c",
+      "size": 2624,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/86068c52109e98b310c5d5a2fcfaf1453874553c"
+    },
+    {
+      "path": "evidence/category-composition-401c5d17da79-20261008/composed-build.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c24276af8484a9f87c1c7ac7c532f9d9f71a532",
+      "size": 142,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/6c24276af8484a9f87c1c7ac7c532f9d9f71a532"
+    },
+    {
+      "path": "evidence/category-composition-401c5d17da79-20261008/composed-full-suite.tap",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51a5d64266497e2b3a5598c6fb07bdd40ecc03f7",
+      "size": 8885,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/51a5d64266497e2b3a5598c6fb07bdd40ecc03f7"
+    },
+    {
+      "path": "evidence/category-composition-401c5d17da79-20261008/composed-proto-http-diagnostic.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "338f5fc111bd8f0ede33488f8c8ed4a7ba25cac1",
+      "size": 2200,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/338f5fc111bd8f0ede33488f8c8ed4a7ba25cac1"
+    },
+    {
+      "path": "evidence/category-composition-401c5d17da79-20261008/owner-baseline-build.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c24276af8484a9f87c1c7ac7c532f9d9f71a532",
+      "size": 142,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/6c24276af8484a9f87c1c7ac7c532f9d9f71a532"
+    },
+    {
+      "path": "evidence/category-composition-401c5d17da79-20261008/owner-baseline-composition.tap",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d37fe47cc3579a17f2057c00758fc456b9381096",
+      "size": 3855,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/d37fe47cc3579a17f2057c00758fc456b9381096"
+    },
+    {
+      "path": "evidence/category-composition-401c5d17da79-20261008/owner-baseline-proto-http-diagnostic.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d930cad981fb474b303abea87f19a13167e8289",
+      "size": 1635,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/2d930cad981fb474b303abea87f19a13167e8289"
+    },
+    {
+      "path": "evidence/category-composition-401c5d17da79-20261008/source-pins.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27ffe5118f936e5b62f10a4482aa47eeeac5a96e",
+      "size": 1905,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/27ffe5118f936e5b62f10a4482aa47eeeac5a96e"
+    },
+    {
+      "path": "evidence/category-composition-401c5d17da79-20261008/verification.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bce0e411367f1bf34ab4f4f144326230a89d617",
+      "size": 5052,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/2bce0e411367f1bf34ab4f4f144326230a89d617"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1ee01f714060ba6b5435fd09612d69eb1edf51bb",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/1ee01f714060ba6b5435fd09612d69eb1edf51bb"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c86d53f2caa707af4946073759881ddca59f1c8b",
+      "size": 5135,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/c86d53f2caa707af4946073759881ddca59f1c8b"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/candidate-affected-tests.stderr.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/candidate-affected-tests.stdout.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e05eaee27dab64b34719f2476a3100af4e238e0",
+      "size": 6513,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/1e05eaee27dab64b34719f2476a3100af4e238e0"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/candidate-build.stderr.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83b5f9d4df0d01aa0059b4e2ce67617225986b34",
+      "size": 99,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/83b5f9d4df0d01aa0059b4e2ce67617225986b34"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/candidate-build.stdout.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f46d53ebbe9cd8c86b96f62d7f0c8d4712281583",
+      "size": 43,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/f46d53ebbe9cd8c86b96f62d7f0c8d4712281583"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/candidate-owner-recovery.stderr.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/candidate-owner-recovery.stdout.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "867d9c8d013768257b5466f54393f12a61cd2311",
+      "size": 1723,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/867d9c8d013768257b5466f54393f12a61cd2311"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/candidate-recovery-build.stderr.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/candidate-recovery-build.stdout.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/category-cherry-pick-conflict.diff",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d74f92ada1848a2984cbe8589cff88f448ad9bf",
+      "size": 2010,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/9d74f92ada1848a2984cbe8589cff88f448ad9bf"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/current-primary-source.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f188d63d1a90d64d469296b6f9b3641f1dd3e66e",
+      "size": 8075,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/f188d63d1a90d64d469296b6f9b3641f1dd3e66e"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/native-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77c8f6eab692ce9697bdf79bbfedda16fa4a3664",
+      "size": 4722,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/77c8f6eab692ce9697bdf79bbfedda16fa4a3664"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/owner-current-source.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce8f03f0cb7555706b9c78be5fef6fbac5525469",
+      "size": 6944,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/ce8f03f0cb7555706b9c78be5fef6fbac5525469"
+    },
+    {
+      "path": "evidence/current-category-composition-401c5d17da79-20261008/scope-verification.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "946e6ac1f68b10ec8857399dd7948562ca58f49b",
+      "size": 2123,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/946e6ac1f68b10ec8857399dd7948562ca58f49b"
+    },
+    {
+      "path": "evidence/denominated-budgets-401c5d17da79-20261008",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a06e9c7ff5061c09c03e6b157922b58d83dc7d51",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/a06e9c7ff5061c09c03e6b157922b58d83dc7d51"
+    },
+    {
+      "path": "evidence/denominated-budgets-401c5d17da79-20261008/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2a98d8d9f7db52dcaa2865ad040cf71b1ea2cd3",
+      "size": 3656,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/f2a98d8d9f7db52dcaa2865ad040cf71b1ea2cd3"
+    },
+    {
+      "path": "evidence/denominated-budgets-401c5d17da79-20261008/author-budget-11.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df99ff61d8e8602646d7eea99cdeb66016a39d04",
+      "size": 1333,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/df99ff61d8e8602646d7eea99cdeb66016a39d04"
+    },
+    {
+      "path": "evidence/denominated-budgets-401c5d17da79-20261008/author-combined-62.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "11d001a9dd9e465ed5121795a93e74b847649f82",
+      "size": 6543,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/11d001a9dd9e465ed5121795a93e74b847649f82"
+    },
+    {
+      "path": "evidence/denominated-budgets-401c5d17da79-20261008/baseline-feature-expectations.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c103a8ed04fb76657be2c764da8318ec70fc22a",
+      "size": 11326,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/2c103a8ed04fb76657be2c764da8318ec70fc22a"
+    },
+    {
+      "path": "evidence/denominated-budgets-401c5d17da79-20261008/independent-http-receiving.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f8cf5e47e74bb9a499e49ef28ab8132bccc7f5d",
+      "size": 39436,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/6f8cf5e47e74bb9a499e49ef28ab8132bccc7f5d"
+    },
+    {
+      "path": "evidence/denominated-budgets-401c5d17da79-20261008/old-reader-control.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b621c08f9a1930f52e27f9ae919ca1be2baf0018",
+      "size": 444,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/b621c08f9a1930f52e27f9ae919ca1be2baf0018"
+    },
+    {
+      "path": "evidence/denominated-budgets-401c5d17da79-20261008/old-reader-v2-ledger.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bfce13cec49d3ab39606e281ee9c5a9128a9d44",
+      "size": 175,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/9bfce13cec49d3ab39606e281ee9c5a9128a9d44"
+    },
+    {
+      "path": "evidence/denominated-budgets-401c5d17da79-20261008/source-inputs.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "078f6e1921180efbb7021547103b1c8656e24612",
+      "size": 2491,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/078f6e1921180efbb7021547103b1c8656e24612"
+    },
+    {
+      "path": "evidence/monthly-category-summary-20261008",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "47606ccb3a0344a71d5fe7b40a55c584ef2e579e",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/47606ccb3a0344a71d5fe7b40a55c584ef2e579e"
+    },
+    {
+      "path": "evidence/monthly-category-summary-20261008/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c900778108badc0436f2b2685575c25a6d0a014",
+      "size": 2921,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/0c900778108badc0436f2b2685575c25a6d0a014"
+    },
+    {
+      "path": "evidence/monthly-category-summary-20261008/baseline.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f3ef9f989e5a127b25542fe51d9243c6762c2b4c",
+      "size": 6746,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/f3ef9f989e5a127b25542fe51d9243c6762c2b4c"
+    },
+    {
+      "path": "evidence/monthly-category-summary-20261008/candidate.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7dd23e9337f01d2d2f670a1c85c559b650b498c4",
+      "size": 2491,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/7dd23e9337f01d2d2f670a1c85c559b650b498c4"
+    },
+    {
+      "path": "evidence/monthly-category-summary-20261008/verification.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b354756e42efc7fb95d9573819651733742639a6",
+      "size": 2846,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/b354756e42efc7fb95d9573819651733742639a6"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d037716d34f4d749c0d4877aa1eff76c03de2de0",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/d037716d34f4d749c0d4877aa1eff76c03de2de0"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfc3935eae08a930ab0a4f64a5d6c5dac98916a0",
+      "size": 7542,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/dfc3935eae08a930ab0a4f64a5d6c5dac98916a0"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/baseline-authored.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8181d3625b93e0d34e27ce056389e9e87e6eb590",
+      "size": 14773,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/8181d3625b93e0d34e27ce056389e9e87e6eb590"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/baseline-build.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "284f8db0756c5f7fb08ae87e56f7f41009237eab",
+      "size": 142,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/284f8db0756c5f7fb08ae87e56f7f41009237eab"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/baseline-runs.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25211db8ed39a7ac96149c655d394776b57f8c82",
+      "size": 933,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/25211db8ed39a7ac96149c655d394776b57f8c82"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/before-image",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "db190de77d3b3fe642bde96a41142048379816ce",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/db190de77d3b3fe642bde96a41142048379816ce"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/before-image/baseline-source-pins.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5638aaf9258dfe287daeeb55217173868fd8884",
+      "size": 1577,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/d5638aaf9258dfe287daeeb55217173868fd8884"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/before-image/before-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73d3ea701dcb43286c43ee97e820d9fc8326afb4",
+      "size": 886,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/73d3ea701dcb43286c43ee97e820d9fc8326afb4"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/before-image/frozen-recording-before.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09cd1e0ef1ab4affb4754cd8a30258358440defc",
+      "size": 6279,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/09cd1e0ef1ab4affb4754cd8a30258358440defc"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/before-image/initial-before-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20735d89c2657ba2661b2a5a160c5742abac91ee",
+      "size": 551,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/20735d89c2657ba2661b2a5a160c5742abac91ee"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/before-image/initial-frozen-recording-before.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c43b052f0859c61c5b2a7bfb8960532dc5e0d05",
+      "size": 6280,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/6c43b052f0859c61c5b2a7bfb8960532dc5e0d05"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/before-image/summary-before-initial.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78fa8bd6e6fdc3b5e1d0f609531f6c0ce069f8dc",
+      "size": 5925,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/78fa8bd6e6fdc3b5e1d0f609531f6c0ce069f8dc"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/before-image/summary-before.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8bc993220edd86044e1a85c0f1e5c5883dd157ab",
+      "size": 5955,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/8bc993220edd86044e1a85c0f1e5c5883dd157ab"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/before-image/tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f56ecff58d6e13b57c29d9eb3b22a5540884541",
+      "size": 210,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/1f56ecff58d6e13b57c29d9eb3b22a5540884541"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/candidate-before-image-run.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5df8ce7e70322a96dfe87446f5a97ce99cfd686",
+      "size": 823,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/b5df8ce7e70322a96dfe87446f5a97ce99cfd686"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/candidate-before-image.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41ab0a1931f86258d166aa7493f5058cdc3423b3",
+      "size": 3956,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/41ab0a1931f86258d166aa7493f5058cdc3423b3"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/candidate-full.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e14fc8490c95b9596bc04a7889ae9110571e5f8",
+      "size": 4003,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/5e14fc8490c95b9596bc04a7889ae9110571e5f8"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/candidate-runs.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd98db063883ec566b882a4f459701a5a66172e4",
+      "size": 845,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/bd98db063883ec566b882a4f459701a5a66172e4"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/candidate-typecheck.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b0d7a57ab62ccbfd0ccb038c87f574aee98ea4b",
+      "size": 155,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/9b0d7a57ab62ccbfd0ccb038c87f574aee98ea4b"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/source-pins.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a80412ee3ed63fc0d942d1c79486685a30dbcc7",
+      "size": 2415,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/1a80412ee3ed63fc0d942d1c79486685a30dbcc7"
+    },
+    {
+      "path": "evidence/summary-currency-ce7e-20261008/verification-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e566feba096865bb7ba8d78270994dfb27b31185",
+      "size": 5136,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/e566feba096865bb7ba8d78270994dfb27b31185"
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "020c296d667264f890d47c5effc7abca9f4ea8cb",
+      "size": 43740,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/020c296d667264f890d47c5effc7abca9f4ea8cb"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "size": 703,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/8084b9f3ff256e67dd1cbf5746fecd87d976ea63"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1824699c228b1a5abd2494ac361ec06e22c4db48",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/1824699c228b1a5abd2494ac361ec06e22c4db48"
+    },
+    {
+      "path": "src/budget-reallocation.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a31c48a650c6c2b4d67fc29a1d89669e84e42b52",
+      "size": 9152,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/a31c48a650c6c2b4d67fc29a1d89669e84e42b52"
+    },
+    {
+      "path": "src/cashflow.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ef82c27ef41f3ef65198d6045beb6779364bf45",
+      "size": 4761,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/7ef82c27ef41f3ef65198d6045beb6779364bf45"
+    },
+    {
+      "path": "src/index.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8dab2003cbfffed9b4d8f0463e0b62c3bdd49ba3",
+      "size": 12214,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/8dab2003cbfffed9b4d8f0463e0b62c3bdd49ba3"
+    },
+    {
+      "path": "src/ledger.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+      "size": 17537,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/2ff8133404f19c705eb7b7f0a943e8190f3328d6"
+    },
+    {
+      "path": "src/stdio.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f670b4244384fdb02ae72341dcb53e5348af7d99",
+      "size": 586,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/f670b4244384fdb02ae72341dcb53e5348af7d99"
+    },
+    {
+      "path": "src/transaction-csv.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33678fa52bac0c2463bd415997fefea73f221ade",
+      "size": 6189,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/33678fa52bac0c2463bd415997fefea73f221ade"
+    },
+    {
+      "path": "src/transaction-import.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1643e64f35d7ffc26281c4162290860760f88ef8",
+      "size": 8357,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/1643e64f35d7ffc26281c4162290860760f88ef8"
+    },
+    {
+      "path": "test",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "05f4a56478db36b96cb6bdb39719a67f87674fd2",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/trees/05f4a56478db36b96cb6bdb39719a67f87674fd2"
+    },
+    {
+      "path": "test/budget-currency.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e8ddb84cf31ef9fe37058f3264e726fd4ced7e7",
+      "size": 13256,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/1e8ddb84cf31ef9fe37058f3264e726fd4ced7e7"
+    },
+    {
+      "path": "test/budget-reallocation-http.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f4993b94ffb186851dc7ed9dc4d94b6d190ba76",
+      "size": 7808,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/5f4993b94ffb186851dc7ed9dc4d94b6d190ba76"
+    },
+    {
+      "path": "test/budget-reallocation.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "081b2f062f6b43fcfa2e7476d9f93b4c1f45191a",
+      "size": 9269,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/081b2f062f6b43fcfa2e7476d9f93b4c1f45191a"
+    },
+    {
+      "path": "test/cashflow.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8443718f039d8035f6864a8340b98046a8bcc20e",
+      "size": 10136,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/8443718f039d8035f6864a8340b98046a8bcc20e"
+    },
+    {
+      "path": "test/http-cashflow.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "415456a97716117a06a69b524764b724a1d73884",
+      "size": 10333,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/415456a97716117a06a69b524764b724a1d73884"
+    },
+    {
+      "path": "test/http-recording.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9775688d7c2c486dc4bc3b878d3921385a5caa7",
+      "size": 4433,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/c9775688d7c2c486dc4bc3b878d3921385a5caa7"
+    },
+    {
+      "path": "test/http-summary.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79ebf1512bc9a5e5107492ac109a78bc0c422dec",
+      "size": 5220,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/79ebf1512bc9a5e5107492ac109a78bc0c422dec"
+    },
+    {
+      "path": "test/ledger.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a2b337d9e4c683e958dd8fa428307f6cd0e3776",
+      "size": 6378,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/7a2b337d9e4c683e958dd8fa428307f6cd0e3776"
+    },
+    {
+      "path": "test/mcp.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a79b25197cfae2177edb8020df1540c2836dc50",
+      "size": 3638,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/4a79b25197cfae2177edb8020df1540c2836dc50"
+    },
+    {
+      "path": "test/receiving-composition.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79e4dc1ee0aa70d6b92d2968d29e775b6ed8f0bf",
+      "size": 8166,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/79e4dc1ee0aa70d6b92d2968d29e775b6ed8f0bf"
+    },
+    {
+      "path": "test/recording.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0634588910d66bcc78c6b49758136f346681c76",
+      "size": 9686,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/c0634588910d66bcc78c6b49758136f346681c76"
+    },
+    {
+      "path": "test/summary-currency.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6191a4f4e598da4407845b97ce60cd9001714f4d",
+      "size": 13806,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/6191a4f4e598da4407845b97ce60cd9001714f4d"
+    },
+    {
+      "path": "test/summary_categories.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39fdfa0e8bd04e70c5d465fd682b7849d1b9774c",
+      "size": 6268,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/39fdfa0e8bd04e70c5d465fd682b7849d1b9774c"
+    },
+    {
+      "path": "test/transaction-import-http.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b17ea89366500d815f0c0e774bd2fd55ef6cdcb",
+      "size": 11239,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/5b17ea89366500d815f0c0e774bd2fd55ef6cdcb"
+    },
+    {
+      "path": "test/transaction-import.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7f192a0b53435dea46392d90b8b1a7e0dabfefd",
+      "size": 19299,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/b7f192a0b53435dea46392d90b8b1a7e0dabfefd"
+    },
+    {
+      "path": "tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22a92039fc845256859c3b4921063f3a16a0ae3e",
+      "size": 329,
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/22a92039fc845256859c3b4921063f3a16a0ae3e"
+    }
+  ],
+  "truncated": false
+}

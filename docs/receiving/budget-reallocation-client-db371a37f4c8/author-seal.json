@@ -1,0 +1,11 @@
+{
+  "time": "2026-10-08T23:59:34.124431+00:00",
+  "archive": "/dev/shm/hamon-household-reallocation-client-db371a37f4c8-production/household-reallocation-author-r1.tar.gz",
+  "bytes": 573029,
+  "sha256": "1dd3c56d4e37b45c384f8504acc84ffe6f737f698501b73e976826d362ee4056",
+  "git": "aeb5bc4aed7c75673dca30c862c9a3e1892d0175",
+  "members": 289,
+  "payloadBytes": 2525265,
+  "manifestSha256": "cd06a9fea4c6a24e78b4b5ed4c423dc401192081a14e87460b1457c90dcbcd69",
+  "allMembersExact": true
+}

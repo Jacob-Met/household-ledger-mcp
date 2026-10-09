@@ -1,0 +1,170 @@
+{
+  "time": "2026-10-08T22:45:42.213902+00:00",
+  "producerRoot": "/tmp/household-budget-reallocation-6e5752b49b6f-production/candidate",
+  "publishedProducer": "c83f0a6aee72df86eed17272ee8be6a79b7f941e",
+  "publishedTree": "f039e5d078827746c896e5e167ba95299e48cd17",
+  "publishedClaimSource": "captured issue11/issue3 comment6068675464; no fresh API call",
+  "scope": "selected runtime/maintained tests/guide/package closure; excludes compiled outputs and producer evidence",
+  "ownership": "PRIVATE PROVISIONAL; current owner refresh blocked by shared403; no claim or Git action",
+  "files": [
+    {
+      "path": "src/budget-reallocation.ts",
+      "bytes": 9152,
+      "sha256": "d89e0a177e917ca370c0ebcca968d8900ea782d6422614ee96a0fecb4b8ac0c5",
+      "git": "a31c48a650c6c2b4d67fc29a1d89669e84e42b52"
+    },
+    {
+      "path": "src/cashflow.ts",
+      "bytes": 4761,
+      "sha256": "cb4631dce4679567d9d0e3a139440c51861dcdfad6029c8ef88b1b9bf122ce30",
+      "git": "7ef82c27ef41f3ef65198d6045beb6779364bf45"
+    },
+    {
+      "path": "src/index.ts",
+      "bytes": 12214,
+      "sha256": "3fac28320a220238152ebdb6c2cf24476455f2a1d4bb720bcf3ded8ae3e43102",
+      "git": "8dab2003cbfffed9b4d8f0463e0b62c3bdd49ba3"
+    },
+    {
+      "path": "src/ledger.ts",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "git": "2ff8133404f19c705eb7b7f0a943e8190f3328d6"
+    },
+    {
+      "path": "src/stdio.ts",
+      "bytes": 586,
+      "sha256": "9d49234e75f790601e8f327d156f3a4b9c62325d8496319fd9831e733153dc57",
+      "git": "f670b4244384fdb02ae72341dcb53e5348af7d99"
+    },
+    {
+      "path": "src/transaction-csv.ts",
+      "bytes": 6189,
+      "sha256": "0357e1d405be49dd352fcc088e75aaaf47c00eaf81c55f785d77ca4d4e48e8f0",
+      "git": "33678fa52bac0c2463bd415997fefea73f221ade"
+    },
+    {
+      "path": "src/transaction-import.ts",
+      "bytes": 8357,
+      "sha256": "729d0db509945c4670f03167497417799dd059f386a550b96d1162e1ccd3e985",
+      "git": "1643e64f35d7ffc26281c4162290860760f88ef8"
+    },
+    {
+      "path": "test/budget-currency.test.ts",
+      "bytes": 13256,
+      "sha256": "fab4105ce5693ef0730943cca1c1b71c6e8c462475758221a6cf77881b132f98",
+      "git": "1e8ddb84cf31ef9fe37058f3264e726fd4ced7e7"
+    },
+    {
+      "path": "test/budget-reallocation-http.test.ts",
+      "bytes": 7808,
+      "sha256": "b52707712b40417122454ea132fcb5e8e6bcbde3a59a18f948f811253fcdf121",
+      "git": "5f4993b94ffb186851dc7ed9dc4d94b6d190ba76"
+    },
+    {
+      "path": "test/budget-reallocation.test.ts",
+      "bytes": 9269,
+      "sha256": "603922c0df5650d3c79a6605f08c94b105ab33f9ba65b05812a876eb4cb21711",
+      "git": "081b2f062f6b43fcfa2e7476d9f93b4c1f45191a"
+    },
+    {
+      "path": "test/cashflow.test.ts",
+      "bytes": 10136,
+      "sha256": "b21797f077ee5d817ed456e334188ff7a2f52de3e2194c55a10d21bfeaa90137",
+      "git": "8443718f039d8035f6864a8340b98046a8bcc20e"
+    },
+    {
+      "path": "test/http-cashflow.test.ts",
+      "bytes": 10333,
+      "sha256": "4b9ef76831740392e371dee8fc5129076f64a4fb4614bde8066468acf18cf20c",
+      "git": "415456a97716117a06a69b524764b724a1d73884"
+    },
+    {
+      "path": "test/http-recording.test.ts",
+      "bytes": 4433,
+      "sha256": "9419b74830f423b92fdb194dd827e8920461075d5cf4ba2e70a69c4da310e9fc",
+      "git": "c9775688d7c2c486dc4bc3b878d3921385a5caa7"
+    },
+    {
+      "path": "test/http-summary.test.ts",
+      "bytes": 5220,
+      "sha256": "b5f76eb50355405e8d8c22750f40e02d1caf5e16cee3737c2a4a9ed9696716af",
+      "git": "79ebf1512bc9a5e5107492ac109a78bc0c422dec"
+    },
+    {
+      "path": "test/ledger.test.ts",
+      "bytes": 6378,
+      "sha256": "bb64e0cb1bbd593d9e5458ddd83ada330756b4b27816b09517d17e201789074c",
+      "git": "7a2b337d9e4c683e958dd8fa428307f6cd0e3776"
+    },
+    {
+      "path": "test/mcp.test.ts",
+      "bytes": 3638,
+      "sha256": "ac62e9c6f866ae5a6657efceca5e9437912113ad01846d70963f68e561d7c29a",
+      "git": "4a79b25197cfae2177edb8020df1540c2836dc50"
+    },
+    {
+      "path": "test/receiving-composition.test.ts",
+      "bytes": 8166,
+      "sha256": "cc9c3678f2e5e42477febddabdd38dabd202faf0a18148d2d3067a194f4e239f",
+      "git": "79e4dc1ee0aa70d6b92d2968d29e775b6ed8f0bf"
+    },
+    {
+      "path": "test/recording.test.ts",
+      "bytes": 9686,
+      "sha256": "18bebd788deece1012fcf4863203727b5e699fe61b766dd0d24075a39fab448c",
+      "git": "c0634588910d66bcc78c6b49758136f346681c76"
+    },
+    {
+      "path": "test/summary-currency.test.ts",
+      "bytes": 13806,
+      "sha256": "13771393218d37bcc48c26182ea2daabd8a967c14d8c33bac9b3295343f18da3",
+      "git": "6191a4f4e598da4407845b97ce60cd9001714f4d"
+    },
+    {
+      "path": "test/summary_categories.test.ts",
+      "bytes": 6268,
+      "sha256": "141ddb02330dc5f8f59f2544b8846df1df530aab82b169c1f796c00aabe5fd8d",
+      "git": "39fdfa0e8bd04e70c5d465fd682b7849d1b9774c"
+    },
+    {
+      "path": "test/transaction-import-http.test.ts",
+      "bytes": 11239,
+      "sha256": "02247b59677819ea98524e9405a158a3fcab0531956b4eb1539c1a8dc76d7f20",
+      "git": "5b17ea89366500d815f0c0e774bd2fd55ef6cdcb"
+    },
+    {
+      "path": "test/transaction-import.test.ts",
+      "bytes": 19299,
+      "sha256": "f465f7ed6ee960a1a2c36b877000137da588a98f6d44bce14f63484ad4bc255d",
+      "git": "b7f192a0b53435dea46392d90b8b1a7e0dabfefd"
+    },
+    {
+      "path": "docs/BUDGET_REALLOCATION.md",
+      "bytes": 4862,
+      "sha256": "967ff717c06d379dc0842d4bd392ed7f02077b86a65c0bd17f15c15e59f92fb5",
+      "git": "6c816c09e860f1a04b23f9ffa2c4b3216a34c8e9"
+    },
+    {
+      "path": "package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 43740,
+      "sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+      "git": "020c296d667264f890d47c5effc7abca9f4ea8cb"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72",
+      "git": "22a92039fc845256859c3b4921063f3a16a0ae3e"
+    }
+  ],
+  "beforeFreeBytes": 1085648896,
+  "sourceUnchanged": true,
+  "dependencyDonor": "existing frozen Household entry donor; source/version pins are separately retained there"
+}

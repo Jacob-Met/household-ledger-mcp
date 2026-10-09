@@ -1,0 +1,452 @@
+diff --git a/src/reallocation-client.ts b/src/reallocation-client.ts
+new file mode 100644
+--- /dev/null
++++ b/src/reallocation-client.ts
+@@ -0,0 +1,152 @@
++import { createHash } from "node:crypto";
++import { Client } from "@modelcontextprotocol/sdk/client/index.js";
++import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
++import { validateMonth, type Budget } from "./ledger.js";
++import { BUDGET_REALLOCATION_SCHEMA, type BudgetReallocationReview } from "./budget-reallocation.js";
++
++export interface ReallocationInput {
++  month: string; currency: string; fromCategory: string; toCategory: string; amountMinor: number;
++}
++function fail(message: string): never { throw new Error(message); }
++function object(value: unknown, keys?: readonly string[]): Record<string, unknown> {
++  if (!value || typeof value !== "object" || Array.isArray(value)) fail("Expected an object.");
++  const row = value as Record<string, unknown>;
++  if (keys && (Object.keys(row).length !== keys.length || keys.some(k => !Object.hasOwn(row, k)))) fail("Unexpected or missing response fields.");
++  return row;
++}
++function minor(value: unknown): number {
++  if (typeof value !== "number" || !Number.isSafeInteger(value) || value < 0) fail("Limits must be exact nonnegative safe integer minor units.");
++  return value;
++}
++function category(value: unknown): string {
++  if (typeof value !== "string" || !value.trim()) fail("Category must be a nonempty literal recorded name.");
++  return value;
++}
++export function explicitCurrency(value: string): string {
++  if (!/^[a-zA-Z]{3}$/.test(value.trim())) fail("Use an explicit three-letter currency.");
++  return value.trim().toUpperCase();
++}
++export function reallocationEndpoint(value: string): string {
++  let u: URL;
++  try { u = new URL(value); } catch { return fail("Use an explicit loopback HTTP /mcp endpoint."); }
++  if (u.protocol !== "http:" || !["127.0.0.1", "[::1]"].includes(u.hostname) ||
++      u.pathname !== "/mcp" || u.search || u.hash || u.username || u.password)
++    fail("Use http://127.0.0.1:PORT/mcp or http://[::1]:PORT/mcp without credentials, query or fragment.");
++  return u.href;
++}
++export function terminalLiteral(value: unknown): string {
++  return JSON.stringify(value).replace(/[\p{Cf}\u2028\u2029]/gu,
++    c => c.split("").map(x => "\\u" + x.charCodeAt(0).toString(16).padStart(4, "0")).join(""));
++}
++export function positiveMinorDigits(value: string): number {
++  if (!/^[0-9]+$/.test(value)) fail("Amount must be positive decimal integer digits, in minor units.");
++  const n = Number(value);
++  if (!Number.isSafeInteger(n) || n <= 0) fail("Amount must be a positive safe integer in minor units.");
++  return n;
++}
++function payload(value: unknown): unknown {
++  const response = object(value);
++  if (response.isError === true) {
++    const message = Array.isArray(response.content) && response.content[0]?.type === "text" ? response.content[0].text : "Service refused the request.";
++    fail(typeof message === "string" ? message : "Service refused the request.");
++  }
++  if (!Array.isArray(response.content) || response.content.length !== 1) fail("Unexpected MCP response.");
++  const block = object(response.content[0]);
++  if (block.type !== "text" || typeof block.text !== "string" || Buffer.byteLength(block.text) > 1024 * 1024)
++    fail("Expected one bounded JSON text response.");
++  return JSON.parse(block.text);
++}
++export function admittedBudgets(raw: unknown, month: string, currency: string): Budget[] {
++  if (!Array.isArray(raw)) fail("Budget list must be an array.");
++  const names = new Set<string>();
++  return raw.map(value => {
++    const row = object(value);
++    const name = category(row.category);
++    if (row.month !== month || typeof row.currency !== "string" || explicitCurrency(row.currency) !== currency)
++      fail("Budget list does not match the selected month and explicit currency.");
++    if (names.has(name)) fail("Ambiguous duplicate category budgets; no reallocation can be selected.");
++    names.add(name);
++    return { category: name, month, currency: row.currency, limitMinor: minor(row.limitMinor) };
++  });
++}
++export function admittedReview(raw: unknown, input: ReallocationInput): BudgetReallocationReview {
++  const r = object(raw, ["schema", "month", "currency", "amountMinor", "totalMinor", "from", "to", "reviewToken"]);
++  const from = object(r.from, ["category", "beforeMinor", "afterMinor"]);
++  const to = object(r.to, ["category", "beforeMinor", "afterMinor"]);
++  if (r.schema !== BUDGET_REALLOCATION_SCHEMA || r.month !== input.month || r.currency !== input.currency ||
++      r.amountMinor !== input.amountMinor || from.category !== input.fromCategory || to.category !== input.toCategory ||
++      input.fromCategory === input.toCategory) fail("Preview does not match the exact requested reallocation.");
++  const fb = minor(from.beforeMinor), fa = minor(from.afterMinor), tb = minor(to.beforeMinor), ta = minor(to.afterMinor), total = minor(r.totalMinor);
++  const amount = minor(r.amountMinor);
++  if (amount <= 0 || BigInt(fb) - BigInt(amount) !== BigInt(fa) || BigInt(tb) + BigInt(amount) !== BigInt(ta) ||
++      BigInt(fb) + BigInt(tb) !== BigInt(total) || BigInt(fa) + BigInt(ta) !== BigInt(total))
++    fail("Preview does not conserve the exact paired allowance.");
++  const review: BudgetReallocationReview = { schema: BUDGET_REALLOCATION_SCHEMA, month: input.month, currency: input.currency,
++    amountMinor: amount, totalMinor: total,
++    from: { category: category(from.category), beforeMinor: fb, afterMinor: fa },
++    to: { category: category(to.category), beforeMinor: tb, afterMinor: ta }, reviewToken: String(r.reviewToken) };
++  const token = createHash("sha256").update(JSON.stringify([review.schema, review.month, review.currency, amount, total,
++    review.from.category, fb, fa, review.to.category, tb, ta])).digest("hex");
++  if (r.reviewToken !== token) fail("Preview content digest does not match; nothing will be committed.");
++  return review;
++}
++export function reallocationPreview(endpoint: string, review: BudgetReallocationReview): string {
++  return "Review monthly budget allowance (integer minor units; no money or transaction changes):\n" +
++    "  endpoint: " + terminalLiteral(endpoint) + "\n" +
++    Object.entries(review).map(([key, value]) => "  " + key + ": " + terminalLiteral(value)).join("\n") + "\n" +
++    "The token is a content digest, not a lock or durable request history. A changed pair will be refused.\n";
++}
++export type ReallocationOutcome = { status: "applied"; review: BudgetReallocationReview } |
++  { status: "already_matching"; review: BudgetReallocationReview } |
++  { status: "not_sent" | "unconfirmed"; message: string };
++
++/** A connected run permits at most one explicit commit, including failures. */
++export class ReallocationSession {
++  private readonly client = new Client({ name: "household-reallocate", version: "1" }, { capabilities: {} });
++  private readonly transport: StreamableHTTPClientTransport;
++  private attempted = false;
++  private displayed?: BudgetReallocationReview;
++  readonly endpoint: string;
++  constructor(endpoint: string, private readonly signal?: AbortSignal) {
++    this.endpoint = reallocationEndpoint(endpoint);
++    this.transport = new StreamableHTTPClientTransport(new URL(this.endpoint), { requestInit: { redirect: "error" } });
++  }
++  async connect(): Promise<void> {
++    if (this.signal?.aborted) fail("Canceled before connection.");
++    await this.client.connect(this.transport, { timeout: 15000, signal: this.signal });
++  }
++  private async call(name: string, args: Record<string, unknown>): Promise<unknown> {
++    if (this.signal?.aborted) fail("Canceled before request.");
++    return payload(await this.client.callTool({ name, arguments: args }, undefined, { timeout: 15000, signal: this.signal }));
++  }
++  async budgets(month: string, currency: string): Promise<Budget[]> {
++    const mon = validateMonth(month), code = explicitCurrency(currency);
++    return admittedBudgets(await this.call("get_budgets", { month: mon, currency: code }), mon, code);
++  }
++  async preview(input: ReallocationInput): Promise<BudgetReallocationReview> {
++    if (this.attempted) fail("This run already attempted its one commit; start a fresh review.");
++    this.displayed = undefined;
++    const checked = { month: validateMonth(input.month), currency: explicitCurrency(input.currency),
++      fromCategory: category(input.fromCategory), toCategory: category(input.toCategory), amountMinor: minor(input.amountMinor) };
++    if (checked.amountMinor <= 0 || checked.fromCategory === checked.toCategory) fail("Choose different categories and a positive amount.");
++    const review = admittedReview(await this.call("preview_budget_reallocation", { ...checked }), checked);
++    this.displayed = structuredClone(review);
++    return review;
++  }
++  async commit(review: BudgetReallocationReview): Promise<ReallocationOutcome> {
++    if (this.attempted) return { status: "not_sent", message: "This run already attempted one commit; no retry was sent." };
++    if (!this.displayed || JSON.stringify(review) !== JSON.stringify(this.displayed))
++      return { status: "not_sent", message: "Commit must use this run's unchanged fresh preview." };
++    if (this.signal?.aborted) return { status: "not_sent", message: "Canceled before commit." };
++    this.attempted = true;
++    try {
++      const raw = object(await this.call("commit_budget_reallocation", { review: structuredClone(this.displayed) }), ["status", "review"]);
++      const checked = admittedReview(raw.review, { month: review.month, currency: review.currency, fromCategory: review.from.category,
++        toCategory: review.to.category, amountMinor: review.amountMinor });
++      if (JSON.stringify(checked) !== JSON.stringify(this.displayed) || !["applied", "already_matching"].includes(String(raw.status)))
++        fail("Commit result does not match the complete reviewed change.");
++      return { status: raw.status as "applied" | "already_matching", review: checked };
++    } catch (error) { return { status: "unconfirmed", message: error instanceof Error ? error.message : String(error) }; }
++  }
++  async close(): Promise<void> { await this.client.close().catch(() => undefined); }
++}
+diff --git a/src/household-reallocate.ts b/src/household-reallocate.ts
+new file mode 100644
+--- /dev/null
++++ b/src/household-reallocate.ts
+@@ -0,0 +1,86 @@
++import { createInterface } from "node:readline";
++import { realpath } from "node:fs/promises";
++import { fileURLToPath } from "node:url";
++import { validateMonth } from "./ledger.js";
++import { ReallocationSession, explicitCurrency, positiveMinorDigits, reallocationEndpoint, reallocationPreview, terminalLiteral } from "./reallocation-client.js";
++
++const HELP = `Review and confirm a change to two monthly category budget allowances.
++
++  node dist/src/household-reallocate.js --endpoint http://127.0.0.1:3000/mcp
++
++Uses an already running local MCP service with the budget-reallocation tools.
++Choose a month, explicit currency and two numbered existing category budgets.
++Read their exact before/after limits, then type REALLOCATE at a terminal.
++Anything else, EOF or Ctrl-C cancels. This moves allowance, not money.
++Each run previews freshly and sends at most one commit. No automatic retry.
++If a result is uncertain, inspect current budgets before starting another
++review; repeating the amount can move allowance again. No durable token or
++saved-review recovery is provided. Use one server per configured ledger.
++`;
++export async function runReallocateCli(argv: string[]): Promise<number> {
++  if (argv.length === 1 && ["--help", "-h"].includes(argv[0])) { process.stdout.write(HELP); return 0; }
++  if (argv.length !== 2 || argv[0] !== "--endpoint") throw new Error(HELP);
++  const endpoint = reallocationEndpoint(argv[1]);
++  if (!process.stdin.isTTY || !process.stdout.isTTY) throw new Error("Interactive input and output terminals are required; no connection was made.");
++  const abort = new AbortController();
++  const rl = createInterface({ input: process.stdin, output: process.stdout, terminal: false });
++  const iterator = rl[Symbol.asyncIterator]();
++  const interrupt = () => { abort.abort(); rl.close(); };
++  process.once("SIGINT", interrupt);
++  let session: ReallocationSession | undefined;
++  const cancel = () => { process.stdout.write("\nCanceled; no commit call.\n"); return 2; };
++  async function ask(prompt: string): Promise<string | undefined> {
++    if (abort.signal.aborted) return undefined;
++    process.stdout.write(prompt);
++    const next = await iterator.next();
++    return next.done || abort.signal.aborted ? undefined : next.value;
++  }
++  try {
++    const rawMonth = await ask("Month (YYYY-MM): "); if (rawMonth === undefined) return cancel();
++    const month = validateMonth(rawMonth);
++    const rawCurrency = await ask("Three-letter currency: "); if (rawCurrency === undefined) return cancel();
++    const currency = explicitCurrency(rawCurrency);
++    session = new ReallocationSession(endpoint, abort.signal);
++    await session.connect();
++    const budgets = await session.budgets(month, currency);
++    process.stdout.write("Existing explicitly denominated budgets for " + month + " " + currency + " (integer minor units):\n");
++    budgets.forEach((b, i) => process.stdout.write("  " + (i + 1) + ". category=" + terminalLiteral(b.category) + " limitMinor=" + b.limitMinor + "\n"));
++    if (budgets.length < 2) throw new Error("At least two unambiguous existing category budgets are required; nothing committed.");
++    async function choose(prompt: string): Promise<number | undefined> {
++      const answer = await ask(prompt);
++      if (answer === undefined) return undefined;
++      if (!/^[0-9]+$/.test(answer)) throw new Error("Choose one displayed budget number.");
++      const index = Number(answer) - 1;
++      if (!Number.isSafeInteger(index) || index < 0 || index >= budgets.length) throw new Error("Choose one displayed budget number.");
++      return index;
++    }
++    const from = await choose("Move allowance FROM budget number: "); if (from === undefined) return cancel();
++    const to = await choose("Move allowance TO budget number: "); if (to === undefined) return cancel();
++    if (from === to) throw new Error("Source and destination must be different categories.");
++    const rawAmount = await ask("Amount in positive INTEGER minor units: "); if (rawAmount === undefined) return cancel();
++    const review = await session.preview({ month, currency, fromCategory: budgets[from].category, toCategory: budgets[to].category,
++      amountMinor: positiveMinorDigits(rawAmount) });
++    process.stdout.write(reallocationPreview(endpoint, review));
++    const answer = await ask("Type REALLOCATE to commit this exact review once; anything else cancels: ");
++    if (answer !== "REALLOCATE" || abort.signal.aborted) return cancel();
++    const result = await session.commit(review);
++    if (result.status === "applied") {
++      process.stdout.write("Applied the reviewed pair of limits. " + terminalLiteral(result.review) + "\n"); return 0;
++    }
++    if (result.status === "already_matching") {
++      process.stdout.write("Current limits already match this review; no write. This does not prove who applied them or that this request ran before.\n" +
++        terminalLiteral(result.review) + "\n"); return 0;
++    }
++    process.stdout.write((result.status === "not_sent" ? "Not sent: " : "UNCONFIRMED: ") + terminalLiteral(result.message) +
++      "\nNo automatic retry. Inspect current budgets before any new review; repeating the amount can move allowance again.\n");
++    return 3;
++  } finally { process.removeListener("SIGINT", interrupt); rl.close(); await session?.close(); }
++}
++async function isEntry(): Promise<boolean> {
++  if (!process.argv[1]) return false;
++  try { return await realpath(process.argv[1]) === await realpath(fileURLToPath(import.meta.url)); } catch { return false; }
++}
++if (await isEntry()) runReallocateCli(process.argv.slice(2)).then(code => { process.exitCode = code; }).catch(error => {
++  process.stderr.write("Reallocation refused: " + terminalLiteral(error instanceof Error ? error.message : String(error)) + "\n");
++  process.exitCode = 1;
++});
+diff --git a/test/reallocation-client.test.ts b/test/reallocation-client.test.ts
+new file mode 100644
+--- /dev/null
++++ b/test/reallocation-client.test.ts
+@@ -0,0 +1,57 @@
++import { test } from "node:test";
++import assert from "node:assert/strict";
++import { mkdtemp, rm } from "node:fs/promises";
++import { tmpdir } from "node:os";
++import { join } from "node:path";
++import { LedgerStore, setBudget } from "../src/ledger.js";
++import { previewBudgetReallocation } from "../src/budget-reallocation.js";
++import { admittedBudgets, admittedReview, explicitCurrency, positiveMinorDigits, reallocationEndpoint, reallocationPreview, terminalLiteral } from "../src/reallocation-client.js";
++
++test("explicit loopback endpoint and integer minor-unit admission", () => {
++  assert.equal(reallocationEndpoint("http://127.0.0.1:3000/mcp"), "http://127.0.0.1:3000/mcp");
++  assert.equal(reallocationEndpoint("http://[::1]:3000/mcp"), "http://[::1]:3000/mcp");
++  for (const url of ["https://127.0.0.1/mcp", "http://localhost/mcp", "http://example.com/mcp", "http://u:p@127.0.0.1/mcp", "http://127.0.0.1/mcp?x", "http://127.0.0.1/mcp#x"])
++    assert.throws(() => reallocationEndpoint(url));
++  assert.equal(explicitCurrency(" jpy "), "JPY");
++  assert.equal(positiveMinorDigits("2500"), 2500);
++  assert.equal(positiveMinorDigits("9007199254740991"), Number.MAX_SAFE_INTEGER);
++  for (const x of ["0", "-1", "1.25", "1e3", " 1", "1 ", "9007199254740992", ""]) assert.throws(() => positiveMinorDigits(x));
++});
++test("literal numbered budget data keeps names distinct; ambiguous/scope/unsafe rows refuse", () => {
++  const rows = [
++    { month: "2026-10", currency: "USD", category: " food ", limitMinor: 12000 },
++    { month: "2026-10", currency: "usd", category: "food", limitMinor: 3300 },
++    { month: "2026-10", currency: "USD", category: "__proto__\n\u001b[31m\u202e", limitMinor: 0 },
++  ];
++  assert.deepEqual(admittedBudgets(rows, "2026-10", "USD"), rows);
++  for (const bad of [[...rows, rows[0]], [{ ...rows[0], currency: undefined }], [{ ...rows[0], currency: "EUR" }],
++    [{ ...rows[0], month: "2026-11" }], [{ ...rows[0], limitMinor: Number.MAX_SAFE_INTEGER + 1 }]])
++    assert.throws(() => admittedBudgets(bad, "2026-10", "USD"));
++  const text = terminalLiteral(rows[2].category);
++  assert.equal(text.includes("\n"), false); assert.equal(text.includes("\u001b"), false); assert.equal(text.includes("\u202e"), false);
++  assert.match(text, /\\u202e/); assert.equal(JSON.parse(text), rows[2].category);
++});
++test("real producer review is completely displayed/admitted and altered content is refused", async () => {
++  const dir = await mkdtemp(join(tmpdir(), "reallocation-client-domain-"));
++  try {
++    const store = new LedgerStore(join(dir, "ledger.json"));
++    await store.update(data => {
++      setBudget(data, " food ", "2026-10", 12000, "USD");
++      setBudget(data, "交通\n\u202e", "2026-10", 3300, "USD");
++      // setBudget normalizes new names; this fixture represents an existing literal stored name.
++      data.budgets[0].category = " food ";
++    });
++    const input = { month: "2026-10", currency: "USD", fromCategory: " food ", toCategory: "交通\n\u202e", amountMinor: 2500 };
++    const review = await previewBudgetReallocation(store, input);
++    assert.equal(review.from.afterMinor, 9500); assert.equal(review.to.afterMinor, 5800); assert.equal(review.totalMinor, 15300);
++    assert.deepEqual(admittedReview(review, input), review);
++    const view = reallocationPreview("http://127.0.0.1:3000/mcp", review);
++    for (const [key, value] of Object.entries(review)) assert.ok(view.includes(key + ": " + terminalLiteral(value)));
++    for (const mutate of [
++      (r: any) => { r.amountMinor += 1; }, (r: any) => { r.currency = "EUR"; }, (r: any) => { r.month = "2026-11"; },
++      (r: any) => { r.from.category = "food"; }, (r: any) => { r.from.afterMinor += 1; },
++      (r: any) => { r.to.beforeMinor = -1; }, (r: any) => { r.totalMinor = Number.MAX_SAFE_INTEGER + 1; },
++      (r: any) => { r.reviewToken = "0".repeat(64); }, (r: any) => { r.extra = true; },
++    ]) { const changed = structuredClone(review); mutate(changed); assert.throws(() => admittedReview(changed, input)); }
++  } finally { await rm(dir, { recursive: true, force: true }); }
++});
+diff --git a/test/reallocation-client-http.test.ts b/test/reallocation-client-http.test.ts
+new file mode 100644
+--- /dev/null
++++ b/test/reallocation-client-http.test.ts
+@@ -0,0 +1,105 @@
++import { test } from "node:test";
++import assert from "node:assert/strict";
++import { createServer, type Server } from "node:http";
++import { mkdtemp, readFile, rm, stat } from "node:fs/promises";
++import { tmpdir } from "node:os";
++import { join } from "node:path";
++import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
++import { LedgerStore, setBudget } from "../src/ledger.js";
++import { createMcpServer } from "../src/index.js";
++import { commitBudgetReallocation } from "../src/budget-reallocation.js";
++import { ReallocationSession } from "../src/reallocation-client.js";
++
++async function listen(server: Server): Promise<string> {
++  await new Promise<void>(r => server.listen(0, "127.0.0.1", r));
++  const address = server.address(); assert.ok(address && typeof address === "object");
++  return "http://127.0.0.1:" + address.port + "/mcp";
++}
++async function close(server: Server): Promise<void> {
++  server.closeAllConnections(); await new Promise<void>(r => server.close(() => r()));
++}
++test("actual MCP: review/cancel, exact apply, already-matching and stale whole refusal preserve unrelated state", async () => {
++  const dir = await mkdtemp(join(tmpdir(), "reallocation-client-http-"));
++  const path = join(dir, "ledger.json"), store = new LedgerStore(path), calls: string[] = [];
++  const server = createServer(async (req, res) => {
++    const chunks: Buffer[] = []; for await (const c of req) chunks.push(c);
++    const body = chunks.length ? JSON.parse(Buffer.concat(chunks).toString()) : undefined;
++    if (body?.method === "tools/call") calls.push(body.params.name);
++    const mcp = createMcpServer(store), transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined });
++    try { await mcp.connect(transport); await transport.handleRequest(req, res, body); }
++    finally { await transport.close(); await mcp.close(); }
++  });
++  const sessions: ReallocationSession[] = [];
++  try {
++    await store.update(data => {
++      setBudget(data, " food ", "2026-10", 12000, "USD"); setBudget(data, "交通", "2026-10", 3300, "USD");
++      setBudget(data, " food ", "2026-10", 777, "EUR"); setBudget(data, "later", "2026-11", 444, "USD");
++      // Preserve the existing literal stored identity instead of setBudget's trimmed new name.
++      data.budgets[0].category = " food "; data.budgets[2].category = " food ";
++    });
++    const before = await readFile(path), endpoint = await listen(server);
++    const input = { month: "2026-10", currency: "USD", fromCategory: " food ", toCategory: "交通", amountMinor: 2500 };
++    const connect = async () => { const s = new ReallocationSession(endpoint); sessions.push(s); await s.connect(); return s; };
++    const canceled = await connect(); assert.equal((await canceled.budgets("2026-10", "USD")).length, 2);
++    const review = await canceled.preview(input); await canceled.close(); assert.deepEqual(await readFile(path), before);
++    assert.equal(calls.filter(n => n === "commit_budget_reallocation").length, 0);
++    const apply = await connect(), reviewed = await apply.preview(input);
++    const tampered = structuredClone(reviewed); tampered.from.category = "food";
++    assert.equal((await apply.commit(tampered)).status, "not_sent");
++    assert.equal((await apply.commit(reviewed)).status, "applied");
++    assert.equal((await apply.commit(reviewed)).status, "not_sent");
++    const data = await store.load();
++    assert.deepEqual(data.budgets.map(b => b.limitMinor), [9500, 5800, 777, 444]);
++    const matching = await connect(), another = await matching.preview({ ...input, amountMinor: 100 });
++    await commitBudgetReallocation(store, { review: another });
++    const matchingBefore = await readFile(path), matchingStat = await stat(path);
++    assert.equal((await matching.commit(another)).status, "already_matching");
++    assert.deepEqual(await readFile(path), matchingBefore); assert.equal((await stat(path)).mtimeMs, matchingStat.mtimeMs);
++    const stale = await connect(), old = await stale.preview(input);
++    await store.update(d => { d.budgets[0].limitMinor = 9100; });
++    const changed = await readFile(path);
++    const refused = await stale.commit(old); assert.equal(refused.status, "unconfirmed");
++    assert.deepEqual(await readFile(path), changed); assert.equal((await stale.commit(old)).status, "not_sent");
++    assert.equal(calls.filter(n => n === "commit_budget_reallocation").length, 3);
++    assert.deepEqual(review.from, { category: " food ", beforeMinor: 12000, afterMinor: 9500 });
++  } finally { for (const s of sessions) await s.close(); await close(server); await rm(dir, { recursive: true, force: true }); }
++});
++test("actual upstream commit with lost acknowledgement stays unconfirmed and never retries", async () => {
++  const dir = await mkdtemp(join(tmpdir(), "reallocation-client-lost-"));
++  const path = join(dir, "ledger.json"), store = new LedgerStore(path);
++  let commits = 0, dropped = false;
++  const upstream = createServer(async (req, res) => {
++    const chunks: Buffer[] = []; for await (const c of req) chunks.push(c);
++    const body = chunks.length ? JSON.parse(Buffer.concat(chunks).toString()) : undefined;
++    if (body?.method === "tools/call" && body.params.name === "commit_budget_reallocation") commits++;
++    const mcp = createMcpServer(store), transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined });
++    try { await mcp.connect(transport); await transport.handleRequest(req, res, body); }
++    finally { await transport.close(); await mcp.close(); }
++  });
++  let session: ReallocationSession | undefined;
++  let proxy: Server | undefined;
++  try {
++    await store.update(d => { setBudget(d, "one", "2026-10", 1000, "JPY"); setBudget(d, "two", "2026-10", 0, "JPY"); });
++    const target = await listen(upstream);
++    proxy = createServer(async (req, res) => {
++      // Stateless transport has no session GET stream. Any incidental GET is
++      // refused here; the fault concerns only the real complete commit POST.
++      if (req.method !== "POST") { res.writeHead(405); res.end(); return; }
++      const chunks: Buffer[] = []; for await (const c of req) chunks.push(c);
++      const body = Buffer.concat(chunks), parsed = JSON.parse(body.toString());
++      const response = await fetch(target, { method: "POST", headers: { "content-type": "application/json", accept: "application/json, text/event-stream" }, body });
++      const bytes = Buffer.from(await response.arrayBuffer());
++      if (parsed.method === "tools/call" && parsed.params.name === "commit_budget_reallocation") {
++        assert.equal(commits, 1); assert.equal((await store.load()).budgets[0].limitMinor, 750);
++        dropped = true; res.destroy(); return;
++      }
++      res.writeHead(response.status, { "content-type": response.headers.get("content-type") || "application/json" }); res.end(bytes);
++    });
++    session = new ReallocationSession(await listen(proxy)); await session.connect();
++    const review = await session.preview({ month: "2026-10", currency: "JPY", fromCategory: "one", toCategory: "two", amountMinor: 250 });
++    assert.equal((await session.commit(review)).status, "unconfirmed"); assert.equal(dropped, true); assert.equal(commits, 1);
++    const after = await readFile(path);
++    assert.equal((await session.commit(review)).status, "not_sent"); assert.equal(commits, 1); assert.deepEqual(await readFile(path), after);
++    assert.deepEqual((await store.load()).budgets.map(b => b.limitMinor), [750, 250]);
++  } finally { await session?.close(); if (proxy) await close(proxy); await close(upstream); await rm(dir, { recursive: true, force: true }); }
++});
+diff --git a/docs/REALLOCATION_CLIENT.md b/docs/REALLOCATION_CLIENT.md
+new file mode 100644
+--- /dev/null
++++ b/docs/REALLOCATION_CLIENT.md
+@@ -0,0 +1,27 @@
++# Terminal budget reallocation
++
++After building the accepted service with its existing `npm run build`, run:
++
++```sh
++node dist/src/household-reallocate.js --endpoint http://127.0.0.1:3000/mcp
++```
++
++Use an already running local service that includes the reviewed budget-reallocation tools. Both input and output must be interactive terminals. The command asks for a YYYY-MM month and explicit three-letter currency, reads all explicitly denominated budgets for that scope, and lists their exact minor-unit limits. Choose the source and destination by their displayed numbers, then enter a positive integer amount. The literal category strings are retained; names with spaces, newlines, terminal escapes or Unicode format characters are displayed as escaped JSON strings. The command does not trim them or infer a matching name.
++
++The service then prepares a fresh preview. Review the complete month, currency, amount, both category names, both before/after limits, pair total, content token and endpoint. Type exactly REALLOCATE to send this unchanged preview once. Any other answer, EOF or Ctrl-C cancels. The initially listed limits may have changed; the final preview contains the actual values being reviewed. A changed pair between preview and commit is refused by the unchanged producer. Fresh unrelated changes remain intact.
++
++For example, moving2500 minor units from a12000 allowance to a3300 allowance produces9500 and5800, retaining15300. These are integer minor units, interpreted using the selected currency convention; no decimal conversion is performed. This changes planned allowance only. It creates no budget, changes no transaction or recorded spending, and moves no money.
++
++## Results and uncertain acknowledgement
++
++Applied means the actual service reported persistence of the exact reviewed pair. Already-matching means the current pair equals the proposed final limits and the service performed no write; it does not prove who set those values or that this request ran previously. A malformed/mismatched response, native refusal, cancellation during a request, transport failure or lost acknowledgement remains UNCONFIRMED. Details are escaped for display.
++
++There is no automatic retry, saved review or resume mode. Each connected run attempts at most one commit. After an uncertain result, inspect the current budgets through the service before deciding on another action. A new run obtains a fresh preview; repeating the old amount may move allowance a second time. Issue11's token is a content digest, not authorization, a lock, an idempotency key or durable execution history. If some later action restores the earlier before-values, an old review could apply again; this client never persists or resubmits an old review across runs.
++
++Exit0 reports applied or matching,2 is cancellation before commit,3 is not-sent/unconfirmed after confirmation, and1 is local/read/preview refusal. Only explicit127.0.0.1 or[::1] HTTP /mcp URLs are accepted; credentials/query/fragment and redirects are refused. A URL does not establish which ledger is configured. Use the existing one-server-process-per-ledger rule.
++
++## Source and receiving boundary
++
++This five-path consumer contribution builds after the frozen issue11 producer c83f0a6aee72df86eed17272ee8be6a79b7f941e. Producer module, server, Store, schema, calculations, dependencies and existing tests remain unchanged. Month-copy, single-entry recovery, CSV and planned-expense workflows retain their owners. The numbered selection and review consume existing get_budgets/preview_budget_reallocation/commit_budget_reallocation tools through the typed MCP SDK.
++
++Maintained tests use actual native producer reviews and HTTP tools, synthetic private ledgers and a real upstream commit followed by dropped acknowledgement. Independent terminal receiving is kept separately from authored tests. No installed service/client, live-ledger, account integration or hosted Actions pass is implied.

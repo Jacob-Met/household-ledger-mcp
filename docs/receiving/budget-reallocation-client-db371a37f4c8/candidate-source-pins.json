@@ -1,0 +1,662 @@
+{
+  "time": "2026-10-08T23:51:57.530620+00:00",
+  "producer": "c83f0a6aee72df86eed17272ee8be6a79b7f941e",
+  "sourceRoot": "/dev/shm/hamon-household-reallocation-client-db371a37f4c8-production/candidate-r2",
+  "state": "candidate-r2; only author fixture corrections; all runtime/guide and producer artifacts identical to R1",
+  "files": [
+    {
+      "path": "dist/src/budget-reallocation.d.ts",
+      "bytes": 6673,
+      "sha256": "44a8880fd4e4160cfd30db630fa377c56371f8dd789f4dba54a13fc08837526d",
+      "git": "9d3c4a7adbeabc479eeb91d56b5ddcd01fb4da3f"
+    },
+    {
+      "path": "dist/src/budget-reallocation.js",
+      "bytes": 8497,
+      "sha256": "dbfb693abaec46d751edf3712b8c4eda3d7430a79052d1784dcea314dd8f6978",
+      "git": "db0d92fa79cfd19ab95a53cd8440368d8b22b112"
+    },
+    {
+      "path": "dist/src/budget-reallocation.js.map",
+      "bytes": 7776,
+      "sha256": "bd0586a0907bb3afb98d22d4fcba5ba73b8a265566706c33eacb118dde66da60",
+      "git": "092b124d536338bab56646dfd7bff30f98460332"
+    },
+    {
+      "path": "dist/src/cashflow.d.ts",
+      "bytes": 1341,
+      "sha256": "c0768281c388a564de146b530dfce307b141049004c4858a297678123252d653",
+      "git": "b5b4f909feb266215ecd98643494935e0dfc5ffa"
+    },
+    {
+      "path": "dist/src/cashflow.js",
+      "bytes": 3978,
+      "sha256": "447e140cf5879861cf1e25dab9d25c3e74abef98ddf6ce9e8e8ac5a97a21507a",
+      "git": "53b1df162e46e57c880165dea7a299edcdf5b802"
+    },
+    {
+      "path": "dist/src/cashflow.js.map",
+      "bytes": 3593,
+      "sha256": "31e09d40952511c702387b4a1723c7533602cf9414f31153822f4e77ef61f3d7",
+      "git": "9eed3f64411d15d0d8d3431724037b178134f295"
+    },
+    {
+      "path": "dist/src/household-reallocate.d.ts",
+      "bytes": 75,
+      "sha256": "23916c45b728b1cf720d3b0e816d78183fc6298fa6806d911dd327534f675482",
+      "git": "aea2dafe0cc8981d90b28e56381dee62950c6850"
+    },
+    {
+      "path": "dist/src/household-reallocate.js",
+      "bytes": 6251,
+      "sha256": "4a05fe11f516d61c1ad6d90f012bbbb6885feb2ad2cc9869eff23aabd1cfd0f4",
+      "git": "c266820a18b499869c7515ee4cacf35b1645a83d"
+    },
+    {
+      "path": "dist/src/household-reallocate.js.map",
+      "bytes": 5413,
+      "sha256": "f861c9f4139ef2791b5ba29eece984a1b8a8fb4c548d811e3e5b0eda72fe3313",
+      "git": "619dca7d6a6069c4b671c3ad2da52c94f8fb8905"
+    },
+    {
+      "path": "dist/src/index.d.ts",
+      "bytes": 372,
+      "sha256": "e8ace9e539a2b19a2a37cc2cc7d8ce8fb2d16faee6ba4f98026a6294b13d45a2",
+      "git": "122d69f2d8d2c412509f804b797f4b36730452dc"
+    },
+    {
+      "path": "dist/src/index.js",
+      "bytes": 13011,
+      "sha256": "3c0b6bf4cfcfbde7de34c422da453515e9b9cc90a997b11e0123fa95bfd6b363",
+      "git": "b20aac79dbf5442e1edc31453d8b4bd8e38dd707"
+    },
+    {
+      "path": "dist/src/index.js.map",
+      "bytes": 10204,
+      "sha256": "1c138119ccc8b3bc64e5b668796867d061a9c5230718db930f757d300bc5bfa1",
+      "git": "0e965e8c2a5fa235c2bb250b6022dc72edd279fe"
+    },
+    {
+      "path": "dist/src/ledger.d.ts",
+      "bytes": 3387,
+      "sha256": "87466b9d379ba942fbc0c8c1ff06daa721b56108c17a1651507010b1bfadb5b4",
+      "git": "d2d9ad34a89a49fbdbc9e11f854010bd93652b90"
+    },
+    {
+      "path": "dist/src/ledger.js",
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git": "003fe1cb4fbca02d9dc127804e7f31284192a197"
+    },
+    {
+      "path": "dist/src/ledger.js.map",
+      "bytes": 15602,
+      "sha256": "4654f884df5e3a8473d54abc3986ddbcc72c35c5f396d2bfb780406614f366da",
+      "git": "70b908268b7f4ae8fadf53c42f03400c7f389f5e"
+    },
+    {
+      "path": "dist/src/reallocation-client.d.ts",
+      "bytes": 1745,
+      "sha256": "ad13504bccf68eee1d11b8d0bc8da6f845d6916a270e87b76d7b69cb5192fe45",
+      "git": "cd44744548b524baf6e9911c2cd5ed7c7fd28e7d"
+    },
+    {
+      "path": "dist/src/reallocation-client.js",
+      "bytes": 9468,
+      "sha256": "216ebd79f7c31b185229438b8ef4f85d8e3b3e4c912888a66462f2554fd80f95",
+      "git": "6addad51bb89b7145f8bf94fe72c6c15aafe113e"
+    },
+    {
+      "path": "dist/src/reallocation-client.js.map",
+      "bytes": 9931,
+      "sha256": "a2fdeea27a1e88f94d2c9d5657e8a0fa0882553e0773573806e4abc78e698755",
+      "git": "8c1b3e4356af76fda92f0e4a046440bafcc8e993"
+    },
+    {
+      "path": "dist/src/stdio.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/src/stdio.js",
+      "bytes": 616,
+      "sha256": "a1d3cd86de1eb41d0c6e64f1b92ccda5b8094ff0a22afe61e0bd89c8485821d4",
+      "git": "e5d93bed144e16c835b1633f9b2b1655b87cb9e1"
+    },
+    {
+      "path": "dist/src/stdio.js.map",
+      "bytes": 640,
+      "sha256": "4717b68c052b1e6fd8320608348423c72335b6f950445616db2ace806de6e7dd",
+      "git": "e9774c4c09ade276800240cb49acb90e27ff1ba2"
+    },
+    {
+      "path": "dist/src/transaction-csv.d.ts",
+      "bytes": 603,
+      "sha256": "35eb0d97e94007ef7f336348ef3d85382024ce5c41331d15d9e6d47f84e09c5a",
+      "git": "145945c50d1e92c6b107b7103334455babb19a1d"
+    },
+    {
+      "path": "dist/src/transaction-csv.js",
+      "bytes": 6334,
+      "sha256": "3cc676ecff4cc02cf5c4276a690735abe3b0b465e84718db4647e1e852db1d9c",
+      "git": "a32e7e160ddb7a7783f13070c010b9f73b87aaaa"
+    },
+    {
+      "path": "dist/src/transaction-csv.js.map",
+      "bytes": 5905,
+      "sha256": "118a43d05821c8993320c5e22cbdc9c93d1bd3afa65114872b7c6569839363c0",
+      "git": "4037344b7c9068045e481904628bc8d02a514359"
+    },
+    {
+      "path": "dist/src/transaction-import.d.ts",
+      "bytes": 4025,
+      "sha256": "bef82f573a82ee26e4ca99c6d146569105b3762e2f09852c6a6029f33dc6eadd",
+      "git": "fbf96802e79c904a1059cd1051304b0e621daaf8"
+    },
+    {
+      "path": "dist/src/transaction-import.js",
+      "bytes": 7243,
+      "sha256": "d73723259e908213a8f6165af842414825550e04a47b77405b8075241c883f9b",
+      "git": "95637bc0620fb991b668e0bd0f80c98adee7572d"
+    },
+    {
+      "path": "dist/src/transaction-import.js.map",
+      "bytes": 6338,
+      "sha256": "7f658c8377586195cf7b6ef3bfb2545ac49fd94511dcf6e032d83591523c6747",
+      "git": "ddffa09ecff04c69bef71c1985aa4f86f16f392f"
+    },
+    {
+      "path": "dist/test/budget-currency.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/budget-currency.test.js",
+      "bytes": 13429,
+      "sha256": "9673c13565cc9491b286f1dd3eb96bbf05ae533b6d50fce61aa12be00f16a15b",
+      "git": "d861caed05726ee7f782d0c8237e6a9e81a57020"
+    },
+    {
+      "path": "dist/test/budget-currency.test.js.map",
+      "bytes": 16280,
+      "sha256": "4a21da9ea46b15b858944e55d2a966712289df10671f343afb5154d58a0acfde",
+      "git": "6bb693ee8f53a94332dd9d4075e91468eecee9cf"
+    },
+    {
+      "path": "dist/test/budget-reallocation-http.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/budget-reallocation-http.test.js",
+      "bytes": 8334,
+      "sha256": "30d942fe2006b60b77b3cb27b2c3f91ec3c6fdc9784b1f42a7dc6ee33ce3bf76",
+      "git": "689ff1413be2417d41eb0f25f99037d0143d8df8"
+    },
+    {
+      "path": "dist/test/budget-reallocation-http.test.js.map",
+      "bytes": 9948,
+      "sha256": "35663d077d0ebde1bb358f9d7a1a34287fdd9e69412dd29e6e2b71b11c98f892",
+      "git": "bbb4c88cce6ec8293bf13c8d1e487af1b9ebe9a6"
+    },
+    {
+      "path": "dist/test/budget-reallocation.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/budget-reallocation.test.js",
+      "bytes": 10351,
+      "sha256": "128f9506c65609c0a2aa10614767dc40de4f833965a254f062ac254847faec2c",
+      "git": "24d1e2faecfbdefdfd31db45baefed3890368c3f"
+    },
+    {
+      "path": "dist/test/budget-reallocation.test.js.map",
+      "bytes": 13699,
+      "sha256": "2664602892d8a5ea83914ba64a3575ec24ee336232d36cec82c79ae76e4bd30c",
+      "git": "7e902a629ed5f60efb1d29f68b75e4e8ad30be74"
+    },
+    {
+      "path": "dist/test/cashflow.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/cashflow.test.js",
+      "bytes": 10363,
+      "sha256": "21c9ae8a344e75d77c20baf98f5226a2cbbca7d685b5fe7367c0f48d60c6a10a",
+      "git": "d4133dd0dd47d83946019c206fda199ab59cfbe8"
+    },
+    {
+      "path": "dist/test/cashflow.test.js.map",
+      "bytes": 12330,
+      "sha256": "061241502fa39545480dc98fbe2df440ec8a7eeb5ee111d885c6e52a5b71d099",
+      "git": "cbd184ea72c5bafeb11370148bca058a2497b150"
+    },
+    {
+      "path": "dist/test/http-cashflow.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/http-cashflow.test.js",
+      "bytes": 10707,
+      "sha256": "a412e6665f3e9d35e90fa7224f4af0c02db7cf27b0dc9dc26b8ac8865d582b1e",
+      "git": "3b898c3f4409e89d5308b772f54d314c98199435"
+    },
+    {
+      "path": "dist/test/http-cashflow.test.js.map",
+      "bytes": 12538,
+      "sha256": "d814a620d3ef05c9cbd58942f9e51448a791cfbf0913179010e49db1a77063b8",
+      "git": "b01d6261dbbb363c6c1e5dd02f21352633fcb28c"
+    },
+    {
+      "path": "dist/test/http-recording.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/http-recording.test.js",
+      "bytes": 4668,
+      "sha256": "2a08adf4e7c9a4a3f1997919a0e845244175a8072f2a15f408907462acfee646",
+      "git": "db227eea403138fbb0f1127738e1713dc3658444"
+    },
+    {
+      "path": "dist/test/http-recording.test.js.map",
+      "bytes": 5648,
+      "sha256": "8259807c68783515f2db10d28592c47217a9ef65c4299546fe0b189aa35433bb",
+      "git": "5fd4ca14ce0eab63714cfd57462f104bbdc04842"
+    },
+    {
+      "path": "dist/test/http-summary.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/http-summary.test.js",
+      "bytes": 5513,
+      "sha256": "7974bd82b90cc9bb19c8d62b7a5e016f77d719e5dc2c47d47c6227f01aecf741",
+      "git": "62d9d2f0960f277af40e4aad0fa1d6f74b82a3d5"
+    },
+    {
+      "path": "dist/test/http-summary.test.js.map",
+      "bytes": 6586,
+      "sha256": "db6a1245d0a1ca61e3474c349335a975cb5fc8314ba78eb7709da0c8209861c9",
+      "git": "c242dfd3393611fd7e3d351b04ab3858da49ea93"
+    },
+    {
+      "path": "dist/test/ledger.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/ledger.test.js",
+      "bytes": 6650,
+      "sha256": "69ff28dad64df1db8613381c6930bcbf7bcea942cd0654d7cdff92bbdbd85cbc",
+      "git": "0e576b5fd08b9286bd5e5675325f48005fce13f8"
+    },
+    {
+      "path": "dist/test/ledger.test.js.map",
+      "bytes": 7805,
+      "sha256": "1d27570a25f1d4b57d5c63ea486ebfeb9ee125083661cc57e0937d99c4b75aa4",
+      "git": "2aa942019cacd470231ef6809fd9165dd3f037ac"
+    },
+    {
+      "path": "dist/test/mcp.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/mcp.test.js",
+      "bytes": 3650,
+      "sha256": "0be4417fa74cc3f1440da90fd17a0d3db09edf2e0eaec87f1bcfb0f3d6f812d7",
+      "git": "08e9436f54c6c4152e93928d00598418f72fa1ad"
+    },
+    {
+      "path": "dist/test/mcp.test.js.map",
+      "bytes": 4140,
+      "sha256": "21f5ed5f2fe086e9e31853d2c5c99812d2ed258c163bcdc422885acce57d5133",
+      "git": "9431173de5c73a3d308b051154e67f15af0e40ff"
+    },
+    {
+      "path": "dist/test/reallocation-client-http.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/reallocation-client-http.test.js",
+      "bytes": 8382,
+      "sha256": "cc79deba715e10e7ca8e5b6f3bf285ff6712b794ea46d363a675391f56d0fc86",
+      "git": "bec9ceb4cdafce4a323388bd8bfa0537bb91441b"
+    },
+    {
+      "path": "dist/test/reallocation-client-http.test.js.map",
+      "bytes": 9568,
+      "sha256": "a7e6235ea2b5bbd3bc0cd771f498e4c8df16df647e4ee74b05e60eeef4a40dc7",
+      "git": "934f3840b599d9f470d007902788ae2d0804f9fa"
+    },
+    {
+      "path": "dist/test/reallocation-client.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/reallocation-client.test.js",
+      "bytes": 4335,
+      "sha256": "16dbd7e7885d3685e032bfc09a6a5838fc9108add263ac7d98748a50fce357ad",
+      "git": "158dd6ef9b205c0c97aa87bb4e36a2ad59e9c033"
+    },
+    {
+      "path": "dist/test/reallocation-client.test.js.map",
+      "bytes": 4979,
+      "sha256": "86f9ff572e0148eb353e8a455a76c423bdf830794ac925682c81ace54c5548d6",
+      "git": "dad026cac943292e280085c082f7ba9ebd194843"
+    },
+    {
+      "path": "dist/test/receiving-composition.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/receiving-composition.test.js",
+      "bytes": 8642,
+      "sha256": "e54158557da5359951714ea65513a401de2a7e31ed7ced36b3ce18270d5452af",
+      "git": "fcd20fd5947b1c6d52770c7ccf14c8f4f0700d1e"
+    },
+    {
+      "path": "dist/test/receiving-composition.test.js.map",
+      "bytes": 10255,
+      "sha256": "a9ab5777af42c56942d94b0ea8c1894c4979576dad11132389187cda31b28807",
+      "git": "87569949af9ac71e6106394e3cc04b1367873cdc"
+    },
+    {
+      "path": "dist/test/recording.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/recording.test.js",
+      "bytes": 9947,
+      "sha256": "ded1b72caf1af7cdb312cab099395f28807e7461583d784f98ab6ef5373b411c",
+      "git": "dfff311f410f75b6dcc4140e17f7fce99432d50e"
+    },
+    {
+      "path": "dist/test/recording.test.js.map",
+      "bytes": 11928,
+      "sha256": "7fd96c9f0c4b07f680658a3925e626a0586692cbe756f633da5b419d4c1ff854",
+      "git": "70a0f3dd31a098f358ce91d83e293a3ec9069bbb"
+    },
+    {
+      "path": "dist/test/summary-currency.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/summary-currency.test.js",
+      "bytes": 14033,
+      "sha256": "12f01510e28e2ac2ede79db82fccae61002ef3aebeb5cde0fb6fb5f3a2b215c2",
+      "git": "bb9d9c58b4f7122d3d1d0edf560f134aceedc07a"
+    },
+    {
+      "path": "dist/test/summary-currency.test.js.map",
+      "bytes": 17068,
+      "sha256": "619f13b4315dbed4b1c07f7dda7d7ac35261d265cb637da3eaf747215a7ccc6b",
+      "git": "4395fcad1b5d1c77ee9b88d6f1a71183d84f8ecc"
+    },
+    {
+      "path": "dist/test/summary_categories.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/summary_categories.test.js",
+      "bytes": 6828,
+      "sha256": "56aaed8c2574699db516fb8a85de2113df94c65aeb23fcc90e2cccefe9061b96",
+      "git": "8e7b149727c4c434fa4242bdd85ec7eb29a49eb4"
+    },
+    {
+      "path": "dist/test/summary_categories.test.js.map",
+      "bytes": 6931,
+      "sha256": "b752717522c6bf36e07a960477b6188d6f70fddba35b7bd16c55ac4a5bfe5c9d",
+      "git": "ca71a3e67b6d05b29a725ed86bf676de0e418f38"
+    },
+    {
+      "path": "dist/test/transaction-import-http.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/transaction-import-http.test.js",
+      "bytes": 11112,
+      "sha256": "81749848fbb7ede959ce4362f7a2ae3a2c102590f340071426357275d146c425",
+      "git": "179ba237593581d8a4a69f2de88d47eb0c70b133"
+    },
+    {
+      "path": "dist/test/transaction-import-http.test.js.map",
+      "bytes": 12745,
+      "sha256": "0bb78087640cd2f95b7dde2886e088facbd9b4c038a482742803e2ff27289629",
+      "git": "a1aa451cfbcbc6d367579aa24d12d505ff6ace31"
+    },
+    {
+      "path": "dist/test/transaction-import.test.d.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "git": "cb0ff5c3b541f646105198ee23ac0fc3d805023e"
+    },
+    {
+      "path": "dist/test/transaction-import.test.js",
+      "bytes": 19589,
+      "sha256": "a24773c4d07e22abdd9c0a1a7156a297c54fdc41b8fc7379c004f1938c4e6d4d",
+      "git": "385bbc27474afd4ad5bf22f317948b5f2a7d79ca"
+    },
+    {
+      "path": "dist/test/transaction-import.test.js.map",
+      "bytes": 24840,
+      "sha256": "2ba4f1ef271f06702bfc07532eab81f8cc8b35b609bdb005c8e0aad0407dd9a1",
+      "git": "fa3462371798e732e5a6fc54cf80ede26e5a8224"
+    },
+    {
+      "path": "docs/BUDGET_REALLOCATION.md",
+      "bytes": 4862,
+      "sha256": "967ff717c06d379dc0842d4bd392ed7f02077b86a65c0bd17f15c15e59f92fb5",
+      "git": "6c816c09e860f1a04b23f9ffa2c4b3216a34c8e9"
+    },
+    {
+      "path": "docs/REALLOCATION_CLIENT.md",
+      "bytes": 3950,
+      "sha256": "1f478cdf0e3b0e2defb8226850546f7df85e4e8f2cc241c85c1f8ca9d1c345b7",
+      "git": "c1fdf93a291ce9a7f803c132151e77b2b703cc19"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 43740,
+      "sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+      "git": "020c296d667264f890d47c5effc7abca9f4ea8cb"
+    },
+    {
+      "path": "package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63"
+    },
+    {
+      "path": "src/budget-reallocation.ts",
+      "bytes": 9152,
+      "sha256": "d89e0a177e917ca370c0ebcca968d8900ea782d6422614ee96a0fecb4b8ac0c5",
+      "git": "a31c48a650c6c2b4d67fc29a1d89669e84e42b52"
+    },
+    {
+      "path": "src/cashflow.ts",
+      "bytes": 4761,
+      "sha256": "cb4631dce4679567d9d0e3a139440c51861dcdfad6029c8ef88b1b9bf122ce30",
+      "git": "7ef82c27ef41f3ef65198d6045beb6779364bf45"
+    },
+    {
+      "path": "src/household-reallocate.ts",
+      "bytes": 5786,
+      "sha256": "b52b6c5c87d338504c2712bc8a7a31cd7c926f6b139787dc38210d52ca082ae5",
+      "git": "d2e83a9cd013ec9b7c32357fd5d4c6d2817fb446"
+    },
+    {
+      "path": "src/index.ts",
+      "bytes": 12214,
+      "sha256": "3fac28320a220238152ebdb6c2cf24476455f2a1d4bb720bcf3ded8ae3e43102",
+      "git": "8dab2003cbfffed9b4d8f0463e0b62c3bdd49ba3"
+    },
+    {
+      "path": "src/ledger.ts",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "git": "2ff8133404f19c705eb7b7f0a943e8190f3328d6"
+    },
+    {
+      "path": "src/reallocation-client.ts",
+      "bytes": 10031,
+      "sha256": "a430da6e0ffc59ac4dc70a20eda0d76b7c02f02afe7fd0886496a08f94ae8545",
+      "git": "be5cd580e4702d433b9607eff2a3283e93cbd097"
+    },
+    {
+      "path": "src/stdio.ts",
+      "bytes": 586,
+      "sha256": "9d49234e75f790601e8f327d156f3a4b9c62325d8496319fd9831e733153dc57",
+      "git": "f670b4244384fdb02ae72341dcb53e5348af7d99"
+    },
+    {
+      "path": "src/transaction-csv.ts",
+      "bytes": 6189,
+      "sha256": "0357e1d405be49dd352fcc088e75aaaf47c00eaf81c55f785d77ca4d4e48e8f0",
+      "git": "33678fa52bac0c2463bd415997fefea73f221ade"
+    },
+    {
+      "path": "src/transaction-import.ts",
+      "bytes": 8357,
+      "sha256": "729d0db509945c4670f03167497417799dd059f386a550b96d1162e1ccd3e985",
+      "git": "1643e64f35d7ffc26281c4162290860760f88ef8"
+    },
+    {
+      "path": "test/budget-currency.test.ts",
+      "bytes": 13256,
+      "sha256": "fab4105ce5693ef0730943cca1c1b71c6e8c462475758221a6cf77881b132f98",
+      "git": "1e8ddb84cf31ef9fe37058f3264e726fd4ced7e7"
+    },
+    {
+      "path": "test/budget-reallocation-http.test.ts",
+      "bytes": 7808,
+      "sha256": "b52707712b40417122454ea132fcb5e8e6bcbde3a59a18f948f811253fcdf121",
+      "git": "5f4993b94ffb186851dc7ed9dc4d94b6d190ba76"
+    },
+    {
+      "path": "test/budget-reallocation.test.ts",
+      "bytes": 9269,
+      "sha256": "603922c0df5650d3c79a6605f08c94b105ab33f9ba65b05812a876eb4cb21711",
+      "git": "081b2f062f6b43fcfa2e7476d9f93b4c1f45191a"
+    },
+    {
+      "path": "test/cashflow.test.ts",
+      "bytes": 10136,
+      "sha256": "b21797f077ee5d817ed456e334188ff7a2f52de3e2194c55a10d21bfeaa90137",
+      "git": "8443718f039d8035f6864a8340b98046a8bcc20e"
+    },
+    {
+      "path": "test/http-cashflow.test.ts",
+      "bytes": 10333,
+      "sha256": "4b9ef76831740392e371dee8fc5129076f64a4fb4614bde8066468acf18cf20c",
+      "git": "415456a97716117a06a69b524764b724a1d73884"
+    },
+    {
+      "path": "test/http-recording.test.ts",
+      "bytes": 4433,
+      "sha256": "9419b74830f423b92fdb194dd827e8920461075d5cf4ba2e70a69c4da310e9fc",
+      "git": "c9775688d7c2c486dc4bc3b878d3921385a5caa7"
+    },
+    {
+      "path": "test/http-summary.test.ts",
+      "bytes": 5220,
+      "sha256": "b5f76eb50355405e8d8c22750f40e02d1caf5e16cee3737c2a4a9ed9696716af",
+      "git": "79ebf1512bc9a5e5107492ac109a78bc0c422dec"
+    },
+    {
+      "path": "test/ledger.test.ts",
+      "bytes": 6378,
+      "sha256": "bb64e0cb1bbd593d9e5458ddd83ada330756b4b27816b09517d17e201789074c",
+      "git": "7a2b337d9e4c683e958dd8fa428307f6cd0e3776"
+    },
+    {
+      "path": "test/mcp.test.ts",
+      "bytes": 3638,
+      "sha256": "ac62e9c6f866ae5a6657efceca5e9437912113ad01846d70963f68e561d7c29a",
+      "git": "4a79b25197cfae2177edb8020df1540c2836dc50"
+    },
+    {
+      "path": "test/reallocation-client-http.test.ts",
+      "bytes": 7603,
+      "sha256": "7fdaccd879d852a5e1a5ab65582a9db04c826eb6a84d70bea301e8316e48d190",
+      "git": "03717f9a58353bde3eb24b32f93c576142bdcd6f"
+    },
+    {
+      "path": "test/reallocation-client.test.ts",
+      "bytes": 4071,
+      "sha256": "717b882d05155cf3373b8d3c0f4ad41b8f59956cee7b4545137c4f365ba9ea8f",
+      "git": "1d1bcccdafeac136b718059022d9c6b6d87a5de4"
+    },
+    {
+      "path": "test/receiving-composition.test.ts",
+      "bytes": 8166,
+      "sha256": "cc9c3678f2e5e42477febddabdd38dabd202faf0a18148d2d3067a194f4e239f",
+      "git": "79e4dc1ee0aa70d6b92d2968d29e775b6ed8f0bf"
+    },
+    {
+      "path": "test/recording.test.ts",
+      "bytes": 9686,
+      "sha256": "18bebd788deece1012fcf4863203727b5e699fe61b766dd0d24075a39fab448c",
+      "git": "c0634588910d66bcc78c6b49758136f346681c76"
+    },
+    {
+      "path": "test/summary-currency.test.ts",
+      "bytes": 13806,
+      "sha256": "13771393218d37bcc48c26182ea2daabd8a967c14d8c33bac9b3295343f18da3",
+      "git": "6191a4f4e598da4407845b97ce60cd9001714f4d"
+    },
+    {
+      "path": "test/summary_categories.test.ts",
+      "bytes": 6268,
+      "sha256": "141ddb02330dc5f8f59f2544b8846df1df530aab82b169c1f796c00aabe5fd8d",
+      "git": "39fdfa0e8bd04e70c5d465fd682b7849d1b9774c"
+    },
+    {
+      "path": "test/transaction-import-http.test.ts",
+      "bytes": 11239,
+      "sha256": "02247b59677819ea98524e9405a158a3fcab0531956b4eb1539c1a8dc76d7f20",
+      "git": "5b17ea89366500d815f0c0e774bd2fd55ef6cdcb"
+    },
+    {
+      "path": "test/transaction-import.test.ts",
+      "bytes": 19299,
+      "sha256": "f465f7ed6ee960a1a2c36b877000137da588a98f6d44bce14f63484ad4bc255d",
+      "git": "b7f192a0b53435dea46392d90b8b1a7e0dabfefd"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72",
+      "git": "22a92039fc845256859c3b4921063f3a16a0ae3e"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "started": "2026-10-09T00:59:40.791310+00:00",
+  "pid": 3227432,
+  "receiving": "accepted for owner composition/native adoption; installed aggregation not claimed",
+  "archiveContainsDependencyBytes": false,
+  "ok": true,
+  "archive": "/home/jacob/snap/chromium/common/hamon-household-reallocation-receiving-db371a37f4c8/publication-r2/household-reallocation-root-receiving.tar.gz",
+  "archiveBytes": 1143024,
+  "archiveSha256": "887a23714ec250d063f62cf28fd3c06f17b8531e2fe7f8b2891e66953f6c488e",
+  "archiveGitBlob": "696da3a48753106cae29a37e9f550ef3a44dfe23",
+  "archiveMembers": 590,
+  "regularPayloadFiles": 589,
+  "uncompressedPayloadBytes": 5578665,
+  "manifestBytes": 158161,
+  "manifestSha256": "c6fbcc88976d9a5d6070d67a4862e089a442ecd494574a5308a3314b58624154",
+  "omittedSymlinks": [
+    {
+      "path": "candidate-r1-source/node_modules",
+      "target": "/tmp/c36a60df2cc1-household-compare/worktree/node_modules",
+      "reason": "External native dependency donor; full inventory included separately"
+    },
+    {
+      "path": "candidate-r2-source/node_modules",
+      "target": "/tmp/c36a60df2cc1-household-compare/worktree/node_modules",
+      "reason": "External native dependency donor; full inventory included separately"
+    },
+    {
+      "path": "candidate-r3-source-build/node_modules",
+      "target": "/tmp/c36a60df2cc1-household-compare/worktree/node_modules",
+      "reason": "External native dependency donor; full inventory included separately"
+    },
+    {
+      "path": "original-r1-source/node_modules",
+      "target": "/tmp/c36a60df2cc1-household-compare/worktree/node_modules",
+      "reason": "External native dependency donor; full inventory included separately"
+    }
+  ],
+  "allMembersRoundtripExact": true,
+  "nativeGitHashObjectExit": 0,
+  "reportBytes": 21390,
+  "reportSha256": "5f98b0cebf9c78ebaa150e059369ca1c42ee08548e5db5b3b06a05394c195c19",
+  "finalAuditSha256": "79ede0cea8ba39a9c6aa1ca789f4a2f3e496e468989abcd8e872c21fb3c8b6b5",
+  "acceptedProductTree": "5b88c9f61af7db76ed3489f6be9a3e65d2214ffe",
+  "afterProducerPatchSha256": "bfdd32804d2b36e993caafdae6bb1f0b29d27884874c3ee133a8e3358ab926d4",
+  "completed": "2026-10-09T00:59:42.047676+00:00"
+}
