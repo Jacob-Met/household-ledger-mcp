@@ -1,0 +1,57 @@
+{
+  "format": "Concatenate parts in order, remove ASCII whitespace, then strict-base64 decode to original ZIP.",
+  "archive": {
+    "path": "/home/jacob/household-rule-editor-81ba1ed0179c/custody/Household-Recurring-Rule-Editor-native-receiving.zip",
+    "bytes": 1488928,
+    "sha256": "a67f710e6632cd667217f71b2ca1130f56829d56583542674881a5233ed5c199",
+    "members": 105
+  },
+  "parts": [
+    {
+      "path": "contributions/recurring-rule-editor-81ba1ed0179c/receiving.zip.base64.part01",
+      "bytes": 240001,
+      "sha256": "ff947ed0f0ea1fdf57d20a74a657582fba38c69df1069ff769a404cb5a715208"
+    },
+    {
+      "path": "contributions/recurring-rule-editor-81ba1ed0179c/receiving.zip.base64.part02",
+      "bytes": 240001,
+      "sha256": "384e53b885129d7ed9ac0c4dfdf9fe882883376f0b303b455f47fa157a2e1820"
+    },
+    {
+      "path": "contributions/recurring-rule-editor-81ba1ed0179c/receiving.zip.base64.part03",
+      "bytes": 240001,
+      "sha256": "1221b4ebd616890a34cc04b7d2009845032c36774aaadefca42ef849e9344d8b"
+    },
+    {
+      "path": "contributions/recurring-rule-editor-81ba1ed0179c/receiving.zip.base64.part04",
+      "bytes": 240001,
+      "sha256": "ebf4b7485f6cdac91021cd1101090fb3df885b0e50d3c627ad79fc9f163d63f5"
+    },
+    {
+      "path": "contributions/recurring-rule-editor-81ba1ed0179c/receiving.zip.base64.part05",
+      "bytes": 240001,
+      "sha256": "123bf73b4ff182ade8c549123cd35d18fe23153f964c22ecb0fa47d09040c4e9"
+    },
+    {
+      "path": "contributions/recurring-rule-editor-81ba1ed0179c/receiving.zip.base64.part06",
+      "bytes": 240001,
+      "sha256": "dccdefda9034f486d3fdde00c3b38d4a524c4a22090a912e73a5b2e00f18aff8"
+    },
+    {
+      "path": "contributions/recurring-rule-editor-81ba1ed0179c/receiving.zip.base64.part07",
+      "bytes": 240001,
+      "sha256": "7ad9eed2c8cb0693468b32b9fa0a6c369208843ff36b783d41295dfe5c92bea2"
+    },
+    {
+      "path": "contributions/recurring-rule-editor-81ba1ed0179c/receiving.zip.base64.part08",
+      "bytes": 240001,
+      "sha256": "e68c7871470aa993ecb4c2753d17f951c6cc7ab93df4e9242da8ea7a39eb7ae3"
+    },
+    {
+      "path": "contributions/recurring-rule-editor-81ba1ed0179c/receiving.zip.base64.part09",
+      "bytes": 65241,
+      "sha256": "477eb9ea4de61ae9864154a36cf9bd9c140e8c1014cb47c97241f654415c0c25"
+    }
+  ],
+  "memberManifestSha256": "c55bc52bba46f115b53424e41bf7525f0cc7a584f3c98543c2ada1b6f7ae7bc0"
+}

@@ -1,0 +1,65 @@
+{
+  "schema": "household.recurring-editor.qualification.v1",
+  "at": "2026-10-09T14:49:56.625002+00:00",
+  "issue": 27,
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "beneficiary": "Create, edit, reorder, remove, preview and explicitly replace/save recurring expense rules offline without touching a ledger or running the producer.",
+  "source": {
+    "releasedParent": "57268bfda9643f641852468ae459fb61b1080b6e",
+    "parentTree": "d1dbe6f48ee75464ae27187cd3a9adac3c843fcd",
+    "newPaths": 9,
+    "originalLeavesPreserved": 170,
+    "projectionTree": "d18e49753cbaaa89991a36360db783634defaa82",
+    "nativePartialHead": "94d2f66b35c31c0a94466c572bf0c2892b683884",
+    "partialHistoryNotCanonicalAncestry": true,
+    "sourceFreezeSha256": "7a5a1e673780e4059acd32a92d3d6583bb3113b94bf13e19e69d6794160900ef"
+  },
+  "product": {
+    "path": "web/recurring-rule-editor/index.html",
+    "bytes": 29501,
+    "sha256": "7319608a7bee87839865f334af50805ee3f92aa28fc600e811941399371de4af"
+  },
+  "portableDelivery": {
+    "path": "Household-Recurring-Rules.zip",
+    "bytes": 16971,
+    "members": 7,
+    "sha256": "6c37e7991714880d2d4f593e1964f2c98b4ace4b6bce7aecd23e2a32a8e004f9"
+  },
+  "author": {
+    "modelGroups": 8,
+    "modelReceiptSha256": "3b669268e1465c546982bf75e8fb0f6dedb5bbfa155ee01a2281b68a004bf5be",
+    "browserGroups": 8,
+    "chooserAdmissions": 4,
+    "physicalSaves": 3,
+    "browserWrapperSha256": "a121c1308a6393047b725f34574687361b8420834cfe65d0d60251e266119c07",
+    "cleanupSha256": "56fe8e526c51d78a725ac3d7cee5e25e13f9286557f67118c61edc18b39e5889",
+    "savedFileProducerCalls": 1,
+    "completeNovemberPlanAndReceipt": true,
+    "compositionReceiptSha256": "602a292074f8b8327ee17bd6d23ea0ac21c617bb754247c1232266f95d8f8af3"
+  },
+  "independent": {
+    "modelGroups": 4,
+    "browserGroups": 2,
+    "physicalSaves": 2,
+    "savedFileProducerCalls": 1,
+    "completeAprilPlanAndReceipt": true,
+    "runtimeArchiveSha256": "d069656b4448c6511e55ebf94faec938dc34d0801de3dd1846a9a5b09ed37eb1",
+    "runtimeArchiveMembers": 108,
+    "fullSourcePeerAccepted": true,
+    "sourceReviewSha256": "3b643dff70071425a613f4c0c5956c42352adc3c597f22f363ace8021b05de7d",
+    "sourcePeerArchiveSha256": "8824365b941200b2dca8bf12154d59f2298a2ec7873c76e2789559d333a69306",
+    "sourcePeerArchiveMembers": 39,
+    "sourcePeerProductCalls": 0
+  },
+  "limits": [
+    "Node22.22.1 Linux model/CLI, Chrome153.0.8010.47 direct-file receiving. No Windows or full npm/hosted CI pass.",
+    "No financial advice, live account/ledger mutation, scheduled payment or automatic recurrence run.",
+    "Raw imported strings/optional presence retained; explicitly edited controls can normalize line endings.",
+    "No local storage or automatic persistence; user must Save.",
+    "One delayed actual-file receiver fault and one independent eventless-control fault are explicitly attributed.",
+    "Guide-only Node22 helper clarification preserved R1; unchanged product was not rerun. Independent seal detected that documentation delta; its negative is retained.",
+    "Page errors/external requests zero; raw Chrome D-Bus stderr retained and not labelled empty."
+  ],
+  "actions": "No Actions. Source retention is a feature-only branch; PR/main/CI gates remain held.",
+  "receivingComplete": true
+}

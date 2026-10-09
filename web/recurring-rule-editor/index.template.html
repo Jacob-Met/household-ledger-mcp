@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-@@SCRIPT_HASH@@'; style-src 'sha256-@@STYLE_HASH@@'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Recurring expense rules · Household Ledger</title><style>@@STYLE@@</style></head>
+<body><main>
+<header><p class="eyebrow">Household Ledger · offline workspace</p><h1>Recurring expense rules</h1>
+<p>Create reusable weekly and monthly rules, then save a rule file for the monthly plan generator.</p>
+<p class="boundary">This page edits a local plan input. It records no expenses and schedules no payments.</p></header>
+<nav aria-label="Rule file actions"><button id="open" type="button">Open rule file</button><button id="save" type="button" disabled>Save rule file</button>
+<input id="file" type="file" accept=".json,application/json" hidden></nav>
+<p id="status" role="status" aria-live="polite">Start by applying a currency or opening a saved rule file.</p>
+<p id="error" role="alert" aria-live="assertive"></p>
+<section aria-labelledby="currency-heading"><h2 id="currency-heading">1. Choose the currency</h2>
+<label for="currency">Three-letter currency code</label><textarea id="currency" rows="1" spellcheck="false" autocomplete="off" aria-describedby="currency-help"></textarea>
+<p id="currency-help" class="hint">For example, USD or EUR. Amounts use integer minor units; no currency conversion is performed.</p>
+<button id="apply-currency" type="button">Apply currency</button></section>
+<section aria-labelledby="rules-heading"><div class="section-heading"><div><h2 id="rules-heading">2. Maintain the rules</h2><p id="count">No current rule set</p></div>
+<button id="add-rule" type="button" disabled>Add rule</button></div>
+<p id="work-state"></p><div id="rules"></div></section>
+<form id="rule-form" hidden novalidate autocomplete="off" aria-labelledby="rule-heading"><h2 id="rule-heading">Add a rule</h2>
+<p class="hint">Apply changes to the workspace, then Save to keep a file. Required choices have no inferred defaults.</p>
+<div class="grid"><label>Unique rule ID<input id="rule-id" type="text" spellcheck="false"></label>
+<label>Start date (YYYY-MM-DD)<input id="rule-start" type="text" inputmode="numeric" placeholder="2026-01-31" spellcheck="false"></label></div>
+<label>Category<textarea id="rule-category" rows="2" spellcheck="false"></textarea></label>
+<label>Amount in integer minor units<input id="rule-amount" type="text" inputmode="numeric" placeholder="For example, 12500" spellcheck="false"></label>
+<p class="hint">Enter a whole number from 1 to 9007199254740991. A decimal amount such as 12.50 is not accepted.</p>
+<fieldset><legend>Repetition</legend><div class="grid"><label>Repeat unit<select id="rule-unit"><option value="">Choose a unit</option><option value="week">Weeks</option><option value="month">Months</option></select></label>
+<label>Every how many?<input id="rule-every" type="text" inputmode="numeric" spellcheck="false"></label></div>
+<p class="hint">Weeks: 1–52, anchored to the start weekday. Months: 1–120, anchored to the original start day.</p>
+<label id="missing-choice" hidden>If the original day is absent from a month<select id="rule-missing"><option value="">Choose explicitly</option><option value="skip">Skip that month</option><option value="last">Use its last day</option></select></label></fieldset>
+<fieldset><legend>Optional end date</legend><label class="check"><input id="end-on" type="checkbox">Include an inclusive end date</label>
+<label>End date (YYYY-MM-DD)<input id="rule-end" type="text" inputmode="numeric" spellcheck="false" disabled></label></fieldset>
+<fieldset><legend>Optional note</legend><label class="check"><input id="note-on" type="checkbox">Include a note, even if empty</label>
+<label>Note<textarea id="rule-note" rows="4" disabled></textarea></label>
+<p class="hint">Untouched imported text is preserved exactly. Editing text adopts the control's text, which can normalize line endings. Complete literal rules show escapes for special characters.</p></fieldset>
+<div class="row-actions"><button id="apply-rule" type="submit">Apply rule</button><button id="cancel-rule" type="button">Cancel changes</button></div></form>
+<section id="preview" hidden aria-labelledby="preview-heading"><h2 id="preview-heading">Review the opened file</h2>
+<p><strong id="preview-name"></strong> · <span id="preview-size"></span></p><p>Current work is unchanged. Replace uses this complete rule set; Cancel keeps your current work.</p>
+<pre id="preview-json" tabindex="0" aria-label="Complete literal imported rule document"></pre>
+<div class="row-actions"><button id="replace" type="button" disabled>Replace current rules</button><button id="cancel-preview" type="button">Cancel preview</button></div></section>
+<section aria-labelledby="next-heading"><h2 id="next-heading">3. Generate one month explicitly</h2>
+<p>Save the rule file, then use the existing recurring-plan command with a selected month and a new output path. This page does not run it.</p>
+<pre class="command">node dist/src/household-recurring-plan.js --rules household-recurring-rules.json --month 2026-11 --out november-plan.json</pre>
+<p>Keep the command's complete receipt. It records the normalized currency, which must be supplied when opening the plan with the expense preview. The plan file itself contains no currency.</p>
+<p>Saving rules checks their format, not a month's generated total or number of occurrences. The generator can still refuse a month that exceeds its limits.</p></section>
+<footer><p>No server, network connection, automatic storage or automatic download. Reloading closes unsaved work. Save and keep your files explicitly.</p>
+<p>Uses the released <code>household-recurring-expenses/1</code> input. Existing producer, expense preview and ledger operations are unchanged. Fictional examples in the guide are not financial recommendations.</p></footer>
+</main><script>@@SCRIPT@@</script></body></html>

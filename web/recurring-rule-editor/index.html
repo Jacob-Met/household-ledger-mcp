@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-uCO0HftXb6fZ2xRVsAJgeNUAjpq1yP29RH7PbwLxZek='; style-src 'sha256-VsRHepa8fG/dsjlpBt0I4zTmPFovfBguFZtKH7RJo4w='; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Recurring expense rules · Household Ledger</title><style>:root{color-scheme:light;font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#18313a;background:#f2f5f3}
+*{box-sizing:border-box}body{margin:0}main{max-width:960px;margin:auto;padding:28px 24px 48px}h1{font-size:2.25rem;line-height:1.15;margin:.25em 0}h2{font-size:1.35rem;margin:0 0 .6rem}h3{font-size:1.1rem;margin:0 0 .4rem;overflow-wrap:anywhere}p{margin:.6rem 0 1rem}.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:750;color:#426c67}.boundary{border-left:4px solid #477f71;padding:8px 12px;background:#e2ede7}nav{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}section,form{background:#fff;border:1px solid #cad8d3;border-radius:12px;padding:20px;margin:20px 0}button{font:inherit;font-weight:650;border:1px solid #356259;border-radius:6px;background:#e7f0eb;color:#193f36;padding:9px 14px;cursor:pointer}button:hover{background:#d4e6dc}button:disabled{color:#6a7472;background:#eef0ee;border-color:#b9c4bf;cursor:default}#save,#apply-rule,#replace{background:#225c4a;color:#fff}#save:disabled,#replace:disabled{background:#c9d3ce;color:#64726b}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,pre:focus-visible{outline:3px solid #ac6500;outline-offset:3px}label{display:block;font-weight:650;margin:12px 0}input,select,textarea{display:block;width:100%;max-width:100%;font:inherit;color:inherit;background:#fff;border:1px solid #829b92;border-radius:5px;padding:9px;margin-top:5px}input:disabled,select:disabled,textarea:disabled{background:#eff1ef;color:#606d67}textarea{resize:vertical}#currency{max-width:280px;min-height:44px}.hint{font-size:.91rem;color:#48625a}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}fieldset{border:1px solid #bdcfc5;border-radius:8px;margin:18px 0;padding:12px 16px}legend{font-weight:750;padding:0 6px}.check{display:flex;align-items:center;gap:10px}.check input{width:auto;margin:0}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.row-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.rule{border-top:1px solid #d4dfd8;padding:16px 0}.rule p{overflow-wrap:anywhere}summary{cursor:pointer;font-weight:650}pre{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;background:#f2f5f3;padding:12px;border-radius:6px;font:13px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;max-height:420px;overflow:auto}#status{min-height:24px;color:#225c4a;font-weight:600}#error:empty{display:none}#error{color:#812500;border:2px solid #bd582e;padding:12px;background:#fff2e9;overflow-wrap:anywhere}#preview{border:2px solid #8b691b}footer{font-size:.88rem;color:#50655f}code{overflow-wrap:anywhere}[hidden]{display:none!important}@media(max-width:540px){main{padding:20px 14px 36px}h1{font-size:1.85rem}section,form{padding:15px}.grid{grid-template-columns:1fr;gap:0}.section-heading{align-items:flex-start;flex-direction:column}nav button{flex:1}.row-actions button{flex:1 1 130px}}@media print{body{background:#fff}main{padding:0}nav,form,.row-actions,#preview,#currency-heading~button{display:none}section{break-inside:avoid;border:1px solid #aaa}pre{max-height:none;overflow:visible}details>pre{display:block}}
+</style></head>
+<body><main>
+<header><p class="eyebrow">Household Ledger · offline workspace</p><h1>Recurring expense rules</h1>
+<p>Create reusable weekly and monthly rules, then save a rule file for the monthly plan generator.</p>
+<p class="boundary">This page edits a local plan input. It records no expenses and schedules no payments.</p></header>
+<nav aria-label="Rule file actions"><button id="open" type="button">Open rule file</button><button id="save" type="button" disabled>Save rule file</button>
+<input id="file" type="file" accept=".json,application/json" hidden></nav>
+<p id="status" role="status" aria-live="polite">Start by applying a currency or opening a saved rule file.</p>
+<p id="error" role="alert" aria-live="assertive"></p>
+<section aria-labelledby="currency-heading"><h2 id="currency-heading">1. Choose the currency</h2>
+<label for="currency">Three-letter currency code</label><textarea id="currency" rows="1" spellcheck="false" autocomplete="off" aria-describedby="currency-help"></textarea>
+<p id="currency-help" class="hint">For example, USD or EUR. Amounts use integer minor units; no currency conversion is performed.</p>
+<button id="apply-currency" type="button">Apply currency</button></section>
+<section aria-labelledby="rules-heading"><div class="section-heading"><div><h2 id="rules-heading">2. Maintain the rules</h2><p id="count">No current rule set</p></div>
+<button id="add-rule" type="button" disabled>Add rule</button></div>
+<p id="work-state"></p><div id="rules"></div></section>
+<form id="rule-form" hidden novalidate autocomplete="off" aria-labelledby="rule-heading"><h2 id="rule-heading">Add a rule</h2>
+<p class="hint">Apply changes to the workspace, then Save to keep a file. Required choices have no inferred defaults.</p>
+<div class="grid"><label>Unique rule ID<input id="rule-id" type="text" spellcheck="false"></label>
+<label>Start date (YYYY-MM-DD)<input id="rule-start" type="text" inputmode="numeric" placeholder="2026-01-31" spellcheck="false"></label></div>
+<label>Category<textarea id="rule-category" rows="2" spellcheck="false"></textarea></label>
+<label>Amount in integer minor units<input id="rule-amount" type="text" inputmode="numeric" placeholder="For example, 12500" spellcheck="false"></label>
+<p class="hint">Enter a whole number from 1 to 9007199254740991. A decimal amount such as 12.50 is not accepted.</p>
+<fieldset><legend>Repetition</legend><div class="grid"><label>Repeat unit<select id="rule-unit"><option value="">Choose a unit</option><option value="week">Weeks</option><option value="month">Months</option></select></label>
+<label>Every how many?<input id="rule-every" type="text" inputmode="numeric" spellcheck="false"></label></div>
+<p class="hint">Weeks: 1–52, anchored to the start weekday. Months: 1–120, anchored to the original start day.</p>
+<label id="missing-choice" hidden>If the original day is absent from a month<select id="rule-missing"><option value="">Choose explicitly</option><option value="skip">Skip that month</option><option value="last">Use its last day</option></select></label></fieldset>
+<fieldset><legend>Optional end date</legend><label class="check"><input id="end-on" type="checkbox">Include an inclusive end date</label>
+<label>End date (YYYY-MM-DD)<input id="rule-end" type="text" inputmode="numeric" spellcheck="false" disabled></label></fieldset>
+<fieldset><legend>Optional note</legend><label class="check"><input id="note-on" type="checkbox">Include a note, even if empty</label>
+<label>Note<textarea id="rule-note" rows="4" disabled></textarea></label>
+<p class="hint">Untouched imported text is preserved exactly. Editing text adopts the control's text, which can normalize line endings. Complete literal rules show escapes for special characters.</p></fieldset>
+<div class="row-actions"><button id="apply-rule" type="submit">Apply rule</button><button id="cancel-rule" type="button">Cancel changes</button></div></form>
+<section id="preview" hidden aria-labelledby="preview-heading"><h2 id="preview-heading">Review the opened file</h2>
+<p><strong id="preview-name"></strong> · <span id="preview-size"></span></p><p>Current work is unchanged. Replace uses this complete rule set; Cancel keeps your current work.</p>
+<pre id="preview-json" tabindex="0" aria-label="Complete literal imported rule document"></pre>
+<div class="row-actions"><button id="replace" type="button" disabled>Replace current rules</button><button id="cancel-preview" type="button">Cancel preview</button></div></section>
+<section aria-labelledby="next-heading"><h2 id="next-heading">3. Generate one month explicitly</h2>
+<p>Save the rule file, then use the existing recurring-plan command with a selected month and a new output path. This page does not run it.</p>
+<pre class="command">node dist/src/household-recurring-plan.js --rules household-recurring-rules.json --month 2026-11 --out november-plan.json</pre>
+<p>Keep the command's complete receipt. It records the normalized currency, which must be supplied when opening the plan with the expense preview. The plan file itself contains no currency.</p>
+<p>Saving rules checks their format, not a month's generated total or number of occurrences. The generator can still refuse a month that exceeds its limits.</p></section>
+<footer><p>No server, network connection, automatic storage or automatic download. Reloading closes unsaved work. Save and keep your files explicitly.</p>
+<p>Uses the released <code>household-recurring-expenses/1</code> input. Existing producer, expense preview and ledger operations are unchanged. Fictional examples in the guide are not financial recommendations.</p></footer>
+</main><script>(()=>{
+'use strict';
+/** Browser-safe editor for the released household-recurring-expenses/1 input.
+ * No recurrence expansion, ledger access, network or storage.
+ */
+const MAX_BYTES = 1024 * 1024;
+const MAX_RULES = 100;
+const utf8 = new TextEncoder();
+const fail = message => { throw new Error(message); };
+function check(value, message) { if (!value) fail(message); }
+function record(value, allowed, required, label) {
+  check(value !== null && typeof value === 'object' && !Array.isArray(value), label + ' must be an object.');
+  const prototype = Object.getPrototypeOf(value);
+  check(prototype === Object.prototype || prototype === null, label + ' must be a plain JSON object.');
+  const copy = Object.create(null);
+  for (const key of Reflect.ownKeys(value)) {
+    check(typeof key === 'string' && allowed.includes(key), label + ' has an unsupported field.');
+    const d = Object.getOwnPropertyDescriptor(value, key);
+    check(d.enumerable && Object.hasOwn(d, 'value'), label + ' must contain ordinary JSON values.');
+    copy[key] = d.value;
+  }
+  check(required.every(key => Object.hasOwn(copy, key)), label + ' is missing a required field.');
+  return copy;
+}
+function rulesArray(value) {
+  check(Array.isArray(value) && Object.getPrototypeOf(value) === Array.prototype, 'Rules must be a plain array.');
+  check(value.length <= MAX_RULES, 'At most 100 rules can be saved.');
+  check(Reflect.ownKeys(value).length === value.length + 1, 'Rules cannot contain holes or extra fields.');
+  const copy = [];
+  for (let i = 0; i < value.length; i++) {
+    const d = Object.getOwnPropertyDescriptor(value, String(i));
+    check(d && d.enumerable && Object.hasOwn(d, 'value'), 'Rules must contain ordinary dense values.');
+    copy.push(d.value);
+  }
+  return copy;
+}
+function realDate(value, label) {
+  check(typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value), label + ' must be YYYY-MM-DD.');
+  const [year, month, day] = value.split('-').map(Number);
+  const d = new Date(Date.UTC(year, month - 1, day));
+  check(year >= 1970 && year <= 9999 && d.getUTCFullYear() === year &&
+    d.getUTCMonth() === month - 1 && d.getUTCDate() === day, label + ' must be a real date in 1970–9999.');
+  return value;
+}
+function identifier(value) {
+  check(typeof value === 'string' && value === value.trim() && [...value].length >= 1 &&
+    [...value].length <= 128 && !/[\u0000-\u001f\u007f]/u.test(value), 'Rule ID needs 1–128 unpadded, noncontrol characters.');
+  for (let i = 0; i < value.length; i++) {
+    const c = value.charCodeAt(i);
+    if (c >= 0xd800 && c <= 0xdbff) {
+      const n = value.charCodeAt(++i);
+      check(n >= 0xdc00 && n <= 0xdfff, 'Rule ID must be well-formed Unicode.');
+    } else check(!(c >= 0xdc00 && c <= 0xdfff), 'Rule ID must be well-formed Unicode.');
+  }
+  return value;
+}
+function positive(value, max, label) {
+  check(typeof value === 'number' && Number.isSafeInteger(value) && value >= 1 && value <= max,
+    label + ' must be an integer from 1 through ' + max + '.');
+  return value;
+}
+function canonicalRule(raw, position) {
+  const r = record(raw, ['id','start','end','category','amountMinor','note','repeat'],
+    ['id','start','category','amountMinor','repeat'], 'Rule ' + position);
+  const id = identifier(r.id), start = realDate(r.start, 'Start date');
+  const result = { id, start };
+  if (Object.hasOwn(r, 'end')) {
+    result.end = realDate(r.end, 'End date');
+    check(result.end >= start, 'End date must be on or after start.');
+  }
+  check(typeof r.category === 'string' && r.category.trim().length > 0, 'Category cannot be blank.');
+  result.category = r.category;
+  result.amountMinor = positive(r.amountMinor, Number.MAX_SAFE_INTEGER, 'Amount in minor units');
+  if (Object.hasOwn(r, 'note')) {
+    check(typeof r.note === 'string', 'A present note must be text.');
+    result.note = r.note;
+  }
+  const p = record(r.repeat, ['unit','every','missingDay'], ['unit','every'], 'Repeat');
+  check(p.unit === 'week' || p.unit === 'month', 'Choose weekly or monthly repetition.');
+  result.repeat = { unit:p.unit, every:positive(p.every, p.unit === 'week' ? 52 : 120, 'Repeat interval') };
+  if (p.unit === 'week') check(!Object.hasOwn(p, 'missingDay'), 'A weekly rule cannot contain a missing-day choice.');
+  else {
+    check(p.missingDay === 'skip' || p.missingDay === 'last', 'Monthly rules require an explicit skip or last-day choice.');
+    result.repeat.missingDay = p.missingDay;
+  }
+  return result;
+}
+function validateDocument(raw) {
+  const doc = record(raw, ['schema','currency','rules'], ['schema','currency','rules'], 'Rule document');
+  check(doc.schema === 'household-recurring-expenses/1', 'Unsupported rule document schema.');
+  check(typeof doc.currency === 'string' && /^[A-Za-z]{3}$/.test(doc.currency.trim()), 'Currency must contain three ASCII letters.');
+  const ids = new Set();
+  const rules = rulesArray(doc.rules).map((r, index) => {
+    const value = canonicalRule(r, index + 1);
+    check(!ids.has(value.id), 'Rule IDs must be unique: ' + JSON.stringify(value.id));
+    ids.add(value.id); return value;
+  });
+  const result = { schema:'household-recurring-expenses/1', currency:doc.currency, rules };
+  check(utf8.encode(JSON.stringify(result, null, 2) + '\n').byteLength <= MAX_BYTES, 'Complete saved rules exceed 1 MiB.');
+  return result;
+}
+/** Strict JSON parser: duplicate decoded keys refuse before any last-key wins. */
+function strictJSON(text) {
+  let at = 0, nodes = 0;
+  const ws = () => { while (at < text.length && /[ \t\r\n]/.test(text[at])) at++; };
+  function string() {
+    const start = at++;
+    let escaped = false;
+    while (at < text.length) {
+      const c = text[at++];
+      if (!escaped && c === '"') {
+        try { return JSON.parse(text.slice(start, at)); } catch { fail('Invalid JSON string.'); }
+      }
+      if (!escaped && c === '\\') escaped = true; else escaped = false;
+    }
+    fail('Unterminated JSON string.');
+  }
+  function value(depth) {
+    check(depth <= 8 && ++nodes <= 4096, 'JSON exceeds the editor depth or value bound.');
+    ws(); const c = text[at];
+    if (c === '"') return string();
+    if (c === '{') {
+      at++; ws(); const result = Object.create(null), keys = new Set();
+      if (text[at] === '}') { at++; return result; }
+      while (true) {
+        ws(); check(text[at] === '"', 'Expected a JSON object key.');
+        const key = string(); check(!keys.has(key), 'Duplicate JSON member: ' + JSON.stringify(key)); keys.add(key);
+        ws(); check(text[at++] === ':', 'Expected a colon.'); result[key] = value(depth + 1);
+        ws(); const separator = text[at++];
+        if (separator === '}') return result;
+        check(separator === ',', 'Expected an object separator.');
+      }
+    }
+    if (c === '[') {
+      at++; ws(); const result = [];
+      if (text[at] === ']') { at++; return result; }
+      while (true) {
+        result.push(value(depth + 1)); ws(); const separator = text[at++];
+        if (separator === ']') return result;
+        check(separator === ',', 'Expected an array separator.');
+      }
+    }
+    for (const [token, primitive] of [['true',true],['false',false],['null',null]]) {
+      if (text.startsWith(token, at)) { at += token.length; return primitive; }
+    }
+    const number = text.slice(at).match(/^-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?/);
+    check(number, 'Invalid JSON value.'); at += number[0].length;
+    const result = Number(number[0]); check(Number.isFinite(result), 'JSON numbers must be finite.'); return result;
+  }
+  const result = value(0); ws(); check(at === text.length, 'Unexpected trailing JSON content.'); return result;
+}
+function decodeRules(bytes) {
+  check(bytes instanceof Uint8Array, 'Open requires UTF-8 file bytes.');
+  check(bytes.byteLength <= MAX_BYTES, 'Rule file exceeds 1 MiB.');
+  let text;
+  try { text = new TextDecoder('utf-8', { fatal:true, ignoreBOM:true }).decode(bytes.slice()); }
+  catch { fail('Rule file is not valid UTF-8.'); }
+  if (text.charCodeAt(0) === 0xfeff) text = text.slice(1);
+  return validateDocument(strictJSON(text));
+}
+function encodeRules(document) {
+  return utf8.encode(JSON.stringify(validateDocument(document), null, 2) + '\n');
+}
+function ordinal(index, length) {
+  check(typeof index === 'number' && Number.isSafeInteger(index) && index >= 0 && index < length,
+    'Select an existing rule position.');
+  return index;
+}
+function replaceRule(document, index, rule) {
+  const next = validateDocument(document);
+  if (index === null) next.rules.push(rule);
+  else next.rules[ordinal(index, next.rules.length)] = rule;
+  return validateDocument(next);
+}
+function removeRule(document, index) {
+  const next = validateDocument(document);
+  next.rules.splice(ordinal(index, next.rules.length), 1); return validateDocument(next);
+}
+function moveRule(document, index, delta) {
+  const next = validateDocument(document), from = ordinal(index, next.rules.length);
+  check(delta === -1 || delta === 1, 'Move must be one position earlier or later.');
+  const to = ordinal(from + delta, next.rules.length);
+  [next.rules[from], next.rules[to]] = [next.rules[to], next.rules[from]];
+  return validateDocument(next);
+}
+function parsePositiveInteger(text, maximum, label = 'Value') {
+  check(typeof text === 'string' && /^[1-9]\d*$/.test(text), label + ' needs whole positive digits.');
+  return positive(Number(text), maximum, label);
+}
+
+const $ = id => document.getElementById(id);
+const currency = $('currency'), form = $('rule-form'), preview = $('preview');
+const fields = Object.fromEntries(['id','start','end','category','amount','unit','every','missing','note'].map(key => [key,$('rule-'+key)]));
+const endOn = $('end-on'), noteOn = $('note-on');
+let current = null, revision = 0, ticket = 0, proposed = null, alive = true, downloadURL = null;
+let editing = false, editingIndex = null, baseRule = null, initialForm = null;
+let changedFields = new Set(), currencyChanged = false, currencyDisplay = '';
+const clone = value => JSON.parse(JSON.stringify(value));
+function status(text) { $('status').textContent = text; }
+function error(text) { $('error').textContent = text; }
+function values() {
+  return { ...Object.fromEntries(Object.entries(fields).map(([key,e])=>[key,e.value])), endOn:endOn.checked, noteOn:noteOn.checked };
+}
+function snapshot() {
+  return JSON.stringify({ revision, current, currency:currency.value, currencyChanged,
+    editing, editingIndex, values:values(), changed:[...changedFields].sort() });
+}
+function currencyPending() { return currencyChanged || currency.value !== currencyDisplay; }
+function retire() {
+  ticket++; proposed = null; preview.hidden = true; $('preview-json').textContent = '';
+  $('replace').disabled = true;
+}
+function repeatControls() {
+  fields.missing.disabled = fields.unit.value !== 'month';
+  $('missing-choice').hidden = fields.unit.value !== 'month';
+  fields.end.disabled = !endOn.checked; fields.note.disabled = !noteOn.checked;
+}
+function sync() {
+  const pending = editing || currencyPending();
+  $('save').disabled = !current || pending;
+  $('add-rule').disabled = !current || pending || current.rules.length >= MAX_RULES;
+  $('apply-currency').disabled = editing;
+  $('open').disabled = pending && current !== null || editing;
+  for (const button of $('rules').querySelectorAll('button')) {
+    button.disabled = pending || button.dataset.edge === 'true';
+  }
+  $('work-state').textContent = editing ? 'Rule changes are pending. Apply or Cancel before saving.' :
+    currencyPending() ? 'Currency change is pending. Apply before saving.' :
+    current ? 'Current rule set is ready to save. Downloads are manual.' : 'Apply a currency or open a saved rule file to begin.';
+}
+function closeForm() {
+  editing = false; editingIndex = null; baseRule = null; initialForm = null; changedFields = new Set();
+  form.hidden = true;
+}
+function commit(next, message) {
+  current = next; revision++; closeForm(); currency.value = current.currency;
+  currencyDisplay = currency.value; currencyChanged = false; retire(); render(); error(''); status(message);
+}
+function button(label, action, edge = false) {
+  const b = document.createElement('button'); b.type='button'; b.textContent=label; b.dataset.edge=String(edge);
+  b.addEventListener('click',action); return b;
+}
+function render() {
+  $('rules').replaceChildren();
+  $('count').textContent = current ? current.rules.length + ' of 100 rules' : 'No current rule set';
+  if (current) current.rules.forEach((r,index) => {
+    const article=document.createElement('article'); article.className='rule'; article.dataset.position=String(index);
+    const h=document.createElement('h3'); h.textContent=(index+1)+'. '+r.id; article.append(h);
+    const summary=document.createElement('p');
+    summary.textContent=r.amountMinor+' minor units · '+JSON.stringify(r.category)+' · every '+r.repeat.every+' '+r.repeat.unit+
+      (r.repeat.every===1?'':'s')+' · from '+r.start+(r.end?' through '+r.end:' · no end date');
+    article.append(summary);
+    const detail=document.createElement('details'), caption=document.createElement('summary'), literal=document.createElement('pre');
+    caption.textContent='Complete literal rule'; literal.textContent=JSON.stringify(r,null,2); detail.append(caption,literal); article.append(detail);
+    const actions=document.createElement('div'); actions.className='row-actions';
+    actions.append(button('Edit',()=>begin(index)),button('Move earlier',()=>perform(()=>moveRule(current,index,-1),'Rule moved earlier.'),index===0),
+      button('Move later',()=>perform(()=>moveRule(current,index,1),'Rule moved later.'),index===current.rules.length-1),
+      button('Remove',()=>perform(()=>removeRule(current,index),'Rule removed from this unsaved workspace.')));
+    article.append(actions); $('rules').append(article);
+  });
+  if (current && current.rules.length === 0) {
+    const p=document.createElement('p'); p.textContent='No rules yet. Add a rule, or save an empty rule set.'; $('rules').append(p);
+  }
+  sync();
+}
+function perform(action, message) {
+  try { if (editing || currencyPending()) throw new Error('Apply or cancel pending changes first.'); commit(action(),message); }
+  catch(e) { error(e.message); }
+}
+function begin(index) {
+  if (!current || editing || currencyPending()) return;
+  retire(); error(''); editing=true; editingIndex=index; changedFields=new Set();
+  baseRule=index===null?null:clone(current.rules[index]);
+  const r=baseRule;
+  fields.id.value=r?.id??''; fields.start.value=r?.start??''; fields.end.value=r?.end??'';
+  fields.category.value=r?.category??''; fields.amount.value=r?String(r.amountMinor):'';
+  fields.unit.value=r?.repeat.unit??''; fields.every.value=r?String(r.repeat.every):'';
+  fields.missing.value=r?.repeat.missingDay??''; fields.note.value=r?.note??'';
+  endOn.checked=Boolean(r && Object.hasOwn(r,'end')); noteOn.checked=Boolean(r && Object.hasOwn(r,'note'));
+  initialForm=values(); form.hidden=false; $('rule-heading').textContent=index===null?'Add a rule':'Edit rule '+(index+1);
+  repeatControls(); sync(); fields.id.focus();
+}
+function textValue(key, originalKey=key) {
+  const value=fields[key].value;
+  if (baseRule && Object.hasOwn(baseRule,originalKey) && !changedFields.has(key) && value===initialForm[key]) return baseRule[originalKey];
+  return value;
+}
+function readRule() {
+  const r={id:textValue('id'),start:textValue('start')};
+  if (endOn.checked) r.end=textValue('end');
+  r.category=textValue('category');
+  r.amountMinor=parsePositiveInteger(fields.amount.value,Number.MAX_SAFE_INTEGER,'Amount');
+  if (noteOn.checked) r.note=textValue('note');
+  const unit=fields.unit.value;
+  r.repeat={unit,every:parsePositiveInteger(fields.every.value,unit==='week'?52:120,'Interval')};
+  if (unit==='month') r.repeat.missingDay=fields.missing.value;
+  return r;
+}
+$('apply-currency').addEventListener('click',()=>{
+  try {
+    if (editing) throw new Error('Apply or cancel the rule first.');
+    const nextCurrency=current && !currencyPending()?current.currency:currency.value;
+    const next=validateDocument({schema:'household-recurring-expenses/1',currency:nextCurrency,rules:current?.rules??[]});
+    commit(next,'Currency applied. No monthly plan has been generated.');
+  } catch(e) { error(e.message); sync(); }
+});
+currency.addEventListener('input',()=>{currencyChanged=true;retire();error('');sync();});
+$('add-rule').addEventListener('click',()=>begin(null));
+for (const [key,element] of Object.entries(fields)) {
+  element.addEventListener('input',()=>{changedFields.add(key);retire();error('');repeatControls();sync();});
+  element.addEventListener('change',()=>{changedFields.add(key);retire();error('');repeatControls();sync();});
+}
+for (const [key,element] of [['endOn',endOn],['noteOn',noteOn]]) element.addEventListener('change',()=>{
+  changedFields.add(key);retire();error('');repeatControls();sync();
+});
+form.addEventListener('submit',event=>{
+  event.preventDefault();
+  try {
+    if (!editing || !current || currencyPending()) throw new Error('Apply the currency before editing a rule.');
+    commit(replaceRule(current,editingIndex,readRule()),'Rule applied to this workspace. Save to keep the rule file.');
+    $('add-rule').focus();
+  } catch(e) { error(e.message); sync(); }
+});
+$('cancel-rule').addEventListener('click',()=>{closeForm();retire();error('');sync();status('Pending rule changes discarded.');$('add-rule').focus();});
+$('open').addEventListener('click',()=>{
+  if (editing || current && currencyPending()) {error('Apply or cancel pending changes first.');return;}
+  retire(); error(''); $('file').value=''; $('file').click();
+});
+$('file').addEventListener('change',async()=>{
+  const file=$('file').files[0]; retire();
+  if (!file) return;
+  if (editing || current && currencyPending()) {error('Apply or cancel pending changes before opening.');return;}
+  const token=ticket, stamp=snapshot();
+  try {
+    if (file.size>MAX_BYTES) throw new Error('Rule file exceeds 1 MiB.');
+    const bytes=new Uint8Array(await file.arrayBuffer());
+    const next=decodeRules(bytes);
+    if (!alive || token!==ticket || stamp!==snapshot()) return;
+    proposed={next,stamp,token};
+    $('preview-name').textContent=file.name;
+    $('preview-size').textContent=bytes.byteLength+' source bytes; '+next.rules.length+' rules';
+    $('preview-json').textContent=JSON.stringify(next,null,2);
+    preview.hidden=false; $('replace').disabled=false; error(''); status('File opened for preview. Current work is unchanged.'); $('replace').focus();
+  } catch(e) {
+    if (alive && token===ticket) {error(e.message);status('Open refused. Current work is unchanged.');}
+  }
+});
+$('cancel-preview').addEventListener('click',()=>{retire();error('');status('Preview cancelled. Current work is unchanged.');$('open').focus();});
+$('replace').addEventListener('click',()=>{
+  if (!proposed || proposed.token!==ticket || proposed.stamp!==snapshot()) {
+    retire();error('Current input changed. Open the file again before Replace.');sync();return;
+  }
+  try { commit(validateDocument(proposed.next),'Preview replaced the current rule set. Save when ready.'); $('save').focus(); }
+  catch(e) {retire();error(e.message);}
+});
+$('save').addEventListener('click',()=>{
+  try {
+    if (!current || editing || currencyPending()) throw new Error('Apply or cancel pending changes before Save.');
+    const bytes=encodeRules(current);
+    const nextURL=URL.createObjectURL(new Blob([bytes],{type:'application/json;charset=utf-8'}));
+    if (downloadURL) URL.revokeObjectURL(downloadURL); downloadURL=nextURL;
+    const link=document.createElement('a'); link.href=downloadURL; link.download='household-recurring-rules.json';
+    link.hidden=true; document.body.append(link); link.click(); link.remove();
+    error('');status('Download prepared: '+bytes.byteLength+' bytes. Keep this rule file; generating a month is a separate explicit command.');
+  } catch(e) {error(e.message);sync();}
+});
+window.addEventListener('pagehide',()=>{alive=false;retire();if(downloadURL)URL.revokeObjectURL(downloadURL);downloadURL=null;});
+repeatControls();render();
+
+})();
+</script></body></html>
