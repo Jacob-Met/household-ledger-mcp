@@ -1,0 +1,29 @@
+{
+  "source": "import datetime,json,os,pathlib,re,shutil,subprocess\nstage=pathlib.Path(\"/Users/me/Developer/household-snapshot-csv-c945953fdeb7\")\ntarget=pathlib.Path(\"/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7\")\nreceiver=pathlib.Path(\"/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7\")\nv=subprocess.run([\"/usr/bin/vm_stat\"],capture_output=True,text=True,check=True,timeout=5)\npage=int(re.search(r\"page size of (\\d+) bytes\",v.stdout).group(1))\nmemory=page*sum(int(re.search(r\"^\"+re.escape(k)+r\":\\s+(\\d+)\",v.stdout,re.M).group(1)) for k in (\"Pages free\",\"Pages inactive\",\"Pages speculative\"))\nout={\"utc\":datetime.datetime.now(datetime.timezone.utc).isoformat(),\"pid\":os.getpid(),\"free_disk\":shutil.disk_usage(stage).free,\"conservative_memory\":memory,\"disk_floor\":256*1024**2,\"memory_floor\":2*1024**3,\"stage_exists\":stage.is_dir(),\"target_exists\":target.is_dir(),\"receiver_absent\":not os.path.lexists(receiver),\"originals\":[str(x.relative_to(stage)) for x in sorted((stage/\"originals\").rglob(\"*\")) if x.is_file()],\"writes\":0,\"product_invocations\":0}\nprint(json.dumps(out))\nassert out[\"free_disk\"]>=out[\"disk_floor\"] and memory>=out[\"memory_floor\"] and out[\"receiver_absent\"]\n",
+  "start": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Process started with PID 81698 (shell: /bin/zsh)\nInitial output:\n{\"utc\": \"2026-10-09T06:49:40.929972+00:00\", \"pid\": 81698, \"free_disk\": 656412672, \"conservative_memory\": 14024867840, \"disk_floor\": 268435456, \"memory_floor\": 2147483648, \"stage_exists\": true, \"target_exists\": true, \"receiver_absent\": true, \"originals\": [\"originals/ledger.ts\", \"originals/ordinary/expected.csv\", \"originals/ordinary/ledger.json\", \"originals/ordinary/original-cases.json\", \"originals/ordinary/original-receipt.json\", \"originals/ordinary/original-receiving.md\", \"originals/package.json\", \"originals/runtime/ledger.js\", \"originals/runtime/transaction-export.js\", \"originals/transaction-export.ts\"], \"writes\": 0, \"product_invocations\": 0}\n"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: Mac.lan (0b4ac27b-8500-47d0-8f11-5a35402e9abc)]"
+      }
+    ],
+    "isError": false
+  },
+  "closure": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[Reading 2 new lines (total: 2 lines)]\n\n{\"utc\": \"2026-10-09T06:49:40.929972+00:00\", \"pid\": 81698, \"free_disk\": 656412672, \"conservative_memory\": 14024867840, \"disk_floor\": 268435456, \"memory_floor\": 2147483648, \"stage_exists\": true, \"target_exists\": true, \"receiver_absent\": true, \"originals\": [\"originals/ledger.ts\", \"originals/ordinary/expected.csv\", \"originals/ordinary/ledger.json\", \"originals/ordinary/original-cases.json\", \"originals/ordinary/original-receipt.json\", \"originals/ordinary/original-receiving.md\", \"originals/package.json\", \"originals/runtime/ledger.js\", \"originals/runtime/transaction-export.js\", \"originals/transaction-export.ts\"], \"writes\": 0, \"product_invocations\": 0}\n\n✅ Process completed with exit code 0 (runtime: 0.12s)"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: Mac.lan (0b4ac27b-8500-47d0-8f11-5a35402e9abc)]"
+      }
+    ],
+    "isError": false
+  }
+}

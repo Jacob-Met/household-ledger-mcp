@@ -1,0 +1,101 @@
+{
+  "version": 2,
+  "transactions": [
+    {
+      "id": "id,alpha\"🧭",
+      "type": "expense",
+      "amountMinor": 9007199254740991,
+      "currency": "uSd",
+      "date": "2026-10-06",
+      "category": " Pantry ",
+      "note": "=2+3\r\nLine \"Q\", café\rleft\nright",
+      "idempotencyKey": "=export:key,1",
+      "createdAt": "2026-10-06T08:00:00.000Z"
+    },
+    {
+      "id": "tie-second",
+      "type": "expense",
+      "amountMinor": 17,
+      "currency": "EUR",
+      "date": "2026-10-06",
+      "category": "Pantry",
+      "note": "+SUM(1,2)",
+      "idempotencyKey": "+key",
+      "createdAt": "2026-10-06T08:01:00.000Z"
+    },
+    {
+      "id": "newest-income",
+      "type": "income",
+      "amountMinor": 9,
+      "currency": "JPY",
+      "date": "2026-10-08",
+      "category": "Wages",
+      "note": "-raw\t=@",
+      "createdAt": "  literal legacy timestamp \n "
+    },
+    {
+      "id": "legacy-tie",
+      "type": "expense",
+      "amountMinor": 12,
+      "currency": "USD",
+      "date": "2026-10-06",
+      "category": "Pantry",
+      "note": "@literal"
+    },
+    {
+      "id": "lowercase-category",
+      "type": "expense",
+      "amountMinor": 14,
+      "currency": "GBP",
+      "date": "2026-10-05",
+      "category": "pantry",
+      "note": "é ≠ é; Ελληνικά",
+      "idempotencyKey": "root-key-é",
+      "createdAt": "2026-10-05T00:00:00.000Z"
+    },
+    {
+      "id": "oldest",
+      "type": "income",
+      "amountMinor": 2,
+      "currency": "USD",
+      "date": "2026-09-30",
+      "category": "__proto__",
+      "note": "",
+      "createdAt": "2026-09-30T00:00:00.000Z"
+    },
+    {
+      "id": "constructor-row",
+      "type": "expense",
+      "amountMinor": 3,
+      "currency": "USD",
+      "date": "2026-10-02",
+      "category": "constructor",
+      "note": "carriage\rreturn",
+      "createdAt": "2026-10-02T00:00:00.000Z"
+    },
+    {
+      "id": "seasonal",
+      "type": "expense",
+      "amountMinor": 4,
+      "currency": "USD",
+      "date": "2026-10-01",
+      "category": "食材, \"季節\"",
+      "note": "🥦\u0000‌終",
+      "createdAt": "2026-10-01T00:00:00.000Z"
+    }
+  ],
+  "budgets": [
+    {
+      "category": "Pantry",
+      "month": "2026-10",
+      "limitMinor": 1200,
+      "currency": "EUR"
+    },
+    {
+      "category": "Pantry",
+      "month": "2026-11",
+      "limitMinor": 1300,
+      "currency": "EUR"
+    }
+  ]
+}

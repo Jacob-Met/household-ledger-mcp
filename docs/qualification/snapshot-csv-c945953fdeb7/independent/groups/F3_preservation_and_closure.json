@@ -1,0 +1,37 @@
+{
+  "id": "F3_preservation_and_closure",
+  "passed": true,
+  "installed_files_unchanged": 19,
+  "source_files_unchanged": 8,
+  "offered_original_files_unchanged": 12,
+  "runtime_and_author_receipts_unchanged": true,
+  "comparison": "exact bytes, SHA256, Git identity, mode and mtime_ns",
+  "owned_child_closure": [
+    {
+      "pid": 90895,
+      "actual_child_exit": 0,
+      "ps_exit": 1,
+      "ps_stdout": "",
+      "ps_stderr": ""
+    },
+    {
+      "pid": 90898,
+      "actual_child_exit": 1,
+      "ps_exit": 1,
+      "ps_stdout": "",
+      "ps_stderr": ""
+    }
+  ],
+  "actual_product_calls": 2,
+  "services_or_browsers_started": 0,
+  "output": {
+    "bytes": 976,
+    "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+    "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+    "mode": "0o600",
+    "mtime_ns": 1791528987874578077
+  },
+  "delivery_directory_names": [
+    "statement.csv"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "household.snapshot-csv.independent.native-tool-transport.v1",
+  "bootstrap_source_pin": {
+    "note": "Exact executed bootstrap is retained as preparation/bootstrap.py"
+  },
+  "bootstrap_start": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Process started with PID 89085 (shell: /bin/zsh)\nInitial output:\n{\"source_freeze\": {\"bytes\": 1090, \"sha256\": \"81354e57d38d359219583daff977e7cec6859d36503894ea09c1dde2720193e5\", \"git_blob\": \"09fd4fc21c65b3ec5c067aaa3e3910fcb4de1d24\"}, \"admission\": {\"utc\": \"2026-10-09T06:55:32.407360+00:00\", \"free_disk\": 945541120, \"conservative_memory\": 12809175040, \"author_and_install_bytes\": 2102247, \"receiver_cap\": 524288, \"disk_floor\": 268435456, \"memory_floor\": 2147483648, \"pid\": 89085}, \"files\": {\"receive.py\": {\"bytes\": 12823, \"sha256\": \"a03dbcea313d2ce8445d156651b02ef65bbd0d868d9373af101ec887aff7ee0d\", \"git_blob\": \"6498e78571eefb181720758e9e06c961f5f5468b\"}, \"CONTRACT.md\": {\"bytes\": 8006, \"sha256\": \"9e24033677f7940b5e7ffdee271952f8d063e41e21b60dc8951186ce9599447d\", \"git_blob\": \"2012387eec7356f3035e85fd06d370ed163a7cc3\"}, \"preparation/fresh-readonly-admission.json\": {\"bytes\": 3346, \"sha256\": \"accec2cfce81bec0618197fcb2988ee9f3b91771d71f16019d266544d3528bd3\", \"git_blob\": \"88495201109b55e4a43778cca272bfc503841942\"}}, \"product_invocations\": 0}\n"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: Mac.lan (0b4ac27b-8500-47d0-8f11-5a35402e9abc)]"
+      }
+    ],
+    "isError": false
+  },
+  "bootstrap_completion": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[Reading 2 new lines (total: 2 lines)]\n\n{\"source_freeze\": {\"bytes\": 1090, \"sha256\": \"81354e57d38d359219583daff977e7cec6859d36503894ea09c1dde2720193e5\", \"git_blob\": \"09fd4fc21c65b3ec5c067aaa3e3910fcb4de1d24\"}, \"admission\": {\"utc\": \"2026-10-09T06:55:32.407360+00:00\", \"free_disk\": 945541120, \"conservative_memory\": 12809175040, \"author_and_install_bytes\": 2102247, \"receiver_cap\": 524288, \"disk_floor\": 268435456, \"memory_floor\": 2147483648, \"pid\": 89085}, \"files\": {\"receive.py\": {\"bytes\": 12823, \"sha256\": \"a03dbcea313d2ce8445d156651b02ef65bbd0d868d9373af101ec887aff7ee0d\", \"git_blob\": \"6498e78571eefb181720758e9e06c961f5f5468b\"}, \"CONTRACT.md\": {\"bytes\": 8006, \"sha256\": \"9e24033677f7940b5e7ffdee271952f8d063e41e21b60dc8951186ce9599447d\", \"git_blob\": \"2012387eec7356f3035e85fd06d370ed163a7cc3\"}, \"preparation/fresh-readonly-admission.json\": {\"bytes\": 3346, \"sha256\": \"accec2cfce81bec0618197fcb2988ee9f3b91771d71f16019d266544d3528bd3\", \"git_blob\": \"88495201109b55e4a43778cca272bfc503841942\"}}, \"product_invocations\": 0}\n\n✅ Process completed with exit code 0 (runtime: 0.13s)"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: Mac.lan (0b4ac27b-8500-47d0-8f11-5a35402e9abc)]"
+      }
+    ],
+    "isError": false
+  },
+  "actual_receiving_start": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Process started with PID 90853 (shell: /bin/zsh)\nInitial output:\nF1_installed_physical_csv PASS\nF2_existing_output_refusal PASS\nF3_preservation_and_closure PASS\n{\"terminal\": {\"passed\": true, \"exit\": 0}, \"groups\": [\"F1_installed_physical_csv\", \"F2_existing_output_refusal\", \"F3_preservation_and_closure\"], \"receipt\": \"/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/RECEIVING.json\", \"receipt_pin\": {\"bytes\": 14876, \"sha256\": \"94a1cc3818a52ee6d79d8bba7d1ea215843ea759da9ef2b66e6b6a0aae338d3b\", \"git_blob\": \"5e6e924a0caa02e729f69db761187f826f77d0fa\", \"mode\": \"0o600\", \"mtime_ns\": 1791528987998673173}}\n"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: Mac.lan (0b4ac27b-8500-47d0-8f11-5a35402e9abc)]"
+      }
+    ],
+    "isError": false
+  },
+  "actual_receiving_completion": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[Reading 5 new lines (total: 5 lines)]\n\nF1_installed_physical_csv PASS\nF2_existing_output_refusal PASS\nF3_preservation_and_closure PASS\n{\"terminal\": {\"passed\": true, \"exit\": 0}, \"groups\": [\"F1_installed_physical_csv\", \"F2_existing_output_refusal\", \"F3_preservation_and_closure\"], \"receipt\": \"/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/RECEIVING.json\", \"receipt_pin\": {\"bytes\": 14876, \"sha256\": \"94a1cc3818a52ee6d79d8bba7d1ea215843ea759da9ef2b66e6b6a0aae338d3b\", \"git_blob\": \"5e6e924a0caa02e729f69db761187f826f77d0fa\", \"mode\": \"0o600\", \"mtime_ns\": 1791528987998673173}}\n\n✅ Process completed with exit code 0 (runtime: 0.33s)"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: Mac.lan (0b4ac27b-8500-47d0-8f11-5a35402e9abc)]"
+      }
+    ],
+    "isError": false
+  },
+  "receipt": {
+    "git_blob": "5e6e924a0caa02e729f69db761187f826f77d0fa",
+    "bytes": 14876,
+    "sha256": "94a1cc3818a52ee6d79d8bba7d1ea215843ea759da9ef2b66e6b6a0aae338d3b"
+  },
+  "controller_exit_observed": 0,
+  "receiving_contract_unchanged": true,
+  "product_invocations": 2,
+  "rerun_after_completion": false
+}

@@ -1,0 +1,206 @@
+{
+  "schema": "household-snapshot-csv-installation/v1",
+  "installed_utc": "2026-10-09T06:42:06.060423+00:00",
+  "destination": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7",
+  "entry": "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/household-snapshot-csv",
+  "source_directory": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/source",
+  "owned_preparation_directory": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7",
+  "source_files": {
+    "install.py": {
+      "bytes": 11479,
+      "sha256": "00bd7f96d18ffad595db6ee15002582fe5cfd032f4e2fd8cf197078bc24f2ef9",
+      "git_blob": "57c93f9bff4bf1fe7d8618e43e70f0f0de66b9cb"
+    },
+    "launcher.sh.in": {
+      "bytes": 302,
+      "sha256": "560be2dbe1a60e821f377aaf946ccabdde9ca853c7d94feeb37f8dea17c5b61e",
+      "git_blob": "96c57b279a99770ba32e6578ec7ea7eb2e7382e1"
+    },
+    "snapshot-csv.mjs": {
+      "bytes": 7092,
+      "sha256": "698a7272d02bde76e638273dab3dd8e67914a9a838a21802a5f09769e76c2758",
+      "git_blob": "47cd32e00535c1a483a854361842d949d3928b93"
+    },
+    "README.md": {
+      "bytes": 7282,
+      "sha256": "5b91195abf7235b37bb7b0879c009ebd34374ee19de816159dd22f1b1b65d6be",
+      "git_blob": "e7bfe7dd5c7e9cbfd2c05b2204e9b4fd9f551c25"
+    },
+    "INPUTS.json": {
+      "bytes": 3630,
+      "sha256": "51d4a6e3a44ed40bd42da4719df9eb85fcb24063bd42ebe6240da4aa1f62be03",
+      "git_blob": "a3da9f854ade5c40741604c2b7b3b285256aad62"
+    },
+    "lib/package.json": {
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "git_blob": "089153bcb5adf57dc25f206a9dad3114c9cff80d"
+    },
+    "lib/ledger.js": {
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197"
+    },
+    "lib/transaction-export.js": {
+      "bytes": 5301,
+      "sha256": "9995fb6b3a2e5797cc506b55b2db8a53d4858a033629faeb9452416c7eda15d2",
+      "git_blob": "ecf572a57c648ea2e74a1f2ee842503355581406"
+    }
+  },
+  "original_archive": {
+    "bytes": 861340,
+    "sha256": "1213482711354e8a44f35230dd8d41061ad2cb3f868421075c705318cf9752f0",
+    "git_blob": "53c0af2d577119337f3a06ab956373814ffc341d"
+  },
+  "source_artifact_commit": "aac08aa93db2872aa1ff69e6bbd3844f0dfde015",
+  "exact_native_source_content_tree": "81aeb4162cf6d793093f920ac7ca03a520169258",
+  "native_source_parent": "2b77b81ad59c5f3255aa25c37110e91d3bad6a01",
+  "node": {
+    "configured": "/opt/homebrew/bin/node",
+    "resolved": "/opt/homebrew/Cellar/node/26.3.0/bin/node",
+    "version": "v26.3.0",
+    "bytes": 68384,
+    "sha256": "56694c81b093cc8da273fa017cf91765b3653e5f64f16727976ffaa87b2b6b31",
+    "mtime_ns": 1781043664290977610
+  },
+  "capacity_before_destination_creation": {
+    "free_disk": 1530368000,
+    "conservative_memory": 13933166592,
+    "disk_floor": 268435456,
+    "memory_floor": 2147483648
+  },
+  "owned_preparation_bytes_before_install": 1102033,
+  "combined_owned_cap": 4194304,
+  "files": {
+    "household-snapshot-csv": {
+      "bytes": 384,
+      "sha256": "58499c451dadac3c74f82691a9def8c3dcde2eb367e699d557be275d44a51abe",
+      "git_blob": "2058d6ca4ded533098e5a3478dfe01f16d4af191",
+      "mode": "0o700",
+      "mtime_ns": 1791528126056134142
+    },
+    "snapshot-csv.mjs": {
+      "bytes": 7092,
+      "sha256": "698a7272d02bde76e638273dab3dd8e67914a9a838a21802a5f09769e76c2758",
+      "git_blob": "47cd32e00535c1a483a854361842d949d3928b93",
+      "mode": "0o600",
+      "mtime_ns": 1791528126056441311
+    },
+    "README.md": {
+      "bytes": 7282,
+      "sha256": "5b91195abf7235b37bb7b0879c009ebd34374ee19de816159dd22f1b1b65d6be",
+      "git_blob": "e7bfe7dd5c7e9cbfd2c05b2204e9b4fd9f551c25",
+      "mode": "0o600",
+      "mtime_ns": 1791528126056702771
+    },
+    "INPUTS.json": {
+      "bytes": 3630,
+      "sha256": "51d4a6e3a44ed40bd42da4719df9eb85fcb24063bd42ebe6240da4aa1f62be03",
+      "git_blob": "a3da9f854ade5c40741604c2b7b3b285256aad62",
+      "mode": "0o600",
+      "mtime_ns": 1791528126056894897
+    },
+    "lib/package.json": {
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "git_blob": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "mode": "0o600",
+      "mtime_ns": 1791528126057093399
+    },
+    "lib/ledger.js": {
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "mode": "0o600",
+      "mtime_ns": 1791528126057322275
+    },
+    "lib/transaction-export.js": {
+      "bytes": 5301,
+      "sha256": "9995fb6b3a2e5797cc506b55b2db8a53d4858a033629faeb9452416c7eda15d2",
+      "git_blob": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "mode": "0o600",
+      "mtime_ns": 1791528126057470943
+    },
+    "examples/fictional-ledger.json": {
+      "bytes": 2405,
+      "sha256": "ca1602b160685b5605c84390e60338c4e5317238d0a8ccf6f24a55bacba37f09",
+      "git_blob": "64ae51bd94765295c5c5079829835ae584f49328",
+      "mode": "0o444",
+      "mtime_ns": 1791528126057697320
+    },
+    "examples/expected-statement.csv": {
+      "bytes": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "mode": "0o600",
+      "mtime_ns": 1791528126057838904
+    },
+    "recovery/original-qualified-owner-archive.tar.gz": {
+      "bytes": 861340,
+      "sha256": "1213482711354e8a44f35230dd8d41061ad2cb3f868421075c705318cf9752f0",
+      "git_blob": "53c0af2d577119337f3a06ab956373814ffc341d",
+      "mode": "0o600",
+      "mtime_ns": 1791528126058118697
+    },
+    "recovery/source/install.py": {
+      "bytes": 11479,
+      "sha256": "00bd7f96d18ffad595db6ee15002582fe5cfd032f4e2fd8cf197078bc24f2ef9",
+      "git_blob": "57c93f9bff4bf1fe7d8618e43e70f0f0de66b9cb",
+      "mode": "0o600",
+      "mtime_ns": 1791528126059267914
+    },
+    "recovery/source/launcher.sh.in": {
+      "bytes": 302,
+      "sha256": "560be2dbe1a60e821f377aaf946ccabdde9ca853c7d94feeb37f8dea17c5b61e",
+      "git_blob": "96c57b279a99770ba32e6578ec7ea7eb2e7382e1",
+      "mode": "0o600",
+      "mtime_ns": 1791528126059439957
+    },
+    "recovery/source/snapshot-csv.mjs": {
+      "bytes": 7092,
+      "sha256": "698a7272d02bde76e638273dab3dd8e67914a9a838a21802a5f09769e76c2758",
+      "git_blob": "47cd32e00535c1a483a854361842d949d3928b93",
+      "mode": "0o600",
+      "mtime_ns": 1791528126059588083
+    },
+    "recovery/source/README.md": {
+      "bytes": 7282,
+      "sha256": "5b91195abf7235b37bb7b0879c009ebd34374ee19de816159dd22f1b1b65d6be",
+      "git_blob": "e7bfe7dd5c7e9cbfd2c05b2204e9b4fd9f551c25",
+      "mode": "0o600",
+      "mtime_ns": 1791528126059721626
+    },
+    "recovery/source/INPUTS.json": {
+      "bytes": 3630,
+      "sha256": "51d4a6e3a44ed40bd42da4719df9eb85fcb24063bd42ebe6240da4aa1f62be03",
+      "git_blob": "a3da9f854ade5c40741604c2b7b3b285256aad62",
+      "mode": "0o600",
+      "mtime_ns": 1791528126059893627
+    },
+    "recovery/source/lib/package.json": {
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "git_blob": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "mode": "0o600",
+      "mtime_ns": 1791528126060071462
+    },
+    "recovery/source/lib/ledger.js": {
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "mode": "0o600",
+      "mtime_ns": 1791528126060211213
+    },
+    "recovery/source/lib/transaction-export.js": {
+      "bytes": 5301,
+      "sha256": "9995fb6b3a2e5797cc506b55b2db8a53d4858a033629faeb9452416c7eda15d2",
+      "git_blob": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "mode": "0o600",
+      "mtime_ns": 1791528126060343380
+    }
+  },
+  "marker_written_last": true,
+  "recovery": "Original archive and all eight source inputs retained; use a new separate destination.",
+  "product_invocations_during_install": 0,
+  "services_or_external_packages": []
+}

@@ -1,0 +1,111 @@
+{
+  "schema": "household.snapshot-csv.independent.native-custody.v1",
+  "files": {
+    "CONTRACT.md": {
+      "bytes": 8006,
+      "sha256": "9e24033677f7940b5e7ffdee271952f8d063e41e21b60dc8951186ce9599447d",
+      "git_blob": "2012387eec7356f3035e85fd06d370ed163a7cc3"
+    },
+    "OUTER-CLOSURE.json": {
+      "bytes": 796,
+      "sha256": "31b62e9e0b71799385011504866e913281192ffe742205bc029b9ccde8c8a4b6",
+      "git_blob": "cfd1a410c0cfeed11f94627d4a234f2981ecbe3e"
+    },
+    "README.md": {
+      "bytes": 7941,
+      "sha256": "67252e174285709d70898008a61512ac5327f640a00c3453cb9c61cde3dec903",
+      "git_blob": "ff9f57dcb068cf449efeb94cac2e25ac434de9cf"
+    },
+    "RECEIVING.json": {
+      "bytes": 14876,
+      "sha256": "94a1cc3818a52ee6d79d8bba7d1ea215843ea759da9ef2b66e6b6a0aae338d3b",
+      "git_blob": "5e6e924a0caa02e729f69db761187f826f77d0fa"
+    },
+    "SOURCE-FREEZE.json": {
+      "bytes": 1090,
+      "sha256": "81354e57d38d359219583daff977e7cec6859d36503894ea09c1dde2720193e5",
+      "git_blob": "09fd4fc21c65b3ec5c067aaa3e3910fcb4de1d24"
+    },
+    "TRANSPORT.json": {
+      "bytes": 5201,
+      "sha256": "23a4bde380100b1f8068d3e4de7e2ca93bbc4234162a555b044502c63a599cde",
+      "git_blob": "77a87a6205789536d54c99c587247fd5d0184c0a"
+    },
+    "after.json": {
+      "bytes": 11353,
+      "sha256": "749f4c9354a1c98ba038c592889f49af45b8cb04e8b3b3ac562e38f5aebc1e48",
+      "git_blob": "b97d02cdff949ab4632cc7254d2e6b09bdfcbcae"
+    },
+    "before.json": {
+      "bytes": 11353,
+      "sha256": "749f4c9354a1c98ba038c592889f49af45b8cb04e8b3b3ac562e38f5aebc1e48",
+      "git_blob": "b97d02cdff949ab4632cc7254d2e6b09bdfcbcae"
+    },
+    "calls/F1-new-output.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    "calls/F1-new-output.stdout.txt": {
+      "bytes": 473,
+      "sha256": "68882f84ef3ec31967ae3b73fd91d778c106a59088c2a1e178f0106ff48855dd",
+      "git_blob": "5a21f487c709a0d11de4ed36bff49f7080b71f4f"
+    },
+    "calls/F2-existing-output.stderr.txt": {
+      "bytes": 128,
+      "sha256": "de1fd3b767138f03b25ac1e092d95c46f3f26f815626f513fd74f59fcb2acdb7",
+      "git_blob": "0a242c956f68b5e43a5cace1872f656b307a8024"
+    },
+    "calls/F2-existing-output.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    "delivery/statement.csv": {
+      "bytes": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc"
+    },
+    "groups/F1_installed_physical_csv.json": {
+      "bytes": 2440,
+      "sha256": "9939742ca475451a581e32f8ead5c132974f4ad3acacd946af00b6b846254fd5",
+      "git_blob": "45522d3a0542c971450a970000e6f1c279b407be"
+    },
+    "groups/F2_existing_output_refusal.json": {
+      "bytes": 1444,
+      "sha256": "d162cf45e3bece67ec344a126a0da09cb237ce0305759924a5d188d5c8a7d53d",
+      "git_blob": "fdb604dc88325f661d81dd34d9fbe3036bb317bf"
+    },
+    "groups/F3_preservation_and_closure.json": {
+      "bytes": 935,
+      "sha256": "b71f799bc91d2d74a9924832d8ae9900f2a98bff0903ae66c7585ddad0d4d75f",
+      "git_blob": "33d3cfbb4163f6aa8fdff7336d765d492903637e"
+    },
+    "preparation/bootstrap.py": {
+      "bytes": 30057,
+      "sha256": "188bd192a9b2297f772e34e273ee20dc0d0c127a1bdc04ff90fe72ec9a8a010b",
+      "git_blob": "871f44a899ca409c394909bedf534600d8f18d10"
+    },
+    "preparation/fresh-readonly-admission.json": {
+      "bytes": 3346,
+      "sha256": "accec2cfce81bec0618197fcb2988ee9f3b91771d71f16019d266544d3528bd3",
+      "git_blob": "88495201109b55e4a43778cca272bfc503841942"
+    },
+    "receive.py": {
+      "bytes": 12823,
+      "sha256": "a03dbcea313d2ce8445d156651b02ef65bbd0d868d9373af101ec887aff7ee0d",
+      "git_blob": "6498e78571eefb181720758e9e06c961f5f5468b"
+    }
+  },
+  "native_original_receiving_files": 15,
+  "additional_report_transport_closure_files": 4,
+  "self_exclusion": "CUSTODY.json excludes itself and ARTIFACTS.json carrier.",
+  "receiving_passed_groups": [
+    "F1",
+    "F2",
+    "F3"
+  ],
+  "actual_product_calls": 2,
+  "actual_controller_exit": 0,
+  "upload_status": "Git identities in this native map are computed; portable transfer receipts must confirm upload/readback separately."
+}

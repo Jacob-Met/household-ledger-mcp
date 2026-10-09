@@ -1,0 +1,78 @@
+{
+  "id": "F1_installed_physical_csv",
+  "passed": true,
+  "child": {
+    "name": "F1-new-output",
+    "argv": [
+      "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/household-snapshot-csv",
+      "--ledger",
+      "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/ledger.json",
+      "--output",
+      "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv"
+    ],
+    "cwd": "/tmp",
+    "started_utc": "2026-10-09T06:56:27.797404+00:00",
+    "pid": 90895,
+    "exit": 0,
+    "elapsed_seconds": 0.08690887503325939,
+    "stdout": {
+      "bytes": 473,
+      "sha256": "68882f84ef3ec31967ae3b73fd91d778c106a59088c2a1e178f0106ff48855dd",
+      "git_blob": "5a21f487c709a0d11de4ed36bff49f7080b71f4f"
+    },
+    "stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    }
+  },
+  "actual_receipt": {
+    "format": "household-snapshot-csv",
+    "version": 1,
+    "source": {
+      "path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/ledger.json",
+      "bytes": 2405,
+      "sha256": "ca1602b160685b5605c84390e60338c4e5317238d0a8ccf6f24a55bacba37f09"
+    },
+    "selectors": {},
+    "output": {
+      "path": "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv",
+      "rowCount": 8,
+      "byteCount": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2"
+    }
+  },
+  "output": {
+    "bytes": 976,
+    "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+    "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+    "mode": "0o600",
+    "mtime_ns": 1791528987874578077
+  },
+  "exact_original_expected_bytes": true,
+  "rows": 8,
+  "columns": [
+    "id",
+    "type",
+    "amountMinor",
+    "currency",
+    "date",
+    "category",
+    "note",
+    "idempotencyKey",
+    "createdAt"
+  ],
+  "ordered_ids": [
+    "newest-income",
+    "id,alpha\"🧭",
+    "tie-second",
+    "legacy-tie",
+    "lowercase-category",
+    "constructor-row",
+    "seasonal",
+    "oldest"
+  ],
+  "expected_csv_regenerated": false,
+  "source_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/ledger.json",
+  "output_path": "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv"
+}

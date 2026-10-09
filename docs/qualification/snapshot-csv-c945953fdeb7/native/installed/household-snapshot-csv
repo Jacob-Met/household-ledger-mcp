@@ -1,0 +1,8 @@
+#!/bin/sh
+snapshot_csv_install_dir=/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7
+if [ ! -f "$snapshot_csv_install_dir/INSTALLATION.json" ]; then
+  printf '%s\n' '{"error":"Installation is incomplete: INSTALLATION.json is absent"}' >&2
+  exit 1
+fi
+unset NODE_OPTIONS NODE_PATH
+exec /opt/homebrew/Cellar/node/26.3.0/bin/node "$snapshot_csv_install_dir/snapshot-csv.mjs" "$@"

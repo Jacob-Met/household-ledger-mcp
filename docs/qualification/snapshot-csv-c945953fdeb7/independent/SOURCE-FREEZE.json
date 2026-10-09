@@ -1,0 +1,32 @@
+{
+  "schema": "household.snapshot-csv.independent.source-freeze.v1",
+  "admission": {
+    "utc": "2026-10-09T06:55:32.407360+00:00",
+    "free_disk": 945541120,
+    "conservative_memory": 12809175040,
+    "author_and_install_bytes": 2102247,
+    "receiver_cap": 524288,
+    "disk_floor": 268435456,
+    "memory_floor": 2147483648,
+    "pid": 89085
+  },
+  "files": {
+    "receive.py": {
+      "bytes": 12823,
+      "sha256": "a03dbcea313d2ce8445d156651b02ef65bbd0d868d9373af101ec887aff7ee0d",
+      "git_blob": "6498e78571eefb181720758e9e06c961f5f5468b"
+    },
+    "CONTRACT.md": {
+      "bytes": 8006,
+      "sha256": "9e24033677f7940b5e7ffdee271952f8d063e41e21b60dc8951186ce9599447d",
+      "git_blob": "2012387eec7356f3035e85fd06d370ed163a7cc3"
+    },
+    "preparation/fresh-readonly-admission.json": {
+      "bytes": 3346,
+      "sha256": "accec2cfce81bec0618197fcb2988ee9f3b91771d71f16019d266544d3528bd3",
+      "git_blob": "88495201109b55e4a43778cca272bfc503841942"
+    }
+  },
+  "root": "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7",
+  "product_invocations": 0
+}

@@ -1,0 +1,41 @@
+{
+  "id": "F2_existing_output_refusal",
+  "passed": true,
+  "child": {
+    "name": "F2-existing-output",
+    "argv": [
+      "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/household-snapshot-csv",
+      "--ledger",
+      "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/ledger.json",
+      "--output",
+      "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv"
+    ],
+    "cwd": "/tmp",
+    "started_utc": "2026-10-09T06:56:27.893511+00:00",
+    "pid": 90898,
+    "exit": 1,
+    "elapsed_seconds": 0.08168833400122821,
+    "stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    "stderr": {
+      "bytes": 128,
+      "sha256": "de1fd3b767138f03b25ac1e092d95c46f3f26f815626f513fd74f59fcb2acdb7",
+      "git_blob": "0a242c956f68b5e43a5cace1872f656b307a8024"
+    }
+  },
+  "actual_diagnostic": {
+    "error": "Output already exists: \"/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv\""
+  },
+  "physical_output_unchanged": true,
+  "no_surviving_owned_stage": true,
+  "output": {
+    "bytes": 976,
+    "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+    "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+    "mode": "0o600",
+    "mtime_ns": 1791528987874578077
+  }
+}

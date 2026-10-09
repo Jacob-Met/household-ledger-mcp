@@ -1,0 +1,180 @@
+{
+  "schema": "household.snapshot-csv.independent.complete.portable-map.v1",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "proposed_relative_prefix": "docs/qualification/snapshot-csv-c945953fdeb7/independent/",
+  "files": {
+    "CONTRACT.md": {
+      "bytes": 8006,
+      "sha256": "9e24033677f7940b5e7ffdee271952f8d063e41e21b60dc8951186ce9599447d",
+      "git_blob": "2012387eec7356f3035e85fd06d370ed163a7cc3",
+      "uploaded_and_exact_read_back": true
+    },
+    "CUSTODY.json": {
+      "bytes": 4439,
+      "sha256": "5dca271bd503089b37ee8c002f555eb9bc8f026801ec065ddd5a6b2ef559308c",
+      "git_blob": "87828b0ccbd29936c7622dbeac9c70619162ebd1",
+      "uploaded_and_exact_read_back": true
+    },
+    "OUTER-CLOSURE.json": {
+      "bytes": 796,
+      "sha256": "31b62e9e0b71799385011504866e913281192ffe742205bc029b9ccde8c8a4b6",
+      "git_blob": "cfd1a410c0cfeed11f94627d4a234f2981ecbe3e",
+      "uploaded_and_exact_read_back": true
+    },
+    "README.md": {
+      "bytes": 7941,
+      "sha256": "67252e174285709d70898008a61512ac5327f640a00c3453cb9c61cde3dec903",
+      "git_blob": "ff9f57dcb068cf449efeb94cac2e25ac434de9cf",
+      "uploaded_and_exact_read_back": true
+    },
+    "RECEIVING.json": {
+      "bytes": 14876,
+      "sha256": "94a1cc3818a52ee6d79d8bba7d1ea215843ea759da9ef2b66e6b6a0aae338d3b",
+      "git_blob": "5e6e924a0caa02e729f69db761187f826f77d0fa",
+      "uploaded_and_exact_read_back": true
+    },
+    "SOURCE-FREEZE.json": {
+      "bytes": 1090,
+      "sha256": "81354e57d38d359219583daff977e7cec6859d36503894ea09c1dde2720193e5",
+      "git_blob": "09fd4fc21c65b3ec5c067aaa3e3910fcb4de1d24",
+      "uploaded_and_exact_read_back": true
+    },
+    "TRANSPORT.json": {
+      "bytes": 5201,
+      "sha256": "23a4bde380100b1f8068d3e4de7e2ca93bbc4234162a555b044502c63a599cde",
+      "git_blob": "77a87a6205789536d54c99c587247fd5d0184c0a",
+      "uploaded_and_exact_read_back": true
+    },
+    "after.json": {
+      "bytes": 11353,
+      "sha256": "749f4c9354a1c98ba038c592889f49af45b8cb04e8b3b3ac562e38f5aebc1e48",
+      "git_blob": "b97d02cdff949ab4632cc7254d2e6b09bdfcbcae",
+      "uploaded_and_exact_read_back": true
+    },
+    "before.json": {
+      "bytes": 11353,
+      "sha256": "749f4c9354a1c98ba038c592889f49af45b8cb04e8b3b3ac562e38f5aebc1e48",
+      "git_blob": "b97d02cdff949ab4632cc7254d2e6b09bdfcbcae",
+      "uploaded_and_exact_read_back": true
+    },
+    "calls/F1-new-output.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "uploaded_and_exact_read_back": true
+    },
+    "calls/F1-new-output.stdout.txt": {
+      "bytes": 473,
+      "sha256": "68882f84ef3ec31967ae3b73fd91d778c106a59088c2a1e178f0106ff48855dd",
+      "git_blob": "5a21f487c709a0d11de4ed36bff49f7080b71f4f",
+      "uploaded_and_exact_read_back": true
+    },
+    "calls/F2-existing-output.stderr.txt": {
+      "bytes": 128,
+      "sha256": "de1fd3b767138f03b25ac1e092d95c46f3f26f815626f513fd74f59fcb2acdb7",
+      "git_blob": "0a242c956f68b5e43a5cace1872f656b307a8024",
+      "uploaded_and_exact_read_back": true
+    },
+    "calls/F2-existing-output.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "uploaded_and_exact_read_back": true
+    },
+    "delivery/statement.csv": {
+      "bytes": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "uploaded_and_exact_read_back": true
+    },
+    "groups/F1_installed_physical_csv.json": {
+      "bytes": 2440,
+      "sha256": "9939742ca475451a581e32f8ead5c132974f4ad3acacd946af00b6b846254fd5",
+      "git_blob": "45522d3a0542c971450a970000e6f1c279b407be",
+      "uploaded_and_exact_read_back": true
+    },
+    "groups/F2_existing_output_refusal.json": {
+      "bytes": 1444,
+      "sha256": "d162cf45e3bece67ec344a126a0da09cb237ce0305759924a5d188d5c8a7d53d",
+      "git_blob": "fdb604dc88325f661d81dd34d9fbe3036bb317bf",
+      "uploaded_and_exact_read_back": true
+    },
+    "groups/F3_preservation_and_closure.json": {
+      "bytes": 935,
+      "sha256": "b71f799bc91d2d74a9924832d8ae9900f2a98bff0903ae66c7585ddad0d4d75f",
+      "git_blob": "33d3cfbb4163f6aa8fdff7336d765d492903637e",
+      "uploaded_and_exact_read_back": true
+    },
+    "preparation/bootstrap.py": {
+      "bytes": 30057,
+      "sha256": "188bd192a9b2297f772e34e273ee20dc0d0c127a1bdc04ff90fe72ec9a8a010b",
+      "git_blob": "871f44a899ca409c394909bedf534600d8f18d10",
+      "uploaded_and_exact_read_back": true
+    },
+    "preparation/fresh-readonly-admission.json": {
+      "bytes": 3346,
+      "sha256": "accec2cfce81bec0618197fcb2988ee9f3b91771d71f16019d266544d3528bd3",
+      "git_blob": "88495201109b55e4a43778cca272bfc503841942",
+      "uploaded_and_exact_read_back": true
+    },
+    "receive.py": {
+      "bytes": 12823,
+      "sha256": "a03dbcea313d2ce8445d156651b02ef65bbd0d868d9373af101ec887aff7ee0d",
+      "git_blob": "6498e78571eefb181720758e9e06c961f5f5468b",
+      "uploaded_and_exact_read_back": true
+    }
+  },
+  "count": 20,
+  "bytes": 117677,
+  "self_exclusion": "PORTABLE-CUSTODY.json is one additional file; excludes its own recursive identity.",
+  "artifact_carrier": {
+    "git_blob": "8caf092ad9e5021f6dccf3b99c9b037f8d96df6f",
+    "bytes": 134464,
+    "sha256": "8c75a8a39ef580da3f29df9f30035778b3725872b0f6f945797c40b56c9e59a0",
+    "encoding": "UTF-8 JSON; each content string restores exact original file bytes by UTF-8 encoding",
+    "uploaded_and_exact_read_back": true
+  },
+  "actual_result": {
+    "passed_groups": [
+      "F1",
+      "F2",
+      "F3"
+    ],
+    "controller_pid": 90853,
+    "controller_exit": 0,
+    "controller_reported_seconds": 0.33,
+    "command_pids": [
+      90895,
+      90898
+    ],
+    "command_exits": [
+      0,
+      1
+    ],
+    "product_calls": 2,
+    "no_product_reruns": true,
+    "physical_csv": "delivery/statement.csv",
+    "physical_csv_is_new_actual_delivery": true
+  },
+  "source": {
+    "contract": "2012387eec7356f3035e85fd06d370ed163a7cc3",
+    "receiver": "6498e78571eefb181720758e9e06c961f5f5468b",
+    "installation_marker": "72ad7f6866e200910664bfc4cf385abe59b05c61",
+    "author_receipt": "343a733eae520fb3c28658d4138bbc8b78c10c14"
+  },
+  "packager_actual_completion": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[Reading 2 new lines (total: 2 lines)]\n\n{\"files\": 20, \"file_bytes\": 117677, \"carrier\": {\"bytes\": 134464, \"sha256\": \"8c75a8a39ef580da3f29df9f30035778b3725872b0f6f945797c40b56c9e59a0\", \"git_blob\": \"8caf092ad9e5021f6dccf3b99c9b037f8d96df6f\"}, \"custody\": {\"bytes\": 4439, \"sha256\": \"5dca271bd503089b37ee8c002f555eb9bc8f026801ec065ddd5a6b2ef559308c\", \"git_blob\": \"87828b0ccbd29936c7622dbeac9c70619162ebd1\"}, \"closure\": {\"bytes\": 796, \"sha256\": \"31b62e9e0b71799385011504866e913281192ffe742205bc029b9ccde8c8a4b6\", \"git_blob\": \"cfd1a410c0cfeed11f94627d4a234f2981ecbe3e\"}, \"report\": {\"bytes\": 7941, \"sha256\": \"67252e174285709d70898008a61512ac5327f640a00c3453cb9c61cde3dec903\", \"git_blob\": \"ff9f57dcb068cf449efeb94cac2e25ac434de9cf\"}, \"total_owned_bytes\": 252141, \"product_invocations\": 0}\n\n✅ Process completed with exit code 0 (runtime: 0.12s)"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: Mac.lan (0b4ac27b-8500-47d0-8f11-5a35402e9abc)]"
+      }
+    ],
+    "isError": false
+  },
+  "ownership": "Only new installed saved-file receiving. Existing 99cea MCP/statement/client/source and ce7/61749 aggregate routes retained.",
+  "retention": "Raw objects are uploaded and readable; unreferenced custody is not guaranteed retention. No ref or Actions mutation by this receiver."
+}

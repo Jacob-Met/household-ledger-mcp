@@ -1,0 +1,185 @@
+{
+  "format": "household-csv-independent-contract/v1",
+  "reviewer": "7a9310dad255/root",
+  "source_seen": "Only exact pre-export baseline2b77b81ad59c5f3255aa25c37110e91d3bad6a01 source, original missing-feature transport harness and the public consumer contract; no candidate source/pins seen.",
+  "baseline_source": "/Users/me/hamon-household-export-7a9310dad255/baseline",
+  "baseline_tree": "940438aed7af43d841ff7700da8bd4f83a838afd",
+  "columns": [
+    "id",
+    "type",
+    "amountMinor",
+    "currency",
+    "date",
+    "category",
+    "note",
+    "idempotencyKey",
+    "createdAt"
+  ],
+  "header": "\"id\",\"type\",\"amountMinor\",\"currency\",\"date\",\"category\",\"note\",\"idempotencyKey\",\"createdAt\"\r\n",
+  "selectors": [
+    {
+      "args": {},
+      "ids": [
+        "newest-income",
+        "id,alpha\"🧭",
+        "tie-second",
+        "legacy-tie",
+        "lowercase-category",
+        "constructor-row",
+        "seasonal",
+        "oldest"
+      ]
+    },
+    {
+      "args": {
+        "type": "expense",
+        "category": "Pantry",
+        "from": "2026-10-06",
+        "to": "2026-10-06"
+      },
+      "ids": [
+        "tie-second",
+        "legacy-tie"
+      ]
+    },
+    {
+      "args": {
+        "category": " Pantry "
+      },
+      "ids": [
+        "id,alpha\"🧭"
+      ]
+    },
+    {
+      "args": {
+        "category": "pantry"
+      },
+      "ids": [
+        "lowercase-category"
+      ]
+    },
+    {
+      "args": {
+        "category": "食材, \"季節\""
+      },
+      "ids": [
+        "seasonal"
+      ]
+    },
+    {
+      "args": {
+        "from": "2026-10-09",
+        "to": "2026-10-01"
+      },
+      "ids": []
+    },
+    {
+      "args": {
+        "category": "absent"
+      },
+      "ids": []
+    },
+    {
+      "args": {
+        "category": ""
+      },
+      "ids": []
+    }
+  ],
+  "groups": [
+    {
+      "id": "original",
+      "expect": "Actual baseline HTTP listing yields the frozen independent saved-record order and fields; actual original export call is missing. Source, compiled output and fictional file remain exact."
+    },
+    {
+      "id": "literal_statement",
+      "expect": "Actual export JSON has exactly seven named metadata/content fields. Every CSV cell is quoted, embedded quotes doubled, records CRLF-terminated with final CRLF and no BOM. Independently parsed fields equal original actual listing records and native order; all literal/formula/Unicode/NUL/CRLF/CR/LF fields and safe maximum integer preserved."
+    },
+    {
+      "id": "delivery",
+      "expect": "Save actual csv text to private receiver .csv with exclusive creation; read-back bytes/rowCount/byteCount/lowercase SHA256 match. CSV is a statement, not importer-compatible backup; no automatic server file delivery claim."
+    },
+    {
+      "id": "selection",
+      "expect": "All eight frozen selectors match their actual baseline list_transactions rows; combined predicates precede total. Exact category case and whitespace. Mixed currencies unchanged; no conversion, summation or invented legacy timestamp."
+    },
+    {
+      "id": "read_only_restart",
+      "expect": "Run on owned chmod0444 fixture, repeat and restart new actual server; exact response deterministic and ledger bytes, mtime, mode, budgets and original fields unchanged. Missing file returns only header and is not created."
+    },
+    {
+      "id": "complete_pages",
+      "expect": "Exactly5000 matches crosses five native1000-row pages, includes every row exactly once in native order.5001 matches refuses whole result; three Needle records from the same5001-row ledger succeed."
+    },
+    {
+      "id": "exact_bytes",
+      "expect": "One row with ASCII note constructed from literal header/prefix/suffix reaches exactly1048576 UTF8 bytes and succeeds. Additional ASCII byte, quote expansion or a multibyte excess refuses entire success. No partial csv in error result."
+    },
+    {
+      "id": "one_snapshot",
+      "expect": "Preloaded observer wraps the real ledger read only. After the first actual read acquires fixture A it atomically replaces the receiver-owned file with fixture B, returns the unchanged original bytes, and logs reads. Export across multiple pages must return all A rows with exactly one actual ledger read; B remains on disk. Receiver-caused write is explicit and distinct from read-only preservation checks."
+    },
+    {
+      "id": "refusal",
+      "expect": "Wrong selector types/nulls, invalid type/calendar dates, extra keys/currency/query/path/limit/offset refuse via actual SDK/protocol or tool error. Baseline native listing semantics are preserved. Nonobject tools/call arguments may be rejected by the existing SDK before handler entry; record actual boundary."
+    },
+    {
+      "id": "stored_data",
+      "expect": "Malformed JSON/unsupported version/native-invalid records refuse at existing Store boundary. Selected createdAt0 or unpaired high/low surrogate text refuses lossless export; a good selected record from those otherwise Store-accepted rows succeeds. Missing optional and missing legacy timestamp yield empty cells without source repair."
+    },
+    {
+      "id": "source_fence",
+      "expect": "Review actual candidate diff after this freeze: existing ledger/filter/store/dependency files exact, index only additive new-tool wiring, tests only owned new tests/necessary tool-roster changes. No production or expected-value changes made by receiver."
+    }
+  ],
+  "invalid_args": [
+    {
+      "limit": 1
+    },
+    {
+      "offset": 0
+    },
+    {
+      "path": "/tmp/forbidden.csv"
+    },
+    {
+      "currency": "USD"
+    },
+    {
+      "query": "Pantry"
+    },
+    {
+      "type": "refund"
+    },
+    {
+      "type": null
+    },
+    {
+      "category": null
+    },
+    {
+      "category": 7
+    },
+    {
+      "from": null
+    },
+    {
+      "to": 7
+    },
+    {
+      "from": "2026-02-30"
+    },
+    {
+      "to": "2026-13-01"
+    },
+    {
+      "unknown": true
+    }
+  ],
+  "limits": {
+    "rows": 5000,
+    "bytes": 1048576,
+    "whole_result": true
+  },
+  "source_review_boundary": "No performance, live data, deployed endpoint, hosted CI, financial interpretation or spreadsheet execution claim."
+}

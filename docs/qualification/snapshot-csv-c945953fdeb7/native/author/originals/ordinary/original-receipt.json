@@ -1,0 +1,537 @@
+{
+  "format": "household-csv-independent-native/v1",
+  "mode": "candidate",
+  "source": "/Users/me/hamon-household-export-7a9310dad255/candidate",
+  "node": "v26.3.0",
+  "started": "2026-10-08T15:28:46.332Z",
+  "groups": [
+    {
+      "name": "literal selections and actual client delivery",
+      "outcome": "passed",
+      "selections": [
+        {
+          "args": {},
+          "ids": [
+            "newest-income",
+            "id,alpha\"🧭",
+            "tie-second",
+            "legacy-tie",
+            "lowercase-category",
+            "constructor-row",
+            "seasonal",
+            "oldest"
+          ]
+        },
+        {
+          "args": {
+            "type": "expense",
+            "category": "Pantry",
+            "from": "2026-10-06",
+            "to": "2026-10-06"
+          },
+          "ids": [
+            "tie-second",
+            "legacy-tie"
+          ]
+        },
+        {
+          "args": {
+            "category": " Pantry "
+          },
+          "ids": [
+            "id,alpha\"🧭"
+          ]
+        },
+        {
+          "args": {
+            "category": "pantry"
+          },
+          "ids": [
+            "lowercase-category"
+          ]
+        },
+        {
+          "args": {
+            "category": "食材, \"季節\""
+          },
+          "ids": [
+            "seasonal"
+          ]
+        },
+        {
+          "args": {
+            "from": "2026-10-09",
+            "to": "2026-10-01"
+          },
+          "ids": []
+        },
+        {
+          "args": {
+            "category": "absent"
+          },
+          "ids": []
+        },
+        {
+          "args": {
+            "category": ""
+          },
+          "ids": []
+        }
+      ],
+      "elapsedMs": 84
+    },
+    {
+      "name": "invalid arguments and unchanged reads",
+      "outcome": "passed",
+      "refusals": 18,
+      "elapsedMs": 52
+    },
+    {
+      "name": "repeat and real process restart",
+      "outcome": "passed",
+      "responseExact": true,
+      "fileMetadataExact": true,
+      "elapsedMs": 276
+    },
+    {
+      "name": "missing and empty ledgers",
+      "outcome": "passed",
+      "headerExact": true,
+      "elapsedMs": 473
+    },
+    {
+      "name": "complete bounded pages",
+      "outcome": "passed",
+      "exactRows": 5000,
+      "excessRowsRefused": 5001,
+      "smallSelection": 3,
+      "elapsedMs": 796
+    },
+    {
+      "name": "exact UTF8 byte limit and whole refusals",
+      "outcome": "passed",
+      "exactBytes": 1048576,
+      "wholeRefusals": 3,
+      "elapsedMs": 1080
+    },
+    {
+      "name": "stored data refusal without repairing original files",
+      "outcome": "passed",
+      "selectedTextRefusals": 3,
+      "unselectedSuccesses": 3,
+      "storeRefusals": 3,
+      "elapsedMs": 1536
+    },
+    {
+      "name": "one real Store snapshot while receiver changes private file",
+      "outcome": "passed",
+      "reads": [
+        {
+          "read": 1,
+          "readSha256": "b1dfd596074bc5485b5c27ccbe66fcb88be1642da37e729fde2b6dedc8848f71",
+          "returnedOriginalBytes": true,
+          "receiverReplacementSha256": "c301153a92bf03e0b231f3c3b51ebf3973d89f18c84309511799d41318c5805e"
+        }
+      ],
+      "returnedRows": 2305,
+      "receiverReplacementExplicit": true,
+      "elapsedMs": 535
+    }
+  ],
+  "servers": [
+    {
+      "label": "literal-1",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "literal-2",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "empty-3",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "missing-4",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "five-thousand-5",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "five-thousand-one-6",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "bytes-exact-7",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "bytes-one-byte-over-8",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "bytes-quote-expanded-9",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "bytes-unicode-expanded-10",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "stored-timestamp-11",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "stored-high-surrogate-12",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "stored-low-surrogate-13",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "malformed-14",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "version-15",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "native-invalid-16",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "single-snapshot-17",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    },
+    {
+      "label": "single-snapshot-18",
+      "health": {
+        "ok": true,
+        "service": "household-ledger-mcp"
+      },
+      "args": [
+        "--import",
+        "/Users/me/hamon-household-export-receiving-7a9310dad255/read-probe.mjs",
+        "/Users/me/hamon-household-export-7a9310dad255/candidate/dist/src/index.js"
+      ],
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "stdoutBytes": 83,
+      "stderrBytes": 0
+    }
+  ],
+  "calls": 64,
+  "deliveries": [
+    {
+      "path": "deliveries/001-literal-0.csv",
+      "rows": 8,
+      "bytes": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/002-literal-1.csv",
+      "rows": 2,
+      "bytes": 269,
+      "sha256": "1be6ae8e690c8a5c1b5a0e1f6a12a98717d0e5ae9650dc2b48ccb9976bab99db",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/003-literal-2.csv",
+      "rows": 1,
+      "bytes": 249,
+      "sha256": "b192f120f490ba68bab01053716e6b2ab479eac5c4695acdcd7c6eed69d3ba35",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/004-literal-3.csv",
+      "rows": 1,
+      "bytes": 229,
+      "sha256": "03f9000446ff0cdaf6f4a0b03e844b9d7a2b31dc55f95762fbdbf40ef6f20bee",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/005-literal-4.csv",
+      "rows": 1,
+      "bytes": 202,
+      "sha256": "583151efe34b70055c96bdecfb1d9b7bd5dc0ba6dbbe3c74c535f3c69d93365a",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/006-literal-5.csv",
+      "rows": 0,
+      "bytes": 92,
+      "sha256": "eda8663de0767aeb12d7c16fbd8cb5c367d82f5da740ce762b44f195d942084e",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/007-literal-6.csv",
+      "rows": 0,
+      "bytes": 92,
+      "sha256": "eda8663de0767aeb12d7c16fbd8cb5c367d82f5da740ce762b44f195d942084e",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/008-literal-7.csv",
+      "rows": 0,
+      "bytes": 92,
+      "sha256": "eda8663de0767aeb12d7c16fbd8cb5c367d82f5da740ce762b44f195d942084e",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/009-repeat.csv",
+      "rows": 8,
+      "bytes": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/010-restart.csv",
+      "rows": 8,
+      "bytes": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/011-empty.csv",
+      "rows": 0,
+      "bytes": 92,
+      "sha256": "eda8663de0767aeb12d7c16fbd8cb5c367d82f5da740ce762b44f195d942084e",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/012-missing.csv",
+      "rows": 0,
+      "bytes": 92,
+      "sha256": "eda8663de0767aeb12d7c16fbd8cb5c367d82f5da740ce762b44f195d942084e",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/013-5000.csv",
+      "rows": 5000,
+      "bytes": 465379,
+      "sha256": "1b246383e4e1c0358e1cf2859b281552b9c1fcc938f76dac92e0894f6f9a47f8",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/014-5001-small-selection.csv",
+      "rows": 3,
+      "bytes": 371,
+      "sha256": "700f4dee3006397353f18ff45840268c8249ebd951b9f376151722b0a7aca9ba",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/015-exact-1mib.csv",
+      "rows": 1,
+      "bytes": 1048576,
+      "sha256": "04700e47f0fe96fade741aac94f8ae59d95735e37a5d0432f0baf31fa1f2641e",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/016-timestamp-unselected.csv",
+      "rows": 1,
+      "bytes": 173,
+      "sha256": "deaec859f401eb6d1db76876114c238f5d4c78d1b55b3b313dcaca8c0026f76a",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/017-high-surrogate-unselected.csv",
+      "rows": 1,
+      "bytes": 173,
+      "sha256": "deaec859f401eb6d1db76876114c238f5d4c78d1b55b3b313dcaca8c0026f76a",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/018-low-surrogate-unselected.csv",
+      "rows": 1,
+      "bytes": 173,
+      "sha256": "deaec859f401eb6d1db76876114c238f5d4c78d1b55b3b313dcaca8c0026f76a",
+      "clientSaved": true
+    },
+    {
+      "path": "deliveries/019-one-snapshot.csv",
+      "rows": 2305,
+      "bytes": 213396,
+      "sha256": "9b001c6536a4cac7360a025a0d1fbf95a56272a931c51107291ea63bea6789dc",
+      "clientSaved": true
+    }
+  ],
+  "outcome": "passed",
+  "sourceAndCompiledUnchanged": true,
+  "finished": "2026-10-08T15:28:51.540Z",
+  "sourceEntries": 181
+}

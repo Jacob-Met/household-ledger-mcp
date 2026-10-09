@@ -1,0 +1,418 @@
+{
+  "schema": "household.snapshot-csv.independent.receiving.v1",
+  "contract_git_blob": "2012387eec7356f3035e85fd06d370ed163a7cc3",
+  "started_utc": "2026-10-09T06:56:27.774652+00:00",
+  "controller_pid": 90853,
+  "root": "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7",
+  "groups": [
+    {
+      "id": "F1_installed_physical_csv",
+      "passed": true,
+      "child": {
+        "name": "F1-new-output",
+        "argv": [
+          "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/household-snapshot-csv",
+          "--ledger",
+          "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/ledger.json",
+          "--output",
+          "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv"
+        ],
+        "cwd": "/tmp",
+        "started_utc": "2026-10-09T06:56:27.797404+00:00",
+        "pid": 90895,
+        "exit": 0,
+        "elapsed_seconds": 0.08690887503325939,
+        "stdout": {
+          "bytes": 473,
+          "sha256": "68882f84ef3ec31967ae3b73fd91d778c106a59088c2a1e178f0106ff48855dd",
+          "git_blob": "5a21f487c709a0d11de4ed36bff49f7080b71f4f"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        }
+      },
+      "actual_receipt": {
+        "format": "household-snapshot-csv",
+        "version": 1,
+        "source": {
+          "path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/ledger.json",
+          "bytes": 2405,
+          "sha256": "ca1602b160685b5605c84390e60338c4e5317238d0a8ccf6f24a55bacba37f09"
+        },
+        "selectors": {},
+        "output": {
+          "path": "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv",
+          "rowCount": 8,
+          "byteCount": 976,
+          "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2"
+        }
+      },
+      "output": {
+        "bytes": 976,
+        "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+        "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+        "mode": "0o600",
+        "mtime_ns": 1791528987874578077
+      },
+      "exact_original_expected_bytes": true,
+      "rows": 8,
+      "columns": [
+        "id",
+        "type",
+        "amountMinor",
+        "currency",
+        "date",
+        "category",
+        "note",
+        "idempotencyKey",
+        "createdAt"
+      ],
+      "ordered_ids": [
+        "newest-income",
+        "id,alpha\"🧭",
+        "tie-second",
+        "legacy-tie",
+        "lowercase-category",
+        "constructor-row",
+        "seasonal",
+        "oldest"
+      ],
+      "expected_csv_regenerated": false,
+      "source_path": "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/ledger.json",
+      "output_path": "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv"
+    },
+    {
+      "id": "F2_existing_output_refusal",
+      "passed": true,
+      "child": {
+        "name": "F2-existing-output",
+        "argv": [
+          "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/household-snapshot-csv",
+          "--ledger",
+          "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/ledger.json",
+          "--output",
+          "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv"
+        ],
+        "cwd": "/tmp",
+        "started_utc": "2026-10-09T06:56:27.893511+00:00",
+        "pid": 90898,
+        "exit": 1,
+        "elapsed_seconds": 0.08168833400122821,
+        "stdout": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "stderr": {
+          "bytes": 128,
+          "sha256": "de1fd3b767138f03b25ac1e092d95c46f3f26f815626f513fd74f59fcb2acdb7",
+          "git_blob": "0a242c956f68b5e43a5cace1872f656b307a8024"
+        }
+      },
+      "actual_diagnostic": {
+        "error": "Output already exists: \"/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv\""
+      },
+      "physical_output_unchanged": true,
+      "no_surviving_owned_stage": true,
+      "output": {
+        "bytes": 976,
+        "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+        "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+        "mode": "0o600",
+        "mtime_ns": 1791528987874578077
+      }
+    },
+    {
+      "id": "F3_preservation_and_closure",
+      "passed": true,
+      "installed_files_unchanged": 19,
+      "source_files_unchanged": 8,
+      "offered_original_files_unchanged": 12,
+      "runtime_and_author_receipts_unchanged": true,
+      "comparison": "exact bytes, SHA256, Git identity, mode and mtime_ns",
+      "owned_child_closure": [
+        {
+          "pid": 90895,
+          "actual_child_exit": 0,
+          "ps_exit": 1,
+          "ps_stdout": "",
+          "ps_stderr": ""
+        },
+        {
+          "pid": 90898,
+          "actual_child_exit": 1,
+          "ps_exit": 1,
+          "ps_stdout": "",
+          "ps_stderr": ""
+        }
+      ],
+      "actual_product_calls": 2,
+      "services_or_browsers_started": 0,
+      "output": {
+        "bytes": 976,
+        "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+        "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+        "mode": "0o600",
+        "mtime_ns": 1791528987874578077
+      },
+      "delivery_directory_names": [
+        "statement.csv"
+      ]
+    }
+  ],
+  "calls": [
+    {
+      "name": "F1-new-output",
+      "argv": [
+        "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/household-snapshot-csv",
+        "--ledger",
+        "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/ledger.json",
+        "--output",
+        "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv"
+      ],
+      "cwd": "/tmp",
+      "started_utc": "2026-10-09T06:56:27.797404+00:00",
+      "pid": 90895,
+      "exit": 0,
+      "elapsed_seconds": 0.08690887503325939,
+      "stdout": {
+        "bytes": 473,
+        "sha256": "68882f84ef3ec31967ae3b73fd91d778c106a59088c2a1e178f0106ff48855dd",
+        "git_blob": "5a21f487c709a0d11de4ed36bff49f7080b71f4f"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      }
+    },
+    {
+      "name": "F2-existing-output",
+      "argv": [
+        "/Users/me/Applications/HouseholdSnapshotCSV-c945953fdeb7/household-snapshot-csv",
+        "--ledger",
+        "/Users/me/Developer/household-snapshot-csv-c945953fdeb7/originals/ordinary/ledger.json",
+        "--output",
+        "/Users/me/Developer/household-snapshot-csv-receiving-c945953fdeb7/delivery/statement.csv"
+      ],
+      "cwd": "/tmp",
+      "started_utc": "2026-10-09T06:56:27.893511+00:00",
+      "pid": 90898,
+      "exit": 1,
+      "elapsed_seconds": 0.08168833400122821,
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "stderr": {
+        "bytes": 128,
+        "sha256": "de1fd3b767138f03b25ac1e092d95c46f3f26f815626f513fd74f59fcb2acdb7",
+        "git_blob": "0a242c956f68b5e43a5cace1872f656b307a8024"
+      }
+    }
+  ],
+  "guards": [
+    {
+      "label": "before receiving",
+      "utc": "2026-10-09T06:56:27.778889+00:00",
+      "free_disk": 943763456,
+      "conservative_memory": 12909936640,
+      "receiver_owned_bytes": 25265,
+      "author_and_install_bytes": 2102247,
+      "disk_floor": 268435456,
+      "memory_floor": 2147483648,
+      "receiver_cap": 524288,
+      "author_and_install_cap": 4194304
+    },
+    {
+      "label": "before F1-new-output",
+      "utc": "2026-10-09T06:56:27.796430+00:00",
+      "free_disk": 943738880,
+      "conservative_memory": 12898025472,
+      "receiver_owned_bytes": 36618,
+      "author_and_install_bytes": 2102247,
+      "disk_floor": 268435456,
+      "memory_floor": 2147483648,
+      "receiver_cap": 524288,
+      "author_and_install_cap": 4194304
+    },
+    {
+      "label": "after F1-new-output",
+      "utc": "2026-10-09T06:56:27.887888+00:00",
+      "free_disk": 943788032,
+      "conservative_memory": 12912984064,
+      "receiver_owned_bytes": 38067,
+      "author_and_install_bytes": 2102247,
+      "disk_floor": 268435456,
+      "memory_floor": 2147483648,
+      "receiver_cap": 524288,
+      "author_and_install_cap": 4194304
+    },
+    {
+      "label": "before F2-existing-output",
+      "utc": "2026-10-09T06:56:27.892436+00:00",
+      "free_disk": 943779840,
+      "conservative_memory": 12912459776,
+      "receiver_owned_bytes": 40507,
+      "author_and_install_bytes": 2102247,
+      "disk_floor": 268435456,
+      "memory_floor": 2147483648,
+      "receiver_cap": 524288,
+      "author_and_install_cap": 4194304
+    },
+    {
+      "label": "after F2-existing-output",
+      "utc": "2026-10-09T06:56:27.978639+00:00",
+      "free_disk": 943763456,
+      "conservative_memory": 12915605504,
+      "receiver_owned_bytes": 40635,
+      "author_and_install_bytes": 2102247,
+      "disk_floor": 268435456,
+      "memory_floor": 2147483648,
+      "receiver_cap": 524288,
+      "author_and_install_cap": 4194304
+    },
+    {
+      "label": "after preservation and owned child closure",
+      "utc": "2026-10-09T06:56:27.995569+00:00",
+      "free_disk": 943742976,
+      "conservative_memory": 12911345664,
+      "receiver_owned_bytes": 53432,
+      "author_and_install_bytes": 2102247,
+      "disk_floor": 268435456,
+      "memory_floor": 2147483648,
+      "receiver_cap": 524288,
+      "author_and_install_cap": 4194304
+    }
+  ],
+  "terminal": {
+    "passed": true,
+    "exit": 0
+  },
+  "authority": {
+    "installation_marker": {
+      "bytes": 8134,
+      "sha256": "258eac826ec2c4591dfff75ec9c92fa877f81755752d3648dab30d49ec8a633f",
+      "git_blob": "72ad7f6866e200910664bfc4cf385abe59b05c61"
+    },
+    "author_receipt": {
+      "bytes": 37150,
+      "sha256": "f949e3632ab95c987a71fc054e8ae2efa35647714fc4b1633a71d36ed408f8fa",
+      "git_blob": "343a733eae520fb3c28658d4138bbc8b78c10c14"
+    },
+    "source_preparation": {
+      "bytes": 10360,
+      "sha256": "744e2b0ca74807ee8c43cc2c3092647c7ac1b065bf7334110a511c1d54cf6213",
+      "git_blob": "2bae55ac3645d8c6ef76d952af4090280bc79f31"
+    },
+    "source_review_complete": true,
+    "original_modules_unchanged": true,
+    "author_cases_rerun": false
+  },
+  "finished_utc": "2026-10-09T06:56:27.997478+00:00",
+  "elapsed_seconds": 0.22283941693603992,
+  "files_before_final_receipt": {
+    "CONTRACT.md": {
+      "bytes": 8006,
+      "sha256": "9e24033677f7940b5e7ffdee271952f8d063e41e21b60dc8951186ce9599447d",
+      "git_blob": "2012387eec7356f3035e85fd06d370ed163a7cc3",
+      "mode": "0o600",
+      "mtime_ns": 1791528932408666867
+    },
+    "SOURCE-FREEZE.json": {
+      "bytes": 1090,
+      "sha256": "81354e57d38d359219583daff977e7cec6859d36503894ea09c1dde2720193e5",
+      "git_blob": "09fd4fc21c65b3ec5c067aaa3e3910fcb4de1d24",
+      "mode": "0o600",
+      "mtime_ns": 1791528932408985452
+    },
+    "after.json": {
+      "bytes": 11353,
+      "sha256": "749f4c9354a1c98ba038c592889f49af45b8cb04e8b3b3ac562e38f5aebc1e48",
+      "git_blob": "b97d02cdff949ab4632cc7254d2e6b09bdfcbcae",
+      "mode": "0o600",
+      "mtime_ns": 1791528987984746949
+    },
+    "before.json": {
+      "bytes": 11353,
+      "sha256": "749f4c9354a1c98ba038c592889f49af45b8cb04e8b3b3ac562e38f5aebc1e48",
+      "git_blob": "b97d02cdff949ab4632cc7254d2e6b09bdfcbcae",
+      "mode": "0o600",
+      "mtime_ns": 1791528987792907534
+    },
+    "calls/F1-new-output.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "0o600",
+      "mtime_ns": 1791528987884809275
+    },
+    "calls/F1-new-output.stdout.txt": {
+      "bytes": 473,
+      "sha256": "68882f84ef3ec31967ae3b73fd91d778c106a59088c2a1e178f0106ff48855dd",
+      "git_blob": "5a21f487c709a0d11de4ed36bff49f7080b71f4f",
+      "mode": "0o600",
+      "mtime_ns": 1791528987884702399
+    },
+    "calls/F2-existing-output.stderr.txt": {
+      "bytes": 128,
+      "sha256": "de1fd3b767138f03b25ac1e092d95c46f3f26f815626f513fd74f59fcb2acdb7",
+      "git_blob": "0a242c956f68b5e43a5cace1872f656b307a8024",
+      "mode": "0o600",
+      "mtime_ns": 1791528987975624258
+    },
+    "calls/F2-existing-output.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "0o600",
+      "mtime_ns": 1791528987975416174
+    },
+    "delivery/statement.csv": {
+      "bytes": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "mode": "0o600",
+      "mtime_ns": 1791528987874578077
+    },
+    "groups/F1_installed_physical_csv.json": {
+      "bytes": 2440,
+      "sha256": "9939742ca475451a581e32f8ead5c132974f4ad3acacd946af00b6b846254fd5",
+      "git_blob": "45522d3a0542c971450a970000e6f1c279b407be",
+      "mode": "0o600",
+      "mtime_ns": 1791528987889787352
+    },
+    "groups/F2_existing_output_refusal.json": {
+      "bytes": 1444,
+      "sha256": "d162cf45e3bece67ec344a126a0da09cb237ce0305759924a5d188d5c8a7d53d",
+      "git_blob": "fdb604dc88325f661d81dd34d9fbe3036bb317bf",
+      "mode": "0o600",
+      "mtime_ns": 1791528987980247750
+    },
+    "groups/F3_preservation_and_closure.json": {
+      "bytes": 935,
+      "sha256": "b71f799bc91d2d74a9924832d8ae9900f2a98bff0903ae66c7585ddad0d4d75f",
+      "git_blob": "33d3cfbb4163f6aa8fdff7336d765d492903637e",
+      "mode": "0o600",
+      "mtime_ns": 1791528987997348247
+    },
+    "preparation/fresh-readonly-admission.json": {
+      "bytes": 3346,
+      "sha256": "accec2cfce81bec0618197fcb2988ee9f3b91771d71f16019d266544d3528bd3",
+      "git_blob": "88495201109b55e4a43778cca272bfc503841942",
+      "mode": "0o600",
+      "mtime_ns": 1791528932408832910
+    },
+    "receive.py": {
+      "bytes": 12823,
+      "sha256": "a03dbcea313d2ce8445d156651b02ef65bbd0d868d9373af101ec887aff7ee0d",
+      "git_blob": "6498e78571eefb181720758e9e06c961f5f5468b",
+      "mode": "0o600",
+      "mtime_ns": 1791528932408441157
+    }
+  },
+  "self_exclusion": "RECEIVING.json excludes itself; outer logs and actual controller close follow separately."
+}

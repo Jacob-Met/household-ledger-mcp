@@ -1,0 +1,83 @@
+{
+  "schema": "household-snapshot-csv-inputs/v1",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "source_artifact_commit": "aac08aa93db2872aa1ff69e6bbd3844f0dfde015",
+  "source_artifact_tree": "5a8131489011a42ac483b5b515cd29f8304919ea",
+  "exact_native_source_content_tree": "81aeb4162cf6d793093f920ac7ca03a520169258",
+  "native_source_parent": "2b77b81ad59c5f3255aa25c37110e91d3bad6a01",
+  "ancestry_note": "The GitHub artifact commit preserves the offered native package. It does not make that native source tree the canonical GitHub branch ancestry.",
+  "source_offer": "https://github.com/Jacob-Met/household-ledger-mcp/issues/7#issuecomment-6064040050",
+  "original_receiving": "https://github.com/Jacob-Met/household-ledger-mcp/issues/3#issuecomment-6063996302",
+  "new_operation": "https://github.com/Jacob-Met/household-ledger-mcp/issues/7#issuecomment-6075561537",
+  "archive": {
+    "git_blob": "53c0af2d577119337f3a06ab956373814ffc341d",
+    "bytes": 861340,
+    "sha256": "1213482711354e8a44f35230dd8d41061ad2cb3f868421075c705318cf9752f0",
+    "members": 365,
+    "selected_member_pins_matched_original_manifest": true,
+    "source_archive_read_only": true,
+    "filename": "original-qualified-owner-archive.tar.gz"
+  },
+  "selected_members": {
+    "compiled/dist/src/ledger.js": {
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+      "git_blob": "003fe1cb4fbca02d9dc127804e7f31284192a197",
+      "mode": "0o644"
+    },
+    "compiled/dist/src/transaction-export.js": {
+      "bytes": 5301,
+      "sha256": "9995fb6b3a2e5797cc506b55b2db8a53d4858a033629faeb9452416c7eda15d2",
+      "git_blob": "ecf572a57c648ea2e74a1f2ee842503355581406",
+      "mode": "0o644"
+    },
+    "receiver/candidate-run/literal/ledger.json": {
+      "bytes": 2405,
+      "sha256": "ca1602b160685b5605c84390e60338c4e5317238d0a8ccf6f24a55bacba37f09",
+      "git_blob": "64ae51bd94765295c5c5079829835ae584f49328",
+      "mode": "0o444"
+    },
+    "receiver/candidate-run/deliveries/001-literal-0.csv": {
+      "bytes": 976,
+      "sha256": "24113776afdf40feea50b26dfee4170ed850dd0851b8e7b6cefff7616e095be2",
+      "git_blob": "6cca2120e1381f89777d367b75cb9f1c868cc4cc",
+      "mode": "0o644"
+    }
+  },
+  "runtime": {
+    "configured_path": "/opt/homebrew/bin/node",
+    "required_version": "v26.3.0",
+    "external_packages": [],
+    "modules_reused_unchanged": [
+      "lib/ledger.js",
+      "lib/transaction-export.js"
+    ],
+    "esm_loader_metadata": "lib/package.json"
+  },
+  "original_source": {
+    "ledger_ts": {
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "git_blob": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+      "mode": "0o644"
+    },
+    "transaction_export_ts": {
+      "bytes": 5415,
+      "sha256": "3692c09764ec871e8865d0e882f173367a38719c943c84489d113aea3c575a7e",
+      "git_blob": "ec9c082e348ff6803a3220e76ac8fb5391e9ce41",
+      "mode": "0o644"
+    },
+    "package_json": {
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "mode": "0o644"
+    }
+  },
+  "ownership_boundary": "This new explicit saved-file consumer does not alter 99cea's MCP endpoint/client/server/export or package-bin route. ce7/61749 retain aggregate adoption. The unreadable advisory was not bypassed.",
+  "independent_contract": {
+    "git_blob": "2012387eec7356f3035e85fd06d370ed163a7cc3",
+    "bytes": 8006,
+    "sha256": "9e24033677f7940b5e7ffdee271952f8d063e41e21b60dc8951186ce9599447d"
+  }
+}

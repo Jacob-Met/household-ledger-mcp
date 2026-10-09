@@ -1,0 +1,34 @@
+{
+  "schema": "household.snapshot-csv.independent.outer-closure.v1",
+  "utc": "2026-10-09T07:03:33.110042+00:00",
+  "original_receiving_receipt": {
+    "bytes": 14876,
+    "sha256": "94a1cc3818a52ee6d79d8bba7d1ea215843ea759da9ef2b66e6b6a0aae338d3b",
+    "git_blob": "5e6e924a0caa02e729f69db761187f826f77d0fa"
+  },
+  "known_processes_absent": [
+    {
+      "pid": 90853,
+      "ps_exit": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "pid": 90895,
+      "ps_exit": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "pid": 90898,
+      "ps_exit": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "all15original_receiving_files_unchanged": true,
+  "free_disk": 1073971200,
+  "conservative_memory": 12753551360,
+  "new_product_invocations": 0,
+  "packager_pid": 719
+}
