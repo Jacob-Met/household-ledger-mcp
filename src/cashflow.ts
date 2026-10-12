@@ -68,15 +68,32 @@ export function cashflowTrend(data: LedgerData, input: CashflowTrendInput): Cash
   const monthCount = last - first + 1;
   if (monthCount > MAX_CASHFLOW_MONTHS) throw new ValidationError("cashflow interval must contain 1..120 months");
 
+  // Partition the same saved snapshot once for multi-month requests. Each
+  // summary still owns its currency, budget and arithmetic rules, without
+  // rescanning every transaction and budget for every requested month.
+  const monthlyData = new Map<string, LedgerData>();
+  if (monthCount > 1) {
+    for (let index = first; index <= last; index++) {
+      monthlyData.set(monthLabel(index), { version: data.version, transactions: [], budgets: [] });
+    }
+    for (const transaction of data.transactions) {
+      monthlyData.get(transaction.date.slice(0, 7))?.transactions.push(transaction);
+    }
+    for (const budget of data.budgets) {
+      monthlyData.get(budget.month)?.budgets.push(budget);
+    }
+  }
+
   // Delegate currency normalization, per-month arithmetic and legacy-budget
-  // admission. All calls see the same ledger snapshot supplied by the handler.
+  // admission. The partitions preserve original row order and object identity;
+  // a single-month request keeps the original path without partition overhead.
   const summaries: Array<{ month: string; value: MonthlySummary }> = [];
   for (let index = first; index <= last; index++) {
     const month = monthLabel(index);
     try {
       summaries.push({
         month,
-        value: monthlySummary(data, Math.floor(index / 12), index % 12 + 1, input.currency),
+        value: monthlySummary(monthlyData.get(month) ?? data, Math.floor(index / 12), index % 12 + 1, input.currency),
       });
     } catch (error) {
       if (error instanceof ValidationError) throw new ValidationError(month + ": " + error.message);

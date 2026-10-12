@@ -1,0 +1,22 @@
+{
+  "baseline": {
+    "ledger.js": {
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a"
+    },
+    "cashflow.js": {
+      "bytes": 3978,
+      "sha256": "447e140cf5879861cf1e25dab9d25c3e74abef98ddf6ce9e8e8ac5a97a21507a"
+    }
+  },
+  "candidate": {
+    "ledger.js": {
+      "bytes": 15698,
+      "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a"
+    },
+    "cashflow.js": {
+      "bytes": 4831,
+      "sha256": "dc665de9113511fefe4be37265b5f26d939b1f436acc40317dfd9071ff712582"
+    }
+  }
+}
