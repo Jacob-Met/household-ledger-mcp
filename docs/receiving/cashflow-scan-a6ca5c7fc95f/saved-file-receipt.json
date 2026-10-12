@@ -1,0 +1,2081 @@
+{
+  "schema": "cashflow-saved-file-receiving/v1",
+  "receiver": "a6ca5c7fc95f/Delivery",
+  "node": "v24.19.0",
+  "status": "passed",
+  "sourcePins": {
+    "before": {
+      "ledger.js": {
+        "bytes": 15698,
+        "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+        "mtimeNs": "1791838389495613466"
+      },
+      "cashflow.js": {
+        "bytes": 3978,
+        "sha256": "447e140cf5879861cf1e25dab9d25c3e74abef98ddf6ce9e8e8ac5a97a21507a",
+        "mtimeNs": "1791838389495935461"
+      }
+    },
+    "after": {
+      "ledger.js": {
+        "bytes": 15698,
+        "sha256": "8e80c26b8f68767f80d87bc79a41ff0711f5996dffe5652ef859c4ecef3ac48a",
+        "mtimeNs": "1791838389496333870"
+      },
+      "cashflow.js": {
+        "bytes": 4831,
+        "sha256": "dc665de9113511fefe4be37265b5f26d939b1f436acc40317dfd9071ff712582",
+        "mtimeNs": "1791838389496622514"
+      }
+    }
+  },
+  "requests": 173,
+  "returned": 127,
+  "refused": 46,
+  "savedFilesUnchanged": 35,
+  "missingFileRemainedMissing": true,
+  "manualArithmeticPassed": true,
+  "results": [
+    {
+      "name": "manual-three-months/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "5d21d37dbe362d8f375a9706008cd92e85e5269878213b5b996f4b4c92e7eeae",
+      "monthCount": 3
+    },
+    {
+      "name": "empty-v1/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "e43c790d2c27da7eceef449c07b932b92aa745c705efdd292279af736a7db2b6",
+      "monthCount": 3
+    },
+    {
+      "name": "empty-v1/1",
+      "input": {
+        "fromMonth": "1970-01",
+        "toMonth": "1970-02"
+      },
+      "outcome": "returned",
+      "sha256": "c2cf860e7600f7bc6c9d4aaadd4fe7797ec998f2cbd5de21ffacfb082caaa5f2",
+      "monthCount": 2
+    },
+    {
+      "name": "empty-v1/2",
+      "input": {
+        "fromMonth": "9999-11",
+        "toMonth": "9999-12",
+        "currency": " jpy "
+      },
+      "outcome": "returned",
+      "sha256": "580945b4823d2f6a3ca011e9540f96dc0ea7b56129b58af8c01a7b846340059b",
+      "monthCount": 2
+    },
+    {
+      "name": "empty-v1/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12"
+      },
+      "outcome": "returned",
+      "sha256": "197b158b07a8b7423a907859b412334bc1e8a8bca99688b7258de5f543859866",
+      "monthCount": 120
+    },
+    {
+      "name": "empty-v2/0",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01"
+      },
+      "outcome": "returned",
+      "sha256": "0ac74cc98195160d55a59b5b7a3ec1a5e5f72bd26bf4919ddbb3b437e81abf2d",
+      "monthCount": 1
+    },
+    {
+      "name": "empty-v2/1",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "usd"
+      },
+      "outcome": "returned",
+      "sha256": "54ab46f5e51881b59d40442e244ecec112bbc0c1d8219d955b4c664857d420d8",
+      "monthCount": 1
+    },
+    {
+      "name": "empty-v2/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-02"
+      },
+      "outcome": "returned",
+      "sha256": "cb8fd69ef48df6f9cb27c0da059f4532815470d72677ecb5743e5a2db5a60461",
+      "monthCount": 2
+    },
+    {
+      "name": "planned-only/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "4a4102586c6527fa45125c616b21f7c9a2bef89c5ebfef50e8572d20bb1c4f7c",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "cashflow interval contains multiple currencies (EUR, USD); supply currency to select the whole interval"
+      }
+    },
+    {
+      "name": "planned-only/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "398f7d732f98606bc6e2fe08c19668729847ea5df410d4c65c09c2d8a68b090d",
+      "monthCount": 3
+    },
+    {
+      "name": "planned-only/2",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "2199681f823c301f793c4c778ac93ffb7bacfd2b7da080ecf7057d210f21102a",
+      "monthCount": 3
+    },
+    {
+      "name": "planned-only/3",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "80b33f3fdb6c0ed690e67ba1cfab045b50f509ef37e3da2931ed194ded54b890",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-0/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "6cf86ce00f0968a2d4dadd381f0d49835c27e4c335eaef646e3d1654a387d0a8",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-0/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "7a5b8b1dc1f7bec758f86b5e7fb5209323314ac5e850f7b71fcfa20da350729d",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-0/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "41616fd33fbfebfb495712efe54f73e8b0bb40719ad4549ee502bc0179dd6c40",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-0/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-0/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-0/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "a52f0ab64fe20c519f882bb75ce15f1af24e0ace4eded25f9f1258b9314e4625",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-0/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "e9462b34edc840c335b0400bef13be2471496bfcce57fe39f3a6072971b2949b",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-1/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "79caa903c8c86046c22ab1c158cbcdb5c63cd5ab49b461ce5797358f25d3e5a6",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-1/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "9f4e89dc03744885cb0164ee0ef947a683cf9199c344af5b201366378435138c",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-1/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "255297f42786b2e5cda8361f466370af76d35429c8b32e0177d820dde35efc0d",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-1/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-1/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-1/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "79cc651c109274e11ff3b63b8b70e9a3e8c3582e7a4c6b4662dd5f6f8c1cb048",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-1/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "f5e90e2c626d67bbfa010e1695e22790e23280f629cec2d8713ce06ee7919e35",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-2/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "96838a5f63e18eef67006e54c768d3e92bf8af44543cc7c380760f30f0976a02",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-2/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "482d16669d25506b43d2a3c5388ad4e132de884e1422de72bac85c922452c9ee",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-2/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "a3fd7e66a2f8d0d271aa01d04411aa83fd45109edac7460a690e5a279302694c",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-2/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-2/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-2/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "bb9af11db77aa6dcf24b7675af677f027228a7118751bde7fe86483f348adc40",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-2/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "80b06c8791134046fd2bb8e2d0b6f72a0bce3710535dc04590ea601b03abaad7",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-3/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "96181dd60c056eed812689086d54816d802d8e2c64b2ee83596ecbad26a3676b",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-3/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "d67768e063d2bac6af283e35e3a5b28da2fa39abb83d4a3032c5703a2299ae6d",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-3/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "e382ff432be4690c52ee09073c238d0d098c98a794f00cacadf532a96b6e0db9",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-3/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-3/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-3/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "576c4e737ffd870ab52678aa0a92e8f73e65d6c6584118ccca8a01f6e20d9b8c",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-3/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "d1e959194262071f875c2d7bf39f73d6ace85aff0454c3ec0f17d8ddc30cebef",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-4/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "1fa914bf937f09331e21b57c5b63e4339971e8f0e81a6b0c8f9a3c684406d0e3",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-4/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "2e18a7e409d1bdd961c05438e70961b414784ca3f3a543f90e9704ce62b5e833",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-4/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "848a014ee928077cfb7700a15d7d0fed282a7c6c06b74bef46e458db45c50f0d",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-4/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-4/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-4/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "4db226bebe881408b3363dc14a18624111423ae3fe7cf0062773986ccce024da",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-4/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "fe71035d344a3674f7f6ac89d8071685cbce3310169b0e7247d0727688cd028f",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-5/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "581caed8f2f485ec52036effd88c0211f26729741e8d7c5721110b5917fb95c0",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-5/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "778dd09be8086d58c43bf7d1d243d824ab6edcb262208f398921e58eab78f604",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-5/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "bb53ff17c9f06b0fcf481fb59134075a9142d318632603130bf2dc52be6d61f0",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-5/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-5/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-5/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "8ffca4e09ebad316103f455fd6255e99974632f5ab38aa17c6aad8abb5b373b2",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-5/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "47cab92249860194112b99d9855e532770f705eb33857909dcf537c0306766e3",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-6/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "378081615d7d044dd43db7b289e71abce2e2131993fdf927a7c55ca9ae27f3a8",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-6/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "c7a18a03fbaab315a1184b2aef1cc973cd9a50b59ff21b921ae29160b2ef8957",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-6/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "1f8553c830535391758086f2288769ffe5cb0b4f6cf54c11ac9e576e04b27a51",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-6/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-6/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-6/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "f57e210c40812fef4504aa7d42ea12b6d3b71dad52ee4d71ce39dc65eabf476a",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-6/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "517f0e3b93fae768cd4488bff0b74010857b0eeacda35df9737784fdf6694c15",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-7/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "31d5d1ddef3059dc8c63587a04dbec5be0b80c7e9e751deac5a3fd4740ea173b",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-7/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "35276cc9f67e4ae462388dc4b53099148d56106bc7746b4f3495aed97e29cfaa",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-7/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "2681eba1f8bdf7e39e8bc8b63d8ce88cc198e3b713fc2ab78892a813c3e00677",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-7/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-7/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-7/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "5d68bdfebe29248a959a33308c09e65636b06cf0a048788baf7d59c537dc6c70",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-7/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "21e8629a73fdc2e759d5842ab8c8b911fa85b7f8d322ca7c65b2cbf30b7887c0",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-8/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "5bf447ffa2bcfb57d13fad0fa796838fca6a0bc6ed07f827b99c5411310d80d7",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-8/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "a2effc130b29907f98f299af8374ae914ca61eb66d641ac987f74efb00080247",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-8/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "d503b3729da71d6809628acbb21428f9f0076140a942fefa39c3d2c3274be1e6",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-8/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-8/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-8/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "3d7e30a17a0a643818765c4644d774178cb56cf665ae0475b2172e943b59a503",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-8/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "cc23ba30efb8a5ae821056837497e14c7d17cfe083c7792ee0e0dd8ce0d1a071",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-9/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "8e1e31e69c8c67173d5b64f0b6e77ffe857b26b80ae9cc576afb5774745ec532",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-9/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "3d5864a9956213d61053872367fba2dac5507abd79cd72a51ed3aa1a46165b71",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-9/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "4945ae6f528f50b35c6590f5961791ebf11d300475730ddd66ea07e9928175b2",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-9/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-9/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-9/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "673b14acb0af69f17e4b26da3e09bb95e56b2afcb6b52663684fa86f1f99ea0b",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-9/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "de6d64408d48f49d03a75ab78a22454cfa084ca945b93e0274889840b4a73a1b",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-10/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "732f50a92fda43d0a764f12e3bf3d7902926420aec20558517032046fdb41e4a",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-10/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "f2ad19613c9d58b536d66d04529cfcc4890669d18a786f3904050f28ebc1b61e",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-10/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "235dc4fc5219f5ee12fccc72e73489363cd2fee75fedfe30259ff6f8897f6d71",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-10/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-10/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-10/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "4aa6a27445a8753b57fcdf9513b1b89143fc9c5cb34b655a82dd34e6519a60fa",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-10/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "a70d472e06c76742a038b5e9b6e6bacb88fc11ae804faecd52698dbf369cfce9",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-11/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "15534a49c042a299843480b7b10fc71587666fe7efa6f6649e237ea76e39e267",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-11/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "11e4406acb0840c1eb199324264bed0b342c9b22d78f8994ef6ab72a65c77dc2",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-11/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "236fd9224479a1392a6074aa1b235191b579efb93cf29fdeb811adcb933c4963",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-11/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-11/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-11/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "35eae691a443294c44b96ac250393e704619966cce44574959aea51e0adcbb70",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-11/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "0c9584efb43f6f32ffb9594dc3ec0a189c2fedff933fd70c19bd07f20cacbabe",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-12/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "a1ea53334913f25653ba85647993f0c59142718d70e47c30cf692cbf2235c80e",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-12/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "e10d8cca2ebb69277aa81cb4bc7ac5f9ab9b3749384b55a1ecd7defb729c6765",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-12/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "8c595e8ded88a0303c08a6982c628d806d81007de14b529b5fe307dfa74ca9fc",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-12/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-12/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-12/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "8fd0675b450b7b1e04cf5a4c4b831f741aaf128e98bdb0d71ffe501a2c2290b1",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-12/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "61f3ff0870922c9ec48763942ba1b108dc42e0823f9cf95bba91e8153877bf17",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-13/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "275ca1d1f43a0fe06ef4fc13a88bbece5be6d9b1555d525b3fee52459f1ae958",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-13/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "84cfa7db9c1f06c2b74e7214894f9f618d6f4cdf4d05c9fb5f857420115ffb2d",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-13/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "9a19f9cdf676ea720bcca4277779e2059c45ab411bf17e48f22ca7e9a053e5b9",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-13/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-13/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-13/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "77bf4976d3d2a9c13f9273117fad467b73eeea548a1e3301f3605cdb3d2f3856",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-13/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "236e33c5c6946e588f9df4842bd6055d01e1875eae314265e8abbd465b4c6502",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-14/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "4be32fe42df1e9e76c91f36aeb2440e6fc661573a05ba52e0e2ea1e49df4541a",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-14/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "07a738a43ff172c24c7a3c5a221c9fbfd0015da7a1a5fa20ace69f87d5968ca6",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-14/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "ece710e503875c1a0f2d08cb1541e4ec7e7dafca0f2da0878677b726a2f517ff",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-14/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-14/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-14/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "66176eab763850279e40889983563bee4b5108fdde49e8b749d79df83d15e491",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-14/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "da135be585566a8f8ee3181915a7e1130779a3c1620ba4227fc7846f74a4582a",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-15/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "0b02517bc3708bcf57dc4796f4e35fe67aef566345f3554f077cc7748eb400ac",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-15/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "b4d8a5f5235cc4fac9d4bd724875f73c09eb9697e1ffe202c37a85b9105d484a",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-15/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "f732b01135f8a9d924f7ba027aecf9a403d32f714802f684f552ae03952815de",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-15/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-15/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-15/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "f7f303e83de0efea0e008adc0db9be0ae15b8c0a9293a783d82c7175e05ae64b",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-15/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "7e604a982ac3808898c48b8214f0c7cd84461d1512d99a59e9320335393b04c2",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-16/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "7bbf07bcb4658cefe888bb6956b0f14dcbb64f6c914c85faca438c943bdfc86c",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-16/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "7516d1ed26532bfb0e82ba2a3c580166a2a811fd8cedcd176f9184779a92fdd4",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-16/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "6a66661b5c68e55848489cba2bb1b3dbdde861aee2f46c72ec91d9c305e63db3",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-16/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-16/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-16/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "51fa2f266c7860243e19ba94d5de7d8cb2c9d8cb37b3db6c9dc7d83d78753b13",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-16/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "abddf6ed170736e44817817f6f71e71be933afcec729d7386dd2caeb7b0f8ca4",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-17/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "d6db3d67f58621a82fa086dd10f9eb6b39dd184d84ec756018de06e4fee70345",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-17/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "6db6d66d81bc2de0b66de10d1a49c0c875ce47886526a21a030fe354f97caef7",
+      "monthCount": 3
+    },
+    {
+      "name": "varied-17/2",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "uSd"
+      },
+      "outcome": "returned",
+      "sha256": "6157699d55f443decd664823379b63df0295474b2416f1f7d1592d465976e73d",
+      "monthCount": 1
+    },
+    {
+      "name": "varied-17/3",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2029-12",
+        "currency": "JPY"
+      },
+      "outcome": "returned",
+      "sha256": "e24a5bc435a06e7c72e514dd54215786372da930dd0ddd6c17fa7aa75ffa0b44",
+      "monthCount": 120
+    },
+    {
+      "name": "varied-17/4",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "0f0ebf36a03ef6f18cc2fec5c057c24260d014c9874fa1b860946e5b1391a8f4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "varied-17/5",
+      "input": {
+        "fromMonth": "2025-02",
+        "toMonth": "2025-06",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "de3895f5b3b356a12886f79006dbd2d18ee57745f6658abb1191cfece6f7f4b6",
+      "monthCount": 5
+    },
+    {
+      "name": "varied-17/6",
+      "input": {
+        "fromMonth": "2024-11",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "b9ac7c78d7fd6c72f383af4dd766b46364e519172b9bfb414fdf9e567554a186",
+      "monthCount": 3
+    },
+    {
+      "name": "legacy-supported/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "4f2e5f3bd42bf96a87a4da37c66ba578869d14a0f2f799b674633f31f5fa968a",
+      "monthCount": 3
+    },
+    {
+      "name": "legacy-supported/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "returned",
+      "sha256": "4f2e5f3bd42bf96a87a4da37c66ba578869d14a0f2f799b674633f31f5fa968a",
+      "monthCount": 3
+    },
+    {
+      "name": "legacy-supported/2",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "refused",
+      "sha256": "ec6719042de341bcba8e9d1e7800d4fef19f7e8e2007a44a37f9739e44818be4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2024-12: monthly category budgets have no currency; cannot evaluate them for a mixed-currency, empty, or differently selected month; use set_budget with currency and replaceUnassigned: true to explicitly assign each unqualified budget"
+      }
+    },
+    {
+      "name": "legacy-empty-month/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "refused",
+      "sha256": "cb86b42e5a5c18357ea857c32789900d140e8351e7ad617700442071306dee9c",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: monthly category budgets have no currency; cannot evaluate them for a mixed-currency, empty, or differently selected month; use set_budget with currency and replaceUnassigned: true to explicitly assign each unqualified budget"
+      }
+    },
+    {
+      "name": "legacy-empty-month/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "cb86b42e5a5c18357ea857c32789900d140e8351e7ad617700442071306dee9c",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: monthly category budgets have no currency; cannot evaluate them for a mixed-currency, empty, or differently selected month; use set_budget with currency and replaceUnassigned: true to explicitly assign each unqualified budget"
+      }
+    },
+    {
+      "name": "legacy-empty-month/2",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2024-12"
+      },
+      "outcome": "returned",
+      "sha256": "1df16bd5c47ba99f8bee2d950aa47e8bb5120c24f39b7a08d840dc143c63ff2d",
+      "monthCount": 1
+    },
+    {
+      "name": "legacy-mixed/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "refused",
+      "sha256": "ec6719042de341bcba8e9d1e7800d4fef19f7e8e2007a44a37f9739e44818be4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2024-12: monthly category budgets have no currency; cannot evaluate them for a mixed-currency, empty, or differently selected month; use set_budget with currency and replaceUnassigned: true to explicitly assign each unqualified budget"
+      }
+    },
+    {
+      "name": "legacy-mixed/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "refused",
+      "sha256": "ec6719042de341bcba8e9d1e7800d4fef19f7e8e2007a44a37f9739e44818be4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2024-12: monthly category budgets have no currency; cannot evaluate them for a mixed-currency, empty, or differently selected month; use set_budget with currency and replaceUnassigned: true to explicitly assign each unqualified budget"
+      }
+    },
+    {
+      "name": "legacy-mixed/2",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "refused",
+      "sha256": "ca908c66bde6f11202e8139f8dfa3626b838d5b07e8ee2ae368682bcfdf2da52",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2024-12: month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+      }
+    },
+    {
+      "name": "monthly-gross-overflow/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "refused",
+      "sha256": "b201c5df13320b3dbc3bcfa17b188e7f1c03db157d55516f17677b78e07de043",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: monthly transaction totals exceed the safe integer range"
+      }
+    },
+    {
+      "name": "monthly-gross-overflow/1",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-01",
+        "currency": "USD"
+      },
+      "outcome": "refused",
+      "sha256": "b201c5df13320b3dbc3bcfa17b188e7f1c03db157d55516f17677b78e07de043",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: monthly transaction totals exceed the safe integer range"
+      }
+    },
+    {
+      "name": "monthly-gross-overflow/2",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "EUR"
+      },
+      "outcome": "returned",
+      "sha256": "dcb50c433fd7ac922c0bc73fccf0345c9e57f8feab38fd3320a790ed9fec4e71",
+      "monthCount": 3
+    },
+    {
+      "name": "period-gross-overflow/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "refused",
+      "sha256": "1e49b64f0b631caa740cc0f4ed63fe66e0f3ec6d5e124b52301ffd3c948d1a5f",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "cashflow period income exceeds the safe integer range"
+      }
+    },
+    {
+      "name": "period-gross-overflow/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2024-12",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "30c2fd49cbce1bad35f32e0f42f6c2b22442e56dbed9663a5f35787c5c107436",
+      "monthCount": 1
+    },
+    {
+      "name": "period-expense-overflow/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "refused",
+      "sha256": "8c5efedd25775c7710083773a3ff395afc6ca175a8b0f5f73d6369948e45d1b1",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "cashflow period expense exceeds the safe integer range"
+      }
+    },
+    {
+      "name": "safe-boundary/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "a8bb43add94e781182298f57724faaca4cb36ad7f3906f86383d27b5911dc4e7",
+      "monthCount": 3
+    },
+    {
+      "name": "safe-boundary/1",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02"
+      },
+      "outcome": "returned",
+      "sha256": "a8bb43add94e781182298f57724faaca4cb36ad7f3906f86383d27b5911dc4e7",
+      "monthCount": 3
+    },
+    {
+      "name": "badDate/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "refused",
+      "sha256": "675b242901e392be847c39910d89c0bff96ca17dcff72577ab36c7cae78fe082",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "date is not a real calendar date: 2023-02-30"
+      }
+    },
+    {
+      "name": "badCurrency/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "refused",
+      "sha256": "350dfc9ac488c7e01a374122150b69bddf0f8e2d45f89c0e661a11ff9264f67c",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "currency must be a 3-letter code, got \"not-currency\""
+      }
+    },
+    {
+      "name": "duplicateKey/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "refused",
+      "sha256": "77351de40823335bd6c090ae58f5b4f98cb805a581481e9f6f380fb02e9c0e89",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "duplicate transaction idempotencyKey in ledger"
+      }
+    },
+    {
+      "name": "badVersion/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "refused",
+      "sha256": "c80e2f923a3aeb3ad5c0c79f3fcae86ed81babba4ffbedd4f7c4d7df3d8e1969",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "unsupported ledger version 3"
+      }
+    },
+    {
+      "name": "duplicateBudgets/0",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "refused",
+      "sha256": "f470717bc6f110d7a46a22f62e1643f5e722990dbac2169eadafc3cc29d4ffa4",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "duplicate budget category, month and currency"
+      }
+    },
+    {
+      "name": "invalid-requests/0",
+      "input": null,
+      "outcome": "refused",
+      "sha256": "c5351f475791aff1753b2d21d051aba6a74ba3e04df418ca4d4e5c4197b8035f",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "cashflow input must contain fromMonth and toMonth"
+      }
+    },
+    {
+      "name": "invalid-requests/1",
+      "input": [],
+      "outcome": "refused",
+      "sha256": "c5351f475791aff1753b2d21d051aba6a74ba3e04df418ca4d4e5c4197b8035f",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "cashflow input must contain fromMonth and toMonth"
+      }
+    },
+    {
+      "name": "invalid-requests/2",
+      "input": {},
+      "outcome": "refused",
+      "sha256": "e91aafa7a0965c728af7930f6e3a321140280c41436c569753c352dd91d49936",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "fromMonth: month must be YYYY-MM, got undefined"
+      }
+    },
+    {
+      "name": "invalid-requests/3",
+      "input": {
+        "fromMonth": "2025-01"
+      },
+      "outcome": "refused",
+      "sha256": "e6f95e93e4465110f8ec998255a72a05b44ea919533a4c15ac5cdb2406af8720",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "toMonth: month must be YYYY-MM, got undefined"
+      }
+    },
+    {
+      "name": "invalid-requests/4",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2024-12"
+      },
+      "outcome": "refused",
+      "sha256": "04946b1547441234134734f12154d8270076bbf2de4767219fae4874f2e66b44",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "toMonth must be on or after fromMonth"
+      }
+    },
+    {
+      "name": "invalid-requests/5",
+      "input": {
+        "fromMonth": "2020-01",
+        "toMonth": "2030-01"
+      },
+      "outcome": "refused",
+      "sha256": "eb577f72f5101261c8942a27925b4281a6643039b5351ba24ad292de49cb4667",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "cashflow interval must contain 1..120 months"
+      }
+    },
+    {
+      "name": "invalid-requests/6",
+      "input": {
+        "fromMonth": "1969-12",
+        "toMonth": "1970-01"
+      },
+      "outcome": "refused",
+      "sha256": "e0e782fd0531d3ac0cd015d56338a62725ad99e2f5eb4d5c3180b12a1f388a72",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "fromMonth year must be 1970..9999"
+      }
+    },
+    {
+      "name": "invalid-requests/7",
+      "input": {
+        "fromMonth": "9999-12",
+        "toMonth": "10000-01"
+      },
+      "outcome": "refused",
+      "sha256": "f5fc9a86c058ee9879ad0d64489858eab92f626dd0d9439a08a76b274b2a1ad6",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "toMonth: month must be YYYY-MM, got \"10000-01\""
+      }
+    },
+    {
+      "name": "invalid-requests/8",
+      "input": {
+        "fromMonth": "2025-00",
+        "toMonth": "2025-01"
+      },
+      "outcome": "refused",
+      "sha256": "2042aa219ca17c38829b11a4e1e5322b4ecbc692b7c77cc194fe783ecff997c9",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "fromMonth: month must be YYYY-MM, got \"2025-00\""
+      }
+    },
+    {
+      "name": "invalid-requests/9",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-02",
+        "currency": ""
+      },
+      "outcome": "refused",
+      "sha256": "fb77a0f454cffbdcc080e2db47a6bc54b1010ec8af83da6726848beff06d1216",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: currency must be a non-empty string"
+      }
+    },
+    {
+      "name": "invalid-requests/10",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-02",
+        "currency": null
+      },
+      "outcome": "refused",
+      "sha256": "fb77a0f454cffbdcc080e2db47a6bc54b1010ec8af83da6726848beff06d1216",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: currency must be a non-empty string"
+      }
+    },
+    {
+      "name": "invalid-requests/11",
+      "input": {
+        "fromMonth": "2025-01",
+        "toMonth": "2025-02",
+        "currency": 27
+      },
+      "outcome": "refused",
+      "sha256": "fb77a0f454cffbdcc080e2db47a6bc54b1010ec8af83da6726848beff06d1216",
+      "ok": false,
+      "error": {
+        "type": "ValidationError",
+        "message": "2025-01: currency must be a non-empty string"
+      }
+    },
+    {
+      "name": "missing-file-remains-missing",
+      "input": {
+        "fromMonth": "2024-12",
+        "toMonth": "2025-02",
+        "currency": "USD"
+      },
+      "outcome": "returned",
+      "sha256": "e43c790d2c27da7eceef449c07b932b92aa745c705efdd292279af736a7db2b6",
+      "monthCount": 3
+    }
+  ],
+  "qualification": "Source-informed independent saved-file comparison. Fictional JSON only. No benchmark claim, held #20 gate, installation or service adoption."
+}
