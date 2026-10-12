@@ -1,0 +1,226 @@
+{
+  "USD": {
+    "monthly": {
+      "month": 10,
+      "incomeMinor": 210000,
+      "expenseMinor": 8999,
+      "netMinor": 201001,
+      "byCategory": {
+        "wages": {
+          "incomeMinor": 210000,
+          "expenseMinor": 0
+        },
+        "groceries": {
+          "incomeMinor": 0,
+          "expenseMinor": 4000
+        },
+        "Home & café": {
+          "incomeMinor": 0,
+          "expenseMinor": 4999
+        }
+      },
+      "budgets": [
+        {
+          "category": "groceries",
+          "currency": "USD",
+          "limitMinor": 4500,
+          "spentMinor": 4000,
+          "remainingMinor": 500,
+          "over": false
+        },
+        {
+          "category": "Home & café",
+          "currency": "USD",
+          "limitMinor": 4500,
+          "spentMinor": 4999,
+          "remainingMinor": -499,
+          "over": true
+        }
+      ],
+      "year": 2026,
+      "currency": "USD"
+    },
+    "cashflow": {
+      "fromMonth": "2026-10",
+      "toMonth": "2026-12",
+      "monthCount": 3,
+      "currency": "USD",
+      "totals": {
+        "incomeMinor": 430000,
+        "expenseMinor": 15499,
+        "netMinor": 414501
+      },
+      "months": [
+        {
+          "month": "2026-10",
+          "incomeMinor": 210000,
+          "expenseMinor": 8999,
+          "netMinor": 201001,
+          "cumulativeNetMinor": 201001,
+          "byCategory": {
+            "wages": {
+              "incomeMinor": 210000,
+              "expenseMinor": 0
+            },
+            "groceries": {
+              "incomeMinor": 0,
+              "expenseMinor": 4000
+            },
+            "Home & café": {
+              "incomeMinor": 0,
+              "expenseMinor": 4999
+            }
+          },
+          "budgets": [
+            {
+              "category": "groceries",
+              "currency": "USD",
+              "limitMinor": 4500,
+              "spentMinor": 4000,
+              "remainingMinor": 500,
+              "over": false
+            },
+            {
+              "category": "Home & café",
+              "currency": "USD",
+              "limitMinor": 4500,
+              "spentMinor": 4999,
+              "remainingMinor": -499,
+              "over": true
+            }
+          ]
+        },
+        {
+          "month": "2026-11",
+          "incomeMinor": 220000,
+          "expenseMinor": 6500,
+          "netMinor": 213500,
+          "cumulativeNetMinor": 414501,
+          "byCategory": {
+            "wages": {
+              "incomeMinor": 220000,
+              "expenseMinor": 0
+            },
+            "groceries": {
+              "incomeMinor": 0,
+              "expenseMinor": 6500
+            }
+          },
+          "budgets": [
+            {
+              "category": "groceries",
+              "currency": "USD",
+              "limitMinor": 6000,
+              "spentMinor": 6500,
+              "remainingMinor": -500,
+              "over": true
+            }
+          ]
+        },
+        {
+          "month": "2026-12",
+          "incomeMinor": 0,
+          "expenseMinor": 0,
+          "netMinor": 0,
+          "cumulativeNetMinor": 414501,
+          "byCategory": {},
+          "budgets": []
+        }
+      ]
+    }
+  },
+  "EUR": {
+    "monthly": {
+      "month": 10,
+      "incomeMinor": 0,
+      "expenseMinor": 2500,
+      "netMinor": -2500,
+      "byCategory": {
+        "groceries": {
+          "incomeMinor": 0,
+          "expenseMinor": 2500
+        }
+      },
+      "budgets": [
+        {
+          "category": "groceries",
+          "currency": "EUR",
+          "limitMinor": 3000,
+          "spentMinor": 2500,
+          "remainingMinor": 500,
+          "over": false
+        }
+      ],
+      "year": 2026,
+      "currency": "EUR"
+    },
+    "cashflow": {
+      "fromMonth": "2026-10",
+      "toMonth": "2026-12",
+      "monthCount": 3,
+      "currency": "EUR",
+      "totals": {
+        "incomeMinor": 0,
+        "expenseMinor": 3500,
+        "netMinor": -3500
+      },
+      "months": [
+        {
+          "month": "2026-10",
+          "incomeMinor": 0,
+          "expenseMinor": 2500,
+          "netMinor": -2500,
+          "cumulativeNetMinor": -2500,
+          "byCategory": {
+            "groceries": {
+              "incomeMinor": 0,
+              "expenseMinor": 2500
+            }
+          },
+          "budgets": [
+            {
+              "category": "groceries",
+              "currency": "EUR",
+              "limitMinor": 3000,
+              "spentMinor": 2500,
+              "remainingMinor": 500,
+              "over": false
+            }
+          ]
+        },
+        {
+          "month": "2026-11",
+          "incomeMinor": 0,
+          "expenseMinor": 1000,
+          "netMinor": -1000,
+          "cumulativeNetMinor": -3500,
+          "byCategory": {
+            "transport": {
+              "incomeMinor": 0,
+              "expenseMinor": 1000
+            }
+          },
+          "budgets": [
+            {
+              "category": "transport",
+              "currency": "EUR",
+              "limitMinor": 900,
+              "spentMinor": 1000,
+              "remainingMinor": -100,
+              "over": true
+            }
+          ]
+        },
+        {
+          "month": "2026-12",
+          "incomeMinor": 0,
+          "expenseMinor": 0,
+          "netMinor": 0,
+          "cumulativeNetMinor": -3500,
+          "byCategory": {},
+          "budgets": []
+        }
+      ]
+    }
+  }
+}
