@@ -206,7 +206,10 @@ export class LedgerStore {
 
   /** Read, mutate and persist one operation before the next mutation reads. */
   async update<T>(mutate: (data: LedgerData) => T | Promise<T>): Promise<T> {
-    const previous = LedgerStore.pending.get(this.filePath) ?? Promise.resolve();
+    // Windows case aliases must share a queue. Keep the resolved spelling for
+    // file I/O; only the process-local coordination key is case-folded.
+    const queueKey = process.platform === "win32" ? this.filePath.toUpperCase() : this.filePath;
+    const previous = LedgerStore.pending.get(queueKey) ?? Promise.resolve();
     const operation = previous.then(async () => {
       const data = await this.load();
       const before = JSON.stringify(data);
@@ -216,11 +219,11 @@ export class LedgerStore {
       return result;
     });
     const tail = operation.then(() => undefined, () => undefined);
-    LedgerStore.pending.set(this.filePath, tail);
+    LedgerStore.pending.set(queueKey, tail);
     try {
       return await operation;
     } finally {
-      if (LedgerStore.pending.get(this.filePath) === tail) LedgerStore.pending.delete(this.filePath);
+      if (LedgerStore.pending.get(queueKey) === tail) LedgerStore.pending.delete(queueKey);
     }
   }
 
