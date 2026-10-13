@@ -290,6 +290,7 @@ export function listTransactions(data: LedgerData, filter: ListTransactionsFilte
   assert(offset === undefined || (Number.isInteger(offset) && offset >= 0), "offset must be a non-negative integer");
   const fromD = from === undefined ? undefined : validateDate(from);
   const toD = to === undefined ? undefined : validateDate(to);
+  assert(fromD === undefined || toD === undefined || fromD <= toD, "from must be on or before to");
   if (type !== undefined) assert(type === "income" || type === "expense", "type must be income|expense");
   const matched = data.transactions.filter(
     (t) =>
