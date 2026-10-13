@@ -87,7 +87,7 @@ const TOOL_DEFS = [
   },
   {
     name: "list_transactions",
-    description: "List/filter transactions, newest first.",
+    description: "List/filter transactions by calendar date, newest first by default. Optional oldest-first order applies before pagination; equal dates retain saved order.",
     inputSchema: {
       type: "object",
       properties: {
@@ -95,6 +95,7 @@ const TOOL_DEFS = [
         category: { type: "string" },
         from: { type: "string", description: "YYYY-MM-DD inclusive" },
         to: { type: "string", description: "YYYY-MM-DD inclusive" },
+        order: { type: "string", enum: ["newest", "oldest"], default: "newest", description: "Calendar-date direction before pagination; equal dates retain saved order." },
         limit: { type: "integer", minimum: 0, maximum: 1000, default: 50 },
         offset: { type: "integer", minimum: 0, default: 0 },
       },

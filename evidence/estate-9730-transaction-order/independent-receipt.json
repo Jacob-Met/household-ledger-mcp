@@ -1,0 +1,142 @@
+{
+  "status": "ACCEPT",
+  "source_receipt_sha256": "581ecaecc14488ae29c68340c0f1432f58df23422ccb7b04557b94b36f49abad",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "parent": "8729c9fb7b3b8e941662eefe9f6bfdc1fa7e8311",
+  "tree": "cba6dfd35531f160b7091670796fedc9c70b7855",
+  "product": [
+    {
+      "path": "source/src/ledger.ts",
+      "bytes": 17912,
+      "sha256": "6598045c7c164ef550b6bb0e0a40017923b939c91813d0cbd1243b9620a7f130"
+    },
+    {
+      "path": "source/src/index.ts",
+      "bytes": 11927,
+      "sha256": "64461dc15085f0e21bfe0c6ece66386b1c539f5cdf08a03c47ad4b2fea408d27"
+    },
+    {
+      "path": "source/test/transaction-order.test.ts",
+      "bytes": 4402,
+      "sha256": "0ec616dc838f506a414c72b324c48e94541b239b379dbb71b978f2e45ccb25a2"
+    },
+    {
+      "path": "source/docs/TRANSACTION_ORDER.md",
+      "bytes": 3686,
+      "sha256": "c0ee43a19e0476e1c0666cf50807217d11b53048c31f4afe62c6087180af2452"
+    }
+  ],
+  "independent_receiving": {
+    "actual_sdk_calls": 11,
+    "candidate_calls": 9,
+    "parent_calls": 2,
+    "checks": 19,
+    "node": "v24.19.0",
+    "sdk": "1.32.1",
+    "emitted_source_joins": 12,
+    "base_git_joins": 31,
+    "source_and_base_unchanged": [
+      33,
+      31
+    ],
+    "author_support_files_unchanged": 24,
+    "exact_inverse_original_files": 31,
+    "ledger_bytes_and_identity_unchanged": true,
+    "servers_closed": true,
+    "source_finding": null
+  },
+  "original_receiver_assumption": "First core fixture incorrectly expected case-insensitive category. Correct zero-match result retained; zero SDK calls before correction. V2 uses exact category and checks original case sensitivity. No product edit.",
+  "limits": [
+    "No tsc/strict typecheck; existing Node transform execution only.",
+    "Only five selected SDK bodies independently hashed; original3810 payload qualification remains author evidence.",
+    "Authored isolated saved ledger, no actual household account, provider, installed deployment or concurrent snapshot.",
+    "No author21-method or33-call repeat."
+  ],
+  "support": [
+    {
+      "path": "independent_receiver.mjs",
+      "bytes": 9553,
+      "sha256": "14601eb09d7fbdf7dfd976f8298474419f934d09dcb634e349a0ddb9ec654084"
+    },
+    {
+      "path": "independent_receiver_v2.mjs",
+      "bytes": 9706,
+      "sha256": "3e7a8f3e17b02d6374e2a2426cda9c0d8aa4e233d3f312df9fa4138fd3e78d5a"
+    },
+    {
+      "path": "received-author-receipt.json",
+      "bytes": 16524,
+      "sha256": "581ecaecc14488ae29c68340c0f1432f58df23422ccb7b04557b94b36f49abad"
+    },
+    {
+      "path": "receiver-v2.stderr",
+      "bytes": 179,
+      "sha256": "58b48f972129947fff715a80102df723ff4398934ef2760944f855bf71a9fe3a"
+    },
+    {
+      "path": "receiver-v2.stdout",
+      "bytes": 122,
+      "sha256": "4562a3a0b0c46e3325fa554114f4622c1126b554626f1e0d927d0d15ea518977"
+    },
+    {
+      "path": "receiver.stderr",
+      "bytes": 179,
+      "sha256": "58b48f972129947fff715a80102df723ff4398934ef2760944f855bf71a9fe3a"
+    },
+    {
+      "path": "receiver.stdout",
+      "bytes": 1263,
+      "sha256": "ea5434500542e1dafde61a20f7d88221d12d575e174ef72e2e521a4a373c444c"
+    },
+    {
+      "path": "remote-tree.json",
+      "bytes": 46584,
+      "sha256": "8ebc67ef43e741e3a031bef5f75ad6e309512124126efe76b5738171853313d3"
+    },
+    {
+      "path": "run-001/authored-ledger.json",
+      "bytes": 1966,
+      "sha256": "8cb7f4150791dd62ccfd6aa7bf7bc9b945b69f4a98adb6b0a7f6b87bacaed1e5"
+    },
+    {
+      "path": "run-001/expectations.json",
+      "bytes": 524,
+      "sha256": "5d245c6d3f8eae145b79ec986940b47f40c6fa522a3999e9af6f1181674263cd"
+    },
+    {
+      "path": "run-001/independent-result.json",
+      "bytes": 5413,
+      "sha256": "ebe8e4865642ecaaca0843ab5b22c56a2598cf2756b114ef5e104feed67a16e6"
+    },
+    {
+      "path": "run-002/authored-ledger.json",
+      "bytes": 1966,
+      "sha256": "8cb7f4150791dd62ccfd6aa7bf7bc9b945b69f4a98adb6b0a7f6b87bacaed1e5"
+    },
+    {
+      "path": "run-002/expectations.json",
+      "bytes": 524,
+      "sha256": "36e11b8161964e6d7e0fb724ff77c72fd0633660aadb6ebfbc1ad912e0e5ce56"
+    },
+    {
+      "path": "run-002/independent-result.json",
+      "bytes": 60516,
+      "sha256": "b2ff29c38879b5db8683f57be9f02743ea9f86bbc54d09bade306b1bca0a7828"
+    },
+    {
+      "path": "run-002/partial-result.json",
+      "bytes": 60496,
+      "sha256": "9c036d87f9b2503d0dc9684e2b580ae0068801793d5adc655b7b741802cfd6aa"
+    },
+    {
+      "path": "source-joins.json",
+      "bytes": 7114,
+      "sha256": "4b28270a1ce0d115c020bf9ca3a1835c56b4fab4bd3dfead25e2f5ecd6e580d9"
+    },
+    {
+      "path": "source-review.md",
+      "bytes": 3066,
+      "sha256": "a15f3cdd8f433ea32e5962410c849b0e7923af875b25a58ce953dcf12a736b7b"
+    }
+  ]
+}

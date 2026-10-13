@@ -1,0 +1,503 @@
+{
+  "status": "frozen for independent review",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "issue": 38,
+  "parent": "8729c9fb7b3b8e941662eefe9f6bfdc1fa7e8311",
+  "tree": "cba6dfd35531f160b7091670796fedc9c70b7855",
+  "product": [
+    {
+      "path": "source/src/ledger.ts",
+      "bytes": 17912,
+      "sha256": "6598045c7c164ef550b6bb0e0a40017923b939c91813d0cbd1243b9620a7f130"
+    },
+    {
+      "path": "source/src/index.ts",
+      "bytes": 11927,
+      "sha256": "64461dc15085f0e21bfe0c6ece66386b1c539f5cdf08a03c47ad4b2fea408d27"
+    },
+    {
+      "path": "source/test/transaction-order.test.ts",
+      "bytes": 4402,
+      "sha256": "0ec616dc838f506a414c72b324c48e94541b239b379dbb71b978f2e45ccb25a2"
+    },
+    {
+      "path": "source/docs/TRANSACTION_ORDER.md",
+      "bytes": 3686,
+      "sha256": "c0ee43a19e0476e1c0666cf50807217d11b53048c31f4afe62c6087180af2452"
+    }
+  ],
+  "source": [
+    {
+      "path": "source/.gitignore",
+      "bytes": 20,
+      "sha256": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910"
+    },
+    {
+      "path": "source/LICENSE",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb"
+    },
+    {
+      "path": "source/README.md",
+      "bytes": 6704,
+      "sha256": "d7675b4f5d20bcb6a031cc39a71576bb3a44c576bbc0fdb1945e94dd4c7773fd"
+    },
+    {
+      "path": "source/SUMMARY_CURRENCY.md",
+      "bytes": 8094,
+      "sha256": "204067cbee746870c93c2e7d7c901c7e801465969ef2c81203244d6ad37d0f67"
+    },
+    {
+      "path": "source/docs/CASHFLOW_TREND.md",
+      "bytes": 4884,
+      "sha256": "d4217e06a31f041e471859380221dc25b61210fe7333c8f1f1d4c486424e2075"
+    },
+    {
+      "path": "source/docs/TRANSACTION_DATE_RANGES.md",
+      "bytes": 2372,
+      "sha256": "9d4a90fba11445990d7d90781afcb7dfb977964fa31a7884a6d8ffd37e92dd16"
+    },
+    {
+      "path": "source/docs/TRANSACTION_IMPORT.md",
+      "bytes": 8656,
+      "sha256": "2fa7e3a44f4b498d0728ad512d4fd05f9f42dfb36db216cb28aab23b760fffce"
+    },
+    {
+      "path": "source/docs/TRANSACTION_ORDER.md",
+      "bytes": 3686,
+      "sha256": "c0ee43a19e0476e1c0666cf50807217d11b53048c31f4afe62c6087180af2452"
+    },
+    {
+      "path": "source/package-lock.json",
+      "bytes": 43740,
+      "sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff"
+    },
+    {
+      "path": "source/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835"
+    },
+    {
+      "path": "source/src/cashflow.ts",
+      "bytes": 4761,
+      "sha256": "cb4631dce4679567d9d0e3a139440c51861dcdfad6029c8ef88b1b9bf122ce30"
+    },
+    {
+      "path": "source/src/index.ts",
+      "bytes": 11927,
+      "sha256": "64461dc15085f0e21bfe0c6ece66386b1c539f5cdf08a03c47ad4b2fea408d27"
+    },
+    {
+      "path": "source/src/ledger.ts",
+      "bytes": 17912,
+      "sha256": "6598045c7c164ef550b6bb0e0a40017923b939c91813d0cbd1243b9620a7f130"
+    },
+    {
+      "path": "source/src/stdio.ts",
+      "bytes": 586,
+      "sha256": "9d49234e75f790601e8f327d156f3a4b9c62325d8496319fd9831e733153dc57"
+    },
+    {
+      "path": "source/src/transaction-csv.ts",
+      "bytes": 6189,
+      "sha256": "0357e1d405be49dd352fcc088e75aaaf47c00eaf81c55f785d77ca4d4e48e8f0"
+    },
+    {
+      "path": "source/src/transaction-import.ts",
+      "bytes": 8357,
+      "sha256": "729d0db509945c4670f03167497417799dd059f386a550b96d1162e1ccd3e985"
+    },
+    {
+      "path": "source/test/budget-currency.test.ts",
+      "bytes": 13256,
+      "sha256": "fab4105ce5693ef0730943cca1c1b71c6e8c462475758221a6cf77881b132f98"
+    },
+    {
+      "path": "source/test/cashflow.test.ts",
+      "bytes": 10136,
+      "sha256": "b21797f077ee5d817ed456e334188ff7a2f52de3e2194c55a10d21bfeaa90137"
+    },
+    {
+      "path": "source/test/http-cashflow.test.ts",
+      "bytes": 10333,
+      "sha256": "4b9ef76831740392e371dee8fc5129076f64a4fb4614bde8066468acf18cf20c"
+    },
+    {
+      "path": "source/test/http-recording.test.ts",
+      "bytes": 4433,
+      "sha256": "9419b74830f423b92fdb194dd827e8920461075d5cf4ba2e70a69c4da310e9fc"
+    },
+    {
+      "path": "source/test/http-summary.test.ts",
+      "bytes": 5220,
+      "sha256": "b5f76eb50355405e8d8c22750f40e02d1caf5e16cee3737c2a4a9ed9696716af"
+    },
+    {
+      "path": "source/test/ledger.test.ts",
+      "bytes": 6378,
+      "sha256": "bb64e0cb1bbd593d9e5458ddd83ada330756b4b27816b09517d17e201789074c"
+    },
+    {
+      "path": "source/test/mcp.test.ts",
+      "bytes": 3577,
+      "sha256": "e4bbdb0a7f1633a9659af378a93139d435f8f485179a280d2c4a97823fce382d"
+    },
+    {
+      "path": "source/test/receiving-composition.test.ts",
+      "bytes": 8166,
+      "sha256": "cc9c3678f2e5e42477febddabdd38dabd202faf0a18148d2d3067a194f4e239f"
+    },
+    {
+      "path": "source/test/recording.test.ts",
+      "bytes": 9686,
+      "sha256": "18bebd788deece1012fcf4863203727b5e699fe61b766dd0d24075a39fab448c"
+    },
+    {
+      "path": "source/test/summary-currency.test.ts",
+      "bytes": 13806,
+      "sha256": "13771393218d37bcc48c26182ea2daabd8a967c14d8c33bac9b3295343f18da3"
+    },
+    {
+      "path": "source/test/summary_categories.test.ts",
+      "bytes": 6268,
+      "sha256": "141ddb02330dc5f8f59f2544b8846df1df530aab82b169c1f796c00aabe5fd8d"
+    },
+    {
+      "path": "source/test/transaction-date-range-http.test.ts",
+      "bytes": 6016,
+      "sha256": "a8ee1e2e98d164796f3d082443ce1ee6dc00b8ab87bfa86acae4f9ef25849e7c"
+    },
+    {
+      "path": "source/test/transaction-date-range.test.ts",
+      "bytes": 3604,
+      "sha256": "00fa6a26ddb6cc30916c1c9c53c607ea407951c8d4ed81da448b661f8c5dd0cd"
+    },
+    {
+      "path": "source/test/transaction-import-http.test.ts",
+      "bytes": 11178,
+      "sha256": "90caa969c9869c6d3ef7e8691c44fd8abbd5ebc30c8991b251b76647e8b7c14d"
+    },
+    {
+      "path": "source/test/transaction-import.test.ts",
+      "bytes": 19299,
+      "sha256": "f465f7ed6ee960a1a2c36b877000137da588a98f6d44bce14f63484ad4bc255d"
+    },
+    {
+      "path": "source/test/transaction-order.test.ts",
+      "bytes": 4402,
+      "sha256": "0ec616dc838f506a414c72b324c48e94541b239b379dbb71b978f2e45ccb25a2"
+    },
+    {
+      "path": "source/tsconfig.json",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72"
+    }
+  ],
+  "base": [
+    {
+      "path": "base/.gitignore",
+      "bytes": 20,
+      "sha256": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910"
+    },
+    {
+      "path": "base/LICENSE",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb"
+    },
+    {
+      "path": "base/README.md",
+      "bytes": 6704,
+      "sha256": "d7675b4f5d20bcb6a031cc39a71576bb3a44c576bbc0fdb1945e94dd4c7773fd"
+    },
+    {
+      "path": "base/SUMMARY_CURRENCY.md",
+      "bytes": 8094,
+      "sha256": "204067cbee746870c93c2e7d7c901c7e801465969ef2c81203244d6ad37d0f67"
+    },
+    {
+      "path": "base/docs/CASHFLOW_TREND.md",
+      "bytes": 4884,
+      "sha256": "d4217e06a31f041e471859380221dc25b61210fe7333c8f1f1d4c486424e2075"
+    },
+    {
+      "path": "base/docs/TRANSACTION_DATE_RANGES.md",
+      "bytes": 2372,
+      "sha256": "9d4a90fba11445990d7d90781afcb7dfb977964fa31a7884a6d8ffd37e92dd16"
+    },
+    {
+      "path": "base/docs/TRANSACTION_IMPORT.md",
+      "bytes": 8656,
+      "sha256": "2fa7e3a44f4b498d0728ad512d4fd05f9f42dfb36db216cb28aab23b760fffce"
+    },
+    {
+      "path": "base/package-lock.json",
+      "bytes": 43740,
+      "sha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff"
+    },
+    {
+      "path": "base/package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835"
+    },
+    {
+      "path": "base/src/cashflow.ts",
+      "bytes": 4761,
+      "sha256": "cb4631dce4679567d9d0e3a139440c51861dcdfad6029c8ef88b1b9bf122ce30"
+    },
+    {
+      "path": "base/src/index.ts",
+      "bytes": 11639,
+      "sha256": "9c24685b217041d820ae8050519e74d2a1430099c219a66f11079894c792943d"
+    },
+    {
+      "path": "base/src/ledger.ts",
+      "bytes": 17637,
+      "sha256": "5bceacbba6c2ca953fdd58c8ca9d72e81dde64185cbfe3f64ec3fb957902cc40"
+    },
+    {
+      "path": "base/src/stdio.ts",
+      "bytes": 586,
+      "sha256": "9d49234e75f790601e8f327d156f3a4b9c62325d8496319fd9831e733153dc57"
+    },
+    {
+      "path": "base/src/transaction-csv.ts",
+      "bytes": 6189,
+      "sha256": "0357e1d405be49dd352fcc088e75aaaf47c00eaf81c55f785d77ca4d4e48e8f0"
+    },
+    {
+      "path": "base/src/transaction-import.ts",
+      "bytes": 8357,
+      "sha256": "729d0db509945c4670f03167497417799dd059f386a550b96d1162e1ccd3e985"
+    },
+    {
+      "path": "base/test/budget-currency.test.ts",
+      "bytes": 13256,
+      "sha256": "fab4105ce5693ef0730943cca1c1b71c6e8c462475758221a6cf77881b132f98"
+    },
+    {
+      "path": "base/test/cashflow.test.ts",
+      "bytes": 10136,
+      "sha256": "b21797f077ee5d817ed456e334188ff7a2f52de3e2194c55a10d21bfeaa90137"
+    },
+    {
+      "path": "base/test/http-cashflow.test.ts",
+      "bytes": 10333,
+      "sha256": "4b9ef76831740392e371dee8fc5129076f64a4fb4614bde8066468acf18cf20c"
+    },
+    {
+      "path": "base/test/http-recording.test.ts",
+      "bytes": 4433,
+      "sha256": "9419b74830f423b92fdb194dd827e8920461075d5cf4ba2e70a69c4da310e9fc"
+    },
+    {
+      "path": "base/test/http-summary.test.ts",
+      "bytes": 5220,
+      "sha256": "b5f76eb50355405e8d8c22750f40e02d1caf5e16cee3737c2a4a9ed9696716af"
+    },
+    {
+      "path": "base/test/ledger.test.ts",
+      "bytes": 6378,
+      "sha256": "bb64e0cb1bbd593d9e5458ddd83ada330756b4b27816b09517d17e201789074c"
+    },
+    {
+      "path": "base/test/mcp.test.ts",
+      "bytes": 3577,
+      "sha256": "e4bbdb0a7f1633a9659af378a93139d435f8f485179a280d2c4a97823fce382d"
+    },
+    {
+      "path": "base/test/receiving-composition.test.ts",
+      "bytes": 8166,
+      "sha256": "cc9c3678f2e5e42477febddabdd38dabd202faf0a18148d2d3067a194f4e239f"
+    },
+    {
+      "path": "base/test/recording.test.ts",
+      "bytes": 9686,
+      "sha256": "18bebd788deece1012fcf4863203727b5e699fe61b766dd0d24075a39fab448c"
+    },
+    {
+      "path": "base/test/summary-currency.test.ts",
+      "bytes": 13806,
+      "sha256": "13771393218d37bcc48c26182ea2daabd8a967c14d8c33bac9b3295343f18da3"
+    },
+    {
+      "path": "base/test/summary_categories.test.ts",
+      "bytes": 6268,
+      "sha256": "141ddb02330dc5f8f59f2544b8846df1df530aab82b169c1f796c00aabe5fd8d"
+    },
+    {
+      "path": "base/test/transaction-date-range-http.test.ts",
+      "bytes": 6016,
+      "sha256": "a8ee1e2e98d164796f3d082443ce1ee6dc00b8ab87bfa86acae4f9ef25849e7c"
+    },
+    {
+      "path": "base/test/transaction-date-range.test.ts",
+      "bytes": 3604,
+      "sha256": "00fa6a26ddb6cc30916c1c9c53c607ea407951c8d4ed81da448b661f8c5dd0cd"
+    },
+    {
+      "path": "base/test/transaction-import-http.test.ts",
+      "bytes": 11178,
+      "sha256": "90caa969c9869c6d3ef7e8691c44fd8abbd5ebc30c8991b251b76647e8b7c14d"
+    },
+    {
+      "path": "base/test/transaction-import.test.ts",
+      "bytes": 19299,
+      "sha256": "f465f7ed6ee960a1a2c36b877000137da588a98f6d44bce14f63484ad4bc255d"
+    },
+    {
+      "path": "base/tsconfig.json",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72"
+    }
+  ],
+  "support": [
+    {
+      "path": "evidence/base-mcp-001/ledger.json",
+      "bytes": 1444,
+      "sha256": "45f0671e8889809f8c4687713edccfb670ed9acc6575ef6d5a666a3c36b3018a"
+    },
+    {
+      "path": "evidence/base-mcp-001/result.json",
+      "bytes": 19590,
+      "sha256": "fff22a5a63cc26d5279b9ede8db43f192fb6fcfebd7c9c601fd59a6c7ff1c76e"
+    },
+    {
+      "path": "evidence/base-mcp.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/base-mcp.stdout.txt",
+      "bytes": 55,
+      "sha256": "28826e5f531fcd0b82ef40b3fe204d1d47b6347164400a2e4a6b2cf64524a43c"
+    },
+    {
+      "path": "evidence/base-pins.json",
+      "bytes": 6872,
+      "sha256": "4b34b6f5f3148c1645192937a22016040a3bc0aca6373244d1697ab1e33c26f6"
+    },
+    {
+      "path": "evidence/base-transform.stderr.txt",
+      "bytes": 179,
+      "sha256": "2a72ce8ac2074acb91b2005f675878f8449beb6a58e0a07534ccaca6948cea3c"
+    },
+    {
+      "path": "evidence/base-transform.stdout.json",
+      "bytes": 6135,
+      "sha256": "1a75e06bf624842a032c90f4e3482e465d022e8dec0caf2e308892d6d44f33cb"
+    },
+    {
+      "path": "evidence/composition-check.json",
+      "bytes": 2640,
+      "sha256": "84166c4a20d72ecd7f5510bb4912d8a0f52edae3baaae58a5140b28af87a8631"
+    },
+    {
+      "path": "evidence/focused-tests.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/focused-tests.stdout.txt",
+      "bytes": 1900,
+      "sha256": "fc200c612b7502908e556c214a69447d42d67f84a03b29c50d13696b1a28bb7e"
+    },
+    {
+      "path": "evidence/issue-reservation.json",
+      "bytes": 3181,
+      "sha256": "186a7ea55f1b5ff2f5a3479ca58c92cfec72f6cf7725ae5dbeec94f86874521d"
+    },
+    {
+      "path": "evidence/original-001/ledger.json",
+      "bytes": 1444,
+      "sha256": "45f0671e8889809f8c4687713edccfb670ed9acc6575ef6d5a666a3c36b3018a"
+    },
+    {
+      "path": "evidence/original-001/result.json",
+      "bytes": 19590,
+      "sha256": "8f8c82ca1aea2aba4aecebc3fcf6bbbc222db2ac5415ff2c3fb871c42c566c81"
+    },
+    {
+      "path": "evidence/parent-tree.json",
+      "bytes": 46584,
+      "sha256": "8ebc67ef43e741e3a031bef5f75ad6e309512124126efe76b5738171853313d3"
+    },
+    {
+      "path": "evidence/pre-output.json",
+      "bytes": 647,
+      "sha256": "b69e602d8567bbd3eef36f85d41065bb0990f6c934aa33dc06e0b24d477800c8"
+    },
+    {
+      "path": "evidence/run-mcp.mjs",
+      "bytes": 4509,
+      "sha256": "8e894cdca5a408701631931a61419fbd0dc3fbfd5e0c70daad0ed7905b7280ad"
+    },
+    {
+      "path": "evidence/source-mcp-001/ledger.json",
+      "bytes": 1444,
+      "sha256": "45f0671e8889809f8c4687713edccfb670ed9acc6575ef6d5a666a3c36b3018a"
+    },
+    {
+      "path": "evidence/source-mcp-001/result.json",
+      "bytes": 16709,
+      "sha256": "32c7446e73349ec7120b8cd1d409daf29f415b2e0debd36b1efcf11350049b9d"
+    },
+    {
+      "path": "evidence/source-mcp.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/source-mcp.stdout.txt",
+      "bytes": 56,
+      "sha256": "20b36dd01783f06adddf57d6573b96b3d59526ff413774dac7c0aadf07f33270"
+    },
+    {
+      "path": "evidence/source-transform.stderr.txt",
+      "bytes": 180,
+      "sha256": "ae1bbc7533360cf07383fc17816bd58fb19da825694432ca2517a369fc780d54"
+    },
+    {
+      "path": "evidence/source-transform.stdout.json",
+      "bytes": 6432,
+      "sha256": "dee4ae7312dbb69aad428339de07a0d8d4f1584a374ac68261b436c5965b11fb"
+    },
+    {
+      "path": "evidence/source.patch",
+      "bytes": 11108,
+      "sha256": "972248fd3639bcbf909ee690292ae5bd4f53eaa1a3e6cd914642a83838583e0e"
+    },
+    {
+      "path": "evidence/transform-source.mjs",
+      "bytes": 1448,
+      "sha256": "0d2e14d0ad12b7d0706cd6dc1805f25728150d0a345448b332692e24cc89d98c"
+    }
+  ],
+  "original_delivery": {
+    "files_verified": 3810,
+    "zip": {
+      "path": "original-delivery.zip",
+      "bytes": 5926307,
+      "sha256": "8623885ed4694c55b730d1b89015bb6791ef52caf9e64434fdfe725e228157c2"
+    },
+    "all_bytes_preserved": true
+  },
+  "qualification": {
+    "node": "24.19.0",
+    "compiler": "not available; no tsc/typecheck claim",
+    "transform": "built-in module.stripTypeScriptTypes mode=transform, original emitted-runtime and transformed-parent consumer equivalence checked",
+    "focused_tests": 21,
+    "new_order_tests": 5,
+    "actual_stdin_courses": 3,
+    "list_transactions_calls_per_course": 11,
+    "sdk": "exact original delivered runtime; unchanged",
+    "default_responses": "original/candidate same full MCP content in six selected controls",
+    "claims_excluded": [
+      "real household data",
+      "installed service or deployment",
+      "provider access",
+      "TypeScript strict compilation",
+      "owner branch adoption"
+    ]
+  },
+  "requested_review": "Four-source diff; novel actual core or SDK stdin ordering/filter/pagination/tie/refusal journey; no broad suite or original 33-call repeat required."
+}

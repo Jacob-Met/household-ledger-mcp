@@ -59,6 +59,8 @@ export interface ListTransactionsFilter {
   category?: string;
   from?: string; // YYYY-MM-DD inclusive
   to?: string; // YYYY-MM-DD inclusive
+  /** Calendar-date direction; equal dates retain their saved-array order. */
+  order?: "newest" | "oldest";
   limit?: number;
   offset?: number;
 }
@@ -285,13 +287,14 @@ export function recordTransaction(data: LedgerData, input: RecordTransactionInpu
 }
 
 export function listTransactions(data: LedgerData, filter: ListTransactionsFilter = {}): { total: number; transactions: Transaction[] } {
-  const { type, category, from, to, limit = 50, offset = 0 } = filter;
+  const { type, category, from, to, order = "newest", limit = 50, offset = 0 } = filter;
   assert(limit === undefined || (Number.isInteger(limit) && limit >= 0 && limit <= 1000), "limit must be an integer 0..1000");
   assert(offset === undefined || (Number.isInteger(offset) && offset >= 0), "offset must be a non-negative integer");
   const fromD = from === undefined ? undefined : validateDate(from);
   const toD = to === undefined ? undefined : validateDate(to);
   assert(fromD === undefined || toD === undefined || fromD <= toD, "from must be on or before to");
   if (type !== undefined) assert(type === "income" || type === "expense", "type must be income|expense");
+  assert(order === "newest" || order === "oldest", "order must be newest|oldest");
   const matched = data.transactions.filter(
     (t) =>
       (type === undefined || t.type === type) &&
@@ -299,7 +302,8 @@ export function listTransactions(data: LedgerData, filter: ListTransactionsFilte
       (fromD === undefined || t.date >= fromD) &&
       (toD === undefined || t.date <= toD)
   );
-  matched.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+  const direction = order === "oldest" ? -1 : 1;
+  matched.sort((a, b) => (a.date < b.date ? direction : a.date > b.date ? -direction : 0));
   return { total: matched.length, transactions: matched.slice(offset, offset + limit) };
 }
 
