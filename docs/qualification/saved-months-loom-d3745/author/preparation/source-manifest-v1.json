@@ -1,0 +1,55 @@
+{
+  "commit": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "tree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+  "files": [
+    {
+      "path": "src/ledger.ts",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "git_blob": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+      "mode": 420
+    },
+    {
+      "path": "src/index.ts",
+      "bytes": 11639,
+      "sha256": "9c24685b217041d820ae8050519e74d2a1430099c219a66f11079894c792943d",
+      "git_blob": "4df804650663542d0d014a925bc68241493ae517",
+      "mode": 420
+    },
+    {
+      "path": "README.md",
+      "bytes": 6704,
+      "sha256": "d7675b4f5d20bcb6a031cc39a71576bb3a44c576bbc0fdb1945e94dd4c7773fd",
+      "git_blob": "c531794d60442954a836db32c6fdafab5e08ba0e",
+      "mode": 420
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb",
+      "git_blob": "edb188254288b40f2895833e3647b7e0be34c962",
+      "mode": 420
+    },
+    {
+      "path": "package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+      "mode": 420
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72",
+      "git_blob": "22a92039fc845256859c3b4921063f3a16a0ae3e",
+      "mode": 420
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 425,
+      "sha256": "3b981eb9f20a37124b8aeb97626e8a8230db5cd5eb8fcdba2bee1e8fdb6fa5eb",
+      "git_blob": "39325b079fb40b0587ec231eeb3328f52e7ece74",
+      "mode": 420
+    }
+  ]
+}

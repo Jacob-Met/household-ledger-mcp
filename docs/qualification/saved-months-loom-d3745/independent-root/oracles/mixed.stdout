@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "kind": "household.saved-months",
+  "source": {
+    "path": "fixtures/mixed.json",
+    "bytes": 1611,
+    "sha256": "d85924139e0bc9b08a7d75e0fddf0b0bb99b3e57ca9ec99e4a583bf10d17dff0"
+  },
+  "counts": {
+    "transactions": 7,
+    "budgets": 6,
+    "months": 7
+  },
+  "months": [
+    {
+      "month": "0000-01",
+      "summary_supported": false,
+      "transaction_count": 0,
+      "budget_count": 1,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "GBP",
+          "transaction_count": 0,
+          "income_count": 0,
+          "expense_count": 0,
+          "budget_count": 1
+        }
+      ]
+    },
+    {
+      "month": "0100-02",
+      "summary_supported": false,
+      "transaction_count": 1,
+      "budget_count": 0,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "JPY",
+          "transaction_count": 1,
+          "income_count": 0,
+          "expense_count": 1,
+          "budget_count": 0
+        }
+      ]
+    },
+    {
+      "month": "1969-12",
+      "summary_supported": false,
+      "transaction_count": 1,
+      "budget_count": 0,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "GBP",
+          "transaction_count": 1,
+          "income_count": 1,
+          "expense_count": 0,
+          "budget_count": 0
+        }
+      ]
+    },
+    {
+      "month": "1970-01",
+      "summary_supported": true,
+      "transaction_count": 1,
+      "budget_count": 0,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "USD",
+          "transaction_count": 1,
+          "income_count": 0,
+          "expense_count": 1,
+          "budget_count": 0
+        }
+      ]
+    },
+    {
+      "month": "2026-01",
+      "summary_supported": true,
+      "transaction_count": 1,
+      "budget_count": 1,
+      "unassigned_budget_count": 1,
+      "currencies": [
+        {
+          "currency": "USD",
+          "transaction_count": 1,
+          "income_count": 1,
+          "expense_count": 0,
+          "budget_count": 0
+        }
+      ]
+    },
+    {
+      "month": "2026-03",
+      "summary_supported": true,
+      "transaction_count": 3,
+      "budget_count": 2,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "EUR",
+          "transaction_count": 1,
+          "income_count": 0,
+          "expense_count": 1,
+          "budget_count": 1
+        },
+        {
+          "currency": "USD",
+          "transaction_count": 2,
+          "income_count": 1,
+          "expense_count": 1,
+          "budget_count": 1
+        }
+      ]
+    },
+    {
+      "month": "9999-12",
+      "summary_supported": true,
+      "transaction_count": 0,
+      "budget_count": 2,
+      "unassigned_budget_count": 2,
+      "currencies": []
+    }
+  ],
+  "notice": "Recorded month keys from this saved ledger only. Counts describe saved row occurrences, not unique purchases or account completeness. Currency groups do not convert or total amounts. Legacy unassigned budgets retain no currency. Discovery does not imply that an existing monthly summary will accept the selected ledger and currency."
+}

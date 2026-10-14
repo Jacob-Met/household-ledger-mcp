@@ -1,0 +1,9 @@
+{
+  "schema": "hamon.loom.household-months-public-freeze.v1",
+  "frozen_at": "2026-10-13T23:53:57.834376+00:00",
+  "candidate_exists": false,
+  "path": "loom-household-months/preparation/public-contract-v1.md",
+  "bytes": 7454,
+  "sha256": "7784215831a4a1fbad3ff73c80273cb74038802f5f5e102fe4b184c590651dac",
+  "git_blob": "13ced38ba385f12d8f9c7261371238564420c6c8"
+}

@@ -1,0 +1,19 @@
+✔ complete mixed months count occurrences, sort keys and retain legacy budget-only rows (6.686762ms)
+✔ empty ledger remains empty and calendar flag boundaries do not promise summary admission (2.363276ms)
+✔ unchanged native validation admits the whole ledger before any projection or row cap (277.767633ms)
+✔ exact combined row cap includes budget occurrences (697.956874ms)
+✔ actual CLI emits exact JSON provenance and preserves input and unrelated sentinel (242.9336ms)
+✔ usage and help are admitted before opening an input (2937.066234ms)
+✔ missing and nonregular inputs refuse; an ordinary file symlink retains its selector (644.015132ms)
+✔ UTF-8, JSON and excluded neighboring data failures produce no partial list (2568.735705ms)
+✔ 16 MiB complete input is admitted and one extra byte refuses (4380.921118ms)
+✔ failed stdout sink exits two without changing the selected input (380.514815ms)
+✔ an explicit discovered eligible month can be consumed by the unchanged monthly summary (1.491615ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12456.179038

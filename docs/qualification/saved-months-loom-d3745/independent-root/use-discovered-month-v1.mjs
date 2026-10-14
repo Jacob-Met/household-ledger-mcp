@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import {pathToFileURL} from 'node:url';
+const [nativePath,discoveryPath,ledgerPath]=process.argv.slice(2);
+const discovery=JSON.parse(fs.readFileSync(discoveryPath,'utf8'));
+const selected=discovery.months.find(row=>row.month==='2026-01');
+if(!selected||selected.summary_supported!==true)throw new Error('eligible discovered month absent');
+const group=selected.currencies.find(row=>row.currency==='USD');
+if(!group)throw new Error('discovered currency absent');
+const native=await import(pathToFileURL(nativePath).href);
+const data=native.validateLedgerData(JSON.parse(fs.readFileSync(ledgerPath,'utf8')));
+const result=native.monthlySummary(data,Number(selected.month.slice(0,4)),Number(selected.month.slice(5,7)),group.currency);
+process.stdout.write(JSON.stringify(result)+'\n');

@@ -1,0 +1,89 @@
+{
+  "root": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate",
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 425,
+      "sha256": "3b981eb9f20a37124b8aeb97626e8a8230db5cd5eb8fcdba2bee1e8fdb6fa5eb",
+      "mode": 420,
+      "git_blob": "39325b079fb40b0587ec231eeb3328f52e7ece74"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb",
+      "mode": 420,
+      "git_blob": "edb188254288b40f2895833e3647b7e0be34c962"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6704,
+      "sha256": "d7675b4f5d20bcb6a031cc39a71576bb3a44c576bbc0fdb1945e94dd4c7773fd",
+      "mode": 420,
+      "git_blob": "c531794d60442954a836db32c6fdafab5e08ba0e"
+    },
+    {
+      "path": "dist/src/ledger.js",
+      "bytes": 14747,
+      "sha256": "29d87ee17e95ca795a1fa0a06e8658a24f20159af0275d8a7316fea7590e3e3c",
+      "mode": 420,
+      "git_blob": "d2236d7338a0baa324cb0fe1b26e3321e57919aa"
+    },
+    {
+      "path": "docs/LEDGER_MONTHS.md",
+      "bytes": 5343,
+      "sha256": "1e0e20bef7fcafead1fac0e894d234daa3923f890f346be875fcdb7e3ae12a7d",
+      "mode": 420,
+      "git_blob": "a8af063f3bad1366a45ee102b12ac96114089b5e"
+    },
+    {
+      "path": "package.json",
+      "bytes": 703,
+      "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+      "mode": 420,
+      "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63"
+    },
+    {
+      "path": "src/index.ts",
+      "bytes": 11639,
+      "sha256": "9c24685b217041d820ae8050519e74d2a1430099c219a66f11079894c792943d",
+      "mode": 420,
+      "git_blob": "4df804650663542d0d014a925bc68241493ae517"
+    },
+    {
+      "path": "src/ledger.ts",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "mode": 420,
+      "git_blob": "2ff8133404f19c705eb7b7f0a943e8190f3328d6"
+    },
+    {
+      "path": "test/ledger-months.test.mjs",
+      "bytes": 9920,
+      "sha256": "e53e8c49162bd5db74d167ceac6da289e0c284b46db4d35f479d9ca8d272583f",
+      "mode": 420,
+      "git_blob": "88341b0c761f605ec980a4b024f9db2e8ade05c6"
+    },
+    {
+      "path": "tools/household-months.mjs",
+      "bytes": 2806,
+      "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56",
+      "mode": 420,
+      "git_blob": "e0cea0970f42f70d48f507c75a232d6e4c03dcc2"
+    },
+    {
+      "path": "tools/lib/ledger-months.mjs",
+      "bytes": 2529,
+      "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01",
+      "mode": 420,
+      "git_blob": "0efd7c6758e93660434a1532742a438f59f5cec9"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 329,
+      "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72",
+      "mode": 420,
+      "git_blob": "22a92039fc845256859c3b4921063f3a16a0ae3e"
+    }
+  ]
+}

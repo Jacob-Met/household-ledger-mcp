@@ -1,0 +1,203 @@
+{
+  "schema": "hamon.root.household-months.executable-freeze.v2",
+  "candidate_exposure": "Candidate and authorfixtures/results remain unseen; publiccontract/originalnative only.",
+  "prior_freeze_sha256": "99fd1bfde117406f91b67f176d94cb39c385050d00484388f152a7fdf71469cc",
+  "inputs": {
+    "/workspace/scratch/d3745ea0f44f/root-household-months/cases-v1.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200753465954,
+      "kind": "file",
+      "bytes": 2155,
+      "sha256": "90993b147807f2fcabe5cfa7b3ea9f3a8683c446c91e0632d5e34967782d9ef2"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/controller-addendum-v2.md": {
+      "mode": 420,
+      "mtime_ns": 1791936575019664007,
+      "kind": "file",
+      "bytes": 606,
+      "sha256": "56a1644a9b942df5a19dd4b109c162cd926146672cf33cc86038cba560b607c0"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/controller-v1-to-v2.patch": {
+      "mode": 420,
+      "mtime_ns": 1791936575058736871,
+      "kind": "file",
+      "bytes": 5049,
+      "sha256": "e5bcac1169fb3c0d6d521ad771cfefe1e4ab506ad435ae93371741cba4fc4291"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/criteria-v1.md": {
+      "mode": 420,
+      "mtime_ns": 1791936200223411903,
+      "kind": "file",
+      "bytes": 2417,
+      "sha256": "8401360125b8264fb5c0cef6af82dc1d8c22db4779fe07cea90526359f79d51f"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/byte-limit.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200480097844,
+      "kind": "file",
+      "bytes": 16777216,
+      "sha256": "b6310ef230649d2aaff17b46d0cb901b7f9088f976c197fecdd7f98ff1054a0d"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/byte-over.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200551714588,
+      "kind": "file",
+      "bytes": 16777217,
+      "sha256": "97cb69652191741ef3a405e306a04d43b0ed6c21cd49f0b551ff09005f34775f"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/empty.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200444675972,
+      "kind": "file",
+      "bytes": 45,
+      "sha256": "edc198eedcfa4ad828046f6d3691e3c862ca33f1b602d61ec06067afd3de5dad"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/late-invalid.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200446200297,
+      "kind": "file",
+      "bytes": 1778,
+      "sha256": "08e1af72a85a72eff62d928f83bd6a62528d7e4dab557180c7fcb1ae4006267b"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/legacy-denomination.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200446985320,
+      "kind": "file",
+      "bytes": 116,
+      "sha256": "c16467e50413b291e604e8c04169dd644a2874f072c927f4038cf339ea9391df"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/mixed.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200442154981,
+      "kind": "file",
+      "bytes": 1611,
+      "sha256": "d85924139e0bc9b08a7d75e0fddf0b0bb99b3e57ca9ec99e4a583bf10d17dff0"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/row-limit.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200643706886,
+      "kind": "file",
+      "bytes": 5500044,
+      "sha256": "1b8420235f5b4aba3380abf68cb145f3b42c7420b895b23b1df940f5bb8bf58c"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/row-over.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200739387244,
+      "kind": "file",
+      "bytes": 5500099,
+      "sha256": "cc0d6a3c2a4098c74396f91337a8fb2ffabc790dbb093e834fbe56e8871eb705"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/symlink.json": {
+      "mode": 511,
+      "mtime_ns": 1791936200442980638,
+      "kind": "link",
+      "target": "mixed.json"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/utf8.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200447454190,
+      "kind": "file",
+      "bytes": 52,
+      "sha256": "52e7719297f55937becab4f85390af9a0346fac8439e67ac9ca61662e13818b8"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/freeze-v1.json": {
+      "mode": 420,
+      "mtime_ns": 1791936406435250161,
+      "kind": "file",
+      "bytes": 6933,
+      "sha256": "99fd1bfde117406f91b67f176d94cb39c385050d00484388f152a7fdf71469cc"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/native-ledger.ts": {
+      "mode": 420,
+      "mtime_ns": 1791935898529872189,
+      "kind": "file",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/byte-limit.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200527397375,
+      "kind": "file",
+      "bytes": 665,
+      "sha256": "f2232a6b515b71f4e491575653aa0ee85a424315dcb3edc607a79ed8fd709b91"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/empty.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200445664750,
+      "kind": "file",
+      "bytes": 654,
+      "sha256": "e6a2887f736e5c3394824de9566dcdc870a8bf876eb184baadbeb45872bf6732"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/mixed.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200442980638,
+      "kind": "file",
+      "bytes": 3196,
+      "sha256": "ff38379639db4bc84e0710c83ad3d6e9b1562d7b5a20d8fca2b065978313877c"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/native-monthly.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200752825900,
+      "kind": "file",
+      "bytes": 247,
+      "sha256": "5e75f1a8a2d7cc05882f90fcd5c68dc3ff4d3289c65984284239d2884cc300da"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/row-limit.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200663390876,
+      "kind": "file",
+      "bytes": 866,
+      "sha256": "d471208bff15edc29618f0b3d1567aca6809ba58cf1f4b59a2acd64dc0b70ab0"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/symlink.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200444126787,
+      "kind": "file",
+      "bytes": 3198,
+      "sha256": "aed0411a3639d96c5743eb465816acf8419e337a250749053d104ae35f85a65c"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/prepare-oracles-v1.py": {
+      "mode": 420,
+      "mtime_ns": 1791936200023421460,
+      "kind": "file",
+      "bytes": 4808,
+      "sha256": "6a2bbfa2e64688a8992fac6823772a0546053b3f92e300ac88fe18111a600c34"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/receive-v1.py": {
+      "mode": 420,
+      "mtime_ns": 1791936405993613360,
+      "kind": "file",
+      "bytes": 6731,
+      "sha256": "026d75b28e153c0639e1501a5e51555d2b466d6779178afd16f0df926f88f2f9"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/receive-v2.py": {
+      "mode": 420,
+      "mtime_ns": 1791936575018507595,
+      "kind": "file",
+      "bytes": 8146,
+      "sha256": "5586e43745cb54f3a825918a2e26d77115eb42e6641f44deabe17bb4c369d0db"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/sentinel.txt": {
+      "mode": 420,
+      "mtime_ns": 1791936200752278146,
+      "kind": "file",
+      "bytes": 38,
+      "sha256": "b85ff2c8773e860516d74e200ee8372bb3e54b3c4923fe3d47d2be17b2c91e94"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/transform-native-v1.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791936405657629346,
+      "kind": "file",
+      "bytes": 375,
+      "sha256": "2819b71fba547becf07d19f0d49a637dd7c07d837b2a79c3dba2d3510baebac7"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/use-discovered-month-v1.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791936405801622495,
+      "kind": "file",
+      "bytes": 810,
+      "sha256": "b8ad6f9ee2d53751a5d199ec1034207dd9fd6809783432378e07202e27cac330"
+    }
+  },
+  "scope": "Same12CLI/one nativeconsumer; two pre-execution controller-only fixes. No expanded product cases."
+}

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "transactions": [
+    {
+      "id": "income",
+      "type": "income",
+      "amountMinor": 1000,
+      "currency": "USD",
+      "date": "2026-06-01",
+      "category": "Work",
+      "note": "Authored Unicode café 雪; no real account",
+      "createdAt": "retained raw label"
+    },
+    {
+      "id": "expense",
+      "type": "expense",
+      "amountMinor": 250,
+      "currency": "USD",
+      "date": "2026-06-02",
+      "category": "Food",
+      "note": "Authored Unicode café 雪; no real account",
+      "createdAt": "retained raw label"
+    }
+  ],
+  "budgets": [
+    {
+      "category": "Food",
+      "month": "2026-06",
+      "limitMinor": 300
+    }
+  ]
+}

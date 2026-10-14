@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "kind": "household.saved-months",
+  "source": {
+    "path": "fixtures/row-limit.json",
+    "bytes": 5500044,
+    "sha256": "1b8420235f5b4aba3380abf68cb145f3b42c7420b895b23b1df940f5bb8bf58c"
+  },
+  "counts": {
+    "transactions": 0,
+    "budgets": 100000,
+    "months": 1
+  },
+  "months": [
+    {
+      "month": "2026-05",
+      "summary_supported": true,
+      "transaction_count": 0,
+      "budget_count": 100000,
+      "unassigned_budget_count": 100000,
+      "currencies": []
+    }
+  ],
+  "notice": "Recorded month keys from this saved ledger only. Counts describe saved row occurrences, not unique purchases or account completeness. Currency groups do not convert or total amounts. Legacy unassigned budgets retain no currency. Discovery does not imply that an existing monthly summary will accept the selected ledger and currency."
+}

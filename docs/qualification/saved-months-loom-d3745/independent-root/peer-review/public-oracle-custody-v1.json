@@ -1,0 +1,166 @@
+{
+  "schema": "hamon.anvil.household-months.public-oracle-custody.v1",
+  "candidate_exposed": false,
+  "product_execution": false,
+  "source": "Full public contract and unchanged native ledger only; no candidate source or author tests inspected.",
+  "files": [
+    {
+      "path": "root-household-months/native-ledger.ts",
+      "kind": "regular",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/criteria-v1.md",
+      "kind": "regular",
+      "bytes": 2417,
+      "sha256": "8401360125b8264fb5c0cef6af82dc1d8c22db4779fe07cea90526359f79d51f",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/prepare-oracles-v1.py",
+      "kind": "regular",
+      "bytes": 4808,
+      "sha256": "6a2bbfa2e64688a8992fac6823772a0546053b3f92e300ac88fe18111a600c34",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/cases-v1.json",
+      "kind": "regular",
+      "bytes": 2155,
+      "sha256": "90993b147807f2fcabe5cfa7b3ea9f3a8683c446c91e0632d5e34967782d9ef2",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/oracles/byte-limit.stdout",
+      "kind": "regular",
+      "bytes": 665,
+      "sha256": "f2232a6b515b71f4e491575653aa0ee85a424315dcb3edc607a79ed8fd709b91",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/oracles/empty.stdout",
+      "kind": "regular",
+      "bytes": 654,
+      "sha256": "e6a2887f736e5c3394824de9566dcdc870a8bf876eb184baadbeb45872bf6732",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/oracles/mixed.stdout",
+      "kind": "regular",
+      "bytes": 3196,
+      "sha256": "ff38379639db4bc84e0710c83ad3d6e9b1562d7b5a20d8fca2b065978313877c",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/oracles/native-monthly.stdout",
+      "kind": "regular",
+      "bytes": 247,
+      "sha256": "5e75f1a8a2d7cc05882f90fcd5c68dc3ff4d3289c65984284239d2884cc300da",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/oracles/row-limit.stdout",
+      "kind": "regular",
+      "bytes": 866,
+      "sha256": "d471208bff15edc29618f0b3d1567aca6809ba58cf1f4b59a2acd64dc0b70ab0",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/oracles/symlink.stdout",
+      "kind": "regular",
+      "bytes": 3198,
+      "sha256": "aed0411a3639d96c5743eb465816acf8419e337a250749053d104ae35f85a65c",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/fixtures/byte-limit.json",
+      "kind": "regular",
+      "bytes": 16777216,
+      "sha256": "b6310ef230649d2aaff17b46d0cb901b7f9088f976c197fecdd7f98ff1054a0d",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/fixtures/byte-over.json",
+      "kind": "regular",
+      "bytes": 16777217,
+      "sha256": "97cb69652191741ef3a405e306a04d43b0ed6c21cd49f0b551ff09005f34775f",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/fixtures/empty.json",
+      "kind": "regular",
+      "bytes": 45,
+      "sha256": "edc198eedcfa4ad828046f6d3691e3c862ca33f1b602d61ec06067afd3de5dad",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/fixtures/late-invalid.json",
+      "kind": "regular",
+      "bytes": 1778,
+      "sha256": "08e1af72a85a72eff62d928f83bd6a62528d7e4dab557180c7fcb1ae4006267b",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/fixtures/legacy-denomination.json",
+      "kind": "regular",
+      "bytes": 116,
+      "sha256": "c16467e50413b291e604e8c04169dd644a2874f072c927f4038cf339ea9391df",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/fixtures/mixed.json",
+      "kind": "regular",
+      "bytes": 1611,
+      "sha256": "d85924139e0bc9b08a7d75e0fddf0b0bb99b3e57ca9ec99e4a583bf10d17dff0",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/fixtures/row-limit.json",
+      "kind": "regular",
+      "bytes": 5500044,
+      "sha256": "1b8420235f5b4aba3380abf68cb145f3b42c7420b895b23b1df940f5bb8bf58c",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/fixtures/row-over.json",
+      "kind": "regular",
+      "bytes": 5500099,
+      "sha256": "cc0d6a3c2a4098c74396f91337a8fb2ffabc790dbb093e834fbe56e8871eb705",
+      "mode": "0o644"
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/mixed.json",
+      "selected_path": "root-household-months/fixtures/symlink.json",
+      "kind": "symlink",
+      "target": "mixed.json",
+      "mode": "0o777"
+    },
+    {
+      "path": "root-household-months/fixtures/utf8.json",
+      "kind": "regular",
+      "bytes": 52,
+      "sha256": "52e7719297f55937becab4f85390af9a0346fac8439e67ac9ca61662e13818b8",
+      "mode": "0o644"
+    },
+    {
+      "path": "root-household-months/sentinel.txt",
+      "kind": "regular",
+      "bytes": 38,
+      "sha256": "b85ff2c8773e860516d74e200ee8372bb3e54b3c4923fe3d47d2be17b2c91e94",
+      "mode": "0o644"
+    }
+  ],
+  "checks": {
+    "five_success_oracles_exact_serialization_and_raw_provenance": true,
+    "actual_16MiB_plus1_boundary": true,
+    "actual_100000_plus1_row_boundary": true,
+    "manual_mixed_and_native_monthly_oracles_reviewed": true
+  },
+  "scope_limits": [
+    "No claim of candidate acceptance yet.",
+    "Unknown argument combined with missing input checks bounded exit2/no stdout, not proof of admission order.",
+    "This bounded12-case course does not receive every help/duplicate-argument/stdout-failure/nonregular surface; no expanded campaign requested."
+  ]
+}

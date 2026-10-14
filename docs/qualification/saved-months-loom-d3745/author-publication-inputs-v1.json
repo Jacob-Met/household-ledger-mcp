@@ -1,0 +1,210 @@
+{
+  "schema": "hamon.loom.household-months-author-publication.v1",
+  "prefix": "docs/qualification/saved-months-loom-d3745/author/",
+  "files": [
+    {
+      "path": "preparation/public-contract-v1.md",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/preparation/public-contract-v1.md",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 7454,
+      "sha256": "7784215831a4a1fbad3ff73c80273cb74038802f5f5e102fe4b184c590651dac"
+    },
+    {
+      "path": "preparation/public-freeze-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/preparation/public-freeze-v1.json",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 367,
+      "sha256": "ae14e65af2507848019d793f7f839953a473d8573cb231da1c6838516295a0c2"
+    },
+    {
+      "path": "preparation/source-manifest-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/preparation/source-manifest-v1.json",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 1731,
+      "sha256": "25b61fcc4ea39cf3f893a56330c435c1afc226b8feaaeff5ce6580e3d4de8b91"
+    },
+    {
+      "path": "preparation/original-witness-v1.py",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/preparation/original-witness-v1.py",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 3952,
+      "sha256": "68458aad7eb14b12506771a80b51c84778ccd7e482d6c88080f48f3aa39879ec"
+    },
+    {
+      "path": "preparation/transform-native-ledger-v1.mjs",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/preparation/transform-native-ledger-v1.mjs",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 1361,
+      "sha256": "e9f8ba729636b314364f433211f6c9bb90339ce8d94f6c5f01b3673c58f39fc0"
+    },
+    {
+      "path": "preparation/qualify-author-v1.py",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/preparation/qualify-author-v1.py",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 3345,
+      "sha256": "3487439cf3732669fee967e1840062d1a5127b1fbed46954f9c0c4191f092ea7"
+    },
+    {
+      "path": "original-observation-v1/receipt.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/original-observation-v1/receipt.json",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 4355,
+      "sha256": "3ed570a9d7360d9f96222c6dd7854f45c567fbfc076d7d9129daa87b41ab9026"
+    },
+    {
+      "path": "original-observation-v1/stdout.txt",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/original-observation-v1/stdout.txt",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "original-observation-v1/stderr.txt",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/original-observation-v1/stderr.txt",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 804,
+      "sha256": "e5e859b712d19319a104aafb8ff9c833fccd0f8c40302cff117941c689e7d922"
+    },
+    {
+      "path": "fixtures-v1/mixed-ledger.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/fixtures-v1/mixed-ledger.json",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 1618,
+      "sha256": "0111f5e7a277746fc421570b9d31f6747adfcaaaff81dcbb47bd4bff9f3378b0"
+    },
+    {
+      "path": "fixtures-v1/compatible-ledger.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/fixtures-v1/compatible-ledger.json",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 684,
+      "sha256": "3207abcd6883398051a70b252bae328b6bec81a7c25c88d276c53049d1e73b3c"
+    },
+    {
+      "path": "fixtures-v1/sentinel.txt",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/fixtures-v1/sentinel.txt",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 30,
+      "sha256": "7ce8908f4d57d0f16c11b0e6d218eb91e2e900c073872fa5f36aa5bff227a3fa"
+    },
+    {
+      "path": "candidate-receiving-manifest-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate-receiving-manifest-v1.json",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 2898,
+      "sha256": "a3135010c9d30495f7f2891a7b3644a625e51ed23df81e78ccb4d1df95faa5fd"
+    },
+    {
+      "path": "candidate-five-path-offer-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate-five-path-offer-v1.json",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 1464,
+      "sha256": "7b14f3fce93eec795de8855d29f5cb7258b61710b1d8cc8d440161246908e31a"
+    },
+    {
+      "path": "candidate-freeze-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate-freeze-v1.json",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 1789,
+      "sha256": "7515546199decab100c2cccc9d04d544cbaf102c83d74c77b0a394963b9bac6e"
+    },
+    {
+      "path": "author-v1/README.md",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/README.md",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 3480,
+      "sha256": "592240b9a233218b7dd27b00e9108f4d744044cca0a2526c8fecbbb3487f33db"
+    },
+    {
+      "path": "author-v1/source-freeze.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/source-freeze.json",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 3816,
+      "sha256": "6dcaea2712b91d0403f6e66a5a97e7eb8425c2ee5b21bceddbb97363e867404e"
+    },
+    {
+      "path": "author-v1/transform.stdout",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/transform.stdout",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 540,
+      "sha256": "aa20b6b3aee22920791a2d4d7dac3b2daa7d67becbc8b1c4deb75b5737fcfb2c"
+    },
+    {
+      "path": "author-v1/transform.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/transform.stderr",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 179,
+      "sha256": "58b48f972129947fff715a80102df723ff4398934ef2760944f855bf71a9fe3a"
+    },
+    {
+      "path": "author-v1/focused-tests.stdout",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/focused-tests.stdout",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 1140,
+      "sha256": "f5cc82cceee5addfebd131603d747159f902fb20643623c81837bf529b488bd8"
+    },
+    {
+      "path": "author-v1/focused-tests.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/focused-tests.stderr",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "author-v1/mixed-cli.stdout",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/mixed-cli.stdout",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 2170,
+      "sha256": "5d1a9e8d19d8903b444a9e5c1a402cc30a814aa8c4af442d2f419140877c38e9"
+    },
+    {
+      "path": "author-v1/mixed-cli.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/mixed-cli.stderr",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "author-v1/receipt.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/receipt.json",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 9159,
+      "sha256": "6c7c0ca828c595b9e176ac1eefa20af8cc6085c4031570a89223586b4116b1f7"
+    },
+    {
+      "path": "author-v1/classification-review-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/classification-review-v1.json",
+      "mode": "100644",
+      "native_mode": 420,
+      "bytes": 1763,
+      "sha256": "62faf8439f24b4f3fcca85a81db8cce02d41dcd38359307354b1b970d6e5f9f0"
+    }
+  ],
+  "notes": [
+    "Exact original 25-row authority; raw false author controller retained with separate spec-reporter audit.",
+    "Product source is outside this evidence descriptor. Original-intake private Notion excerpts are intentionally not selected; public source-manifest supplies selected Git identities."
+  ]
+}
