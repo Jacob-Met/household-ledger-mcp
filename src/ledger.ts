@@ -314,6 +314,7 @@ export function setBudget(data: LedgerData, category: string, month: string, lim
   let existing: Budget | undefined;
   if (denomination === undefined) {
     assert(scope.every((b) => b.currency === undefined), "currency is required to update a denominated category budget");
+    assert(unassigned.length <= 1, "multiple unassigned budgets match this category and month; cannot choose a budget to update");
     existing = unassigned[0];
   } else if (unassigned.length > 0) {
     assert(replaceUnassigned, "budget has no assigned currency; supply replaceUnassigned: true with the intended currency and limit to replace it");
