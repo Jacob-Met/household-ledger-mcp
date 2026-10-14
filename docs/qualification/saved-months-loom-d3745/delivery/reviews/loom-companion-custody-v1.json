@@ -1,0 +1,45 @@
+{
+  "schema": "hamon.loom.household-companion-custody.v1",
+  "accepted": true,
+  "reviewed_utc": "2026-10-14T00:40:22.935175+00:00",
+  "archive": {
+    "path": "/workspace/scratch/d3745ea0f44f/root-household-months/delivery-v1/Household-Saved-Month-Finder-20261014.zip",
+    "bytes": 26757,
+    "sha256": "ab01744491a39e092c9d5e6b6f9333e666569caac9fa283b94d41e82741fea91",
+    "members": 14,
+    "manifest_payloads": 13,
+    "crc_clean": true
+  },
+  "runtime_files": [
+    "LICENSE",
+    "dist/src/ledger.js",
+    "dist/src/package.json",
+    "example/household.json",
+    "tools/household-months.mjs",
+    "tools/lib/ledger-months.mjs"
+  ],
+  "local_origin_payloads_exact": [
+    "LICENSE",
+    "dist/src/ledger.js",
+    "dist/src/package.json",
+    "evidence/build-companion-v1.py",
+    "evidence/independent-consumer-review.json",
+    "evidence/remote-source-verification.json",
+    "evidence/retained-consumer-receipt.json",
+    "example/discovered-months.json",
+    "example/household.json",
+    "tools/household-months.mjs",
+    "tools/lib/ledger-months.mjs"
+  ],
+  "local_links_resolve": [
+    "example/discovered-months.json",
+    "README.txt",
+    "evidence/retained-consumer-receipt.json",
+    "evidence/independent-consumer-review.json"
+  ],
+  "html_table_exact_to_complete_result": true,
+  "source_commit": "4d7b36118967a2076fdf642f99da462a8bb862c1",
+  "qualified_parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "opening_review": "Read complete README and HTML source. Extracted-root command, Node 24.19 qualification, explicit caller ledger, no npm/build prerequisite, read-only scope, output redirection caution, limits and stacked PR8/main separation are coherent. Six unchanged received runtime leaves and exact result/receipt are carried.",
+  "scope": "Memory-only complete archive/manifest/native byte/mode/CRC and opening review; no extraction, product execution, browser rendering or new platform qualification. Historical retained-consumer and Node-transform courses remain separate."
+}

@@ -1,0 +1,127 @@
+{
+  "schema": "anvil.household-months.retained-consumer-review.v1",
+  "reviewed_utc": "2026-10-14T00:33:23.497017+00:00",
+  "accepted": true,
+  "scope": "Read-only complete retained controller/receipt/ledger/manual-output/freeze/binding review and independent output/custody recomputation. No product command, import, summary, build, native service or browser replay.",
+  "receipt": {
+    "path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-v1/receipt.json",
+    "bytes": 19216,
+    "sha256": "ebcf6120ca68564f9603bd4f031791a85e34e5991e935b39c3fb00152f9e04ba",
+    "mode": 420
+  },
+  "binding": {
+    "path": "/workspace/scratch/d3745ea0f44f/loom-household-months/publication/retained-consumer-source-binding-v1.json",
+    "bytes": 815,
+    "sha256": "e6c25c6b3a5dca8d633bca0f79fc23035f5c985e74858ddb3bff698697662dcf",
+    "mode": 420
+  },
+  "source_commit": "4d7b36118967a2076fdf642f99da462a8bb862c1",
+  "checks_recomputed": 5,
+  "current_runtime_entries_exact": 11,
+  "current_runtime_files_exact": 6,
+  "current_original_controls_exact": 11,
+  "local_historical_git_body_bindings_exact": [
+    "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/README.md",
+    "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/manifest.json",
+    "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/original-runtime-body-custody.json",
+    "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/receipt.json",
+    "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/state/household.json",
+    "docs/receiving/complete-native-61749b-20261008/import-cashflow-supplement/run/emitted/ledger.js"
+  ],
+  "complete_expected_output": {
+    "bytes": 2455,
+    "sha256": "b89a3fc8a8d37489e77b4c05c696c10cf2158ba12fc0c6d72f2c69082c24668d",
+    "method": "Independent standard-library counting of the original saved ledger and exact pretty-JSON serialization from the public schema/notice; no candidate module imported or inspected for oracle construction."
+  },
+  "months": [
+    {
+      "month": "2026-01",
+      "summary_supported": true,
+      "transaction_count": 1,
+      "budget_count": 1,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "CHF",
+          "transaction_count": 1,
+          "income_count": 0,
+          "expense_count": 1,
+          "budget_count": 1
+        }
+      ]
+    },
+    {
+      "month": "2026-02",
+      "summary_supported": true,
+      "transaction_count": 4,
+      "budget_count": 2,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "EUR",
+          "transaction_count": 1,
+          "income_count": 0,
+          "expense_count": 1,
+          "budget_count": 1
+        },
+        {
+          "currency": "USD",
+          "transaction_count": 3,
+          "income_count": 1,
+          "expense_count": 2,
+          "budget_count": 1
+        }
+      ]
+    },
+    {
+      "month": "2026-03",
+      "summary_supported": true,
+      "transaction_count": 0,
+      "budget_count": 1,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "USD",
+          "transaction_count": 0,
+          "income_count": 0,
+          "expense_count": 0,
+          "budget_count": 1
+        }
+      ]
+    },
+    {
+      "month": "2026-04",
+      "summary_supported": true,
+      "transaction_count": 3,
+      "budget_count": 2,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "EUR",
+          "transaction_count": 1,
+          "income_count": 0,
+          "expense_count": 1,
+          "budget_count": 1
+        },
+        {
+          "currency": "USD",
+          "transaction_count": 2,
+          "income_count": 1,
+          "expense_count": 1,
+          "budget_count": 1
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "Original saved synthetic ledger is exact3314B, eight transactions/six budgets; JanuaryCHF, FebruaryEUR/USD, MarchUSD budget-only, AprilEUR/USD appear in literal ascending order. Counts are occurrences, not amounts or unique account events.",
+    "All five stored actual/expected pairs recompute true; complete2455B stdout equals both manually prepared original oracle and independently rebuilt public output; stderr empty and saved exit0.",
+    "All six received runtime files and five runtime directories match original freeze/current state. Eleven historical/control files and six original Git body identities match retained metadata.",
+    "Retained emitted ledger.js and example bytes are exactly the earlier received bodies; this one-course use is distinct from the separate Node24 TypeScript transformation qualification.",
+    "Expectation chronology is explicitly author-prepared after implementation/before invocation; this review does not relabel it candidate-blind execution."
+  ],
+  "limits": [
+    "Publication Git readback was independently done by root; this review checks local body identities and supplied binding, not a fresh remote tree.",
+    "No new execution or runtime performance/concurrency/persistence guarantees. Before/after custody is not a continuous filesystem monitor."
+  ]
+}

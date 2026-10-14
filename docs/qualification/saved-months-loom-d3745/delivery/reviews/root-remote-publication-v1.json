@@ -1,0 +1,14 @@
+{
+  "schema": "hamon.root.household-months.remote-publication.v1",
+  "accepted": true,
+  "commit": "4d7b36118967a2076fdf642f99da462a8bb862c1",
+  "tree": "66484fbc6d0c72378ca6722bc853002f3e010394",
+  "parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "complete_leaves": 211,
+  "all_four_source_bodies_exact": true,
+  "pr": "https://github.com/Jacob-Met/household-ledger-mcp/pull/40",
+  "draft": true,
+  "base_branch": "receiving/household-complete-61749b-20261008",
+  "actions_count": 0,
+  "scope": "Root fresh commit/parent/complete recursive tree/PR/source bodies/all-event Actions readback. All95 selected and116 inherited leaves equal independently prepared tree; existing ownership preserved."
+}

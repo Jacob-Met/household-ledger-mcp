@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "kind": "household.saved-months",
+  "source": {
+    "path": "example/household.json",
+    "bytes": 3314,
+    "sha256": "2ab7b89d53f1e055114793ac49420b9468878edc35e1260cd05f2b7f40f90dab"
+  },
+  "counts": {
+    "transactions": 8,
+    "budgets": 6,
+    "months": 4
+  },
+  "months": [
+    {
+      "month": "2026-01",
+      "summary_supported": true,
+      "transaction_count": 1,
+      "budget_count": 1,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "CHF",
+          "transaction_count": 1,
+          "income_count": 0,
+          "expense_count": 1,
+          "budget_count": 1
+        }
+      ]
+    },
+    {
+      "month": "2026-02",
+      "summary_supported": true,
+      "transaction_count": 4,
+      "budget_count": 2,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "EUR",
+          "transaction_count": 1,
+          "income_count": 0,
+          "expense_count": 1,
+          "budget_count": 1
+        },
+        {
+          "currency": "USD",
+          "transaction_count": 3,
+          "income_count": 1,
+          "expense_count": 2,
+          "budget_count": 1
+        }
+      ]
+    },
+    {
+      "month": "2026-03",
+      "summary_supported": true,
+      "transaction_count": 0,
+      "budget_count": 1,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "USD",
+          "transaction_count": 0,
+          "income_count": 0,
+          "expense_count": 0,
+          "budget_count": 1
+        }
+      ]
+    },
+    {
+      "month": "2026-04",
+      "summary_supported": true,
+      "transaction_count": 3,
+      "budget_count": 2,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "EUR",
+          "transaction_count": 1,
+          "income_count": 0,
+          "expense_count": 1,
+          "budget_count": 1
+        },
+        {
+          "currency": "USD",
+          "transaction_count": 2,
+          "income_count": 1,
+          "expense_count": 1,
+          "budget_count": 1
+        }
+      ]
+    }
+  ],
+  "notice": "Recorded month keys from this saved ledger only. Counts describe saved row occurrences, not unique purchases or account completeness. Currency groups do not convert or total amounts. Legacy unassigned budgets retain no currency. Discovery does not imply that an existing monthly summary will accept the selected ledger and currency."
+}

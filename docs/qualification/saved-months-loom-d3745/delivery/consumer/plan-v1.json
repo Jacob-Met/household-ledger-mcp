@@ -1,0 +1,66 @@
+{
+  "schema": "hamon.loom.household-retained-months-plan.v1",
+  "prepared_at": "2026-10-14T00:13:01.834117+00:00",
+  "status": "Prepared only; no product execution. Execute once only after accepted source is published and both new runtime bodies are remotely read back.",
+  "historical_source_commit": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "new_source_commit": "pending",
+  "runtime": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-runtime-v1",
+  "runtime_files": [
+    {
+      "path": "tools/household-months.mjs",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/tools/household-months.mjs",
+      "bytes": 2806,
+      "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56",
+      "mode": 420
+    },
+    {
+      "path": "tools/lib/ledger-months.mjs",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/tools/lib/ledger-months.mjs",
+      "bytes": 2529,
+      "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01",
+      "mode": 420
+    },
+    {
+      "path": "dist/src/ledger.js",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/original/run/emitted/ledger.js",
+      "bytes": 15664,
+      "sha256": "fce70e5857f70f7a9944a624d40bb76b031e2dcaefb61a0f7c59e957da0a8333",
+      "mode": 420
+    },
+    {
+      "path": "dist/src/package.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/original/run/emitted/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "mode": 420
+    },
+    {
+      "path": "example/household.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/original/run/state/household.json",
+      "bytes": 3314,
+      "sha256": "2ab7b89d53f1e055114793ac49420b9468878edc35e1260cd05f2b7f40f90dab",
+      "mode": 420
+    },
+    {
+      "path": "LICENSE",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/original/LICENSE",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb",
+      "mode": 420
+    }
+  ],
+  "command": [
+    "node",
+    "tools/household-months.mjs",
+    "--ledger",
+    "example/household.json"
+  ],
+  "expected_output": {
+    "bytes": 2455,
+    "sha256": "b89a3fc8a8d37489e77b4c05c696c10cf2158ba12fc0c6d72f2c69082c24668d",
+    "mode": 420
+  },
+  "expectation_provenance": "Manual full-object expectation from retained synthetic ledger after implementation; not independent candidate-blind acceptance.",
+  "consumer_value": "Find four recorded calendar months, including the March 2026 budget-only month; preserve occurrence/currency counts and all input bytes.",
+  "delivery": "Result and receiving receipt in established project Drive location, plus existing APP-HOUSEHOLD-001 opening guidance. No additional full MCP kit, service or installation."
+}
