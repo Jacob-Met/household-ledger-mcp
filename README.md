@@ -1,4 +1,4 @@
-﻿# Household Ledger MCP
+# Household Ledger MCP
 
 TypeScript service for recording household income and expenses, listing/filtering transactions, monthly summaries, and category budgets. It uses the official typed `@modelcontextprotocol/sdk` and implements **MCP 2025-11-25 over Streamable HTTP** at `/mcp`. Amounts are integer minor units; the data file is validated and atomically persisted as local JSON.
 
@@ -32,6 +32,8 @@ Call these tools through a connected MCP client. Dates use `YYYY-MM-DD`; budget 
 See [cashflow trend usage](docs/CASHFLOW_TREND.md) for interval selection, currency rules and the distinction between cumulative period net and an account balance.
 
 See [CSV transaction import](docs/TRANSACTION_IMPORT.md) for the required source columns, preview/review/commit flow and retry rules.
+
+For an existing saved ledger, [discover its recorded months](docs/LEDGER_MONTHS.md) with `node tools/household-months.mjs --ledger /path/to/ledger.json` after building. This offline read-only helper does not start the server or modify financial records.
 
 ### Separate limits for each currency
 

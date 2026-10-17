@@ -52,8 +52,10 @@ node --test test/ledger-months.test.mjs
 
 The test file covers literal month/currency/count output, empty and legacy data, complete validation, admission limits, real CLI provenance/refusal and a discovered month passed to the unchanged native monthly summary. The `/dev/full` output-failure control is platform-specific and skips where that device is unavailable. The file-symlink control requires ordinary symlink creation permission.
 
-## Source boundary
+## Maintenance scope
 
-This additive offer is based on complete qualified PR8 `591ab6f5a2d65bf596aeb707dbb635ee981ec926`. It adds only the helper, CLI, focused test and this guide. The maintained native validator and every prior Store/schema/MCP/package/workflow source remain unchanged. The repository's README-only main is a separate source state; do not infer that this command is installed or adopted from the proposal alone.
-
-Recorded author qualification uses Node 24's standard TypeScript transform of the exact original `src/ledger.ts` to supply its isolated emitted module. That scope does not claim a full TypeScript typecheck, the complete npm suite, an SDK/HTTP session, a native desktop installation or execution against real financial records. The ordinary build commands above remain the supported source workflow.
+The offline helper reuses the native ledger validator. It does not change Store,
+schema or MCP behavior. `npm test` runs both the compiled TypeScript suite and
+the focused saved-month tests after the ordinary full TypeScript build.
+Historical qualification archives describe their original source state; use the
+current source and CI checks to verify this implementation.
