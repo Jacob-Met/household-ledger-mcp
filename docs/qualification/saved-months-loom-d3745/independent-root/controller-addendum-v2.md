@@ -1,0 +1,3 @@
+# Pre-execution controller correction
+
+Original executable freeze v1 remains unchanged and unexecuted. Independent reviewer Anvil identified two receiver-only gaps before candidate exposure: retain the complete fixture namespace, including absence of missing.json, and terminate/reap the owned child group when wait is interrupted by an exception other than timeout. V2 adds these controls only; the twelve CLI cases, complete expected outputs, native consumer, argument vectors and ordinary timeout policy remain unchanged. No product execution or candidate body exposure occurred before this correction.

@@ -1,0 +1,274 @@
+TAP version 13
+# Subtest: real Streamable HTTP requests retain concurrent writes and deduplicate after process restart
+ok 1 - real Streamable HTTP requests retain concurrent writes and deduplicate after process restart
+  ---
+  duration_ms: 665.462148
+  type: 'test'
+  ...
+# Subtest: validation
+    # Subtest: accepts real calendar dates, rejects impossible ones
+    ok 1 - accepts real calendar dates, rejects impossible ones
+      ---
+      duration_ms: 1.249809
+      type: 'test'
+      ...
+    # Subtest: validates months as YYYY-MM
+    ok 2 - validates months as YYYY-MM
+      ---
+      duration_ms: 0.863469
+      type: 'test'
+      ...
+    # Subtest: rejects non-positive or fractional amounts
+    ok 3 - rejects non-positive or fractional amounts
+      ---
+      duration_ms: 0.74446
+      type: 'test'
+      ...
+    # Subtest: normalizes currency codes and rejects bad ones
+    ok 4 - normalizes currency codes and rejects bad ones
+      ---
+      duration_ms: 1.472975
+      type: 'test'
+      ...
+    # Subtest: rejects a corrupt ledger file on validate
+    ok 5 - rejects a corrupt ledger file on validate
+      ---
+      duration_ms: 0.369906
+      type: 'test'
+      ...
+    1..5
+ok 2 - validation
+  ---
+  duration_ms: 6.055224
+  type: 'suite'
+  ...
+# Subtest: transactions
+    # Subtest: lists newest-first with filters
+    ok 1 - lists newest-first with filters
+      ---
+      duration_ms: 0.806894
+      type: 'test'
+      ...
+    # Subtest: summarizes a month with per-category totals
+    ok 2 - summarizes a month with per-category totals
+      ---
+      duration_ms: 0.555916
+      type: 'test'
+      ...
+    1..2
+ok 3 - transactions
+  ---
+  duration_ms: 1.625465
+  type: 'suite'
+  ...
+# Subtest: budgets
+    # Subtest: tracks spend vs limit and flags overruns
+    ok 1 - tracks spend vs limit and flags overruns
+      ---
+      duration_ms: 1.189599
+      type: 'test'
+      ...
+    # Subtest: allows zero budgets and rejects negative limits
+    ok 2 - allows zero budgets and rejects negative limits
+      ---
+      duration_ms: 0.337848
+      type: 'test'
+      ...
+    1..2
+ok 4 - budgets
+  ---
+  duration_ms: 2.023253
+  type: 'suite'
+  ...
+# Subtest: persistence
+    # Subtest: round-trips through the data file and recovers empty for a missing file
+    ok 1 - round-trips through the data file and recovers empty for a missing file
+      ---
+      duration_ms: 48.339633
+      type: 'test'
+      ...
+    # Subtest: refuses to load a corrupted file
+    ok 2 - refuses to load a corrupted file
+      ---
+      duration_ms: 13.14802
+      type: 'test'
+      ...
+    1..2
+ok 5 - persistence
+  ---
+  duration_ms: 62.209568
+  type: 'suite'
+  ...
+# Subtest: mcp tools
+    # Subtest: exposes the five ledger tools
+    ok 1 - exposes the five ledger tools
+      ---
+      duration_ms: 71.737744
+      type: 'test'
+      ...
+    # Subtest: records, lists, summarizes, and budgets end to end
+    ok 2 - records, lists, summarizes, and budgets end to end
+      ---
+      duration_ms: 46.335099
+      type: 'test'
+      ...
+    # Subtest: returns isError for invalid input instead of throwing
+    ok 3 - returns isError for invalid input instead of throwing
+      ---
+      duration_ms: 12.614126
+      type: 'test'
+      ...
+    # Subtest: persists across separate tool calls
+    ok 4 - persists across separate tool calls
+      ---
+      duration_ms: 8.13375
+      type: 'test'
+      ...
+    1..4
+ok 6 - mcp tools
+  ---
+  duration_ms: 141.069532
+  type: 'suite'
+  ...
+# Subtest: HTTP receiving composition retains concurrent "__proto__" recordings, exact summary and restart retries
+ok 7 - HTTP receiving composition retains concurrent "__proto__" recordings, exact summary and restart retries
+  ---
+  duration_ms: 746.226839
+  type: 'test'
+  ...
+# Subtest: HTTP receiving composition retains concurrent "constructor" recordings, exact summary and restart retries
+ok 8 - HTTP receiving composition retains concurrent "constructor" recordings, exact summary and restart retries
+  ---
+  duration_ms: 615.213473
+  type: 'test'
+  ...
+# Subtest: HTTP receiving composition retains concurrent "toString" recordings, exact summary and restart retries
+ok 9 - HTTP receiving composition retains concurrent "toString" recordings, exact summary and restart retries
+  ---
+  duration_ms: 559.728861
+  type: 'test'
+  ...
+# Subtest: HTTP receiving composition retains concurrent "groceries" recordings, exact summary and restart retries
+ok 10 - HTTP receiving composition retains concurrent "groceries" recordings, exact summary and restart retries
+  ---
+  duration_ms: 548.283969
+  type: 'test'
+  ...
+# Subtest: native MCP concurrent transaction and budget writes retain every successful mutation
+ok 11 - native MCP concurrent transaction and budget writes retain every successful mutation
+  ---
+  duration_ms: 122.797799
+  type: 'test'
+  ...
+# Subtest: a retried MCP recording returns its persisted identity across a new receiver
+ok 12 - a retried MCP recording returns its persisted identity across a new receiver
+  ---
+  duration_ms: 16.684336
+  type: 'test'
+  ...
+# Subtest: concurrent copies of one idempotency key produce one record
+ok 13 - concurrent copies of one idempotency key produce one record
+  ---
+  duration_ms: 15.607057
+  type: 'test'
+  ...
+# Subtest: an existing key refuses changed input without altering stored bytes
+ok 14 - an existing key refuses changed input without altering stored bytes
+  ---
+  duration_ms: 11.675734
+  type: 'test'
+  ...
+# Subtest: unkeyed recordings remain independent and malformed keys do not write
+ok 15 - unkeyed recordings remain independent and malformed keys do not write
+  ---
+  duration_ms: 10.753418
+  type: 'test'
+  ...
+# Subtest: failed persistence releases the mutation queue and retry keeps the correct outcome
+ok 16 - failed persistence releases the mutation queue and retry keeps the correct outcome
+  ---
+  duration_ms: 9.796941
+  type: 'test'
+  ...
+# Subtest: an uncertain post-save response is recoverable using the original key
+ok 17 - an uncertain post-save response is recoverable using the original key
+  ---
+  duration_ms: 7.019264
+  type: 'test'
+  ...
+# Subtest: ledger validation refuses ambiguous or malformed persisted request keys
+ok 18 - ledger validation refuses ambiguous or malformed persisted request keys
+  ---
+  duration_ms: 17.132731
+  type: 'test'
+  ...
+# Subtest: request-key schema and runtime count Unicode characters consistently
+ok 19 - request-key schema and runtime count Unicode characters consistently
+  ---
+  duration_ms: 7.268519
+  type: 'test'
+  ...
+# Subtest: atomic snapshot refusal cleans up its own temporary file and can recover
+ok 20 - atomic snapshot refusal cleans up its own temporary file and can recover
+  ---
+  duration_ms: 3.362826
+  type: 'test'
+  ...
+# Subtest: monthly summary category names
+    # Subtest: preserves "__proto__" totals and budget status without changing inherited objects
+    ok 1 - preserves "__proto__" totals and budget status without changing inherited objects
+      ---
+      duration_ms: 4.293435
+      type: 'test'
+      ...
+    # Subtest: preserves "constructor" totals and budget status without changing inherited objects
+    ok 2 - preserves "constructor" totals and budget status without changing inherited objects
+      ---
+      duration_ms: 7.046566
+      type: 'test'
+      ...
+    # Subtest: preserves "toString" totals and budget status without changing inherited objects
+    ok 3 - preserves "toString" totals and budget status without changing inherited objects
+      ---
+      duration_ms: 0.376536
+      type: 'test'
+      ...
+    # Subtest: preserves "hasOwnProperty" totals and budget status without changing inherited objects
+    ok 4 - preserves "hasOwnProperty" totals and budget status without changing inherited objects
+      ---
+      duration_ms: 0.235895
+      type: 'test'
+      ...
+    # Subtest: preserves "groceries" totals and budget status without changing inherited objects
+    ok 5 - preserves "groceries" totals and budget status without changing inherited objects
+      ---
+      duration_ms: 0.668715
+      type: 'test'
+      ...
+    # Subtest: keeps reserved and ordinary categories separate and reports an unspent reserved-name budget as zero
+    ok 6 - keeps reserved and ordinary categories separate and reports an unspent reserved-name budget as zero
+      ---
+      duration_ms: 0.313371
+      type: 'test'
+      ...
+    # Subtest: returns the same reserved-category breakdown and over-budget result through the real MCP tool
+    ok 7 - returns the same reserved-category breakdown and over-budget result through the real MCP tool
+      ---
+      duration_ms: 69.06748
+      type: 'test'
+      ...
+    1..7
+ok 21 - monthly summary category names
+  ---
+  duration_ms: 84.174535
+  type: 'suite'
+  ...
+1..21
+# tests 37
+# suites 6
+# pass 37
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2833.527234

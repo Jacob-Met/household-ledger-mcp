@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "kind": "household.saved-months",
+  "source": {
+    "path": "fixtures/empty.json",
+    "bytes": 45,
+    "sha256": "edc198eedcfa4ad828046f6d3691e3c862ca33f1b602d61ec06067afd3de5dad"
+  },
+  "counts": {
+    "transactions": 0,
+    "budgets": 0,
+    "months": 0
+  },
+  "months": [],
+  "notice": "Recorded month keys from this saved ledger only. Counts describe saved row occurrences, not unique purchases or account completeness. Currency groups do not convert or total amounts. Legacy unassigned budgets retain no currency. Discovery does not imply that an existing monthly summary will accept the selected ledger and currency."
+}

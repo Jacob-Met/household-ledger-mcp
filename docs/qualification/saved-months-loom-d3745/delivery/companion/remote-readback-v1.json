@@ -1,0 +1,11 @@
+{
+  "schema": "hamon.root.household-companion.remote-readback.v1",
+  "accepted": true,
+  "drive_id": "1qcpQE0ONgtsty5qTYAwivLKHyp8dW2J3",
+  "url": "https://drive.google.com/file/d/1qcpQE0ONgtsty5qTYAwivLKHyp8dW2J3/view",
+  "parent": "1ZkQp8sNxexjvDbzPnV34j8D-rhVshH8G",
+  "http_status": 200,
+  "bytes": 26757,
+  "sha256": "ab01744491a39e092c9d5e6b6f9333e666569caac9fa283b94d41e82741fea91",
+  "complete_equal": true
+}

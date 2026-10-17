@@ -1,0 +1,162 @@
+{
+  "author_descriptor": {
+    "bytes": 8582,
+    "git_blob": "fb3fcf8b485435c3fc20684ca3bbb39553e5e2f2",
+    "mode": "100644",
+    "native_mode": 420,
+    "sha256": "a5d9df633996c3d610c44a7cd4abce993d8002c918845a4feb3b2d57e54e3924",
+    "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-publication-inputs-v1.json"
+  },
+  "candidate_freeze": {
+    "bytes": 1789,
+    "git_blob": "bacfa2c11979ef7f6e10af6d47b878b01348d19d",
+    "mode": "100644",
+    "native_mode": 420,
+    "sha256": "7515546199decab100c2cccc9d04d544cbaf102c83d74c77b0a394963b9bac6e",
+    "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate-freeze-v1.json"
+  },
+  "history": "The raw author outer receipt is false for a reporter-prefix predicate; both child commands exited zero, all eleven named tests passed, and a separate retained-output classification preserves the original failure. No author rerun.",
+  "independent_descriptor": {
+    "bytes": 21913,
+    "git_blob": "0bb24a47112265473dd6740b1c73e6e294d16ad4",
+    "mode": "100644",
+    "native_mode": 420,
+    "sha256": "bc970f4e8732aed2a9b39b76d04ec89ccbba00457a46bec0a14c33e0acd3206c",
+    "source_path": "/workspace/scratch/d3745ea0f44f/root-household-months/publication-inputs-v1.json"
+  },
+  "parent_leaf_count": 116,
+  "parent_tree": "bf7d8bedaa3ed02665e56b021f543259b8c4a854",
+  "qualification_scope": "Focused author and independent read-only CLI qualification using isolated Node 24 native TypeScript transformation. No full compiler/MCP build, SDK, installation or service claim.",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "retained_consumer": "Separate compiled-parent historical-ledger composition is prepared for one post-publication invocation and later delivery; no result claimed here.",
+  "runtime_projection": {
+    "files": [
+      {
+        "bytes": 425,
+        "git_blob": "39325b079fb40b0587ec231eeb3328f52e7ece74",
+        "mode": 420,
+        "path": ".github/workflows/ci.yml",
+        "sha256": "3b981eb9f20a37124b8aeb97626e8a8230db5cd5eb8fcdba2bee1e8fdb6fa5eb"
+      },
+      {
+        "bytes": 1070,
+        "git_blob": "edb188254288b40f2895833e3647b7e0be34c962",
+        "mode": 420,
+        "path": "LICENSE",
+        "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb"
+      },
+      {
+        "bytes": 6704,
+        "git_blob": "c531794d60442954a836db32c6fdafab5e08ba0e",
+        "mode": 420,
+        "path": "README.md",
+        "sha256": "d7675b4f5d20bcb6a031cc39a71576bb3a44c576bbc0fdb1945e94dd4c7773fd"
+      },
+      {
+        "bytes": 14747,
+        "git_blob": "d2236d7338a0baa324cb0fe1b26e3321e57919aa",
+        "mode": 420,
+        "path": "dist/src/ledger.js",
+        "sha256": "29d87ee17e95ca795a1fa0a06e8658a24f20159af0275d8a7316fea7590e3e3c"
+      },
+      {
+        "bytes": 5343,
+        "git_blob": "a8af063f3bad1366a45ee102b12ac96114089b5e",
+        "mode": 420,
+        "path": "docs/LEDGER_MONTHS.md",
+        "sha256": "1e0e20bef7fcafead1fac0e894d234daa3923f890f346be875fcdb7e3ae12a7d"
+      },
+      {
+        "bytes": 703,
+        "git_blob": "8084b9f3ff256e67dd1cbf5746fecd87d976ea63",
+        "mode": 420,
+        "path": "package.json",
+        "sha256": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835"
+      },
+      {
+        "bytes": 11639,
+        "git_blob": "4df804650663542d0d014a925bc68241493ae517",
+        "mode": 420,
+        "path": "src/index.ts",
+        "sha256": "9c24685b217041d820ae8050519e74d2a1430099c219a66f11079894c792943d"
+      },
+      {
+        "bytes": 17537,
+        "git_blob": "2ff8133404f19c705eb7b7f0a943e8190f3328d6",
+        "mode": 420,
+        "path": "src/ledger.ts",
+        "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07"
+      },
+      {
+        "bytes": 9920,
+        "git_blob": "88341b0c761f605ec980a4b024f9db2e8ade05c6",
+        "mode": 420,
+        "path": "test/ledger-months.test.mjs",
+        "sha256": "e53e8c49162bd5db74d167ceac6da289e0c284b46db4d35f479d9ca8d272583f"
+      },
+      {
+        "bytes": 2806,
+        "git_blob": "e0cea0970f42f70d48f507c75a232d6e4c03dcc2",
+        "mode": 420,
+        "path": "tools/household-months.mjs",
+        "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56"
+      },
+      {
+        "bytes": 2529,
+        "git_blob": "0efd7c6758e93660434a1532742a438f59f5cec9",
+        "mode": 420,
+        "path": "tools/lib/ledger-months.mjs",
+        "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01"
+      },
+      {
+        "bytes": 329,
+        "git_blob": "22a92039fc845256859c3b4921063f3a16a0ae3e",
+        "mode": 420,
+        "path": "tsconfig.json",
+        "sha256": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72"
+      }
+    ],
+    "root": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate"
+  },
+  "schema": "hamon.loom.household-months-source-binding.v1",
+  "source_files": [
+    {
+      "bytes": 5343,
+      "git_blob": "a8af063f3bad1366a45ee102b12ac96114089b5e",
+      "mode": 420,
+      "path": "docs/LEDGER_MONTHS.md",
+      "sha256": "1e0e20bef7fcafead1fac0e894d234daa3923f890f346be875fcdb7e3ae12a7d"
+    },
+    {
+      "bytes": 9920,
+      "git_blob": "88341b0c761f605ec980a4b024f9db2e8ade05c6",
+      "mode": 420,
+      "path": "test/ledger-months.test.mjs",
+      "sha256": "e53e8c49162bd5db74d167ceac6da289e0c284b46db4d35f479d9ca8d272583f"
+    },
+    {
+      "bytes": 2806,
+      "git_blob": "e0cea0970f42f70d48f507c75a232d6e4c03dcc2",
+      "mode": 420,
+      "path": "tools/household-months.mjs",
+      "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56"
+    },
+    {
+      "bytes": 2529,
+      "git_blob": "0efd7c6758e93660434a1532742a438f59f5cec9",
+      "mode": 420,
+      "path": "tools/lib/ledger-months.mjs",
+      "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01"
+    }
+  ],
+  "source_parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "source_scope": "Exactly four new source/test/guide leaves. All 116 parent leaves, PR8 ownership and README-only main remain unchanged.",
+  "workflow": {
+    "mode": "100644",
+    "path": ".github/workflows/ci.yml",
+    "sha": "39325b079fb40b0587ec231eeb3328f52e7ece74",
+    "size": 425,
+    "type": "blob",
+    "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/blobs/39325b079fb40b0587ec231eeb3328f52e7ece74"
+  }
+}

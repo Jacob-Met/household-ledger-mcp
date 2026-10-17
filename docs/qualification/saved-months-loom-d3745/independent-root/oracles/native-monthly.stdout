@@ -1,0 +1,1 @@
+{"year":2026,"month":1,"currency":"USD","incomeMinor":100,"expenseMinor":0,"netMinor":100,"byCategory":{"pay":{"incomeMinor":100,"expenseMinor":0}},"budgets":[{"category":"home","limitMinor":500,"spentMinor":0,"remainingMinor":500,"over":false}]}

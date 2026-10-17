@@ -1,0 +1,74 @@
+{
+  "version": 2,
+  "transactions": [
+    {
+      "id": "same-id",
+      "type": "expense",
+      "amountMinor": 100,
+      "currency": "USD",
+      "date": "2026-10-12",
+      "category": "Food",
+      "note": "Authored Unicode café 雪; no real account",
+      "createdAt": "retained raw label"
+    },
+    {
+      "id": "same-id",
+      "type": "income",
+      "amountMinor": 100,
+      "currency": "usd",
+      "date": "2026-10-01",
+      "category": "Food",
+      "note": "Authored Unicode café 雪; no real account",
+      "createdAt": "retained raw label"
+    },
+    {
+      "id": "euro",
+      "type": "expense",
+      "amountMinor": 100,
+      "currency": "eUr",
+      "date": "2026-10-03",
+      "category": "Food",
+      "note": "Authored Unicode café 雪; no real account",
+      "createdAt": "retained raw label"
+    },
+    {
+      "id": "old",
+      "type": "income",
+      "amountMinor": 100,
+      "currency": "EUR",
+      "date": "1969-12-31",
+      "category": "Food",
+      "note": "Authored Unicode café 雪; no real account",
+      "createdAt": "retained raw label"
+    }
+  ],
+  "budgets": [
+    {
+      "category": "Travel",
+      "month": "2026-12",
+      "limitMinor": 200,
+      "currency": "USD"
+    },
+    {
+      "category": "Rent",
+      "month": "2026-10",
+      "limitMinor": 200,
+      "currency": "EUR"
+    },
+    {
+      "category": "Legacy",
+      "month": "2026-10",
+      "limitMinor": 0
+    },
+    {
+      "category": "Legacy",
+      "month": "0000-01",
+      "limitMinor": 0
+    },
+    {
+      "category": "Legacy",
+      "month": "0000-01",
+      "limitMinor": 0
+    }
+  ]
+}

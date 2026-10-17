@@ -1,0 +1,21 @@
+{
+  "source": "Frozen recording candidate; ledger and index hashes are in baseline-source-pins.json.",
+  "command": [
+    "node",
+    "--test",
+    "--test-reporter=tap",
+    "dist/summary-before.test.js"
+  ],
+  "started_at": "2026-10-08T07:48:55.831730+00:00",
+  "finished_at": "2026-10-08T07:48:58.312476+00:00",
+  "returncode": 1,
+  "log_sha256": "7590cb57be9c7b5b0717fb8c678412a9d66d5c562bd22f127b39de180edd254c",
+  "test_sha256": "91414e1ecf2db116209551d41724f100d7ed6ef866a1d3f023712be3f0869c5c",
+  "summary": [
+    "# tests 8",
+    "# pass 2",
+    "# fail 6",
+    "# skipped 0"
+  ],
+  "fixture_refinement": "The original SDK default 60-second request timeout reproduced the __proto__ transport failure. The final fixture bounds calls to 2000 ms for reproducibility; the initial test, log, and receipt remain unchanged. No product source changed during the fixture refinement."
+}

@@ -1,0 +1,112 @@
+{
+  "schema": "hamon.anvil.household-months.freeze-audit.v1",
+  "freeze": {
+    "path": "/workspace/scratch/d3745ea0f44f/root-household-months/freeze-v1.json",
+    "bytes": 6933,
+    "sha256": "99fd1bfde117406f91b67f176d94cb39c385050d00484388f152a7fdf71469cc"
+  },
+  "controls": [
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/cases-v1.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/criteria-v1.md",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/byte-limit.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/byte-over.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/empty.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/late-invalid.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/legacy-denomination.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/mixed.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/row-limit.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/row-over.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/symlink.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/utf8.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/native-ledger.ts",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/byte-limit.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/empty.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/mixed.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/native-monthly.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/row-limit.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/symlink.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/prepare-oracles-v1.py",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/receive-v1.py",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/sentinel.txt",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/transform-native-v1.mjs",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/use-discovered-month-v1.mjs",
+      "exact": true
+    }
+  ],
+  "candidate_exposed": false,
+  "executed_product": false,
+  "pending_narrow_review": [
+    "Explicit missing-leaf absence oracle",
+    "Cleanup/reap child group if wait is interrupted or otherwise fails"
+  ]
+}

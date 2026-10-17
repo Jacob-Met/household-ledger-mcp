@@ -1,0 +1,2 @@
+household-months: Usage: node tools/household-months.mjs --ledger FILE
+Discover recorded and budget-only months in one saved ledger. Writes JSON to stdout.

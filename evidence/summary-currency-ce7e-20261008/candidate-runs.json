@@ -1,0 +1,34 @@
+[
+  {
+    "name": "candidate-typecheck",
+    "command": [
+      "npm",
+      "run",
+      "typecheck"
+    ],
+    "started_at": "2026-10-08T07:56:33.629344+00:00",
+    "finished_at": "2026-10-08T07:56:35.554238+00:00",
+    "returncode": 0,
+    "log": "candidate-typecheck.log",
+    "log_sha256": "5160a9c8cd8b4eb2ecdb043e4ad9dbc07a87eaeed246265c72be06d41d432318",
+    "summary": []
+  },
+  {
+    "name": "candidate-full",
+    "command": [
+      "npm",
+      "test"
+    ],
+    "started_at": "2026-10-08T07:56:35.554314+00:00",
+    "finished_at": "2026-10-08T07:56:38.283861+00:00",
+    "returncode": 0,
+    "log": "candidate-full.log",
+    "log_sha256": "d075a5cccf253103dddc3c3ff8fb2b922ea9d89c057c773c1a6b0b14d384c87b",
+    "summary": [
+      "\u2139 tests 40",
+      "\u2139 pass 40",
+      "\u2139 fail 0",
+      "\u2139 skipped 0"
+    ]
+  }
+]

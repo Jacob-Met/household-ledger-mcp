@@ -1,0 +1,20 @@
+{
+  "source": "frozen recording ledger50d7664b/indexa55678f8",
+  "command": [
+    "node",
+    "--test",
+    "--test-reporter=tap",
+    "dist/summary-before.test.js"
+  ],
+  "started_at": "2026-10-08T07:46:58.436494+00:00",
+  "finished_at": "2026-10-08T07:47:58.790711+00:00",
+  "returncode": 1,
+  "log_sha256": "d06ab15506481e26cdd51c23a31d5cb9562d1cae7c8ad37b11ca0f09f4327972",
+  "test_sha256": "24730bfca4479886fb9fdb9bdaaeca9041695d8c7b0883723c603d2a566eb0f6",
+  "summary": [
+    "# tests 8",
+    "# pass 2",
+    "# fail 6",
+    "# skipped 0"
+  ]
+}

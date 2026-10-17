@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "path": "tools/lib/ledger-months.mjs",
+      "bytes": 2529,
+      "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01",
+      "mode": 420,
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/tools/lib/ledger-months.mjs"
+    },
+    {
+      "path": "tools/household-months.mjs",
+      "bytes": 2806,
+      "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56",
+      "mode": 420,
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/tools/household-months.mjs"
+    },
+    {
+      "path": "test/ledger-months.test.mjs",
+      "bytes": 9920,
+      "sha256": "e53e8c49162bd5db74d167ceac6da289e0c284b46db4d35f479d9ca8d272583f",
+      "mode": 420,
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/test/ledger-months.test.mjs"
+    },
+    {
+      "path": "docs/LEDGER_MONTHS.md",
+      "bytes": 5343,
+      "sha256": "1e0e20bef7fcafead1fac0e894d234daa3923f890f346be875fcdb7e3ae12a7d",
+      "mode": 420,
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/docs/LEDGER_MONTHS.md"
+    },
+    {
+      "path": "src/ledger.ts",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+      "mode": 420,
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/src/ledger.ts"
+    }
+  ]
+}

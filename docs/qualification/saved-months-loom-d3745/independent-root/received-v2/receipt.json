@@ -1,0 +1,1088 @@
+{
+  "schema": "hamon.root.household-months.receiving.v2",
+  "accepted": true,
+  "started_ns": 1791937016631252446,
+  "scope": "Independent frozen12CLI cases plus one native monthly consumer on authored data; Node24 standard TS transform only, not tsc/npm/build/MCP/install. No product retries.",
+  "source_before": {
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/docs/LEDGER_MONTHS.md": {
+      "mode": 420,
+      "mtime_ns": 1791936026403730001,
+      "kind": "file",
+      "bytes": 5343,
+      "sha256": "1e0e20bef7fcafead1fac0e894d234daa3923f890f346be875fcdb7e3ae12a7d"
+    },
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/src/ledger.ts": {
+      "mode": 420,
+      "mtime_ns": 1791935579375088819,
+      "kind": "file",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07"
+    },
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/test/ledger-months.test.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791935966526606004,
+      "kind": "file",
+      "bytes": 9920,
+      "sha256": "e53e8c49162bd5db74d167ceac6da289e0c284b46db4d35f479d9ca8d272583f"
+    },
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/tools/household-months.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791935787847284261,
+      "kind": "file",
+      "bytes": 2806,
+      "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56"
+    },
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/tools/lib/ledger-months.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791935787687291638,
+      "kind": "file",
+      "bytes": 2529,
+      "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01"
+    },
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate-five-path-offer-v1.json": {
+      "mode": 420,
+      "mtime_ns": 1791936247998116486,
+      "kind": "file",
+      "bytes": 1464,
+      "sha256": "7b14f3fce93eec795de8855d29f5cb7258b61710b1d8cc8d440161246908e31a"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/cases-v1.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200753465954,
+      "kind": "file",
+      "bytes": 2155,
+      "sha256": "90993b147807f2fcabe5cfa7b3ea9f3a8683c446c91e0632d5e34967782d9ef2"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/controller-addendum-v2.md": {
+      "mode": 420,
+      "mtime_ns": 1791936575019664007,
+      "kind": "file",
+      "bytes": 606,
+      "sha256": "56a1644a9b942df5a19dd4b109c162cd926146672cf33cc86038cba560b607c0"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/controller-v1-to-v2.patch": {
+      "mode": 420,
+      "mtime_ns": 1791936575058736871,
+      "kind": "file",
+      "bytes": 5049,
+      "sha256": "e5bcac1169fb3c0d6d521ad771cfefe1e4ab506ad435ae93371741cba4fc4291"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/criteria-v1.md": {
+      "mode": 420,
+      "mtime_ns": 1791936200223411903,
+      "kind": "file",
+      "bytes": 2417,
+      "sha256": "8401360125b8264fb5c0cef6af82dc1d8c22db4779fe07cea90526359f79d51f"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/byte-limit.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200480097844,
+      "kind": "file",
+      "bytes": 16777216,
+      "sha256": "b6310ef230649d2aaff17b46d0cb901b7f9088f976c197fecdd7f98ff1054a0d"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/byte-over.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200551714588,
+      "kind": "file",
+      "bytes": 16777217,
+      "sha256": "97cb69652191741ef3a405e306a04d43b0ed6c21cd49f0b551ff09005f34775f"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/empty.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200444675972,
+      "kind": "file",
+      "bytes": 45,
+      "sha256": "edc198eedcfa4ad828046f6d3691e3c862ca33f1b602d61ec06067afd3de5dad"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/late-invalid.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200446200297,
+      "kind": "file",
+      "bytes": 1778,
+      "sha256": "08e1af72a85a72eff62d928f83bd6a62528d7e4dab557180c7fcb1ae4006267b"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/legacy-denomination.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200446985320,
+      "kind": "file",
+      "bytes": 116,
+      "sha256": "c16467e50413b291e604e8c04169dd644a2874f072c927f4038cf339ea9391df"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/mixed.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200442154981,
+      "kind": "file",
+      "bytes": 1611,
+      "sha256": "d85924139e0bc9b08a7d75e0fddf0b0bb99b3e57ca9ec99e4a583bf10d17dff0"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/row-limit.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200643706886,
+      "kind": "file",
+      "bytes": 5500044,
+      "sha256": "1b8420235f5b4aba3380abf68cb145f3b42c7420b895b23b1df940f5bb8bf58c"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/row-over.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200739387244,
+      "kind": "file",
+      "bytes": 5500099,
+      "sha256": "cc0d6a3c2a4098c74396f91337a8fb2ffabc790dbb093e834fbe56e8871eb705"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/symlink.json": {
+      "mode": 511,
+      "mtime_ns": 1791936200442980638,
+      "kind": "link",
+      "target": "mixed.json"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/utf8.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200447454190,
+      "kind": "file",
+      "bytes": 52,
+      "sha256": "52e7719297f55937becab4f85390af9a0346fac8439e67ac9ca61662e13818b8"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/freeze-v1.json": {
+      "mode": 420,
+      "mtime_ns": 1791936406435250161,
+      "kind": "file",
+      "bytes": 6933,
+      "sha256": "99fd1bfde117406f91b67f176d94cb39c385050d00484388f152a7fdf71469cc"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/freeze-v2.json": {
+      "mode": 420,
+      "mtime_ns": 1791936575465556498,
+      "kind": "file",
+      "bytes": 8055,
+      "sha256": "a0411c26432a0bdf0f912d4fda996b72e8895b9abc430b29a738b6c8794e3c16"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/native-ledger.ts": {
+      "mode": 420,
+      "mtime_ns": 1791935898529872189,
+      "kind": "file",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/byte-limit.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200527397375,
+      "kind": "file",
+      "bytes": 665,
+      "sha256": "f2232a6b515b71f4e491575653aa0ee85a424315dcb3edc607a79ed8fd709b91"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/empty.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200445664750,
+      "kind": "file",
+      "bytes": 654,
+      "sha256": "e6a2887f736e5c3394824de9566dcdc870a8bf876eb184baadbeb45872bf6732"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/mixed.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200442980638,
+      "kind": "file",
+      "bytes": 3196,
+      "sha256": "ff38379639db4bc84e0710c83ad3d6e9b1562d7b5a20d8fca2b065978313877c"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/native-monthly.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200752825900,
+      "kind": "file",
+      "bytes": 247,
+      "sha256": "5e75f1a8a2d7cc05882f90fcd5c68dc3ff4d3289c65984284239d2884cc300da"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/row-limit.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200663390876,
+      "kind": "file",
+      "bytes": 866,
+      "sha256": "d471208bff15edc29618f0b3d1567aca6809ba58cf1f4b59a2acd64dc0b70ab0"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/symlink.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200444126787,
+      "kind": "file",
+      "bytes": 3198,
+      "sha256": "aed0411a3639d96c5743eb465816acf8419e337a250749053d104ae35f85a65c"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/prepare-oracles-v1.py": {
+      "mode": 420,
+      "mtime_ns": 1791936200023421460,
+      "kind": "file",
+      "bytes": 4808,
+      "sha256": "6a2bbfa2e64688a8992fac6823772a0546053b3f92e300ac88fe18111a600c34"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/receive-v1.py": {
+      "mode": 420,
+      "mtime_ns": 1791936405993613360,
+      "kind": "file",
+      "bytes": 6731,
+      "sha256": "026d75b28e153c0639e1501a5e51555d2b466d6779178afd16f0df926f88f2f9"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/receive-v2.py": {
+      "mode": 420,
+      "mtime_ns": 1791936575018507595,
+      "kind": "file",
+      "bytes": 8146,
+      "sha256": "5586e43745cb54f3a825918a2e26d77115eb42e6641f44deabe17bb4c369d0db"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/sentinel.txt": {
+      "mode": 420,
+      "mtime_ns": 1791936200752278146,
+      "kind": "file",
+      "bytes": 38,
+      "sha256": "b85ff2c8773e860516d74e200ee8372bb3e54b3c4923fe3d47d2be17b2c91e94"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/transform-native-v1.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791936405657629346,
+      "kind": "file",
+      "bytes": 375,
+      "sha256": "2819b71fba547becf07d19f0d49a637dd7c07d837b2a79c3dba2d3510baebac7"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/use-discovered-month-v1.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791936405801622495,
+      "kind": "file",
+      "bytes": 810,
+      "sha256": "b8ad6f9ee2d53751a5d199ec1034207dd9fd6809783432378e07202e27cac330"
+    }
+  },
+  "commands": [
+    {
+      "name": "native-transform",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/transform-native-v1.mjs",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/native-ledger.ts",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/dist/src/ledger.js"
+      ],
+      "pid": 7,
+      "exit": 0,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937017122833398,
+      "finished_ns": 1791937018883305263,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937017120585873,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937017120585873,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "mixed",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/mixed.json"
+      ],
+      "pid": 14,
+      "exit": 0,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937018885321424,
+      "finished_ns": 1791937019713212220,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937019656465062,
+        "kind": "file",
+        "bytes": 3196,
+        "sha256": "ff38379639db4bc84e0710c83ad3d6e9b1562d7b5a20d8fca2b065978313877c"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937018884501839,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "symlink",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/symlink.json"
+      ],
+      "pid": 25,
+      "exit": 0,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937019713848164,
+      "finished_ns": 1791937019879558571,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937019828456869,
+        "kind": "file",
+        "bytes": 3198,
+        "sha256": "aed0411a3639d96c5743eb465816acf8419e337a250749053d104ae35f85a65c"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937019712462394,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "empty",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/empty.json"
+      ],
+      "pid": 36,
+      "exit": 0,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937019879945267,
+      "finished_ns": 1791937020049076426,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937020024447532,
+        "kind": "file",
+        "bytes": 654,
+        "sha256": "e6a2887f736e5c3394824de9566dcdc870a8bf876eb184baadbeb45872bf6732"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937019876454582,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "late-invalid",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/late-invalid.json"
+      ],
+      "pid": 47,
+      "exit": 2,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937020049715365,
+      "finished_ns": 1791937020214927818,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937020048446388,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937020196439338,
+        "kind": "file",
+        "bytes": 63,
+        "sha256": "733fe1368ff72a7853257757e75573ccd5b98780c1b9a98496fed6bfb9d038a5"
+      }
+    },
+    {
+      "name": "legacy-denomination",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/legacy-denomination.json"
+      ],
+      "pid": 58,
+      "exit": 2,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937020215656112,
+      "finished_ns": 1791937020381154905,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937020212438575,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937020332432859,
+        "kind": "file",
+        "bytes": 63,
+        "sha256": "9b39da66d11ec41d53fc501a50cfbb3c83da0f35b4cdce6e09ca1d1ef1b793bf"
+      }
+    },
+    {
+      "name": "utf8",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/utf8.json"
+      ],
+      "pid": 69,
+      "exit": 2,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937020381650016,
+      "finished_ns": 1791937020549243443,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937020380430573,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937020516424094,
+        "kind": "file",
+        "bytes": 68,
+        "sha256": "56a0b57f7cf4ed9a0bc99aea8736ddb679936548b63873ea9443fbc10d6d86f8"
+      }
+    },
+    {
+      "name": "missing",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/missing.json"
+      ],
+      "pid": 80,
+      "exit": 2,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937020549709546,
+      "finished_ns": 1791937020669743907,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937020548422569,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937020644417996,
+        "kind": "file",
+        "bytes": 82,
+        "sha256": "846617f4a1425c976ad38721d9bdd6c60c565686b9c79e0d96a0140d1a1f3e68"
+      }
+    },
+    {
+      "name": "extra-argument",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/missing.json",
+        "--unknown"
+      ],
+      "pid": 91,
+      "exit": 2,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937020672341697,
+      "finished_ns": 1791937020757364205,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937020668416853,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937020740413423,
+        "kind": "file",
+        "bytes": 156,
+        "sha256": "320f572ed5471e3027b29f4a23cc3337004ce832cfd908fd38ff51f38f764e6d"
+      }
+    },
+    {
+      "name": "byte-limit",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/byte-limit.json"
+      ],
+      "pid": 98,
+      "exit": 0,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937020766367262,
+      "finished_ns": 1791937021195173013,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937021128394939,
+        "kind": "file",
+        "bytes": 665,
+        "sha256": "f2232a6b515b71f4e491575653aa0ee85a424315dcb3edc607a79ed8fd709b91"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937020772411898,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "byte-over",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/byte-over.json"
+      ],
+      "pid": 109,
+      "exit": 2,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937021196215185,
+      "finished_ns": 1791937021318372574,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937021192391890,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937021276387889,
+        "kind": "file",
+        "bytes": 54,
+        "sha256": "f9e747d41d8399031c16d967130d1163db30bbcee3c7a025738845725cbd9107"
+      }
+    },
+    {
+      "name": "row-limit",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/row-limit.json"
+      ],
+      "pid": 120,
+      "exit": 0,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937021318664067,
+      "finished_ns": 1791937021744267817,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937021704367500,
+        "kind": "file",
+        "bytes": 866,
+        "sha256": "d471208bff15edc29618f0b3d1567aca6809ba58cf1f4b59a2acd64dc0b70ab0"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937021316385984,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "row-over",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs",
+        "--ledger",
+        "fixtures/row-over.json"
+      ],
+      "pid": 131,
+      "exit": 2,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937021744867497,
+      "finished_ns": 1791937022217924975,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937021744365594,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937022172345206,
+        "kind": "file",
+        "bytes": 77,
+        "sha256": "064834c2562ac11060224b19b670c137a57b583580f65fbc0170dd1f907a3226"
+      }
+    },
+    {
+      "name": "native-monthly",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/use-discovered-month-v1.mjs",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/dist/src/ledger.js",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/mixed.stdout",
+        "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/mixed.json"
+      ],
+      "pid": 142,
+      "exit": 0,
+      "timeout": false,
+      "forced_cleanup": false,
+      "group_absent_on_return": true,
+      "started_ns": 1791937022219736600,
+      "finished_ns": 1791937022741987583,
+      "stdout": {
+        "mode": 420,
+        "mtime_ns": 1791937022672321398,
+        "kind": "file",
+        "bytes": 247,
+        "sha256": "5e75f1a8a2d7cc05882f90fcd5c68dc3ff4d3289c65984284239d2884cc300da"
+      },
+      "stderr": {
+        "mode": 420,
+        "mtime_ns": 1791937022220342919,
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "node": "v24.19.0",
+  "runtime_before": {
+    "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/dist/src/ledger.js": {
+      "mode": 420,
+      "mtime_ns": 1791937018748508318,
+      "kind": "file",
+      "bytes": 14747,
+      "sha256": "29d87ee17e95ca795a1fa0a06e8658a24f20159af0275d8a7316fea7590e3e3c"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/package.json": {
+      "mode": 420,
+      "mtime_ns": 1791937016473201353,
+      "kind": "file",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791937016473484883,
+      "kind": "file",
+      "bytes": 2806,
+      "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/lib/ledger-months.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791937016473349131,
+      "kind": "file",
+      "bytes": 2529,
+      "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01"
+    }
+  },
+  "cases": [
+    {
+      "name": "mixed",
+      "passed": true,
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "stdout_bytes": 3196,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "symlink",
+      "passed": true,
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "stdout_bytes": 3198,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "empty",
+      "passed": true,
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "stdout_bytes": 654,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "late-invalid",
+      "passed": true,
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "stdout_bytes": 0,
+      "stderr_bytes": 63
+    },
+    {
+      "name": "legacy-denomination",
+      "passed": true,
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "stdout_bytes": 0,
+      "stderr_bytes": 63
+    },
+    {
+      "name": "utf8",
+      "passed": true,
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "stdout_bytes": 0,
+      "stderr_bytes": 68
+    },
+    {
+      "name": "missing",
+      "passed": true,
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "stdout_bytes": 0,
+      "stderr_bytes": 82
+    },
+    {
+      "name": "extra-argument",
+      "passed": true,
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "stdout_bytes": 0,
+      "stderr_bytes": 156
+    },
+    {
+      "name": "byte-limit",
+      "passed": true,
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "stdout_bytes": 665,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "byte-over",
+      "passed": true,
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "stdout_bytes": 0,
+      "stderr_bytes": 54
+    },
+    {
+      "name": "row-limit",
+      "passed": true,
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "stdout_bytes": 866,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "row-over",
+      "passed": true,
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "stdout_bytes": 0,
+      "stderr_bytes": 77
+    }
+  ],
+  "native_consumer": {
+    "passed": true,
+    "month": "2026-01",
+    "currency": "USD"
+  },
+  "source_after": {
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/docs/LEDGER_MONTHS.md": {
+      "mode": 420,
+      "mtime_ns": 1791936026403730001,
+      "kind": "file",
+      "bytes": 5343,
+      "sha256": "1e0e20bef7fcafead1fac0e894d234daa3923f890f346be875fcdb7e3ae12a7d"
+    },
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/src/ledger.ts": {
+      "mode": 420,
+      "mtime_ns": 1791935579375088819,
+      "kind": "file",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07"
+    },
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/test/ledger-months.test.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791935966526606004,
+      "kind": "file",
+      "bytes": 9920,
+      "sha256": "e53e8c49162bd5db74d167ceac6da289e0c284b46db4d35f479d9ca8d272583f"
+    },
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/tools/household-months.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791935787847284261,
+      "kind": "file",
+      "bytes": 2806,
+      "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56"
+    },
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/tools/lib/ledger-months.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791935787687291638,
+      "kind": "file",
+      "bytes": 2529,
+      "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01"
+    },
+    "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate-five-path-offer-v1.json": {
+      "mode": 420,
+      "mtime_ns": 1791936247998116486,
+      "kind": "file",
+      "bytes": 1464,
+      "sha256": "7b14f3fce93eec795de8855d29f5cb7258b61710b1d8cc8d440161246908e31a"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/cases-v1.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200753465954,
+      "kind": "file",
+      "bytes": 2155,
+      "sha256": "90993b147807f2fcabe5cfa7b3ea9f3a8683c446c91e0632d5e34967782d9ef2"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/controller-addendum-v2.md": {
+      "mode": 420,
+      "mtime_ns": 1791936575019664007,
+      "kind": "file",
+      "bytes": 606,
+      "sha256": "56a1644a9b942df5a19dd4b109c162cd926146672cf33cc86038cba560b607c0"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/controller-v1-to-v2.patch": {
+      "mode": 420,
+      "mtime_ns": 1791936575058736871,
+      "kind": "file",
+      "bytes": 5049,
+      "sha256": "e5bcac1169fb3c0d6d521ad771cfefe1e4ab506ad435ae93371741cba4fc4291"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/criteria-v1.md": {
+      "mode": 420,
+      "mtime_ns": 1791936200223411903,
+      "kind": "file",
+      "bytes": 2417,
+      "sha256": "8401360125b8264fb5c0cef6af82dc1d8c22db4779fe07cea90526359f79d51f"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/byte-limit.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200480097844,
+      "kind": "file",
+      "bytes": 16777216,
+      "sha256": "b6310ef230649d2aaff17b46d0cb901b7f9088f976c197fecdd7f98ff1054a0d"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/byte-over.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200551714588,
+      "kind": "file",
+      "bytes": 16777217,
+      "sha256": "97cb69652191741ef3a405e306a04d43b0ed6c21cd49f0b551ff09005f34775f"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/empty.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200444675972,
+      "kind": "file",
+      "bytes": 45,
+      "sha256": "edc198eedcfa4ad828046f6d3691e3c862ca33f1b602d61ec06067afd3de5dad"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/late-invalid.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200446200297,
+      "kind": "file",
+      "bytes": 1778,
+      "sha256": "08e1af72a85a72eff62d928f83bd6a62528d7e4dab557180c7fcb1ae4006267b"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/legacy-denomination.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200446985320,
+      "kind": "file",
+      "bytes": 116,
+      "sha256": "c16467e50413b291e604e8c04169dd644a2874f072c927f4038cf339ea9391df"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/mixed.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200442154981,
+      "kind": "file",
+      "bytes": 1611,
+      "sha256": "d85924139e0bc9b08a7d75e0fddf0b0bb99b3e57ca9ec99e4a583bf10d17dff0"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/row-limit.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200643706886,
+      "kind": "file",
+      "bytes": 5500044,
+      "sha256": "1b8420235f5b4aba3380abf68cb145f3b42c7420b895b23b1df940f5bb8bf58c"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/row-over.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200739387244,
+      "kind": "file",
+      "bytes": 5500099,
+      "sha256": "cc0d6a3c2a4098c74396f91337a8fb2ffabc790dbb093e834fbe56e8871eb705"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/symlink.json": {
+      "mode": 511,
+      "mtime_ns": 1791936200442980638,
+      "kind": "link",
+      "target": "mixed.json"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/utf8.json": {
+      "mode": 420,
+      "mtime_ns": 1791936200447454190,
+      "kind": "file",
+      "bytes": 52,
+      "sha256": "52e7719297f55937becab4f85390af9a0346fac8439e67ac9ca61662e13818b8"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/freeze-v1.json": {
+      "mode": 420,
+      "mtime_ns": 1791936406435250161,
+      "kind": "file",
+      "bytes": 6933,
+      "sha256": "99fd1bfde117406f91b67f176d94cb39c385050d00484388f152a7fdf71469cc"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/freeze-v2.json": {
+      "mode": 420,
+      "mtime_ns": 1791936575465556498,
+      "kind": "file",
+      "bytes": 8055,
+      "sha256": "a0411c26432a0bdf0f912d4fda996b72e8895b9abc430b29a738b6c8794e3c16"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/native-ledger.ts": {
+      "mode": 420,
+      "mtime_ns": 1791935898529872189,
+      "kind": "file",
+      "bytes": 17537,
+      "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/byte-limit.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200527397375,
+      "kind": "file",
+      "bytes": 665,
+      "sha256": "f2232a6b515b71f4e491575653aa0ee85a424315dcb3edc607a79ed8fd709b91"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/empty.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200445664750,
+      "kind": "file",
+      "bytes": 654,
+      "sha256": "e6a2887f736e5c3394824de9566dcdc870a8bf876eb184baadbeb45872bf6732"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/mixed.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200442980638,
+      "kind": "file",
+      "bytes": 3196,
+      "sha256": "ff38379639db4bc84e0710c83ad3d6e9b1562d7b5a20d8fca2b065978313877c"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/native-monthly.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200752825900,
+      "kind": "file",
+      "bytes": 247,
+      "sha256": "5e75f1a8a2d7cc05882f90fcd5c68dc3ff4d3289c65984284239d2884cc300da"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/row-limit.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200663390876,
+      "kind": "file",
+      "bytes": 866,
+      "sha256": "d471208bff15edc29618f0b3d1567aca6809ba58cf1f4b59a2acd64dc0b70ab0"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/symlink.stdout": {
+      "mode": 420,
+      "mtime_ns": 1791936200444126787,
+      "kind": "file",
+      "bytes": 3198,
+      "sha256": "aed0411a3639d96c5743eb465816acf8419e337a250749053d104ae35f85a65c"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/prepare-oracles-v1.py": {
+      "mode": 420,
+      "mtime_ns": 1791936200023421460,
+      "kind": "file",
+      "bytes": 4808,
+      "sha256": "6a2bbfa2e64688a8992fac6823772a0546053b3f92e300ac88fe18111a600c34"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/receive-v1.py": {
+      "mode": 420,
+      "mtime_ns": 1791936405993613360,
+      "kind": "file",
+      "bytes": 6731,
+      "sha256": "026d75b28e153c0639e1501a5e51555d2b466d6779178afd16f0df926f88f2f9"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/receive-v2.py": {
+      "mode": 420,
+      "mtime_ns": 1791936575018507595,
+      "kind": "file",
+      "bytes": 8146,
+      "sha256": "5586e43745cb54f3a825918a2e26d77115eb42e6641f44deabe17bb4c369d0db"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/sentinel.txt": {
+      "mode": 420,
+      "mtime_ns": 1791936200752278146,
+      "kind": "file",
+      "bytes": 38,
+      "sha256": "b85ff2c8773e860516d74e200ee8372bb3e54b3c4923fe3d47d2be17b2c91e94"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/transform-native-v1.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791936405657629346,
+      "kind": "file",
+      "bytes": 375,
+      "sha256": "2819b71fba547becf07d19f0d49a637dd7c07d837b2a79c3dba2d3510baebac7"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/use-discovered-month-v1.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791936405801622495,
+      "kind": "file",
+      "bytes": 810,
+      "sha256": "b8ad6f9ee2d53751a5d199ec1034207dd9fd6809783432378e07202e27cac330"
+    }
+  },
+  "runtime_after": {
+    "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/dist/src/ledger.js": {
+      "mode": 420,
+      "mtime_ns": 1791937018748508318,
+      "kind": "file",
+      "bytes": 14747,
+      "sha256": "29d87ee17e95ca795a1fa0a06e8658a24f20159af0275d8a7316fea7590e3e3c"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/package.json": {
+      "mode": 420,
+      "mtime_ns": 1791937016473201353,
+      "kind": "file",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/household-months.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791937016473484883,
+      "kind": "file",
+      "bytes": 2806,
+      "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56"
+    },
+    "/workspace/scratch/d3745ea0f44f/root-household-months/received-v2/runtime/tools/lib/ledger-months.mjs": {
+      "mode": 420,
+      "mtime_ns": 1791937016473349131,
+      "kind": "file",
+      "bytes": 2529,
+      "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01"
+    }
+  },
+  "fixture_namespace_unchanged": true,
+  "finished_ns": 1791937022920245492
+}

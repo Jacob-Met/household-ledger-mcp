@@ -1,0 +1,1220 @@
+{
+  "schema": "household.denominated-budget.independent-http.v1",
+  "variant": "candidate",
+  "source": "/dev/shm/hamon-401c5d17da79-budget-receiving/sources/candidate",
+  "test_sha256": "7fc2e7ffe24a4f37c04e1e0ab3d57d7f12bb226e45b02103fc23a487e1e8341d",
+  "fault_loader_sha256": "559122df178ad20178fc488618830b80487ff648e90ec0ad800858d1998bdc64",
+  "node": "v24.19.0",
+  "scenarios": [
+    {
+      "name": "existing v1 mixed-month reads and transaction refusals preserve exact file bytes",
+      "status": "passed",
+      "checks": [
+        {
+          "label": "discovery distinguishes absent baseline fields from candidate capability",
+          "pass": true
+        },
+        {
+          "label": "unassigned mixed-month summary refuses selector undefined",
+          "pass": true
+        },
+        {
+          "label": "summary refusal preserves the authored v1 byte image",
+          "pass": true
+        },
+        {
+          "label": "unassigned mixed-month summary refuses selector USD",
+          "pass": true
+        },
+        {
+          "label": "summary refusal preserves the authored v1 byte image",
+          "pass": true
+        },
+        {
+          "label": "unassigned mixed-month summary refuses selector EUR",
+          "pass": true
+        },
+        {
+          "label": "summary refusal preserves the authored v1 byte image",
+          "pass": true
+        },
+        {
+          "label": "unfiltered list returns the exact unassigned budget",
+          "pass": true
+        },
+        {
+          "label": "normalized preexisting keyed retry keeps its original identity",
+          "pass": true
+        },
+        {
+          "label": "changed input for the existing key is refused",
+          "pass": true
+        },
+        {
+          "label": "existing malformed-budget interface refuses",
+          "pass": true
+        },
+        {
+          "label": "all reads, keyed retries and refused writes preserve v1 bytes",
+          "pass": true
+        }
+      ],
+      "calls": [
+        {
+          "process": 1,
+          "name": "monthly_summary",
+          "args": {
+            "year": 2026,
+            "month": 10
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 1,
+          "name": "monthly_summary",
+          "args": {
+            "year": 2026,
+            "month": 10,
+            "currency": "USD"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "monthly category budgets have no currency; cannot evaluate them for a mixed-currency, empty, or differently selected month; use set_budget with currency and replaceUnassigned: true to explicitly assign each unqualified budget"
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 1,
+          "name": "monthly_summary",
+          "args": {
+            "year": 2026,
+            "month": 10,
+            "currency": "EUR"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "monthly category budgets have no currency; cannot evaluate them for a mixed-currency, empty, or differently selected month; use set_budget with currency and replaceUnassigned: true to explicitly assign each unqualified budget"
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 1,
+          "name": "get_budgets",
+          "args": {
+            "month": "2026-10"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "[{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":1234}]"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "record_transaction",
+          "args": {
+            "type": "expense",
+            "amountMinor": 803,
+            "currency": " usd ",
+            "date": "2026-10-08",
+            "category": " food ",
+            "note": "fictional independent receiving record",
+            "idempotencyKey": "prior-usd-key"
+          },
+          "client": 1,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"id\":\"prior-usd\",\"type\":\"expense\",\"amountMinor\":803,\"currency\":\"USD\",\"date\":\"2026-10-08\",\"category\":\"food\",\"note\":\"fictional independent receiving record\",\"idempotencyKey\":\"prior-usd-key\",\"createdAt\":\"2026-10-08T00:00:00.000Z\"}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "record_transaction",
+          "args": {
+            "type": "expense",
+            "amountMinor": 804,
+            "currency": " usd ",
+            "date": "2026-10-08",
+            "category": " food ",
+            "note": "fictional independent receiving record",
+            "idempotencyKey": "prior-usd-key"
+          },
+          "client": 2,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "idempotencyKey already records a different transaction; use its original input or a new key for a different recording"
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": -1
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "limitMinor must be a non-negative integer (minor units), got -1"
+              }
+            ],
+            "isError": true
+          }
+        }
+      ],
+      "images": [
+        {
+          "label": "summary refusal preserves the authored v1 byte image",
+          "bytes": 1058,
+          "sha256": "7d543b1552af930bf289424f031fb2fa0f325e6a8ea1199beb19b2c026ba289f"
+        },
+        {
+          "label": "summary refusal preserves the authored v1 byte image",
+          "bytes": 1058,
+          "sha256": "7d543b1552af930bf289424f031fb2fa0f325e6a8ea1199beb19b2c026ba289f"
+        },
+        {
+          "label": "summary refusal preserves the authored v1 byte image",
+          "bytes": 1058,
+          "sha256": "7d543b1552af930bf289424f031fb2fa0f325e6a8ea1199beb19b2c026ba289f"
+        },
+        {
+          "label": "all reads, keyed retries and refused writes preserve v1 bytes",
+          "bytes": 1058,
+          "sha256": "7d543b1552af930bf289424f031fb2fa0f325e6a8ea1199beb19b2c026ba289f"
+        }
+      ],
+      "processes": [
+        {
+          "number": 1,
+          "pid": 25,
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+            "/dev/shm/hamon-401c5d17da79-budget-receiving/sources/candidate/dist/src/index.js"
+          ],
+          "port": 37969,
+          "fault": false,
+          "stdout": "household-ledger-mcp listening on http://127.0.0.1:37969 (POST /mcp, GET /healthz)\n",
+          "stderr": "",
+          "closed": true,
+          "exit": null,
+          "signal": "SIGTERM"
+        }
+      ],
+      "fixture": {
+        "path": "/dev/shm/hamon-401c5d17da79-budget-receiving/fixtures/candidate-UnKjlf/ledger.json",
+        "sha256": "7d543b1552af930bf289424f031fb2fa0f325e6a8ea1199beb19b2c026ba289f",
+        "bytes": 1058,
+        "data": {
+          "version": 1,
+          "transactions": [
+            {
+              "id": "prior-usd",
+              "type": "expense",
+              "amountMinor": 803,
+              "currency": "USD",
+              "date": "2026-10-08",
+              "category": "food",
+              "note": "fictional independent receiving record",
+              "idempotencyKey": "prior-usd-key",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            },
+            {
+              "id": "prior-eur",
+              "type": "expense",
+              "amountMinor": 911,
+              "currency": "EUR",
+              "date": "2026-10-08",
+              "category": "food",
+              "note": "fictional independent receiving record",
+              "idempotencyKey": "prior-eur-key",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            },
+            {
+              "id": "outside-month",
+              "type": "expense",
+              "amountMinor": 99,
+              "currency": "JPY",
+              "date": "2026-09-30",
+              "category": "food",
+              "note": "fictional independent receiving record",
+              "idempotencyKey": "outside-month-key",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            }
+          ],
+          "budgets": [
+            {
+              "category": "food",
+              "month": "2026-10",
+              "limitMinor": 1234
+            },
+            {
+              "category": "keep",
+              "month": "2026-11",
+              "limitMinor": 77
+            }
+          ]
+        }
+      },
+      "capability": {
+        "setCurrency": true,
+        "replaceUnassigned": true,
+        "getCurrency": true
+      }
+    },
+    {
+      "name": "explicit local replacement, partial-migration refusal and currency isolation survive HTTP restart",
+      "status": "passed",
+      "checks": [
+        {
+          "label": "replacement lacking the required explicit intent is refused",
+          "pass": true
+        },
+        {
+          "label": "refused replacement cannot promote or relabel v1",
+          "pass": true
+        },
+        {
+          "label": "replacement lacking the required explicit intent is refused",
+          "pass": true
+        },
+        {
+          "label": "refused replacement cannot promote or relabel v1",
+          "pass": true
+        },
+        {
+          "label": "the explicit replacement returns its normalized denomination",
+          "pass": true
+        },
+        {
+          "label": "only the consented row changes while version advances",
+          "pass": true
+        },
+        {
+          "label": "explicit filter excludes unresolved budgets",
+          "pass": true
+        },
+        {
+          "label": "another unassigned budget still blocks an ambiguous partial month",
+          "pass": true
+        },
+        {
+          "label": "partial-migration reads preserve unresolved rows and bytes",
+          "pass": true
+        },
+        {
+          "label": "concurrent explicit identities keep both independent limits",
+          "pass": true
+        },
+        {
+          "label": "ambiguous or invalid update is refused after promotion",
+          "pass": true
+        },
+        {
+          "label": "refused version-2 write preserves both currency limits",
+          "pass": true
+        },
+        {
+          "label": "ambiguous or invalid update is refused after promotion",
+          "pass": true
+        },
+        {
+          "label": "refused version-2 write preserves both currency limits",
+          "pass": true
+        },
+        {
+          "label": "ambiguous or invalid update is refused after promotion",
+          "pass": true
+        },
+        {
+          "label": "refused version-2 write preserves both currency limits",
+          "pass": true
+        },
+        {
+          "label": "USD status uses only USD spend and limit",
+          "pass": true
+        },
+        {
+          "label": "EUR status includes only EUR-denominated budgets",
+          "pass": true
+        },
+        {
+          "label": "an unrelated legacy month is not implicitly denominated",
+          "pass": true
+        },
+        {
+          "label": "multiple explicit currencies still require a selector",
+          "pass": true
+        },
+        {
+          "label": "all successful and refused summaries are read-only",
+          "pass": true
+        },
+        {
+          "label": "normalized currency filtering survives a new process",
+          "pass": true
+        },
+        {
+          "label": "restart preserves both exact currency summaries",
+          "pass": true
+        },
+        {
+          "label": "transaction identity survives denomination and restart",
+          "pass": true
+        },
+        {
+          "label": "transaction conflict still refuses on a version-2 ledger",
+          "pass": true
+        },
+        {
+          "label": "restart reads and transaction retries preserve the exact version-2 image",
+          "pass": true
+        }
+      ],
+      "calls": [
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": 800,
+            "currency": "USD"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "budget has no assigned currency; supply replaceUnassigned: true with the intended currency and limit to replace it"
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": 800,
+            "replaceUnassigned": true
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "replaceUnassigned requires an explicit currency"
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": 900,
+            "currency": " usd ",
+            "replaceUnassigned": true
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":900,\"currency\":\"USD\"}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "get_budgets",
+          "args": {
+            "month": "2026-10",
+            "currency": " usd "
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "[{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":900,\"currency\":\"USD\"}]"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "monthly_summary",
+          "args": {
+            "year": 2026,
+            "month": 10,
+            "currency": "USD"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "monthly category budgets have no currency; cannot evaluate them for a mixed-currency, empty, or differently selected month; use set_budget with currency and replaceUnassigned: true to explicitly assign each unqualified budget"
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "unused",
+            "month": "2026-10",
+            "limitMinor": 50,
+            "currency": "EUR",
+            "replaceUnassigned": true
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"category\":\"unused\",\"month\":\"2026-10\",\"limitMinor\":50,\"currency\":\"EUR\"}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": 1300,
+            "currency": "EUR"
+          },
+          "client": 1,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":1300,\"currency\":\"EUR\"}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": 800,
+            "currency": "USD"
+          },
+          "client": 2,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":800,\"currency\":\"USD\"}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "get_budgets",
+          "args": {
+            "month": "2026-10"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "[{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":800,\"currency\":\"USD\"},{\"category\":\"unused\",\"month\":\"2026-10\",\"limitMinor\":50,\"currency\":\"EUR\"},{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":1300,\"currency\":\"EUR\"}]"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": 1
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "currency is required to update a denominated category budget"
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": 1,
+            "currency": "EURO"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "currency must be a 3-letter code, got \"EURO\""
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": -1,
+            "currency": "EUR"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "limitMinor must be a non-negative integer (minor units), got -1"
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 1,
+          "name": "monthly_summary",
+          "args": {
+            "year": 2026,
+            "month": 10,
+            "currency": "USD"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"year\":2026,\"month\":10,\"currency\":\"USD\",\"incomeMinor\":0,\"expenseMinor\":803,\"netMinor\":-803,\"byCategory\":{\"food\":{\"incomeMinor\":0,\"expenseMinor\":803}},\"budgets\":[{\"category\":\"food\",\"currency\":\"USD\",\"limitMinor\":800,\"spentMinor\":803,\"remainingMinor\":-3,\"over\":true}]}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "monthly_summary",
+          "args": {
+            "year": 2026,
+            "month": 10,
+            "currency": "EUR"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"year\":2026,\"month\":10,\"currency\":\"EUR\",\"incomeMinor\":0,\"expenseMinor\":911,\"netMinor\":-911,\"byCategory\":{\"food\":{\"incomeMinor\":0,\"expenseMinor\":911}},\"budgets\":[{\"category\":\"unused\",\"currency\":\"EUR\",\"limitMinor\":50,\"spentMinor\":0,\"remainingMinor\":50,\"over\":false},{\"category\":\"food\",\"currency\":\"EUR\",\"limitMinor\":1300,\"spentMinor\":911,\"remainingMinor\":389,\"over\":false}]}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "get_budgets",
+          "args": {
+            "month": "2026-11"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "[{\"category\":\"keep\",\"month\":\"2026-11\",\"limitMinor\":77}]"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "monthly_summary",
+          "args": {
+            "year": 2026,
+            "month": 10
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "month contains multiple currencies (EUR, USD); supply currency to select transaction totals and budgets"
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 2,
+          "name": "get_budgets",
+          "args": {
+            "month": "2026-10",
+            "currency": " eur "
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "[{\"category\":\"unused\",\"month\":\"2026-10\",\"limitMinor\":50,\"currency\":\"EUR\"},{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":1300,\"currency\":\"EUR\"}]"
+              }
+            ]
+          }
+        },
+        {
+          "process": 2,
+          "name": "monthly_summary",
+          "args": {
+            "year": 2026,
+            "month": 10,
+            "currency": "USD"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"year\":2026,\"month\":10,\"currency\":\"USD\",\"incomeMinor\":0,\"expenseMinor\":803,\"netMinor\":-803,\"byCategory\":{\"food\":{\"incomeMinor\":0,\"expenseMinor\":803}},\"budgets\":[{\"category\":\"food\",\"currency\":\"USD\",\"limitMinor\":800,\"spentMinor\":803,\"remainingMinor\":-3,\"over\":true}]}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 2,
+          "name": "monthly_summary",
+          "args": {
+            "year": 2026,
+            "month": 10,
+            "currency": "EUR"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"year\":2026,\"month\":10,\"currency\":\"EUR\",\"incomeMinor\":0,\"expenseMinor\":911,\"netMinor\":-911,\"byCategory\":{\"food\":{\"incomeMinor\":0,\"expenseMinor\":911}},\"budgets\":[{\"category\":\"unused\",\"currency\":\"EUR\",\"limitMinor\":50,\"spentMinor\":0,\"remainingMinor\":50,\"over\":false},{\"category\":\"food\",\"currency\":\"EUR\",\"limitMinor\":1300,\"spentMinor\":911,\"remainingMinor\":389,\"over\":false}]}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 2,
+          "name": "record_transaction",
+          "args": {
+            "type": "expense",
+            "amountMinor": 803,
+            "currency": " usd ",
+            "date": "2026-10-08",
+            "category": " food ",
+            "note": "fictional independent receiving record",
+            "idempotencyKey": "prior-usd-key"
+          },
+          "client": 1,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"id\":\"prior-usd\",\"type\":\"expense\",\"amountMinor\":803,\"currency\":\"USD\",\"date\":\"2026-10-08\",\"category\":\"food\",\"note\":\"fictional independent receiving record\",\"idempotencyKey\":\"prior-usd-key\",\"createdAt\":\"2026-10-08T00:00:00.000Z\"}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 2,
+          "name": "record_transaction",
+          "args": {
+            "type": "expense",
+            "amountMinor": 804,
+            "currency": " usd ",
+            "date": "2026-10-08",
+            "category": " food ",
+            "note": "fictional independent receiving record",
+            "idempotencyKey": "prior-usd-key"
+          },
+          "client": 2,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "idempotencyKey already records a different transaction; use its original input or a new key for a different recording"
+              }
+            ],
+            "isError": true
+          }
+        }
+      ],
+      "images": [
+        {
+          "label": "refused replacement cannot promote or relabel v1",
+          "bytes": 1135,
+          "sha256": "60ff90c633e544ef8fd4db7173989b0af633b4ca986abb69adb4624a9c1b19a5"
+        },
+        {
+          "label": "refused replacement cannot promote or relabel v1",
+          "bytes": 1135,
+          "sha256": "60ff90c633e544ef8fd4db7173989b0af633b4ca986abb69adb4624a9c1b19a5"
+        },
+        {
+          "label": "partial-migration reads preserve unresolved rows and bytes",
+          "bytes": 1294,
+          "sha256": "e66cd720836a0338b5a6fb8db95de704cea78b823e629b7455635c751410e0e3"
+        },
+        {
+          "label": "refused version-2 write preserves both currency limits",
+          "bytes": 1434,
+          "sha256": "fe72d08452c4274cb204c6dccfa7990b7ba2b2d52aef7383ae4f19dae9770cd1"
+        },
+        {
+          "label": "refused version-2 write preserves both currency limits",
+          "bytes": 1434,
+          "sha256": "fe72d08452c4274cb204c6dccfa7990b7ba2b2d52aef7383ae4f19dae9770cd1"
+        },
+        {
+          "label": "refused version-2 write preserves both currency limits",
+          "bytes": 1434,
+          "sha256": "fe72d08452c4274cb204c6dccfa7990b7ba2b2d52aef7383ae4f19dae9770cd1"
+        },
+        {
+          "label": "all successful and refused summaries are read-only",
+          "bytes": 1434,
+          "sha256": "fe72d08452c4274cb204c6dccfa7990b7ba2b2d52aef7383ae4f19dae9770cd1"
+        },
+        {
+          "label": "restart reads and transaction retries preserve the exact version-2 image",
+          "bytes": 1434,
+          "sha256": "fe72d08452c4274cb204c6dccfa7990b7ba2b2d52aef7383ae4f19dae9770cd1"
+        }
+      ],
+      "processes": [
+        {
+          "number": 1,
+          "pid": 37,
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+            "/dev/shm/hamon-401c5d17da79-budget-receiving/sources/candidate/dist/src/index.js"
+          ],
+          "port": 44187,
+          "fault": false,
+          "stdout": "household-ledger-mcp listening on http://127.0.0.1:44187 (POST /mcp, GET /healthz)\n",
+          "stderr": "",
+          "closed": true,
+          "exit": null,
+          "signal": "SIGTERM"
+        },
+        {
+          "number": 2,
+          "pid": 49,
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+            "/dev/shm/hamon-401c5d17da79-budget-receiving/sources/candidate/dist/src/index.js"
+          ],
+          "port": 37317,
+          "fault": false,
+          "stdout": "household-ledger-mcp listening on http://127.0.0.1:37317 (POST /mcp, GET /healthz)\n",
+          "stderr": "",
+          "closed": true,
+          "exit": null,
+          "signal": "SIGTERM"
+        }
+      ],
+      "fixture": {
+        "path": "/dev/shm/hamon-401c5d17da79-budget-receiving/fixtures/candidate-ArtMrX/ledger.json",
+        "sha256": "60ff90c633e544ef8fd4db7173989b0af633b4ca986abb69adb4624a9c1b19a5",
+        "bytes": 1135,
+        "data": {
+          "version": 1,
+          "transactions": [
+            {
+              "id": "prior-usd",
+              "type": "expense",
+              "amountMinor": 803,
+              "currency": "USD",
+              "date": "2026-10-08",
+              "category": "food",
+              "note": "fictional independent receiving record",
+              "idempotencyKey": "prior-usd-key",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            },
+            {
+              "id": "prior-eur",
+              "type": "expense",
+              "amountMinor": 911,
+              "currency": "EUR",
+              "date": "2026-10-08",
+              "category": "food",
+              "note": "fictional independent receiving record",
+              "idempotencyKey": "prior-eur-key",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            },
+            {
+              "id": "outside-month",
+              "type": "expense",
+              "amountMinor": 99,
+              "currency": "JPY",
+              "date": "2026-09-30",
+              "category": "food",
+              "note": "fictional independent receiving record",
+              "idempotencyKey": "outside-month-key",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            }
+          ],
+          "budgets": [
+            {
+              "category": "food",
+              "month": "2026-10",
+              "limitMinor": 1234
+            },
+            {
+              "category": "unused",
+              "month": "2026-10",
+              "limitMinor": 61
+            },
+            {
+              "category": "keep",
+              "month": "2026-11",
+              "limitMinor": 77
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "a failed first promotion preserves v1 and its retry survives the real HTTP writer",
+      "status": "passed",
+      "checks": [
+        {
+          "label": "the received failure is the declared atomic-rename injection",
+          "pass": true
+        },
+        {
+          "label": "failed explicit promotion preserves the original v1 bytes",
+          "pass": true
+        },
+        {
+          "label": "the failed atomic writer leaves no abandoned temporary file",
+          "pass": true
+        },
+        {
+          "label": "failure does not disturb a retained keyed transaction",
+          "pass": true
+        },
+        {
+          "label": "the queue remains usable without an implicit promotion",
+          "pass": true
+        },
+        {
+          "label": "the next explicit attempt commits exactly its intended transition",
+          "pass": true
+        },
+        {
+          "label": "repeating the exact acknowledged replacement does not rewrite bytes",
+          "pass": true
+        },
+        {
+          "label": "the recovered transition and old transaction identity persist through restart",
+          "pass": true
+        }
+      ],
+      "calls": [
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": 900,
+            "currency": "USD",
+            "replaceUnassigned": true
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "receiving injected atomic rename EIO"
+              }
+            ],
+            "isError": true
+          }
+        },
+        {
+          "process": 1,
+          "name": "record_transaction",
+          "args": {
+            "type": "expense",
+            "amountMinor": 803,
+            "currency": " usd ",
+            "date": "2026-10-08",
+            "category": " food ",
+            "note": "fictional independent receiving record",
+            "idempotencyKey": "prior-usd-key"
+          },
+          "client": 1,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"id\":\"prior-usd\",\"type\":\"expense\",\"amountMinor\":803,\"currency\":\"USD\",\"date\":\"2026-10-08\",\"category\":\"food\",\"note\":\"fictional independent receiving record\",\"idempotencyKey\":\"prior-usd-key\",\"createdAt\":\"2026-10-08T00:00:00.000Z\"}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": 900,
+            "currency": "USD",
+            "replaceUnassigned": true
+          },
+          "client": 2,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":900,\"currency\":\"USD\"}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 1,
+          "name": "set_budget",
+          "args": {
+            "category": "food",
+            "month": "2026-10",
+            "limitMinor": 900,
+            "currency": "USD",
+            "replaceUnassigned": true
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":900,\"currency\":\"USD\"}"
+              }
+            ]
+          }
+        },
+        {
+          "process": 2,
+          "name": "get_budgets",
+          "args": {
+            "month": "2026-10",
+            "currency": "USD"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "[{\"category\":\"food\",\"month\":\"2026-10\",\"limitMinor\":900,\"currency\":\"USD\"}]"
+              }
+            ]
+          }
+        },
+        {
+          "process": 2,
+          "name": "record_transaction",
+          "args": {
+            "type": "expense",
+            "amountMinor": 803,
+            "currency": " usd ",
+            "date": "2026-10-08",
+            "category": " food ",
+            "note": "fictional independent receiving record",
+            "idempotencyKey": "prior-usd-key"
+          },
+          "client": 0,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"id\":\"prior-usd\",\"type\":\"expense\",\"amountMinor\":803,\"currency\":\"USD\",\"date\":\"2026-10-08\",\"category\":\"food\",\"note\":\"fictional independent receiving record\",\"idempotencyKey\":\"prior-usd-key\",\"createdAt\":\"2026-10-08T00:00:00.000Z\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "images": [
+        {
+          "label": "failed explicit promotion preserves the original v1 bytes",
+          "bytes": 1058,
+          "sha256": "7d543b1552af930bf289424f031fb2fa0f325e6a8ea1199beb19b2c026ba289f"
+        },
+        {
+          "label": "the queue remains usable without an implicit promotion",
+          "bytes": 1058,
+          "sha256": "7d543b1552af930bf289424f031fb2fa0f325e6a8ea1199beb19b2c026ba289f"
+        },
+        {
+          "label": "repeating the exact acknowledged replacement does not rewrite bytes",
+          "bytes": 1204,
+          "sha256": "159595569a7ac6052c522d7f392202e227df4f46c26a4ada40d04b432c9f1883"
+        },
+        {
+          "label": "the recovered transition and old transaction identity persist through restart",
+          "bytes": 1204,
+          "sha256": "159595569a7ac6052c522d7f392202e227df4f46c26a4ada40d04b432c9f1883"
+        }
+      ],
+      "processes": [
+        {
+          "number": 1,
+          "pid": 61,
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+            "--import",
+            "/dev/shm/hamon-401c5d17da79-budget-receiving/fail_first_rename.mjs",
+            "/dev/shm/hamon-401c5d17da79-budget-receiving/sources/candidate/dist/src/index.js"
+          ],
+          "port": 46221,
+          "fault": true,
+          "stdout": "household-ledger-mcp listening on http://127.0.0.1:46221 (POST /mcp, GET /healthz)\n",
+          "stderr": "RECEIVING_INJECTED_RENAME_EIO /dev/shm/hamon-401c5d17da79-budget-receiving/fixtures/candidate-fjyLUf/ledger.json\n",
+          "closed": true,
+          "exit": null,
+          "signal": "SIGTERM"
+        },
+        {
+          "number": 2,
+          "pid": 73,
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+            "/dev/shm/hamon-401c5d17da79-budget-receiving/sources/candidate/dist/src/index.js"
+          ],
+          "port": 46471,
+          "fault": false,
+          "stdout": "household-ledger-mcp listening on http://127.0.0.1:46471 (POST /mcp, GET /healthz)\n",
+          "stderr": "",
+          "closed": true,
+          "exit": null,
+          "signal": "SIGTERM"
+        }
+      ],
+      "fixture": {
+        "path": "/dev/shm/hamon-401c5d17da79-budget-receiving/fixtures/candidate-fjyLUf/ledger.json",
+        "sha256": "7d543b1552af930bf289424f031fb2fa0f325e6a8ea1199beb19b2c026ba289f",
+        "bytes": 1058,
+        "data": {
+          "version": 1,
+          "transactions": [
+            {
+              "id": "prior-usd",
+              "type": "expense",
+              "amountMinor": 803,
+              "currency": "USD",
+              "date": "2026-10-08",
+              "category": "food",
+              "note": "fictional independent receiving record",
+              "idempotencyKey": "prior-usd-key",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            },
+            {
+              "id": "prior-eur",
+              "type": "expense",
+              "amountMinor": 911,
+              "currency": "EUR",
+              "date": "2026-10-08",
+              "category": "food",
+              "note": "fictional independent receiving record",
+              "idempotencyKey": "prior-eur-key",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            },
+            {
+              "id": "outside-month",
+              "type": "expense",
+              "amountMinor": 99,
+              "currency": "JPY",
+              "date": "2026-09-30",
+              "category": "food",
+              "note": "fictional independent receiving record",
+              "idempotencyKey": "outside-month-key",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            }
+          ],
+          "budgets": [
+            {
+              "category": "food",
+              "month": "2026-10",
+              "limitMinor": 1234
+            },
+            {
+              "category": "keep",
+              "month": "2026-11",
+              "limitMinor": 77
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "passed": 3,
+  "failed": 0,
+  "scope": "Real SDK Streamable HTTP, private authored files, actual Node entrypoint processes and restarts. The one-shot rename failure is an explicitly injected storage failure in one child; product source is unchanged. Baseline feature absence is recorded separately from existing-interface behavior."
+}

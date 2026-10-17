@@ -1,0 +1,124 @@
+{
+  "schema": "hamon.root.household-months.result-source-review.v1",
+  "reviewed_utc": "2026-10-14T00:19:28.490485+00:00",
+  "accepted": true,
+  "receipt": {
+    "bytes": 37988,
+    "sha256": "d4d7db4122c306fddd5e3e2680b3438f3b77e744d84b77d8afc318f68ea3e476"
+  },
+  "source_offer": {
+    "files": [
+      {
+        "path": "tools/lib/ledger-months.mjs",
+        "bytes": 2529,
+        "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01",
+        "mode": 420,
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/tools/lib/ledger-months.mjs"
+      },
+      {
+        "path": "tools/household-months.mjs",
+        "bytes": 2806,
+        "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56",
+        "mode": 420,
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/tools/household-months.mjs"
+      },
+      {
+        "path": "test/ledger-months.test.mjs",
+        "bytes": 9920,
+        "sha256": "e53e8c49162bd5db74d167ceac6da289e0c284b46db4d35f479d9ca8d272583f",
+        "mode": 420,
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/test/ledger-months.test.mjs"
+      },
+      {
+        "path": "docs/LEDGER_MONTHS.md",
+        "bytes": 5343,
+        "sha256": "1e0e20bef7fcafead1fac0e894d234daa3923f890f346be875fcdb7e3ae12a7d",
+        "mode": 420,
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/docs/LEDGER_MONTHS.md"
+      },
+      {
+        "path": "src/ledger.ts",
+        "bytes": 17537,
+        "sha256": "743eb94413383d8872b2eb4670d2813c2924d78cf9ae0d2b479432f9e8ae8c07",
+        "mode": 420,
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/candidate/src/ledger.ts"
+      }
+    ]
+  },
+  "results_recomputed": [
+    {
+      "name": "mixed",
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "name": "symlink",
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "name": "empty",
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "name": "late-invalid",
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "name": "legacy-denomination",
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "name": "utf8",
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "name": "missing",
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "name": "extra-argument",
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "name": "byte-limit",
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "name": "byte-over",
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "name": "row-limit",
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "name": "row-over",
+      "passed": true,
+      "exit": 2
+    }
+  ],
+  "native_consumer": "Actual discovered 2026-01/USD passed to unchanged native monthlySummary; complete 247-byte output equals manually prepared oracle.",
+  "source_review": [
+    "Full four additive source/test/guide bodies read after candidate-blind oracle freeze. Complete original native validator independently authenticated before freeze.",
+    "Complete native admission precedes exact month and normalized currency occurrence projection. No sums, invented months/currencies, deduplication, Store, mutation or account access.",
+    "Required argument pair, read-only bounded regular-file admission, fatal UTF8, complete serialization and write-all error handling match the public contract.",
+    "Guide distinguishes recorded keys from summary eligibility, warns against truncating the input through shell redirection, and accurately limits qualification to standard Node24 transform."
+  ],
+  "all_14_commands_closed_normally": true,
+  "all_watched_identities_preserved": true,
+  "limits": [
+    "No full TypeScript compiler, npm suite, MCP/SDK, installation or real financial records course.",
+    "Root twelve CLI cases do not claim exhaustive help/duplicate-argument/FIFO/stdout-failure coverage or prove argument-before-access ordering.",
+    "Filesystem custody is before/after evidence, not continuous monitoring. No test or product replay during this audit."
+  ]
+}

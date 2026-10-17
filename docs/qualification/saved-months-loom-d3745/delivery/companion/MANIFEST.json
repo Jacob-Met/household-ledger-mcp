@@ -1,0 +1,132 @@
+{
+  "schema": "hamon.household-saved-month-finder.companion.v1",
+  "title": "Household-Saved-Month-Finder-20261014",
+  "source_commit": "4d7b36118967a2076fdf642f99da462a8bb862c1",
+  "qualified_parent": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb",
+      "mode": 420,
+      "origin": {
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-runtime-v1/LICENSE",
+        "source_commit": "591ab6f5a2d65bf596aeb707dbb635ee981ec926"
+      }
+    },
+    {
+      "path": "OPEN-FIRST.html",
+      "bytes": 4484,
+      "sha256": "764165858b33ae94353ee48961120df87444e2bd652fcc5e38843be4b8dca46e",
+      "mode": 420,
+      "origin": {
+        "generated_from": "Received four-month result and exact runtime instructions"
+      }
+    },
+    {
+      "path": "README.txt",
+      "bytes": 3077,
+      "sha256": "544a09410fa1986729b633d2ffabfaf841e43282d6ff04787f5bff24eab12cdb",
+      "mode": 420,
+      "origin": {
+        "generated_from": "Exact received runtime and qualified source boundaries"
+      }
+    },
+    {
+      "path": "dist/src/ledger.js",
+      "bytes": 15664,
+      "sha256": "fce70e5857f70f7a9944a624d40bb76b031e2dcaefb61a0f7c59e957da0a8333",
+      "mode": 420,
+      "origin": {
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-runtime-v1/dist/src/ledger.js",
+        "source_commit": "591ab6f5a2d65bf596aeb707dbb635ee981ec926"
+      }
+    },
+    {
+      "path": "dist/src/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "mode": 420,
+      "origin": {
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-runtime-v1/dist/src/package.json",
+        "source_commit": "591ab6f5a2d65bf596aeb707dbb635ee981ec926"
+      }
+    },
+    {
+      "path": "evidence/build-companion-v1.py",
+      "bytes": 12883,
+      "sha256": "d7a1afb900f6a06610b11ac89187f571f7c3fc088ad475eff3a99a3496e8b0c3",
+      "mode": 420,
+      "origin": {
+        "source_path": "/workspace/scratch/d3745ea0f44f/root-household-months/build-companion-v1.py"
+      }
+    },
+    {
+      "path": "evidence/independent-consumer-review.json",
+      "bytes": 5231,
+      "sha256": "429febb7584ff5cea7a7c221e1f915378e8d9381f3ef7e606d1d328a2bc1a382",
+      "mode": 420,
+      "origin": {
+        "source_path": "/workspace/scratch/d3745ea0f44f/anvil/household-months-review/retained-consumer-review-v1.json"
+      }
+    },
+    {
+      "path": "evidence/remote-source-verification.json",
+      "bytes": 705,
+      "sha256": "081330ecf96b89397a9ff85e7f767ebcd2a83662cc2d23d653256ffbb724809d",
+      "mode": 420,
+      "origin": {
+        "source_path": "/workspace/scratch/d3745ea0f44f/root-household-months/remote-publication-v1.json"
+      }
+    },
+    {
+      "path": "evidence/retained-consumer-receipt.json",
+      "bytes": 19216,
+      "sha256": "ebcf6120ca68564f9603bd4f031791a85e34e5991e935b39c3fb00152f9e04ba",
+      "mode": 420,
+      "origin": {
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-v1/receipt.json"
+      }
+    },
+    {
+      "path": "example/discovered-months.json",
+      "bytes": 2455,
+      "sha256": "b89a3fc8a8d37489e77b4c05c696c10cf2158ba12fc0c6d72f2c69082c24668d",
+      "mode": 420,
+      "origin": {
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-v1/discovered-months.json"
+      }
+    },
+    {
+      "path": "example/household.json",
+      "bytes": 3314,
+      "sha256": "2ab7b89d53f1e055114793ac49420b9468878edc35e1260cd05f2b7f40f90dab",
+      "mode": 420,
+      "origin": {
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-runtime-v1/example/household.json",
+        "source_commit": "591ab6f5a2d65bf596aeb707dbb635ee981ec926"
+      }
+    },
+    {
+      "path": "tools/household-months.mjs",
+      "bytes": 2806,
+      "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56",
+      "mode": 420,
+      "origin": {
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-runtime-v1/tools/household-months.mjs",
+        "source_commit": "4d7b36118967a2076fdf642f99da462a8bb862c1"
+      }
+    },
+    {
+      "path": "tools/lib/ledger-months.mjs",
+      "bytes": 2529,
+      "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01",
+      "mode": 420,
+      "origin": {
+        "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-runtime-v1/tools/lib/ledger-months.mjs",
+        "source_commit": "4d7b36118967a2076fdf642f99da462a8bb862c1"
+      }
+    }
+  ],
+  "scope": "Runnable offline companion of the exact received six-file runtime; source and qualification boundaries remain explicit."
+}

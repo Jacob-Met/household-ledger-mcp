@@ -1,0 +1,436 @@
+{
+  "schema": "household.import-cashflow.expected.v1",
+  "source_commit": "07e223b5da19cea0f048219d8c85689fcc1ba83f",
+  "source_tree": "76cd2cc60b10dabdd301d32a53da4b833015193d",
+  "csv_sha256": "7d9ffe6e6dd36b4ea165ec5d17e1831b128ec94e992e10bcabd7eeab706a0a26",
+  "rows": [
+    {
+      "idempotencyKey": "salary-feb",
+      "type": "income",
+      "amountMinor": 300000,
+      "currency": "USD",
+      "date": "2026-02-01",
+      "category": "Salary",
+      "note": "February salary"
+    },
+    {
+      "idempotencyKey": "food-feb-usd",
+      "type": "expense",
+      "amountMinor": 12500,
+      "currency": "USD",
+      "date": "2026-02-04",
+      "category": "Food",
+      "note": "Groceries"
+    },
+    {
+      "idempotencyKey": "rent-feb",
+      "type": "expense",
+      "amountMinor": 90000,
+      "currency": "USD",
+      "date": "2026-02-05",
+      "category": "Rent",
+      "note": "February rent"
+    },
+    {
+      "idempotencyKey": "food-feb-eur",
+      "type": "expense",
+      "amountMinor": 2500,
+      "currency": "EUR",
+      "date": "2026-02-08",
+      "category": "Food",
+      "note": "Separate denomination"
+    },
+    {
+      "idempotencyKey": "salary-apr",
+      "type": "income",
+      "amountMinor": 300000,
+      "currency": "USD",
+      "date": "2026-04-01",
+      "category": "Salary",
+      "note": "April salary"
+    },
+    {
+      "idempotencyKey": "food-apr-usd",
+      "type": "expense",
+      "amountMinor": 11250,
+      "currency": "USD",
+      "date": "2026-04-07",
+      "category": "Food",
+      "note": "April groceries"
+    },
+    {
+      "idempotencyKey": "food-apr-eur",
+      "type": "expense",
+      "amountMinor": 3500,
+      "currency": "EUR",
+      "date": "2026-04-09",
+      "category": "Food",
+      "note": "April euro groceries"
+    }
+  ],
+  "original_transaction_input": {
+    "idempotencyKey": "prior-statement",
+    "type": "expense",
+    "amountMinor": 999,
+    "currency": "CHF",
+    "date": "2026-01-15",
+    "category": "Archive",
+    "note": "Existing native record outside report interval"
+  },
+  "original_budget": {
+    "category": "Archive",
+    "month": "2026-01",
+    "limitMinor": 5000,
+    "currency": "CHF"
+  },
+  "budgets_to_add": [
+    {
+      "category": "Food",
+      "month": "2026-02",
+      "limitMinor": 15000,
+      "currency": "USD"
+    },
+    {
+      "category": "Food",
+      "month": "2026-02",
+      "limitMinor": 2000,
+      "currency": "EUR"
+    },
+    {
+      "category": "Food",
+      "month": "2026-03",
+      "limitMinor": 5000,
+      "currency": "USD"
+    },
+    {
+      "category": "Food",
+      "month": "2026-04",
+      "limitMinor": 10000,
+      "currency": "USD"
+    },
+    {
+      "category": "Food",
+      "month": "2026-04",
+      "limitMinor": 4000,
+      "currency": "EUR"
+    }
+  ],
+  "import_totals": [
+    {
+      "currency": "EUR",
+      "incomeMinor": 0,
+      "expenseMinor": 6000,
+      "netMinor": -6000
+    },
+    {
+      "currency": "USD",
+      "incomeMinor": 600000,
+      "expenseMinor": 113750,
+      "netMinor": 486250
+    }
+  ],
+  "reports": {
+    "monthly": {
+      "USD": [
+        {
+          "year": 2026,
+          "month": 2,
+          "currency": "USD",
+          "incomeMinor": 300000,
+          "expenseMinor": 102500,
+          "netMinor": 197500,
+          "byCategory": {
+            "Salary": {
+              "incomeMinor": 300000,
+              "expenseMinor": 0
+            },
+            "Food": {
+              "incomeMinor": 0,
+              "expenseMinor": 12500
+            },
+            "Rent": {
+              "incomeMinor": 0,
+              "expenseMinor": 90000
+            }
+          },
+          "budgets": [
+            {
+              "category": "Food",
+              "currency": "USD",
+              "limitMinor": 15000,
+              "spentMinor": 12500,
+              "remainingMinor": 2500,
+              "over": false
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "month": 3,
+          "currency": "USD",
+          "incomeMinor": 0,
+          "expenseMinor": 0,
+          "netMinor": 0,
+          "byCategory": {},
+          "budgets": [
+            {
+              "category": "Food",
+              "currency": "USD",
+              "limitMinor": 5000,
+              "spentMinor": 0,
+              "remainingMinor": 5000,
+              "over": false
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "month": 4,
+          "currency": "USD",
+          "incomeMinor": 300000,
+          "expenseMinor": 11250,
+          "netMinor": 288750,
+          "byCategory": {
+            "Salary": {
+              "incomeMinor": 300000,
+              "expenseMinor": 0
+            },
+            "Food": {
+              "incomeMinor": 0,
+              "expenseMinor": 11250
+            }
+          },
+          "budgets": [
+            {
+              "category": "Food",
+              "currency": "USD",
+              "limitMinor": 10000,
+              "spentMinor": 11250,
+              "remainingMinor": -1250,
+              "over": true
+            }
+          ]
+        }
+      ],
+      "EUR": [
+        {
+          "year": 2026,
+          "month": 2,
+          "currency": "EUR",
+          "incomeMinor": 0,
+          "expenseMinor": 2500,
+          "netMinor": -2500,
+          "byCategory": {
+            "Food": {
+              "incomeMinor": 0,
+              "expenseMinor": 2500
+            }
+          },
+          "budgets": [
+            {
+              "category": "Food",
+              "currency": "EUR",
+              "limitMinor": 2000,
+              "spentMinor": 2500,
+              "remainingMinor": -500,
+              "over": true
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "month": 3,
+          "currency": "EUR",
+          "incomeMinor": 0,
+          "expenseMinor": 0,
+          "netMinor": 0,
+          "byCategory": {},
+          "budgets": []
+        },
+        {
+          "year": 2026,
+          "month": 4,
+          "currency": "EUR",
+          "incomeMinor": 0,
+          "expenseMinor": 3500,
+          "netMinor": -3500,
+          "byCategory": {
+            "Food": {
+              "incomeMinor": 0,
+              "expenseMinor": 3500
+            }
+          },
+          "budgets": [
+            {
+              "category": "Food",
+              "currency": "EUR",
+              "limitMinor": 4000,
+              "spentMinor": 3500,
+              "remainingMinor": 500,
+              "over": false
+            }
+          ]
+        }
+      ]
+    },
+    "trends": {
+      "USD": {
+        "fromMonth": "2026-02",
+        "toMonth": "2026-04",
+        "monthCount": 3,
+        "currency": "USD",
+        "totals": {
+          "incomeMinor": 600000,
+          "expenseMinor": 113750,
+          "netMinor": 486250
+        },
+        "months": [
+          {
+            "month": "2026-02",
+            "incomeMinor": 300000,
+            "expenseMinor": 102500,
+            "netMinor": 197500,
+            "cumulativeNetMinor": 197500,
+            "byCategory": {
+              "Salary": {
+                "incomeMinor": 300000,
+                "expenseMinor": 0
+              },
+              "Food": {
+                "incomeMinor": 0,
+                "expenseMinor": 12500
+              },
+              "Rent": {
+                "incomeMinor": 0,
+                "expenseMinor": 90000
+              }
+            },
+            "budgets": [
+              {
+                "category": "Food",
+                "currency": "USD",
+                "limitMinor": 15000,
+                "spentMinor": 12500,
+                "remainingMinor": 2500,
+                "over": false
+              }
+            ]
+          },
+          {
+            "month": "2026-03",
+            "incomeMinor": 0,
+            "expenseMinor": 0,
+            "netMinor": 0,
+            "cumulativeNetMinor": 197500,
+            "byCategory": {},
+            "budgets": [
+              {
+                "category": "Food",
+                "currency": "USD",
+                "limitMinor": 5000,
+                "spentMinor": 0,
+                "remainingMinor": 5000,
+                "over": false
+              }
+            ]
+          },
+          {
+            "month": "2026-04",
+            "incomeMinor": 300000,
+            "expenseMinor": 11250,
+            "netMinor": 288750,
+            "cumulativeNetMinor": 486250,
+            "byCategory": {
+              "Salary": {
+                "incomeMinor": 300000,
+                "expenseMinor": 0
+              },
+              "Food": {
+                "incomeMinor": 0,
+                "expenseMinor": 11250
+              }
+            },
+            "budgets": [
+              {
+                "category": "Food",
+                "currency": "USD",
+                "limitMinor": 10000,
+                "spentMinor": 11250,
+                "remainingMinor": -1250,
+                "over": true
+              }
+            ]
+          }
+        ]
+      },
+      "EUR": {
+        "fromMonth": "2026-02",
+        "toMonth": "2026-04",
+        "monthCount": 3,
+        "currency": "EUR",
+        "totals": {
+          "incomeMinor": 0,
+          "expenseMinor": 6000,
+          "netMinor": -6000
+        },
+        "months": [
+          {
+            "month": "2026-02",
+            "incomeMinor": 0,
+            "expenseMinor": 2500,
+            "netMinor": -2500,
+            "cumulativeNetMinor": -2500,
+            "byCategory": {
+              "Food": {
+                "incomeMinor": 0,
+                "expenseMinor": 2500
+              }
+            },
+            "budgets": [
+              {
+                "category": "Food",
+                "currency": "EUR",
+                "limitMinor": 2000,
+                "spentMinor": 2500,
+                "remainingMinor": -500,
+                "over": true
+              }
+            ]
+          },
+          {
+            "month": "2026-03",
+            "incomeMinor": 0,
+            "expenseMinor": 0,
+            "netMinor": 0,
+            "cumulativeNetMinor": -2500,
+            "byCategory": {},
+            "budgets": []
+          },
+          {
+            "month": "2026-04",
+            "incomeMinor": 0,
+            "expenseMinor": 3500,
+            "netMinor": -3500,
+            "cumulativeNetMinor": -6000,
+            "byCategory": {
+              "Food": {
+                "incomeMinor": 0,
+                "expenseMinor": 3500
+              }
+            },
+            "budgets": [
+              {
+                "category": "Food",
+                "currency": "EUR",
+                "limitMinor": 4000,
+                "spentMinor": 3500,
+                "remainingMinor": 500,
+                "over": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

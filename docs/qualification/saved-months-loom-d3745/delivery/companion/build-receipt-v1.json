@@ -1,0 +1,25 @@
+{
+  "schema": "hamon.root.household-companion.build.v1",
+  "accepted": true,
+  "created_utc": "2026-10-14T00:38:24.001936+00:00",
+  "zip": {
+    "path": "/workspace/scratch/d3745ea0f44f/root-household-months/delivery-v1/Household-Saved-Month-Finder-20261014.zip",
+    "bytes": 26757,
+    "sha256": "ab01744491a39e092c9d5e6b6f9333e666569caac9fa283b94d41e82741fea91",
+    "mode": 420
+  },
+  "members": 14,
+  "received_runtime_files": 6,
+  "manifest_sha256": "644b6a7aede8abfcced3e6b7e81790b793ba0f2d71caf25716f8a3d7b6074bba",
+  "consumer_receipt": {
+    "bytes": 19216,
+    "sha256": "ebcf6120ca68564f9603bd4f031791a85e34e5991e935b39c3fb00152f9e04ba",
+    "mode": 420
+  },
+  "independent_review": {
+    "bytes": 5231,
+    "sha256": "429febb7584ff5cea7a7c221e1f915378e8d9381f3ef7e606d1d328a2bc1a382",
+    "mode": 420
+  },
+  "scope": "Read-only retained receipt/runtime admission and complete archive member/CRC/mode verification. No product rerun or new compiler/native installation."
+}

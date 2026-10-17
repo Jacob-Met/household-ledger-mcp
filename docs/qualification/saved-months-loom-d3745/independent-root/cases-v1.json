@@ -1,0 +1,114 @@
+{
+  "schema": "hamon.root.household-months.cases.v1",
+  "source": "public contract77842158 and unchanged native validator only",
+  "cases": [
+    {
+      "name": "mixed",
+      "argv": [
+        "--ledger",
+        "fixtures/mixed.json"
+      ],
+      "exit": 0,
+      "stdout": "oracles/mixed.stdout"
+    },
+    {
+      "name": "symlink",
+      "argv": [
+        "--ledger",
+        "fixtures/symlink.json"
+      ],
+      "exit": 0,
+      "stdout": "oracles/symlink.stdout"
+    },
+    {
+      "name": "empty",
+      "argv": [
+        "--ledger",
+        "fixtures/empty.json"
+      ],
+      "exit": 0,
+      "stdout": "oracles/empty.stdout"
+    },
+    {
+      "name": "late-invalid",
+      "argv": [
+        "--ledger",
+        "fixtures/late-invalid.json"
+      ],
+      "exit": 2
+    },
+    {
+      "name": "legacy-denomination",
+      "argv": [
+        "--ledger",
+        "fixtures/legacy-denomination.json"
+      ],
+      "exit": 2
+    },
+    {
+      "name": "utf8",
+      "argv": [
+        "--ledger",
+        "fixtures/utf8.json"
+      ],
+      "exit": 2
+    },
+    {
+      "name": "missing",
+      "argv": [
+        "--ledger",
+        "fixtures/missing.json"
+      ],
+      "exit": 2
+    },
+    {
+      "name": "extra-argument",
+      "argv": [
+        "--ledger",
+        "fixtures/missing.json",
+        "--unknown"
+      ],
+      "exit": 2
+    },
+    {
+      "name": "byte-limit",
+      "argv": [
+        "--ledger",
+        "fixtures/byte-limit.json"
+      ],
+      "exit": 0,
+      "stdout": "oracles/byte-limit.stdout"
+    },
+    {
+      "name": "byte-over",
+      "argv": [
+        "--ledger",
+        "fixtures/byte-over.json"
+      ],
+      "exit": 2
+    },
+    {
+      "name": "row-limit",
+      "argv": [
+        "--ledger",
+        "fixtures/row-limit.json"
+      ],
+      "exit": 0,
+      "stdout": "oracles/row-limit.stdout"
+    },
+    {
+      "name": "row-over",
+      "argv": [
+        "--ledger",
+        "fixtures/row-over.json"
+      ],
+      "exit": 2
+    }
+  ],
+  "native_consumer": {
+    "discovery_case": "mixed",
+    "month": "2026-01",
+    "currency": "USD",
+    "expected_stdout": "oracles/native-monthly.stdout"
+  }
+}

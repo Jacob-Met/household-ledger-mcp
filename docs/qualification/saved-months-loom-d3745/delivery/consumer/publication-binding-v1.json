@@ -1,0 +1,21 @@
+{
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "source_commit": "4d7b36118967a2076fdf642f99da462a8bb862c1",
+  "tree": "66484fbc6d0c72378ca6722bc853002f3e010394",
+  "source_files": {
+    "tools/household-months.mjs": {
+      "bytes": 2806,
+      "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56",
+      "mode": 420,
+      "git_blob": "e0cea0970f42f70d48f507c75a232d6e4c03dcc2"
+    },
+    "tools/lib/ledger-months.mjs": {
+      "bytes": 2529,
+      "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01",
+      "mode": 420,
+      "git_blob": "0efd7c6758e93660434a1532742a438f59f5cec9"
+    }
+  },
+  "remote_bytes_verified": true,
+  "scope": "Both exact published runtime additions read back; retained emitted native validator remains separately bound to PR8."
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "kind": "household.saved-months",
+  "source": {
+    "path": "/workspace/scratch/d3745ea0f44f/loom-household-months/fixtures-v1/mixed-ledger.json",
+    "bytes": 1618,
+    "sha256": "0111f5e7a277746fc421570b9d31f6747adfcaaaff81dcbb47bd4bff9f3378b0"
+  },
+  "counts": {
+    "transactions": 4,
+    "budgets": 5,
+    "months": 4
+  },
+  "months": [
+    {
+      "month": "0000-01",
+      "summary_supported": false,
+      "transaction_count": 0,
+      "budget_count": 2,
+      "unassigned_budget_count": 2,
+      "currencies": []
+    },
+    {
+      "month": "1969-12",
+      "summary_supported": false,
+      "transaction_count": 1,
+      "budget_count": 0,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "EUR",
+          "transaction_count": 1,
+          "income_count": 1,
+          "expense_count": 0,
+          "budget_count": 0
+        }
+      ]
+    },
+    {
+      "month": "2026-10",
+      "summary_supported": true,
+      "transaction_count": 3,
+      "budget_count": 2,
+      "unassigned_budget_count": 1,
+      "currencies": [
+        {
+          "currency": "EUR",
+          "transaction_count": 1,
+          "income_count": 0,
+          "expense_count": 1,
+          "budget_count": 1
+        },
+        {
+          "currency": "USD",
+          "transaction_count": 2,
+          "income_count": 1,
+          "expense_count": 1,
+          "budget_count": 0
+        }
+      ]
+    },
+    {
+      "month": "2026-12",
+      "summary_supported": true,
+      "transaction_count": 0,
+      "budget_count": 1,
+      "unassigned_budget_count": 0,
+      "currencies": [
+        {
+          "currency": "USD",
+          "transaction_count": 0,
+          "income_count": 0,
+          "expense_count": 0,
+          "budget_count": 1
+        }
+      ]
+    }
+  ],
+  "notice": "Recorded month keys from this saved ledger only. Counts describe saved row occurrences, not unique purchases or account completeness. Currency groups do not convert or total amounts. Legacy unassigned budgets retain no currency. Discovery does not imply that an existing monthly summary will accept the selected ledger and currency."
+}

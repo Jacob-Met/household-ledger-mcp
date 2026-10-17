@@ -1,0 +1,165 @@
+{
+  "schema": "hamon.anvil.household-months.candidate-blind-controller-review.v2",
+  "reviewed_utc": "2026-10-14T00:13:14.995718+00:00",
+  "accepted": true,
+  "candidate_exposed": false,
+  "product_or_controller_executed": false,
+  "scope": "Full static public-contract/oracle/helper/controller review plus independent read-only byte/mode/mtime/link audit. Candidate implementation and author tests/results remain unseen.",
+  "freeze": {
+    "path": "/workspace/scratch/d3745ea0f44f/root-household-months/freeze-v2.json",
+    "mode": 420,
+    "mtime_ns": 1791936575465556498,
+    "kind": "file",
+    "bytes": 8055,
+    "sha256": "a0411c26432a0bdf0f912d4fda996b72e8895b9abc430b29a738b6c8794e3c16"
+  },
+  "controller": {
+    "path": "/workspace/scratch/d3745ea0f44f/root-household-months/receive-v2.py",
+    "mode": 420,
+    "mtime_ns": 1791936575018507595,
+    "kind": "file",
+    "bytes": 8146,
+    "sha256": "5586e43745cb54f3a825918a2e26d77115eb42e6641f44deabe17bb4c369d0db"
+  },
+  "controls": [
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/cases-v1.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/controller-addendum-v2.md",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/controller-v1-to-v2.patch",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/criteria-v1.md",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/byte-limit.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/byte-over.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/empty.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/late-invalid.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/legacy-denomination.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/mixed.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/row-limit.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/row-over.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/symlink.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/fixtures/utf8.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/freeze-v1.json",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/native-ledger.ts",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/byte-limit.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/empty.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/mixed.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/native-monthly.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/row-limit.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/oracles/symlink.stdout",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/prepare-oracles-v1.py",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/receive-v1.py",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/receive-v2.py",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/sentinel.txt",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/transform-native-v1.mjs",
+      "exact": true
+    },
+    {
+      "path": "/workspace/scratch/d3745ea0f44f/root-household-months/use-discovered-month-v1.mjs",
+      "exact": true
+    }
+  ],
+  "prior_24_controls_unchanged": true,
+  "patch_exact_reconstructed_from_preserved_v1_and_v2": true,
+  "original_v1_unexecuted_as_declared": true,
+  "findings": [
+    "Exact five-row offer requires all four maintained additions and byte-equal original native ledger; only two runtime modules are copied into an exclusive private runtime.",
+    "Twelve CLI cases use independently prepared complete stdout bytes. Actual 16MiB/per-file and 100000-row boundaries are represented; unsupported summary years remain discoverable and occurrence counts are not deduplicated.",
+    "One dependent 2026-01/USD native monthly consumer consumes actual mixed discovery output, validates the original authored ledger, and compares the full result to a public-native oracle. Standard Node TypeScript transformation is explicitly distinct from a package/compiler build.",
+    "V2 captures complete immediate fixture namespace including missing.json absence before and after; ordinary source/control/runtime identities and runtime file set are preserved.",
+    "V2 terminates and reaps its owned session child on interrupted wait, with TERM then bounded KILL fallback, records the interrupted attempt and prospective streams, and propagates into a failed receipt. Normal child timeout/residual-group cleanup cannot pass acceptance.",
+    "All twelve cases, argv, expected outputs, helpers and prior freeze remain unchanged; patch body exactly reconstructs the reviewed V2."
+  ],
+  "limits": [
+    "This accepts the receiver for the stated course; no candidate/product result is claimed.",
+    "The course does not claim complete help/duplicate-argument/FIFO/stdout-failure coverage or prove argument-before-access ordering.",
+    "Custody checks are before/after observations, not a continuous filesystem monitor.",
+    "Node24 standard transformation of one native module is not tsc/npm/full repository build, MCP or installation verification."
+  ],
+  "prior_reviews": [
+    {
+      "path": "anvil/household-months-review/public-oracle-custody-v1.json",
+      "sha256": "ea87f63b0d14aa4ed469a2c6decdcb48da63c7b4fa4fc52ba667784092c1bb5d"
+    },
+    {
+      "path": "anvil/household-months-review/freeze-audit-v1.json",
+      "sha256": "183a7b5459879ce54f40e788f11c6317f1eebc73b2177e39b0c5e02f73c0a494"
+    }
+  ]
+}

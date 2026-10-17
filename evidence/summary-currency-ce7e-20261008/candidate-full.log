@@ -1,0 +1,68 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> household-ledger-mcp@0.1.0 test
+> npm run build && node --test dist/test/*.test.js
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> household-ledger-mcp@0.1.0 build
+> tsc
+
+✔ real Streamable HTTP requests retain concurrent writes and deduplicate after process restart (657.491991ms)
+✔ fresh HTTP processes preserve selected units and refuse ambiguous legacy budgets (660.52093ms)
+▶ validation
+  ✔ accepts real calendar dates, rejects impossible ones (1.145062ms)
+  ✔ validates months as YYYY-MM (0.362766ms)
+  ✔ rejects non-positive or fractional amounts (0.628255ms)
+  ✔ normalizes currency codes and rejects bad ones (0.583497ms)
+  ✔ rejects a corrupt ledger file on validate (0.289596ms)
+✔ validation (3.976722ms)
+▶ transactions
+  ✔ lists newest-first with filters (1.215298ms)
+  ✔ summarizes a month with per-category totals (0.707784ms)
+✔ transactions (2.130885ms)
+▶ budgets
+  ✔ tracks spend vs limit and flags overruns (0.488886ms)
+  ✔ allows zero budgets and rejects negative limits (0.180302ms)
+✔ budgets (0.830059ms)
+▶ persistence
+  ✔ round-trips through the data file and recovers empty for a missing file (22.723752ms)
+  ✔ refuses to load a corrupted file (6.630333ms)
+✔ persistence (29.86898ms)
+▶ mcp tools
+  ✔ exposes the five ledger tools (36.50325ms)
+  ✔ records, lists, summarizes, and budgets end to end (34.653072ms)
+  ✔ returns isError for invalid input instead of throwing (3.332202ms)
+  ✔ persists across separate tool calls (8.757675ms)
+✔ mcp tools (85.67429ms)
+✔ native MCP concurrent transaction and budget writes retain every successful mutation (141.782226ms)
+✔ a retried MCP recording returns its persisted identity across a new receiver (18.198461ms)
+✔ concurrent copies of one idempotency key produce one record (16.790127ms)
+✔ an existing key refuses changed input without altering stored bytes (16.358046ms)
+✔ unkeyed recordings remain independent and malformed keys do not write (33.068037ms)
+✔ failed persistence releases the mutation queue and retry keeps the correct outcome (7.763498ms)
+✔ an uncertain post-save response is recoverable using the original key (7.499842ms)
+✔ ledger validation refuses ambiguous or malformed persisted request keys (23.236713ms)
+✔ request-key schema and runtime count Unicode characters consistently (10.718884ms)
+✔ atomic snapshot refusal cleans up its own temporary file and can recover (19.915503ms)
+✔ one monthly currency is labelled automatically and legacy budget amounts stay unchanged (77.548442ms)
+✔ mixed monthly currencies refuse an unqualified report without changing records (20.770759ms)
+✔ the optional selector is discoverable and selects only its normalized currency (13.002608ms)
+✔ empty and absent-currency reports never invent a default denomination (6.958387ms)
+✔ malformed selectors are refused even for empty months (15.733212ms)
+✔ a selector cannot assign an unqualified legacy budget to either currency (17.001835ms)
+✔ empty and differently selected budget contexts refuse instead of reporting a zero spend (14.635074ms)
+✔ budgets outside the requested month do not prevent an otherwise qualified selection (8.15661ms)
+✔ a later second currency invalidates the earlier implicit budget context for every receiver (24.730291ms)
+✔ income and expense aggregates refuse overflow even when each category amount is safe (23.931564ms)
+✔ safe boundaries and cancellation are exact but a small net cannot excuse unsafe gross totals (11.964107ms)
+✔ overflow in an unselected currency does not contaminate safe selected totals (17.777782ms)
+✔ accepted persisted currency spelling variants normalize for reading without rewriting the file (12.585081ms)
+ℹ tests 40
+ℹ suites 5
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 903.348953

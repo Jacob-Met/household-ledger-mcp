@@ -1,0 +1,29 @@
+{
+  "checked_at": "2026-10-14T00:13:57.239Z",
+  "repository": "Jacob-Met/household-ledger-mcp",
+  "pr8": {
+    "state": "open",
+    "draft": true,
+    "head": "591ab6f5a2d65bf596aeb707dbb635ee981ec926",
+    "branch": "receiving/household-complete-61749b-20261008",
+    "base": "c063549f5caae75a6bef764a5da703f0dccfec9f"
+  },
+  "issue39_comments": [],
+  "main": {
+    "ref": "refs/heads/main",
+    "node_id": "REF_kwDOU74XEa9yZWZzL2hlYWRzL21haW4",
+    "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/refs/heads/main",
+    "object": {
+      "sha": "c063549f5caae75a6bef764a5da703f0dccfec9f",
+      "type": "commit",
+      "url": "https://api.github.com/repos/Jacob-Met/household-ledger-mcp/git/commits/c063549f5caae75a6bef764a5da703f0dccfec9f"
+    }
+  },
+  "source_fence": [
+    "tools/lib/ledger-months.mjs",
+    "tools/household-months.mjs",
+    "test/ledger-months.test.mjs",
+    "docs/LEDGER_MONTHS.md"
+  ],
+  "decision": "Four additive source paths based on the qualified PR8 head, all 116 parent leaves preserved; preserve PR8 and README-only main. Root decides publication branch/PR after complete-tree review."
+}

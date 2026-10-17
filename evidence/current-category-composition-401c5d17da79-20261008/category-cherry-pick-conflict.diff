@@ -1,0 +1,35 @@
+diff --cc src/ledger.ts
+index b06cdc6,8ee571a..0000000
+--- a/src/ledger.ts
++++ b/src/ledger.ts
+@@@ -299,25 -297,10 +299,29 @@@ export function monthlySummary(data: Le
+    assert(Number.isInteger(month) && month >= 1 && month <= 12, "month must be an integer 1..12");
+    const prefix = `${String(year).padStart(4, "0")}-${String(month).padStart(2, "0")}`;
+    const inMonth = data.transactions.filter((t) => t.date.startsWith(prefix));
+++<<<<<<< HEAD
+ +  const requestedCurrency = currency === undefined ? undefined : validateCurrency(currency);
+ +  const currencies = [...new Set(inMonth.map((t) => validateCurrency(t.currency)))].sort();
+ +  assert(
+ +    requestedCurrency !== undefined || currencies.length <= 1,
+ +    `month contains multiple currencies (${currencies.join(", ")}); supply currency to select transaction totals`
+ +  );
+ +  const summaryCurrency = requestedCurrency ?? (currencies.length === 1 ? currencies[0] : null);
+ +  const monthBudgets = data.budgets.filter((b) => b.month === prefix);
+ +  // Version-1 budgets have no currency. Keep their legacy one-currency monthly
+ +  // context, but a selector cannot resolve an ambiguous budget denomination.
+ +  assert(
+ +    monthBudgets.length === 0 || (currencies.length === 1 && summaryCurrency === currencies[0]),
+ +    "monthly category budgets have no currency; cannot evaluate them for a mixed-currency, empty, or differently selected month"
+ +  );
+ +  const selected = inMonth.filter((t) => validateCurrency(t.currency) === summaryCurrency);
+ +  const byCategory: MonthlySummary["byCategory"] = {};
+++=======
++   const byCategory: MonthlySummary["byCategory"] = Object.create(null);
+++>>>>>>> 5f6a329 (Preserve reserved category names in monthly ledger summaries)
+    let incomeMinor = 0;
+    let expenseMinor = 0;
+ -  for (const t of inMonth) {
+ +  for (const t of selected) {
+      const entry = (byCategory[t.category] ??= { incomeMinor: 0, expenseMinor: 0 });
+      if (t.type === "income") {
+        incomeMinor += t.amountMinor;

@@ -1,0 +1,19 @@
+✔ one category can have separately denominated limits and selected spending through MCP (41.989644ms)
+✔ set/get schemas expose currency, unassigned replacement is explicit, and old required inputs remain (5.669777ms)
+✔ planning an unspent month uses only explicitly stored denominations (8.545742ms)
+✔ a budget in another currency cannot be hidden by automatic transaction-currency selection (5.84488ms)
+✔ assigning a legacy budget requires explicit replacement and preserves all unrelated source data (9.582281ms)
+✔ each unresolved legacy budget remains visible and blocks ambiguous comparisons after a partial migration (10.283796ms)
+✔ currency-scoped updates and reads retain the other denomination and never silently assign unqualified budgets (8.706273ms)
+✔ invalid denomination and replacement inputs cannot migrate or mutate a legacy file (14.922973ms)
+✔ reserved categories and safe integer boundaries remain exact for a selected denominated budget (6.361467ms)
+✔ v1 reads stay byte-exact and explicit currency records require the version understood by the new reader (5.245428ms)
+✔ malformed v2 budget identities are refused without repairing or replacing the source file (5.759032ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 372.004552

@@ -1,0 +1,37 @@
+{
+  "schema": "hamon.loom.household-months-author-classification.v1",
+  "reviewed_at": "2026-10-14T00:02:27.698463+00:00",
+  "raw_receipt": {
+    "path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/receipt.json",
+    "bytes": 9159,
+    "sha256": "6c7c0ca828c595b9e176ac1eefa20af8cc6085c4031570a89223586b4116b1f7",
+    "mode": 420
+  },
+  "stdout": {
+    "path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/focused-tests.stdout",
+    "bytes": 1140,
+    "sha256": "f5cc82cceee5addfebd131603d747159f902fb20643623c81837bf529b488bd8",
+    "mode": 420
+  },
+  "stderr": {
+    "path": "/workspace/scratch/d3745ea0f44f/loom-household-months/author-v1/focused-tests.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mode": 420
+  },
+  "original_accepted": false,
+  "classification_defect": "The outer author controller expected TAP # summary lines, but Node24 selected the spec reporter with ℹ summary lines. Both actual commands exited0; original raw receipt remains false.",
+  "observed_reporter_counts": {
+    "tests": 11,
+    "suites": 0,
+    "pass": 11,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "passed_test_name_lines": 11,
+  "accepted_product_scope": true,
+  "basis": "Complete retained stdout and empty stderr; all seven other original comparison flags true, 11 named tests passed with no skips/cancellations. No product/test/source/fixture edits and no rerun.",
+  "limit": "Read-only post-course classification audit; not an independent peer review or replacement raw receipt. An initial audit helper had a Python reserved-keyword syntax error before any execution/write; corrected helper reads the same unchanged evidence."
+}

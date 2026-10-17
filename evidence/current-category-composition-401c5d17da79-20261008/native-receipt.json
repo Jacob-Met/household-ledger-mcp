@@ -1,0 +1,92 @@
+{
+  "schema": "household.current-owner-composition.native.v1",
+  "owner_parent": "5304ec278ddfa35b5290c0f979acb0c0918605aa",
+  "category_published_commit": "0a3daeedbd7520dd02d377ba18277566610854c2",
+  "source_files_sha256": {
+    "src/index.ts": "e1c2fed21324b7c7b63dafd1b26c5b7296913be9439e12ba65a2f15624af7d83",
+    "src/ledger.ts": "c0b784994b513892486de93c05c0f26922b0ec7cff278fed6db9c23e485037b2",
+    "src/stdio.ts": "9d49234e75f790601e8f327d156f3a4b9c62325d8496319fd9831e733153dc57",
+    "test/http-recording.test.ts": "9419b74830f423b92fdb194dd827e8920461075d5cf4ba2e70a69c4da310e9fc",
+    "test/http-summary.test.ts": "b5f76eb50355405e8d8c22750f40e02d1caf5e16cee3737c2a4a9ed9696716af",
+    "test/ledger.test.ts": "bb64e0cb1bbd593d9e5458ddd83ada330756b4b27816b09517d17e201789074c",
+    "test/mcp.test.ts": "f3301c8d5314c28045253d8605de6ec9d65052c0ce6b777156d28295a7e3f1e3",
+    "test/receiving-composition.test.ts": "cc9c3678f2e5e42477febddabdd38dabd202faf0a18148d2d3067a194f4e239f",
+    "test/recording.test.ts": "18bebd788deece1012fcf4863203727b5e699fe61b766dd0d24075a39fab448c",
+    "test/summary-currency.test.ts": "13771393218d37bcc48c26182ea2daabd8a967c14d8c33bac9b3295343f18da3",
+    "test/summary_categories.test.ts": "141ddb02330dc5f8f59f2544b8846df1df530aab82b169c1f796c00aabe5fd8d",
+    "package.json": "ac1ca2cd7d921bc88e6c54ef854b9650cc7e683318ace579f386b113809c8835",
+    "package-lock.json": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+    "tsconfig.json": "b809c3eedd2d3b86841aa15efe9fef5b819c961620920ed74a9f10426dd04a72"
+  },
+  "source_unchanged": true,
+  "runs": [
+    {
+      "name": "candidate-build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/workspace/scratch/401c5d17da79/agents/integration/household-current-parent/repo",
+      "exit": 0,
+      "seconds": 2.0828490257263184,
+      "stdout_sha256": "9a1a6eaf2a9ebafa314727e5025c596030999cd26f284feec16d42ff587806b2",
+      "stderr_sha256": "7125f194612fcff2f454c05d848e7cb71facc1967b4d5017e25b34fdee3ba74f"
+    },
+    {
+      "name": "candidate-affected-tests",
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "dist/test/summary_categories.test.js",
+        "dist/test/receiving-composition.test.js",
+        "dist/test/summary-currency.test.js",
+        "dist/test/http-summary.test.js"
+      ],
+      "cwd": "/workspace/scratch/401c5d17da79/agents/integration/household-current-parent/repo",
+      "exit": 0,
+      "seconds": 2.782782554626465,
+      "stdout_sha256": "c2fde89ed28d563681e091a2b533b47743d45a8f91f30432a6bb4c27b9af8c3f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "candidate-recovery-build",
+      "command": [
+        "node_modules/.bin/tsc",
+        "-p",
+        "evidence/summary-currency-ce7e-20261008/before-image/tsconfig.json"
+      ],
+      "cwd": "/workspace/scratch/401c5d17da79/agents/integration/household-current-parent/repo",
+      "exit": 0,
+      "seconds": 1.1259350776672363,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "candidate-owner-recovery",
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "evidence/summary-currency-ce7e-20261008/before-image/dist/summary-before.test.js"
+      ],
+      "cwd": "/workspace/scratch/401c5d17da79/agents/integration/household-current-parent/repo",
+      "exit": 0,
+      "seconds": 0.32111239433288574,
+      "stdout_sha256": "d3ab13dcc22b4d85d2fdbc08e46e6f91e819385aceb2e2b7147b9e6a70aaccf1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "node": "v24.19.0",
+  "environment": {
+    "TMPDIR": "/workspace/scratch/401c5d17da79/agents/integration/household-current-parent/repo/.qualification-runtime",
+    "npm_config_cache": "/workspace/scratch/401c5d17da79/agents/integration/household-current-parent/repo/.qualification-runtime/npm-cache",
+    "HOUSEHOLD_SUMMARY_SOURCE_ROOT": "/workspace/scratch/401c5d17da79/agents/integration/household-current-parent/repo"
+  },
+  "limits": [
+    "Only affected category, HTTP composition, and currency tests were executed. Existing 37-test recording composition remains separately pinned historical evidence.",
+    "Owner recovery cases overlap selected native boundaries and are not additive coverage.",
+    "One local Node writer process at a time with fictional private ledgers. No owner checkout, deployed service, currency policy, or stored schema was changed."
+  ]
+}

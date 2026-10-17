@@ -1,0 +1,64 @@
+--- receive-v1.py
++++ receive-v2.py
+@@ -13,7 +13,7 @@
+     return result
+ def inventory(paths):return {str(p):identity(p) for p in sorted(paths)}
+ parser=argparse.ArgumentParser();parser.add_argument('--offer',required=True);parser.add_argument('--node',required=True);parser.add_argument('--output',required=True);args=parser.parse_args()
+-freeze=json.loads((ROOT/'freeze-v1.json').read_bytes())
++freeze=json.loads((ROOT/'freeze-v2.json').read_bytes())
+ for p,wanted in freeze['inputs'].items():need(identity(p)==wanted,'frozen input '+p)
+ offerpath=Path(args.offer).resolve();offer=json.loads(offerpath.read_bytes())
+ required={'tools/lib/ledger-months.mjs','tools/household-months.mjs','test/ledger-months.test.mjs','docs/LEDGER_MONTHS.md','src/ledger.ts'}
+@@ -30,20 +30,36 @@
+ for rel in ['tools/lib/ledger-months.mjs','tools/household-months.mjs']:
+     with (runtime/rel).open('xb') as f:f.write(candidate[rel].read_bytes())
+     os.chmod(runtime/rel,0o644)
+-controls=list(map(Path,freeze['inputs']))+[ROOT/'freeze-v1.json',offerpath]
++controls=list(map(Path,freeze['inputs']))+[ROOT/'freeze-v2.json',offerpath]
+ watched=set(controls)|set(candidate.values())
+ before=inventory(watched)
+-receipt={'schema':'hamon.root.household-months.receiving.v1','accepted':False,'started_ns':time.time_ns(),'scope':'Independent frozen12CLI cases plus one native monthly consumer on authored data; Node24 standard TS transform only, not tsc/npm/build/MCP/install. No product retries.','source_before':before,'commands':[]}
++fixture_before={p.name:identity(p) for p in (ROOT/'fixtures').iterdir()}
++need('missing.json' not in fixture_before,'missing input remains absent before course')
++receipt={'schema':'hamon.root.household-months.receiving.v2','accepted':False,'started_ns':time.time_ns(),'scope':'Independent frozen12CLI cases plus one native monthly consumer on authored data; Node24 standard TS transform only, not tsc/npm/build/MCP/install. No product retries.','source_before':before,'commands':[]}
+ env={'PATH':'','LANG':'C.UTF-8','LC_ALL':'C.UTF-8','NODE_NO_WARNINGS':'1'}
+ def command(name,argv,timeout=25):
+     stdout=out/(name+'.stdout');stderr=out/(name+'.stderr');started=time.time_ns();timed=False;forced=False
+     with stdout.open('xb') as so,stderr.open('xb') as se:
+         child=subprocess.Popen(argv,cwd=ROOT,env=env,stdin=subprocess.DEVNULL,stdout=so,stderr=se,start_new_session=True)
+-        try:code=child.wait(timeout=timeout)
+-        except subprocess.TimeoutExpired:
+-            timed=True;os.killpg(child.pid,signal.SIGTERM)
+-            try:code=child.wait(timeout=2)
+-            except subprocess.TimeoutExpired:forced=True;os.killpg(child.pid,signal.SIGKILL);code=child.wait(timeout=2)
++        try:
++            try:code=child.wait(timeout=timeout)
++            except subprocess.TimeoutExpired:
++                timed=True;os.killpg(child.pid,signal.SIGTERM)
++                try:code=child.wait(timeout=2)
++                except subprocess.TimeoutExpired:forced=True;os.killpg(child.pid,signal.SIGKILL);code=child.wait(timeout=2)
++        except BaseException as interruption:
++            cleanup=[]
++            try:os.killpg(child.pid,signal.SIGTERM);cleanup.append('SIGTERM')
++            except ProcessLookupError:cleanup.append('group already absent')
++            try:child.wait(timeout=2)
++            except subprocess.TimeoutExpired:
++                try:os.killpg(child.pid,signal.SIGKILL);cleanup.append('SIGKILL')
++                except ProcessLookupError:pass
++                child.wait(timeout=2)
++            try:os.killpg(child.pid,0);os.killpg(child.pid,signal.SIGKILL);cleanup.append('remaining group SIGKILL')
++            except ProcessLookupError:pass
++            receipt['commands'].append({'name':name,'argv':argv,'pid':child.pid,'exit':child.returncode,'interrupted':type(interruption).__name__,'cleanup':cleanup,'started_ns':started,'finished_ns':time.time_ns(),'prospective_stdout':str(stdout),'prospective_stderr':str(stderr)})
++            raise
+     try:os.killpg(child.pid,0);group_absent=False
+     except ProcessLookupError:group_absent=True
+     if not group_absent:
+@@ -73,6 +89,8 @@
+     else:receipt['native_consumer']={'passed':False,'reason':'mixed discovery failed; dependent consumer not run'}
+     after=inventory(watched);runtime_after=inventory(runtime_paths);receipt['source_after']=after;receipt['runtime_after']=runtime_after
+     need(after==before and runtime_after==runtime_before,'source/input/control/runtime unchanged')
++    fixture_after={p.name:identity(p) for p in (ROOT/'fixtures').iterdir()};receipt['fixture_namespace_unchanged']=fixture_after==fixture_before
++    need(fixture_after==fixture_before and 'missing.json' not in fixture_after,'exact fixture namespace and missing-file absence preserved')
+     need(set(runtime_paths)=={p for p in runtime.rglob('*') if p.is_file() or p.is_symlink()},'no runtime file addition')
+     receipt['accepted']=all(r['passed'] for r in results) and receipt['native_consumer']['passed']
+ except BaseException as e:

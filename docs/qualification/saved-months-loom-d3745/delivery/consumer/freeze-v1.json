@@ -1,0 +1,142 @@
+{
+  "schema": "hamon.loom.household-retained-months-freeze.v1",
+  "frozen_at": "2026-10-14T00:13:01.837981+00:00",
+  "controls": [
+    {
+      "path": "expected-discovery-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/expected-discovery-v1.json",
+      "bytes": 2455,
+      "sha256": "b89a3fc8a8d37489e77b4c05c696c10cf2158ba12fc0c6d72f2c69082c24668d",
+      "mode": 420
+    },
+    {
+      "path": "original/README.md",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/original/README.md",
+      "bytes": 5631,
+      "sha256": "6dadbaf99d8a6b9c840f5599e83266eba606e0d5841a0989e9479fe6654f733a",
+      "mode": 420
+    },
+    {
+      "path": "original/manifest.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/original/manifest.json",
+      "bytes": 9108,
+      "sha256": "10b75038f1831f5de00125eb9ceee4cccb8223d4d5d0747c7a3c705883205623",
+      "mode": 420
+    },
+    {
+      "path": "original/original-runtime-body-custody.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/original/original-runtime-body-custody.json",
+      "bytes": 1773,
+      "sha256": "082fa48ceb1d93c30d1b7951a71f1f7c9e8bbb2babdbab80a906fa803cdd045d",
+      "mode": 420
+    },
+    {
+      "path": "original/run/emitted/ledger.js",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/original/run/emitted/ledger.js",
+      "bytes": 15664,
+      "sha256": "fce70e5857f70f7a9944a624d40bb76b031e2dcaefb61a0f7c59e957da0a8333",
+      "mode": 420
+    },
+    {
+      "path": "original/run/emitted/package.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/original/run/emitted/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "mode": 420
+    },
+    {
+      "path": "original/run/receipt.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/original/run/receipt.json",
+      "bytes": 4448,
+      "sha256": "ee617c05fdbc716adc92e9434ed79d64243f3d3208d7dd0153647a477818f4b9",
+      "mode": 420
+    },
+    {
+      "path": "original/run/state/household.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/original/run/state/household.json",
+      "bytes": 3314,
+      "sha256": "2ab7b89d53f1e055114793ac49420b9468878edc35e1260cd05f2b7f40f90dab",
+      "mode": 420
+    },
+    {
+      "path": "plan-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/plan-v1.json",
+      "bytes": 3061,
+      "sha256": "4e02d8a1ffe73eccf724b2131ddbec1998b317cb51df43badbd3fe1a0c2d5400",
+      "mode": 420
+    },
+    {
+      "path": "receive-retained-v1.py",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/receive-retained-v1.py",
+      "bytes": 5211,
+      "sha256": "07e17c68f82b2ec727db61292b79b1dd4213499a7e3b9921517c1a611881c1b9",
+      "mode": 420
+    },
+    {
+      "path": "source-custody-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/loom-household-months/retained-consumer-preparation-v1/source-custody-v1.json",
+      "bytes": 2929,
+      "sha256": "5add369fed77113465ed76886a6d3dae50e9eed2c3fe966920e225fe62e986cc",
+      "mode": 420
+    }
+  ],
+  "runtime_namespace": {
+    "LICENSE": {
+      "type": "file",
+      "bytes": 1070,
+      "sha256": "f6a3d0f7d08a7590f907c08d6127545ab44eff0d23b6074714ad3fb935b998bb",
+      "mode": 420
+    },
+    "dist": {
+      "type": "directory",
+      "mode": 493
+    },
+    "dist/src": {
+      "type": "directory",
+      "mode": 493
+    },
+    "dist/src/ledger.js": {
+      "type": "file",
+      "bytes": 15664,
+      "sha256": "fce70e5857f70f7a9944a624d40bb76b031e2dcaefb61a0f7c59e957da0a8333",
+      "mode": 420
+    },
+    "dist/src/package.json": {
+      "type": "file",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "mode": 420
+    },
+    "example": {
+      "type": "directory",
+      "mode": 493
+    },
+    "example/household.json": {
+      "type": "file",
+      "bytes": 3314,
+      "sha256": "2ab7b89d53f1e055114793ac49420b9468878edc35e1260cd05f2b7f40f90dab",
+      "mode": 420
+    },
+    "tools": {
+      "type": "directory",
+      "mode": 493
+    },
+    "tools/household-months.mjs": {
+      "type": "file",
+      "bytes": 2806,
+      "sha256": "f994ed2b82962979af0b122b931d3309cad6e87b59ff9ef38349a5b6efa6fc56",
+      "mode": 420
+    },
+    "tools/lib": {
+      "type": "directory",
+      "mode": 493
+    },
+    "tools/lib/ledger-months.mjs": {
+      "type": "file",
+      "bytes": 2529,
+      "sha256": "edc645dea8dd74b995c09acd2a6fc15d34717ca01e35623a67ee0b46eb6f0c01",
+      "mode": 420
+    }
+  },
+  "executed": false
+}

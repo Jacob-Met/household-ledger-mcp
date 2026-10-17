@@ -1,0 +1,197 @@
+{
+  "schema": "household.import-cashflow.supplement-manifest.v1",
+  "files": [
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/README.md",
+      "bytes": 5631,
+      "sha256": "6dadbaf99d8a6b9c840f5599e83266eba606e0d5841a0989e9479fe6654f733a",
+      "git_blob": "cf90b4bfd4f0c0bf93a264ffae6cefe9ab14f8f6",
+      "relative_path": "README.md"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/compile-native.mjs",
+      "bytes": 3798,
+      "sha256": "4d15c97709b2efbd4e193ad863cb00ee48e1dcbcc20e49d9d13754bddbacd446",
+      "git_blob": "45a8432d4ddae6dfc98d891d7be45b9c4fc53074",
+      "relative_path": "compile-native.mjs"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/expected.json",
+      "bytes": 10767,
+      "sha256": "f2a189aca65149953e9fa47dd2299f337362ad90b37eabd3b1b7d970a15dc8b6",
+      "git_blob": "02af2040d8097e961519a24e2f543f9368a5bef6",
+      "relative_path": "expected.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/fixture.csv",
+      "bytes": 503,
+      "sha256": "7d9ffe6e6dd36b4ea165ec5d17e1831b128ec94e992e10bcabd7eeab706a0a26",
+      "git_blob": "b606a3bfecc804c8756550debb54d9621ceb819a",
+      "relative_path": "fixture.csv"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/gap-analysis.json",
+      "bytes": 10255,
+      "sha256": "97147d17125f82cc111bcfd3df2f89a5360a085bf058ff4e945ef2921e0d5673",
+      "git_blob": "74ba83b50eb429d6503e9a3b7cf730f6da9ece38",
+      "relative_path": "gap-analysis.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/original-runtime-body-custody.json",
+      "bytes": 1773,
+      "sha256": "082fa48ceb1d93c30d1b7951a71f1f7c9e8bbb2babdbab80a906fa803cdd045d",
+      "git_blob": "d25a86657fac80b4abc367827946bfab2aacafc7",
+      "relative_path": "original-runtime-body-custody.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/review.json",
+      "bytes": 8528,
+      "sha256": "cbeea1418950ea493d5b93d0eeaf4c67f7cf24f6c5501da285286050b5e9a6d6",
+      "git_blob": "c74c02f26eaa488161837fec8b0f5735343c2330",
+      "relative_path": "review.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/before-import-ledger.json",
+      "bytes": 531,
+      "sha256": "b772c6cf04fca86fc37577f43a99460da8dec5d68a3db36ff87d04c2f228625d",
+      "git_blob": "a5740d1c2d6ca8fe604c8c1f5b03e43b27c79150",
+      "relative_path": "run/before-import-ledger.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/before-replay-ledger.json",
+      "bytes": 3314,
+      "sha256": "2ab7b89d53f1e055114793ac49420b9468878edc35e1260cd05f2b7f40f90dab",
+      "git_blob": "f0e624ebaaf9c4068e70a3264373a58d7138e47a",
+      "relative_path": "run/before-replay-ledger.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/compile.json",
+      "bytes": 48623,
+      "sha256": "d72ea5f4a52ed655744d02be7aeee0ef453a5033757c7bb0199d9dac40735227",
+      "git_blob": "b1e9db83353d72f2950cf6f706f19f1e3d781867",
+      "relative_path": "run/compile.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "relative_path": "run/compile.stderr"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/compile.stdout",
+      "bytes": 92,
+      "sha256": "86972d76502678e7feb18c1ca76165b9a05456d9a786c8de0c208809c34fbf8f",
+      "git_blob": "9b2b6923885312ba81c52479d323fd9a17d77599",
+      "relative_path": "run/compile.stdout"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/emitted/cashflow.js",
+      "bytes": 3942,
+      "sha256": "5161d41a9b09736d3f48d6380dae4847e43f1bf21e9915b74f107d095b05b34e",
+      "git_blob": "47096ff6caa6a680f3cca9edae48f709a6ff732a",
+      "relative_path": "run/emitted/cashflow.js"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/emitted/ledger.js",
+      "bytes": 15664,
+      "sha256": "fce70e5857f70f7a9944a624d40bb76b031e2dcaefb61a0f7c59e957da0a8333",
+      "git_blob": "64bf18d3162efc62dc8d56c45b3cf62bf8340d41",
+      "relative_path": "run/emitted/ledger.js"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/emitted/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "git_blob": "089153bcb5adf57dc25f206a9dad3114c9cff80d",
+      "relative_path": "run/emitted/package.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/emitted/transaction-csv.js",
+      "bytes": 6291,
+      "sha256": "099172c634ce559b9bb738bc812c1718ccb087732a71b0f8be934dcd78f500f3",
+      "git_blob": "8fc100dd7935feb1d53fff35d9585f4d064567ae",
+      "relative_path": "run/emitted/transaction-csv.js"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/emitted/transaction-import.js",
+      "bytes": 7197,
+      "sha256": "61269c2d6db5dfc96f27a501a1eb5fad33bfbd7d5ea136ecfa11ec873d06c6e2",
+      "git_blob": "1742963543c9ca976526a48cb61266375e9cb8d5",
+      "relative_path": "run/emitted/transaction-import.js"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/initial.json",
+      "bytes": 20714,
+      "sha256": "efc197bcd02d4535f82daad220ae9ec956adf63534889f8dc6495131f0b5b0fb",
+      "git_blob": "f5f78b45870fdba71c74c71ed0483c1f28dbbdfa",
+      "relative_path": "run/initial.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/initial.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "relative_path": "run/initial.stderr"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/initial.stdout",
+      "bytes": 60,
+      "sha256": "1a11afecef9d84d06d9fd0536e9f38bc7d0e57cf1e3939f449e86cc5e78f650d",
+      "git_blob": "c3b6489bcff16c9676948a5637630c1abc66df17",
+      "relative_path": "run/initial.stdout"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/receipt.json",
+      "bytes": 4448,
+      "sha256": "ee617c05fdbc716adc92e9434ed79d64243f3d3208d7dd0153647a477818f4b9",
+      "git_blob": "221cc59bb4c2f394fe61398d6bbc2d1c16f8a215",
+      "relative_path": "run/receipt.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/reopened.json",
+      "bytes": 25630,
+      "sha256": "36017461b615c84c6d365747e277097b78fa86e01389eee96068c2c8605ba899",
+      "git_blob": "ff860dd30c5065c8d57957dc624cd413c69bc1e7",
+      "relative_path": "run/reopened.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/reopened.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "relative_path": "run/reopened.stderr"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/reopened.stdout",
+      "bytes": 61,
+      "sha256": "c5739190d0938ebf0bbbe4231993f96dbe1194caafad559fd084da744b92e244",
+      "git_blob": "beb3737b22352b2f4d0ffac6782fc8982e4f52e1",
+      "relative_path": "run/reopened.stdout"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run/state/household.json",
+      "bytes": 3314,
+      "sha256": "2ab7b89d53f1e055114793ac49420b9468878edc35e1260cd05f2b7f40f90dab",
+      "git_blob": "f0e624ebaaf9c4068e70a3264373a58d7138e47a",
+      "relative_path": "run/state/household.json"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/run.mjs",
+      "bytes": 4842,
+      "sha256": "d4add14ec14f55f4e477ee582b08e39d3848d7a2671f608da9d8160693cb7b60",
+      "git_blob": "b098e009fc8b6ef4248d6a0d5e9e03ee1cb88700",
+      "relative_path": "run.mjs"
+    },
+    {
+      "path": "/workspace/scratch/61749b0088e2/household-import-cashflow-supplement/workflow.mjs",
+      "bytes": 9904,
+      "sha256": "92dc6602a65cccf1b38e564d5ecdc0f0fa175b8b125676ce1e67addc2efba453",
+      "git_blob": "b94d08f01c72c85de1e9db56ed41e1dc3bd307f4",
+      "relative_path": "workflow.mjs"
+    }
+  ],
+  "indexed_files": 27,
+  "indexed_bytes": 195900,
+  "manifest_indexes_itself": false
+}

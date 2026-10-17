@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: mixed USD/EUR recording must not return an unqualified total
+ok 1 - mixed USD/EUR recording must not return an unqualified total
+  ---
+  duration_ms: 31.294704
+  type: 'test'
+  ...
+# Subtest: explicit USD selector must exclude EUR records
+ok 2 - explicit USD selector must exclude EUR records
+  ---
+  duration_ms: 7.677917
+  type: 'test'
+  ...
+# Subtest: category constructor must retain finite own totals without changing shared prototypes
+ok 3 - category constructor must retain finite own totals without changing shared prototypes
+  ---
+  duration_ms: 5.330276
+  type: 'test'
+  ...
+# Subtest: category __proto__ must retain finite own totals without changing shared prototypes
+ok 4 - category __proto__ must retain finite own totals without changing shared prototypes
+  ---
+  duration_ms: 4.128099
+  type: 'test'
+  ...
+# Subtest: category toString must retain finite own totals without changing shared prototypes
+ok 5 - category toString must retain finite own totals without changing shared prototypes
+  ---
+  duration_ms: 4.524475
+  type: 'test'
+  ...
+# Subtest: individually safe amounts must not produce an unsafe aggregate
+ok 6 - individually safe amounts must not produce an unsafe aggregate
+  ---
+  duration_ms: 4.374188
+  type: 'test'
+  ...
+# Subtest: single-currency numeric totals and legacy budget control
+ok 7 - single-currency numeric totals and legacy budget control
+  ---
+  duration_ms: 4.714099
+  type: 'test'
+  ...
+# Subtest: exact safe boundary and empty-month controls
+ok 8 - exact safe boundary and empty-month controls
+  ---
+  duration_ms: 3.973867
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 259.97282

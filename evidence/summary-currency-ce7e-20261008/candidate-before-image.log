@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: mixed USD/EUR recording must not return an unqualified total
+ok 1 - mixed USD/EUR recording must not return an unqualified total
+  ---
+  duration_ms: 100.059913
+  type: 'test'
+  ...
+# Subtest: explicit USD selector must exclude EUR records
+ok 2 - explicit USD selector must exclude EUR records
+  ---
+  duration_ms: 10.394449
+  type: 'test'
+  ...
+# Subtest: category constructor must retain finite own totals without changing shared prototypes
+not ok 3 - category constructor must retain finite own totals without changing shared prototypes
+  ---
+  duration_ms: 8.513771
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:48:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"year":2026,"month":10,"currency":"USD","incomeMinor":0,"expenseMinor":803,"netMinor":-803,"byCategory":{},"budgets":[{"category":"constructor","limitMinor":800,"spentMinor":null,"remainingMinor":null,"over":false}]}
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:70:16)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: category __proto__ must retain finite own totals without changing shared prototypes
+not ok 4 - category __proto__ must retain finite own totals without changing shared prototypes
+  ---
+  duration_ms: 2008.771132
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:48:5'
+  failureType: 'testCodeFailure'
+  error: 'MCP error -32001: Request timed out'
+  code: -32001
+  name: 'McpError'
+  stack: |-
+    McpError.fromError (file:///workspace/scratch/ce7eb129730f/household-ledger/node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:2048:16)
+    Timeout.timeoutHandler (file:///workspace/scratch/ce7eb129730f/household-ledger/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:741:58)
+    listOnTimeout (node:internal/timers:635:17)
+    process.processTimers (node:internal/timers:571:7)
+  ...
+# Subtest: category toString must retain finite own totals without changing shared prototypes
+not ok 5 - category toString must retain finite own totals without changing shared prototypes
+  ---
+  duration_ms: 10.436125
+  type: 'test'
+  location: '/workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:48:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"year":2026,"month":10,"currency":"USD","incomeMinor":0,"expenseMinor":803,"netMinor":-803,"byCategory":{},"budgets":[{"category":"toString","limitMinor":800,"spentMinor":null,"remainingMinor":null,"over":false}]}
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/ce7eb129730f/household-summary-recovery/dist/summary-before.test.js:70:16)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: individually safe amounts must not produce an unsafe aggregate
+ok 6 - individually safe amounts must not produce an unsafe aggregate
+  ---
+  duration_ms: 5.915086
+  type: 'test'
+  ...
+# Subtest: single-currency numeric totals and legacy budget control
+ok 7 - single-currency numeric totals and legacy budget control
+  ---
+  duration_ms: 7.185436
+  type: 'test'
+  ...
+# Subtest: exact safe boundary and empty-month controls
+ok 8 - exact safe boundary and empty-month controls
+  ---
+  duration_ms: 6.332303
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 5
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2399.086105

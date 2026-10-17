@@ -1,0 +1,110 @@
+TAP version 13
+# Subtest: HTTP receiving composition retains concurrent "__proto__" recordings, exact summary and restart retries
+not ok 1 - HTTP receiving composition retains concurrent "__proto__" recordings, exact summary and restart retries
+  ---
+  duration_ms: 20013.340618
+  type: 'test'
+  location: '/workspace/scratch/401c5d17da79/agents/integration/household-composition/owner-baseline/dist/test/receiving-composition.test.js:87:5'
+  failureType: 'testTimeoutFailure'
+  error: 'test timed out after 20000ms'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: HTTP receiving composition retains concurrent "constructor" recordings, exact summary and restart retries
+not ok 2 - HTTP receiving composition retains concurrent "constructor" recordings, exact summary and restart retries
+  ---
+  duration_ms: 319.469975
+  type: 'test'
+  location: '/workspace/scratch/401c5d17da79/agents/integration/household-composition/owner-baseline/dist/test/receiving-composition.test.js:87:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        'ordinary-unrelated': {
+          expenseMinor: 73,
+          incomeMinor: 0
+        },
+    -   constructor: {
+    -     expenseMinor: 1000,
+    -     incomeMinor: 1000
+    -   }
+      }
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    constructor:
+      incomeMinor: 1000
+      expenseMinor: 1000
+    ordinary-unrelated:
+      incomeMinor: 0
+      expenseMinor: 73
+  actual:
+    ordinary-unrelated:
+      incomeMinor: 0
+      expenseMinor: 73
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/401c5d17da79/agents/integration/household-composition/owner-baseline/dist/test/receiving-composition.test.js:131:20)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: HTTP receiving composition retains concurrent "toString" recordings, exact summary and restart retries
+not ok 3 - HTTP receiving composition retains concurrent "toString" recordings, exact summary and restart retries
+  ---
+  duration_ms: 335.305718
+  type: 'test'
+  location: '/workspace/scratch/401c5d17da79/agents/integration/household-composition/owner-baseline/dist/test/receiving-composition.test.js:87:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        'ordinary-unrelated': {
+          expenseMinor: 73,
+          incomeMinor: 0
+        },
+    -   toString: {
+    -     expenseMinor: 1000,
+    -     incomeMinor: 1000
+    -   }
+      }
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    toString:
+      incomeMinor: 1000
+      expenseMinor: 1000
+    ordinary-unrelated:
+      incomeMinor: 0
+      expenseMinor: 73
+  actual:
+    ordinary-unrelated:
+      incomeMinor: 0
+      expenseMinor: 73
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/401c5d17da79/agents/integration/household-composition/owner-baseline/dist/test/receiving-composition.test.js:131:20)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: HTTP receiving composition retains concurrent "groceries" recordings, exact summary and restart retries
+ok 4 - HTTP receiving composition retains concurrent "groceries" recordings, exact summary and restart retries
+  ---
+  duration_ms: 567.381683
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 1
+# fail 2
+# cancelled 1
+# skipped 0
+# todo 0
+# duration_ms 21571.473973
