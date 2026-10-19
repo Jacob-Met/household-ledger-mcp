@@ -1,0 +1,17 @@
+{
+  "root": "/workspace/scratch/e3a41d2b3368/agents/source_work/household-independent/baseline",
+  "node": "v24.19.0",
+  "ledgerSha256": "3737dcd8b75a0072fee6597426e134dde20452aac942987655d2a59158b36987",
+  "indexSha256": "4aac55bfcfcca28361358c58b93156106c8abe9d3e27dc6e49e6a7c09c1b688b",
+  "lockSha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+  "compiledLedgerSha256": "06d12fcf442dcc43565215db503c82b6caa160bd996913a1a0129616016b39de",
+  "outcomes": [
+    {
+      "name": "actual MCP request returns persisted reserved categories without mutating the ledger",
+      "code": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "file:///workspace/scratch/ce7eb129730f/household-ledger/node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:2048\n        return new McpError(code, message, data);\n               ^\n\nMcpError: MCP error -32001: Request timed out\n    at McpError.fromError (file:///workspace/scratch/ce7eb129730f/household-ledger/node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:2048:16)\n    at Timeout.timeoutHandler (file:///workspace/scratch/ce7eb129730f/household-ledger/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:741:58)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7) {\n  code: -32001,\n  data: { timeout: 1000 }\n}\n\nNode.js v24.19.0\n"
+    }
+  ]
+}

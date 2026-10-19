@@ -1,0 +1,17 @@
+{
+  "root": "/workspace/scratch/e3a41d2b3368/agents/source_work/household-independent/candidate",
+  "node": "v24.19.0",
+  "ledgerSha256": "c2d79d258817aad97f5c8751e9017264b0e2c98d3018d71aab72aa488d1da47c",
+  "indexSha256": "4aac55bfcfcca28361358c58b93156106c8abe9d3e27dc6e49e6a7c09c1b688b",
+  "lockSha256": "446d4d6122958b393d384d61d3187004e965b9de09dfba34192b17c5a7d1c8ff",
+  "compiledLedgerSha256": "bb3d0c240f1f3b2fbe6021f56fc19c4475d94995c604019baa96ef0c5ee0ed13",
+  "outcomes": [
+    {
+      "name": "actual MCP request returns persisted reserved categories without mutating the ledger",
+      "code": 0,
+      "signal": null,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}
