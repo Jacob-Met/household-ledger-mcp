@@ -7,7 +7,7 @@
   },
   "description": "TypeScript MCP server for household income, expenses, summaries, and budgets",
   "devDependencies": {
-    "@types/node": "^26.6.5",
+    "@types/node": "^26.6.6",
     "typescript": "^5.9.0"
   },
   "engines": {
